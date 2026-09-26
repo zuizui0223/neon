@@ -3,7 +3,7 @@
 ## Active submission manuscript
 
 - `MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md` — active anonymous main-text source
-- `COVER_LETTER_OIKOS_V3_CARRIER_TURNOVER.md` — active cover-letter source
+- `COVER_LETTER_OIKOS_V4.md` — active cover-letter source
 - `CLAIM_MATRIX_V1.json` — frozen confirmatory evidence boundary
 - `EXPLORATORY_CLAIM_MATRIX_V1.json` — post hoc carrier-turnover boundary
 - `VERIFIED_REFERENCES_V2.md` — verified reference base
@@ -27,7 +27,7 @@ See `submission/`:
 
 ## Version boundary
 
-V1–V4 manuscripts and earlier cover letters are retained for provenance only. Do not submit them.
+V1–V4 manuscripts and V1–V3 cover letters are retained for provenance only. Do not submit them.
 
 V5 reflects the current Oikos initial-submission structure:
 - anonymous main text;
