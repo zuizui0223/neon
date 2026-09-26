@@ -6,9 +6,9 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TRAITS = ROOT / "data" / "external" / "carrier_niche_evidence_v1.csv"
+TRAITS = ROOT / "data" / "external" / "carrier_niche_evidence_v2_all32.csv"
 SITES = ROOT / "data" / "derived" / "site_metrics_v1.csv"
-OUT = ROOT / "results" / "carrier_niche_role_v1.json"
+OUT = ROOT / "results" / "carrier_niche_role_recomputed_v2.json"
 
 
 def main() -> None:
