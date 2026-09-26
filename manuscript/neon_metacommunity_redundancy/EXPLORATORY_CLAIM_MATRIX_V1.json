@@ -1,0 +1,35 @@
+{
+  "schema": "neon.metacommunity_redundancy.exploratory_claim_matrix.v1",
+  "source": "frozen site-level summaries only",
+  "cannot_change_confirmatory_decision": true,
+  "primary_exploratory_claim": "Spatial continuity is locally redundant but the taxonomic identity of individually sufficient continuity carriers turns over strongly among sites.",
+  "supported_descriptive": [
+    {
+      "claim": "Continuity-carrier identity is strongly site-specific.",
+      "evidence": "48 site-carrier records comprise 32 species; 20 species occur as carriers at one site only; no species occurs at more than three sites."
+    },
+    {
+      "claim": "Most site pairs share no continuity carrier.",
+      "evidence": "18/120 site pairs share at least one carrier species; pairwise Jaccard median = 0 and mean = 0.0316."
+    },
+    {
+      "claim": "Many sites have depth of redundancy greater than one.",
+      "evidence": "Median number of individually sufficient species per site = 2; range = 1-8."
+    },
+    {
+      "claim": "Richer sites deepen redundancy in absolute number without increasing the sufficient-species fraction.",
+      "evidence": "Richness vs redundancy depth rho = 0.668; richness vs sufficient-species fraction rho = -0.159; median sufficient fraction = 0.477."
+    },
+    {
+      "claim": "Greater richness is not accompanied by stronger single-species dominance.",
+      "evidence": "Richness vs dominance coverage rho = -0.594."
+    }
+  ],
+  "not_supported": [
+    "carrier turnover causes temporal stability or insurance",
+    "continuity carriers are functionally equivalent in general",
+    "the carrier role is a conserved species trait",
+    "cross-site taxonomic turnover is unexpected given regional species-pool differences",
+    "post hoc rank associations are confirmatory"
+  ]
+}
