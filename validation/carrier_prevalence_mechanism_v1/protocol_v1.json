@@ -225,6 +225,12 @@
       "both_sitewide_and_grid_conditioned_positive": "within-grid spatial organization contributes beyond prevalence and observed grid allocation",
       "primary_sitewide_near_zero": "occupied-node prevalence is sufficient at the declared site-wide scale; do not use the grid-conditioned result to rescue the primary"
     },
-    "causal_boundary": "grid identity is a spatial stratum and potential habitat proxy, not a measured habitat variable; a habitat mechanism would require independently measured environmental covariates"
+    "causal_boundary": "grid identity is a spatial stratum and potential habitat proxy, not a measured habitat variable; a habitat mechanism would require independently measured environmental covariates",
+    "additive_decomposition": {
+      "between_grid_allocation_component": "grid-conditioned expected carrier probability - site-wide count-conditioned expected carrier probability",
+      "within_grid_organization_component": "observed carrier indicator - grid-conditioned expected carrier probability",
+      "identity": "site-wide species_carrier_excess = between_grid_allocation_component + within_grid_organization_component",
+      "site_summary": "mean each component across eligible species; report the exact reconstruction error, which must be numerically zero apart from floating-point tolerance"
+    }
   }
 }
