@@ -152,21 +152,67 @@ def completed_targets(n: int, protocol: dict) -> list[float]:
     vals.add((n-max_iso)/n)
     return sorted(vals)
 
-def minimal_threshold(dist: np.ndarray, target: float) -> float:
+class _UnionFind:
+    def __init__(self, n: int):
+        self.parent=list(range(n))
+        self.size=[1]*n
+        self.largest=1
+
+    def find(self, x: int) -> int:
+        while self.parent[x] != x:
+            self.parent[x]=self.parent[self.parent[x]]
+            x=self.parent[x]
+        return x
+
+    def union(self, a: int, b: int) -> None:
+        ra=self.find(a); rb=self.find(b)
+        if ra == rb:
+            return
+        if self.size[ra] < self.size[rb]:
+            ra,rb=rb,ra
+        self.parent[rb]=ra
+        self.size[ra]+=self.size[rb]
+        if self.size[ra] > self.largest:
+            self.largest=self.size[ra]
+
+def planned_thresholds(dist: np.ndarray, targets: list[float]) -> dict[float,float]:
     n=len(dist)
-    if 1/n >= target-1e-15: return 0.0
-    vals=np.unique(dist[np.triu_indices(n,1)])
-    for t in vals:
-        _,largest,_=comp_summary(adjacency(dist,float(t)))
-        if largest/n >= target-1e-15:
-            return float(t)
-    raise RuntimeError("complete distance graph failed target")
+    rows,cols=np.triu_indices(n,1)
+    values=dist[rows,cols]
+    order=np.lexsort((cols,rows,values))
+    rows=rows[order]; cols=cols[order]; values=values[order]
+
+    thresholds: dict[float,float]={}
+    ti=0
+    while ti < len(targets) and 1/n >= targets[ti]-1e-15:
+        thresholds[targets[ti]]=0.0
+        ti+=1
+
+    uf=_UnionFind(n)
+    i=0
+    while i < len(values) and ti < len(targets):
+        threshold=float(values[i])
+        j=i+1
+        while j < len(values) and float(values[j]) <= threshold + 1e-12:
+            j+=1
+        for k in range(i,j):
+            uf.union(int(rows[k]),int(cols[k]))
+        achieved=uf.largest/n
+        while ti < len(targets) and achieved >= targets[ti]-1e-15:
+            thresholds[targets[ti]]=threshold
+            ti+=1
+        i=j
+
+    if len(thresholds) != len(targets):
+        raise RuntimeError("complete distance graph failed target")
+    return thresholds
 
 def worlds(site: str, dist: np.ndarray, protocol: dict) -> dict[str,object]:
     targets=completed_targets(len(dist),protocol)
+    threshold_by_target=planned_thresholds(dist,targets)
     declared=[]
     for target in targets:
-        threshold=minimal_threshold(dist,target)
+        threshold=threshold_by_target[target]
         a=adjacency(dist,threshold)
         cc,largest,iso=comp_summary(a)
         declared.append({
@@ -245,7 +291,8 @@ def main():
     candidates=[x for x in all_sites if x not in excluded]
     taxa,taxfp=target_taxa(protocol)
     selected=[]; stops=[]
-    for site in candidates:
+    for index,site in enumerate(candidates, start=1):
+        print(f"ROSTER_SITE_START {index}/{len(candidates)} {site}", flush=True)
         try:
             ids,rows,regfp=registry(site)
             if len(ids)<int(fd["minimum_geolocatable_non_x_traps"]):
@@ -259,8 +306,10 @@ def main():
                 "site_code":site,"node_count":len(ids),"node_ids":ids,
                 "node_registry_fingerprint":regfp,**w
             })
+            print(f"ROSTER_SITE_SELECTED {site} nodes={len(ids)} worlds={w['distinct_world_count']}", flush=True)
         except Exception as e:
             stops.append({"site_code":site,"status":"metadata_stop","detail":f"{type(e).__name__}: {e}"})
+            print(f"ROSTER_SITE_STOP {site} {type(e).__name__}: {e}", flush=True)
     payload={
         "schema":"neon.carrier_prevalence_mechanism.fresh_roster.v1",
         "programme":protocol["programme"],
