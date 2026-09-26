@@ -9,8 +9,8 @@ from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parents[1]
 LANE = ROOT / "manuscript" / "neon_metacommunity_redundancy"
-SITE_DATA = LANE / "site_metrics_v1.csv"
-BEST_DATA = LANE / "best_species_frequency_v1.csv"
+SITE_DATA = ROOT / "data" / "derived" / "site_metrics_v1.csv"
+BEST_DATA = ROOT / "data" / "derived" / "best_species_frequency_v1.csv"
 LOCK = (
     ROOT
     / "validation"
