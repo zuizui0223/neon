@@ -9,11 +9,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Recompute exploratory carrier turnover
         run: python analysis/carrier_turnover_v1.py
-      - name: Verify frozen result invariants
+
+      - name: Verify frozen result and submission invariants
         run: python -m unittest discover -s tests -v
+
       - name: Rebuild manuscript figures and supplement
         run: |
           python analysis/build_paper_assets.py
           python analysis/build_carrier_turnover_figure_v1.py
+
+      - name: Build anonymous review package
+        run: |
+          python submission/build_anonymous_review_package.py
+          python submission/check_anonymous_review_package.py
+          sha256sum dist/oikos_anonymous_review_package.zip | awk '{print $1}' > /tmp/review_zip_hash_1
+          python submission/build_anonymous_review_package.py
+          python submission/check_anonymous_review_package.py
+          sha256sum dist/oikos_anonymous_review_package.zip | awk '{print $1}' > /tmp/review_zip_hash_2
+          diff -u /tmp/review_zip_hash_1 /tmp/review_zip_hash_2
+
+      - name: Upload anonymous review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: oikos-anonymous-review-package
+          path: dist/oikos_anonymous_review_package.zip
+          if-no-files-found: error
+          retention-days: 30
