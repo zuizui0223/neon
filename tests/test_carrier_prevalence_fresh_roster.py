@@ -37,7 +37,8 @@ class FreshRosterGeometryTests(unittest.TestCase):
         self.assertTrue(w["passed"])
         self.assertGreaterEqual(w["distinct_world_count"],1)
         thresholds=[x["distance_threshold_km"] for x in w["canonical_worlds"]]
-        self.assertEqual(thresholds,sorted(thresholds))
+        self.assertEqual(sorted(set(thresholds)), [0.0, 1.0])
+        self.assertEqual(w["distinct_world_count"], 2)
 
     def test_exact_duplicate_adjacencies_are_deduplicated(self):
         dist=np.array([
