@@ -205,5 +205,26 @@
     "minimum_guild_positive_nodes": 20,
     "minimum_eligible_species_with_at_least_two_positive_nodes": 2,
     "non_estimable_action": "retain site in fixed denominator, report response-consumed non-estimable stop, do not replace"
+  },
+  "secondary_grid_conditioned_null": {
+    "status": "predeclared mechanistic decomposition; cannot rescue or alter primary site-wide count-conditioned result",
+    "grid_id_rule": "for each frozen trap node, grid_id is the node label with the final '.<trapCoordinate>' segment removed",
+    "conditioning": [
+      "site",
+      "frozen trap-neighbourhood world family",
+      "guild-positive node set",
+      "species observed positive-node count separately within each grid"
+    ],
+    "randomization": "within each grid used by the species, sample the observed number of positive nodes uniformly without replacement from guild-positive nodes in that same grid; union sampled nodes across grids",
+    "replicates": 999,
+    "seed_rule": "first 16 hex digits of sha256('carrier_prevalence_mechanism_v1|grid|'+site_code+'|'+scientific_name)",
+    "species_grid_conditioned_carrier_excess": "observed carrier indicator - expected carrier probability under the grid-conditioned null",
+    "site_effect": "mean species_grid_conditioned_carrier_excess across eligible species",
+    "interpretation": {
+      "primary_sitewide_positive_but_grid_conditioned_near_zero": "the extra continuity is largely attributable to between-grid allocation, consistent with coarse habitat/grid filtering rather than within-grid clustering",
+      "both_sitewide_and_grid_conditioned_positive": "within-grid spatial organization contributes beyond prevalence and observed grid allocation",
+      "primary_sitewide_near_zero": "occupied-node prevalence is sufficient at the declared site-wide scale; do not use the grid-conditioned result to rescue the primary"
+    },
+    "causal_boundary": "grid identity is a spatial stratum and potential habitat proxy, not a measured habitat variable; a habitat mechanism would require independently measured environmental covariates"
   }
 }
