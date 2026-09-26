@@ -60,11 +60,45 @@
     "product": "DP1.10072.001",
     "selection": "all response-blind structurally eligible sites remaining after exclusions; no target-count stopping rule",
     "excluded_previous_method_sites": [
-      "ABBY","BARR","BART","BLAN","BONA","CLBJ","CPER","DCFS","DEJU","DELA","DSNY","GRSM","GUAN","HARV","HEAL","JERC"
+      "ABBY",
+      "BARR",
+      "BART",
+      "BLAN",
+      "BONA",
+      "CLBJ",
+      "CPER",
+      "DCFS",
+      "DEJU",
+      "DELA",
+      "DSNY",
+      "GRSM",
+      "GUAN",
+      "HARV",
+      "HEAL",
+      "JERC"
     ],
-    "excluded_design_contaminated_sites": ["KONZ","SCBI","UNDE"],
+    "excluded_design_contaminated_sites": [
+      "KONZ",
+      "SCBI",
+      "UNDE"
+    ],
     "excluded_paper_A_consumed_sites": [
-      "JORN","KONA","LAJA","LENO","MLBS","MOAB","NIWO","NOGP","OAES","ONAQ","ORNL","OSBS","RMNP","SERC","SJER","SOAP"
+      "JORN",
+      "KONA",
+      "LAJA",
+      "LENO",
+      "MLBS",
+      "MOAB",
+      "NIWO",
+      "NOGP",
+      "OAES",
+      "ONAQ",
+      "ORNL",
+      "OSBS",
+      "RMNP",
+      "SERC",
+      "SJER",
+      "SOAP"
     ],
     "response_blind_eligibility": [
       "site listed for DP1.10072.001 RELEASE-2026",
@@ -74,14 +108,18 @@
       "site has at least one non-duplicate adjacency criterion passing the frozen structural adequacy gate"
     ],
     "post_response_site_addition": false,
-    "post_response_site_replacement": false
+    "post_response_site_replacement": false,
+    "ordering": "siteCode ascending",
+    "minimum_geolocatable_non_x_traps": 20,
+    "world_family": "exactly the numeric world_family declared in this protocol"
   },
   "response_firewall": {
     "biological_response_access_for_this_programme_at_freeze": 0,
     "current_16_paper_A_sites_may_not_be_reused": true,
     "previous_method_and_tutorial_sites_may_not_be_reused": true,
     "external_COMBINE_traits_are_frozen_before_fresh_response": true,
-    "no_trait_selection_after_response": true
+    "no_trait_selection_after_response": true,
+    "world_family_frozen_before_fresh_response": true
   },
   "interpretation_rules": {
     "positive_primary": "local spatial organization contributes beyond prevalence/count alone",
@@ -93,5 +131,56 @@
       "failure of the count-conditioned null means habitat filtering is the only mechanism",
       "success of the prevalence-only null means niche or habitat are ecologically unimportant"
     ]
+  },
+  "data_source": {
+    "provider": "NSF NEON",
+    "product_code": "DP1.10072.001",
+    "product_name": "Small mammal box trapping",
+    "release": "RELEASE-2026",
+    "taxonomy_type": "SMALL_MAMMAL"
+  },
+  "node_registry": {
+    "unit": "individual mammal trap named location",
+    "discovery": "recursive NEON site location hierarchy plus GraphQL findLocations",
+    "non_x_trap_regex": "^[A-Z0-9]{4}_.+\\.mammalGrid\\.mam\\.[A-WYZ][0-9]+$",
+    "x_coordinate_policy": "trap coordinates containing X are prospectively excluded because the official NEON geolocation implementation treats them as uncertain locations",
+    "minimum_nodes": 20,
+    "geometry_metric": "haversine_km"
+  },
+  "world_family": {
+    "base_lcc_targets": [
+      0.25,
+      0.5,
+      0.75,
+      0.9
+    ],
+    "adequacy_complete_rule": "for each base target, choose the minimum distance threshold reaching that target LCC; if the largest base-target threshold still fails the adequacy gate, append the minimum threshold needed to satisfy the gate; exact duplicate adjacency matrices are removed",
+    "exact_adjacency_deduplication": true,
+    "structural_horizon": 1,
+    "adequacy": {
+      "min_largest_weak_component_fraction": 0.9,
+      "max_isolated_node_fraction": 0.05,
+      "min_median_horizon_reachable_fraction": null,
+      "require_at_least_one_world_pass": true
+    },
+    "external_open": false,
+    "all_canonical_worlds_falsifiable": true
+  },
+  "target_taxa": {
+    "include_if": {
+      "dwc:taxonRank": "species",
+      "taxonProtocolCategory": "target"
+    },
+    "design_contamination_exclusions": [
+      {
+        "scientific_name": "Peromyscus leucopus",
+        "reason": "public species-level response summaries were exposed during earlier design work"
+      },
+      {
+        "scientific_name": "Peromyscus maniculatus",
+        "reason": "public species-level response summaries were exposed during earlier design work"
+      }
+    ],
+    "response_unit": "ever-positive non-X trap by species across RELEASE-2026"
   }
 }
