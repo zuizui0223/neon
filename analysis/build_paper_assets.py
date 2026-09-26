@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 LANE = ROOT / "manuscript" / "neon_metacommunity_redundancy"
 SITE_DATA = LANE / "site_metrics_v1.csv"
 BEST_DATA = LANE / "best_species_frequency_v1.csv"
