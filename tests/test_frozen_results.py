@@ -6,7 +6,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "data" / "derived" / "site_metrics_v1.csv"
 LOCK = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "response_lock_v1.json"
-CLOSURE = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "programme_closure_v1.json"\nCARRIER = ROOT / "results" / "carrier_turnover_v1.json"
+CLOSURE = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "programme_closure_v1.json"
+CARRIER = ROOT / "results" / "carrier_turnover_v1.json"
 
 class FrozenResultTests(unittest.TestCase):
     @classmethod
@@ -14,7 +15,8 @@ class FrozenResultTests(unittest.TestCase):
         with SITE.open(newline="", encoding="utf-8") as fh:
             cls.rows = list(csv.DictReader(fh))
         cls.lock = json.loads(LOCK.read_text(encoding="utf-8"))
-        cls.closure = json.loads(CLOSURE.read_text(encoding="utf-8"))\n        cls.carrier = json.loads(CARRIER.read_text(encoding="utf-8"))
+        cls.closure = json.loads(CLOSURE.read_text(encoding="utf-8"))
+        cls.carrier = json.loads(CARRIER.read_text(encoding="utf-8"))
 
     def test_denominator(self):
         self.assertEqual(len(self.rows), 16)
