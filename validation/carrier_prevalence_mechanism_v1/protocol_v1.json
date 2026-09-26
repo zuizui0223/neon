@@ -200,5 +200,10 @@
       }
     ],
     "response_unit": "ever-positive non-X trap by species across RELEASE-2026"
+  },
+  "site_estimability": {
+    "minimum_guild_positive_nodes": 20,
+    "minimum_eligible_species_with_at_least_two_positive_nodes": 2,
+    "non_estimable_action": "retain site in fixed denominator, report response-consumed non-estimable stop, do not replace"
   }
 }
