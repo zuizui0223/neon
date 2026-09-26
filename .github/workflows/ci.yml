@@ -9,6 +9,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Recompute exploratory carrier turnover
+        run: python analysis/carrier_turnover_v1.py
       - name: Verify frozen result invariants
         run: python -m unittest discover -s tests -v
       - name: Rebuild manuscript figures and supplement
