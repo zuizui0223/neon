@@ -1,0 +1,46 @@
+{
+  "carrier_frequency_distribution": {
+    "1": 20,
+    "2": 8,
+    "3": 4
+  },
+  "distinct_continuity_carrier_species": 32,
+  "eligible_species_individually_sufficient_fraction_median": 0.4772727272727273,
+  "exploratory_rank_associations": {
+    "richness_vs_cross_species_rescue_rho": -0.39007285940294395,
+    "richness_vs_dominance_coverage_rho": -0.594242986378081,
+    "richness_vs_redundancy_depth_rho": 0.6679521422189312,
+    "richness_vs_redundancy_fraction_rho": -0.1594957245108836
+  },
+  "interpretation": "Spatial continuity is locally redundant but carried by taxonomically different species across sites. Richer sites contain more individually sufficient species while dominance weakens, without an increasing fraction of eligible species becoming sufficient.",
+  "max_sites_per_carrier_species": 3,
+  "pairwise_carrier_jaccard_max": 0.5,
+  "pairwise_carrier_jaccard_mean": 0.03161405723905724,
+  "pairwise_carrier_jaccard_median": 0.0,
+  "redundancy_depth_median": 2.0,
+  "redundancy_depth_range": [
+    1,
+    8
+  ],
+  "schema": "neon.carrier_turnover.exploratory.v1",
+  "singleton_carrier_species": 20,
+  "site_carrier_records": 48,
+  "site_count": 16,
+  "site_pair_count": 120,
+  "site_pair_shared_carrier_fraction": 0.15,
+  "site_pairs_sharing_any_carrier": 18,
+  "status": "posthoc_exploratory_frozen_site_summaries_only",
+  "claim_boundary": {
+    "supported_descriptive": [
+      "continuity-carrier identity turns over strongly among sites",
+      "multiple species are individually sufficient at many sites",
+      "no single species is a continent-wide continuity carrier"
+    ],
+    "not_supported": [
+      "carrier turnover causes metacommunity stability",
+      "the carrier role is a conserved functional trait",
+      "taxonomic turnover among sites is itself surprising given geographic separation",
+      "exploratory rank associations are confirmatory"
+    ]
+  }
+}
