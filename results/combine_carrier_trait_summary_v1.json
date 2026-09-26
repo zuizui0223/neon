@@ -1,0 +1,48 @@
+{
+  "schema": "neon.combine_carrier_traits.frozen.v1",
+  "source": {
+    "database": "COMBINE",
+    "publication_doi": "10.1002/ecy.3344",
+    "figshare_doi": "10.6084/m9.figshare.13028255.v4",
+    "reported_file_id": "27703263",
+    "imputed_file_id": "27703266",
+    "rule": "reported value preferred; imputed value used only when reported is missing"
+  },
+  "scope": "32 species already identified as continuity carriers; this audit tests recurrence among carriers, not carrier-vs-noncarrier probability.",
+  "carrier_species_n": 32,
+  "recurrence_associations_spearman": {
+    "adult_mass_g": 0.04307581875114757,
+    "dispersal_km": 0.007678990813480325,
+    "habitat_breadth_n": 0.11220355709225972,
+    "diet_breadth_n": -0.012897007961505263,
+    "home_range_km2": -0.04453566874647516,
+    "density_n_km2": 0.3208193500826216,
+    "trophic_level": 0.22113865175751227,
+    "activity_cycle": -0.1272937693043289
+  },
+  "singleton_vs_recurrent_medians": {
+    "adult_mass_g": {"singleton": 28.135, "recurrent": 28.2, "cliffs_delta": 0.09583333333333334},
+    "dispersal_km": {"singleton": 0.155, "recurrent": 0.1485, "cliffs_delta": 0.05},
+    "habitat_breadth_n": {"singleton": 2.5, "recurrent": 2.5, "cliffs_delta": 0.05416666666666667},
+    "diet_breadth_n": {"singleton": 2.0, "recurrent": 2.0, "cliffs_delta": -0.07083333333333333},
+    "home_range_km2": {"singleton": 0.002, "recurrent": 0.0025, "cliffs_delta": 0.006666666666666667},
+    "density_n_km2": {"singleton": 728.0, "recurrent": 2464.2, "cliffs_delta": 0.3202614379084967},
+    "trophic_level": {"singleton": 2.0, "recurrent": 2.0, "cliffs_delta": 0.19166666666666668}
+  },
+  "coverage": {
+    "adult_mass_g": {"n": 32, "reported": 32},
+    "dispersal_km": {"n": 32, "reported": 32},
+    "habitat_breadth_n": {"n": 32, "reported": 32},
+    "diet_breadth_n": {"n": 32, "reported": 31, "imputed": 1},
+    "home_range_km2": {"n": 25, "reported": 25, "missing": 7},
+    "density_n_km2": {"n": 26, "reported": 26, "missing": 6},
+    "trophic_level": {"n": 32, "reported": 32}
+  },
+  "interpretation": "Carrier recurrence is not associated strongly with body mass, natal dispersal, habitat breadth, diet breadth or home-range size in this 32-species carrier-only audit. Population density shows the largest positive association and effect size, making local/common abundance and repeated spatial prevalence a stronger next mechanism hypothesis than broad niche generalism or mobility.",
+  "claim_boundary": [
+    "COMBINE density is a species-level literature trait, not local NEON site density.",
+    "The sample includes carriers only, so the analysis cannot identify causes of carrier versus non-carrier status.",
+    "Trait comparisons are post hoc exploratory and are not confirmatory tests.",
+    "Phylogenetic non-independence is not corrected in this small carrier-only diagnostic."
+  ]
+}
