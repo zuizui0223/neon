@@ -6,7 +6,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "data" / "derived" / "site_metrics_v1.csv"
 LOCK = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "response_lock_v1.json"
-CLOSURE = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "programme_closure_v1.json"
+CLOSURE = ROOT / "validation" / "neon_metacommunity_connectivity_v1" / "programme_closure_v1.json"\nCARRIER = ROOT / "results" / "carrier_turnover_v1.json"
 
 class FrozenResultTests(unittest.TestCase):
     @classmethod
@@ -14,7 +14,7 @@ class FrozenResultTests(unittest.TestCase):
         with SITE.open(newline="", encoding="utf-8") as fh:
             cls.rows = list(csv.DictReader(fh))
         cls.lock = json.loads(LOCK.read_text(encoding="utf-8"))
-        cls.closure = json.loads(CLOSURE.read_text(encoding="utf-8"))
+        cls.closure = json.loads(CLOSURE.read_text(encoding="utf-8"))\n        cls.carrier = json.loads(CARRIER.read_text(encoding="utf-8"))
 
     def test_denominator(self):
         self.assertEqual(len(self.rows), 16)
@@ -36,6 +36,18 @@ class FrozenResultTests(unittest.TestCase):
         self.assertEqual(float(row["community_survival_fraction"]), 0.25)
         self.assertEqual(float(row["max_species_survival_fraction"]), 1.0)
         self.assertEqual(float(row["emergent_connectivity_gain"]), -0.75)
+
+    def test_carrier_turnover_snapshot(self):
+        self.assertEqual(self.carrier["site_carrier_records"], 48)
+        self.assertEqual(self.carrier["distinct_continuity_carrier_species"], 32)
+        self.assertEqual(self.carrier["singleton_carrier_species"], 20)
+        self.assertEqual(self.carrier["site_pairs_sharing_any_carrier"], 18)
+        self.assertEqual(self.carrier["site_pair_count"], 120)
+        self.assertEqual(self.carrier["pairwise_carrier_jaccard_median"], 0.0)
+        self.assertAlmostEqual(
+            self.carrier["eligible_species_individually_sufficient_fraction_median"],
+            0.4772727272727273,
+        )
 
     def test_endpoint_closed(self):
         self.assertFalse(self.lock["rerun_allowed"])
