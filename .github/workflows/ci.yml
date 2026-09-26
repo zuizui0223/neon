@@ -14,4 +14,6 @@ jobs:
       - name: Verify frozen result invariants
         run: python -m unittest discover -s tests -v
       - name: Rebuild manuscript figures and supplement
-        run: python analysis/build_paper_assets.py
+        run: |
+          python analysis/build_paper_assets.py
+          python analysis/build_carrier_turnover_figure_v1.py
