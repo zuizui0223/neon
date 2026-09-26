@@ -10,16 +10,34 @@ on:
       - .github/workflows/carrier-target-trait-freeze.yml
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   freeze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: analysis/carrier-niche-role-v1
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Freeze full NEON target-pool COMBINE traits
         run: python analysis/fetch_combine_target_pool_traits_v1.py
+      - name: Persist response-blind trait lock
+        run: |
+          cp results/generated/combine_target_pool_traits_v1.csv data/derived/combine_target_pool_traits_v1.csv
+          cp results/generated/combine_target_pool_traits_summary_v1.json validation/carrier_prevalence_mechanism_v1/target_pool_traits_lock_v1.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/derived/combine_target_pool_traits_v1.csv validation/carrier_prevalence_mechanism_v1/target_pool_traits_lock_v1.json
+          if git diff --cached --quiet; then
+            echo "trait lock unchanged"
+          else
+            git commit -m "Freeze response-blind COMBINE target-pool traits"
+            git push origin HEAD:analysis/carrier-niche-role-v1
+          fi
       - name: Upload frozen target-pool traits
         uses: actions/upload-artifact@v4
         with:
