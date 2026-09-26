@@ -64,7 +64,7 @@ def figure1_conceptual() -> str:
     parts = [svg_header(
         width, height,
         "Complementarity, redundancy and weakest-link outcomes",
-        "Conceptual comparison of species pooling effects on spatial world survival."
+        "Conceptual comparison of species pooling effects on spatial continuity."
     )]
     parts.append('<text x="55" y="42" class="h">Three ways species pooling can change spatial continuity</text>\n')
     panels = [
