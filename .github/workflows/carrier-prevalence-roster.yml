@@ -1,0 +1,31 @@
+name: carrier-prevalence-fresh-roster
+
+on:
+  push:
+    branches:
+      - analysis/carrier-niche-role-v1
+    paths:
+      - validation/carrier_prevalence_mechanism_v1/protocol_v1.json
+      - analysis/capture_carrier_prevalence_fresh_roster_v1.py
+      - .github/workflows/carrier-prevalence-roster.yml
+  workflow_dispatch:
+
+jobs:
+  freeze-roster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Capture response-blind fresh roster
+        run: python analysis/capture_carrier_prevalence_fresh_roster_v1.py
+      - name: Upload fresh roster
+        uses: actions/upload-artifact@v4
+        with:
+          name: carrier-prevalence-fresh-roster-v1
+          path: results/generated/carrier_prevalence_fresh_roster_v1.json
+          if-no-files-found: error
+          retention-days: 30
