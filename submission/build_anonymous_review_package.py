@@ -13,7 +13,7 @@ ZIP_PATH = DIST / "oikos_anonymous_review_package.zip"
 
 # Keep this list explicit. The review archive is deliberately narrower than the repository.
 FILES = {
-    "manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V4_OIKOS_READY.md":
+    "manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md":
         "manuscript/main_text.md",
     "manuscript/neon_metacommunity_redundancy/CLAIM_MATRIX_V1.json":
         "evidence/confirmatory_claim_matrix.json",
