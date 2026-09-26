@@ -53,7 +53,25 @@
     ],
     "trait_question": "Do external species traits explain carrier excess after occupied-node count has already been conditioned out?",
     "status": "secondary; no secondary result can rescue a failed primary hypothesis",
-    "manual_trophic_groups": "used only for interpretation and cross-trophic description, not for the primary test"
+    "manual_trophic_groups": "used only for interpretation and cross-trophic description, not for the primary test",
+    "analysis_rule": {
+      "unit": "site x eligible species",
+      "outcome": "species_carrier_excess after conditioning on observed positive-node count",
+      "traits": [
+        "adult_mass_g",
+        "dispersal_km",
+        "habitat_breadth_n",
+        "det_diet_breadth_n",
+        "home_range_km2",
+        "density_n_km2",
+        "trophic_level"
+      ],
+      "join_rule": "exact scientific-name match to the response-blind frozen COMBINE target-pool table; no post-response synonym rescue",
+      "within_site_statistic": "Spearman rho between trait and species_carrier_excess when >=3 matched eligible species have nonmissing trait values and both variables vary",
+      "across_site_summary": "median of estimable within-site Spearman rho values and counts of positive/zero/negative site rhos",
+      "inference": "descriptive secondary only; no trait p-value can rescue or alter the primary count-conditioned result",
+      "missing_data": "complete cases per trait within site; no imputation beyond values already frozen in the COMBINE table before response"
+    }
   },
   "fresh_denominator": {
     "release": "RELEASE-2026",
