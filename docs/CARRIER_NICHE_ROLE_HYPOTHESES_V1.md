@@ -4,24 +4,20 @@
 
 The carrier-turnover result becomes more informative when carrier identity is compared with ecological niche.
 
-The first literature-backed audit codes 17 of the 32 carrier species, deliberately including:
+The literature-backed audit now codes all 32 carrier species. The earlier 17-species pilot was expanded before interpreting trait frequencies.
 
-- all four species that recur as carriers at three sites;
-- representative granivores, herbivores and omnivores;
-- the strongly predatory grasshopper mouse `Onychomys arenicola`;
-- the semiaquatic marsh rice rat `Oryzomys palustris`;
-- den-building woodrats and forest, grassland and desert specialists.
+The 32 carriers span four coarse primary trophic groups:
 
-The coded carriers span four coarse trophic groups:
+- **13 granivores**;
+- **10 herbivores**;
+- **7 omnivores**;
+- **2 predators**.
 
-- 5 granivores;
-- 6 herbivores;
-- 5 omnivores;
-- 1 predator.
+All four species that recur as carriers at three sites span three primary trophic groups: omnivory, granivory and herbivory.
 
-All four carriers that recur at three sites are represented, and those four alone span three primary trophic groups: omnivory, granivory and herbivory.
+More importantly, 13 of the 16 sites contain at least two independent continuity carriers. **Twelve of those 13 multi-carrier sites contain carriers from more than one primary trophic group.** NOGP is the sole within-guild case, with two herbivorous `Microtus` species.
 
-At least nine sites already contain independently sufficient carriers from two or more coded trophic groups. This is a lower bound because only 17/32 carrier species have been coded.
+MOAB and OAES are stronger still: each contains independent carriers from **all four** coarse trophic groups — granivore, herbivore, omnivore and predator.
 
 ### Strong within-site examples
 
@@ -31,13 +27,16 @@ The carrier set includes seed-eating `Dipodomys ordii` and `Perognathus flavus`,
 
 **MOAB — Colorado Plateau**
 
-Three coded carriers already span three trophic roles:
+All four carriers span the four coarse trophic roles:
 
 - `Dipodomys ordii` — granivore;
 - `Neotoma lepida` — herbivore/folivore/granivore;
+- `Onychomys leucogaster` — predator/invertivore;
 - `Peromyscus boylii` — omnivore.
 
-This is the clearest current example that continuity redundancy is not synonymous with trophic redundancy.
+OAES independently reproduces the same four-guild structure with `Chaetodipus hispidus`, `Neotoma floridana`, `Onychomys leucogaster`, `Reithrodontomys fulvescens` and `Sigmodon hispidus`.
+
+These are the clearest current examples that continuity redundancy is not synonymous with trophic redundancy.
 
 **ORNL — Appalachian forest mosaic**
 
@@ -179,9 +178,9 @@ The striking pattern is therefore **effect-role divergence with spatial-response
 
 ## What can be claimed now
 
-Supported as an exploratory interpretation:
+Supported as an exploratory, literature-backed all-carrier result:
 
-> Spatial-continuity redundancy is not restricted to one trophic guild. Species with very different diets, habitat niches and ecosystem effects can each independently carry the same local spatial-continuity property.
+> Spatial-continuity redundancy is usually cross-trophic. Among the 13 sites with more than one carrier, 12 contain carriers from multiple primary trophic groups, and MOAB and OAES span all four coded groups. Species with very different diets, habitat niches and ecosystem effects can independently carry the same local spatial-continuity property.
 
 Not yet supported:
 
