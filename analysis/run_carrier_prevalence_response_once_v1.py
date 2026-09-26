@@ -514,12 +514,19 @@ def main() -> int:
             for species in eligible:
                 name = taxon_names.get(species, species)
                 seed = null_mod.deterministic_seed(site, name)
-                observed, expected, excess = null_mod.carrier_excess(
+                grid_seed = null_mod.deterministic_grid_seed(site, name)
+                grid_by_node = {
+                    node_index[node]: node.rsplit(".", 1)[0]
+                    for node in guild_positive_nodes
+                }
+                decomposition = null_mod.grid_conditioned_decomposition(
                     positive_by_species[species],
                     candidate_nodes,
+                    grid_by_node,
                     geometry[site]["edge_worlds"],
                     replicates=replicates,
-                    seed=seed,
+                    sitewide_seed=seed,
+                    grid_seed=grid_seed,
                 )
                 species_results.append({
                     "taxon_id": species,
@@ -528,13 +535,40 @@ def main() -> int:
                     "positive_node_fraction_of_guild": (
                         len(positive_by_species[species]) / len(candidate_nodes)
                     ),
-                    "observed_carrier": observed,
-                    "expected_carrier_probability_count_conditioned": expected,
-                    "carrier_excess": excess,
+                    "observed_grid_count": len({
+                        grid_by_node[node] for node in positive_by_species[species]
+                    }),
+                    "observed_carrier": decomposition["observed_carrier"],
+                    "expected_carrier_probability_count_conditioned": (
+                        decomposition["expected_sitewide"]
+                    ),
+                    "expected_carrier_probability_grid_conditioned": (
+                        decomposition["expected_grid_conditioned"]
+                    ),
+                    "carrier_excess": decomposition["sitewide_excess"],
+                    "between_grid_allocation_component": (
+                        decomposition["between_grid_allocation_component"]
+                    ),
+                    "within_grid_organization_component": (
+                        decomposition["within_grid_organization_component"]
+                    ),
+                    "decomposition_reconstruction_error": (
+                        decomposition["reconstruction_error"]
+                    ),
                     "null_seed": seed,
+                    "grid_null_seed": grid_seed,
                 })
 
             effects = [float(r["carrier_excess"]) for r in species_results]
+            between_grid = [
+                float(r["between_grid_allocation_component"]) for r in species_results
+            ]
+            within_grid = [
+                float(r["within_grid_organization_component"]) for r in species_results
+            ]
+            reconstruction = [
+                abs(float(r["decomposition_reconstruction_error"])) for r in species_results
+            ]
             site_result = {
                 "site_code": site,
                 "status": "scored_carrier_prevalence_mechanism",
@@ -548,6 +582,9 @@ def main() -> int:
                 ),
                 "mean_species_carrier_excess": statistics.mean(effects),
                 "median_species_carrier_excess": statistics.median(effects),
+                "mean_between_grid_allocation_component": statistics.mean(between_grid),
+                "mean_within_grid_organization_component": statistics.mean(within_grid),
+                "max_abs_decomposition_reconstruction_error": max(reconstruction),
                 "species_results": species_results,
                 "x_excluded_positive_node_count": len(x_positive_nodes[site]),
                 "x_excluded_positive_row_count": site_counts[site]["x_excluded_rows"],
@@ -571,6 +608,16 @@ def main() -> int:
             and p_value is not None
             and p_value < 0.05
         )
+
+        grid_effects = [
+            float(r["mean_within_grid_organization_component"]) for r in site_results
+        ]
+        grid_positive = sum(v > 0 for v in grid_effects)
+        grid_p = exact_sign_test_greater(grid_positive, len(grid_effects)) if grid_effects else None
+        grid_median = statistics.median(grid_effects) if grid_effects else None
+        between_effects = [
+            float(r["mean_between_grid_allocation_component"]) for r in site_results
+        ]
 
         trait_by_species = load_trait_table()
         secondary = secondary_trait_summary(site_results, trait_by_species)
@@ -606,6 +653,22 @@ def main() -> int:
                         if estimable
                         else "primary non-estimable under frozen minimum-site rule"
                     )
+                ),
+            },
+            "secondary_grid_decomposition": {
+                "site_count": len(grid_effects),
+                "median_between_grid_allocation_component": (
+                    statistics.median(between_effects) if between_effects else None
+                ),
+                "median_within_grid_organization_component": grid_median,
+                "positive_within_grid_site_count": grid_positive,
+                "one_sided_exact_sign_test_p_within_grid": grid_p,
+                "interpretation_rule": (
+                    "diagnostic only; cannot alter the primary site-wide count-conditioned decision"
+                ),
+                "identity": (
+                    "site-wide carrier excess = between-grid allocation component + "
+                    "within-grid organization component"
                 ),
             },
             "secondary_frozen_traits": secondary,
