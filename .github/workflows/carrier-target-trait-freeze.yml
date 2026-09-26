@@ -1,0 +1,31 @@
+name: carrier-target-trait-freeze
+
+on:
+  push:
+    branches:
+      - analysis/carrier-niche-role-v1
+    paths:
+      - analysis/fetch_combine_target_pool_traits_v1.py
+      - validation/carrier_prevalence_mechanism_v1/protocol_v1.json
+      - .github/workflows/carrier-target-trait-freeze.yml
+  workflow_dispatch:
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Freeze full NEON target-pool COMBINE traits
+        run: python analysis/fetch_combine_target_pool_traits_v1.py
+      - name: Upload frozen target-pool traits
+        uses: actions/upload-artifact@v4
+        with:
+          name: carrier-target-pool-combine-traits-v1
+          path: |
+            results/generated/combine_target_pool_traits_v1.csv
+            results/generated/combine_target_pool_traits_summary_v1.json
+          if-no-files-found: error
+          retention-days: 30
