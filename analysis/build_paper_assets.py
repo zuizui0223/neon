@@ -121,10 +121,10 @@ def figure2_site_pairing(rows: list[dict[str, str]]) -> str:
     plot_h = height-top-bottom
     parts=[svg_header(
         width,height,
-        "Community versus best-species spatial world survival across fresh NEON sites",
-        "Paired pooled-community and best individual-species survival fractions at sixteen fresh sites."
+        "Community versus best-species spatial continuity across fresh NEON sites",
+        "Paired pooled-community and best individual-species continuity fractions at sixteen fresh sites."
     )]
-    parts.append('<text x="55" y="42" class="h">Pooling species never increased spatial world survival</text>\n')
+    parts.append('<text x="55" y="42" class="h">Pooling species never increased spatial continuity</text>\n')
     for frac in [0,0.25,0.5,0.75,1]:
         y=top+plot_h*(1-frac)
         parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}" class="grid"/>\n')
@@ -142,8 +142,8 @@ def figure2_site_pairing(rows: list[dict[str, str]]) -> str:
         parts.append(f'<circle cx="{x:.1f}" cy="{yc:.1f}" r="7" class="dark"/>\n')
         parts.append(f'<text x="{x:.1f}" y="{top+plot_h+28}" text-anchor="middle" class="xs">{escape(row["site_code"])}</text>\n')
     parts.append(f'<text x="{left}" y="{height-48}" class="sm">open = best individual species; filled = pooled target-species community</text>\n')
-    parts.append(f'<text x="{width-440}" y="{height-48}" class="sm">positive emergent gain: 0 / 16 sites</text>\n')
-    parts.append(f'<text x="{width-440}" y="{height-27}" class="sm">ORNL: community 0.25 vs best species 1.00</text>\n')
+    parts.append(f'<text x="{width-440}" y="{height-48}" class="sm">positive community-minus-best-species gain: 0 / 16 sites</text>\n')
+    parts.append(f'<text x="{width-440}" y="{height-27}" class="sm">ORNL: pooled continuity 0.25 vs best species 1.00</text>\n')
     parts.append('</svg>\n')
     return "".join(parts)
 
@@ -230,9 +230,9 @@ def figure4_ornl(rows: list[dict[str,str]]) -> str:
     parts=[svg_header(
         width,height,
         "ORNL weakest-link pooling result",
-        "At ORNL the best individual species survived all worlds while the pooled guild survived one quarter, illustrating how additional restricted occurrences can lower all-positive world survival."
+        "At ORNL the best individual species satisfied all prespecified adjacency criteria while the pooled guild satisfied one quarter, illustrating a weakest-link effect under the all-positive continuity definition."
     )]
-    parts.append('<text x="55" y="42" class="h">ORNL: pooling taxa reduced spatial world survival</text>\n')
+    parts.append('<text x="55" y="42" class="h">ORNL: pooling taxa reduced spatial continuity</text>\n')
     x1,x2=230,690
     baseline=430
     scale=300
@@ -317,7 +317,7 @@ def main() -> None:
         write_text(path,text)
     supplement=write_supplement(rows,best_rows,lock)
     manifest={
-        "schema":"eog.neon_metacommunity_redundancy.paper_assets.v1",
+        "schema":"neon.metacommunity_redundancy.paper_assets.v1",
         "source_lock":str(LOCK.relative_to(ROOT)),
         "source_closure":str(CLOSURE.relative_to(ROOT)),
         "frozen_values":{
