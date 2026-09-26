@@ -36,7 +36,7 @@ class CountConditionedCarrierNullTests(unittest.TestCase):
     def test_multiple_worlds_require_all_worlds(self):
         nodes=[0,1,2]
         world1={(0,1),(1,2)}
-        world2={(0,2)}
+        world2={(0,2),(1,2)}
         self.assertFalse(m.is_carrier({0,1},[world1,world2]))
         self.assertFalse(m.is_carrier({0,2},[world1,world2]))
         self.assertTrue(m.is_carrier({0,1,2},[world1,world2]))
