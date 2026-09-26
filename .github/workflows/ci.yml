@@ -16,6 +16,9 @@ jobs:
       - name: Recompute exploratory carrier turnover
         run: python analysis/carrier_turnover_v1.py
 
+      - name: Recompute all-carrier niche-role audit
+        run: python analysis/carrier_niche_role_v2.py
+
       - name: Verify frozen result and submission invariants
         run: python -m unittest discover -s tests -v
 
