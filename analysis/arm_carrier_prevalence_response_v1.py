@@ -115,6 +115,7 @@ def main():
         "count_conditioned_null":protocol["count_conditioned_null"],
         "aggregate_test":protocol["aggregate_test"],
         "secondary_predeclared":protocol["secondary_predeclared"],
+        "secondary_grid_conditioned_null":protocol["secondary_grid_conditioned_null"],
         "integrity":{
             "biological_response_endpoint_requests_at_freeze":0,
             "biological_response_bytes_opened_at_freeze":0,
