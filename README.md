@@ -1,63 +1,76 @@
 # NEON small-mammal spatial continuity
 
-Independent development repository for the ecological paper:
+Independent repository for the ecological paper:
 
-**Community spatial continuity is species-redundant rather than turnover-generated in small-mammal metacommunities**
-
-## Scientific question
-
-When local small-mammal assemblages turn over across space, does pooling species create spatial continuity absent from every individual species, or is apparent community continuity already carried redundantly by one or more species?
+**Small-mammal spatial continuity is locally redundant but carried by different species across sites**
 
 ## Scientific result
 
-### Confirmatory: continuity is not turnover-generated
+### Confirmatory
 
-- 16/16 fresh NSF NEON sites were scored.
-- 0/16 sites had pooled-community continuity greater than the best individual species.
-- Median community-minus-best-species continuity gain = 0.
-- Preregistered null-adjusted sign test: p = 1.0.
-- No strict emergent adjacency criterion occurred.
-- At every site, at least one individual species satisfied every prespecified adjacency criterion.
-- Cross-species-only local support was rare: median 0.0027, maximum 0.066.
-- At 10/16 sites, one species occupied at least 80% of guild-positive traps.
-- ORNL was the sole negative case: pooled continuity 0.25 versus best-species 1.0.
+Across 16 fresh National Ecological Observatory Network small-mammal sites:
 
-### Exploratory positive structure: carrier identity turns over among sites
+- pooled-community continuity exceeded the best individual species at **0/16** sites;
+- median community-minus-best-species continuity gain = **0**;
+- preregistered null-adjusted sign test: **p = 1.0**;
+- no strict emergent adjacency criterion occurred;
+- at every site, at least one individual species satisfied every prespecified adjacency criterion;
+- ORNL showed the sole weakest-link case: pooled continuity **0.25** versus best-species **1.0**.
 
-Using only the frozen site summaries:
+### Exploratory positive structure
 
-- 48 site × continuity-carrier records comprise **32 species**.
-- **20/32** carrier species are carriers at one site only.
-- no carrier species occurs at more than **3/16** sites.
-- only **18/120** site pairs share any carrier species.
-- median pairwise carrier-set Jaccard similarity = **0**.
-- median redundancy depth = **2 species/site** (range 1–8).
-- median fraction of eligible species individually sufficient for all criteria = **0.477**.
+Using only frozen site summaries:
 
-The emerging ecological picture is therefore:
+- 48 site × continuity-carrier records comprise **32 species**;
+- 20/32 carrier species occur as carriers at one site only;
+- no carrier species occurs at more than 3/16 sites;
+- only 18/120 site pairs share any carrier species;
+- median pairwise carrier-set Jaccard similarity = **0**;
+- median redundancy depth = **2 species/site**.
+
+The ecological synthesis is:
 
 > **within-site redundancy + among-site turnover in continuity-carrier identity**
 
-Richer sites contain more individually sufficient species while single-species dominance declines, without a rising fraction of eligible species becoming sufficient.
+## Active Oikos submission state
 
-## Ecology-facing endpoint
+The scientific and anonymous-review package is complete.
 
-A **continuity fraction** is the proportion of prespecified trap-neighbourhood adjacency criteria under which every positive trap has at least one positive peer.
+Active main text:
+- `manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md`
 
-The manuscript does not require EOG terminology. Historical `eog.*` schema names are retained only in immutable provenance files.
+CI generates:
+- `oikos_main_text_anonymous.docx`
+- `oikos_anonymous_review_package.zip`
+- `Figure_1.png`
+- `Figure_2.png`
+- `Figure_3.png`
+- `Figure_4.png`
+
+Automated checks cover:
+- frozen confirmatory invariants;
+- deterministic exploratory carrier-turnover recomputation;
+- abstract length and anonymity;
+- Oikos V5 main-text structure;
+- double spacing, continuous line numbers and page numbers in DOCX;
+- Introduction beginning on page 2;
+- author-neutral review ZIP with manifest checks;
+- deterministic ZIP rebuild;
+- upload-ready PNG figure generation.
+
+Current remaining blocker:
+- final author/admin metadata for the separate title page and ScholarOne declarations.
+
+See:
+- `submission/OIKOS_READINESS_V2.md`
+- `submission/SUBMISSION_FORM_FIELDS_V1.md`
+- `submission/TITLE_PAGE_TEMPLATE_V1.md`
 
 ## Project boundary
 
-- Paper A — metacommunity redundancy + carrier turnover: **active mainline**
+- Paper A — metacommunity redundancy + carrier turnover: **active submission mainline**
 - Paper B — later small-mammal continuity shell: deferred until Paper A is resolved
-- World-survival identifiability methods paper: stays outside this repository
+- world-survival identifiability methods paper: outside this repository
 - NEON camera-trap programme: terminally stopped and excluded
 
-## Layout
-
-- `manuscript/neon_metacommunity_redundancy/` — paper
-- `data/derived/` — frozen site-level tables
-- `validation/neon_metacommunity_connectivity_v1/` — immutable confirmatory provenance
-- `analysis/` — standalone paper assets
-- `tests/` — frozen-result integrity tests
-- `docs/` — scientific and publication boundaries
+Historical `eog.*` schema names remain only inside immutable provenance files for auditability.
