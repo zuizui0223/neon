@@ -19,8 +19,7 @@ jobs:
       - name: Recompute all-carrier niche-role audit
         run: python analysis/carrier_niche_role_v2.py
 
-      - name: Verify frozen result and submission invariants
-        run: python -m unittest discover -s tests -v
+      - name: Fetch standardized COMBINE traits for carrier recurrence\n        run: python analysis/fetch_combine_carrier_traits_v1.py\n\n      - name: Verify frozen result and submission invariants\n        run: python -m unittest discover -s tests -v
 
       - name: Rebuild manuscript figures and supplement
         run: |
@@ -57,6 +56,6 @@ jobs:
             dist/figures/Figure_1.png
             dist/figures/Figure_2.png
             dist/figures/Figure_3.png
-            dist/figures/Figure_4.png
+            dist/figures/Figure_4.png\n            results/generated/combine_carrier_traits_v1.csv\n            results/generated/combine_carrier_trait_summary_v1.json
           if-no-files-found: error
           retention-days: 30
