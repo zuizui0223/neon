@@ -1,8 +1,8 @@
 # Active manuscript lane
 
-## Active files
+## Active submission manuscript
 
-- `MANUSCRIPT_V4_OIKOS_READY.md` — active anonymous main-text source
+- `MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md` — active anonymous main-text source
 - `COVER_LETTER_OIKOS_V3_CARRIER_TURNOVER.md` — active cover-letter source
 - `CLAIM_MATRIX_V1.json` — frozen confirmatory evidence boundary
 - `EXPLORATORY_CLAIM_MATRIX_V1.json` — post hoc carrier-turnover boundary
@@ -13,8 +13,11 @@
 See `submission/`:
 - Oikos readiness audit
 - Significance Statement
-- Data/Code Availability draft
-- AI-use disclosure draft
+- Data Availability Statement for the ScholarOne form
+- AI-use disclosure
+- deterministic anonymous review-package builder
+- title-page template
+- formatted-manuscript builder
 
 ## Scientific structure
 
@@ -22,9 +25,16 @@ See `submission/`:
 
 **Exploratory positive structure:** continuity is redundant within sites, but the identity of individually sufficient continuity carriers turns over strongly among sites.
 
-## Historical files
+## Version boundary
 
-V1–V3 manuscripts and earlier cover letters are retained only for provenance. Do not submit them.
+V1–V4 manuscripts and earlier cover letters are retained for provenance only. Do not submit them.
+
+V5 reflects the current Oikos initial-submission structure:
+- anonymous main text;
+- abstract <=300 words with no unexplained abbreviations;
+- no Data Availability Statement inside the main text;
+- AI-use statement at the end;
+- references and figure captions retained in the main-text file.
 
 New prose must follow:
 - `docs/TERMINOLOGY.md`
