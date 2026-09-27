@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import argparse
+import csv
 import importlib.util
+import json
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Iterable
@@ -156,3 +159,160 @@ def audit_estimability(
         "non_estimable_reasons":reasons,
         "ecological_model_fits":0,
     }
+
+
+def session_inventory_rows(
+    portal_rows: Iterable[dict],
+    neon_rows: Iterable[dict],
+) -> list[dict]:
+    grouped: dict[tuple[str,str,str],Counter]=defaultdict(Counter)
+
+    for raw in portal_rows:
+        row=dict(raw)
+        species=str(row.get("species","")).strip()
+        context=CONTEXT.portal_competition_context(str(row.get("treatment","")))
+        if not species or context is None:
+            continue
+        key=("Portal",species,context)
+        grouped[key]["session_count"]+=1
+        grouped[key]["eligible_n3"]+=int(_flag(row,"sensitivity_n3_eligible"))
+        grouped[key]["eligible_n5"]+=int(_flag(row,"primary_n5_eligible"))
+        grouped[key]["eligible_n8"]+=int(_flag(row,"sensitivity_n8_eligible"))
+
+    for raw in neon_rows:
+        row=dict(raw)
+        species=str(row.get("species","")).strip()
+        if not species:
+            continue
+        raw_nlcd=str(row.get("nlcd_class","")).strip()
+        try:
+            context=CONTEXT.map_neon_nlcd(raw_nlcd)
+        except KeyError:
+            context=f"UNMAPPED:{raw_nlcd}"
+        key=("NEON",species,context)
+        grouped[key]["session_count"]+=1
+        grouped[key]["eligible_n3"]+=int(_flag(row,"sensitivity_n3_eligible"))
+        grouped[key]["eligible_n5"]+=int(_flag(row,"primary_n5_eligible"))
+        grouped[key]["eligible_n8"]+=int(_flag(row,"sensitivity_n8_eligible"))
+
+    return [
+        {
+            "source":source,
+            "species":species,
+            "context":context,
+            "session_count":counts["session_count"],
+            "eligible_n3":counts["eligible_n3"],
+            "eligible_n5":counts["eligible_n5"],
+            "eligible_n8":counts["eligible_n8"],
+        }
+        for (source,species,context),counts in sorted(grouped.items())
+    ]
+
+
+def render_estimability_memo(report: dict) -> str:
+    portal=report["portal"]
+    neon=report["neon"]
+    shared=report["shared_species_meeting_source_specific_estimability"]
+    reasons=report["non_estimable_reasons"]
+    lines=[
+        "# Public mammal Phase-1 estimability — V1",
+        "",
+        "## Status",
+        "",
+        "**No ecological models were fit in this phase.**",
+        "",
+        "This memo reports only whether the prespecified Portal and NEON contrasts have enough repeated public-data sessions to proceed to a separately frozen modeling phase.",
+        "",
+        "## Portal",
+        "",
+        f"- sessions: {portal['session_count']}",
+        f"- eligible N>=3: {portal['eligible_n3_sessions']}",
+        f"- eligible N>=5: {portal['eligible_n5_sessions']}",
+        f"- eligible N>=8: {portal['eligible_n8_sessions']}",
+        f"- species with >=5 N>=5 sessions in both control and kangaroo-rat exclosure: {', '.join(portal['species_with_n5_ge5_sessions_both_contexts']) or 'none'}",
+        "",
+        "## NEON",
+        "",
+        f"- sessions: {neon['session_count']}",
+        f"- eligible N>=3: {neon['eligible_n3_sessions']}",
+        f"- eligible N>=5: {neon['eligible_n5_sessions']}",
+        f"- eligible N>=8: {neon['eligible_n8_sessions']}",
+        f"- species with >=5 N>=5 sessions in >=2 habitat groups: {', '.join(neon['species_with_n5_ge5_sessions_in_ge2_habitats']) or 'none'}",
+        f"- species with N>=5 sessions at >=2 sites: {', '.join(neon['species_with_n5_sessions_in_ge2_sites']) or 'none'}",
+        f"- pathogen-grid species meeting the frozen recapture validation gate: {neon['pathogen_species_with_estimable_recapture']}",
+        "",
+        "## Cross-dataset",
+        "",
+        f"- shared species meeting the source-specific Portal and NEON estimability rules: {', '.join(shared) or 'none'}",
+        "",
+        "## Design issues before Phase 2",
+        "",
+    ]
+    if reasons:
+        lines.extend(f"- {reason}" for reason in reasons)
+    else:
+        lines.append("- none detected by the frozen estimability rules")
+    lines += [
+        "",
+        "Phase 2 may proceed only after the estimability gate is explicitly frozen. This document contains no ecological coefficient, effect direction, significance test or model-selection result.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def _read_csv(path: Path) -> list[dict]:
+    with path.open(newline="",encoding="utf-8-sig") as fh:
+        return list(csv.DictReader(fh))
+
+
+def _write_inventory(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True,exist_ok=True)
+    fields=["source","species","context","session_count","eligible_n3","eligible_n5","eligible_n8"]
+    with path.open("w",newline="",encoding="utf-8") as fh:
+        writer=csv.DictWriter(fh,fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def main() -> int:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--portal-sessions",type=Path,required=True)
+    parser.add_argument("--neon-sessions",type=Path,required=True)
+    parser.add_argument("--neon-inventory",type=Path,required=True)
+    parser.add_argument("--output-json",type=Path,default=ROOT/"results"/"public_mammal_estimability_v1.json")
+    parser.add_argument("--output-csv",type=Path,default=ROOT/"data"/"derived"/"public_mammal_session_inventory_v1.csv")
+    parser.add_argument("--output-md",type=Path,default=ROOT/"docs"/"PUBLIC_MAMMAL_ESTIMABILITY_V1.md")
+    args=parser.parse_args()
+
+    portal=_read_csv(args.portal_sessions)
+    neon=_read_csv(args.neon_sessions)
+    neon_inventory=json.loads(args.neon_inventory.read_text(encoding="utf-8"))
+    report=audit_estimability(
+        portal,
+        neon,
+        neon_secondary={
+            "pathogen_species_with_estimable_recapture":
+                neon_inventory.get("pathogen_species_with_estimable_recapture",0)
+        },
+    )
+    inventory=session_inventory_rows(portal,neon)
+
+    args.output_json.parent.mkdir(parents=True,exist_ok=True)
+    args.output_json.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+    _write_inventory(args.output_csv,inventory)
+    args.output_md.parent.mkdir(parents=True,exist_ok=True)
+    args.output_md.write_text(render_estimability_memo(report),encoding="utf-8")
+    print(json.dumps({
+        "portal_n5":report["portal"]["eligible_n5_sessions"],
+        "neon_n5":report["neon"]["eligible_n5_sessions"],
+        "portal_both_context_species":report["portal"]["species_with_n5_ge5_sessions_both_contexts"],
+        "neon_multi_habitat_species":report["neon"]["species_with_n5_ge5_sessions_in_ge2_habitats"],
+        "shared_species":report["shared_species_meeting_source_specific_estimability"],
+        "non_estimable_reasons":report["non_estimable_reasons"],
+        "ecological_model_fits":report["ecological_model_fits"],
+    },sort_keys=True))
+    return 0
+
+
+if __name__=="__main__":
+    raise SystemExit(main())
