@@ -104,6 +104,23 @@ class PortalSpaceUseSessionTests(unittest.TestCase):
         self.assertTrue(row["sensitivity_n8_eligible"])
 
 
+
+    def test_same_n_and_geometry_share_the_same_portal_null(self):
+        def make(period,offset):
+            return [
+                {"recordID":str(offset+i),"month":"1","year":"2010","period":str(period),"plot":"1","stake":stake,"species":"DM","id":f"{period}_{i}","pit_tag":"TRUE"}
+                for i,stake in enumerate(("11","12","13","14","15"),start=1)
+            ]
+        captures=make(100,0)+make(101,100)
+        trapping=[
+            {"year":"2010","month":"1","period":"100","plot":"1","sampled":"1","effort":"49","qcflag":"1"},
+            {"year":"2010","month":"1","period":"101","plot":"1","sampled":"1","effort":"49","qcflag":"1"},
+        ]
+        rows=m.build_portal_sessions(captures,trapping,self.plots,self.species,replicates=99)
+        self.assertEqual(len(rows),2)
+        self.assertEqual(rows[0]["mpd_null_mean_m"],rows[1]["mpd_null_mean_m"])
+        self.assertEqual(rows[0]["mpd_null_sd_m"],rows[1]["mpd_null_sd_m"])
+
     def test_inventory_counts_eligibility_and_treatment_replication(self):
         sessions=[
             {"species":"Dipodomys merriami","treatment":"control","n_unique_individuals":5,"primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False,"pit_reliable_fraction":1.0},
