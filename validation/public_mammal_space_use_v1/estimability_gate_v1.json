@@ -1,0 +1,99 @@
+{
+  "schema": "neon.public_mammal_space_use.estimability_gate.v1",
+  "date": "2026-09-27",
+  "phase1_report": "results/public_mammal_estimability_v1.json",
+  "phase1_report_blob_sha": "17113c27600d53831950368b60dfe9bfafc9bee9",
+  "decision": "amend_design_before_modeling",
+  "phase2_modeling_authorized": false,
+  "ecological_model_fits_before_gate": 0,
+  "required_next_spec": "docs/superpowers/specs/2026-09-27-public-mammal-space-use-phase2-amendment.md",
+  "source_artifacts": {
+    "portal": {
+      "artifact_id": 10929728652,
+      "digest": "sha256:eb031608a547092340592a0127361283a2560ca22db9a1b3dc9a368fbef07686",
+      "workflow_run_id": 36314012402,
+      "workflow_head_sha": "92c65d15972bbbee10e14e74992d5173aabd646b"
+    },
+    "neon": {
+      "artifact_id": 10931291060,
+      "digest": "sha256:865880ceac9cd0dbaffa160b515165c909380c2bd67eea14c70ab76756636cc9",
+      "workflow_run_id": 36315906620,
+      "workflow_head_sha": "e481074b9cb4048d525d25f37b8755f146c4800e"
+    }
+  },
+  "phase1_totals": {
+    "portal_sessions": 2604,
+    "portal_n5_sessions": 579,
+    "neon_sessions": 3607,
+    "neon_n5_sessions": 796,
+    "neon_sites": 45,
+    "neon_species": 65,
+    "neon_pathogen_species_with_estimable_recapture": 30
+  },
+  "portal": {
+    "primary_species": [
+      "Chaetodipus penicillatus"
+    ],
+    "n5_session_counts": {
+      "control": 194,
+      "kangaroo_rat_exclosure": 196
+    },
+    "n5_plot_counts": {
+      "control": 10,
+      "kangaroo_rat_exclosure": 8
+    },
+    "ruling": "Portal Phase-2 causal treatment model must be species-specific for Chaetodipus penicillatus; the planned multispecies treatment hierarchy is not estimable under the frozen N>=5 gate."
+  },
+  "neon": {
+    "within_site_habitat_species": [
+      "Chaetodipus hispidus",
+      "Myodes rutilus",
+      "Perognathus parvus",
+      "Peromyscus boylii"
+    ],
+    "cross_site_habitat_species": [
+      "Myodes rutilus",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "primary_habitat_identifiable_species": [
+      "Chaetodipus hispidus",
+      "Myodes rutilus",
+      "Perognathus parvus",
+      "Peromyscus boylii",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_n5_ge5_sessions_in_ge2_sites": [
+      "Chaetodipus hispidus",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii",
+      "Myodes rutilus",
+      "Onychomys leucogaster",
+      "Peromyscus gossypinus",
+      "Peromyscus leucopus",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "mandatory_taxonomy_sensitivity": [
+      "Peromyscus maniculatus",
+      "Peromyscus leucopus"
+    ],
+    "ruling": "Primary habitat inference must distinguish within-site contrasts from cross-site replicated contrasts; it may not use the broad habitat totals as if habitat were unconfounded with site."
+  },
+  "cross_dataset": {
+    "shared_species_meeting_original_gate": [],
+    "decision": "drop_same_species_cross_dataset_synthesis_from_primary_design",
+    "ruling": "Portal and NEON remain complementary public-data analyses at the process level, not a same-species replication pair."
+  },
+  "design_amendments_required": [
+    "replace Portal multispecies treatment model with Chaetodipus penicillatus primary causal analysis",
+    "split NEON within-site habitat contrasts from cross-site habitat replication",
+    "explicitly position the NEON analysis against O'Fallon et al. 2025, which already tested density-by-habitat effects on Peromyscus individual home-range area",
+    "retain Packing_z as a population-level abundance-conditioned spatial-packing response rather than an individual home-range metric",
+    "remove same-species Portal-NEON replication as a required synthesis",
+    "freeze Peromyscus cryptic-complex sensitivity before model fitting"
+  ],
+  "modeling_boundary": "No ecological model may be implemented or fit until the amended Phase-2 design is reviewed and approved."
+}
