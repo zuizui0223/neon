@@ -60,7 +60,7 @@ class NeonPhase2ContextSensitivityTests(unittest.TestCase):
         rows=[
             {"species":"Myodes rutilus","site":"BONA","year":"2022","n_unique_individuals":"3","packing_z":"0.1","sensitivity_n3_eligible":"True","primary_n5_eligible":"False","sensitivity_n8_eligible":"False","nlcd_class":"evergreenForest"},
             {"species":"Myodes rutilus","site":"BONA","year":"2022","n_unique_individuals":"8","packing_z":"0.2","sensitivity_n3_eligible":"True","primary_n5_eligible":"True","sensitivity_n8_eligible":"True","nlcd_class":"shrubScrub"},
-            {"species":"Myodes rutilus","site":"DEJU","year":"2022","n_unique_individuals":"8","packing_z":"0.3","sensitivity_n3_eligible":"True","primary_n5_eligible":"True","sensitivity_n8_eligible":"True","nlcd_class":"evergreenForest"},
+            {"species":"Myodes rutilus","site":"DEJU","year":"2022","n_unique_individuals":"9","packing_z":"0.3","sensitivity_n3_eligible":"True","primary_n5_eligible":"True","sensitivity_n8_eligible":"True","nlcd_class":"evergreenForest"},
             {"species":"Myodes rutilus","site":"HEAL","year":"2022","n_unique_individuals":"9","packing_z":"0.4","sensitivity_n3_eligible":"True","primary_n5_eligible":"True","sensitivity_n8_eligible":"True","nlcd_class":"shrubScrub"},
         ]
         n3=m.prepare_myodes_threshold(rows,n_min=3)
@@ -103,7 +103,7 @@ class NeonPhase2ContextSensitivityTests(unittest.TestCase):
                         "species":"Myodes rutilus",
                         "site":site,
                         "year":str(year),
-                        "n_unique_individuals":"6",
+                        "n_unique_individuals":str(5+((year-2020)%3)),
                         "packing_z":str((0.3 if raw_nlcd=="shrubScrub" else 0.0)+(0.1 if site=="DEJU" else 0.0)+0.01*(year-2020)),
                         "primary_n5_eligible":"True",
                         "sensitivity_n3_eligible":"True",
