@@ -1,0 +1,273 @@
+{
+  "ecological_model_fits": 0,
+  "neon": {
+    "eligible_n3_sessions": 1509,
+    "eligible_n5_sessions": 796,
+    "eligible_n8_sessions": 359,
+    "n5_species_habitat_session_counts": {
+      "Alexandromys oeconomus": {
+        "grassland_herbaceous": 1,
+        "shrub_scrub": 2
+      },
+      "Baiomys taylori": {
+        "grassland_herbaceous": 2
+      },
+      "Chaetodipus baileyi": {
+        "shrub_scrub": 8
+      },
+      "Chaetodipus californicus": {
+        "forest": 8
+      },
+      "Chaetodipus eremicus": {
+        "shrub_scrub": 9
+      },
+      "Chaetodipus hispidus": {
+        "cropland_pasture": 5,
+        "grassland_herbaceous": 13,
+        "shrub_scrub": 6
+      },
+      "Chaetodipus penicillatus": {
+        "shrub_scrub": 21
+      },
+      "Dipodomys merriami": {
+        "shrub_scrub": 61
+      },
+      "Dipodomys ordii": {
+        "grassland_herbaceous": 7,
+        "shrub_scrub": 60
+      },
+      "Microtus ochrogaster": {
+        "grassland_herbaceous": 2
+      },
+      "Microtus pennsylvanicus": {
+        "cropland_pasture": 2,
+        "grassland_herbaceous": 15,
+        "shrub_scrub": 1,
+        "wetland": 1
+      },
+      "Microtus xanthognathus": {
+        "forest": 2
+      },
+      "Mus musculus": {
+        "cropland_pasture": 4,
+        "forest": 4
+      },
+      "Myodes gapperi": {
+        "forest": 13,
+        "wetland": 1
+      },
+      "Myodes rutilus": {
+        "forest": 28,
+        "shrub_scrub": 24
+      },
+      "Napaeozapus insignis": {
+        "forest": 12,
+        "wetland": 1
+      },
+      "Neotoma albigula": {
+        "shrub_scrub": 4
+      },
+      "Neotoma floridana": {
+        "forest": 3,
+        "grassland_herbaceous": 3
+      },
+      "Onychomys leucogaster": {
+        "cropland_pasture": 22,
+        "grassland_herbaceous": 5,
+        "shrub_scrub": 4
+      },
+      "Onychomys torridus": {
+        "shrub_scrub": 4
+      },
+      "Perognathus flavus": {
+        "shrub_scrub": 5
+      },
+      "Perognathus parvus": {
+        "forest": 13,
+        "shrub_scrub": 25
+      },
+      "Peromyscus boylii": {
+        "forest": 12,
+        "grassland_herbaceous": 19,
+        "shrub_scrub": 1
+      },
+      "Peromyscus gossypinus": {
+        "forest": 26,
+        "wetland": 1
+      },
+      "Peromyscus keeni": {
+        "forest": 4
+      },
+      "Peromyscus leucopus": {
+        "cropland_pasture": 2,
+        "forest": 38,
+        "grassland_herbaceous": 3
+      },
+      "Peromyscus maniculatus": {
+        "cropland_pasture": 9,
+        "forest": 56,
+        "grassland_herbaceous": 82,
+        "shrub_scrub": 39
+      },
+      "Peromyscus polionotus": {
+        "forest": 10
+      },
+      "Peromyscus truei": {
+        "forest": 5,
+        "grassland_herbaceous": 1
+      },
+      "Podomys floridanus": {
+        "forest": 3
+      },
+      "Rattus rattus": {
+        "cropland_pasture": 1,
+        "forest": 3
+      },
+      "Reithrodontomys fulvescens": {
+        "shrub_scrub": 1
+      },
+      "Reithrodontomys megalotis": {
+        "forest": 10,
+        "grassland_herbaceous": 4
+      },
+      "Reithrodontomys montanus": {
+        "grassland_herbaceous": 1
+      },
+      "Sigmodon hispidus": {
+        "cropland_pasture": 15,
+        "forest": 6,
+        "grassland_herbaceous": 34,
+        "shrub_scrub": 3,
+        "wetland": 4
+      },
+      "Zapus hudsonius": {
+        "wetland": 1
+      },
+      "Zapus princeps": {
+        "grassland_herbaceous": 1
+      }
+    },
+    "pathogen_species_with_estimable_recapture": 30,
+    "session_count": 3607,
+    "site_count": 45,
+    "species_count": 65,
+    "species_with_cross_site_habitat_replication": [
+      "Myodes rutilus",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_n5_ge5_sessions_in_ge2_habitats": [
+      "Chaetodipus hispidus",
+      "Dipodomys ordii",
+      "Myodes rutilus",
+      "Onychomys leucogaster",
+      "Perognathus parvus",
+      "Peromyscus boylii",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_n5_ge5_sessions_in_ge2_sites": [
+      "Chaetodipus hispidus",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii",
+      "Myodes rutilus",
+      "Onychomys leucogaster",
+      "Peromyscus gossypinus",
+      "Peromyscus leucopus",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_n5_sessions_in_ge2_sites": [
+      "Chaetodipus hispidus",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii",
+      "Microtus pennsylvanicus",
+      "Mus musculus",
+      "Myodes gapperi",
+      "Myodes rutilus",
+      "Napaeozapus insignis",
+      "Neotoma floridana",
+      "Onychomys leucogaster",
+      "Perognathus flavus",
+      "Peromyscus boylii",
+      "Peromyscus gossypinus",
+      "Peromyscus keeni",
+      "Peromyscus leucopus",
+      "Peromyscus maniculatus",
+      "Peromyscus truei",
+      "Rattus rattus",
+      "Reithrodontomys megalotis",
+      "Sigmodon hispidus"
+    ],
+    "species_with_primary_habitat_identifiability": [
+      "Chaetodipus hispidus",
+      "Myodes rutilus",
+      "Perognathus parvus",
+      "Peromyscus boylii",
+      "Peromyscus maniculatus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_within_site_habitat_contrast": [
+      "Chaetodipus hispidus",
+      "Myodes rutilus",
+      "Perognathus parvus",
+      "Peromyscus boylii"
+    ],
+    "unmapped_nlcd_classes": []
+  },
+  "non_estimable_reasons": [
+    "no_shared_species_meeting_source_specific_estimability"
+  ],
+  "portal": {
+    "eligible_n3_sessions": 1030,
+    "eligible_n5_sessions": 579,
+    "eligible_n8_sessions": 246,
+    "n5_species_context_plot_counts": {
+      "Chaetodipus baileyi": {
+        "kangaroo_rat_exclosure": 5
+      },
+      "Chaetodipus penicillatus": {
+        "control": 10,
+        "kangaroo_rat_exclosure": 8
+      },
+      "Dipodomys merriami": {
+        "control": 10,
+        "kangaroo_rat_exclosure": 1
+      },
+      "Dipodomys ordii": {
+        "control": 3
+      },
+      "Reithrodontomys megalotis": {
+        "kangaroo_rat_exclosure": 2
+      }
+    },
+    "n5_species_context_session_counts": {
+      "Chaetodipus baileyi": {
+        "kangaroo_rat_exclosure": 20
+      },
+      "Chaetodipus penicillatus": {
+        "control": 194,
+        "kangaroo_rat_exclosure": 196
+      },
+      "Dipodomys merriami": {
+        "control": 162,
+        "kangaroo_rat_exclosure": 1
+      },
+      "Dipodomys ordii": {
+        "control": 4
+      },
+      "Reithrodontomys megalotis": {
+        "kangaroo_rat_exclosure": 2
+      }
+    },
+    "session_count": 2604,
+    "species_count": 17,
+    "species_with_n5_ge5_sessions_both_contexts": [
+      "Chaetodipus penicillatus"
+    ]
+  },
+  "schema": "neon.public_mammal_space_use.estimability.v1",
+  "shared_species_meeting_source_specific_estimability": []
+}
