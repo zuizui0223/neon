@@ -179,7 +179,7 @@ def build_portal_sessions(
             dtype=float,
         )
         n=len(retained)
-        seed=_seed("portal",str(year),str(month),str(period),plot,species)
+        seed=_seed("portal","fixed-7x7-6.25m",str(n))
         score=PACKING.packing_score(
             observed,
             ACTIVE_TRAPS_XY,
