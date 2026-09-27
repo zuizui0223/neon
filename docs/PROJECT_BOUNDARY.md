@@ -1,40 +1,58 @@
 # Project boundary
 
-## Active claim
+## Current scientific mainline
 
-Across 16 fresh NEON small-mammal sites, pooled-community spatial continuity was **species-redundant rather than turnover-generated**: pooling target species never increased continuity beyond the best individual species.
+The repository is no longer submission-led.
 
-## Estimand
+The active goal is a **small-mammal population and within-grid space-use analysis** using NEON mark-recapture structure, repeated sampling, effort, individual identity, taxonomic uncertainty and habitat.
 
-For each prespecified trap-neighbourhood adjacency criterion, an occurrence set is continuous when every positive trap has at least one other positive trap connected under that criterion.
+See:
 
-- community continuity fraction = fraction of criteria satisfied by the pooled guild
-- species continuity fraction = same quantity for each species
-- best-species continuity fraction = maximum species value
-- emergent continuity gain = community - best species
+- `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`
+- `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`
 
-Manuscript-facing terminology replaces "world survival". Frozen provenance retains original field names.
+## Archived coarse-scale endpoint
+
+The original 16-site and fresh 11-site programmes are closed and auditable.
+
+Their endpoint asks whether every positive trap has another positive trap within a site-specific structural adjacency threshold.
+
+A post-package geometry audit showed that those thresholds are overwhelmingly coarser than the mammal-grid geometry:
+
+- 93/94 canonical worlds connect every same-grid trap pair;
+- 26/27 sites do so even at the smallest threshold.
+
+The endpoint is therefore retained as a coarse **grid-allocation / no-isolated-occurrence** result, not as a measure of mammal-scale movement or within-grid spatial organization.
+
+## Carrier-turnover boundary
+
+Raw carrier-set Jaccard near zero is not a current ecological claim.
+
+In the independent fresh 11-site panel, a species-pool-conditioned null found no evidence that carrier overlap was lower than expected from site species pools and carrier counts (p = 0.7568).
+
+The original 16-site response is not reopened to rescue this claim.
 
 ## Theory boundary
 
-This is **not a direct falsification of spatial-insurance theory**. Classical spatial insurance concerns stability of aggregate abundance or function. This study asks whether the broader complementarity/compensation logic transfers to an aggregate spatial property.
+The closed programmes do not falsify spatial-insurance theory and do not establish habitat filtering, dispersal, demographic coupling or functional redundancy.
 
-## ORNL boundary
+## Submission boundary
 
-ORNL shows a weakest-link property of the **all-positive continuity definition**: adding spatially restricted positive occurrences can reduce the pooled continuity fraction.
+The V6 Oikos package is on **HOLD**.
 
-It does not show that biodiversity is harmful or that ecological connectivity itself declined.
+The branch `submission/oikos-v6-2026-09-27` preserves the pre-audit state for provenance only.
 
-## Frozen endpoint
+Author metadata are not the current blocker; scientific redesign is.
 
-No threshold retuning, site replacement, target-guild change, response repair, or confirmatory rerun is allowed. New work must be either:
-1. translation/visualization of frozen results, or
-2. explicitly exploratory secondary ecology.
+## Data boundary for the redesign
+
+RELEASE-2026 is treated as response-consumed development data.
+
+Any future confirmatory test must use previously unseen small-mammal observations obtained only after the final mammal-scale protocol and analysis code are frozen.
 
 ## Out of scope
 
 - generic EOG framework development
 - world-survival identifiability Paper C
 - NEON camera-trap work
-- Paper B until Paper A is resolved
-- causal dispersal, habitat filtering, mass-effect, or colonization-history claims
+- relabelling the closed carrier/cohesion programme as mammal movement ecology

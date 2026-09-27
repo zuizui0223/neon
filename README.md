@@ -1,114 +1,103 @@
-# NEON small-mammal local spatial cohesion
+# NEON small-mammal ecology
 
-Independent repository for the ecological paper:
+Independent repository for the NEON small-mammal ecological programme.
 
-**Local spatial cohesion in small mammals is redundant across species but context-dependent across sites**
+## Current status: SUBMISSION HOLD
 
-## Scientific result
+**Do not submit V6 to Oikos in its current form.**
 
-### 1. Original confirmatory programme
+The pre-audit V6 snapshot is preserved at:
 
-Across 16 response-naive National Ecological Observatory Network small-mammal sites:
+`submission/oikos-v6-2026-09-27` → `d7c24907bd6bb3f64905c0052141e537706d1792`
 
-- pooling species increased the declared local spatial-cohesion fraction beyond the best individual species at **0/16** sites;
-- median pooled-minus-best-species gain = **0**;
-- preregistered null-adjusted sign test: **p = 1.0**;
-- no strict emergent adjacency criterion occurred;
-- every site contained at least one individually sufficient species;
-- ORNL showed the sole weakest-link case: pooled cohesion **0.25** versus best species **1.0**.
+It is retained for provenance only.
 
-The endpoint is a **no-isolated-occurrence** criterion, not whole-landscape dispersal connectivity.
+The active scientific state is the post-package mammal-ecology validity audit and redesign:
 
-### 2. Carrier identity and ecological roles
+- `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`
+- `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`
+- `submission/OIKOS_READINESS_V4_HOLD.md`
+- `results/mammal_ecology_validity_audit_v1.json`
 
-Across the original 16 sites:
+## Why V6 is on hold
 
-- 48 site × carrier records comprise **32 species**;
-- 20/32 carrier species occur as carriers at one site only;
-- no carrier species occurs at more than 3/16 sites;
-- only 18/120 site pairs share any carrier species;
-- median pairwise carrier-set Jaccard similarity = **0**;
-- trophic groups among carriers: **13 granivores, 10 herbivores, 7 omnivores, 2 predators**;
-- 12/13 multi-carrier sites span multiple trophic groups;
-- MOAB and OAES contain carriers from all four primary trophic groups.
+### 1. The adjacency scale collapses within-grid mammal geometry
 
-Thus the shared property is not general functional equivalence. Different ecosystem-effect roles converge on the same local spatial-response state.
+A metadata-only audit reconstructed all 27 sites from the two frozen response programmes.
 
-### 3. Independent prospective mechanism validation
+Across **94 canonical adjacency worlds**, **93/94** made every same-grid trap pair adjacent.
 
-All 11 remaining response-blind structurally eligible sites were frozen and then consumed once:
+At the smallest threshold:
+- **26/27 sites** already had 100% same-grid pair adjacency;
+- TOOL, the sole exception, still had **99.394%**.
 
-**SRER, STEI, STER, TALL, TEAK, TOOL, TREE, UKFS, WOOD, WREF, YELL**
+Observed within-grid maximum trap separation was about **127 m**, whereas minimum canonical thresholds ranged from **112.6 to 1569.7 m**.
 
-Primary count-conditioned result:
+Therefore the former result “within-grid organization ≈ 0” is predominantly a consequence of the declared geometry, not an independent biological result about small mammals.
 
-- scored sites: **11/11**, stops: **0**;
-- median site carrier excess = **-0.0804**;
-- positive site effects = **4/11**;
-- one-sided exact sign test: **p = 0.8867**;
-- positive spatial organization beyond prevalence was **not supported**.
+### 2. Carrier turnover is not independent of biogeography
 
-Predeclared grid-conditioned decomposition:
+In the independent fresh 11-site panel:
 
-- median between-grid allocation component = **-0.0804**;
-- median within-grid organization component = **0**;
-- positive within-grid site effects = **0/11**;
-- grid-conditioned expectation reproduced observed carrier state exactly in **66/68** eligible species × site records.
+- species-pool Jaccard median = **0**;
+- carrier Jaccard median = **0**;
+- 35/55 site pairs shared no eligible species at all.
 
-Among 15 species repeated across fresh sites, **10/15 switched carrier ↔ non-carrier state**.
+A null that fixed each site's eligible species pool and observed carrier count gave:
 
-The current ecological synthesis is:
+- observed mean carrier Jaccard = **0.03985**;
+- null mean = **0.03102**;
+- null 95% interval ≈ **0.00835–0.06948**;
+- p for carrier overlap being lower than the pool-conditioned null = **0.7568**.
 
-> **Local spatial cohesion is a context-dependent species × site state. Ecologically different species can converge on it, but the same species can leave that state at another site because its grid-scale occurrence allocation changes.**
+Thus raw carrier-set turnover does not establish carrier-specific taxonomic replacement beyond ordinary species-pool turnover.
 
-Grid identity is a spatial stratum and potential habitat proxy, not a measured habitat covariate.
+### 3. The response discarded mammal-specific information
 
-## Active Oikos submission state
+The old analyses reduced DP1.10072.001 to ever-positive species × trap incidence across RELEASE-2026.
 
-The V6 scientific and anonymous-review package is CI-complete.
+The NEON product is designed around mark-recapture and repeated sampling, including:
+- individual identities;
+- repeated bouts;
+- trap nights;
+- grid sampling type;
+- survey completeness;
+- taxonomic identification qualifiers/history;
+- habitat-linked grid placement.
 
-Active main text:
-- `manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md`
+Those variables now define the next scientific mainline.
 
-Active cover letter:
-- `manuscript/neon_metacommunity_redundancy/COVER_LETTER_OIKOS_V5.md`
+## New mammal-ecology mainline
 
-CI generates:
-- `oikos_main_text_anonymous.docx`
-- `oikos_anonymous_review_package.zip`
-- `Figure_1.png`
-- `Figure_2.png`
-- `Figure_3.png`
-- `Figure_4.png`
-- `Figure_5.png`
+Primary question:
 
-Automated checks cover:
-- original 16-site frozen confirmatory invariants;
-- carrier-turnover and all-32 niche-role recomputation;
-- frozen standardized trait diagnostics;
-- 11-site once-only mechanism response values;
-- count-conditioned and grid-conditioned decomposition identities;
-- V6 abstract length, anonymity and claim boundaries;
-- double spacing, continuous line numbers and page numbers in DOCX;
-- Introduction beginning on page 2;
-- author-neutral review ZIP with deterministic manifest checks;
-- Figure 1–5 PNG generation.
+> **Within the same small-mammal species, how does within-grid space use vary among sites, years and habitats after sampling effort and local population size are accounted for?**
 
-Current remaining blocker:
-- final author/admin metadata for the separate title page and ScholarOne declarations.
+The redesign uses:
+- within-grid scales of 10, 14.14, 20 and 30 m;
+- species × grid × year/bout units;
+- active trap-night effort;
+- individualID / recapture histories;
+- abundance or density estimation;
+- `identificationQualifier` and identification history;
+- `nlcdClass` and declared habitat covariates.
 
-See:
-- `submission/OIKOS_READINESS_V3.md`
-- `submission/SUBMISSION_FORM_FIELDS_V2.md`
-- `submission/TITLE_PAGE_TEMPLATE_V2.md`
-- `submission/SIGNIFICANCE_STATEMENT_V3.md`
-- `submission/DATA_AVAILABILITY_STATEMENT_V3.md`
+RELEASE-2026 is already consumed and may be used only for retrospective development. Confirmatory validation must use future, previously unseen NEON small-mammal observations after the final model is frozen.
+
+## Historical V6 result
+
+The original 16-site and independent 11-site programmes remain fully reproducible historical results. They are useful as a negative design lesson:
+
+> response-blind freezing and perfect auditability do not guarantee that the frozen estimand is biologically informative at the scale of the target organism.
+
+They are no longer the active manuscript claim.
 
 ## Project boundary
 
-- Paper A — local spatial cohesion, carrier turnover and fresh mechanism validation: **active submission mainline**
-- Paper B — later small-mammal continuity shell: deferred until Paper A is resolved
-- world-survival identifiability methods paper: outside this repository
-- NEON camera-trap programme: terminally stopped and excluded
+- **Active:** mammal-scale population / space-use redesign
+- **Archived:** V6 local-cohesion submission package
+- Paper B: deferred
+- world-survival/EOG methods work: outside this repository
+- NEON camera-trap programme: excluded
 
-Historical `eog.*` schema names remain only inside immutable provenance files for auditability.
+Historical `eog.*` schema names remain in immutable provenance where needed.
