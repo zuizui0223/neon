@@ -1,0 +1,69 @@
+{
+  "schema": "neon.carrier_niche_role.exploratory.v2",
+  "status": "posthoc_literature_backed_all_carrier_trait_audit",
+  "carrier_species_count": 32,
+  "coded_carrier_species_count": 32,
+  "primary_trophic_group_counts": {
+    "granivore": 13,
+    "herbivore": 10,
+    "omnivore": 7,
+    "predator": 2
+  },
+  "recurrently_observed_carriers": [
+    {"species": "Mus musculus", "carrier_site_count": 3, "primary_trophic_group": "omnivore"},
+    {"species": "Peromyscus boylii", "carrier_site_count": 3, "primary_trophic_group": "omnivore"},
+    {"species": "Reithrodontomys megalotis", "carrier_site_count": 3, "primary_trophic_group": "granivore"},
+    {"species": "Sigmodon hispidus", "carrier_site_count": 3, "primary_trophic_group": "herbivore"}
+  ],
+  "recurrent_carrier_primary_trophic_group_count": 3,
+  "multi_carrier_site_count": 13,
+  "multi_carrier_sites_spanning_multiple_trophic_groups": 12,
+  "multi_carrier_cross_trophic_fraction": 0.9230769230769231,
+  "only_within_guild_multi_carrier_site": {
+    "site": "NOGP",
+    "carriers": ["Microtus ochrogaster", "Microtus pennsylvanicus"],
+    "primary_trophic_group": "herbivore"
+  },
+  "sites_spanning_all_four_primary_trophic_groups": {
+    "MOAB": [
+      ["Dipodomys ordii", "granivore"],
+      ["Neotoma lepida", "herbivore"],
+      ["Onychomys leucogaster", "predator"],
+      ["Peromyscus boylii", "omnivore"]
+    ],
+    "OAES": [
+      ["Chaetodipus hispidus", "granivore"],
+      ["Neotoma floridana", "herbivore"],
+      ["Onychomys leucogaster", "predator"],
+      ["Reithrodontomys fulvescens", "omnivore"],
+      ["Sigmodon hispidus", "herbivore"]
+    ]
+  },
+  "site_primary_trophic_groups": {
+    "JORN": ["granivore", "predator"],
+    "KONA": ["granivore", "herbivore"],
+    "LAJA": ["omnivore"],
+    "LENO": ["herbivore", "omnivore"],
+    "MLBS": ["granivore", "herbivore"],
+    "MOAB": ["granivore", "herbivore", "omnivore", "predator"],
+    "NIWO": ["herbivore"],
+    "NOGP": ["herbivore"],
+    "OAES": ["granivore", "herbivore", "omnivore", "predator"],
+    "ONAQ": ["granivore", "herbivore"],
+    "ORNL": ["granivore", "omnivore"],
+    "OSBS": ["granivore", "omnivore"],
+    "RMNP": ["omnivore"],
+    "SERC": ["herbivore", "omnivore"],
+    "SJER": ["granivore", "omnivore"],
+    "SOAP": ["granivore", "omnivore"]
+  },
+  "interpretation": "Species redundancy in the spatial-continuity property is usually cross-trophic rather than within-guild. Where more than one species independently carries continuity, 12 of 13 sites contain carriers from multiple primary trophic groups, and two sites contain granivorous, herbivorous, omnivorous and predatory carriers simultaneously. Thus ecological-role divergence coexists with convergence on the same site-scale spatial response property.",
+  "conceptual_boundary": "This is not evidence that carrier species are functionally redundant for ecosystem functioning. Their ecosystem effect roles differ. Continuity-carrier status is treated as a spatial response property.",
+  "causal_hypotheses_next": [
+    "local occupied-trap breadth predicts carrier status",
+    "habitat match predicts carrier status within site",
+    "habitat breadth/disturbance tolerance predicts recurrence as a carrier across sites",
+    "capture abundance or detectability can mimic spatial prevalence and must be controlled",
+    "mobility may contribute but is not necessary because several carriers are fossorial or sedentary"
+  ]
+}

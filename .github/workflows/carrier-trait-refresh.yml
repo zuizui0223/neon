@@ -1,0 +1,29 @@
+name: carrier-trait-refresh
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - analysis/fetch_combine_carrier_traits_v1.py
+      - data/external/carrier_niche_evidence_v2_all32.csv
+      - .github/workflows/carrier-trait-refresh.yml
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch pinned COMBINE v4 files and filter carrier species
+        run: python analysis/fetch_combine_carrier_traits_v1.py
+      - name: Upload filtered standardized traits
+        uses: actions/upload-artifact@v4
+        with:
+          name: combine-carrier-traits
+          path: |
+            results/generated/combine_carrier_traits_v1.csv
+            results/generated/combine_carrier_trait_summary_v1.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,88 @@
+{
+  "schema": "neon.carrier_niche_role.exploratory.v1",
+  "status": "posthoc_literature_backed_representative_trait_audit",
+  "coded_carrier_species": 17,
+  "total_carrier_species": 32,
+  "coded_fraction_of_all_carrier_species": 0.53125,
+  "coded_primary_trophic_group_counts": {
+    "granivore": 5,
+    "herbivore": 6,
+    "omnivore": 5,
+    "predator": 1
+  },
+  "recurrently_observed_carriers": [
+    {
+      "species": "Mus musculus",
+      "carrier_site_count": 3,
+      "primary_trophic_group": "omnivore"
+    },
+    {
+      "species": "Peromyscus boylii",
+      "carrier_site_count": 3,
+      "primary_trophic_group": "omnivore"
+    },
+    {
+      "species": "Reithrodontomys megalotis",
+      "carrier_site_count": 3,
+      "primary_trophic_group": "granivore"
+    },
+    {
+      "species": "Sigmodon hispidus",
+      "carrier_site_count": 3,
+      "primary_trophic_group": "herbivore"
+    }
+  ],
+  "recurrent_carrier_primary_trophic_groups": [
+    "granivore",
+    "herbivore",
+    "omnivore"
+  ],
+  "recurrent_carrier_trophic_group_count": 3,
+  "sites_with_at_least_two_coded_carrier_trophic_groups": [
+    "JORN",
+    "LENO",
+    "MLBS",
+    "MOAB",
+    "OAES",
+    "ONAQ",
+    "ORNL",
+    "OSBS",
+    "SJER"
+  ],
+  "sites_with_at_least_three_coded_carrier_trophic_groups": [
+    "MOAB"
+  ],
+  "strong_examples": {
+    "JORN": {
+      "coded_groups": ["granivore", "predator"],
+      "examples": ["Dipodomys ordii", "Perognathus flavus", "Onychomys arenicola", "Reithrodontomys megalotis"]
+    },
+    "MOAB": {
+      "coded_groups": ["granivore", "herbivore", "omnivore"],
+      "examples": ["Dipodomys ordii", "Neotoma lepida", "Peromyscus boylii"]
+    },
+    "ORNL": {
+      "coded_groups": ["granivore", "omnivore"],
+      "examples": ["Ochrotomys nuttalli", "Oryzomys palustris"]
+    },
+    "OSBS": {
+      "coded_groups": ["granivore", "omnivore"],
+      "examples": ["Peromyscus polionotus", "Peromyscus gossypinus"]
+    }
+  },
+  "interpretation": "Continuity-carrier status is not confined to one trophic or ecosystem-effect guild. Recurrent carriers already span omnivory, granivory and herbivory, and some sites contain independently sufficient carriers from multiple trophic guilds. This supports treating continuity-carrier status as a site-scale spatial response property rather than as an ecosystem functional role.",
+  "claim_boundary": {
+    "supported_by_current_audit": [
+      "literature-backed representative carriers span multiple trophic niches",
+      "all four three-site recurrent carriers are represented and span three primary trophic groups",
+      "at least nine sites contain coded carriers from two or more trophic groups; this is a lower bound because only 17 of 32 carrier species are coded"
+    ],
+    "not_yet_supported": [
+      "carrier status is caused by habitat breadth",
+      "carrier status is caused by mobility or home-range size",
+      "carrier status predicts ecosystem functioning",
+      "carrier species are functionally redundant in the classical biodiversity-ecosystem-function sense",
+      "trait frequencies from the 17-species representative audit represent all 32 carrier species"
+    ]
+  }
+}
