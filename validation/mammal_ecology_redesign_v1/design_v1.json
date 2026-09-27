@@ -1,0 +1,150 @@
+{
+  "schema": "neon.mammal_ecology_redesign.design.v1",
+  "programme": "mammal_space_use_context_v1",
+  "frozen_date": "2026-09-27",
+  "state": "design_frozen_before_new_fine_grained_response_extraction",
+  "scientific_question": "Within the same small-mammal species, how does within-grid space use vary across sites, years and habitats after sampling effort and local population size are accounted for?",
+  "old_programme_boundary": {
+    "release_2026_status": "response_consumed_development_data",
+    "confirmatory_reuse_forbidden": true,
+    "old_carrier_endpoint": "archived coarse grid-allocation/no-isolated-occurrence endpoint",
+    "old_v6_submission": "HOLD"
+  },
+  "development_phase": {
+    "allowed_data": "DP1.10072.001 RELEASE-2026",
+    "inferential_status": "retrospective exploratory/model-development only",
+    "allowed_uses": [
+      "data-quality and schema audit",
+      "estimability assessment",
+      "model development",
+      "comparison of candidate abundance estimators",
+      "comparison of candidate within-grid spatial metrics",
+      "taxonomy uncertainty sensitivity design"
+    ],
+    "forbidden": [
+      "label RELEASE-2026 ecological effects confirmatory",
+      "choose a final hypothesis solely because it is significant in RELEASE-2026",
+      "restore V6 carrier claims by reinterpreting the same response"
+    ]
+  },
+  "future_confirmatory_phase": {
+    "response": "first future NEON small-mammal observations not contained in RELEASE-2026",
+    "access_condition": "final model, eligibility gates, taxonomy rule, covariates, scales and analysis code frozen before access",
+    "no_site_cherry_picking": true,
+    "no_species_cherry_picking": true,
+    "no_post_response_threshold_tuning": true
+  },
+  "hierarchy": [
+    "site",
+    "plotID/mammal grid",
+    "year",
+    "sampling bout/eventID",
+    "trap night/nightuid",
+    "trapCoordinate",
+    "resolved individualID",
+    "capture event"
+  ],
+  "within_grid_scales_m": [
+    10,
+    14.142135623730951,
+    20,
+    30
+  ],
+  "scale_interpretation": "fixed evaluation scales derived from 10 m NEON grid geometry; not assumed home-range radii",
+  "effort": {
+    "required_tables": [
+      "mam_perplotnight",
+      "mam_pertrapnight"
+    ],
+    "join_key": "nightuid",
+    "required_fields_or_concepts": [
+      "eventID",
+      "mammalGridSamplingType",
+      "gridCompletion",
+      "trap availability/status",
+      "plotID",
+      "collectDate",
+      "trapCoordinate"
+    ],
+    "denominator": "active trap-night",
+    "sampling_type_stratification": true
+  },
+  "taxonomy": {
+    "required_fields_or_tables": [
+      "taxonID/scientificName",
+      "identificationQualifier",
+      "mam_identificationHistory"
+    ],
+    "current_taxonomy_preferred": true,
+    "ambiguous_cryptic_taxa_rule": "predeclare removal or aggregation before ecological effect inspection",
+    "required_sensitivity_complexes": [
+      "Peromyscus maniculatus / Peromyscus leucopus"
+    ],
+    "individual_consistency_check": "check taxonomic consistency across repeated captures of the same resolved individual"
+  },
+  "abundance_candidates": [
+    "minimum number known alive from resolved unique individuals per population-session",
+    "effort-standardized capture rate",
+    "closed/spatial capture-recapture abundance or density where estimable"
+  ],
+  "primary_spatial_response_development": {
+    "unit": "species x grid x sampling session",
+    "family": "effort- and abundance-conditioned within-grid spatial concentration",
+    "candidate_statistic": "multi-scale same-species neighbour support / spatial dispersion at 10, 14.14, 20 and 30 m",
+    "conditioning": [
+      "active trap set",
+      "trap-night effort",
+      "local abundance or unique-individual count",
+      "number of capture/use events"
+    ],
+    "biological_claim_boundary": "population capture-space structure, not individual movement unless validated by recapture displacement"
+  },
+  "individual_movement_secondary": {
+    "eligibility": "sessions/years with sufficient repeated captures of resolved individuals",
+    "candidate_endpoints": [
+      "successive recapture displacement",
+      "within-session individual capture-location spread",
+      "spatial capture-recapture movement-scale parameter"
+    ],
+    "role": "independent biological validation of population-level spatial concentration metric"
+  },
+  "habitat": {
+    "primary_covariate": "nlcdClass",
+    "rationale": "part of NEON mammal-grid spatial sampling design and available without inventing a habitat surrogate from grid identity",
+    "secondary_covariates_policy": "vegetation/topography/moisture/soil may enter only as a prospectively declared second layer after data availability is audited"
+  },
+  "development_hypotheses": [
+    {
+      "id": "H1_context",
+      "statement": "Within a species, spatial concentration varies among sites or years after effort and abundance are controlled."
+    },
+    {
+      "id": "H2_habitat",
+      "statement": "Within a species, NLCD habitat class explains part of context dependence in within-grid spatial concentration after effort and abundance are controlled."
+    },
+    {
+      "id": "H3_density_spread",
+      "statement": "Population spatial spread changes with local population size rather than increasing mechanically with capture count.",
+      "sign_status": "direction/function to be chosen during consumed-data development and frozen before future validation"
+    },
+    {
+      "id": "H4_movement_validation",
+      "statement": "Where recaptures are estimable, population-level spatial concentration corresponds to independent individual displacement or SCR movement scale."
+    }
+  ],
+  "negative_controls": [
+    "shuffle capture/use events among active trap-nights within session while preserving effort and event count",
+    "preserve individual capture frequency in spatial randomization where individual IDs are used",
+    "repeat with ambiguous cryptic taxa removed or aggregated",
+    "stratify/sensitivity by mammalGridSamplingType",
+    "leave-one-individual-out influence check for sparse sessions",
+    "leave-one-night-out influence check where multiple nights are available"
+  ],
+  "advance_to_future_validation_only_if": [
+    "primary metric is sensitive to 10-30 m within-grid arrangement rather than grid identity",
+    "effect is not a deterministic function of abundance or number of occupied traps",
+    "effort and incomplete-grid handling are explicit",
+    "taxonomic uncertainty sensitivity is implemented",
+    "estimability gate is fixed before future response access"
+  ]
+}
