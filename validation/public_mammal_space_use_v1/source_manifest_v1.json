@@ -1,0 +1,30 @@
+{
+  "schema": "neon.public_mammal_space_use.source_manifest.v1",
+  "portal": {
+    "repository": "weecology/PortalData",
+    "commit_sha": "72d7ff8568052763bf6899dc462e285684cf20f6",
+    "required_files": [
+      "Rodents/Portal_rodent.csv",
+      "Rodents/Portal_rodent_trapping.csv",
+      "Rodents/Portal_rodent_species.csv",
+      "SiteandMethods/Portal_plots.csv",
+      "SiteandMethods/Portal_UTMCoords.csv"
+    ]
+  },
+  "neon": {
+    "provider": "NSF NEON",
+    "product_code": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "doi": "10.48443/A83H-TB34",
+    "inferential_status": "retrospective_development_only",
+    "required_tables": [
+      "mam_perplotnight",
+      "mam_pertrapnight",
+      "mam_identificationHistory"
+    ],
+    "authentication": {
+      "environment_variable": "NEON_API_TOKEN",
+      "commit_token_value": false
+    }
+  }
+}
