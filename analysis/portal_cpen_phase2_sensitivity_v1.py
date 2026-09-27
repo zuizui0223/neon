@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import argparse
+import csv
 import hashlib
 import importlib.util
 import itertools
+import json
 import math
 from collections import defaultdict
 from pathlib import Path
@@ -477,3 +480,149 @@ def direction_reversal_summary(
             if _opposite_sign(float(primary["interaction"]),float(row["interaction"]))
         ],
     }
+
+def _read_csv(path: Path) -> list[dict]:
+    with path.open(newline="",encoding="utf-8-sig") as fh:
+        return list(csv.DictReader(fh))
+
+
+def _estimate_direction_row(label: str, summary: dict) -> dict:
+    return {
+        "label":str(label),
+        "treatment":float(summary["coefficients"]["treatment"]["estimate"]),
+        "interaction":float(summary["coefficients"]["interaction"]["estimate"]),
+    }
+
+
+def _loo_direction_rows(prefix: str, rows: Iterable[dict]) -> list[dict]:
+    out=[]
+    for row in rows:
+        if not row.get("estimable"):
+            continue
+        out.append({
+            "label":f"{prefix}:{row['left_out']}",
+            "treatment":float(row["coefficients"]["treatment"]["estimate"]),
+            "interaction":float(row["coefficients"]["interaction"]["estimate"]),
+        })
+    return out
+
+
+def run_portal_robustness(
+    session_rows: Iterable[dict],
+    primary_payload: dict,
+    capture_rows: Iterable[dict],
+    trapping_rows: Iterable[dict],
+    plot_rows: Iterable[dict],
+    species_rows: Iterable[dict],
+    *,
+    replicates: int=999,
+) -> dict:
+    sessions=[dict(row) for row in session_rows]
+    primary={
+        "treatment":float(primary_payload["coefficients"]["treatment"]["estimate"]),
+        "interaction":float(primary_payload["coefficients"]["interaction"]["estimate"]),
+    }
+
+    core=[
+        fit_model_summary(sessions,n_min=3,label="n_min_3"),
+        fit_model_summary(sessions,n_min=8,label="n_min_8"),
+        fit_model_summary(sessions,n_min=5,label="long_term_plots",long_term_only=True),
+    ]
+
+    pit_sessions=build_metric_sensitivity_sessions(
+        capture_rows,trapping_rows,plot_rows,species_rows,
+        metric_name="mpd",
+        pit_only=True,
+        replicates=replicates,
+    )
+    radius_sessions=build_metric_sensitivity_sessions(
+        capture_rows,trapping_rows,plot_rows,species_rows,
+        metric_name="radius_of_gyration",
+        pit_only=False,
+        replicates=replicates,
+    )
+    nnd_sessions=build_metric_sensitivity_sessions(
+        capture_rows,trapping_rows,plot_rows,species_rows,
+        metric_name="nearest_neighbour",
+        pit_only=False,
+        replicates=replicates,
+    )
+
+    core.extend([
+        fit_model_summary(pit_sessions,n_min=5,label="pit_only"),
+        fit_model_summary(radius_sessions,n_min=5,label="radius_of_gyration"),
+        fit_model_summary(nnd_sessions,n_min=5,label="nearest_neighbour"),
+    ])
+
+    leave_plot=fit_leave_one_out(sessions,unit_field="plot_id",n_min=5)
+    leave_period=fit_leave_one_out(sessions,unit_field="period",n_min=5)
+
+    direction_rows=[
+        _estimate_direction_row(row["label"],row)
+        for row in core
+    ]
+    direction_rows.extend(_loo_direction_rows("leave_plot_out",leave_plot))
+    direction_rows.extend(_loo_direction_rows("leave_period_out",leave_period))
+
+    reversal=direction_reversal_summary(primary,direction_rows)
+
+    return {
+        "schema":"neon.public_mammal_space_use.portal_phase2_sensitivity.v1",
+        "species":"Chaetodipus penicillatus",
+        "primary_reference":{
+            "treatment":primary_payload["coefficients"]["treatment"],
+            "interaction":primary_payload["coefficients"]["interaction"],
+            "session_count":primary_payload.get("session_count"),
+            "plot_count":primary_payload.get("plot_count"),
+            "period_count":primary_payload.get("period_count"),
+        },
+        "core_sensitivities":core,
+        "leave_one_plot_out":leave_plot,
+        "leave_one_period_out":leave_period,
+        "direction_reversal_summary":reversal,
+        "sensitivity_rebuild":{
+            "pit_only_session_count":len(pit_sessions),
+            "radius_session_count":len(radius_sessions),
+            "nearest_neighbour_session_count":len(nnd_sessions),
+            "replicates":int(replicates),
+        },
+        "primary_result_overwritten":False,
+    }
+
+
+def main() -> None:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--sessions",type=Path,required=True)
+    parser.add_argument("--primary-json",type=Path,required=True)
+    parser.add_argument("--portal-dir",type=Path,required=True)
+    parser.add_argument("--output-json",type=Path,required=True)
+    parser.add_argument("--replicates",type=int,default=999)
+    args=parser.parse_args()
+
+    payload=run_portal_robustness(
+        _read_csv(args.sessions),
+        json.loads(args.primary_json.read_text(encoding="utf-8")),
+        _read_csv(args.portal_dir/"Rodents"/"Portal_rodent.csv"),
+        _read_csv(args.portal_dir/"Rodents"/"Portal_rodent_trapping.csv"),
+        _read_csv(args.portal_dir/"SiteandMethods"/"Portal_plots.csv"),
+        _read_csv(args.portal_dir/"Rodents"/"Portal_rodent_species.csv"),
+        replicates=args.replicates,
+    )
+    args.output_json.parent.mkdir(parents=True,exist_ok=True)
+    args.output_json.write_text(
+        json.dumps(payload,indent=2,sort_keys=True)+"\n",
+        encoding="utf-8",
+    )
+    print(json.dumps({
+        "schema":payload["schema"],
+        "core_labels":[row["label"] for row in payload["core_sensitivities"]],
+        "plot_loo_count":len(payload["leave_one_plot_out"]),
+        "period_loo_count":len(payload["leave_one_period_out"]),
+        "treatment_reversals":payload["direction_reversal_summary"]["treatment_reversal_labels"],
+        "interaction_reversals":payload["direction_reversal_summary"]["interaction_reversal_labels"],
+    },sort_keys=True))
+
+
+if __name__=="__main__":
+    main()
+
