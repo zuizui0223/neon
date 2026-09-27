@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import math
 import os
 import urllib.parse
 import urllib.request
@@ -37,6 +38,57 @@ def _load_builder():
 
 
 BUILDER=_load_builder()
+
+
+def _load_location_registry_module():
+    path=ROOT/"analysis"/"capture_carrier_prevalence_fresh_roster_v1.py"
+    spec=importlib.util.spec_from_file_location("neon_location_registry",path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot import {path}")
+    module=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+LOCATION_REGISTRY=_load_location_registry_module()
+
+
+def coordinate_map_for_site(
+    trap_rows: Iterable[dict],
+    registry_xy: dict[str, tuple[float,float]],
+) -> dict[str, tuple[float,float]]:
+    needed={
+        f"{str(row.get('namedLocation','')).strip()}.{str(row.get('trapCoordinate','')).strip()}"
+        for row in trap_rows
+        if str(row.get("namedLocation","")).strip()
+        and str(row.get("trapCoordinate","")).strip()
+    }
+    return {
+        node:registry_xy[node]
+        for node in sorted(needed)
+        if node in registry_xy
+    }
+
+
+def location_registry_xy(site: str) -> dict[str, tuple[float,float]]:
+    node_ids,rows,_=LOCATION_REGISTRY.registry(site)
+    if not node_ids:
+        return {}
+    by_node={str(row["locationName"]):row for row in rows}
+    origin=str(node_ids[0])
+    lat0=float(by_node[origin]["latitude"])
+    lon0=float(by_node[origin]["longitude"])
+    lat0_rad=math.radians(lat0)
+    radius_m=6371008.8
+    result={}
+    for node in node_ids:
+        row=by_node[str(node)]
+        lat=float(row["latitude"])
+        lon=float(row["longitude"])
+        x=radius_m*math.cos(lat0_rad)*math.radians(lon-lon0)
+        y=radius_m*math.radians(lat-lat0)
+        result[str(node)]=(x,y)
+    return result
 
 
 def collect_site_codes(value: object) -> set[str]:
@@ -349,7 +401,10 @@ def run_development(*, token: str, output_dir: Path, replicates: int=999) -> dic
             pathogen_event_count_with_ge2_nights+=int(secondary["pathogen_event_count_with_ge2_nights"])
             pathogen_species_event_counts.update(secondary["species_estimable_event_counts"])
 
-            coordinate_map=BUILDER.coordinate_map_from_trap_rows(trap_rows)
+            registry_xy=location_registry_xy(site)
+            coordinate_map=coordinate_map_for_site(trap_rows,registry_xy)
+            if not coordinate_map:
+                raise RuntimeError("no trap-specific location-registry coordinates resolved")
             sessions=BUILDER.build_neon_sessions(
                 plot_rows,
                 trap_rows,
