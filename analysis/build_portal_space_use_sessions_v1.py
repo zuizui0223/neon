@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import argparse
+import csv
 import hashlib
 import importlib.util
+import json
+import statistics
 from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
@@ -213,3 +217,141 @@ def build_portal_sessions(
             "sensitivity_n8_eligible":estimable and n>=8,
         })
     return results
+
+
+def summarize_portal_sessions(sessions: Iterable[dict]) -> dict:
+    rows=list(sessions)
+    by_species_treatment: dict[str, dict[str, int]] = {}
+    for row in rows:
+        species=str(row["species"])
+        treatment=str(row["treatment"])
+        by_species_treatment.setdefault(species,{}).setdefault(treatment,0)
+        by_species_treatment[species][treatment]+=1
+    pit_values=[
+        float(row["pit_reliable_fraction"])
+        for row in rows
+        if row.get("pit_reliable_fraction") is not None
+    ]
+    years=[int(row["year"]) for row in rows]
+    periods=[int(row["period"]) for row in rows]
+    return {
+        "session_count":len(rows),
+        "species_count":len({str(row["species"]) for row in rows}),
+        "eligible_n3":sum(bool(row["sensitivity_n3_eligible"]) for row in rows),
+        "eligible_n5":sum(bool(row["primary_n5_eligible"]) for row in rows),
+        "eligible_n8":sum(bool(row["sensitivity_n8_eligible"]) for row in rows),
+        "packing_estimable_count":sum(bool(row.get("packing_estimable")) for row in rows),
+        "median_pit_reliable_fraction":(
+            statistics.median(pit_values) if pit_values else None
+        ),
+        "year_range":[min(years),max(years)] if years else None,
+        "period_range":[min(periods),max(periods)] if periods else None,
+        "species_treatment_session_counts":by_species_treatment,
+    }
+
+
+def audit_portal_utm_stakes(rows: Iterable[dict]) -> dict:
+    by_key: dict[tuple[str,str], list[tuple[float,float]]] = defaultdict(list)
+    for row in rows:
+        if str(row.get("type","")).strip().lower()!="stake":
+            continue
+        plot=str(row.get("plot","")).strip()
+        number=str(row.get("number","")).strip()
+        if number not in VALID_STAKES:
+            continue
+        try:
+            east=float(row.get("east",""))
+            north=float(row.get("north",""))
+        except (TypeError,ValueError):
+            continue
+        if not np.isfinite(east) or not np.isfinite(north):
+            continue
+        by_key[(plot,number)].append((east,north))
+
+    duplicates=sum(len(values)-1 for values in by_key.values() if len(values)>1)
+    by_plot: dict[str, list[tuple[float,float]]] = defaultdict(list)
+    for (plot,_),values in sorted(by_key.items()):
+        by_plot[plot].append(values[0])
+
+    nearest=[]
+    for points in by_plot.values():
+        if len(points)<2:
+            continue
+        xy=np.asarray(points,dtype=float)
+        diff=xy[:,None,:]-xy[None,:,:]
+        dist=np.sqrt(np.sum(diff*diff,axis=2))
+        np.fill_diagonal(dist,np.inf)
+        nearest.extend(float(x) for x in np.min(dist,axis=1))
+
+    return {
+        "unique_valid_plot_stake_coordinates":len(by_key),
+        "duplicate_plot_stake_coordinate_rows":duplicates,
+        "plot_count_with_valid_stakes":len(by_plot),
+        "median_empirical_nearest_stake_distance_m":(
+            float(np.median(nearest)) if nearest else None
+        ),
+        "ideal_primary_stake_spacing_m":6.25,
+    }
+
+
+def _read_csv(path: Path) -> list[dict]:
+    with path.open(newline="",encoding="utf-8-sig") as fh:
+        return list(csv.DictReader(fh))
+
+
+def _write_session_csv(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True,exist_ok=True)
+    if not rows:
+        path.write_text("",encoding="utf-8")
+        return
+    fields=list(rows[0].keys())
+    with path.open("w",newline="",encoding="utf-8") as fh:
+        writer=csv.DictWriter(fh,fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def main() -> None:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--portal-dir",type=Path,required=True)
+    parser.add_argument("--output-dir",type=Path,required=True)
+    parser.add_argument("--replicates",type=int,default=999)
+    args=parser.parse_args()
+
+    capture_rows=_read_csv(args.portal_dir/"Rodents"/"Portal_rodent.csv")
+    trapping_rows=_read_csv(args.portal_dir/"Rodents"/"Portal_rodent_trapping.csv")
+    species_rows=_read_csv(args.portal_dir/"Rodents"/"Portal_rodent_species.csv")
+    plot_rows=_read_csv(args.portal_dir/"SiteandMethods"/"Portal_plots.csv")
+    utm_rows=_read_csv(args.portal_dir/"SiteandMethods"/"Portal_UTMCoords.csv")
+
+    sessions=build_portal_sessions(
+        capture_rows,
+        trapping_rows,
+        plot_rows,
+        species_rows,
+        replicates=args.replicates,
+    )
+    args.output_dir.mkdir(parents=True,exist_ok=True)
+    _write_session_csv(args.output_dir/"portal_space_use_sessions_v1.csv",sessions)
+
+    primary_capture_rows=filter_primary_capture_rows(capture_rows,species_rows)
+    inventory={
+        "schema":"neon.public_mammal_space_use.portal_inventory.v1",
+        "portal_commit_sha":"72d7ff8568052763bf6899dc462e285684cf20f6",
+        "primary_window":["2009-08","2015-03"],
+        "raw_capture_row_count":len(capture_rows),
+        "primary_taxon_period_stake_identity_capture_row_count":len(primary_capture_rows),
+        "basic_capture_rows_excluded":len(capture_rows)-len(primary_capture_rows),
+        **summarize_portal_sessions(sessions),
+        "utm_coordinate_audit":audit_portal_utm_stakes(utm_rows),
+        "ecological_model_fits":0,
+    }
+    (args.output_dir/"portal_space_use_inventory_v1.json").write_text(
+        json.dumps(inventory,indent=2,sort_keys=True)+"\n",
+        encoding="utf-8",
+    )
+    print(json.dumps(inventory,sort_keys=True))
+
+
+if __name__=="__main__":
+    main()
