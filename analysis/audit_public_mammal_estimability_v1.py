@@ -186,6 +186,17 @@ def audit_estimability(
                 species:dict(sorted(counts.items()))
                 for species,counts in sorted(neon_habitat_counts.items())
             },
+            "n5_species_site_session_counts":{
+                species:dict(sorted(counts.items()))
+                for species,counts in sorted(neon_site_counts.items())
+            },
+            "n5_species_site_habitat_session_counts":{
+                species:{
+                    site:dict(sorted(habitat_counts.items()))
+                    for site,habitat_counts in sorted(site_map.items())
+                }
+                for species,site_map in sorted(neon_site_habitat_counts.items())
+            },
             "species_with_n5_ge5_sessions_in_ge2_habitats":neon_multi_habitat,
             "species_with_n5_sessions_in_ge2_sites":neon_multi_site,
             "species_with_n5_ge5_sessions_in_ge2_sites":neon_strict_multi_site,
