@@ -16,6 +16,11 @@ class SubmissionHoldTests(unittest.TestCase):
         self.assertIn('pre-audit snapshot',text)
         self.assertIn('Do not submit V6',text)
 
+    def test_ci_labels_v6_artifacts_as_pre_audit_snapshot(self):
+        workflow=(ROOT/'.github'/'workflows'/'ci.yml').read_text(encoding='utf-8')
+        self.assertIn('oikos-v6-preaudit-snapshot-artifacts',workflow)
+        self.assertNotIn('name: oikos-initial-submission-artifacts',workflow)
+
     def test_hold_readiness_file_exists(self):
         text=(ROOT/'submission'/'OIKOS_READINESS_V4_HOLD.md').read_text(encoding='utf-8')
         self.assertIn('HOLD',text)
