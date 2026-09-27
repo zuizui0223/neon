@@ -92,9 +92,10 @@ class PortalSpaceUseSessionTests(unittest.TestCase):
         self.assertEqual(row["unique_individual_capture_count"],5)
 
     def test_n_threshold_flags_are_prespecified(self):
+        stakes=("11","12","13","14","15","16","17","21")
         captures=[
-            {"recordID":str(i+1),"month":"1","year":"2010","period":"100","plot":"1","stake":str(11+i),"species":"DM","id":f"x{i}","pit_tag":"TRUE"}
-            for i in range(8)
+            {"recordID":str(i+1),"month":"1","year":"2010","period":"100","plot":"1","stake":stake,"species":"DM","id":f"x{i}","pit_tag":"TRUE"}
+            for i,stake in enumerate(stakes)
         ]
         rows=m.build_portal_sessions(captures,[self.trapping[0]],self.plots,self.species,replicates=99)
         row=rows[0]
