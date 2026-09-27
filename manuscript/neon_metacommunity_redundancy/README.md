@@ -1,57 +1,45 @@
-# Active manuscript lane
+# Manuscript lane
 
-## Active submission manuscript
+## Current state
 
-- `MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md` — active anonymous main-text source
-- `COVER_LETTER_OIKOS_V5.md` — active cover-letter source
-- `CLAIM_MATRIX_V1.json` — frozen original confirmatory evidence boundary
-- `EXPLORATORY_CLAIM_MATRIX_V1.json` — post hoc carrier-turnover boundary
-- `VERIFIED_REFERENCES_V2.md` — verified original reference base
+**SUBMISSION HOLD. Do not submit V6.**
 
-## Active submission materials
+The former active manuscript:
 
-See `submission/`:
+- `MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md`
 
-- `OIKOS_READINESS_V3.md`
-- `SIGNIFICANCE_STATEMENT_V3.md`
-- `DATA_AVAILABILITY_STATEMENT_V3.md`
-- `AI_USE_DISCLOSURE_V1.md`
-- `SUBMISSION_FORM_FIELDS_V2.md`
-- `TITLE_PAGE_TEMPLATE_V2.md`
-- deterministic anonymous review-package builder
-- V6 formatted-manuscript builder
+and cover letter:
 
-## Scientific structure
+- `COVER_LETTER_OIKOS_V5.md`
 
-**Original confirmatory programme:** pooling species never created local spatial cohesion beyond the best individual species at any of 16 fresh sites.
+are now a **pre-audit snapshot**, retained for provenance only.
 
-**Post hoc ecological extension:** carrier identity turns over strongly among sites and the 32 carriers span contrasting trophic and ecosystem-effect roles.
+The exact pre-audit repository state is frozen at:
 
-**Independent prospective mechanism validation:** on all 11 remaining structurally eligible fresh sites, carrier status was not produced more often than expected after conditioning on positive-node count. Preserving positive counts by mammal grid reproduced carrier state almost exactly, and repeatedly observed species commonly switched carrier state among sites.
+`submission/oikos-v6-2026-09-27`
 
-Current synthesis:
+## Why the manuscript was halted
 
-> **effect-role divergence + context-dependent convergence on a local spatial-cohesion state**
+Post-package validity auditing showed that:
 
-Carrier status is not interpreted as a conserved species trait, whole-landscape connectivity, or classical functional redundancy.
+1. 93/94 canonical adjacency worlds make every trap pair within a mammal grid adjacent;
+2. 26/27 sites already have complete within-grid adjacency at their smallest threshold;
+3. fresh-panel carrier turnover is not lower than expected after conditioning on site species pools;
+4. the old response collapsed mark-recapture data to release-wide ever-positive incidence;
+5. taxonomic uncertainty and effort heterogeneity were not part of the endpoint.
+
+These findings undermine the mammal-ecology interpretation, not the reproducibility of the calculations.
+
+## Active scientific documents
+
+- `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`
+- `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`
+- `submission/OIKOS_READINESS_V4_HOLD.md`
 
 ## Version boundary
 
-V1–V5 manuscripts and V1–V4 cover letters are retained for provenance only. Do not submit them.
+V1–V6 manuscripts and V1–V5 cover letters are retained as historical development records.
 
-V6 reflects the current Oikos initial-submission structure:
+**Do not submit V6 or regenerate it as the active scientific product.**
 
-- anonymous main text;
-- abstract <=300 words with no unexplained abbreviations;
-- no Data Availability Statement inside the main text;
-- AI-use statement at the end;
-- references and Figure 1–5 captions retained in the main-text file;
-- original and fresh prospective programmes explicitly separated;
-- post-response diagnostics labelled exploratory.
-
-New prose must follow:
-
-- `docs/TERMINOLOGY.md`
-- `docs/PROJECT_BOUNDARY.md`
-- `docs/REDUNDANCY_TERMINOLOGY_BOUNDARY.md`
-- `docs/CARRIER_PREVALENCE_MECHANISM_INTERPRETATION_V1.md`
+The next manuscript version must be built from the mammal-scale redesign and may not restore the old carrier/cohesion interpretation without new independent evidence.
