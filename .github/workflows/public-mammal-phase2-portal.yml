@@ -1,0 +1,112 @@
+name: public-mammal-phase2-portal
+
+on:
+  push:
+    branches:
+      - design/public-mammal-space-use-v1
+    paths:
+      - validation/public_mammal_space_use_v1/phase2_analysis_lock_v1.json
+      - analysis/public_mammal_phase2_utils_v1.py
+      - analysis/fit_portal_cpen_phase2_v1.py
+      - tests/test_public_mammal_phase2_lock.py
+      - tests/test_public_mammal_phase2_utils.py
+      - tests/test_portal_cpen_phase2.py
+      - .github/workflows/public-mammal-phase2-portal.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  portal-primary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-space-use-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen Phase-2 dependencies
+        run: |
+          python -m pip install \
+            numpy==2.1.1 \
+            pandas==3.0.6 \
+            scipy==1.18.1 \
+            statsmodels==0.15.0
+
+      - name: Verify frozen Portal artifact metadata
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          from pathlib import Path
+          import importlib.util
+
+          root=Path(".")
+          lock=json.loads((root/"validation/public_mammal_space_use_v1/phase2_analysis_lock_v1.json").read_text())
+          expected=lock["source_artifacts"]["portal"]
+
+          url=f"https://api.github.com/repos/{os.environ['REPOSITORY']}/actions/artifacts/{expected['artifact_id']}"
+          req=urllib.request.Request(
+              url,
+              headers={
+                  "Authorization":f"Bearer {os.environ['GITHUB_TOKEN']}",
+                  "Accept":"application/vnd.github+json",
+                  "X-GitHub-Api-Version":"2022-11-28",
+              },
+          )
+          with urllib.request.urlopen(req,timeout=60) as response:
+              metadata=json.loads(response.read().decode("utf-8"))
+
+          path=root/"analysis/public_mammal_phase2_utils_v1.py"
+          spec=importlib.util.spec_from_file_location("phase2_utils",path)
+          module=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          module.verify_phase2_artifact_metadata(expected,"portal",metadata)
+          print(json.dumps({
+              "artifact_id":metadata["id"],
+              "digest":metadata.get("digest"),
+              "workflow_run":metadata.get("workflow_run"),
+          },sort_keys=True))
+          PY
+
+      - name: Download frozen Portal Phase-1 sessions
+        uses: actions/download-artifact@v4
+        with:
+          name: public-mammal-portal-development-v1
+          path: results/generated/phase2_inputs/portal
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 36314012402
+
+      - name: Verify Phase-2 Portal contracts
+        run: |
+          python -m unittest \
+            tests.test_public_mammal_phase2_lock \
+            tests.test_public_mammal_phase2_utils \
+            tests.test_portal_cpen_phase2 -v
+
+      - name: Fit frozen Portal primary model
+        run: |
+          python analysis/fit_portal_cpen_phase2_v1.py \
+            --sessions results/generated/phase2_inputs/portal/portal_space_use_sessions_v1.csv \
+            --output-json results/generated/portal_cpen_phase2_primary_v1.json \
+            --output-predictions results/generated/portal_cpen_phase2_primary_predictions_v1.csv
+
+      - name: Upload Portal Phase-2 result
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-phase2-portal-v1
+          path: |
+            results/generated/portal_cpen_phase2_primary_v1.json
+            results/generated/portal_cpen_phase2_primary_predictions_v1.csv
+            validation/public_mammal_space_use_v1/phase2_analysis_lock_v1.json
+          if-no-files-found: error
+          retention-days: 90
