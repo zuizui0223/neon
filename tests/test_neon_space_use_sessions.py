@@ -152,6 +152,42 @@ class NeonSpaceUseSessionTests(unittest.TestCase):
         )
         self.assertTrue(rows[0]["cryptic_complex_sensitivity"])
 
+
+
+    def test_coordinate_map_uses_trap_latlon_and_is_local_to_plot(self):
+        rows=[
+            {**trap("1","N1","A1"),"decimalLatitude":"35.000000","decimalLongitude":"-106.000000"},
+            {**trap("2","N1","A2"),"decimalLatitude":"35.000000","decimalLongitude":"-105.999890"},
+        ]
+        coords=m.coordinate_map_from_trap_rows(rows)
+        a=coords["SITE_001.mammalGrid.mam.A1"]
+        b=coords["SITE_001.mammalGrid.mam.A2"]
+        self.assertAlmostEqual(a[0],0.0,places=6)
+        self.assertAlmostEqual(a[1],0.0,places=6)
+        self.assertGreater(b[0],9.0)
+        self.assertLess(b[0],11.0)
+        self.assertAlmostEqual(b[1],0.0,places=3)
+
+    def test_inventory_counts_eligibility_sites_species_habitat_and_taxonomy_flags(self):
+        sessions=[
+            {"site":"A","plot_id":"A_001","event_id":"E1","year":2024,"species":"Species one","nlcd_class":"Grassland/Herbaceous","n_unique_individuals":5,"active_trap_count":100,"sensitivity_n3_eligible":True,"primary_n5_eligible":True,"sensitivity_n8_eligible":False,"packing_estimable":True,"uncertain_capture_rows_excluded":1,"history_linked_capture_count":0,"cryptic_complex_sensitivity":False},
+            {"site":"A","plot_id":"A_001","event_id":"E2","year":2025,"species":"Species one","nlcd_class":"Grassland/Herbaceous","n_unique_individuals":8,"active_trap_count":99,"sensitivity_n3_eligible":True,"primary_n5_eligible":True,"sensitivity_n8_eligible":True,"packing_estimable":True,"uncertain_capture_rows_excluded":0,"history_linked_capture_count":1,"cryptic_complex_sensitivity":False},
+            {"site":"B","plot_id":"B_001","event_id":"E3","year":2025,"species":"Peromyscus maniculatus","nlcd_class":"Deciduous Forest","n_unique_individuals":3,"active_trap_count":100,"sensitivity_n3_eligible":True,"primary_n5_eligible":False,"sensitivity_n8_eligible":False,"packing_estimable":True,"uncertain_capture_rows_excluded":2,"history_linked_capture_count":0,"cryptic_complex_sensitivity":True},
+        ]
+        inv=m.summarize_neon_sessions(sessions)
+        self.assertEqual(inv["session_count"],3)
+        self.assertEqual(inv["site_count"],2)
+        self.assertEqual(inv["species_count"],2)
+        self.assertEqual(inv["eligible_n3"],3)
+        self.assertEqual(inv["eligible_n5"],2)
+        self.assertEqual(inv["eligible_n8"],1)
+        self.assertEqual(inv["cryptic_complex_session_count"],1)
+        self.assertEqual(inv["uncertain_capture_rows_excluded"],3)
+        self.assertEqual(inv["history_linked_capture_count"],1)
+        self.assertEqual(inv["species_habitat_session_counts"]["Species one"]["Grassland/Herbaceous"],2)
+        self.assertEqual(inv["active_trap_count_range"],[99,100])
+        self.assertEqual(inv["year_range"],[2024,2025])
+
     def test_zero_variance_null_is_retained_as_non_estimable(self):
         coords={f"SITE_001.mammalGrid.mam.A{i+1}":(float(i*10),0.0) for i in range(5)}
         traps=[trap(str(i+1),"N1",f"A{i+1}",tag=f"T{i+1}") for i in range(5)]
