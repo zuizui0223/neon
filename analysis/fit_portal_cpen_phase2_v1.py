@@ -78,16 +78,12 @@ def prepare_portal_primary(rows: Iterable[dict], *, lock: dict | None=None) -> p
     return df.sort_values(["period","plot_id"]).reset_index(drop=True)
 
 
-def build_portal_mixed_model(df: pd.DataFrame, *, lock: dict | None=None):
+def build_portal_primary_model(df: pd.DataFrame, *, lock: dict | None=None):
     cfg=(lock or _load_lock())["portal_primary"]
-    groups=np.ones(len(df),dtype=float)
-    return smf.mixedlm(
-        "packing_z ~ C(treatment, Treatment(reference='control')) * z_logN",
-        data=df,
-        groups=groups,
-        re_formula=cfg["re_formula"],
-        vc_formula=cfg["variance_components"],
-    )
+    formula=cfg["implemented_formula"]
+    model=smf.ols(formula,data=df)
+    UTILS.assert_full_rank(model.exog,model.exog_names)
+    return model
 
 
 def primary_term_names() -> dict[str,str]:
@@ -99,16 +95,17 @@ def primary_term_names() -> dict[str,str]:
 
 def fit_portal_primary(df: pd.DataFrame, *, lock: dict | None=None):
     cfg=(lock or _load_lock())["portal_primary"]
-    model=build_portal_mixed_model(df,lock=lock)
-    result=model.fit(
-        reml=bool(cfg["reml"]),
-        method=list(cfg["optimizer_sequence"]),
-        maxiter=2000,
-        disp=False,
+    model=build_portal_primary_model(df,lock=lock)
+    groups=df[cfg["cluster_variable"]].astype(str).to_numpy()
+    return model.fit(
+        cov_type="cluster",
+        cov_kwds={
+            "groups":groups,
+            "use_correction":bool(cfg["small_sample_correction"]),
+            "df_correction":bool(cfg["small_sample_correction"]),
+        },
+        use_t=bool(cfg["use_t"]),
     )
-    if not bool(result.converged):
-        raise RuntimeError("Portal primary mixed model did not converge under frozen optimizer sequence")
-    return result
 
 
 def _read_csv(path: Path) -> list[dict]:
@@ -168,11 +165,14 @@ def main() -> None:
         "n_range":[int(df["n_unique_individuals"].min()),int(df["n_unique_individuals"].max())],
         "model":{
             "formula":lock["portal_primary"]["formula"],
-            "crossed_random_effects":lock["portal_primary"]["variance_components"],
-            "reml":lock["portal_primary"]["reml"],
-            "optimizer_sequence":lock["portal_primary"]["optimizer_sequence"],
-            "converged":bool(result.converged),
-            "llf":float(result.llf),
+            "implemented_formula":lock["portal_primary"]["implemented_formula"],
+            "covariance":lock["portal_primary"]["covariance"],
+            "cluster_variable":lock["portal_primary"]["cluster_variable"],
+            "small_sample_correction":lock["portal_primary"]["small_sample_correction"],
+            "use_t":lock["portal_primary"]["use_t"],
+            "cluster_count":int(df[lock["portal_primary"]["cluster_variable"]].nunique()),
+            "df_resid":float(result.df_resid),
+            "rsquared":float(result.rsquared),
         },
         "coefficients":{
             "treatment":UTILS.coefficient_record(result,terms["treatment"]),
