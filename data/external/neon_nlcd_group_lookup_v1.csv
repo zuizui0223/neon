@@ -21,3 +21,13 @@ Pasture/Hay,cropland_pasture
 Cultivated Crops,cropland_pasture
 Woody Wetlands,wetland
 Emergent Herbaceous Wetlands,wetland
+deciduousForest,forest
+evergreenForest,forest
+mixedForest,forest
+dwarfScrub,shrub_scrub
+shrubScrub,shrub_scrub
+grasslandHerbaceous,grassland_herbaceous
+sedgeHerbaceous,grassland_herbaceous
+pastureHay,cropland_pasture
+cultivatedCrops,cropland_pasture
+woodyWetlands,wetland
