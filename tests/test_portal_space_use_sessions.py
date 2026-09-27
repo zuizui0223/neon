@@ -104,5 +104,21 @@ class PortalSpaceUseSessionTests(unittest.TestCase):
         self.assertTrue(row["sensitivity_n8_eligible"])
 
 
+    def test_inventory_counts_eligibility_and_treatment_replication(self):
+        sessions=[
+            {"species":"Dipodomys merriami","treatment":"control","n_unique_individuals":5,"primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False,"pit_reliable_fraction":1.0},
+            {"species":"Dipodomys merriami","treatment":"exclosure","n_unique_individuals":8,"primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":True,"pit_reliable_fraction":0.75},
+            {"species":"Perognathus flavus","treatment":"control","n_unique_individuals":3,"primary_n5_eligible":False,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False,"pit_reliable_fraction":0.5},
+        ]
+        inv=m.summarize_portal_sessions(sessions)
+        self.assertEqual(inv["session_count"],3)
+        self.assertEqual(inv["eligible_n3"],3)
+        self.assertEqual(inv["eligible_n5"],2)
+        self.assertEqual(inv["eligible_n8"],1)
+        self.assertEqual(inv["species_treatment_session_counts"]["Dipodomys merriami"]["control"],1)
+        self.assertEqual(inv["species_treatment_session_counts"]["Dipodomys merriami"]["exclosure"],1)
+        self.assertAlmostEqual(inv["median_pit_reliable_fraction"],0.75)
+
+
 if __name__=="__main__":
     unittest.main()
