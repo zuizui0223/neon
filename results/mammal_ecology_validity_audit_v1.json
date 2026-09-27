@@ -1,0 +1,111 @@
+{
+  "schema": "neon.mammal_ecology_validity_audit.v1",
+  "date": "2026-09-27",
+  "decision": "hold_oikos_v6_and_redesign_as_mammal_ecology",
+  "pre_audit_submission_snapshot": {
+    "branch": "submission/oikos-v6-2026-09-27",
+    "commit": "d7c24907bd6bb3f64905c0052141e537706d1792",
+    "status": "preserved_for_provenance_not_recommended_for_submission"
+  },
+  "geometry_audit": {
+    "status": "confirmed",
+    "biological_response_reopened": false,
+    "sites": 27,
+    "canonical_worlds": 94,
+    "worlds_where_all_same_grid_trap_pairs_are_adjacent": 93,
+    "fraction_worlds_where_all_same_grid_trap_pairs_are_adjacent": 0.9893617021276596,
+    "sites_where_minimum_threshold_already_connects_all_same_grid_pairs": 26,
+    "sites_where_minimum_threshold_connects_at_least_95pct_same_grid_pairs": 27,
+    "within_grid_max_distance_m_range": [
+      126.937,
+      127.524
+    ],
+    "minimum_threshold_m_range": [
+      112.6236619970376,
+      1569.7419732335895
+    ],
+    "only_minimum_threshold_exception": {
+      "site": "TOOL",
+      "minimum_threshold_m": 112.6236619970376,
+      "within_grid_max_distance_m": 126.937,
+      "adjacent_same_grid_pair_fraction": 0.9939393939393939
+    },
+    "original16_adjacency_fingerprint_reconstruction": "16/16 exact match to frozen source roster artifact",
+    "source_workflow_run": 36298174613,
+    "source_artifact_id": 10924772267,
+    "source_artifact_sha256": "350642b148a7834b5ca7d7dda927feaed974008655edcaea241552d0028b34b0",
+    "interpretation": "The within-grid component is almost entirely predetermined by the declared adjacency scales. It cannot be treated as independent evidence that fine-scale within-grid mammal organization is absent."
+  },
+  "fresh11_carrier_turnover_vs_species_pool": {
+    "status": "confirmed_no_residual_carrier_turnover_signal",
+    "new_biological_response_access": false,
+    "sites": 11,
+    "site_pairs": 55,
+    "species_pool_jaccard_median": 0,
+    "species_pool_jaccard_mean": 0.07677110768019858,
+    "species_pool_zero_pairs": 35,
+    "carrier_jaccard_median": 0,
+    "carrier_jaccard_mean": 0.03984848484848485,
+    "carrier_zero_pairs": 50,
+    "spearman_pool_vs_carrier_jaccard": 0.49153835367044596,
+    "pool_conditioned_null": {
+      "replicates": 20000,
+      "seed": 20260927,
+      "observed_mean_carrier_jaccard": 0.03984848484848485,
+      "null_mean": 0.03102259410286683,
+      "null_median": 0.028354978354978355,
+      "null_q025": 0.008354978354978355,
+      "null_q975": 0.06948051948051948,
+      "p_observed_overlap_lower_than_null": 0.7568,
+      "p_observed_overlap_higher_than_null": 0.2452
+    },
+    "interpretation": "Raw carrier-set turnover is not more extreme than expected after conditioning on each site's eligible species pool and carrier count. Carrier Jaccard near zero is therefore not evidence of carrier-specific taxonomic replacement beyond biogeographic turnover in this independent panel."
+  },
+  "home_range_sanity_check": {
+    "status": "supporting_descriptive_not_confirmatory",
+    "source": "pre-frozen COMBINE home_range_km2 matched to fresh11 species x site records",
+    "records": 41,
+    "distinct_species": 29,
+    "threshold_over_equivalent_home_range_diameter": {
+      "median": 7.612205577749844,
+      "q25": 3.133028008456584,
+      "q75": 19.531334379407035,
+      "min": 0.8250482189370845,
+      "max": 43.99194985992711,
+      "fraction_gt_1": 0.975609756097561,
+      "fraction_gt_2": 0.9024390243902439,
+      "fraction_gt_5": 0.5365853658536586
+    },
+    "boundary": "COMBINE home-range values are coarse species-level external traits and are not site-specific movement estimates."
+  },
+  "design_information_discarded_by_v6": {
+    "official_neon_features": [
+      "mark-recapture observations",
+      "unique individual identifiers",
+      "repeated sampling bouts and trap nights",
+      "grid sampling type",
+      "NLCD-linked spatial sampling design",
+      "identificationQualifier and identification history"
+    ],
+    "v6_reduction": "ever-positive species x trap incidence pooled across RELEASE-2026"
+  },
+  "taxonomic_uncertainty": {
+    "concern": "species-level carrier states may be sensitive to field identification uncertainty",
+    "explicit_official_example": "Peromyscus maniculatus versus P. leucopus",
+    "required_next_analysis": "use identificationQualifier and identification-history information; aggregate cryptic taxa or run uncertainty sensitivity where warranted"
+  },
+  "claim_changes": {
+    "withdraw_from_frontline": [
+      "within-grid organization is biologically negligible",
+      "grid-conditioned 66/68 reproduction is an ecological mechanism result",
+      "carrier turnover demonstrates taxonomic replaceability beyond biogeography",
+      "cross-trophic carriers demonstrate ecological convergence beyond local species-pool composition",
+      "local spatial cohesion is a mammal-scale movement/connectivity property"
+    ],
+    "retain_as_audited_observation": [
+      "the frozen coarse-scale endpoint is reproducible",
+      "at the chosen inter-grid structural thresholds, the endpoint collapses almost entirely to grid-scale allocation",
+      "the original and fresh programmes remain procedurally auditable"
+    ]
+  }
+}
