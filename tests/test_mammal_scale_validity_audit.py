@@ -14,7 +14,7 @@ class MammalScaleValidityTests(unittest.TestCase):
     def test_grid_id_is_sampling_grid_prefix(self):
         self.assertEqual(
             m.grid_id("JORN_001.mammalGrid.mam.A10"),
-            "JORN_001",
+            "JORN_001.mammalGrid.mam",
         )
 
     def test_same_grid_pair_fraction(self):
