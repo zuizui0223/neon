@@ -337,6 +337,13 @@ For species × grid × bout units with adequate recapture data, calculate:
 - individual capture-location spread;
 - where estimable, an SECR movement/detection scale.
 
+The Phase-1 recapture **estimability** rule is frozen before inspecting the full RELEASE-2026 inventory:
+
+- an event is recapture-estimable for a species when at least **3 unique tagged individuals** are each captured on at least **2 event nights** and at at least **2 distinct trap coordinates**;
+- a species is declared to have a usable pathogen-grid validation lane when it has at least **5 recapture-estimable events** across RELEASE-2026.
+
+These thresholds determine only whether the secondary validation can be attempted; they do not define an ecological effect.
+
 Test whether session-level `Packing_z` is associated with these independent individual-level movement quantities.
 
 ### 8.2 Portal individual history
