@@ -38,6 +38,23 @@ class PublicMammalContextTests(unittest.TestCase):
         with self.assertRaises(KeyError):
             m.map_neon_nlcd("Totally New Class")
 
+    def test_neon_session_camelcase_classes(self):
+        aliases={
+            "deciduousForest":"forest",
+            "evergreenForest":"forest",
+            "mixedForest":"forest",
+            "dwarfScrub":"shrub_scrub",
+            "shrubScrub":"shrub_scrub",
+            "grasslandHerbaceous":"grassland_herbaceous",
+            "sedgeHerbaceous":"grassland_herbaceous",
+            "pastureHay":"cropland_pasture",
+            "cultivatedCrops":"cropland_pasture",
+            "woodyWetlands":"wetland",
+            "emergentHerbaceousWetlands":"wetland",
+        }
+        for raw,expected in aliases.items():
+            self.assertEqual(m.map_neon_nlcd(raw),expected)
+
     def test_portal_competition_context(self):
         self.assertEqual(m.portal_competition_context("control"),"control")
         self.assertEqual(m.portal_competition_context("exclosure"),"kangaroo_rat_exclosure")
