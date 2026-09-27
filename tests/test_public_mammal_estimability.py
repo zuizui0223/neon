@@ -67,6 +67,45 @@ class PublicMammalEstimabilityTests(unittest.TestCase):
         self.assertIn("no_shared_species_meeting_source_specific_estimability",report["non_estimable_reasons"])
 
 
+    def test_neon_strict_site_replication_requires_five_n5_sessions_per_site(self):
+        portal=[]
+        neon=[]
+        for i in range(5):
+            neon.append({"species":"Strong","site":"S1","nlcd_class":"deciduousForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+            neon.append({"species":"Strong","site":"S2","nlcd_class":"evergreenForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        for i in range(9):
+            neon.append({"species":"Weak","site":"S1","nlcd_class":"deciduousForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        neon.append({"species":"Weak","site":"S2","nlcd_class":"deciduousForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        report=m.audit_estimability(portal,neon,neon_secondary={})
+        self.assertEqual(report["neon"]["species_with_n5_ge5_sessions_in_ge2_sites"],["Strong"])
+        self.assertNotIn("Weak",report["neon"]["species_with_n5_ge5_sessions_in_ge2_sites"])
+
+    def test_neon_habitat_identifiability_requires_within_site_or_cross_site_replication(self):
+        portal=[]
+        neon=[]
+        # Within-site contrast: two habitats with >=5 sessions each at one site.
+        for i in range(5):
+            neon.append({"species":"Within","site":"S1","nlcd_class":"deciduousForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+            neon.append({"species":"Within","site":"S1","nlcd_class":"grasslandHerbaceous","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        # Cross-site replicated contrast: two habitats, each represented by >=2 sites with >=3 sessions/site.
+        for site,hab in (("F1","deciduousForest"),("F2","evergreenForest"),("G1","grasslandHerbaceous"),("G2","grasslandHerbaceous")):
+            for i in range(3):
+                neon.append({"species":"Cross","site":site,"nlcd_class":hab,"primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        # Confounded: two habitats but each only one site, no within-site contrast.
+        for i in range(5):
+            neon.append({"species":"Confounded","site":"A","nlcd_class":"deciduousForest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+            neon.append({"species":"Confounded","site":"B","nlcd_class":"grasslandHerbaceous","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False})
+        report=m.audit_estimability(portal,neon,neon_secondary={})
+        self.assertEqual(
+            report["neon"]["species_with_primary_habitat_identifiability"],
+            ["Cross","Within"],
+        )
+        self.assertNotIn(
+            "Confounded",
+            report["neon"]["species_with_primary_habitat_identifiability"],
+        )
+
+
     def test_session_inventory_rows_are_source_and_context_specific(self):
         portal=[
             {"species":"A","treatment":"control","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False},
