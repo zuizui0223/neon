@@ -69,6 +69,68 @@ class NeonPhase2ContextSensitivityTests(unittest.TestCase):
         self.assertEqual(set(n3["habitat_group"]),{"forest","shrub_scrub"})
         self.assertEqual(len(n8),2)
 
+
+    def test_myodes_threshold_summary_uses_same_habitat_term(self):
+        rows=[]
+        for year in range(2020,2025):
+            for site in ("BONA","DEJU"):
+                for raw_nlcd,offset in (("evergreenForest",0.0),("shrubScrub",0.4)):
+                    n=5+((year+(0 if site=="BONA" else 1))%4)
+                    rows.append({
+                        "species":"Myodes rutilus",
+                        "site":site,
+                        "year":str(year),
+                        "n_unique_individuals":str(n),
+                        "packing_z":str(offset+0.01*(year-2020)),
+                        "primary_n5_eligible":"True",
+                        "sensitivity_n3_eligible":"True",
+                        "sensitivity_n8_eligible":"True" if n>=8 else "False",
+                        "nlcd_class":raw_nlcd,
+                    })
+        out=m.fit_myodes_threshold_summary(rows,n_min=5,label="synthetic")
+        self.assertEqual(out["label"],"synthetic")
+        self.assertEqual(out["site_count"],2)
+        self.assertEqual(out["habitat_session_counts"],{"forest":10,"shrub_scrub":10})
+        self.assertIn("habitat_effect",out["coefficients"])
+        self.assertGreater(out["coefficients"]["habitat_effect"]["estimate"],0)
+
+    def test_myodes_leave_one_site_out_returns_both_sites(self):
+        rows=[]
+        for year in range(2020,2025):
+            for site in ("BONA","DEJU"):
+                for raw_nlcd in ("evergreenForest","shrubScrub"):
+                    rows.append({
+                        "species":"Myodes rutilus",
+                        "site":site,
+                        "year":str(year),
+                        "n_unique_individuals":"6",
+                        "packing_z":str((0.3 if raw_nlcd=="shrubScrub" else 0.0)+(0.1 if site=="DEJU" else 0.0)+0.01*(year-2020)),
+                        "primary_n5_eligible":"True",
+                        "sensitivity_n3_eligible":"True",
+                        "sensitivity_n8_eligible":"False",
+                        "nlcd_class":raw_nlcd,
+                    })
+        out=m.fit_myodes_leave_one_out(rows,unit_field="site",n_min=5)
+        self.assertEqual({x["left_out"] for x in out},{"BONA","DEJU"})
+        self.assertTrue(all(x["estimable"] for x in out))
+
+    def test_context_family_is_fixed_to_ten_species(self):
+        rows=[]
+        for species in m.frozen_site_context_species():
+            for site,offset in (("A",0.0),("B",0.2)):
+                for year in (2022,2023,2024):
+                    rows.append({
+                        "species":species,
+                        "site":site,
+                        "year":str(year),
+                        "n_unique_individuals":str(5+(year%2)),
+                        "packing_z":str(offset+0.01*(year-2022)),
+                        "primary_n5_eligible":"True",
+                    })
+        out=m.fit_frozen_context_family(rows,n_min=5)
+        self.assertEqual(set(out),m.frozen_site_context_species())
+        self.assertTrue(all(v["site_count"]==2 for v in out.values()))
+
     def test_aggregate_peromyscus_complex_rows(self):
         rows=[
             {"taxonID":"PM","scientificName":"Peromyscus maniculatus","tagID":"a"},
