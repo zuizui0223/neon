@@ -16,7 +16,7 @@
 - Phase-2 inputs must come from artifact IDs/digests frozen in `validation/public_mammal_space_use_v1/estimability_gate_v1.json`.
 - Portal primary species = `Chaetodipus penicillatus`; N >= 5; control vs kangaroo-rat exclosure; 2009-08 through 2015-03.
 - NEON primary species = `Myodes rutilus`; sites = BONA + DEJU; habitats = forest + shrub_scrub; N >= 5.
-- Portal model = `Packing_z ~ treatment * z_logN` with plot random intercept and census-period variance component.
+- Portal model = `Packing_z ~ treatment * z_logN` with crossed plot and census-period random intercepts.
 - NEON primary model = `Packing_z ~ habitat + z_logN + site`; forest reference; BONA/DEJU site blocking.
 - `z_logN = (log(N) - mean(log(N))) / population_sd(log(N))` with ddof = 0 inside the exact retained primary dataset.
 - statsmodels is pinned to 0.15.0; Portal mixed-model fitting uses REML and a frozen optimizer sequence; no formula simplification after seeing results.
@@ -103,9 +103,9 @@
 - [ ] Implement input preparation.
 - [ ] Implement `statsmodels.formula.api.mixedlm`:
   - formula `packing_z ~ C(treatment, Treatment(reference='control')) * z_logN`;
-  - groups = plot;
-  - re_formula = `1`;
-  - vc_formula = `{"period": "0 + C(period)"}`;
+  - groups = constant vector of ones over all retained rows;
+  - re_formula = `0`;
+  - vc_formula = `{"plot": "0 + C(plot_id)", "period": "0 + C(period)"}`;
   - REML = true;
   - optimizer sequence frozen in lock;
   - require `result.converged`.
