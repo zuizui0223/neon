@@ -64,6 +64,22 @@ class NeonSpaceUseDevelopmentRunnerTests(unittest.TestCase):
         self.assertEqual(out[0]["history_linked_capture_row_count"],1)
 
 
+
+    def test_location_registry_coordinates_are_preferred_over_plot_centroid_fields(self):
+        # mam_pertrapnight decimalLatitude/Longitude can be plot-level and identical
+        # across trap rows; the runner must use the NEON location registry instead.
+        rows=[
+            {"namedLocation":"SITE_001.mammalGrid.mam","trapCoordinate":"A1","plotID":"SITE_001","decimalLatitude":"35.0","decimalLongitude":"-106.0"},
+            {"namedLocation":"SITE_001.mammalGrid.mam","trapCoordinate":"A2","plotID":"SITE_001","decimalLatitude":"35.0","decimalLongitude":"-106.0"},
+        ]
+        registry={
+            "SITE_001.mammalGrid.mam.A1":(0.0,0.0),
+            "SITE_001.mammalGrid.mam.A2":(10.0,0.0),
+        }
+        coords=m.coordinate_map_for_site(rows,registry)
+        self.assertEqual(coords,registry)
+        self.assertNotEqual(coords["SITE_001.mammalGrid.mam.A1"],coords["SITE_001.mammalGrid.mam.A2"])
+
     def test_pathogen_recapture_estimability_requires_three_moving_recaptures_per_event(self):
         plot_rows=[
             {"siteID":"S","plotID":"P","eventID":"E1","nightuid":"N1","mammalGridSamplingMethod":"pathogen","gridCompletion":"setting complete, processing complete","samplingImpractical":"OK"},
