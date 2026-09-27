@@ -130,6 +130,9 @@ class PublicMammalEstimabilityTests(unittest.TestCase):
         memo=m.render_estimability_memo(report)
         self.assertIn("No ecological models were fit",memo)
         self.assertIn("Phase-1 estimability",memo)
+        self.assertIn("Strict Phase-2 structure",memo)
+        self.assertIn("primary habitat-identifiable species",memo)
+        self.assertIn(">=5 N>=5 sessions at >=2 sites",memo)
         self.assertNotIn("p =",memo)
 
 
