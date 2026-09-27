@@ -180,6 +180,89 @@ def _download_csv(row: dict, *, token: str) -> tuple[list[dict],int]:
     return list(reader),len(raw)
 
 
+def pathogen_recapture_estimability(
+    plot_rows: Iterable[dict],
+    trap_rows: Iterable[dict],
+    target_taxon_ids: set[str],
+) -> dict:
+    event_nights: dict[tuple[str,str,str],set[str]]=defaultdict(set)
+    for raw in plot_rows:
+        row=dict(raw)
+        method=str(row.get("mammalGridSamplingMethod",row.get("mammalGridSamplingType",""))).strip().lower()
+        completion=str(row.get("gridCompletion","")).strip().lower()
+        impractical=str(row.get("samplingImpractical","")).strip()
+        if method!="pathogen":
+            continue
+        if completion!=BUILDER.COMPLETE_GRID:
+            continue
+        if impractical not in {"","OK"}:
+            continue
+        site=str(row.get("siteID","")).strip()
+        plot=str(row.get("plotID","")).strip()
+        event=str(row.get("eventID","")).strip()
+        night=str(row.get("nightuid","")).strip()
+        if site and plot and event and night:
+            event_nights[(site,plot,event)].add(night)
+
+    captures_by_night: dict[str,list[dict]]=defaultdict(list)
+    for raw in trap_rows:
+        row=dict(raw)
+        night=str(row.get("nightuid","")).strip()
+        if night:
+            captures_by_night[night].append(row)
+
+    species_event_counts=Counter()
+    estimable_event_count=0
+    total_pathogen_events=0
+    for _,nights in sorted(event_nights.items()):
+        if len(nights)<2:
+            continue
+        total_pathogen_events+=1
+        by_species_tag: dict[tuple[str,str],dict[str,list[tuple[str,str]]]]=defaultdict(lambda:defaultdict(list))
+        for night in sorted(nights):
+            for row in captures_by_night.get(night,[]):
+                if not BUILDER.is_capture_status(str(row.get("trapStatus",""))):
+                    continue
+                taxon=str(row.get("taxonID","")).strip()
+                if taxon not in target_taxon_ids:
+                    continue
+                if str(row.get("taxonRank","")).strip().lower()!="species":
+                    continue
+                if str(row.get("identificationQualifier","")).strip():
+                    continue
+                tag=str(row.get("tagID","")).strip()
+                coord=str(row.get("trapCoordinate","")).strip()
+                name=str(row.get("scientificName","")).strip()
+                if not tag or not coord or not name:
+                    continue
+                by_species_tag[(taxon,name)][tag].append((night,coord))
+
+        for (_,name),by_tag in by_species_tag.items():
+            moving_recaptures=0
+            for observations in by_tag.values():
+                observed_nights={night for night,_ in observations}
+                observed_coords={coord for _,coord in observations}
+                if len(observed_nights)>=2 and len(observed_coords)>=2:
+                    moving_recaptures+=1
+            if moving_recaptures>=3:
+                species_event_counts[name]+=1
+                estimable_event_count+=1
+
+    names=sorted(
+        species for species,count in species_event_counts.items()
+        if count>=5
+    )
+    return {
+        "pathogen_event_count_with_ge2_nights":total_pathogen_events,
+        "estimable_event_count":estimable_event_count,
+        "species_estimable_event_counts":dict(sorted(species_event_counts.items())),
+        "pathogen_species_with_estimable_recapture":len(names),
+        "pathogen_species_names_with_estimable_recapture":names,
+        "event_minimum_moving_recaptured_individuals":3,
+        "species_minimum_estimable_events":5,
+    }
+
+
 def _capture_rows_for_taxonomy_summary(rows: Iterable[dict], target_ids: set[str]) -> list[dict]:
     result=[]
     for row in rows:
@@ -223,6 +306,9 @@ def run_development(*, token: str, output_dir: Path, replicates: int=999) -> dic
     byte_count=0
     query_count=0
     site_stops=[]
+    pathogen_species_event_counts=Counter()
+    pathogen_estimable_event_count=0
+    pathogen_event_count_with_ge2_nights=0
 
     for index,site in enumerate(sites,start=1):
         print(f"NEON_SITE_START {index}/{len(sites)} {site}",flush=True)
@@ -253,6 +339,15 @@ def run_development(*, token: str, output_dir: Path, replicates: int=999) -> dic
                 site_stops.append({"site_code":site,"status":"no_required_capture_tables"})
                 print(f"NEON_SITE_STOP {site} no_required_capture_tables",flush=True)
                 continue
+
+            secondary=pathogen_recapture_estimability(
+                plot_rows,
+                trap_rows,
+                target_ids,
+            )
+            pathogen_estimable_event_count+=int(secondary["estimable_event_count"])
+            pathogen_event_count_with_ge2_nights+=int(secondary["pathogen_event_count_with_ge2_nights"])
+            pathogen_species_event_counts.update(secondary["species_estimable_event_counts"])
 
             coordinate_map=BUILDER.coordinate_map_from_trap_rows(trap_rows)
             sessions=BUILDER.build_neon_sessions(
@@ -289,7 +384,21 @@ def run_development(*, token: str, output_dir: Path, replicates: int=999) -> dic
         raise RuntimeError("NEON development run produced no sessions")
 
     inventory=BUILDER.summarize_neon_sessions(all_sessions)
+    pathogen_names=sorted(
+        species for species,count in pathogen_species_event_counts.items()
+        if count>=5
+    )
     inventory.update({
+        "pathogen_event_count_with_ge2_nights":pathogen_event_count_with_ge2_nights,
+        "pathogen_estimable_event_count":pathogen_estimable_event_count,
+        "pathogen_species_estimable_event_counts":dict(sorted(pathogen_species_event_counts.items())),
+        "pathogen_species_with_estimable_recapture":len(pathogen_names),
+        "pathogen_species_names_with_estimable_recapture":pathogen_names,
+        "pathogen_recapture_estimability_rule":{
+            "event_minimum_moving_recaptured_individuals":3,
+            "species_minimum_estimable_events":5,
+            "moving_recapture_requires":"same tagID captured on >=2 event nights at >=2 distinct trap coordinates",
+        },
         "product_code":PRODUCT_CODE,
         "release":RELEASE,
         "inferential_status":"retrospective_development_only",
