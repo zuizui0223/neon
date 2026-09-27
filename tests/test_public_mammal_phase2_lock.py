@@ -31,8 +31,9 @@ class PublicMammalPhase2LockTests(unittest.TestCase):
         self.assertEqual(p["treatments"],["control","kangaroo_rat_exclosure"])
         self.assertEqual(p["session_treatment_mapping"],{"control":"control","exclosure":"kangaroo_rat_exclosure"})
         self.assertEqual(p["formula"],"packing_z ~ treatment * z_logN")
-        self.assertEqual(p["groups"],"plot_id")
-        self.assertEqual(p["variance_component"],"period")
+        self.assertEqual(p["mixedlm_groups"],"constant_all_rows")
+        self.assertEqual(p["re_formula"],"0")
+        self.assertEqual(p["variance_components"],{"plot":"0 + C(plot_id)","period":"0 + C(period)"})
 
     def test_neon_primary_contract_is_frozen(self):
         n=self.lock["neon_primary"]
