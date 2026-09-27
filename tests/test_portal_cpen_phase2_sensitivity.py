@@ -69,6 +69,73 @@ class PortalCpenPhase2SensitivityTests(unittest.TestCase):
         self.assertTrue(out["estimable"])
         self.assertLess(out["z"],0)
 
+
+    def test_prepare_sensitivity_dataframe_uses_same_primary_model_columns(self):
+        rows=[]
+        for period in range(4):
+            for plot,treatment in [("11","control"),("3","exclosure")]:
+                rows.append({
+                    "species":"Chaetodipus penicillatus",
+                    "treatment":treatment,
+                    "plot_id":plot,
+                    "period":str(period),
+                    "n_unique_individuals":str(5+period),
+                    "packing_z":str(0.1*period),
+                    "primary_n5_eligible":"True",
+                    "sensitivity_n3_eligible":"True",
+                    "sensitivity_n8_eligible":"False",
+                })
+        df=m.prepare_sensitivity_dataframe(rows,n_min=5)
+        self.assertEqual(
+            set(df.columns),
+            {"packing_z","treatment","n_unique_individuals","plot_id","period","z_logN"},
+        )
+        self.assertEqual(set(df["treatment"]),{"control","kangaroo_rat_exclosure"})
+        self.assertAlmostEqual(float(df["z_logN"].mean()),0.0,places=12)
+
+    def test_raw_metric_builder_can_make_pit_only_and_alternative_sessions(self):
+        captures=[]
+        stakes=["11","12","13","14","15"]
+        for i,stake in enumerate(stakes, start=1):
+            captures.append({
+                "recordID":str(i),
+                "month":"1","day":"1","year":"2010","period":"100",
+                "plot":"11","stake":stake,"species":"PP",
+                "id":f"id{i}",
+                "pit_tag":"TRUE" if i<5 else "FALSE",
+            })
+        trapping=[
+            {"year":"2010","month":"1","period":"100","plot":"11",
+             "sampled":"1","effort":"49","qcflag":"1"},
+        ]
+        plots=[
+            {"year":"2010","month":"1","plot":"11","treatment":"control"},
+        ]
+        species=[
+            {"speciescode":"PP","scientificname":"Chaetodipus penicillatus",
+             "censustarget":"1","unidentified":"0","rodent":"1"},
+        ]
+        radius=m.build_metric_sensitivity_sessions(
+            captures,trapping,plots,species,
+            metric_name="radius_of_gyration",
+            pit_only=False,
+            replicates=99,
+        )
+        pit=m.build_metric_sensitivity_sessions(
+            captures,trapping,plots,species,
+            metric_name="mpd",
+            pit_only=True,
+            replicates=99,
+        )
+        self.assertEqual(len(radius),1)
+        self.assertEqual(radius[0]["metric_name"],"radius_of_gyration")
+        self.assertEqual(radius[0]["n_unique_individuals"],5)
+        self.assertIsNotNone(radius[0]["packing_z"])
+        self.assertEqual(len(pit),1)
+        self.assertEqual(pit[0]["metric_name"],"mpd_pit_only")
+        self.assertEqual(pit[0]["n_unique_individuals"],4)
+        self.assertFalse(pit[0]["primary_n5_eligible"])
+
     def test_direction_reversal_summary(self):
         primary={"treatment":0.2,"interaction":-0.1}
         checks=[
