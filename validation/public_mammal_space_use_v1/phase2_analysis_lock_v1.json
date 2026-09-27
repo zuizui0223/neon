@@ -52,8 +52,6 @@
     ],
     "formula": "packing_z ~ treatment * z_logN",
     "treatment_reference": "control",
-    "groups": "plot_id",
-    "variance_component": "period",
     "reml": true,
     "optimizer_sequence": [
       "lbfgs",
@@ -65,6 +63,12 @@
     "session_treatment_mapping": {
       "control": "control",
       "exclosure": "kangaroo_rat_exclosure"
+    },
+    "mixedlm_groups": "constant_all_rows",
+    "re_formula": "0",
+    "variance_components": {
+      "plot": "0 + C(plot_id)",
+      "period": "0 + C(period)"
     }
   },
   "neon_primary": {
