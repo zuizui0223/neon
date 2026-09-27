@@ -1,0 +1,1787 @@
+{
+  "aggregate_primary": {
+    "confirmatory_estimable": true,
+    "interpretation": "prevalence-only explanation sufficient at declared resolution",
+    "median_site_effect": -0.08041374708041374,
+    "minimum_scored_sites": 6,
+    "one_sided_exact_sign_test_p": 0.88671875,
+    "positive_site_effect_count": 4,
+    "primary_spatial_organization_supported": false,
+    "site_count": 11
+  },
+  "biological_response_bytes_opened": 218209316,
+  "fingerprint": "869f33ce56df5a6a6f69f1dc783f10ddb459616992bb1a6f26f813e14446df07",
+  "fixed_site_count": 11,
+  "fresh_roster_fingerprint": "47f00a68496275dbfc34961d525ce86f1c86840094e37459cdfa048485ae22ff",
+  "model_fits": 0,
+  "post_response_metric_change_allowed": false,
+  "post_response_site_change_allowed": false,
+  "programme": "carrier_prevalence_mechanism_v1",
+  "rerun_allowed": false,
+  "response_consumed_stops": [],
+  "response_endpoint_requests": 1,
+  "response_file_count": 447,
+  "response_file_inventory_fingerprint": "ef9640640702a6538ef3f548c3315b96a28b0b55997c6ee256497d1329ba5235",
+  "response_file_requests": 447,
+  "response_query_bytes_opened": 3555298,
+  "schema": "neon.carrier_prevalence_mechanism.response.v1",
+  "scored_site_count": 11,
+  "secondary_frozen_traits": {
+    "adult_mass_g": {
+      "estimable_site_count": 11,
+      "median_within_site_spearman_rho": 0.09999999999999998,
+      "negative_site_rho_count": 4,
+      "positive_site_rho_count": 7,
+      "site_rhos": [
+        {
+          "n": 19,
+          "rho": -0.2607674445618284,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": 0.31622776601683794,
+          "site_code": "STEI"
+        },
+        {
+          "n": 11,
+          "rho": 0.07744894808829489,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": -0.08571428571428572,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": 0.9999999999999998,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 3,
+          "rho": 0.4999999999999999,
+          "site_code": "TOOL"
+        },
+        {
+          "n": 5,
+          "rho": 0.09999999999999998,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": 0.31622776601683794,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": 0.5999999999999999,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": -0.4999999999999999,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": -0.7999999999999998,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 0
+    },
+    "density_n_km2": {
+      "estimable_site_count": 11,
+      "median_within_site_spearman_rho": -0.29999999999999993,
+      "negative_site_rho_count": 6,
+      "positive_site_rho_count": 5,
+      "site_rhos": [
+        {
+          "n": 13,
+          "rho": -0.35376288024568187,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": 0.6324555320336759,
+          "site_code": "STEI"
+        },
+        {
+          "n": 8,
+          "rho": -0.30952380952380953,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": 0.42857142857142855,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": -0.4999999999999999,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 3,
+          "rho": 0.9999999999999998,
+          "site_code": "TOOL"
+        },
+        {
+          "n": 5,
+          "rho": 0.7999999999999998,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": 0.6324555320336759,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": -0.3999999999999999,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": -0.4999999999999999,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": -0.29999999999999993,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 0
+    },
+    "det_diet_breadth_n": {
+      "estimable_site_count": 9,
+      "median_within_site_spearman_rho": -0.10294859806149012,
+      "negative_site_rho_count": 5,
+      "positive_site_rho_count": 3,
+      "site_rhos": [
+        {
+          "n": 19,
+          "rho": -0.2491905973249451,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": -0.23570226039551587,
+          "site_code": "STEI"
+        },
+        {
+          "n": 11,
+          "rho": -0.10294859806149012,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": 0.7715167498104595,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": -0.8660254037844387,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 3,
+          "rho": -0.8660254037844387,
+          "site_code": "TOOL"
+        },
+        {
+          "n": 5,
+          "rho": 0.28867513459481287,
+          "site_code": "TREE"
+        },
+        {
+          "n": 3,
+          "rho": 0.0,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": 0.7071067811865475,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 1
+    },
+    "dispersal_km": {
+      "estimable_site_count": 11,
+      "median_within_site_spearman_rho": 0.09999999999999998,
+      "negative_site_rho_count": 4,
+      "positive_site_rho_count": 7,
+      "site_rhos": [
+        {
+          "n": 19,
+          "rho": -0.22528888067586536,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": 0.31622776601683794,
+          "site_code": "STEI"
+        },
+        {
+          "n": 11,
+          "rho": 0.07744894808829489,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": -0.08571428571428572,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": 0.9999999999999998,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 3,
+          "rho": 0.4999999999999999,
+          "site_code": "TOOL"
+        },
+        {
+          "n": 5,
+          "rho": 0.09999999999999998,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": 0.31622776601683794,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": 0.5999999999999999,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": -0.4999999999999999,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": -0.7999999999999998,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 0
+    },
+    "habitat_breadth_n": {
+      "estimable_site_count": 11,
+      "median_within_site_spearman_rho": -0.31622776601683794,
+      "negative_site_rho_count": 7,
+      "positive_site_rho_count": 3,
+      "site_rhos": [
+        {
+          "n": 19,
+          "rho": 0.1479431468241222,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": -0.5000000000000001,
+          "site_code": "STEI"
+        },
+        {
+          "n": 11,
+          "rho": -0.7963739935433072,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": 0.7944613465542745,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": -0.4999999999999999,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 3,
+          "rho": -0.8660254037844387,
+          "site_code": "TOOL"
+        },
+        {
+          "n": 5,
+          "rho": -0.15389675281277312,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": -0.6324555320336759,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": -0.31622776601683794,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": 0.4999999999999999,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": 0.0,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 1
+    },
+    "home_range_km2": {
+      "estimable_site_count": 9,
+      "median_within_site_spearman_rho": -0.06311323204377635,
+      "negative_site_rho_count": 5,
+      "positive_site_rho_count": 4,
+      "site_rhos": [
+        {
+          "n": 14,
+          "rho": -0.06311323204377635,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": -0.5000000000000001,
+          "site_code": "STEI"
+        },
+        {
+          "n": 9,
+          "rho": 0.33344296442767507,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": 0.14712247158412492,
+          "site_code": "TALL"
+        },
+        {
+          "n": 5,
+          "rho": -0.7181848464596079,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": -0.3333333333333334,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": -0.10540925533894598,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": 0.9999999999999998,
+          "site_code": "WREF"
+        },
+        {
+          "n": 4,
+          "rho": 0.2581988897471611,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 0
+    },
+    "trophic_level": {
+      "estimable_site_count": 10,
+      "median_within_site_spearman_rho": 0.09920188136882735,
+      "negative_site_rho_count": 3,
+      "positive_site_rho_count": 5,
+      "site_rhos": [
+        {
+          "n": 19,
+          "rho": 0.1984037627376547,
+          "site_code": "SRER"
+        },
+        {
+          "n": 4,
+          "rho": 0.2721655269759087,
+          "site_code": "STEI"
+        },
+        {
+          "n": 11,
+          "rho": 0.4009122018688206,
+          "site_code": "STER"
+        },
+        {
+          "n": 6,
+          "rho": 0.29277002188455997,
+          "site_code": "TALL"
+        },
+        {
+          "n": 3,
+          "rho": -0.8660254037844387,
+          "site_code": "TEAK"
+        },
+        {
+          "n": 5,
+          "rho": -0.28867513459481287,
+          "site_code": "TREE"
+        },
+        {
+          "n": 4,
+          "rho": 0.0,
+          "site_code": "UKFS"
+        },
+        {
+          "n": 4,
+          "rho": -0.2581988897471611,
+          "site_code": "WOOD"
+        },
+        {
+          "n": 3,
+          "rho": 0.0,
+          "site_code": "WREF"
+        },
+        {
+          "n": 5,
+          "rho": 0.5773502691896257,
+          "site_code": "YELL"
+        }
+      ],
+      "zero_site_rho_count": 2
+    }
+  },
+  "secondary_grid_decomposition": {
+    "identity": "site-wide carrier excess = between-grid allocation component + within-grid organization component",
+    "interpretation_rule": "diagnostic only; cannot alter the primary site-wide count-conditioned decision",
+    "median_between_grid_allocation_component": -0.08041374708041374,
+    "median_within_grid_organization_component": 0.0,
+    "one_sided_exact_sign_test_p_within_grid": 1.0,
+    "positive_within_grid_site_count": 0,
+    "site_count": 11
+  },
+  "site_results": [
+    {
+      "eligible_species_count": 19,
+      "expected_carrier_count_count_conditioned": 9.398398398398399,
+      "fingerprint": "615622d0ccde746e598c27e9b9762377b37e2e40269e41ca168e8df9632e2db0",
+      "guild_positive_node_count": 735,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": 0.03166324218955798,
+      "mean_species_carrier_excess": 0.03166324218955798,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": 0.0,
+      "node_registry_fingerprint": "488d90d10b37f1ccdfcb852be54ef1dac45177ffbe256ef0faeefb7ca74f16ae",
+      "observed_carrier_count": 10,
+      "observed_target_species_count": 23,
+      "site_code": "SRER",
+      "species_results": [
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 1195031638683318134,
+          "null_seed": 6981896584877990106,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 386,
+          "positive_node_fraction_of_guild": 0.5251700680272109,
+          "scientific_name": "Chaetodipus baileyi",
+          "taxon_id": "CHBA",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.13513513513513514,
+          "carrier_excess": -0.13513513513513514,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.13513513513513514,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 395748735844340439,
+          "null_seed": 15239103684712307143,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 17,
+          "positive_node_fraction_of_guild": 0.02312925170068027,
+          "scientific_name": "Chaetodipus intermedius",
+          "taxon_id": "CHIN",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 2472377865286783068,
+          "null_seed": 8308877876446429444,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 430,
+          "positive_node_fraction_of_guild": 0.5850340136054422,
+          "scientific_name": "Chaetodipus penicillatus",
+          "taxon_id": "CHPE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 4292487380535282003,
+          "null_seed": 7565623279809831382,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 514,
+          "positive_node_fraction_of_guild": 0.6993197278911565,
+          "scientific_name": "Dipodomys merriami",
+          "taxon_id": "DIME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.15115115115115116,
+          "carrier_excess": -0.15115115115115116,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.15115115115115116,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 88040837435742655,
+          "null_seed": 6246689566071612556,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 17,
+          "positive_node_fraction_of_guild": 0.02312925170068027,
+          "scientific_name": "Dipodomys spectabilis",
+          "taxon_id": "DISP",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 11477815699977052669,
+          "null_seed": 5240444197217157391,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 220,
+          "positive_node_fraction_of_guild": 0.29931972789115646,
+          "scientific_name": "Neotoma albigula",
+          "taxon_id": "NEAL",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.044044044044044044,
+          "carrier_excess": -0.044044044044044044,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.044044044044044044,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 10235729101579629448,
+          "null_seed": 4410286223722609745,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 8,
+          "positive_node_fraction_of_guild": 0.010884353741496598,
+          "scientific_name": "Onychomys leucogaster",
+          "taxon_id": "ONLE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 11845661569209950438,
+          "null_seed": 2883744542073088360,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 294,
+          "positive_node_fraction_of_guild": 0.4,
+          "scientific_name": "Onychomys torridus",
+          "taxon_id": "ONTO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.8688688688688688,
+          "carrier_excess": 0.8688688688688688,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.13113113113113112,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 14458356060304929420,
+          "null_seed": 6268653090230220594,
+          "observed_carrier": 1,
+          "observed_grid_count": 4,
+          "positive_node_count": 17,
+          "positive_node_fraction_of_guild": 0.02312925170068027,
+          "scientific_name": "Perognathus amplus",
+          "taxon_id": "PEAM",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -1.0,
+          "carrier_excess": -1.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 6614675479092520350,
+          "null_seed": 17156994110216920454,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 136,
+          "positive_node_fraction_of_guild": 0.18503401360544217,
+          "scientific_name": "Peromyscus eremicus",
+          "taxon_id": "PEER",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.43243243243243246,
+          "carrier_excess": -0.43243243243243246,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.43243243243243246,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 3705819634047196859,
+          "null_seed": 5130264794946342312,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 26,
+          "positive_node_fraction_of_guild": 0.03537414965986395,
+          "scientific_name": "Perognathus flavus",
+          "taxon_id": "PEFL",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.967967967967968,
+          "carrier_excess": 0.967967967967968,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.03203203203203203,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 314825181341249968,
+          "null_seed": 4576203953531664400,
+          "observed_carrier": 1,
+          "observed_grid_count": 1,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.00816326530612245,
+          "scientific_name": "Perognathus flavescens",
+          "taxon_id": "PEFV",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.8328328328328328,
+          "carrier_excess": 0.8328328328328328,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.16716716716716717,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 15804594877151563962,
+          "null_seed": 6622159858272374238,
+          "observed_carrier": 1,
+          "observed_grid_count": 1,
+          "positive_node_count": 2,
+          "positive_node_fraction_of_guild": 0.0027210884353741495,
+          "scientific_name": "Perognathus longimembris",
+          "taxon_id": "PELO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.9459459459459459,
+          "carrier_excess": 0.9459459459459459,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.05405405405405406,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 2603402062544575703,
+          "null_seed": 10134058642265676640,
+          "observed_carrier": 1,
+          "observed_grid_count": 3,
+          "positive_node_count": 11,
+          "positive_node_fraction_of_guild": 0.014965986394557823,
+          "scientific_name": "Peromyscus merriami",
+          "taxon_id": "PEME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -1.0,
+          "carrier_excess": -1.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 6427554895762352063,
+          "null_seed": 6823838088962322084,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 94,
+          "positive_node_fraction_of_guild": 0.12789115646258503,
+          "scientific_name": "Reithrodontomys fulvescens",
+          "taxon_id": "REFU",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.042042042042042045,
+          "carrier_excess": -0.042042042042042045,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.042042042042042045,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 13178601499623749879,
+          "null_seed": 13959639478193750565,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.00816326530612245,
+          "scientific_name": "Reithrodontomys megalotis",
+          "taxon_id": "REME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.8598598598598599,
+          "carrier_excess": 0.8598598598598599,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.14014014014014015,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 9705996552493806637,
+          "null_seed": 3857327641671678189,
+          "observed_carrier": 1,
+          "observed_grid_count": 1,
+          "positive_node_count": 2,
+          "positive_node_fraction_of_guild": 0.0027210884353741495,
+          "scientific_name": "Reithrodontomys montanus",
+          "taxon_id": "REMO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.06906906906906907,
+          "carrier_excess": -0.06906906906906907,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.06906906906906907,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 15912179834678473348,
+          "null_seed": 11736312464760022535,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 14,
+          "positive_node_fraction_of_guild": 0.01904761904761905,
+          "scientific_name": "Sigmodon arizonae",
+          "taxon_id": "SIAR",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -1.0,
+          "carrier_excess": -1.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 16831730331704448345,
+          "null_seed": 12408679902372422067,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 105,
+          "positive_node_fraction_of_guild": 0.14285714285714285,
+          "scientific_name": "Sigmodon ochrognathus",
+          "taxon_id": "SIOC",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "fcd9bf98b7b79c46c3a2443cfcb819cc97d3618c0ea9550f0b22184e68a7318c",
+      "x_excluded_positive_node_count": 1,
+      "x_excluded_positive_row_count": 1
+    },
+    {
+      "eligible_species_count": 4,
+      "expected_carrier_count_count_conditioned": 3.131131131131131,
+      "fingerprint": "fc34aa9df69be8a4e3e9950098910ec45e4252d8f6f862bb8ac54a81448ed315",
+      "guild_positive_node_count": 393,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.2827827827827828,
+      "mean_species_carrier_excess": -0.2827827827827828,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.06556556556556556,
+      "node_registry_fingerprint": "1fd3cf5d2b6fc0dc452fc452711800d79fb47fb5e424449e5212209b479a20ce",
+      "observed_carrier_count": 2,
+      "observed_target_species_count": 4,
+      "site_code": "STEI",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.13113113113113112,
+          "carrier_excess": -0.13113113113113112,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.13113113113113112,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 1593216652673236514,
+          "null_seed": 1582158714134737469,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 13,
+          "positive_node_fraction_of_guild": 0.03307888040712468,
+          "scientific_name": "Microtus pennsylvanicus",
+          "taxon_id": "MIPE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 15582806105912243387,
+          "null_seed": 3718944068704754686,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 171,
+          "positive_node_fraction_of_guild": 0.4351145038167939,
+          "scientific_name": "Myodes gapperi",
+          "taxon_id": "MYGA",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -1.0,
+          "carrier_excess": -1.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 4741290680777216179,
+          "null_seed": 16445877812654425099,
+          "observed_carrier": 0,
+          "observed_grid_count": 6,
+          "positive_node_count": 201,
+          "positive_node_fraction_of_guild": 0.5114503816793893,
+          "scientific_name": "Napaeozapus insignis",
+          "taxon_id": "NAIN",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 17429433990524387169,
+          "null_seed": 1536586796269329288,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 157,
+          "positive_node_fraction_of_guild": 0.3994910941475827,
+          "scientific_name": "Zapus hudsonius",
+          "taxon_id": "ZAHU",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "a71d4d12149844d9b1e3d19a37a451c4f9995a6943e3dc2ff4c37119ab3814c1",
+      "x_excluded_positive_node_count": 1,
+      "x_excluded_positive_row_count": 1
+    },
+    {
+      "eligible_species_count": 11,
+      "expected_carrier_count_count_conditioned": 5.788788788788789,
+      "fingerprint": "0f01ee741b8bd2cd39784d5266f93e2ef42d05c5da3bce407092d1c179058498",
+      "guild_positive_node_count": 553,
+      "max_abs_decomposition_reconstruction_error": 3.469446951953614e-18,
+      "mean_between_grid_allocation_component": 0.019292019292019288,
+      "mean_species_carrier_excess": 0.019201019201019198,
+      "mean_within_grid_organization_component": -9.1000091000091e-05,
+      "median_species_carrier_excess": 0.0,
+      "node_registry_fingerprint": "5af73dc630c2687b2958c92e570632ae74c146f0833f8a2e6c558d2ae658c4e2",
+      "observed_carrier_count": 6,
+      "observed_target_species_count": 11,
+      "site_code": "STER",
+      "species_results": [
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 17001645590266049699,
+          "null_seed": 8963984832497044980,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 374,
+          "positive_node_fraction_of_guild": 0.6763110307414105,
+          "scientific_name": "Chaetodipus hispidus",
+          "taxon_id": "CHHI",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.010010010010010006,
+          "carrier_excess": 0.010010010010010006,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.98998998998999,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 17108793337628525650,
+          "null_seed": 1872584788288869285,
+          "observed_carrier": 1,
+          "observed_grid_count": 5,
+          "positive_node_count": 47,
+          "positive_node_fraction_of_guild": 0.08499095840867993,
+          "scientific_name": "Dipodomys ordii",
+          "taxon_id": "DIOR",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.4294294294294294,
+          "carrier_excess": 0.4294294294294294,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.5705705705705706,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 4998194856368620736,
+          "null_seed": 6278546565995036089,
+          "observed_carrier": 1,
+          "observed_grid_count": 3,
+          "positive_node_count": 22,
+          "positive_node_fraction_of_guild": 0.039783001808318265,
+          "scientific_name": "Microtus ochrogaster",
+          "taxon_id": "MIOC",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.07607607607607608,
+          "carrier_excess": -0.07607607607607608,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.07607607607607608,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 14178072886935791668,
+          "null_seed": 17161137182612166663,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 10,
+          "positive_node_fraction_of_guild": 0.018083182640144666,
+          "scientific_name": "Microtus pennsylvanicus",
+          "taxon_id": "MIPE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.05105105105105105,
+          "carrier_excess": -0.05105105105105105,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.05105105105105105,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 10660935307489840342,
+          "null_seed": 8555146615591035385,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 7,
+          "positive_node_fraction_of_guild": 0.012658227848101266,
+          "scientific_name": "Mus musculus",
+          "taxon_id": "MUMU",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 2921921623930137198,
+          "null_seed": 15779079070982280292,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 518,
+          "positive_node_fraction_of_guild": 0.9367088607594937,
+          "scientific_name": "Onychomys leucogaster",
+          "taxon_id": "ONLE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.028028028028028028,
+          "carrier_excess": -0.02902902902902903,
+          "decomposition_reconstruction_error": -3.469446951953614e-18,
+          "expected_carrier_probability_count_conditioned": 0.02902902902902903,
+          "expected_carrier_probability_grid_conditioned": 0.001001001001001001,
+          "grid_null_seed": 4471325746354995301,
+          "null_seed": 10888860425642130217,
+          "observed_carrier": 0,
+          "observed_grid_count": 2,
+          "positive_node_count": 3,
+          "positive_node_fraction_of_guild": 0.0054249547920434,
+          "scientific_name": "Perognathus fasciatus",
+          "taxon_id": "PEFA",
+          "within_grid_organization_component": -0.001001001001001001
+        },
+        {
+          "between_grid_allocation_component": 0.955955955955956,
+          "carrier_excess": 0.955955955955956,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.044044044044044044,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 7262319700304618244,
+          "null_seed": 16764470769695686635,
+          "observed_carrier": 1,
+          "observed_grid_count": 1,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.0108499095840868,
+          "scientific_name": "Perognathus flavus",
+          "taxon_id": "PEFL",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.03303303303303303,
+          "carrier_excess": -0.03303303303303303,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.03303303303303303,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 16778168178694775966,
+          "null_seed": 5586408829963930297,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 3,
+          "positive_node_fraction_of_guild": 0.0054249547920434,
+          "scientific_name": "Perognathus flavescens",
+          "taxon_id": "PEFV",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.995995995995996,
+          "carrier_excess": -0.995995995995996,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.995995995995996,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 2485942191165207224,
+          "null_seed": 8469821738849315026,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 51,
+          "positive_node_fraction_of_guild": 0.0922242314647378,
+          "scientific_name": "Reithrodontomys megalotis",
+          "taxon_id": "REME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0010010010010009784,
+          "carrier_excess": 0.0010010010010009784,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.998998998998999,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 3354959804378924069,
+          "null_seed": 12512325013923647427,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 59,
+          "positive_node_fraction_of_guild": 0.10669077757685352,
+          "scientific_name": "Reithrodontomys montanus",
+          "taxon_id": "REMO",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "20b96c643dcaf807a8b297ba44a8764e5cf1c8d547cc5c343239b50c76b7f7d6",
+      "x_excluded_positive_node_count": 6,
+      "x_excluded_positive_row_count": 6
+    },
+    {
+      "eligible_species_count": 6,
+      "expected_carrier_count_count_conditioned": 1.4824824824824825,
+      "fingerprint": "c98666c2835c9f1b605b7b9ef8abae01b69eb3759fc1a9a68cdf5c9ced84b86d",
+      "guild_positive_node_count": 496,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.08041374708041374,
+      "mean_species_carrier_excess": -0.08041374708041374,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.023023023023023025,
+      "node_registry_fingerprint": "cc0ec61cf13b70403d1206d9e2b98dee12ed6b4c9694dd6584620a1a33c18e1a",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 8,
+      "site_code": "TALL",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.012012012012012012,
+          "carrier_excess": -0.012012012012012012,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.012012012012012012,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 6197220802178608139,
+          "null_seed": 4331347528364719757,
+          "observed_carrier": 0,
+          "observed_grid_count": 2,
+          "positive_node_count": 3,
+          "positive_node_fraction_of_guild": 0.006048387096774193,
+          "scientific_name": "Microtus pinetorum",
+          "taxon_id": "MIPI",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.02702702702702703,
+          "carrier_excess": -0.02702702702702703,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.02702702702702703,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 7732462250930196951,
+          "null_seed": 6524251275959959170,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.012096774193548387,
+          "scientific_name": "Neotoma floridana",
+          "taxon_id": "NEFL",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.28128128128128127,
+          "carrier_excess": -0.28128128128128127,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.28128128128128127,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 12529737718998257645,
+          "null_seed": 11684590906671079753,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 25,
+          "positive_node_fraction_of_guild": 0.05040322580645161,
+          "scientific_name": "Ochrotomys nuttalli",
+          "taxon_id": "OCNU",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 11636064995227912701,
+          "null_seed": 3210484018990311085,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 474,
+          "positive_node_fraction_of_guild": 0.9556451612903226,
+          "scientific_name": "Peromyscus gossypinus",
+          "taxon_id": "PEGO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.01901901901901902,
+          "carrier_excess": -0.01901901901901902,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.01901901901901902,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 4675674459796068594,
+          "null_seed": 6049459213991337822,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.012096774193548387,
+          "scientific_name": "Peromyscus polionotus",
+          "taxon_id": "PEPO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.14314314314314314,
+          "carrier_excess": -0.14314314314314314,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.14314314314314314,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 919635677808454206,
+          "null_seed": 2558447253029395849,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 20,
+          "positive_node_fraction_of_guild": 0.04032258064516129,
+          "scientific_name": "Sigmodon hispidus",
+          "taxon_id": "SIHI",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "867c45fcb759340f66f40fe18b9b948bbc3f2c82eca2a39ee4838a80481e3cdb",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    },
+    {
+      "eligible_species_count": 3,
+      "expected_carrier_count_count_conditioned": 0.5095095095095095,
+      "fingerprint": "da6127595aefdfe0d13065cedc2dddfc2cd261221d79cd811194f43939e42ce1",
+      "guild_positive_node_count": 47,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": 0.16349683016349686,
+      "mean_species_carrier_excess": 0.16349683016349686,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.15515515515515516,
+      "node_registry_fingerprint": "72d6339f0780fd200f197b82cb6a0f54f13482457ccd67ced071d10646207d04",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 3,
+      "site_code": "TEAK",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.15515515515515516,
+          "carrier_excess": -0.15515515515515516,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.15515515515515516,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 7956744061879906194,
+          "null_seed": 8523854650398900571,
+          "observed_carrier": 0,
+          "observed_grid_count": 3,
+          "positive_node_count": 22,
+          "positive_node_fraction_of_guild": 0.46808510638297873,
+          "scientific_name": "Microtus longicaudus",
+          "taxon_id": "MILO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.8098098098098099,
+          "carrier_excess": 0.8098098098098099,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.19019019019019018,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 551330193967141235,
+          "null_seed": 1470763962173926034,
+          "observed_carrier": 1,
+          "observed_grid_count": 1,
+          "positive_node_count": 18,
+          "positive_node_fraction_of_guild": 0.3829787234042553,
+          "scientific_name": "Microtus montanus",
+          "taxon_id": "MIMO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.16416416416416416,
+          "carrier_excess": -0.16416416416416416,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.16416416416416416,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 12201847352110218243,
+          "null_seed": 14106979036430641072,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 19,
+          "positive_node_fraction_of_guild": 0.40425531914893614,
+          "scientific_name": "Peromyscus boylii",
+          "taxon_id": "PEBO",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "128ccb8ca5b370e2b4307e5e6939454ca127b63c59fdc606abb83ee32934c042",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    },
+    {
+      "eligible_species_count": 4,
+      "expected_carrier_count_count_conditioned": 0.8418418418418419,
+      "fingerprint": "de4f7d7bd41e51b454a57c1385ef6bbece5414d1ec67246c483c762dcde6a7f9",
+      "guild_positive_node_count": 166,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": 0.039539539539539544,
+      "mean_species_carrier_excess": 0.039539539539539544,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.20070070070070067,
+      "node_registry_fingerprint": "88e29d1fc9c6e5abc1674f44097491bf444e86f05c4654c2fec0f91d50f2b080",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 5,
+      "site_code": "TOOL",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.16316316316316315,
+          "carrier_excess": -0.16316316316316315,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.16316316316316315,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 13463982893772493604,
+          "null_seed": 15075138529151842345,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 120,
+          "positive_node_fraction_of_guild": 0.7228915662650602,
+          "scientific_name": "Alexandromys oeconomus",
+          "taxon_id": "ALOE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.23823823823823823,
+          "carrier_excess": -0.23823823823823823,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.23823823823823823,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 149662920091939261,
+          "null_seed": 18237399859813987966,
+          "observed_carrier": 0,
+          "observed_grid_count": 2,
+          "positive_node_count": 2,
+          "positive_node_fraction_of_guild": 0.012048192771084338,
+          "scientific_name": "Dicrostonyx groenlandicus",
+          "taxon_id": "DIGR",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.8538538538538538,
+          "carrier_excess": 0.8538538538538538,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.14614614614614616,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 8766686238310848790,
+          "null_seed": 132629835786616067,
+          "observed_carrier": 1,
+          "observed_grid_count": 3,
+          "positive_node_count": 15,
+          "positive_node_fraction_of_guild": 0.09036144578313253,
+          "scientific_name": "Microtus miurus",
+          "taxon_id": "MIMI",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.29429429429429427,
+          "carrier_excess": -0.29429429429429427,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.29429429429429427,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 8460387897933336115,
+          "null_seed": 12552759017034094709,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 46,
+          "positive_node_fraction_of_guild": 0.27710843373493976,
+          "scientific_name": "Myodes rutilus",
+          "taxon_id": "MYRU",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "3973276f1b0a620ab40a291737328e22bef11c805cb4cb1aedfd1938d131be27",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    },
+    {
+      "eligible_species_count": 5,
+      "expected_carrier_count_count_conditioned": 2.5665665665665665,
+      "fingerprint": "86ac9855da0ae4a479daeeef7bab127514e3d2b6f26181a045536858ca739cf2",
+      "guild_positive_node_count": 288,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.3127127127127127,
+      "mean_species_carrier_excess": -0.3133133133133133,
+      "mean_within_grid_organization_component": -0.0006006006006006006,
+      "median_species_carrier_excess": -0.2972972972972973,
+      "node_registry_fingerprint": "ee18a816591a61c40e90ac337aaaab8d0cb9709ffa8075cca18544e10b39c093",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 5,
+      "site_code": "TREE",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.2942942942942943,
+          "carrier_excess": -0.2972972972972973,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.2972972972972973,
+          "expected_carrier_probability_grid_conditioned": 0.003003003003003003,
+          "grid_null_seed": 16615872305409916437,
+          "null_seed": 1025585041717867515,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 21,
+          "positive_node_fraction_of_guild": 0.07291666666666667,
+          "scientific_name": "Microtus pennsylvanicus",
+          "taxon_id": "MIPE",
+          "within_grid_organization_component": -0.003003003003003003
+        },
+        {
+          "between_grid_allocation_component": 0.16016016016016021,
+          "carrier_excess": 0.16016016016016021,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.8398398398398398,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 14680594154544301594,
+          "null_seed": 15927161168656697156,
+          "observed_carrier": 1,
+          "observed_grid_count": 7,
+          "positive_node_count": 167,
+          "positive_node_fraction_of_guild": 0.5798611111111112,
+          "scientific_name": "Myodes gapperi",
+          "taxon_id": "MYGA",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.42742742742742745,
+          "carrier_excess": -0.42742742742742745,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.42742742742742745,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 9934958501332333710,
+          "null_seed": 11164219043918287268,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 32,
+          "positive_node_fraction_of_guild": 0.1111111111111111,
+          "scientific_name": "Napaeozapus insignis",
+          "taxon_id": "NAIN",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.24924924924924924,
+          "carrier_excess": -0.24924924924924924,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.24924924924924924,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 6723382299844197952,
+          "null_seed": 13244362518632530615,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 19,
+          "positive_node_fraction_of_guild": 0.06597222222222222,
+          "scientific_name": "Synaptomys cooperi",
+          "taxon_id": "SYCO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.7527527527527528,
+          "carrier_excess": -0.7527527527527528,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.7527527527527528,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 13363035853374100557,
+          "null_seed": 13575350422693034204,
+          "observed_carrier": 0,
+          "observed_grid_count": 7,
+          "positive_node_count": 146,
+          "positive_node_fraction_of_guild": 0.5069444444444444,
+          "scientific_name": "Zapus hudsonius",
+          "taxon_id": "ZAHU",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "bdb92fc6d35bd327a42dff6cfae0f53a3ed25200db19a70f7d5e54022e55abc3",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    },
+    {
+      "eligible_species_count": 4,
+      "expected_carrier_count_count_conditioned": 3.5295295295295297,
+      "fingerprint": "deddee4ae596b700ff1babe0c27f16770d84860dc9d9e51dcab4980969c346f8",
+      "guild_positive_node_count": 426,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.13238238238238237,
+      "mean_species_carrier_excess": -0.13238238238238237,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": 0.0,
+      "node_registry_fingerprint": "966a88099ec0e190390e66a50b7488456a4467b7baaa33fe72291398436aed36",
+      "observed_carrier_count": 3,
+      "observed_target_species_count": 6,
+      "site_code": "UKFS",
+      "species_results": [
+        {
+          "between_grid_allocation_component": 0.05305305305305308,
+          "carrier_excess": 0.05305305305305308,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.9469469469469469,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 12046857003440748060,
+          "null_seed": 4416798744965292133,
+          "observed_carrier": 1,
+          "observed_grid_count": 3,
+          "positive_node_count": 96,
+          "positive_node_fraction_of_guild": 0.22535211267605634,
+          "scientific_name": "Microtus ochrogaster",
+          "taxon_id": "MIOC",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 4485323418859739791,
+          "null_seed": 17607930674416467076,
+          "observed_carrier": 1,
+          "observed_grid_count": 4,
+          "positive_node_count": 182,
+          "positive_node_fraction_of_guild": 0.4272300469483568,
+          "scientific_name": "Neotoma floridana",
+          "taxon_id": "NEFL",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.5825825825825826,
+          "carrier_excess": -0.5825825825825826,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.5825825825825826,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 14519398910620213434,
+          "null_seed": 17728939702382609115,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 33,
+          "positive_node_fraction_of_guild": 0.07746478873239436,
+          "scientific_name": "Reithrodontomys megalotis",
+          "taxon_id": "REME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 658269862724682511,
+          "null_seed": 4210681282486606907,
+          "observed_carrier": 1,
+          "observed_grid_count": 6,
+          "positive_node_count": 278,
+          "positive_node_fraction_of_guild": 0.6525821596244131,
+          "scientific_name": "Sigmodon hispidus",
+          "taxon_id": "SIHI",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "3eef2326fdcd0795ad6d753248f908e05d7913cb7f6dc0a589f8ac86ca4f03a8",
+      "x_excluded_positive_node_count": 1,
+      "x_excluded_positive_row_count": 1
+    },
+    {
+      "eligible_species_count": 4,
+      "expected_carrier_count_count_conditioned": 2.186186186186186,
+      "fingerprint": "677686cc1f8df1d9349e2805297132f99446e54ccf95812c54e09f1a996317b4",
+      "guild_positive_node_count": 788,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.04654654654654655,
+      "mean_species_carrier_excess": -0.04654654654654655,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.025525525525525526,
+      "node_registry_fingerprint": "e40b8cb7fd20e59f0530a8eeeeccf97ce8ecc56d899c29442b1ed3daf4738c4c",
+      "observed_carrier_count": 2,
+      "observed_target_species_count": 4,
+      "site_code": "WOOD",
+      "species_results": [
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 4932348470609722863,
+          "null_seed": 15281533392038074384,
+          "observed_carrier": 1,
+          "observed_grid_count": 11,
+          "positive_node_count": 753,
+          "positive_node_fraction_of_guild": 0.9555837563451777,
+          "scientific_name": "Microtus pennsylvanicus",
+          "taxon_id": "MIPE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.05105105105105105,
+          "carrier_excess": -0.05105105105105105,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.05105105105105105,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 4659155847316004557,
+          "null_seed": 18037842750053140106,
+          "observed_carrier": 0,
+          "observed_grid_count": 2,
+          "positive_node_count": 6,
+          "positive_node_fraction_of_guild": 0.007614213197969543,
+          "scientific_name": "Reithrodontomys megalotis",
+          "taxon_id": "REME",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.3433433433433433,
+          "carrier_excess": -0.3433433433433433,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.3433433433433433,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 9318390597175194258,
+          "null_seed": 11286049503832413827,
+          "observed_carrier": 0,
+          "observed_grid_count": 9,
+          "positive_node_count": 62,
+          "positive_node_fraction_of_guild": 0.07868020304568528,
+          "scientific_name": "Zapus hudsonius",
+          "taxon_id": "ZAHU",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.20820820820820818,
+          "carrier_excess": 0.20820820820820818,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.7917917917917918,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 11221177203019677485,
+          "null_seed": 3150057037788467999,
+          "observed_carrier": 1,
+          "observed_grid_count": 10,
+          "positive_node_count": 147,
+          "positive_node_fraction_of_guild": 0.1865482233502538,
+          "scientific_name": "Zapus princeps",
+          "taxon_id": "ZAPR",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "025865e11ac1253daf8571ee7f495b6619e6f5626e03ee21e255c54f5090fd0b",
+      "x_excluded_positive_node_count": 2,
+      "x_excluded_positive_row_count": 2
+    },
+    {
+      "eligible_species_count": 3,
+      "expected_carrier_count_count_conditioned": 2.716716716716717,
+      "fingerprint": "fcc4f83bfad168ededc95894042f83a4a3cba57211549dcc9ce9744838cf29b4",
+      "guild_positive_node_count": 546,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.5722389055722389,
+      "mean_species_carrier_excess": -0.5722389055722389,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.7227227227227228,
+      "node_registry_fingerprint": "f4aedb9c3232d8cdf1768c5b8d4484b7929bc1e0d59b0665c821ef8d86f2ea92",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 4,
+      "site_code": "WREF",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.7227227227227228,
+          "carrier_excess": -0.7227227227227228,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.7227227227227228,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 4901594436767791775,
+          "null_seed": 17041218571832696464,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 49,
+          "positive_node_fraction_of_guild": 0.08974358974358974,
+          "scientific_name": "Microtus oregoni",
+          "taxon_id": "MIOR",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.993993993993994,
+          "carrier_excess": -0.993993993993994,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.993993993993994,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 6240497673538812888,
+          "null_seed": 361568726012573076,
+          "observed_carrier": 0,
+          "observed_grid_count": 8,
+          "positive_node_count": 135,
+          "positive_node_fraction_of_guild": 0.24725274725274726,
+          "scientific_name": "Myodes gapperi",
+          "taxon_id": "MYGA",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.0,
+          "carrier_excess": 0.0,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 1.0,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 2737291915008100794,
+          "null_seed": 15180287818237518665,
+          "observed_carrier": 1,
+          "observed_grid_count": 8,
+          "positive_node_count": 490,
+          "positive_node_fraction_of_guild": 0.8974358974358975,
+          "scientific_name": "Peromyscus keeni",
+          "taxon_id": "PEKE",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "665fd3f2fe1750e14b37388febbd32efd629e3a48c62dec4b44634090692b301",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    },
+    {
+      "eligible_species_count": 5,
+      "expected_carrier_count_count_conditioned": 1.6956956956956957,
+      "fingerprint": "1f6130fce41df4e8148b4a31e0422b45087113679717ace98b3d3bc24eab7d84",
+      "guild_positive_node_count": 120,
+      "max_abs_decomposition_reconstruction_error": 0.0,
+      "mean_between_grid_allocation_component": -0.13913913913913914,
+      "mean_species_carrier_excess": -0.13913913913913914,
+      "mean_within_grid_organization_component": 0.0,
+      "median_species_carrier_excess": -0.3303303303303303,
+      "node_registry_fingerprint": "4972fbe1fbe65fbbbf1f9beae72bd7f7c4c83f801087c8a8bc3d1f78b7931435",
+      "observed_carrier_count": 1,
+      "observed_target_species_count": 5,
+      "site_code": "YELL",
+      "species_results": [
+        {
+          "between_grid_allocation_component": -0.2982982982982983,
+          "carrier_excess": -0.2982982982982983,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.2982982982982983,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 4810818215104508588,
+          "null_seed": 4200041210272672337,
+          "observed_carrier": 0,
+          "observed_grid_count": 2,
+          "positive_node_count": 2,
+          "positive_node_fraction_of_guild": 0.016666666666666666,
+          "scientific_name": "Microtus longicaudus",
+          "taxon_id": "MILO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.33933933933933935,
+          "carrier_excess": -0.33933933933933935,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.33933933933933935,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 11488851865194482116,
+          "null_seed": 3667441212001491341,
+          "observed_carrier": 0,
+          "observed_grid_count": 5,
+          "positive_node_count": 40,
+          "positive_node_fraction_of_guild": 0.3333333333333333,
+          "scientific_name": "Microtus montanus",
+          "taxon_id": "MIMO",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.33633633633633636,
+          "carrier_excess": -0.33633633633633636,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.33633633633633636,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 12460913761825553690,
+          "null_seed": 7576315712992754465,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 42,
+          "positive_node_fraction_of_guild": 0.35,
+          "scientific_name": "Microtus pennsylvanicus",
+          "taxon_id": "MIPE",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": 0.6086086086086087,
+          "carrier_excess": 0.6086086086086087,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.3913913913913914,
+          "expected_carrier_probability_grid_conditioned": 1.0,
+          "grid_null_seed": 360139312520215697,
+          "null_seed": 5273468052234735918,
+          "observed_carrier": 1,
+          "observed_grid_count": 2,
+          "positive_node_count": 25,
+          "positive_node_fraction_of_guild": 0.20833333333333334,
+          "scientific_name": "Myodes gapperi",
+          "taxon_id": "MYGA",
+          "within_grid_organization_component": 0.0
+        },
+        {
+          "between_grid_allocation_component": -0.3303303303303303,
+          "carrier_excess": -0.3303303303303303,
+          "decomposition_reconstruction_error": 0.0,
+          "expected_carrier_probability_count_conditioned": 0.3303303303303303,
+          "expected_carrier_probability_grid_conditioned": 0.0,
+          "grid_null_seed": 12735257168279382423,
+          "null_seed": 7176274301155303031,
+          "observed_carrier": 0,
+          "observed_grid_count": 4,
+          "positive_node_count": 43,
+          "positive_node_fraction_of_guild": 0.35833333333333334,
+          "scientific_name": "Zapus princeps",
+          "taxon_id": "ZAPR",
+          "within_grid_organization_component": 0.0
+        }
+      ],
+      "status": "scored_carrier_prevalence_mechanism",
+      "world_universe_fingerprint": "94f73221821197b90f55771896bb621a7cf605e850347f857ecc34844cc4ed62",
+      "x_excluded_positive_node_count": 0,
+      "x_excluded_positive_row_count": 0
+    }
+  ],
+  "status": "completed_estimable_once_only_response",
+  "stopped_site_count": 0,
+  "target_pool_traits_fingerprint": "8f1ee0b6a2d85c1d85b53b55aaefe6a02f40e8b748e13be9e4f9502ebe28346b"
+}

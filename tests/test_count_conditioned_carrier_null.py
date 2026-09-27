@@ -51,6 +51,50 @@ class CountConditionedCarrierNullTests(unittest.TestCase):
         self.assertEqual(expected,0.5)
         self.assertEqual(excess,0.5)
 
+    def test_grid_conditioning_can_remove_between_grid_allocation_signal(self):
+        # Two grids, two nodes each. Only within-grid pairs are adjacent.
+        # Observed positives occupy one whole grid, so observed is a carrier.
+        # Sitewide random placement has 2/6 carrier probability; conditioning on
+        # the observed 2+0 grid allocation makes carrier probability exactly 1.
+        nodes=[0,1,2,3]
+        grid={0:"g1",1:"g1",2:"g2",3:"g2"}
+        worlds=[{(0,1),(2,3)}]
+        d=m.grid_conditioned_decomposition(
+            {0,1},nodes,grid,worlds,
+            replicates=999,sitewide_seed=1,grid_seed=2
+        )
+        self.assertEqual(d["observed_carrier"],1)
+        self.assertAlmostEqual(d["expected_sitewide"],2/6)
+        self.assertEqual(d["expected_grid_conditioned"],1.0)
+        self.assertAlmostEqual(d["between_grid_allocation_component"],2/3)
+        self.assertEqual(d["within_grid_organization_component"],0.0)
+        self.assertAlmostEqual(d["reconstruction_error"],0.0)
+
+    def test_grid_conditioning_can_retain_within_grid_organization_signal(self):
+        # One grid: grid-conditioned and sitewide nulls are identical, so any
+        # observed excess is entirely within-grid organization.
+        nodes=[0,1,2,3]
+        grid={i:"g1" for i in nodes}
+        worlds=[{(0,1),(1,2),(2,3)}]
+        d=m.grid_conditioned_decomposition(
+            {0,1},nodes,grid,worlds,
+            replicates=999,sitewide_seed=1,grid_seed=2
+        )
+        self.assertEqual(d["observed_carrier"],1)
+        self.assertAlmostEqual(d["expected_sitewide"],0.5)
+        self.assertAlmostEqual(d["expected_grid_conditioned"],0.5)
+        self.assertAlmostEqual(d["between_grid_allocation_component"],0.0)
+        self.assertAlmostEqual(d["within_grid_organization_component"],0.5)
+        self.assertAlmostEqual(d["reconstruction_error"],0.0)
+
+    def test_grid_seed_is_deterministic_and_distinct(self):
+        a=m.deterministic_grid_seed("TEST","Species alpha")
+        b=m.deterministic_grid_seed("TEST","Species alpha")
+        c=m.deterministic_grid_seed("TEST","Species beta")
+        self.assertEqual(a,b)
+        self.assertNotEqual(a,c)
+        self.assertNotEqual(a,m.deterministic_seed("TEST","Species alpha"))
+
     def test_seed_is_deterministic_and_species_specific(self):
         a=m.deterministic_seed("TEST","Species alpha")
         b=m.deterministic_seed("TEST","Species alpha")
