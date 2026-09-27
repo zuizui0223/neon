@@ -34,7 +34,7 @@ class PortalCpenPhase2Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.prepare_portal_primary(rows)
 
-    def test_build_model_is_true_crossed_plot_period_structure(self):
+    def test_build_model_uses_period_fixed_effects_and_full_rank(self):
         rows=[]
         for period in range(6):
             for plot in range(4):
@@ -48,11 +48,12 @@ class PortalCpenPhase2Tests(unittest.TestCase):
                     "period":str(period),
                 })
         df=m.prepare_portal_primary(rows)
-        model=m.build_portal_mixed_model(df)
-        np.testing.assert_allclose(np.unique(model.groups),[1.0])
-        self.assertEqual(model.k_re,0)
-        self.assertEqual(model.k_vc,2)
-        self.assertEqual(set(model.exog_vc.names),{"plot","period"})
+        model=m.build_portal_primary_model(df)
+        self.assertEqual(
+            model.formula,
+            "packing_z ~ C(treatment, Treatment(reference='control')) * z_logN + C(period)",
+        )
+        self.assertEqual(np.linalg.matrix_rank(model.exog),model.exog.shape[1])
 
     def test_primary_term_names_are_frozen(self):
         terms=m.primary_term_names()
