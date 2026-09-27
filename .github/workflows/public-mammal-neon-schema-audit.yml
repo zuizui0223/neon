@@ -1,0 +1,91 @@
+name: public-mammal-neon-schema-audit
+
+on:
+  push:
+    branches:
+      - design/public-mammal-space-use-v1
+    paths:
+      - .github/workflows/public-mammal-neon-schema-audit.yml
+  workflow_dispatch:
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Query public NEON schema sample
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python - <<'PY'
+          import csv, io, json, os, urllib.request
+          from pathlib import Path
+
+          body={
+              "productCode":"DP1.10072.001",
+              "siteCodes":["SRER"],
+              "startDateMonth":"2024-01",
+              "endDateMonth":"2024-12",
+              "release":"RELEASE-2026",
+              "package":"basic",
+              "includeProvisional":False,
+          }
+          req=urllib.request.Request(
+              "https://data.neonscience.org/api/v0/data/query",
+              data=json.dumps(body).encode(),
+              method="POST",
+              headers={
+                  "Content-Type":"application/json",
+                  "User-Agent":"neon-public-mammal-schema/1.0",
+                  "X-API-Token":os.environ["NEON_API_TOKEN"],
+              },
+          )
+          with urllib.request.urlopen(req,timeout=120) as r:
+              payload=json.loads(r.read().decode())
+
+          release=[r for r in payload["data"]["releases"] if r["release"]=="RELEASE-2026"][0]
+          files=[]
+          for package in release["packages"]:
+              for row in package.get("files",[]):
+                  name=row.get("name","")
+                  if any(key in name for key in ("mam_perplotnight","mam_pertrapnight","categoricalCodes_10072","variables_10072")) and name.lower().endswith(".csv"):
+                      files.append(row)
+          chosen={}
+          for row in files:
+              name=row["name"]
+              key=next(k for k in ("mam_perplotnight","mam_pertrapnight","categoricalCodes","variables") if k in name)
+              if key in chosen:
+                  continue
+              request=urllib.request.Request(row["url"],headers={"User-Agent":"neon-public-mammal-schema/1.0","X-API-Token":os.environ["NEON_API_TOKEN"]})
+              with urllib.request.urlopen(request,timeout=120) as response:
+                  raw=response.read()
+              text=raw.decode("utf-8-sig")
+              reader=csv.DictReader(io.StringIO(text))
+              rows=list(reader)
+              chosen[key]={
+                  "name":name,
+                  "fieldnames":reader.fieldnames,
+                  "row_count":len(rows),
+              }
+              if key=="mam_perplotnight":
+                  chosen[key]["mammalGridSamplingType_values"]=sorted({str(x.get("mammalGridSamplingType","")) for x in rows})
+                  chosen[key]["gridCompletion_values"]=sorted({str(x.get("gridCompletion","")) for x in rows})
+                  chosen[key]["samplingImpractical_values"]=sorted({str(x.get("samplingImpractical","")) for x in rows})
+              if key=="mam_pertrapnight":
+                  chosen[key]["trapStatus_values"]=sorted({str(x.get("trapStatus","")) for x in rows})
+                  chosen[key]["identificationQualifier_values"]=sorted({str(x.get("identificationQualifier","")) for x in rows})
+          out={"query":body,"files":chosen}
+          Path("results/generated").mkdir(parents=True,exist_ok=True)
+          Path("results/generated/neon_schema_audit_v1.json").write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(out,indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-neon-schema-audit-v1
+          path: results/generated/neon_schema_audit_v1.json
+          if-no-files-found: error
+          retention-days: 30
