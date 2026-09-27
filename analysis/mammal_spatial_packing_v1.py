@@ -68,17 +68,12 @@ def packing_null(
     }
 
 
-def packing_score(
+def packing_score_from_null(
     observed_xy: np.ndarray,
-    active_traps_xy: np.ndarray,
-    *,
-    replicates: int,
-    seed: int,
+    null: dict[str, Any],
 ) -> dict[str, Any]:
     observed=_validated_xy(observed_xy,"observed_xy")
-    traps=_validated_xy(active_traps_xy,"active_traps_xy")
     n=len(observed)
-
     if n < 2:
         return {
             "n_individuals":n,
@@ -91,32 +86,53 @@ def packing_score(
             "estimable":False,
             "non_estimable_reason":"fewer_than_two_individuals",
         }
-    if n > len(traps):
-        raise ValueError("observed individual count cannot exceed active trap count")
 
     observed_mpd=mean_pairwise_distance(observed)
-    null=packing_null(traps,n,replicates=replicates,seed=seed)
-    if null["sd"] <= 0.0:
+    null_sd=float(null["sd"])
+    if null_sd <= 0.0:
         return {
             "n_individuals":n,
             "mpd_observed":observed_mpd,
-            "mpd_null_mean":null["mean"],
-            "mpd_null_sd":null["sd"],
+            "mpd_null_mean":float(null["mean"]),
+            "mpd_null_sd":null_sd,
             "packing_z":None,
             "null_mode":null["mode"],
-            "null_draw_count":null["draw_count"],
+            "null_draw_count":int(null["draw_count"]),
             "estimable":False,
             "non_estimable_reason":"zero_null_variance",
         }
 
+    null_mean=float(null["mean"])
     return {
         "n_individuals":n,
         "mpd_observed":observed_mpd,
-        "mpd_null_mean":null["mean"],
-        "mpd_null_sd":null["sd"],
-        "packing_z":(observed_mpd-null["mean"])/null["sd"],
+        "mpd_null_mean":null_mean,
+        "mpd_null_sd":null_sd,
+        "packing_z":(observed_mpd-null_mean)/null_sd,
         "null_mode":null["mode"],
-        "null_draw_count":null["draw_count"],
+        "null_draw_count":int(null["draw_count"]),
         "estimable":True,
         "non_estimable_reason":None,
     }
+
+
+def packing_score(
+    observed_xy: np.ndarray,
+    active_traps_xy: np.ndarray,
+    *,
+    replicates: int,
+    seed: int,
+) -> dict[str, Any]:
+    observed=_validated_xy(observed_xy,"observed_xy")
+    traps=_validated_xy(active_traps_xy,"active_traps_xy")
+    n=len(observed)
+
+    if n < 2:
+        return packing_score_from_null(observed,{
+            "mean":0.0,"sd":0.0,"mode":"none","draw_count":0,
+        })
+    if n > len(traps):
+        raise ValueError("observed individual count cannot exceed active trap count")
+
+    null=packing_null(traps,n,replicates=replicates,seed=seed)
+    return packing_score_from_null(observed,null)
