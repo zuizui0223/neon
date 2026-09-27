@@ -61,7 +61,11 @@
       "cg"
     ],
     "primary_estimand": "treatment main effect at mean log(N)",
-    "secondary_estimand": "treatment x z_logN interaction"
+    "secondary_estimand": "treatment x z_logN interaction",
+    "session_treatment_mapping": {
+      "control": "control",
+      "exclosure": "kangaroo_rat_exclosure"
+    }
   },
   "neon_primary": {
     "species": "Myodes rutilus",
