@@ -1,0 +1,23 @@
+nlcd_class,habitat_group
+,other_rare
+Open Water,other_rare
+Perennial Ice/Snow,other_rare
+"Developed, Open Space",other_rare
+"Developed, Low Intensity",other_rare
+"Developed, Medium Intensity",other_rare
+"Developed, High Intensity",other_rare
+Barren Land,other_rare
+"Barren Land (Rock/Sand/Clay)",other_rare
+Deciduous Forest,forest
+Evergreen Forest,forest
+Mixed Forest,forest
+Dwarf Scrub,shrub_scrub
+Shrub/Scrub,shrub_scrub
+Grassland/Herbaceous,grassland_herbaceous
+Sedge/Herbaceous,grassland_herbaceous
+Lichens,other_rare
+Moss,other_rare
+Pasture/Hay,cropland_pasture
+Cultivated Crops,cropland_pasture
+Woody Wetlands,wetland
+Emergent Herbaceous Wetlands,wetland
