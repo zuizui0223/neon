@@ -72,7 +72,7 @@ jobs:
                   "row_count":len(rows),
               }
               if key=="mam_perplotnight":
-                  chosen[key]["mammalGridSamplingType_values"]=sorted({str(x.get("mammalGridSamplingType","")) for x in rows})
+                  chosen[key]["mammalGridSamplingMethod_values"]=sorted({str(x.get("mammalGridSamplingMethod","")) for x in rows})
                   chosen[key]["gridCompletion_values"]=sorted({str(x.get("gridCompletion","")) for x in rows})
                   chosen[key]["samplingImpractical_values"]=sorted({str(x.get("samplingImpractical","")) for x in rows})
               if key=="mam_pertrapnight":
