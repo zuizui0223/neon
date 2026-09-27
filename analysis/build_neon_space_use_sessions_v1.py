@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import math
+import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Iterable
@@ -61,6 +63,78 @@ def _valid_trap_coordinate(value: object) -> bool:
 
 def _node_id(row: dict) -> str:
     return f"{str(row.get('namedLocation','')).strip()}.{str(row.get('trapCoordinate','')).strip()}"
+
+
+def coordinate_map_from_trap_rows(rows: Iterable[dict]) -> dict[str, tuple[float,float]]:
+    by_plot_node: dict[str,dict[str,list[tuple[float,float]]]]=defaultdict(lambda: defaultdict(list))
+    for raw in rows:
+        row=dict(raw)
+        plot=str(row.get("plotID","")).strip()
+        node=_node_id(row)
+        coord=str(row.get("trapCoordinate","")).strip()
+        if not plot or not node or not _valid_trap_coordinate(coord):
+            continue
+        try:
+            lat=float(row.get("decimalLatitude"))
+            lon=float(row.get("decimalLongitude"))
+        except (TypeError,ValueError):
+            continue
+        if not math.isfinite(lat) or not math.isfinite(lon):
+            continue
+        by_plot_node[plot][node].append((lat,lon))
+
+    result: dict[str,tuple[float,float]]={}
+    earth_radius_m=6371008.8
+    for plot in sorted(by_plot_node):
+        nodes=by_plot_node[plot]
+        if not nodes:
+            continue
+        canonical={
+            node:(
+                statistics.median(v[0] for v in values),
+                statistics.median(v[1] for v in values),
+            )
+            for node,values in nodes.items()
+        }
+        origin_node=sorted(canonical)[0]
+        lat0,lon0=canonical[origin_node]
+        lat0_rad=math.radians(lat0)
+        for node,(lat,lon) in canonical.items():
+            x=earth_radius_m*math.cos(lat0_rad)*math.radians(lon-lon0)
+            y=earth_radius_m*math.radians(lat-lat0)
+            result[node]=(x,y)
+    return result
+
+
+def summarize_neon_sessions(sessions: Iterable[dict]) -> dict:
+    rows=[dict(row) for row in sessions]
+    species_habitat: dict[str,Counter]=defaultdict(Counter)
+    for row in rows:
+        species_habitat[str(row.get("species",""))][str(row.get("nlcd_class",""))]+=1
+    active=[int(row["active_trap_count"]) for row in rows if row.get("active_trap_count") not in (None,"")]
+    years=[int(row["year"]) for row in rows if row.get("year") not in (None,"")]
+    return {
+        "schema":"neon.public_mammal_space_use.neon_inventory.v1",
+        "session_count":len(rows),
+        "site_count":len({str(row.get("site","")) for row in rows if str(row.get("site",""))}),
+        "plot_count":len({str(row.get("plot_id","")) for row in rows if str(row.get("plot_id",""))}),
+        "event_count":len({str(row.get("event_id","")) for row in rows if str(row.get("event_id",""))}),
+        "species_count":len({str(row.get("species","")) for row in rows if str(row.get("species",""))}),
+        "eligible_n3":sum(bool(row.get("sensitivity_n3_eligible")) for row in rows),
+        "eligible_n5":sum(bool(row.get("primary_n5_eligible")) for row in rows),
+        "eligible_n8":sum(bool(row.get("sensitivity_n8_eligible")) for row in rows),
+        "packing_estimable_count":sum(bool(row.get("packing_estimable")) for row in rows),
+        "cryptic_complex_session_count":sum(bool(row.get("cryptic_complex_sensitivity")) for row in rows),
+        "uncertain_capture_rows_excluded":sum(int(row.get("uncertain_capture_rows_excluded",0) or 0) for row in rows),
+        "history_linked_capture_count":sum(int(row.get("history_linked_capture_count",0) or 0) for row in rows),
+        "active_trap_count_range":[min(active),max(active)] if active else None,
+        "year_range":[min(years),max(years)] if years else None,
+        "species_habitat_session_counts":{
+            species:dict(sorted(counts.items()))
+            for species,counts in sorted(species_habitat.items())
+        },
+        "ecological_model_fits":0,
+    }
 
 
 def _geometry_fingerprint(points: np.ndarray) -> str:
