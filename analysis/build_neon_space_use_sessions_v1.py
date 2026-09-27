@@ -147,6 +147,33 @@ def _seed(geometry_fp: str, n: int) -> int:
     return int(hashlib.sha256(text.encode("utf-8")).hexdigest()[:16],16)
 
 
+def score_with_shared_null(
+    observed_xy: np.ndarray,
+    active_traps_xy: np.ndarray,
+    *,
+    geometry_fingerprint: str,
+    replicates: int,
+    cache: dict[tuple[str,int,int],dict],
+) -> dict:
+    observed=np.asarray(observed_xy,dtype=float)
+    n=len(observed)
+    if n < 2:
+        return PACKING.packing_score_from_null(
+            observed,
+            {"mean":0.0,"sd":0.0,"mode":"none","draw_count":0},
+        )
+
+    key=(str(geometry_fingerprint),int(n),int(replicates))
+    if key not in cache:
+        cache[key]=PACKING.packing_null(
+            np.asarray(active_traps_xy,dtype=float),
+            n,
+            replicates=replicates,
+            seed=_seed(str(geometry_fingerprint),n),
+        )
+    return PACKING.packing_score_from_null(observed,cache[key])
+
+
 def _mode(values: list[str]) -> str:
     clean=[v for v in values if v]
     if not clean:
@@ -196,6 +223,7 @@ def build_neon_sessions(
             traps_by_night[night].append(row)
 
     results=[]
+    null_cache: dict[tuple[str,int,int],dict]={}
     for (site,plot,event),event_rows in sorted(by_event.items()):
         # Primary diversity analysis requires exactly one trapping night in the bout.
         if len(event_rows)!=1:
@@ -273,11 +301,12 @@ def build_neon_sessions(
                 [coordinate_map[_node_id(row)] for row in retained],
                 dtype=float,
             )
-            score=PACKING.packing_score(
+            score=score_with_shared_null(
                 observed,
                 active_xy,
+                geometry_fingerprint=geometry_fp,
                 replicates=replicates,
-                seed=_seed(geometry_fp,n),
+                cache=null_cache,
             )
             nlcd=_mode([
                 str(row.get("nlcdClass","")).strip()
