@@ -232,8 +232,14 @@ def summarize_portal_sessions(sessions: Iterable[dict]) -> dict:
         for row in rows
         if row.get("pit_reliable_fraction") is not None
     ]
-    years=[int(row["year"]) for row in rows]
-    periods=[int(row["period"]) for row in rows]
+    years=[
+        int(row["year"]) for row in rows
+        if row.get("year") not in (None,"")
+    ]
+    periods=[
+        int(row["period"]) for row in rows
+        if row.get("period") not in (None,"")
+    ]
     return {
         "session_count":len(rows),
         "species_count":len({str(row["species"]) for row in rows}),
