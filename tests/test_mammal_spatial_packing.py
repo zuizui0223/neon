@@ -63,6 +63,18 @@ class MammalSpatialPackingTests(unittest.TestCase):
         self.assertTrue(out["estimable"])
         self.assertLess(out["packing_z"],0)
 
+    def test_packing_score_from_precomputed_null_matches_direct_score(self):
+        traps=np.array([[0.,0.],[1.,0.],[2.,0.],[10.,0.],[20.,0.]])
+        obs=np.array([[0.,0.],[1.,0.]])
+        null=m.packing_null(traps,2,replicates=999,seed=2)
+        cached=m.packing_score_from_null(obs,null)
+        direct=m.packing_score(obs,traps,replicates=999,seed=2)
+        self.assertEqual(cached["packing_z"],direct["packing_z"])
+        self.assertEqual(cached["mpd_null_mean"],direct["mpd_null_mean"])
+        self.assertEqual(cached["mpd_null_sd"],direct["mpd_null_sd"])
+        self.assertEqual(cached["null_mode"],direct["null_mode"])
+        self.assertEqual(cached["null_draw_count"],direct["null_draw_count"])
+
 
 if __name__=="__main__":
     unittest.main()
