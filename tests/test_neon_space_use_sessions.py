@@ -199,6 +199,23 @@ class NeonSpaceUseSessionTests(unittest.TestCase):
         self.assertEqual(rows[0]["packing_non_estimable_reason"],"zero_null_variance")
         self.assertFalse(rows[0]["primary_n5_eligible"])
 
+    def test_shared_null_cache_reuses_same_geometry_and_n(self):
+        import numpy as np
+        active=np.array([[0.,0.],[10.,0.],[20.,0.],[30.,0.],[40.,0.],[50.,0.]])
+        obs_a=np.array([[0.,0.],[10.,0.],[20.,0.]])
+        obs_b=np.array([[30.,0.],[40.,0.],[50.,0.]])
+        cache={}
+        a=m.score_with_shared_null(
+            obs_a,active,geometry_fingerprint="g",replicates=99,cache=cache
+        )
+        b=m.score_with_shared_null(
+            obs_b,active,geometry_fingerprint="g",replicates=99,cache=cache
+        )
+        self.assertEqual(len(cache),1)
+        self.assertEqual(a["mpd_null_mean"],b["mpd_null_mean"])
+        self.assertEqual(a["mpd_null_sd"],b["mpd_null_sd"])
+        self.assertNotEqual(a["mpd_observed"],b["mpd_observed"])
+
 
 if __name__=="__main__":
     unittest.main()
