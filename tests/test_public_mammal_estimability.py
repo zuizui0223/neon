@@ -79,6 +79,10 @@ class PublicMammalEstimabilityTests(unittest.TestCase):
         report=m.audit_estimability(portal,neon,neon_secondary={})
         self.assertEqual(report["neon"]["species_with_n5_ge5_sessions_in_ge2_sites"],["Strong"])
         self.assertNotIn("Weak",report["neon"]["species_with_n5_ge5_sessions_in_ge2_sites"])
+        self.assertEqual(
+            report["neon"]["n5_species_site_session_counts"]["Strong"],
+            {"S1":5,"S2":5},
+        )
 
     def test_neon_habitat_identifiability_requires_within_site_or_cross_site_replication(self):
         portal=[]
@@ -103,6 +107,10 @@ class PublicMammalEstimabilityTests(unittest.TestCase):
         self.assertNotIn(
             "Confounded",
             report["neon"]["species_with_primary_habitat_identifiability"],
+        )
+        self.assertEqual(
+            report["neon"]["n5_species_site_habitat_session_counts"]["Within"]["S1"],
+            {"forest":5,"grassland_herbaceous":5},
         )
 
 
