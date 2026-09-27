@@ -30,7 +30,9 @@
   "software": {
     "python": "3.12",
     "numpy": "2.1.1",
-    "statsmodels": "0.15.0"
+    "statsmodels": "0.15.0",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1"
   },
   "z_logN": {
     "transform": "natural_log",
