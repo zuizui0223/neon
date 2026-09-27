@@ -13,7 +13,7 @@ ZIP_PATH = DIST / "oikos_anonymous_review_package.zip"
 
 # Keep this list explicit. The review archive is deliberately narrower than the repository.
 FILES = {
-    "manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md":
+    "manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md":
         "manuscript/main_text.md",
     "manuscript/neon_metacommunity_redundancy/CLAIM_MATRIX_V1.json":
         "evidence/confirmatory_claim_matrix.json",
@@ -29,14 +29,40 @@ FILES = {
         "results/carrier_frequency_v1.csv",
     "results/site_pair_carrier_overlap_v1.csv":
         "results/site_pair_carrier_overlap_v1.csv",
+    "data/derived/combine_target_pool_traits_v1.csv":
+        "data/combine_target_pool_traits_v1.csv",
+    "data/external/carrier_niche_evidence_v2_all32.csv":
+        "data/carrier_niche_evidence_v2_all32.csv",
+    "results/carrier_niche_role_v2_all32.json":
+        "results/carrier_niche_role_v2_all32.json",
+    "results/combine_carrier_trait_summary_v1.json":
+        "results/combine_carrier_trait_summary_v1.json",
+    "results/carrier_prevalence_response_v1.json":
+        "results/carrier_prevalence_response_v1.json",
+    "results/carrier_prevalence_mechanism_summary_v1.json":
+        "results/carrier_prevalence_mechanism_summary_v1.json",
     "analysis/carrier_turnover_v1.py":
         "analysis/carrier_turnover_v1.py",
     "analysis/build_carrier_turnover_figure_v1.py":
         "analysis/build_carrier_turnover_figure_v1.py",
+    "analysis/carrier_niche_role_v2.py":
+        "analysis/carrier_niche_role_v2.py",
+    "analysis/analyze_combine_carrier_traits_v1.py":
+        "analysis/analyze_combine_carrier_traits_v1.py",
+    "analysis/count_conditioned_carrier_null_v1.py":
+        "analysis/count_conditioned_carrier_null_v1.py",
+    "analysis/build_carrier_mechanism_figure_v1.py":
+        "analysis/build_carrier_mechanism_figure_v1.py",
     "analysis/build_paper_assets.py":
         "analysis/build_paper_assets.py",
     "tests/test_frozen_results.py":
         "tests/test_frozen_results.py",
+    "tests/test_carrier_niche_role.py":
+        "tests/test_carrier_niche_role.py",
+    "tests/test_combine_carrier_traits.py":
+        "tests/test_combine_carrier_traits.py",
+    "tests/test_count_conditioned_carrier_null.py":
+        "tests/test_count_conditioned_carrier_null.py",
     "validation/neon_metacommunity_connectivity_v1/analysis_implementation_v1.json":
         "evidence/analysis_implementation_v1.json",
     "validation/neon_metacommunity_connectivity_v1/fresh_roster_lock_v1.json":
@@ -49,6 +75,16 @@ FILES = {
         "evidence/programme_closure_v1.json",
     "validation/neon_metacommunity_connectivity_v1/posthoc_redundancy_audit_v1.json":
         "evidence/posthoc_redundancy_audit_v1.json",
+    "validation/carrier_prevalence_mechanism_v1/protocol_v1.json":
+        "evidence/carrier_prevalence_protocol_v1.json",
+    "validation/carrier_prevalence_mechanism_v1/fresh_roster_lock_v1.json":
+        "evidence/carrier_prevalence_fresh_roster_lock_v1.json",
+    "validation/carrier_prevalence_mechanism_v1/target_pool_traits_lock_v1.json":
+        "evidence/carrier_prevalence_target_pool_traits_lock_v1.json",
+    "validation/carrier_prevalence_mechanism_v1/response_protocol_v1.json":
+        "evidence/carrier_prevalence_response_protocol_v1.json",
+    "validation/carrier_prevalence_mechanism_v1/response_authorization_v1.json":
+        "evidence/carrier_prevalence_response_authorization_v1.json",
 }
 
 FORBIDDEN = (
@@ -62,36 +98,51 @@ FORBIDDEN = (
 
 README = """# Anonymous review reproducibility package
 
-This archive accompanies a double-anonymized ecological manuscript on spatial
-continuity in NEON small-mammal metacommunities.
+This archive accompanies a double-anonymized ecological manuscript on local
+spatial cohesion in small-mammal metacommunities.
 
 ## Contents
 
-- `manuscript/main_text.md`: anonymous manuscript source.
-- `data/`: frozen derived site-level tables used by the paper.
-- `results/`: deterministic exploratory carrier-turnover summaries.
-- `analysis/`: analysis and figure-generation scripts.
-- `evidence/`: frozen confirmatory protocols, locks and claim boundaries.
-- `tests/`: frozen-result integrity checks.
+- `manuscript/main_text.md`: anonymous V6 manuscript source.
+- `data/`: frozen derived site-level, trait and fresh-mechanism tables.
+- `results/`: confirmatory, carrier-turnover, niche-role and fresh mechanism results.
+- `analysis/`: deterministic analysis and figure-generation scripts.
+- `evidence/`: frozen protocols, rosters, response authorization and claim boundaries.
+- `tests/`: frozen-result and mechanism integrity checks.
 - `MANIFEST.json`: SHA-256 hashes for every packaged file.
 
 ## Scientific boundary
 
-The confirmatory endpoint is closed. The primary result is that pooling target
-species did not increase the declared spatial-continuity fraction beyond the
-best individual species at any of 16 fresh sites.
+The original 16-site confirmatory endpoint is closed: pooling target species did
+not increase the declared local spatial-cohesion fraction beyond the best
+individual species at any site.
 
-The carrier-turnover analysis is explicitly post hoc and uses only frozen
-site-level summaries. It cannot change the confirmatory decision.
+The carrier-turnover and trophic-role extensions are post hoc. They show that
+the property is redundant across species within sites while carrier identity
+turns over among sites and spans contrasting trophic roles.
+
+A separate response-blind 11-site prospective mechanism programme was then
+frozen and consumed once. Its primary count-conditioned test did not support
+positive spatial organization beyond prevalence (median site excess -0.0804;
+4/11 positive sites; one-sided exact p=0.8867). The predeclared grid-conditioned
+decomposition placed essentially all departure at the between-grid allocation
+scale, with median within-grid organization component zero.
+
+Post-response diagnostics such as positive traps per occupied grid and
+carrier-state switching remain explicitly exploratory and cannot alter the
+prospective mechanism decision.
 
 ## Reproduction
 
 From the archive root, with Python 3.12 or later:
 
     python analysis/carrier_turnover_v1.py
+    python analysis/carrier_niche_role_v2.py
+    python analysis/analyze_combine_carrier_traits_v1.py
     python -m unittest discover -s tests -v
     python analysis/build_paper_assets.py
     python analysis/build_carrier_turnover_figure_v1.py
+    python analysis/build_carrier_mechanism_figure_v1.py
 
 The biological source observations are public NEON data; this archive contains
 derived review data and the frozen audit trail needed to inspect the manuscript

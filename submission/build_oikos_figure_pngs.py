@@ -12,6 +12,7 @@ FIGURES = {
     GEN / "figure_2_community_vs_species.svg": OUT / "Figure_2.png",
     GEN / "figure_3_two_scale_redundancy.svg": OUT / "Figure_3.png",
     GEN / "figure_4_ornl_weakest_link.svg": OUT / "Figure_4.png",
+    GEN / "figure_5_fresh_mechanism.svg": OUT / "Figure_5.png",
 }
 
 

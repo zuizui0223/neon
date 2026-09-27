@@ -10,7 +10,7 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "manuscript" / "neon_metacommunity_redundancy" / "MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md"
+SOURCE = ROOT / "manuscript" / "neon_metacommunity_redundancy" / "MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md"
 DIST = ROOT / "dist"
 OUT = DIST / "oikos_main_text_anonymous.docx"
 

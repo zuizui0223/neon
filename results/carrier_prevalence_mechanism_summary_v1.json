@@ -1,0 +1,127 @@
+{
+  "schema": "neon.carrier_prevalence_mechanism.ecological_summary.v1",
+  "source_response_fingerprint": "869f33ce56df5a6a6f69f1dc783f10ddb459616992bb1a6f26f813e14446df07",
+  "status": "frozen_response_plus_explicit_postresponse_diagnostics",
+  "prospective_primary": {
+    "fresh_sites": 11,
+    "scored_sites": 11,
+    "stopped_sites": 0,
+    "median_site_carrier_excess": -0.08041374708041374,
+    "positive_site_count": 4,
+    "exact_one_sided_sign_p": 0.88671875,
+    "spatial_organization_beyond_prevalence_supported": false,
+    "declared_interpretation": "prevalence-only explanation sufficient at declared resolution"
+  },
+  "predeclared_grid_decomposition": {
+    "median_between_grid_allocation_component": -0.08041374708041374,
+    "median_within_grid_organization_component": 0,
+    "positive_within_grid_site_count": 0,
+    "exact_one_sided_sign_p_within_grid": 1,
+    "site_count": 11,
+    "interpretation": "The observed grid allocation accounts for essentially all departure from the site-wide count-conditioned null; within-grid arrangement adds almost no carrier signal at the declared resolution.",
+    "causal_boundary": "Grid identity is a spatial stratum and potential habitat proxy, not a measured habitat covariate."
+  },
+  "postresponse_species_level_diagnostics": {
+    "status": "exploratory_only_cannot_alter_prospective_decision",
+    "eligible_species_site_records": 68,
+    "observed_carrier_records": 29,
+    "sitewide_count_conditioned_expected_carrier_sum": 33.84684684684685,
+    "grid_conditioned_expected_carrier_sum": 29.004004004004003,
+    "grid_conditioned_probability_equals_observed_carrier_indicator_records": 66,
+    "nonzero_within_grid_component_records": 2,
+    "positive_between_grid_records": 15,
+    "negative_between_grid_records": 39,
+    "pooled_descriptive_medians": {
+      "carrier_positive_nodes": 157,
+      "noncarrier_positive_nodes": 21,
+      "carrier_observed_grid_count": 6,
+      "noncarrier_observed_grid_count": 4,
+      "carrier_positive_nodes_per_occupied_grid": 26.166666666666668,
+      "noncarrier_positive_nodes_per_occupied_grid": 5
+    },
+    "pooled_spearman": {
+      "carrier_vs_positive_node_count": 0.3963704625659401,
+      "carrier_vs_observed_grid_count": 0.13301822423360843,
+      "carrier_vs_positive_nodes_per_occupied_grid": 0.519800388864698
+    },
+    "median_within_site_spearman": {
+      "carrier_vs_positive_node_count": 0.5786669191759228,
+      "carrier_vs_observed_grid_count": 0.3242441691081459,
+      "carrier_vs_positive_nodes_per_occupied_grid": 0.7071067811865475
+    },
+    "positive_site_count_for_within_site_rho": {
+      "positive_node_count": 7,
+      "observed_grid_count": 7,
+      "positive_nodes_per_occupied_grid": 9
+    },
+    "repeated_species_count": 15,
+    "species_switching_carrier_status_across_fresh_sites": 10,
+    "switch_examples": [
+      {
+        "species": "Myodes gapperi",
+        "carrier_sites": [
+          "STEI",
+          "TREE",
+          "YELL"
+        ],
+        "noncarrier_sites": [
+          "WREF"
+        ]
+      },
+      {
+        "species": "Microtus montanus",
+        "carrier_sites": [
+          "TEAK"
+        ],
+        "noncarrier_sites": [
+          "YELL"
+        ]
+      },
+      {
+        "species": "Perognathus flavus",
+        "carrier_sites": [
+          "STER"
+        ],
+        "noncarrier_sites": [
+          "SRER"
+        ]
+      },
+      {
+        "species": "Zapus hudsonius",
+        "carrier_sites": [
+          "STEI"
+        ],
+        "noncarrier_sites": [
+          "TREE",
+          "WOOD"
+        ]
+      }
+    ]
+  },
+  "standardized_trait_secondary": {
+    "median_within_site_spearman": {
+      "adult_mass_g": 0.1,
+      "dispersal_km": 0.1,
+      "habitat_breadth_n": -0.31622776601683794,
+      "diet_breadth_n": -0.10294859806149012,
+      "home_range_km2": -0.06311323204377635,
+      "density_n_km2": -0.3,
+      "trophic_level": 0.09920188136882735
+    },
+    "interpretation": "No standardized species trait provides a consistent positive explanation of carrier excess after occupied-node count is conditioned out; notably the earlier carrier-only density signal does not prospectively replicate."
+  },
+  "ecological_synthesis": [
+    "Carrier status is not a stable species trait: most repeatedly observed fresh-panel species switch carrier status among sites.",
+    "The property is best described as local spatial cohesion/no-isolated-occurrence under the declared adjacency criteria, not landscape-wide connectivity.",
+    "Total prevalence matters, but grid-scale allocation and especially concentration of positives within occupied grids are more informative descriptive candidates than broad trophic, mobility, or habitat-breadth traits.",
+    "Grid-scale allocation can either create or destroy carrier status: positive and negative between-grid effects both occur, with a negative aggregate median.",
+    "Very different trophic and ecosystem-effect roles can converge on the same local spatial-cohesion state, while the same species can occupy different states at different sites."
+  ],
+  "forbidden_inference": [
+    "Do not claim measured habitat filtering from grid identity alone.",
+    "Do not claim within-grid microhabitat is biologically irrelevant; the declared metric and grid geometry may be insensitive to it.",
+    "Do not call carriers functionally redundant for ecosystem functioning.",
+    "Do not interpret the null primary as evidence that species niches are unimportant.",
+    "Do not treat postresponse k-per-grid diagnostics as confirmatory."
+  ]
+}

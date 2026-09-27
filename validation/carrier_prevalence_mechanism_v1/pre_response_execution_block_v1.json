@@ -1,0 +1,33 @@
+{
+  "schema": "neon.carrier_prevalence_mechanism.pre_response_execution_block.v1",
+  "programme": "carrier_prevalence_mechanism_v1",
+  "recorded_date": "2026-09-26",
+  "workflow_run_id": 36246811008,
+  "workflow_head_sha": "1d021c23b56dff62b57a9ec46037e33730fde5a1",
+  "state": "blocked_before_biological_response_access",
+  "failure_detail": "NEON_API_TOKEN GitHub Actions secret is not configured in zuizui0223/neon",
+  "response_endpoint_requests": 0,
+  "response_query_bytes_opened": 0,
+  "response_file_requests": 0,
+  "biological_response_bytes_opened": 0,
+  "model_fits": 0,
+  "authorization_consumed": false,
+  "rerun_allowed": true,
+  "fixed_site_count": 11,
+  "fixed_site_codes": [
+    "SRER",
+    "STEI",
+    "STER",
+    "TALL",
+    "TEAK",
+    "TOOL",
+    "TREE",
+    "UKFS",
+    "WOOD",
+    "WREF",
+    "YELL"
+  ],
+  "fresh_roster_fingerprint": "47f00a68496275dbfc34961d525ce86f1c86840094e37459cdfa048485ae22ff",
+  "target_pool_traits_fingerprint": "8f1ee0b6a2d85c1d85b53b55aaefe6a02f40e8b748e13be9e4f9502ebe28346b",
+  "next_action": "configure repository Actions secret NEON_API_TOKEN, then rerun failed once-only response job 108417408537 without changing protocol, roster, traits, or analysis files"
+}

@@ -64,9 +64,9 @@ def figure1_conceptual() -> str:
     parts = [svg_header(
         width, height,
         "Complementarity, redundancy and weakest-link outcomes",
-        "Conceptual comparison of species pooling effects on spatial continuity."
+        "Conceptual comparison of species pooling effects on local spatial cohesion."
     )]
-    parts.append('<text x="55" y="42" class="h">Three ways species pooling can change spatial continuity</text>\n')
+    parts.append('<text x="55" y="42" class="h">Three ways species pooling can change local spatial cohesion</text>\n')
     panels = [
         (55, "A  Complementarity", "community > every species", "gain > 0"),
         (445, "B  Redundancy", "community = best species", "gain = 0"),
@@ -86,7 +86,7 @@ def figure1_conceptual() -> str:
         label = "A" if i % 2 == 0 else "B"
         parts.append(f'<circle cx="{x}" cy="{y}" r="17" class="dark"/>\n')
         parts.append(f'<text x="{x}" y="{y+5}" text-anchor="middle" fill="white" class="b">{label}</text>\n')
-    parts.append('<text x="85" y="315" class="sm">neither species alone spans the chain</text>\n')
+    parts.append('<text x="85" y="315" class="sm">neither species alone satisfies the support rule</text>\n')
 
     # Redundancy: species A alone spans.
     nodes2 = [(495,230),(565,190),(635,230),(705,190)]
@@ -97,7 +97,7 @@ def figure1_conceptual() -> str:
         parts.append(f'<text x="{x}" y="{y+5}" text-anchor="middle" fill="white" class="b">A</text>\n')
     parts.append('<circle cx="565" cy="280" r="14" class="mid"/>\n')
     parts.append('<text x="565" y="285" text-anchor="middle" fill="white" class="sm">B</text>\n')
-    parts.append('<text x="475" y="315" class="sm">species A already supplies continuity</text>\n')
+    parts.append('<text x="475" y="315" class="sm">species A already supplies local cohesion</text>\n')
 
     # Weakest link: best species spans, extra species adds unsupported node.
     nodes3 = [(885,230),(955,190),(1025,230),(1095,190)]
@@ -121,10 +121,10 @@ def figure2_site_pairing(rows: list[dict[str, str]]) -> str:
     plot_h = height-top-bottom
     parts=[svg_header(
         width,height,
-        "Community versus best-species spatial continuity across fresh NEON sites",
-        "Paired pooled-community and best individual-species continuity fractions at sixteen fresh sites."
+        "Community versus best-species local spatial cohesion across fresh NEON sites",
+        "Paired pooled-community and best individual-species local-cohesion fractions at sixteen fresh sites."
     )]
-    parts.append('<text x="55" y="42" class="h">Pooling species never increased spatial continuity</text>\n')
+    parts.append('<text x="55" y="42" class="h">Pooling species never increased local spatial cohesion</text>\n')
     for frac in [0,0.25,0.5,0.75,1]:
         y=top+plot_h*(1-frac)
         parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}" class="grid"/>\n')
@@ -143,7 +143,7 @@ def figure2_site_pairing(rows: list[dict[str, str]]) -> str:
         parts.append(f'<text x="{x:.1f}" y="{top+plot_h+28}" text-anchor="middle" class="xs">{escape(row["site_code"])}</text>\n')
     parts.append(f'<text x="{left}" y="{height-48}" class="sm">open = best individual species; filled = pooled target-species community</text>\n')
     parts.append(f'<text x="{width-440}" y="{height-48}" class="sm">positive community-minus-best-species gain: 0 / 16 sites</text>\n')
-    parts.append(f'<text x="{width-440}" y="{height-27}" class="sm">ORNL: pooled continuity 0.25 vs best species 1.00</text>\n')
+    parts.append(f'<text x="{width-440}" y="{height-27}" class="sm">ORNL: pooled cohesion 0.25 vs best species 1.00</text>\n')
     parts.append('</svg>\n')
     return "".join(parts)
 
@@ -230,9 +230,9 @@ def figure4_ornl(rows: list[dict[str,str]]) -> str:
     parts=[svg_header(
         width,height,
         "ORNL weakest-link pooling result",
-        "At ORNL the best individual species satisfied all prespecified adjacency criteria while the pooled guild satisfied one quarter, illustrating a weakest-link effect under the all-positive continuity definition."
+        "At ORNL the best individual species satisfied all prespecified adjacency criteria while the pooled guild satisfied one quarter, illustrating a weakest-link effect under the all-positive local-cohesion definition."
     )]
-    parts.append('<text x="55" y="42" class="h">ORNL: pooling taxa reduced spatial continuity</text>\n')
+    parts.append('<text x="55" y="42" class="h">ORNL: pooling taxa reduced local spatial cohesion</text>\n')
     x1,x2=230,690
     baseline=430
     scale=300

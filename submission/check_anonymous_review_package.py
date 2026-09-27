@@ -23,10 +23,18 @@ REQUIRED = {
     "manuscript/main_text.md",
     "data/site_metrics_v1.csv",
     "results/carrier_turnover_v1.json",
+    "results/carrier_prevalence_response_v1.json",
+    "results/carrier_prevalence_mechanism_summary_v1.json",
     "analysis/carrier_turnover_v1.py",
+    "analysis/count_conditioned_carrier_null_v1.py",
+    "analysis/build_carrier_mechanism_figure_v1.py",
     "evidence/protocol_v1.json",
     "evidence/response_lock_v1.json",
     "evidence/programme_closure_v1.json",
+    "evidence/carrier_prevalence_protocol_v1.json",
+    "evidence/carrier_prevalence_fresh_roster_lock_v1.json",
+    "evidence/carrier_prevalence_target_pool_traits_lock_v1.json",
+    "evidence/carrier_prevalence_response_protocol_v1.json",
     "tests/test_frozen_results.py",
 }
 

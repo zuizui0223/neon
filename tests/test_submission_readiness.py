@@ -3,7 +3,7 @@ import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "manuscript" / "neon_metacommunity_redundancy" / "MANUSCRIPT_V5_OIKOS_INITIAL_SUBMISSION.md"
+MANUSCRIPT = ROOT / "manuscript" / "neon_metacommunity_redundancy" / "MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md"
 
 class SubmissionReadinessTests(unittest.TestCase):
     @classmethod

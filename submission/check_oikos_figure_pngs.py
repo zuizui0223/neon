@@ -4,7 +4,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist" / "figures"
 
 def main() -> None:
-    for i in range(1, 5):
+    for i in range(1, 6):
         path = OUT / f"Figure_{i}.png"
         if not path.is_file():
             raise SystemExit(f"missing: {path}")
