@@ -64,5 +64,36 @@ class NeonSpaceUseDevelopmentRunnerTests(unittest.TestCase):
         self.assertEqual(out[0]["history_linked_capture_row_count"],1)
 
 
+    def test_pathogen_recapture_estimability_requires_three_moving_recaptures_per_event(self):
+        plot_rows=[
+            {"siteID":"S","plotID":"P","eventID":"E1","nightuid":"N1","mammalGridSamplingMethod":"pathogen","gridCompletion":"setting complete, processing complete","samplingImpractical":"OK"},
+            {"siteID":"S","plotID":"P","eventID":"E1","nightuid":"N2","mammalGridSamplingMethod":"pathogen","gridCompletion":"setting complete, processing complete","samplingImpractical":"OK"},
+        ]
+        trap_rows=[]
+        for tag,a,b in (("T1","A1","A2"),("T2","A2","A3"),("T3","A3","A4")):
+            trap_rows.append({"nightuid":"N1","taxonID":"SP","scientificName":"Species one","taxonRank":"species","identificationQualifier":"","tagID":tag,"trapCoordinate":a,"trapStatus":"5 - capture"})
+            trap_rows.append({"nightuid":"N2","taxonID":"SP","scientificName":"Species one","taxonRank":"species","identificationQualifier":"","tagID":tag,"trapCoordinate":b,"trapStatus":"5 - capture"})
+        out=m.pathogen_recapture_estimability(plot_rows,trap_rows,{"SP"})
+        self.assertEqual(out["estimable_event_count"],1)
+        self.assertEqual(out["species_estimable_event_counts"]["Species one"],1)
+        self.assertEqual(out["pathogen_species_with_estimable_recapture"],0)
+
+    def test_pathogen_species_requires_five_estimable_events(self):
+        plot_rows=[]
+        trap_rows=[]
+        for e in range(5):
+            event=f"E{e}"
+            for n in (1,2):
+                night=f"{event}_N{n}"
+                plot_rows.append({"siteID":"S","plotID":"P","eventID":event,"nightuid":night,"mammalGridSamplingMethod":"pathogen","gridCompletion":"setting complete, processing complete","samplingImpractical":"OK"})
+            for tag,a,b in (("T1","A1","A2"),("T2","A2","A3"),("T3","A3","A4")):
+                trap_rows.append({"nightuid":f"{event}_N1","taxonID":"SP","scientificName":"Species one","taxonRank":"species","identificationQualifier":"","tagID":tag,"trapCoordinate":a,"trapStatus":"5 - capture"})
+                trap_rows.append({"nightuid":f"{event}_N2","taxonID":"SP","scientificName":"Species one","taxonRank":"species","identificationQualifier":"","tagID":tag,"trapCoordinate":b,"trapStatus":"5 - capture"})
+        out=m.pathogen_recapture_estimability(plot_rows,trap_rows,{"SP"})
+        self.assertEqual(out["estimable_event_count"],5)
+        self.assertEqual(out["pathogen_species_with_estimable_recapture"],1)
+        self.assertEqual(out["pathogen_species_names_with_estimable_recapture"],["Species one"])
+
+
 if __name__=="__main__":
     unittest.main()
