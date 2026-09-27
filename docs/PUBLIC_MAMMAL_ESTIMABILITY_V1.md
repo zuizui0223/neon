@@ -20,9 +20,16 @@ This memo reports only whether the prespecified Portal and NEON contrasts have e
 - eligible N>=3: 1509
 - eligible N>=5: 796
 - eligible N>=8: 359
-- species with >=5 N>=5 sessions in >=2 habitat groups: Chaetodipus hispidus, Dipodomys ordii, Myodes rutilus, Onychomys leucogaster, Perognathus parvus, Peromyscus boylii, Peromyscus maniculatus, Sigmodon hispidus
-- species with N>=5 sessions at >=2 sites: Chaetodipus hispidus, Chaetodipus penicillatus, Dipodomys merriami, Dipodomys ordii, Microtus pennsylvanicus, Mus musculus, Myodes gapperi, Myodes rutilus, Napaeozapus insignis, Neotoma floridana, Onychomys leucogaster, Perognathus flavus, Peromyscus boylii, Peromyscus gossypinus, Peromyscus keeni, Peromyscus leucopus, Peromyscus maniculatus, Peromyscus truei, Rattus rattus, Reithrodontomys megalotis, Sigmodon hispidus
+- species with >=5 N>=5 sessions in >=2 habitat groups (broad screen): Chaetodipus hispidus, Dipodomys ordii, Myodes rutilus, Onychomys leucogaster, Perognathus parvus, Peromyscus boylii, Peromyscus maniculatus, Sigmodon hispidus
+- species with N>=5 sessions at >=2 sites (broad screen): Chaetodipus hispidus, Chaetodipus penicillatus, Dipodomys merriami, Dipodomys ordii, Microtus pennsylvanicus, Mus musculus, Myodes gapperi, Myodes rutilus, Napaeozapus insignis, Neotoma floridana, Onychomys leucogaster, Perognathus flavus, Peromyscus boylii, Peromyscus gossypinus, Peromyscus keeni, Peromyscus leucopus, Peromyscus maniculatus, Peromyscus truei, Rattus rattus, Reithrodontomys megalotis, Sigmodon hispidus
 - pathogen-grid species meeting the frozen recapture validation gate: 30
+
+### Strict Phase-2 structure
+
+- species with >=5 N>=5 sessions at >=2 sites: Chaetodipus hispidus, Chaetodipus penicillatus, Dipodomys merriami, Dipodomys ordii, Myodes rutilus, Onychomys leucogaster, Peromyscus gossypinus, Peromyscus leucopus, Peromyscus maniculatus, Sigmodon hispidus
+- species with within-site habitat contrast: Chaetodipus hispidus, Myodes rutilus, Perognathus parvus, Peromyscus boylii
+- species with cross-site habitat replication: Myodes rutilus, Peromyscus maniculatus, Sigmodon hispidus
+- primary habitat-identifiable species: Chaetodipus hispidus, Myodes rutilus, Perognathus parvus, Peromyscus boylii, Peromyscus maniculatus, Sigmodon hispidus
 
 ## Cross-dataset
 
