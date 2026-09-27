@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import argparse
+import csv
 import importlib.util
+import json
 from pathlib import Path
 from typing import Iterable
 
@@ -310,3 +313,64 @@ def aggregate_peromyscus_complex_rows(rows: Iterable[dict]) -> list[dict]:
             row["taxonID"]="PEROMYSCUS_ML_COMPLEX"
         out.append(row)
     return out
+
+def _read_csv(path: Path) -> list[dict]:
+    with path.open(newline="",encoding="utf-8-sig") as fh:
+        return list(csv.DictReader(fh))
+
+
+def run_session_context_sensitivity(rows: Iterable[dict]) -> dict:
+    all_rows=[dict(row) for row in rows]
+    myodes={
+        "n_min_3":fit_myodes_threshold_summary(
+            all_rows,n_min=3,label="n_min_3",
+        ),
+        "n_min_8":fit_myodes_threshold_summary(
+            all_rows,n_min=8,label="n_min_8",
+        ),
+        "leave_one_site_out":fit_myodes_leave_one_out(
+            all_rows,unit_field="site",n_min=5,
+        ),
+        "leave_one_year_out":fit_myodes_leave_one_out(
+            all_rows,unit_field="year",n_min=5,
+        ),
+    }
+    context=fit_frozen_context_family(all_rows,n_min=5)
+    return {
+        "schema":"neon.public_mammal_space_use.neon_phase2_context_sensitivity.v1",
+        "myodes_robustness":myodes,
+        "site_context_family_n5":context,
+        "site_context_species":sorted(FROZEN_SITE_CONTEXT_SPECIES),
+        "cryptic_complex_sensitivity":{
+            "required":True,
+            "status":"separate_raw_response_rebuild_required",
+            "species":sorted(PEROMYSCUS_COMPLEX),
+        },
+        "primary_result_overwritten":False,
+    }
+
+
+def main() -> None:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--sessions",type=Path,required=True)
+    parser.add_argument("--output-json",type=Path,required=True)
+    args=parser.parse_args()
+
+    payload=run_session_context_sensitivity(_read_csv(args.sessions))
+    args.output_json.parent.mkdir(parents=True,exist_ok=True)
+    args.output_json.write_text(
+        json.dumps(payload,indent=2,sort_keys=True)+"\n",
+        encoding="utf-8",
+    )
+    print(json.dumps({
+        "schema":payload["schema"],
+        "context_species_count":len(payload["site_context_species"]),
+        "myodes_site_loo_count":len(payload["myodes_robustness"]["leave_one_site_out"]),
+        "myodes_year_loo_count":len(payload["myodes_robustness"]["leave_one_year_out"]),
+        "cryptic_complex_status":payload["cryptic_complex_sensitivity"]["status"],
+    },sort_keys=True))
+
+
+if __name__=="__main__":
+    main()
+
