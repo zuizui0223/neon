@@ -1,0 +1,78 @@
+name: public-mammal-phase2-recapture
+
+on:
+  push:
+    branches:
+      - design/public-mammal-space-use-v1
+    paths:
+      - analysis/neon_recapture_validation_phase2_v1.py
+      - analysis/run_neon_recapture_validation_phase2_v1.py
+      - analysis/run_neon_space_use_development_v1.py
+      - analysis/build_neon_space_use_sessions_v1.py
+      - tests/test_neon_recapture_validation_phase2.py
+      - tests/test_neon_recapture_validation_workflow.py
+      - .github/workflows/public-mammal-phase2-recapture.yml
+  workflow_dispatch:
+
+jobs:
+  recapture-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen Phase-2 dependencies
+        run: |
+          python -m pip install             numpy==2.1.1             pandas==3.0.6             scipy==1.18.1             statsmodels==0.15.0
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Verify recapture validation contracts
+        run: |
+          python -m unittest             tests.test_neon_recapture_validation_phase2             tests.test_neon_recapture_validation_workflow -v
+
+      - name: Run public NEON pathogen-grid recapture validation
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/run_neon_recapture_validation_phase2_v1.py             --output-dir results/generated             --replicates 999
+
+      - name: Inspect validation state
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/generated/neon_recapture_validation_phase2_v1.json").read_text())
+          assert p["product_code"] == "DP1.10072.001"
+          assert p["release"] == "RELEASE-2026"
+          assert p["inferential_status"] == "retrospective_secondary_validation"
+          assert p["status"] in {"estimable","non_estimable_under_frozen_gate"}
+          print(json.dumps({
+              "status":p["status"],
+              "raw_validation_event_rows":p["raw_validation_event_rows"],
+              "ecological_model_fits":p["ecological_model_fits"],
+              "site_stop_count":len(p["site_stops"]),
+              "packing_effect":p.get("coefficients",{}).get("packing_z"),
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Upload recapture validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-phase2-recapture-v1
+          path: |
+            results/generated/neon_recapture_validation_events_v1.csv
+            results/generated/neon_recapture_validation_phase2_v1.json
+          if-no-files-found: error
+          retention-days: 90
