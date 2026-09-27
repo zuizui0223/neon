@@ -65,6 +65,21 @@ class Phase2UtilsTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.verify_phase2_artifact_metadata(lock,"portal",bad)
 
+    def test_coefficient_record_uses_result_arrays(self):
+        class FakeResult:
+            params={"term":1.25}
+            bse={"term":0.5}
+            pvalues={"term":0.04}
+            def conf_int(self):
+                return {"term":(0.27,2.23)}
+        row=m.coefficient_record(FakeResult(),"term")
+        self.assertEqual(row["term"],"term")
+        self.assertEqual(row["estimate"],1.25)
+        self.assertEqual(row["standard_error"],0.5)
+        self.assertEqual(row["ci95_low"],0.27)
+        self.assertEqual(row["ci95_high"],2.23)
+        self.assertEqual(row["p_value"],0.04)
+
 
 if __name__=="__main__":
     unittest.main()
