@@ -54,10 +54,10 @@ jobs:
           sha256sum dist/oikos_anonymous_review_package.zip | awk '{print $1}' > /tmp/review_zip_hash_2
           diff -u /tmp/review_zip_hash_1 /tmp/review_zip_hash_2
 
-      - name: Upload Oikos submission artifacts
+      - name: Upload archived V6 pre-audit QA artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: oikos-initial-submission-artifacts
+          name: oikos-v6-preaudit-snapshot-artifacts
           path: |
             dist/oikos_main_text_anonymous.docx
             dist/oikos_anonymous_review_package.zip
