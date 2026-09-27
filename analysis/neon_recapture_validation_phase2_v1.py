@@ -217,6 +217,135 @@ def first_night_population_packing(
     }
 
 
+
+
+def _is_valid_pathogen_plotnight(row: dict) -> bool:
+    method=str(
+        row.get("mammalGridSamplingMethod",row.get("mammalGridSamplingType",""))
+    ).strip().lower()
+    completion=str(row.get("gridCompletion","")).strip().lower()
+    impractical=str(row.get("samplingImpractical","")).strip()
+    return (
+        method=="pathogen"
+        and completion==BUILDER.COMPLETE_GRID
+        and impractical in {"","OK"}
+    )
+
+
+def build_pathogen_validation_rows(
+    plot_rows: Iterable[dict],
+    trap_rows: Iterable[dict],
+    *,
+    target_taxon_ids: set[str],
+    coordinate_map: dict[str,tuple[float,float]],
+    replicates: int,
+) -> list[dict]:
+    event_nights=defaultdict(dict)
+    for raw in plot_rows:
+        row=dict(raw)
+        if not _is_valid_pathogen_plotnight(row):
+            continue
+        site=str(row.get("siteID","")).strip()
+        plot=str(row.get("plotID","")).strip()
+        event=str(row.get("eventID","")).strip()
+        night=str(row.get("nightuid","")).strip()
+        date=str(row.get("collectDate","")).strip()
+        if not site or not plot or not event or not night:
+            continue
+        event_nights[(site,plot,event)][night]=date
+
+    traps_by_night=defaultdict(list)
+    for raw in trap_rows:
+        row=dict(raw)
+        night=str(row.get("nightuid","")).strip()
+        if night:
+            traps_by_night[night].append(row)
+
+    output=[]
+    for (site,plot,event),night_map in sorted(event_nights.items()):
+        if len(night_map)<2:
+            continue
+        event_rows=[]
+        for night in sorted(night_map,key=lambda n:(night_map[n],n)):
+            event_rows.extend(traps_by_night.get(night,[]))
+        if not event_rows:
+            continue
+
+        taxon_pairs=sorted({
+            (
+                str(row.get("taxonID","")).strip(),
+                str(row.get("scientificName","")).strip(),
+            )
+            for row in event_rows
+            if BUILDER.is_capture_status(str(row.get("trapStatus","")))
+            and str(row.get("taxonID","")).strip() in target_taxon_ids
+            and str(row.get("taxonRank","")).strip().lower()=="species"
+            and not str(row.get("identificationQualifier","")).strip()
+            and str(row.get("tagID","")).strip()
+            and str(row.get("scientificName","")).strip()
+        })
+
+        for taxon,name in taxon_pairs:
+            movement_rows=[]
+            for row in event_rows:
+                if not BUILDER.is_capture_status(str(row.get("trapStatus",""))):
+                    continue
+                if str(row.get("taxonID","")).strip()!=taxon:
+                    continue
+                if str(row.get("scientificName","")).strip()!=name:
+                    continue
+                if str(row.get("taxonRank","")).strip().lower()!="species":
+                    continue
+                if str(row.get("identificationQualifier","")).strip():
+                    continue
+                tag=str(row.get("tagID","")).strip()
+                node=_node_id(row)
+                if not tag or node not in coordinate_map:
+                    continue
+                movement_rows.append({
+                    "tagID":tag,
+                    "collectDate":str(row.get("collectDate","")).strip(),
+                    "nightuid":str(row.get("nightuid","")).strip(),
+                    "node":node,
+                })
+
+            movement=event_movement_summary(
+                movement_rows,
+                coordinate_map,
+                min_moving_individuals=3,
+            )
+            if not movement["estimable"]:
+                continue
+
+            packing=first_night_population_packing(
+                event_rows,
+                coordinate_map,
+                taxon_id=taxon,
+                scientific_name=name,
+                replicates=replicates,
+            )
+            if not packing.get("validation_n5_eligible",False):
+                continue
+
+            first_date=str(packing.get("first_date",""))
+            year=int(first_date[:4]) if len(first_date)>=4 and first_date[:4].isdigit() else None
+            output.append({
+                "site":site,
+                "plot_id":plot,
+                "event_id":event,
+                "year":year,
+                "taxon_id":taxon,
+                "species":name,
+                "first_night":packing["first_night"],
+                "n_unique_individuals":packing["n_unique_individuals"],
+                "active_trap_count":packing["active_trap_count"],
+                "packing_z":packing["packing_z"],
+                "moving_individual_count":movement["moving_individual_count"],
+                "median_individual_displacement_m":movement["median_individual_displacement_m"],
+            })
+    return output
+
+
 def prepare_validation_frame(
     rows: Iterable[dict],
     *,
