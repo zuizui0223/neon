@@ -6,7 +6,7 @@
 
 **Architecture:** Phase-2 workflows download the exact frozen Portal and NEON development artifacts referenced by `estimability_gate_v1.json`; they do not rebuild the primary session tables. A shared model utility module owns deterministic standardization, design-matrix rank checks, confidence intervals and FDR. Portal and NEON primary models remain separate, then a result-gate script decides which ecological claims are supported and whether a manuscript should advance.
 
-**Tech Stack:** Python 3.12; NumPy 2.1.1; pandas 2.3.x; SciPy 1.16.x; statsmodels **0.15.0**; GitHub Actions.
+**Tech Stack:** Python 3.12; NumPy 2.1.1; pandas **3.0.6**; SciPy **1.18.1**; statsmodels **0.15.0**; GitHub Actions.
 
 **Spec:** `docs/superpowers/specs/2026-09-27-public-mammal-space-use-phase2-amendment.md`
 
