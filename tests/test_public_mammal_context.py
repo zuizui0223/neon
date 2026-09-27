@@ -4,43 +4,52 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 MODULE=ROOT/"analysis"/"public_mammal_context_v1.py"
+LOOKUP=ROOT/"data"/"external"/"neon_nlcd_group_lookup_v1.csv"
 spec=importlib.util.spec_from_file_location("context",MODULE)
 m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 
 
 class PublicMammalContextTests(unittest.TestCase):
-    def test_neon_nlcd_groups_are_frozen(self):
-        cases={
-            "Deciduous Forest":"forest",
-            "Evergreen Forest":"forest",
-            "Mixed Forest":"forest",
-            "Shrub/Scrub":"shrub_scrub",
-            "Grassland/Herbaceous":"grassland_herbaceous",
-            "Pasture/Hay":"cropland_pasture",
-            "Cultivated Crops":"cropland_pasture",
-            "Woody Wetlands":"wetland",
-            "Emergent Herbaceous Wetlands":"wetland",
-            "Open Water":"other_rare",
-            "Developed, Open Space":"other_rare",
-            "Developed, Low Intensity":"other_rare",
-            "Developed, Medium Intensity":"other_rare",
-            "Developed, High Intensity":"other_rare",
-            "Barren Land":"other_rare",
-        }
-        for raw,expected in cases.items():
-            with self.subTest(raw=raw):
-                self.assertEqual(m.map_neon_nlcd(raw),expected)
+    def test_forest_classes(self):
+        for value in ("Deciduous Forest","Evergreen Forest","Mixed Forest"):
+            self.assertEqual(m.map_neon_nlcd(value),"forest")
 
-    def test_unknown_or_blank_nlcd_is_other_rare(self):
-        self.assertEqual(m.map_neon_nlcd(""),"other_rare")
-        self.assertEqual(m.map_neon_nlcd("Unknown legacy class"),"other_rare")
+    def test_shrub_and_herbaceous_classes(self):
+        self.assertEqual(m.map_neon_nlcd("Shrub/Scrub"),"shrub_scrub")
+        self.assertEqual(m.map_neon_nlcd("Dwarf Scrub"),"shrub_scrub")
+        self.assertEqual(m.map_neon_nlcd("Grassland/Herbaceous"),"grassland_herbaceous")
+        self.assertEqual(m.map_neon_nlcd("Sedge/Herbaceous"),"grassland_herbaceous")
+
+    def test_agriculture_and_wetland_classes(self):
+        self.assertEqual(m.map_neon_nlcd("Pasture/Hay"),"cropland_pasture")
+        self.assertEqual(m.map_neon_nlcd("Cultivated Crops"),"cropland_pasture")
+        self.assertEqual(m.map_neon_nlcd("Woody Wetlands"),"wetland")
+        self.assertEqual(m.map_neon_nlcd("Emergent Herbaceous Wetlands"),"wetland")
+
+    def test_other_classes_and_unknown(self):
+        for value in (
+            "Open Water","Perennial Ice/Snow","Developed, Open Space",
+            "Developed, Low Intensity","Developed, Medium Intensity",
+            "Developed, High Intensity","Barren Land (Rock/Sand/Clay)",
+            "Lichens","Moss",
+        ):
+            self.assertEqual(m.map_neon_nlcd(value),"other_rare")
+        with self.assertRaises(KeyError):
+            m.map_neon_nlcd("Totally New Class")
 
     def test_portal_competition_context(self):
         self.assertEqual(m.portal_competition_context("control"),"control")
         self.assertEqual(m.portal_competition_context("exclosure"),"kangaroo_rat_exclosure")
         self.assertIsNone(m.portal_competition_context("removal"))
         self.assertIsNone(m.portal_competition_context("setup"))
+
+    def test_lookup_file_has_only_declared_groups(self):
+        rows=m.load_nlcd_lookup(LOOKUP)
+        self.assertEqual(
+            set(rows.values()),
+            {"forest","shrub_scrub","grassland_herbaceous","cropland_pasture","wetland","other_rare"},
+        )
 
 
 if __name__=="__main__":
