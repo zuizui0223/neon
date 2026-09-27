@@ -203,7 +203,7 @@ class NeonSpaceUseSessionTests(unittest.TestCase):
         import numpy as np
         active=np.array([[0.,0.],[10.,0.],[20.,0.],[30.,0.],[40.,0.],[50.,0.]])
         obs_a=np.array([[0.,0.],[10.,0.],[20.,0.]])
-        obs_b=np.array([[30.,0.],[40.,0.],[50.,0.]])
+        obs_b=np.array([[0.,0.],[40.,0.],[50.,0.]])
         cache={}
         a=m.score_with_shared_null(
             obs_a,active,geometry_fingerprint="g",replicates=99,cache=cache
