@@ -30,10 +30,12 @@ class PublicMammalPhase2LockTests(unittest.TestCase):
         self.assertEqual(p["n_min"],5)
         self.assertEqual(p["treatments"],["control","kangaroo_rat_exclosure"])
         self.assertEqual(p["session_treatment_mapping"],{"control":"control","exclosure":"kangaroo_rat_exclosure"})
-        self.assertEqual(p["formula"],"packing_z ~ treatment * z_logN")
-        self.assertEqual(p["mixedlm_groups"],"constant_all_rows")
-        self.assertEqual(p["re_formula"],"0")
-        self.assertEqual(p["variance_components"],{"plot":"0 + C(plot_id)","period":"0 + C(period)"})
+        self.assertEqual(p["formula"],"packing_z ~ treatment * z_logN + period_fixed_effects")
+        self.assertEqual(p["implemented_formula"],"packing_z ~ C(treatment, Treatment(reference='control')) * z_logN + C(period)")
+        self.assertEqual(p["covariance"],"cluster_by_plot")
+        self.assertEqual(p["cluster_variable"],"plot_id")
+        self.assertTrue(p["small_sample_correction"])
+        self.assertTrue(p["use_t"])
 
     def test_neon_primary_contract_is_frozen(self):
         n=self.lock["neon_primary"]
@@ -59,8 +61,8 @@ class PublicMammalPhase2LockTests(unittest.TestCase):
         self.assertEqual(self.lock["software"]["statsmodels"],"0.15.0")
         self.assertEqual(self.lock["z_logN"]["ddof"],0)
         self.assertEqual(self.lock["n_thresholds"],[3,5,8])
-        self.assertEqual(self.lock["portal_primary"]["optimizer_sequence"],["lbfgs","bfgs","cg"])
-        self.assertTrue(self.lock["portal_primary"]["reml"])
+        self.assertNotIn("optimizer_sequence",self.lock["portal_primary"])
+        self.assertNotIn("reml",self.lock["portal_primary"])
         self.assertEqual(self.lock["ecological_model_fits_at_lock"],0)
 
 
