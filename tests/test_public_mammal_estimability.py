@@ -67,5 +67,32 @@ class PublicMammalEstimabilityTests(unittest.TestCase):
         self.assertIn("no_shared_species_meeting_source_specific_estimability",report["non_estimable_reasons"])
 
 
+    def test_session_inventory_rows_are_source_and_context_specific(self):
+        portal=[
+            {"species":"A","treatment":"control","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False},
+            {"species":"A","treatment":"exclosure","primary_n5_eligible":False,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False},
+        ]
+        neon=[
+            {"species":"A","nlcd_class":"Deciduous Forest","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":False},
+            {"species":"A","nlcd_class":"Grassland/Herbaceous","primary_n5_eligible":True,"sensitivity_n3_eligible":True,"sensitivity_n8_eligible":True},
+        ]
+        rows=m.session_inventory_rows(portal,neon)
+        self.assertIn({
+            "source":"Portal","species":"A","context":"control",
+            "session_count":1,"eligible_n3":1,"eligible_n5":1,"eligible_n8":0,
+        },rows)
+        self.assertIn({
+            "source":"NEON","species":"A","context":"forest",
+            "session_count":1,"eligible_n3":1,"eligible_n5":1,"eligible_n8":0,
+        },rows)
+
+    def test_estimability_memo_states_no_ecological_models_were_fit(self):
+        report=m.audit_estimability([],[],neon_secondary={})
+        memo=m.render_estimability_memo(report)
+        self.assertIn("No ecological models were fit",memo)
+        self.assertIn("Phase-1 estimability",memo)
+        self.assertNotIn("p =",memo)
+
+
 if __name__=="__main__":
     unittest.main()
