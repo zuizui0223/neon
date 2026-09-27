@@ -136,6 +136,58 @@ class PortalCpenPhase2SensitivityTests(unittest.TestCase):
         self.assertEqual(pit[0]["n_unique_individuals"],4)
         self.assertFalse(pit[0]["primary_n5_eligible"])
 
+
+    def test_fit_summary_uses_primary_term_family_and_plot_clusters(self):
+        rows=[]
+        rid=1
+        for period in range(8):
+            for plot,treatment in [
+                ("11","control"),("14","control"),("17","control"),
+                ("3","exclosure"),("15","exclosure"),("19","exclosure"),
+            ]:
+                n=5+((period+int(plot))%4)
+                rows.append({
+                    "species":"Chaetodipus penicillatus",
+                    "treatment":treatment,
+                    "plot_id":plot,
+                    "period":str(period),
+                    "n_unique_individuals":str(n),
+                    "packing_z":str((0.15 if treatment=="exclosure" else 0.0)+0.02*n+0.01*period),
+                    "primary_n5_eligible":"True",
+                    "sensitivity_n3_eligible":"True",
+                    "sensitivity_n8_eligible":"True" if n>=8 else "False",
+                })
+                rid+=1
+        summary=m.fit_model_summary(rows,n_min=5,label="synthetic")
+        self.assertEqual(summary["label"],"synthetic")
+        self.assertEqual(summary["cluster_count"],6)
+        self.assertIn("treatment",summary["coefficients"])
+        self.assertIn("interaction",summary["coefficients"])
+        self.assertEqual(summary["session_count"],48)
+
+    def test_leave_one_out_returns_every_unit(self):
+        rows=[]
+        for period in range(5):
+            for plot,treatment in [
+                ("11","control"),("14","control"),
+                ("3","exclosure"),("15","exclosure"),
+            ]:
+                n=5+((period+int(plot))%3)
+                rows.append({
+                    "species":"Chaetodipus penicillatus",
+                    "treatment":treatment,
+                    "plot_id":plot,
+                    "period":str(period),
+                    "n_unique_individuals":str(n),
+                    "packing_z":str(0.03*n+(0.1 if treatment=="exclosure" else 0)),
+                    "primary_n5_eligible":"True",
+                    "sensitivity_n3_eligible":"True",
+                    "sensitivity_n8_eligible":"False",
+                })
+        loo=m.fit_leave_one_out(rows,unit_field="plot_id",n_min=5)
+        self.assertEqual({x["left_out"] for x in loo},{"11","14","3","15"})
+        self.assertTrue(all("estimable" in x for x in loo))
+
     def test_direction_reversal_summary(self):
         primary={"treatment":0.2,"interaction":-0.1}
         checks=[
