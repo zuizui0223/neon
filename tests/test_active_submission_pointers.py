@@ -7,23 +7,23 @@ LANE_README=ROOT/"manuscript"/"neon_metacommunity_redundancy"/"README.md"
 
 
 class ActiveSubmissionPointerTests(unittest.TestCase):
-    def test_root_readme_points_only_to_v6_active_submission(self):
+    def test_root_readme_points_to_hold_and_redesign(self):
         text=ROOT_README.read_text(encoding="utf-8")
-        self.assertIn("MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md",text)
-        self.assertIn("Figure_5.png",text)
-        self.assertIn("submission/OIKOS_READINESS_V3.md",text)
-        self.assertIn("submission/SUBMISSION_FORM_FIELDS_V2.md",text)
-        self.assertNotIn("Active main text:\n- `manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V5",text)
+        self.assertIn("SUBMISSION HOLD",text)
+        self.assertIn("MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md",text)
+        self.assertIn("MAMMAL_ECOLOGY_REDESIGN_V1.md",text)
+        self.assertIn("OIKOS_READINESS_V4_HOLD.md",text)
+        self.assertIn("submission/oikos-v6-2026-09-27",text)
+        self.assertNotIn("active submission mainline",text.lower())
 
-    def test_manuscript_lane_promotes_v6_and_v5_cover(self):
+    def test_manuscript_lane_archives_v6(self):
         text=LANE_README.read_text(encoding="utf-8")
+        self.assertIn("SUBMISSION HOLD",text)
         self.assertIn("MANUSCRIPT_V6_MECHANISM_VALIDATED_DRAFT.md",text)
         self.assertIn("COVER_LETTER_OIKOS_V5.md",text)
-        self.assertIn("OIKOS_READINESS_V3.md",text)
-        self.assertIn("SIGNIFICANCE_STATEMENT_V3.md",text)
-        self.assertIn("DATA_AVAILABILITY_STATEMENT_V3.md",text)
-        self.assertIn("SUBMISSION_FORM_FIELDS_V2.md",text)
-        self.assertIn("TITLE_PAGE_TEMPLATE_V2.md",text)
+        self.assertIn("pre-audit snapshot",text)
+        self.assertIn("Do not submit V6",text)
+        self.assertIn("OIKOS_READINESS_V4_HOLD.md",text)
 
 
 if __name__=="__main__":
