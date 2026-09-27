@@ -29,6 +29,7 @@ class PublicMammalPhase2LockTests(unittest.TestCase):
         self.assertEqual(p["species"],"Chaetodipus penicillatus")
         self.assertEqual(p["n_min"],5)
         self.assertEqual(p["treatments"],["control","kangaroo_rat_exclosure"])
+        self.assertEqual(p["session_treatment_mapping"],{"control":"control","exclosure":"kangaroo_rat_exclosure"})
         self.assertEqual(p["formula"],"packing_z ~ treatment * z_logN")
         self.assertEqual(p["groups"],"plot_id")
         self.assertEqual(p["variance_component"],"period")
