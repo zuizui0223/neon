@@ -82,6 +82,65 @@ class NeonRecaptureValidationPhase2Tests(unittest.TestCase):
         self.assertEqual(out["n_unique_individuals"],5)
         self.assertTrue(out["packing_estimable"])
 
+
+    def test_build_pathogen_validation_rows_from_two_night_event(self):
+        plot_rows=[
+            {
+                "siteID":"SITE","plotID":"PLOT","eventID":"E1",
+                "nightuid":"n1","collectDate":"2026-01-01",
+                "mammalGridSamplingMethod":"pathogen",
+                "gridCompletion":"setting complete, processing complete",
+                "samplingImpractical":"OK",
+            },
+            {
+                "siteID":"SITE","plotID":"PLOT","eventID":"E1",
+                "nightuid":"n2","collectDate":"2026-01-02",
+                "mammalGridSamplingMethod":"pathogen",
+                "gridCompletion":"setting complete, processing complete",
+                "samplingImpractical":"OK",
+            },
+        ]
+        coords={}
+        trap_rows=[]
+        for night,date in [("n1","2026-01-01"),("n2","2026-01-02")]:
+            for i in range(1,11):
+                coord=f"A{i}"
+                node=f"PLOT.mammalGrid.mam.{coord}"
+                coords[node]=(float(i-1),0.0)
+                tag=""
+                capture=False
+                if night=="n1" and i<=5:
+                    tag=f"id{i}"; capture=True
+                if night=="n2" and i in (6,7,8):
+                    tag=f"id{i-5}"; capture=True
+                trap_rows.append({
+                    "siteID":"SITE","plotID":"PLOT","nightuid":night,
+                    "collectDate":date,"namedLocation":"PLOT.mammalGrid.mam",
+                    "trapCoordinate":coord,
+                    "trapStatus":"4 - Capture" if capture else "6 - No Capture",
+                    "taxonID":"T1" if capture else "",
+                    "scientificName":"Species alpha" if capture else "",
+                    "taxonRank":"species" if capture else "",
+                    "identificationQualifier":"",
+                    "tagID":tag,
+                })
+        rows=m.build_pathogen_validation_rows(
+            plot_rows,trap_rows,
+            target_taxon_ids={"T1"},
+            coordinate_map=coords,
+            replicates=99,
+        )
+        self.assertEqual(len(rows),1)
+        row=rows[0]
+        self.assertEqual(row["site"],"SITE")
+        self.assertEqual(row["plot_id"],"PLOT")
+        self.assertEqual(row["event_id"],"E1")
+        self.assertEqual(row["species"],"Species alpha")
+        self.assertEqual(row["n_unique_individuals"],5)
+        self.assertEqual(row["moving_individual_count"],3)
+        self.assertIsNotNone(row["packing_z"])
+        self.assertIsNotNone(row["median_individual_displacement_m"])
+
     def test_validation_frame_requires_five_events_per_species_site(self):
         rows=[]
         for species,site in [("A","S1"),("B","S2")]:
