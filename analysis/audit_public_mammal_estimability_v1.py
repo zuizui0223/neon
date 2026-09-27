@@ -72,6 +72,8 @@ def audit_estimability(
 
     neon_habitat_counts: dict[str,Counter]=defaultdict(Counter)
     neon_site_sets: dict[str,set[str]]=defaultdict(set)
+    neon_site_counts: dict[str,Counter]=defaultdict(Counter)
+    neon_site_habitat_counts: dict[str,dict[str,Counter]]=defaultdict(lambda:defaultdict(Counter))
     unmapped_nlcd=set()
     for row in neon:
         if not _flag(row,"primary_n5_eligible"):
@@ -89,6 +91,8 @@ def audit_estimability(
         site=str(row.get("site","")).strip()
         if site:
             neon_site_sets[species].add(site)
+            neon_site_counts[species][site]+=1
+            neon_site_habitat_counts[species][site][habitat]+=1
 
     neon_multi_habitat=sorted(
         species
@@ -99,6 +103,38 @@ def audit_estimability(
         species
         for species,sites in neon_site_sets.items()
         if len(sites)>=2
+    )
+    neon_strict_multi_site=sorted(
+        species
+        for species,counts in neon_site_counts.items()
+        if sum(count>=5 for count in counts.values())>=2
+    )
+
+    within_site_habitat_species=[]
+    cross_site_habitat_species=[]
+    for species,site_map in neon_site_habitat_counts.items():
+        within_site=any(
+            sum(count>=5 for count in habitat_counts.values())>=2
+            for habitat_counts in site_map.values()
+        )
+        habitat_site_replication: dict[str,set[str]]=defaultdict(set)
+        for site,habitat_counts in site_map.items():
+            for habitat,count in habitat_counts.items():
+                if count>=3:
+                    habitat_site_replication[habitat].add(site)
+        cross_site=sum(
+            len(sites)>=2
+            for sites in habitat_site_replication.values()
+        )>=2
+        if within_site:
+            within_site_habitat_species.append(species)
+        if cross_site:
+            cross_site_habitat_species.append(species)
+
+    within_site_habitat_species=sorted(within_site_habitat_species)
+    cross_site_habitat_species=sorted(cross_site_habitat_species)
+    primary_habitat_identifiable=sorted(
+        set(within_site_habitat_species) | set(cross_site_habitat_species)
     )
 
     shared=sorted(set(portal_both)&set(neon_multi_habitat))
@@ -115,6 +151,8 @@ def audit_estimability(
         reasons.append("no_portal_species_with_n5_ge5_sessions_both_contexts")
     if not neon_multi_habitat:
         reasons.append("no_neon_species_with_n5_ge5_sessions_in_ge2_habitats")
+    if not primary_habitat_identifiable:
+        reasons.append("no_neon_species_with_primary_habitat_identifiability")
     if not shared:
         reasons.append("no_shared_species_meeting_source_specific_estimability")
     if unmapped_nlcd:
@@ -150,6 +188,10 @@ def audit_estimability(
             },
             "species_with_n5_ge5_sessions_in_ge2_habitats":neon_multi_habitat,
             "species_with_n5_sessions_in_ge2_sites":neon_multi_site,
+            "species_with_n5_ge5_sessions_in_ge2_sites":neon_strict_multi_site,
+            "species_with_within_site_habitat_contrast":within_site_habitat_species,
+            "species_with_cross_site_habitat_replication":cross_site_habitat_species,
+            "species_with_primary_habitat_identifiability":primary_habitat_identifiable,
             "unmapped_nlcd_classes":sorted(unmapped_nlcd),
             "pathogen_species_with_estimable_recapture":int(
                 neon_secondary.get("pathogen_species_with_estimable_recapture",0) or 0
