@@ -93,7 +93,9 @@ jobs:
             tests.test_public_mammal_phase2_lock \
             tests.test_public_mammal_phase2_utils \
             tests.test_neon_myodes_phase2 \
-            tests.test_neon_secondary_habitat_phase2 -v
+            tests.test_neon_secondary_habitat_phase2 \
+            tests.test_neon_phase2_context_sensitivity \
+            tests.test_neon_phase2_context_workflow -v
 
       - name: Fit frozen NEON Myodes primary model
         run: |
@@ -108,6 +110,12 @@ jobs:
             --sessions results/generated/phase2_inputs/neon/neon_diversity_space_use_sessions_v1.csv \
             --output-json results/generated/neon_secondary_habitat_phase2_v1.json
 
+      - name: Run frozen NEON session-context sensitivity
+        run: |
+          python analysis/neon_phase2_context_sensitivity_v1.py \
+            --sessions results/generated/phase2_inputs/neon/neon_diversity_space_use_sessions_v1.csv \
+            --output-json results/generated/neon_phase2_context_sensitivity_v1.json
+
       - name: Upload NEON Myodes Phase-2 result
         uses: actions/upload-artifact@v4
         with:
@@ -116,6 +124,7 @@ jobs:
             results/generated/neon_myodes_phase2_primary_v1.json
             results/generated/neon_myodes_phase2_primary_predictions_v1.csv
             results/generated/neon_secondary_habitat_phase2_v1.json
+            results/generated/neon_phase2_context_sensitivity_v1.json
             validation/public_mammal_space_use_v1/phase2_analysis_lock_v1.json
           if-no-files-found: error
           retention-days: 90
