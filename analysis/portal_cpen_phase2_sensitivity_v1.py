@@ -133,6 +133,86 @@ def fit_sensitivity_model(df: pd.DataFrame):
     return PRIMARY.fit_portal_primary(df)
 
 
+
+
+def _coefficient_pair(result) -> dict[str,dict]:
+    terms=PRIMARY.primary_term_names()
+    return {
+        "treatment":UTILS.coefficient_record(result,terms["treatment"]),
+        "interaction":UTILS.coefficient_record(result,terms["interaction"]),
+        "z_logN":UTILS.coefficient_record(result,"z_logN"),
+    }
+
+
+def fit_model_summary(
+    rows: Iterable[dict],
+    *,
+    n_min: int,
+    label: str,
+    long_term_only: bool=False,
+) -> dict:
+    df=prepare_sensitivity_dataframe(
+        rows,
+        n_min=n_min,
+        long_term_only=long_term_only,
+    )
+    result=fit_sensitivity_model(df)
+    return {
+        "label":str(label),
+        "n_min":int(n_min),
+        "long_term_only":bool(long_term_only),
+        "session_count":int(len(df)),
+        "cluster_count":int(df["plot_id"].nunique()),
+        "period_count":int(df["period"].nunique()),
+        "treatment_session_counts":{
+            str(k):int(v)
+            for k,v in df["treatment"].value_counts().sort_index().items()
+        },
+        "coefficients":_coefficient_pair(result),
+        "rsquared":float(result.rsquared),
+        "df_resid":float(result.df_resid),
+        "estimable":True,
+    }
+
+
+def fit_leave_one_out(
+    rows: Iterable[dict],
+    *,
+    unit_field: str,
+    n_min: int,
+) -> list[dict]:
+    if unit_field not in {"plot_id","period"}:
+        raise ValueError("unit_field must be plot_id or period")
+    selected=select_portal_sensitivity_rows(rows,n_min=n_min)
+    units=sorted({str(row.get(unit_field,"")).strip() for row in selected if str(row.get(unit_field,"")).strip()})
+    output=[]
+    for unit in units:
+        subset=[
+            row for row in selected
+            if str(row.get(unit_field,"")).strip()!=unit
+        ]
+        try:
+            summary=fit_model_summary(
+                subset,
+                n_min=n_min,
+                label=f"leave_{unit_field}_out:{unit}",
+            )
+            output.append({
+                "left_out":unit,
+                "estimable":True,
+                "coefficients":summary["coefficients"],
+                "session_count":summary["session_count"],
+                "cluster_count":summary["cluster_count"],
+                "period_count":summary["period_count"],
+            })
+        except Exception as error:
+            output.append({
+                "left_out":unit,
+                "estimable":False,
+                "error":f"{type(error).__name__}: {error}",
+            })
+    return output
+
 def _record_key(row: dict):
     raw=str(row.get("recordID","")).strip()
     try:
