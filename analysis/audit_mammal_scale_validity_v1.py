@@ -95,6 +95,7 @@ def audit_site(
     protocol: dict,
     locked: dict,
     roster_module,
+    strict_world_fingerprint: bool,
 ) -> dict[str, object]:
     node_ids, rows, registry_fp = roster_module.registry(site)
     if len(node_ids) != int(locked["node_count"]):
@@ -106,8 +107,13 @@ def audit_site(
 
     dist = roster_module.haversine(rows)
     world = roster_module.worlds(site, dist, protocol)
-    if world["world_universe_fingerprint"] != locked["world_universe_fingerprint"]:
+    world_fp_match = (
+        world["world_universe_fingerprint"] == locked["world_universe_fingerprint"]
+    )
+    if strict_world_fingerprint and not world_fp_match:
         raise RuntimeError(f"{site}: world universe fingerprint drift")
+    if int(world["distinct_world_count"]) != int(locked["distinct_world_count"]):
+        raise RuntimeError(f"{site}: distinct world count drift")
 
     thresholds = sorted({
         float(row["distance_threshold_km"])
@@ -127,6 +133,13 @@ def audit_site(
         "node_count": len(node_ids),
         "canonical_world_count": len(thresholds),
         "canonical_thresholds_km": thresholds,
+        "reconstructed_alias_groups": world["alias_groups"],
+        "world_universe_fingerprint_matches_lock": world_fp_match,
+        "world_fingerprint_verification": (
+            "exact_current_schema_match"
+            if strict_world_fingerprint
+            else "legacy_lock_schema_differs; adjacency fingerprints require frozen-source-artifact comparison"
+        ),
         "minimum_threshold_km": thresholds[0],
         "minimum_threshold_m": thresholds[0] * 1000.0,
         **stats,
@@ -163,6 +176,7 @@ def main() -> None:
                 protocol=original_protocol,
                 locked=original_site_locks[site],
                 roster_module=roster_module,
+                strict_world_fingerprint=False,
             )
         )
         print(f"AUDIT_SITE {site} original_16", flush=True)
@@ -178,6 +192,7 @@ def main() -> None:
                 protocol=fresh_protocol,
                 locked=fresh_locks[site],
                 roster_module=roster_module,
+                strict_world_fingerprint=True,
             )
         )
         print(f"AUDIT_SITE {site} fresh_11", flush=True)
