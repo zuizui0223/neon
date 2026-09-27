@@ -54,6 +54,8 @@ class PublicMammalPhase2LockTests(unittest.TestCase):
         )
 
     def test_modeling_and_standardization_are_frozen(self):
+        self.assertEqual(self.lock["software"]["pandas"],"3.0.6")
+        self.assertEqual(self.lock["software"]["scipy"],"1.18.1")
         self.assertEqual(self.lock["software"]["statsmodels"],"0.15.0")
         self.assertEqual(self.lock["z_logN"]["ddof"],0)
         self.assertEqual(self.lock["n_thresholds"],[3,5,8])
