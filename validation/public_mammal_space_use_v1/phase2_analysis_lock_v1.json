@@ -1,0 +1,126 @@
+{
+  "schema": "neon.public_mammal_space_use.phase2_analysis_lock.v1",
+  "date": "2026-09-27",
+  "state": "frozen_before_phase2_ecological_model_fit",
+  "phase1_gate": {
+    "blob_sha": "adede6cb2a455d90d1f85952d743a47c37073ac2",
+    "decision": "amend_design_before_modeling",
+    "ecological_model_fits_before_gate": 0
+  },
+  "amendment_spec": {
+    "path": "docs/superpowers/specs/2026-09-27-public-mammal-space-use-phase2-amendment.md",
+    "blob_sha": "1f9444aaceb7c3a9ef408bcdd8eb0f39fc88408b"
+  },
+  "source_artifacts": {
+    "portal": {
+      "artifact_id": 10929728652,
+      "digest": "sha256:eb031608a547092340592a0127361283a2560ca22db9a1b3dc9a368fbef07686",
+      "workflow_run_id": 36314012402,
+      "workflow_head_sha": "92c65d15972bbbee10e14e74992d5173aabd646b",
+      "name": "public-mammal-portal-development-v1"
+    },
+    "neon": {
+      "artifact_id": 10931291060,
+      "digest": "sha256:865880ceac9cd0dbaffa160b515165c909380c2bd67eea14c70ab76756636cc9",
+      "workflow_run_id": 36315906620,
+      "workflow_head_sha": "e481074b9cb4048d525d25f37b8755f146c4800e",
+      "name": "public-mammal-neon-development-v1"
+    }
+  },
+  "software": {
+    "python": "3.12",
+    "numpy": "2.1.1",
+    "statsmodels": "0.15.0"
+  },
+  "z_logN": {
+    "transform": "natural_log",
+    "center": "mean_within_exact_retained_primary_dataset",
+    "scale": "population_standard_deviation_within_exact_retained_primary_dataset",
+    "ddof": 0
+  },
+  "n_thresholds": [
+    3,
+    5,
+    8
+  ],
+  "portal_primary": {
+    "species": "Chaetodipus penicillatus",
+    "n_min": 5,
+    "treatments": [
+      "control",
+      "kangaroo_rat_exclosure"
+    ],
+    "formula": "packing_z ~ treatment * z_logN",
+    "treatment_reference": "control",
+    "groups": "plot_id",
+    "variance_component": "period",
+    "reml": true,
+    "optimizer_sequence": [
+      "lbfgs",
+      "bfgs",
+      "cg"
+    ],
+    "primary_estimand": "treatment main effect at mean log(N)",
+    "secondary_estimand": "treatment x z_logN interaction"
+  },
+  "neon_primary": {
+    "species": "Myodes rutilus",
+    "sites": [
+      "BONA",
+      "DEJU"
+    ],
+    "habitats": [
+      "forest",
+      "shrub_scrub"
+    ],
+    "n_min": 5,
+    "formula": "packing_z ~ habitat_group + z_logN + site",
+    "habitat_reference": "forest",
+    "covariance": "HC3",
+    "rank_check_required": true
+  },
+  "neon_secondary_within_site": [
+    {
+      "species": "Chaetodipus hispidus",
+      "site": "OAES",
+      "habitats": [
+        "grassland_herbaceous",
+        "shrub_scrub"
+      ]
+    },
+    {
+      "species": "Perognathus parvus",
+      "site": "ONAQ",
+      "habitats": [
+        "forest",
+        "shrub_scrub"
+      ]
+    },
+    {
+      "species": "Peromyscus boylii",
+      "site": "SJER",
+      "habitats": [
+        "forest",
+        "grassland_herbaceous"
+      ]
+    }
+  ],
+  "neon_cross_site_secondary": [
+    "Myodes rutilus",
+    "Peromyscus maniculatus",
+    "Sigmodon hispidus"
+  ],
+  "mandatory_taxonomy_sensitivity": [
+    "Peromyscus maniculatus",
+    "Peromyscus leucopus"
+  ],
+  "multiplicity": {
+    "primary_family": [
+      "Portal treatment main effect",
+      "Portal treatment x z_logN",
+      "NEON Myodes shrub_scrub vs forest"
+    ],
+    "secondary_neon_method": "Benjamini-Hochberg FDR over exactly three frozen within-site habitat coefficients"
+  },
+  "ecological_model_fits_at_lock": 0
+}
