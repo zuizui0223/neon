@@ -22,6 +22,9 @@ jobs:
       - name: Recompute frozen standardized carrier trait diagnostic
         run: python analysis/analyze_combine_carrier_traits_v1.py
 
+      - name: Recompute fresh carrier turnover against species-pool null
+        run: python analysis/audit_carrier_turnover_vs_species_pool_v1.py
+
       - name: Verify frozen result and submission invariants
         run: python -m unittest discover -s tests -v
 
