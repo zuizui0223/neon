@@ -147,6 +147,614 @@
         "grassland_herbaceous": 1
       }
     },
+    "n5_species_site_habitat_session_counts": {
+      "Alexandromys oeconomus": {
+        "TOOL": {
+          "grassland_herbaceous": 1,
+          "shrub_scrub": 2
+        }
+      },
+      "Baiomys taylori": {
+        "CLBJ": {
+          "grassland_herbaceous": 2
+        }
+      },
+      "Chaetodipus baileyi": {
+        "SRER": {
+          "shrub_scrub": 8
+        }
+      },
+      "Chaetodipus californicus": {
+        "SJER": {
+          "forest": 8
+        }
+      },
+      "Chaetodipus eremicus": {
+        "JORN": {
+          "shrub_scrub": 9
+        }
+      },
+      "Chaetodipus hispidus": {
+        "KONZ": {
+          "grassland_herbaceous": 4
+        },
+        "OAES": {
+          "grassland_herbaceous": 9,
+          "shrub_scrub": 6
+        },
+        "STER": {
+          "cropland_pasture": 5
+        }
+      },
+      "Chaetodipus penicillatus": {
+        "JORN": {
+          "shrub_scrub": 10
+        },
+        "SRER": {
+          "shrub_scrub": 11
+        }
+      },
+      "Dipodomys merriami": {
+        "JORN": {
+          "shrub_scrub": 43
+        },
+        "SRER": {
+          "shrub_scrub": 18
+        }
+      },
+      "Dipodomys ordii": {
+        "CPER": {
+          "grassland_herbaceous": 7
+        },
+        "JORN": {
+          "shrub_scrub": 22
+        },
+        "MOAB": {
+          "shrub_scrub": 37
+        },
+        "ONAQ": {
+          "shrub_scrub": 1
+        }
+      },
+      "Microtus ochrogaster": {
+        "KONZ": {
+          "grassland_herbaceous": 2
+        }
+      },
+      "Microtus pennsylvanicus": {
+        "BLAN": {
+          "cropland_pasture": 2
+        },
+        "DCFS": {
+          "grassland_herbaceous": 2
+        },
+        "HEAL": {
+          "shrub_scrub": 1
+        },
+        "NOGP": {
+          "grassland_herbaceous": 2
+        },
+        "UNDE": {
+          "wetland": 1
+        },
+        "WOOD": {
+          "grassland_herbaceous": 11
+        }
+      },
+      "Microtus xanthognathus": {
+        "BONA": {
+          "forest": 2
+        }
+      },
+      "Mus musculus": {
+        "JERC": {
+          "forest": 4
+        },
+        "LAJA": {
+          "cropland_pasture": 4
+        }
+      },
+      "Myodes gapperi": {
+        "BART": {
+          "forest": 6
+        },
+        "HARV": {
+          "forest": 2
+        },
+        "NIWO": {
+          "forest": 1
+        },
+        "STEI": {
+          "forest": 2,
+          "wetland": 1
+        },
+        "WREF": {
+          "forest": 1
+        },
+        "YELL": {
+          "forest": 1
+        }
+      },
+      "Myodes rutilus": {
+        "BONA": {
+          "forest": 15,
+          "shrub_scrub": 6
+        },
+        "DEJU": {
+          "forest": 13,
+          "shrub_scrub": 5
+        },
+        "HEAL": {
+          "shrub_scrub": 13
+        }
+      },
+      "Napaeozapus insignis": {
+        "BART": {
+          "forest": 7
+        },
+        "HARV": {
+          "forest": 2
+        },
+        "STEI": {
+          "forest": 2
+        },
+        "UNDE": {
+          "forest": 1,
+          "wetland": 1
+        }
+      },
+      "Neotoma albigula": {
+        "SRER": {
+          "shrub_scrub": 4
+        }
+      },
+      "Neotoma floridana": {
+        "JERC": {
+          "forest": 1
+        },
+        "KONZ": {
+          "forest": 1,
+          "grassland_herbaceous": 3
+        },
+        "UKFS": {
+          "forest": 1
+        }
+      },
+      "Onychomys leucogaster": {
+        "OAES": {
+          "grassland_herbaceous": 5,
+          "shrub_scrub": 4
+        },
+        "STER": {
+          "cropland_pasture": 22
+        }
+      },
+      "Onychomys torridus": {
+        "SRER": {
+          "shrub_scrub": 4
+        }
+      },
+      "Perognathus flavus": {
+        "JORN": {
+          "shrub_scrub": 4
+        },
+        "OAES": {
+          "shrub_scrub": 1
+        }
+      },
+      "Perognathus parvus": {
+        "ONAQ": {
+          "forest": 13,
+          "shrub_scrub": 25
+        }
+      },
+      "Peromyscus boylii": {
+        "SJER": {
+          "forest": 9,
+          "grassland_herbaceous": 19
+        },
+        "SOAP": {
+          "forest": 1,
+          "shrub_scrub": 1
+        },
+        "TEAK": {
+          "forest": 2
+        }
+      },
+      "Peromyscus gossypinus": {
+        "JERC": {
+          "forest": 17
+        },
+        "OSBS": {
+          "wetland": 1
+        },
+        "TALL": {
+          "forest": 9
+        }
+      },
+      "Peromyscus keeni": {
+        "ABBY": {
+          "forest": 3
+        },
+        "WREF": {
+          "forest": 1
+        }
+      },
+      "Peromyscus leucopus": {
+        "CLBJ": {
+          "forest": 1
+        },
+        "GRSM": {
+          "forest": 6
+        },
+        "MLBS": {
+          "forest": 2
+        },
+        "OAES": {
+          "grassland_herbaceous": 3
+        },
+        "ORNL": {
+          "forest": 18
+        },
+        "SCBI": {
+          "cropland_pasture": 2,
+          "forest": 2
+        },
+        "SERC": {
+          "forest": 2
+        },
+        "TALL": {
+          "forest": 2
+        },
+        "TREE": {
+          "forest": 3
+        },
+        "UKFS": {
+          "forest": 2
+        }
+      },
+      "Peromyscus maniculatus": {
+        "ABBY": {
+          "forest": 2
+        },
+        "CLBJ": {
+          "forest": 2,
+          "grassland_herbaceous": 1
+        },
+        "DCFS": {
+          "grassland_herbaceous": 5
+        },
+        "GRSM": {
+          "forest": 1
+        },
+        "KONA": {
+          "cropland_pasture": 4
+        },
+        "KONZ": {
+          "grassland_herbaceous": 6
+        },
+        "MOAB": {
+          "shrub_scrub": 6
+        },
+        "NIWO": {
+          "forest": 2,
+          "grassland_herbaceous": 10
+        },
+        "NOGP": {
+          "grassland_herbaceous": 13
+        },
+        "OAES": {
+          "grassland_herbaceous": 1
+        },
+        "ONAQ": {
+          "forest": 4,
+          "shrub_scrub": 25
+        },
+        "RMNP": {
+          "forest": 28
+        },
+        "SJER": {
+          "grassland_herbaceous": 4
+        },
+        "STEI": {
+          "forest": 5
+        },
+        "STER": {
+          "cropland_pasture": 5
+        },
+        "TEAK": {
+          "forest": 3,
+          "shrub_scrub": 1
+        },
+        "TREE": {
+          "forest": 1
+        },
+        "UNDE": {
+          "forest": 3
+        },
+        "WOOD": {
+          "grassland_herbaceous": 42
+        },
+        "WREF": {
+          "forest": 1
+        },
+        "YELL": {
+          "forest": 4,
+          "shrub_scrub": 7
+        }
+      },
+      "Peromyscus polionotus": {
+        "JERC": {
+          "forest": 10
+        }
+      },
+      "Peromyscus truei": {
+        "ONAQ": {
+          "forest": 5
+        },
+        "SJER": {
+          "grassland_herbaceous": 1
+        }
+      },
+      "Podomys floridanus": {
+        "OSBS": {
+          "forest": 3
+        }
+      },
+      "Rattus rattus": {
+        "GUAN": {
+          "forest": 3
+        },
+        "LAJA": {
+          "cropland_pasture": 1
+        }
+      },
+      "Reithrodontomys fulvescens": {
+        "SRER": {
+          "shrub_scrub": 1
+        }
+      },
+      "Reithrodontomys megalotis": {
+        "NOGP": {
+          "grassland_herbaceous": 2
+        },
+        "SJER": {
+          "forest": 10,
+          "grassland_herbaceous": 2
+        }
+      },
+      "Reithrodontomys montanus": {
+        "CLBJ": {
+          "grassland_herbaceous": 1
+        }
+      },
+      "Sigmodon hispidus": {
+        "CLBJ": {
+          "grassland_herbaceous": 8
+        },
+        "DSNY": {
+          "cropland_pasture": 4,
+          "wetland": 2
+        },
+        "JERC": {
+          "forest": 6
+        },
+        "KONA": {
+          "cropland_pasture": 2
+        },
+        "KONZ": {
+          "grassland_herbaceous": 7
+        },
+        "OAES": {
+          "grassland_herbaceous": 11,
+          "shrub_scrub": 3
+        },
+        "ORNL": {
+          "cropland_pasture": 9
+        },
+        "OSBS": {
+          "wetland": 2
+        },
+        "UKFS": {
+          "grassland_herbaceous": 8
+        }
+      },
+      "Zapus hudsonius": {
+        "STEI": {
+          "wetland": 1
+        }
+      },
+      "Zapus princeps": {
+        "WOOD": {
+          "grassland_herbaceous": 1
+        }
+      }
+    },
+    "n5_species_site_session_counts": {
+      "Alexandromys oeconomus": {
+        "TOOL": 3
+      },
+      "Baiomys taylori": {
+        "CLBJ": 2
+      },
+      "Chaetodipus baileyi": {
+        "SRER": 8
+      },
+      "Chaetodipus californicus": {
+        "SJER": 8
+      },
+      "Chaetodipus eremicus": {
+        "JORN": 9
+      },
+      "Chaetodipus hispidus": {
+        "KONZ": 4,
+        "OAES": 15,
+        "STER": 5
+      },
+      "Chaetodipus penicillatus": {
+        "JORN": 10,
+        "SRER": 11
+      },
+      "Dipodomys merriami": {
+        "JORN": 43,
+        "SRER": 18
+      },
+      "Dipodomys ordii": {
+        "CPER": 7,
+        "JORN": 22,
+        "MOAB": 37,
+        "ONAQ": 1
+      },
+      "Microtus ochrogaster": {
+        "KONZ": 2
+      },
+      "Microtus pennsylvanicus": {
+        "BLAN": 2,
+        "DCFS": 2,
+        "HEAL": 1,
+        "NOGP": 2,
+        "UNDE": 1,
+        "WOOD": 11
+      },
+      "Microtus xanthognathus": {
+        "BONA": 2
+      },
+      "Mus musculus": {
+        "JERC": 4,
+        "LAJA": 4
+      },
+      "Myodes gapperi": {
+        "BART": 6,
+        "HARV": 2,
+        "NIWO": 1,
+        "STEI": 3,
+        "WREF": 1,
+        "YELL": 1
+      },
+      "Myodes rutilus": {
+        "BONA": 21,
+        "DEJU": 18,
+        "HEAL": 13
+      },
+      "Napaeozapus insignis": {
+        "BART": 7,
+        "HARV": 2,
+        "STEI": 2,
+        "UNDE": 2
+      },
+      "Neotoma albigula": {
+        "SRER": 4
+      },
+      "Neotoma floridana": {
+        "JERC": 1,
+        "KONZ": 4,
+        "UKFS": 1
+      },
+      "Onychomys leucogaster": {
+        "OAES": 9,
+        "STER": 22
+      },
+      "Onychomys torridus": {
+        "SRER": 4
+      },
+      "Perognathus flavus": {
+        "JORN": 4,
+        "OAES": 1
+      },
+      "Perognathus parvus": {
+        "ONAQ": 38
+      },
+      "Peromyscus boylii": {
+        "SJER": 28,
+        "SOAP": 2,
+        "TEAK": 2
+      },
+      "Peromyscus gossypinus": {
+        "JERC": 17,
+        "OSBS": 1,
+        "TALL": 9
+      },
+      "Peromyscus keeni": {
+        "ABBY": 3,
+        "WREF": 1
+      },
+      "Peromyscus leucopus": {
+        "CLBJ": 1,
+        "GRSM": 6,
+        "MLBS": 2,
+        "OAES": 3,
+        "ORNL": 18,
+        "SCBI": 4,
+        "SERC": 2,
+        "TALL": 2,
+        "TREE": 3,
+        "UKFS": 2
+      },
+      "Peromyscus maniculatus": {
+        "ABBY": 2,
+        "CLBJ": 3,
+        "DCFS": 5,
+        "GRSM": 1,
+        "KONA": 4,
+        "KONZ": 6,
+        "MOAB": 6,
+        "NIWO": 12,
+        "NOGP": 13,
+        "OAES": 1,
+        "ONAQ": 29,
+        "RMNP": 28,
+        "SJER": 4,
+        "STEI": 5,
+        "STER": 5,
+        "TEAK": 4,
+        "TREE": 1,
+        "UNDE": 3,
+        "WOOD": 42,
+        "WREF": 1,
+        "YELL": 11
+      },
+      "Peromyscus polionotus": {
+        "JERC": 10
+      },
+      "Peromyscus truei": {
+        "ONAQ": 5,
+        "SJER": 1
+      },
+      "Podomys floridanus": {
+        "OSBS": 3
+      },
+      "Rattus rattus": {
+        "GUAN": 3,
+        "LAJA": 1
+      },
+      "Reithrodontomys fulvescens": {
+        "SRER": 1
+      },
+      "Reithrodontomys megalotis": {
+        "NOGP": 2,
+        "SJER": 12
+      },
+      "Reithrodontomys montanus": {
+        "CLBJ": 1
+      },
+      "Sigmodon hispidus": {
+        "CLBJ": 8,
+        "DSNY": 6,
+        "JERC": 6,
+        "KONA": 2,
+        "KONZ": 7,
+        "OAES": 14,
+        "ORNL": 9,
+        "OSBS": 2,
+        "UKFS": 8
+      },
+      "Zapus hudsonius": {
+        "STEI": 1
+      },
+      "Zapus princeps": {
+        "WOOD": 1
+      }
+    },
     "pathogen_species_with_estimable_recapture": 30,
     "session_count": 3607,
     "site_count": 45,
