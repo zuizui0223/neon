@@ -184,6 +184,122 @@ def prepare_myodes_threshold(
     return df.sort_values(["site","habitat_group","year"]).reset_index(drop=True)
 
 
+
+
+def _myodes_habitat_term() -> str:
+    return "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+
+
+def fit_myodes_threshold_summary(
+    rows: Iterable[dict],
+    *,
+    n_min: int,
+    label: str,
+    exclude_site: str | None=None,
+    exclude_year: str | None=None,
+) -> dict:
+    raw_rows=[dict(row) for row in rows]
+    if exclude_site is not None:
+        raw_rows=[
+            row for row in raw_rows
+            if str(row.get("site","")).strip()!=str(exclude_site)
+        ]
+    if exclude_year is not None:
+        raw_rows=[
+            row for row in raw_rows
+            if str(row.get("year","")).strip()!=str(exclude_year)
+        ]
+
+    df=prepare_myodes_threshold(raw_rows,n_min=n_min)
+    if set(df["habitat_group"])!={"forest","shrub_scrub"}:
+        raise ValueError("Myodes sensitivity requires both frozen habitats")
+
+    formula=(
+        "packing_z ~ C(habitat_group, Treatment(reference='forest')) "
+        "+ z_logN + C(site)"
+    )
+    model=smf.ols(formula,data=df)
+    UTILS.assert_full_rank(model.exog,model.exog_names)
+    term=_myodes_habitat_term()
+    if term not in model.exog_names:
+        raise ValueError("Myodes habitat effect is not identifiable")
+    result=model.fit(cov_type="HC3")
+    return {
+        "label":str(label),
+        "n_min":int(n_min),
+        "session_count":int(len(df)),
+        "site_count":int(df["site"].nunique()),
+        "habitat_session_counts":{
+            h:int(np.sum(df["habitat_group"]==h))
+            for h in ("forest","shrub_scrub")
+        },
+        "n_range":[
+            int(df["n_unique_individuals"].min()),
+            int(df["n_unique_individuals"].max()),
+        ],
+        "coefficients":{
+            "habitat_effect":UTILS.coefficient_record(result,term),
+            "z_logN":UTILS.coefficient_record(result,"z_logN"),
+        },
+        "rsquared":float(result.rsquared),
+        "estimable":True,
+    }
+
+
+def fit_myodes_leave_one_out(
+    rows: Iterable[dict],
+    *,
+    unit_field: str,
+    n_min: int,
+) -> list[dict]:
+    if unit_field not in {"site","year"}:
+        raise ValueError("unit_field must be site or year")
+    df=prepare_myodes_threshold(rows,n_min=n_min)
+    units=sorted({str(value) for value in df[unit_field] if str(value)})
+    out=[]
+    for unit in units:
+        kwargs={
+            "exclude_site":unit if unit_field=="site" else None,
+            "exclude_year":unit if unit_field=="year" else None,
+        }
+        try:
+            summary=fit_myodes_threshold_summary(
+                rows,
+                n_min=n_min,
+                label=f"leave_{unit_field}_out:{unit}",
+                **kwargs,
+            )
+            out.append({
+                "left_out":unit,
+                "estimable":True,
+                "session_count":summary["session_count"],
+                "site_count":summary["site_count"],
+                "coefficients":summary["coefficients"],
+            })
+        except Exception as error:
+            out.append({
+                "left_out":unit,
+                "estimable":False,
+                "error":f"{type(error).__name__}: {error}",
+            })
+    return out
+
+
+def fit_frozen_context_family(
+    rows: Iterable[dict],
+    *,
+    n_min: int,
+) -> dict[str,dict]:
+    all_rows=[dict(row) for row in rows]
+    out={}
+    for species in sorted(FROZEN_SITE_CONTEXT_SPECIES):
+        out[species]=fit_context_summary(
+            all_rows,
+            species,
+            n_min=n_min,
+        )
+    return out
+
 def aggregate_peromyscus_complex_rows(rows: Iterable[dict]) -> list[dict]:
     out=[]
     for raw in rows:
