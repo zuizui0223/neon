@@ -52,26 +52,19 @@
       "control",
       "kangaroo_rat_exclosure"
     ],
-    "formula": "packing_z ~ treatment * z_logN",
+    "formula": "packing_z ~ treatment * z_logN + period_fixed_effects",
     "treatment_reference": "control",
-    "reml": true,
-    "optimizer_sequence": [
-      "lbfgs",
-      "bfgs",
-      "cg"
-    ],
     "primary_estimand": "treatment main effect at mean log(N)",
     "secondary_estimand": "treatment x z_logN interaction",
     "session_treatment_mapping": {
       "control": "control",
       "exclosure": "kangaroo_rat_exclosure"
     },
-    "mixedlm_groups": "constant_all_rows",
-    "re_formula": "0",
-    "variance_components": {
-      "plot": "0 + C(plot_id)",
-      "period": "0 + C(period)"
-    }
+    "implemented_formula": "packing_z ~ C(treatment, Treatment(reference='control')) * z_logN + C(period)",
+    "covariance": "cluster_by_plot",
+    "cluster_variable": "plot_id",
+    "small_sample_correction": true,
+    "use_t": true
   },
   "neon_primary": {
     "species": "Myodes rutilus",
@@ -132,5 +125,15 @@
     ],
     "secondary_neon_method": "Benjamini-Hochberg FDR over exactly three frozen within-site habitat coefficients"
   },
-  "ecological_model_fits_at_lock": 0
+  "ecological_model_fits_at_lock": 0,
+  "implementation_rulings": [
+    {
+      "id": "portal_primary_nonconvergence",
+      "stage": "before official Phase-2 result workflow completed",
+      "observation": "The prelocked crossed MixedLM formulation failed numerical convergence in an independent local implementation check; a plot-random plus period-fixed MixedLM was singular.",
+      "decision": "Use a fixed census-period blocking factor and plot-clustered small-sample-corrected standard errors for the Portal primary regression.",
+      "rationale": "Treatment is assigned at the plot level; period fixed effects absorb shared monthly conditions, while plot clustering treats the 18 plots as independent experimental replicates without requiring an unstable random-effect variance estimate.",
+      "outcome_use": "No coefficient sign, magnitude, p-value, or confidence interval was used to choose this replacement."
+    }
+  ]
 }
