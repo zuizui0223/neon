@@ -1,0 +1,23 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_estimability_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36473808006,
+    "workflow_name": "public-mammal-sex-recapture-estimability",
+    "workflow_head_sha": "a752c9de11750e30ef4d72ca152a8ff27fb8baea",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "name": "heteromyid-sex-recapture-estimability-v1",
+    "artifact_id": 10994126454,
+    "digest": "sha256:b18d96da89232225feefc07f6ad592e4a1c7a66fe370acd74e2975d15e572747",
+    "size_in_bytes": 5402
+  },
+  "gate_commit": "532288e45b01ec8d6e343c748fd64eedb0d9c65c",
+  "gate_decision": "authorize_sex_specific_recapture_displacement",
+  "qualifying_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ]
+}
