@@ -1,0 +1,21 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_interpretation_gate.v1",
+  "frozen_date": "2026-09-29",
+  "phase3_primary_decision": "no_replicated_positive_support",
+  "movement_effects_inspected": false,
+  "movement_effect_models_fit": 0,
+  "authorize_decoupling_if": {
+    "recapture_estimability_authorized": true,
+    "minimum_eligible_species": 2,
+    "movement_family_effect_positive": true,
+    "movement_family_ci95_low_above_zero": true,
+    "minimum_positive_species": 2
+  },
+  "decisions": {
+    "pass": "authorize_movement_packing_decoupling_manuscript",
+    "positive_but_ci_overlaps_zero": "stop_no_confirmatory_movement_dimorphism",
+    "nonpositive": "stop_no_directional_movement_dimorphism",
+    "non_estimable": "stop_recapture_validation_not_estimable"
+  },
+  "can_change_phase3_decision": false
+}
