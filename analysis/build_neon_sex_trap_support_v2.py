@@ -5,8 +5,6 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
 
-from analysis import mammal_sex_trap_support_v2 as SUPPORT
-
 ROOT=Path(__file__).resolve().parents[1]
 
 
@@ -19,6 +17,10 @@ def _load_module(name: str, path: Path):
     return module
 
 
+SUPPORT=_load_module(
+    "mammal_sex_trap_support_v2",
+    ROOT/"analysis"/"mammal_sex_trap_support_v2.py",
+)
 BASE=_load_module(
     "build_neon_space_use_sessions_v1",
     ROOT/"analysis"/"build_neon_space_use_sessions_v1.py",
