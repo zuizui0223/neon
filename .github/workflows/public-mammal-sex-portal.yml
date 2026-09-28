@@ -1,0 +1,74 @@
+name: public-mammal-sex-portal
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - analysis/build_portal_sex_packing_inventory_v1.py
+      - analysis/mammal_sex_packing_estimability_v1.py
+      - .github/workflows/public-mammal-sex-portal.yml
+  workflow_dispatch:
+
+jobs:
+  portal-sex-estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download pinned Portal public files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request
+
+          sha="72d7ff8568052763bf6899dc462e285684cf20f6"
+          paths=[
+              "Rodents/Portal_rodent.csv",
+              "Rodents/Portal_rodent_trapping.csv",
+              "Rodents/Portal_rodent_species.csv",
+          ]
+          root=Path("data/cache/portal")
+          for path in paths:
+              out=root/path
+              out.parent.mkdir(parents=True,exist_ok=True)
+              req=urllib.request.Request(
+                  f"https://raw.githubusercontent.com/weecology/PortalData/{sha}/{path}",
+                  headers={"User-Agent":"public-mammal-sex-estimability/1.0"},
+              )
+              with urllib.request.urlopen(req,timeout=180) as response:
+                  raw=response.read()
+              if not raw:
+                  raise RuntimeError(f"empty source file: {path}")
+              out.write_bytes(raw)
+          PY
+
+      - name: Build Portal heteromyid sex-session inventory
+        run: |
+          python analysis/build_portal_sex_packing_inventory_v1.py             --portal-dir data/cache/portal             --output-dir results/generated
+
+      - name: Assert effect-blind inventory
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/generated/portal_heteromyid_sex_inventory_v1.json").read_text())
+          assert p["ecological_effects_inspected"] is False
+          assert p["ecological_model_fits"] == 0
+          assert p["portal_commit_sha"] == "72d7ff8568052763bf6899dc462e285684cf20f6"
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Upload Portal sex estimability
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-sex-portal-v1
+          path: |
+            results/generated/portal_heteromyid_sex_sessions_v1.csv
+            results/generated/portal_heteromyid_sex_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 30
