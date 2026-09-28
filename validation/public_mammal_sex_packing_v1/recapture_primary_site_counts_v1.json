@@ -1,0 +1,24 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_primary_site_counts.v1",
+  "frozen_date": "2026-09-29",
+  "source_artifact_id": 10994126454,
+  "source_artifact_digest": "sha256:b18d96da89232225feefc07f6ad592e4a1c7a66fe370acd74e2975d15e572747",
+  "primary_threshold": "n_recapture_male>=3 and n_recapture_female>=3",
+  "counts": {
+    "Chaetodipus penicillatus": {
+      "JORN": 12,
+      "SRER": 17
+    },
+    "Dipodomys merriami": {
+      "JORN": 38,
+      "SRER": 32
+    },
+    "Dipodomys ordii": {
+      "CPER": 6,
+      "JORN": 11,
+      "MOAB": 19,
+      "ONAQ": 6
+    }
+  },
+  "sex_specific_movement_magnitudes_inspected": false
+}
