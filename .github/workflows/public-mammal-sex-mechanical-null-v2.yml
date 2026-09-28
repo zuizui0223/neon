@@ -39,7 +39,7 @@ jobs:
             tests.test_mammal_spatial_packing_exact_v2 \
             tests.test_sex_packing_mechanical_null_v2 -v
 
-      - name: Freeze exact-v2 mechanical audit
+      - name: Compute exact-v2 mechanical audit
         run: |
           python - <<'PY'
           import importlib.util
@@ -61,9 +61,7 @@ jobs:
               for g in out["geometries"]
           )
 
-          target=Path("results/heteromyid_sex_packing_mechanical_null_v2.json")
-          target.parent.mkdir(parents=True,exist_ok=True)
-          target.write_text(
+          Path("/tmp/heteromyid_sex_packing_mechanical_null_v2.json").write_text(
               json.dumps(out,indent=2,sort_keys=True)+"\n",
               encoding="utf-8",
           )
@@ -74,6 +72,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/public-mammal-sex-packing-v1
+          mkdir -p results
+          cp /tmp/heteromyid_sex_packing_mechanical_null_v2.json \
+             results/heteromyid_sex_packing_mechanical_null_v2.json
           git add results/heteromyid_sex_packing_mechanical_null_v2.json
           if git diff --cached --quiet; then
             echo "exact-v2 audit unchanged"
