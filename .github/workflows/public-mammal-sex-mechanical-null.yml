@@ -1,0 +1,75 @@
+name: public-mammal-sex-mechanical-null
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - analysis/audit_sex_packing_mechanical_null_v1.py
+      - .github/workflows/public-mammal-sex-mechanical-null.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-sex-packing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Run pre-effect mechanical null audit
+        run: |
+          python - <<'PY'
+          import importlib.util, json
+          from pathlib import Path
+          p=Path("analysis/audit_sex_packing_mechanical_null_v1.py")
+          spec=importlib.util.spec_from_file_location("sexnull",p)
+          m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          out=m.audit_standard_geometries(
+              sessions_per_design=1000,
+              packing_replicates=999,
+          )
+          path=Path("results/heteromyid_sex_packing_mechanical_null_v1.json")
+          path.parent.mkdir(parents=True,exist_ok=True)
+          path.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
+          print(json.dumps({
+              "passes":out["passes"],
+              "geometries":[
+                  {
+                      "label":x["label"],
+                      "rho":x["spearman_sex_ratio_vs_delta"],
+                      "mean_delta":x["mean_delta_across_design_points"],
+                      "passes":x["passes"],
+                  }
+                  for x in out["geometries"]
+              ],
+          },indent=2,sort_keys=True))
+          if not out["passes"]:
+              raise SystemExit("mechanical sex-ratio null audit failed")
+          PY
+      - name: Persist mechanical null audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/heteromyid_sex_packing_mechanical_null_v1.json
+          if git diff --cached --quiet; then
+            echo "mechanical null unchanged"
+          else
+            git commit -m "Freeze heteromyid sex-packing mechanical null audit"
+            git push origin HEAD:design/public-mammal-sex-packing-v1
+          fi
+      - name: Upload mechanical null
+        uses: actions/upload-artifact@v4
+        with:
+          name: heteromyid-sex-packing-mechanical-null-v1
+          path: results/heteromyid_sex_packing_mechanical_null_v1.json
+          if-no-files-found: error
+          retention-days: 30
