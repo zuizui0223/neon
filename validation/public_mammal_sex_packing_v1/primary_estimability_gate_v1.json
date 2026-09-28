@@ -1,0 +1,110 @@
+{
+  "schema": "neon.public_mammal_sex_packing.primary_estimability_gate.v1",
+  "frozen_date": "2026-09-28",
+  "decision": "authorize_cross_source_effect_modeling",
+  "primary_sex_count_threshold": 3,
+  "portal_family_gate": {
+    "passed": true,
+    "qualifying_species": [
+      "Chaetodipus baileyi",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ],
+    "counts": {
+      "Chaetodipus baileyi": {
+        "paired_n3_sessions": 321,
+        "independent_plots": 17
+      },
+      "Chaetodipus penicillatus": {
+        "paired_n3_sessions": 653,
+        "independent_plots": 24
+      },
+      "Dipodomys merriami": {
+        "paired_n3_sessions": 388,
+        "independent_plots": 17
+      },
+      "Dipodomys ordii": {
+        "paired_n3_sessions": 58,
+        "independent_plots": 9
+      }
+    }
+  },
+  "neon_family_gate": {
+    "passed": true,
+    "qualifying_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ],
+    "counts": {
+      "Chaetodipus penicillatus": {
+        "paired_n3_sessions": 16,
+        "independent_sites": 2
+      },
+      "Dipodomys merriami": {
+        "paired_n3_sessions": 32,
+        "independent_sites": 2
+      },
+      "Dipodomys ordii": {
+        "paired_n3_sessions": 33,
+        "independent_sites": 3
+      }
+    }
+  },
+  "cross_source_gate": {
+    "passed": true,
+    "shared_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "portal_inventory_summary": {
+    "session_count": 18971,
+    "paired_n2_sessions": 3625,
+    "paired_n3_sessions": 1431,
+    "paired_n5_sessions": 252,
+    "median_known_sex_fraction": 1
+  },
+  "neon_primary_screen_summary": {
+    "session_count": 714,
+    "paired_n2_sessions": 210,
+    "paired_n3_sessions": 110,
+    "paired_n5_sessions": 50,
+    "processed_site_count": 9,
+    "site_stops": []
+  },
+  "source_artifacts": {
+    "portal": {
+      "name": "public-mammal-sex-portal-v1",
+      "artifact_id": 10956322657,
+      "workflow_run_id": 36390858126,
+      "workflow_head_sha": "afa34add9c390b81278e791d2b61e4af0c86925b",
+      "digest": "sha256:214d3767dc6c4c556a9370bb32869f8080dbdc0ab8d0c38b84706bce177c27cf"
+    },
+    "neon_primary": {
+      "name": "public-mammal-sex-neon-primary-gate-v1",
+      "artifact_id": 10957171076,
+      "workflow_run_id": 36392846360,
+      "workflow_head_sha": "1f2821bbc4e009a0e5ad51d1190ccdf733cc4bd9",
+      "digest": "sha256:ec5acbd39eaa0537a7a6169d9e1a97ef2657ca456a1385ca0f5f7e2143396aaa",
+      "scope": "complete_primary_gate_site_subset",
+      "sites": [
+        "CPER",
+        "JORN",
+        "KONZ",
+        "MOAB",
+        "OAES",
+        "ONAQ",
+        "SJER",
+        "SRER",
+        "STER"
+      ]
+    }
+  },
+  "completeness_argument": "Any primary paired session has N_male>=3 and N_female>=3, hence total N>=6. Every species-site capable of such a session must therefore occur in the frozen Phase-1 N>=5 species-site inventory. The 9-site NEON screen is complete for the primary gate.",
+  "sensitivity_inventory_status": "full 45-site NEON scan remains pending for exhaustive >=2/sex sensitivity counts; it cannot invalidate the primary authorization",
+  "ecological_effects_inspected": false,
+  "ecological_model_fits": 0
+}
