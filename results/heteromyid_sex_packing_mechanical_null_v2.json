@@ -1,0 +1,371 @@
+{
+  "ecological_effects_inspected": false,
+  "ecological_model_fits": 0,
+  "geometries": [
+    {
+      "design_points": [
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 6.568278053621342,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 6.568278053621342,
+          "n_female": 3,
+          "n_male": 3,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 4.120510815920692,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 6.568278053621342,
+          "n_female": 5,
+          "n_male": 3,
+          "sex_ratio": 0.375
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 2.8188547510154485,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 6.568278053621342,
+          "n_female": 8,
+          "n_male": 3,
+          "sex_ratio": 0.2727272727272727
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 2.052793189952809,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 6.568278053621342,
+          "n_female": 12,
+          "n_male": 3,
+          "sex_ratio": 0.2
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 6.568278053621342,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 4.120510815920692,
+          "n_female": 3,
+          "n_male": 5,
+          "sex_ratio": 0.625
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 4.120510815920692,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 4.120510815920692,
+          "n_female": 5,
+          "n_male": 5,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 2.8188547510154485,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 4.120510815920692,
+          "n_female": 8,
+          "n_male": 5,
+          "sex_ratio": 0.38461538461538464
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 6.568278053621342,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 2.8188547510154485,
+          "n_female": 3,
+          "n_male": 8,
+          "sex_ratio": 0.7272727272727273
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 4.120510815920692,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 2.8188547510154485,
+          "n_female": 5,
+          "n_male": 8,
+          "sex_ratio": 0.6153846153846154
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 2.8188547510154485,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 2.8188547510154485,
+          "n_female": 8,
+          "n_male": 8,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 23.029141490494794,
+          "female_null_sd": 6.568278053621342,
+          "male_null_mean": 23.029141490494794,
+          "male_null_sd": 2.052793189952809,
+          "n_female": 3,
+          "n_male": 12,
+          "sex_ratio": 0.8
+        }
+      ],
+      "label": "portal_7x7_6.25m",
+      "mean_expected_delta": 0.0,
+      "passes": true,
+      "spearman_sex_ratio_vs_expected_delta": 0.0,
+      "trap_count": 49,
+      "warning_threshold_abs_rho": 0.2
+    },
+    {
+      "design_points": [
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 15.447486538411576,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 15.447486538411576,
+          "n_female": 3,
+          "n_male": 3,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 9.811606985207687,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 15.447486538411576,
+          "n_female": 5,
+          "n_male": 3,
+          "sex_ratio": 0.375
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 6.845826074950725,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 15.447486538411576,
+          "n_female": 8,
+          "n_male": 3,
+          "sex_ratio": 0.2727272727272727
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 5.134190378632993,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 15.447486538411576,
+          "n_female": 12,
+          "n_male": 3,
+          "sex_ratio": 0.2
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 15.447486538411576,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 9.811606985207687,
+          "n_female": 3,
+          "n_male": 5,
+          "sex_ratio": 0.625
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 9.811606985207687,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 9.811606985207687,
+          "n_female": 5,
+          "n_male": 5,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 6.845826074950725,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 9.811606985207687,
+          "n_female": 8,
+          "n_male": 5,
+          "sex_ratio": 0.38461538461538464
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 15.447486538411576,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 6.845826074950725,
+          "n_female": 3,
+          "n_male": 8,
+          "sex_ratio": 0.7272727272727273
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 9.811606985207687,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 6.845826074950725,
+          "n_female": 5,
+          "n_male": 8,
+          "sex_ratio": 0.6153846153846154
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 6.845826074950725,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 6.845826074950725,
+          "n_female": 8,
+          "n_male": 8,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 52.392648699124116,
+          "female_null_sd": 15.447486538411576,
+          "male_null_mean": 52.392648699124116,
+          "male_null_sd": 5.134190378632993,
+          "n_female": 3,
+          "n_male": 12,
+          "sex_ratio": 0.8
+        }
+      ],
+      "label": "neon_10x10_10m",
+      "mean_expected_delta": 0.0,
+      "passes": true,
+      "spearman_sex_ratio_vs_expected_delta": 0.0,
+      "trap_count": 100,
+      "warning_threshold_abs_rho": 0.2
+    },
+    {
+      "design_points": [
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 10.50924488579414,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 10.50924488579414,
+          "n_female": 3,
+          "n_male": 3,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 6.5928173054730825,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 10.50924488579414,
+          "n_female": 5,
+          "n_male": 3,
+          "sex_ratio": 0.375
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 4.510167601624708,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 10.50924488579414,
+          "n_female": 8,
+          "n_male": 3,
+          "sex_ratio": 0.2727272727272727
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 3.284469103924457,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 10.50924488579414,
+          "n_female": 12,
+          "n_male": 3,
+          "sex_ratio": 0.2
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 10.50924488579414,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 6.5928173054730825,
+          "n_female": 3,
+          "n_male": 5,
+          "sex_ratio": 0.625
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 6.5928173054730825,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 6.5928173054730825,
+          "n_female": 5,
+          "n_male": 5,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 4.510167601624708,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 6.5928173054730825,
+          "n_female": 8,
+          "n_male": 5,
+          "sex_ratio": 0.38461538461538464
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 10.50924488579414,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 4.510167601624708,
+          "n_female": 3,
+          "n_male": 8,
+          "sex_ratio": 0.7272727272727273
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 6.5928173054730825,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 4.510167601624708,
+          "n_female": 5,
+          "n_male": 8,
+          "sex_ratio": 0.6153846153846154
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 4.510167601624708,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 4.510167601624708,
+          "n_female": 8,
+          "n_male": 8,
+          "sex_ratio": 0.5
+        },
+        {
+          "expected_delta": 0.0,
+          "female_null_mean": 36.846626384791676,
+          "female_null_sd": 10.50924488579414,
+          "male_null_mean": 36.846626384791676,
+          "male_null_sd": 3.284469103924457,
+          "n_female": 3,
+          "n_male": 12,
+          "sex_ratio": 0.8
+        }
+      ],
+      "label": "neon_7x7_10m",
+      "mean_expected_delta": 0.0,
+      "passes": true,
+      "spearman_sex_ratio_vs_expected_delta": 0.0,
+      "trap_count": 49,
+      "warning_threshold_abs_rho": 0.2
+    }
+  ],
+  "legacy_warning_threshold_abs_rho": 0.2,
+  "method": "exact_finite_population_pairwise_distance_moments",
+  "passes": true,
+  "schema": "neon.public_mammal_sex_packing.mechanical_null.v2",
+  "status": "pre_effect_exact_mechanical_null_audit"
+}
