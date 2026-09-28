@@ -1,0 +1,61 @@
+name: public-mammal-sex-neon-primary-gate
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - validation/public_mammal_sex_packing_v1/primary_gate_site_screen_v1.json
+      - .github/workflows/public-mammal-sex-neon-primary-gate.yml
+  workflow_dispatch:
+
+jobs:
+  neon-sex-primary-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install numpy==2.1.1
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then exit 3; fi
+      - name: Run complete primary-gate site screen
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/run_neon_sex_packing_estimability_v1.py             --output-dir results/generated             --sites CPER JORN KONZ MOAB OAES ONAQ SJER SRER STER
+      - name: Assert primary screen provenance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          inv=json.loads(Path("results/generated/neon_heteromyid_sex_inventory_v1.json").read_text())
+          lock=json.loads(Path("validation/public_mammal_sex_packing_v1/primary_gate_site_screen_v1.json").read_text())
+          assert inv["available_site_count"] >= len(lock["sites"])
+          assert inv["processed_site_count"] <= len(lock["sites"])
+          assert inv["ecological_effects_inspected"] is False
+          assert inv["ecological_model_fits"] == 0
+          print(json.dumps({
+              "screen_sites":lock["sites"],
+              "session_count":inv["session_count"],
+              "paired_n3_sessions":inv["paired_n3_sessions"],
+              "paired_n5_sessions":inv["paired_n5_sessions"],
+              "species":inv["species"],
+              "site_stops":inv["site_stops"],
+          },indent=2,sort_keys=True))
+          PY
+      - name: Upload primary-gate inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-sex-neon-primary-gate-v1
+          path: |
+            results/generated/neon_heteromyid_sex_sessions_v1.csv
+            results/generated/neon_heteromyid_sex_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 30
