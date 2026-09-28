@@ -1,0 +1,20 @@
+{
+  "schema": "neon.public_mammal_sex_packing.primary_gate_site_screen.v1",
+  "derivation_source": "results/public_mammal_estimability_v1.json",
+  "derivation_rule": "paired >=3/sex implies total N>=6; therefore any site capable of a primary paired session must already contain a heteromyid species-site with >=1 frozen Phase-1 N>=5 session",
+  "primary_sex_count_min": 3,
+  "phase1_total_n_screen": 5,
+  "sites": [
+    "CPER",
+    "JORN",
+    "KONZ",
+    "MOAB",
+    "OAES",
+    "ONAQ",
+    "SJER",
+    "SRER",
+    "STER"
+  ],
+  "site_count": 9,
+  "effect_blind": true
+}
