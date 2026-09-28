@@ -47,5 +47,12 @@
   },
   "sensitivity_can_rescue_primary": false,
   "validation_species_movement_magnitudes_inspected": false,
-  "movement_effect_models_fit": 0
+  "movement_effect_models_fit": 0,
+  "estimand_population": "recapture-eligible captured individuals with >=2 valid nights within pathogen-grid events",
+  "selection_boundary": {
+    "unconditional_population_movement_claim": false,
+    "capture_probability_claim": false,
+    "dispersal_claim": false,
+    "note": "Recapture eligibility may depend on movement/survival/detection; event pairing does not remove selection into recapture eligibility."
+  }
 }
