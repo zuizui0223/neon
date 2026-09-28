@@ -1,0 +1,38 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_full46_vs_screen6_replication.v1",
+  "frozen_date": "2026-09-29",
+  "full46_run": {
+    "run_id": 36479767597,
+    "run_number": 1,
+    "artifact_id": 10997420532,
+    "artifact_digest": "sha256:d2b4734d6b6d62d32599ed08688091446d6497b417dc0733680d5dfedfa43464",
+    "data_query_requests": 46,
+    "downloaded_required_bytes": 929662137
+  },
+  "screen6_run": {
+    "run_id": 36480831898,
+    "run_number": 2,
+    "artifact_id": 10995913743,
+    "artifact_digest": "sha256:ea7fdc1104deb7bf1c01cea2f17602296fad46d422082eae316c65bc837d1185",
+    "data_query_requests": 6,
+    "downloaded_required_bytes": 149336258
+  },
+  "comparison": {
+    "primary_identical": true,
+    "n2_sensitivity_identical": true,
+    "n5_sensitivity_identical": true,
+    "manuscript_gate_identical": true,
+    "primary_family_effect": 0.2532894521472151,
+    "primary_ci95": [
+      -0.2963688635036089,
+      0.8029477677980391
+    ],
+    "n5_family_effect": 0.1905924752173927,
+    "n5_ci95": [
+      0.14434693264595866,
+      0.23683801778882674
+    ],
+    "final_decision": "stop_no_confirmatory_movement_dimorphism"
+  },
+  "ruling": "The effect-blind six-site screen removed only sites with no eligible frozen-species event at any prespecified threshold; it changed no primary or sensitivity result."
+}
