@@ -13,6 +13,10 @@ Sex differences in heteromyid movement, home-range size, overlap, and excursions
 
 Accordingly, this programme must not claim novelty for 'males move farther' or 'males have larger home ranges.'
 
+Sex-dependent population spatial organization is also not wholly novel. Vázquez & Álvarez-Castañeda (2011, Mammalian Biology 76:577–582, DOI 10.1016/j.mambio.2011.05.005) reported sex-dependent spatial relationships among *Dipodomys merriami insularis* burrows, including closer opposite-sex than same-sex neighboring burrows. Related work has also examined sex and reproductive-state effects on the spatial organization of rodents around kangaroo-rat burrows.
+
+Therefore this programme must not claim that it is the first test of sex-dependent spatial organization in kangaroo rats.
+
 ## Distinct level tested here
 
 The Phase-3 endpoint is not an individual movement or home-range endpoint. It is a one-night population configuration:
@@ -20,6 +24,14 @@ The Phase-3 endpoint is not an individual movement or home-range endpoint. It is
 `Delta_sex_packing = Packing_z_male - Packing_z_female`
 
 with each sex standardized against the exact finite active-trap geometry and its exact captured N.
+
+The distinct contribution is the combination of:
+
+- a one-night captured population configuration rather than home-range or burrow-neighbor structure;
+- exact conditioning on sex-specific captured N and the realized finite trap geometry;
+- the same standardized endpoint across multiple heteromyid species;
+- replication across two independent long-term public trapping systems;
+- an independently pre-locked repeated-night movement validation that tests whether individual movement dimorphism propagates to the one-night population configuration.
 
 The tested cross-scale question is therefore:
 
