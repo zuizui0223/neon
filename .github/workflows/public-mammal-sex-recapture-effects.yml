@@ -6,6 +6,7 @@ on:
       - design/public-mammal-sex-packing-v1
     paths:
       - validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json
+      - .github/workflows/public-mammal-sex-recapture-effects.yml
   workflow_dispatch:
 
 permissions:
