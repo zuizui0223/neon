@@ -120,3 +120,59 @@ def summarize_mechanical_null(rows: list[dict]) -> dict:
         "warning_threshold_abs_rho":threshold,
         "passes":abs(rho)<=threshold,
     }
+
+
+def _regular_grid(rows: int, cols: int, spacing_m: float) -> np.ndarray:
+    return np.asarray(
+        [(x*spacing_m,y*spacing_m) for y in range(rows) for x in range(cols)],
+        dtype=float,
+    )
+
+
+def audit_standard_geometries(
+    *,
+    sessions_per_design: int=1000,
+    packing_replicates: int=999,
+) -> dict:
+    designs=[
+        ("portal_7x7_6.25m",_regular_grid(7,7,6.25),2026092801),
+        ("neon_10x10_10m",_regular_grid(10,10,10.0),2026092802),
+        ("neon_7x7_10m",_regular_grid(7,7,10.0),2026092803),
+    ]
+    sex_counts=[
+        (3,3),(3,5),(3,8),(3,12),
+        (5,3),(5,5),(5,8),
+        (8,3),(8,5),(8,8),
+        (12,3),
+    ]
+    geometries=[]
+    for label,traps,base_seed in designs:
+        rows=[]
+        for index,(n_male,n_female) in enumerate(sex_counts):
+            row=simulate_random_sex_delta(
+                traps,
+                n_male=n_male,
+                n_female=n_female,
+                sessions=sessions_per_design,
+                packing_replicates=packing_replicates,
+                seed=base_seed+index*1000,
+            )
+            rows.append(row)
+        summary=summarize_mechanical_null(rows)
+        geometries.append({
+            "label":label,
+            "trap_count":len(traps),
+            "design_points":rows,
+            **summary,
+        })
+    return {
+        "schema":"neon.public_mammal_sex_packing.mechanical_null.v1",
+        "status":"pre_effect_mechanical_null_audit",
+        "warning_threshold_abs_rho":0.2,
+        "sessions_per_design":sessions_per_design,
+        "packing_replicates":packing_replicates,
+        "geometries":geometries,
+        "passes":all(row["passes"] for row in geometries),
+        "ecological_effects_inspected":False,
+        "ecological_model_fits":0,
+    }
