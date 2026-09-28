@@ -10,7 +10,12 @@ on:
       - analysis/public_mammal_context_v1.py
       - analysis/public_mammal_phase2_utils_v1.py
       - analysis/fit_neon_myodes_phase2_v1.py
+      - analysis/fit_neon_secondary_habitat_phase2_v1.py
+      - analysis/neon_phase2_context_sensitivity_v1.py
       - tests/test_public_mammal_phase2_lock.py
+      - tests/test_neon_secondary_habitat_phase2.py
+      - tests/test_neon_phase2_context_sensitivity.py
+      - tests/test_neon_phase2_context_workflow.py
       - tests/test_public_mammal_phase2_utils.py
       - tests/test_neon_myodes_phase2.py
       - .github/workflows/public-mammal-phase2-neon.yml
