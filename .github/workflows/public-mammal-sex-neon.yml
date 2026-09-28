@@ -1,0 +1,72 @@
+name: public-mammal-sex-neon
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - analysis/build_neon_sex_packing_inventory_v1.py
+      - analysis/run_neon_sex_packing_estimability_v1.py
+      - analysis/mammal_sex_packing_estimability_v1.py
+      - .github/workflows/public-mammal-sex-neon.yml
+  workflow_dispatch:
+
+jobs:
+  neon-sex-estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install numpy==2.1.1
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Build NEON heteromyid sex-session inventory
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/run_neon_sex_packing_estimability_v1.py             --output-dir results/generated
+
+      - name: Assert effect-blind inventory
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/generated/neon_heteromyid_sex_inventory_v1.json").read_text())
+          assert p["product_code"] == "DP1.10072.001"
+          assert p["release"] == "RELEASE-2026"
+          assert p["ecological_effects_inspected"] is False
+          assert p["ecological_model_fits"] == 0
+          assert p["session_count"] > 0
+          print(json.dumps({
+              "session_count":p["session_count"],
+              "paired_n2_sessions":p["paired_n2_sessions"],
+              "paired_n3_sessions":p["paired_n3_sessions"],
+              "paired_n5_sessions":p["paired_n5_sessions"],
+              "species_count":p["species_count"],
+              "processed_site_count":p["processed_site_count"],
+              "site_stops":p["site_stops"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Upload NEON sex estimability
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-mammal-sex-neon-v1
+          path: |
+            results/generated/neon_heteromyid_sex_sessions_v1.csv
+            results/generated/neon_heteromyid_sex_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 30
