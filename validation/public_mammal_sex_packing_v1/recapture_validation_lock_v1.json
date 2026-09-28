@@ -1,0 +1,41 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_validation_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_sex_specific_recapture_displacement_effects",
+  "source": {
+    "product_code": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "grid_type": "pathogen"
+  },
+  "taxon_scope": "Heteromyidae",
+  "candidate_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "recapture_eligibility": {
+    "valid_tag": true,
+    "known_sex": true,
+    "minimum_distinct_nights": 2,
+    "valid_coordinates": true
+  },
+  "paired_event_thresholds": {
+    "primary": 3,
+    "sensitivity_low": 2,
+    "sensitivity_high": 5
+  },
+  "advance_gate": {
+    "minimum_species": 2,
+    "minimum_primary_paired_events_per_species": 5,
+    "minimum_sites_per_species": 2
+  },
+  "outcome": "median_male_log1p_individual_median_successive_displacement_minus_female",
+  "weighting": {
+    "within_site": "equal_event_weight",
+    "species_effect": "equal_site_weight",
+    "validation_family": "equal_species_weight"
+  },
+  "can_rescue_phase3_primary": false,
+  "sex_specific_movement_magnitudes_inspected": false,
+  "movement_effect_models_fit": 0
+}
