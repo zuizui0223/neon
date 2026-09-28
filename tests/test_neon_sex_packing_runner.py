@@ -57,6 +57,14 @@ class NeonSexPackingRunnerTests(unittest.TestCase):
         self.assertEqual(m.PHASE1_TOTAL_N_SCREEN,5)
         self.assertGreaterEqual(2*m.PRIMARY_SEX_COUNT_MIN,m.PHASE1_TOTAL_N_SCREEN)
 
+    def test_primary_gate_query_can_use_basic_package(self):
+        q=m.build_query_for_site("JORN",package="basic")
+        self.assertEqual(q["productCode"],"DP1.10072.001")
+        self.assertEqual(q["siteCodes"],["JORN"])
+        self.assertEqual(q["release"],"RELEASE-2026")
+        self.assertEqual(q["package"],"basic")
+        self.assertFalse(q["includeProvisional"])
+
 
 if __name__=="__main__":
     unittest.main()
