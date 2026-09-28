@@ -1,0 +1,32 @@
+{
+  "schema": "neon.public_mammal_sex_packing.mechanical_null.v1_failure_reproduction",
+  "frozen_date": "2026-09-29",
+  "source_branch": "design/public-mammal-sex-packing-v1",
+  "source_head_before_v2": "e97ba006415d644aa06a60f7086fbe1383fa2b9c",
+  "legacy_method": "999-draw Monte Carlo null moments plus 1000 simulated sessions per sex-count design point",
+  "warning_threshold_abs_rho": 0.2,
+  "passes": false,
+  "geometries": [
+    {
+      "label": "portal_7x7_6.25m",
+      "spearman_sex_ratio_vs_mean_delta": -0.31193973345246884,
+      "mean_delta_across_design_points": 0.001039514337071261,
+      "passes": false
+    },
+    {
+      "label": "neon_10x10_10m",
+      "spearman_sex_ratio_vs_mean_delta": -0.24771684715343112,
+      "mean_delta_across_design_points": 0.016401006877958976,
+      "passes": false
+    },
+    {
+      "label": "neon_7x7_10m",
+      "spearman_sex_ratio_vs_mean_delta": -0.04587349021359836,
+      "mean_delta_across_design_points": -0.029550119329332256,
+      "passes": true
+    }
+  ],
+  "decision": "retain_v1_failure_and_amend_null_computation_before_any_ecological_effect_extraction",
+  "ecological_effects_inspected": false,
+  "ecological_model_fits": 0
+}
