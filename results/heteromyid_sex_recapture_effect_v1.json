@@ -1,0 +1,236 @@
+{
+  "available_site_count": 46,
+  "data_query_requests": 6,
+  "downloaded_required_bytes": 149336258,
+  "downloaded_required_file_count": 892,
+  "effect_screen_sites": [
+    "CPER",
+    "JORN",
+    "MOAB",
+    "ONAQ",
+    "SRER",
+    "STER"
+  ],
+  "manuscript_gate": {
+    "decision": "stop_no_confirmatory_movement_dimorphism",
+    "family_ci95_low_above_zero": false,
+    "family_effect_positive": true,
+    "positive_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ],
+    "positive_species_count": 3
+  },
+  "movement_effect_models_fit": 1,
+  "phase3_primary_decision": "no_replicated_positive_support",
+  "primary": {
+    "family": {
+      "ci95_high": 0.8029477677980391,
+      "ci95_low": -0.2963688635036089,
+      "df": 2,
+      "effect": 0.2532894521472151,
+      "estimable": true,
+      "sd_across_species": 0.22126724820884958,
+      "species_count": 3,
+      "standard_error": 0.12774870531622706,
+      "status": "estimable"
+    },
+    "n_min_per_sex": 3,
+    "species": [
+      {
+        "ci95_high": 1.3661515203784957,
+        "ci95_low": -0.36313609359398846,
+        "df": 1,
+        "effect": 0.5015077133922536,
+        "estimable": true,
+        "event_count": 29,
+        "sd_across_sites": 0.09623573866872694,
+        "site_count": 2,
+        "site_means": {
+          "JORN": 0.569556656797407,
+          "SRER": 0.4334587699871004
+        },
+        "species": "Chaetodipus penicillatus",
+        "standard_error": 0.06804894340515326
+      },
+      {
+        "ci95_high": 1.6770808001470527,
+        "ci95_low": -1.3138399164746724,
+        "df": 1,
+        "effect": 0.1816204418361902,
+        "estimable": true,
+        "event_count": 70,
+        "sd_across_sites": 0.1664462650041682,
+        "site_count": 2,
+        "site_means": {
+          "JORN": 0.29931572452381067,
+          "SRER": 0.06392515914856975
+        },
+        "species": "Dipodomys merriami",
+        "standard_error": 0.11769528268762046
+      },
+      {
+        "ci95_high": 0.5129213672127437,
+        "ci95_low": -0.35944096478634074,
+        "df": 3,
+        "effect": 0.07674020121320152,
+        "estimable": true,
+        "event_count": 42,
+        "sd_across_sites": 0.2741169051464375,
+        "site_count": 4,
+        "site_means": {
+          "CPER": -0.320235818732147,
+          "JORN": 0.1305821125681886,
+          "MOAB": 0.19325812748566068,
+          "ONAQ": 0.3033563835311038
+        },
+        "species": "Dipodomys ordii",
+        "standard_error": 0.13705845257321875
+      }
+    ]
+  },
+  "product_code": "DP1.10072.001",
+  "qualifying_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "release": "RELEASE-2026",
+  "schema": "neon.public_mammal_sex_packing.recapture_effect.v1",
+  "sensitivities": {
+    "n_min_2_per_sex": {
+      "family": {
+        "ci95_high": 0.8836354854706691,
+        "ci95_low": -0.6516627483105831,
+        "df": 2,
+        "effect": 0.11598636858004296,
+        "estimable": true,
+        "sd_across_species": 0.3090203547329663,
+        "species_count": 3,
+        "standard_error": 0.17841298499015174,
+        "status": "estimable"
+      },
+      "n_min_per_sex": 2,
+      "species": [
+        {
+          "ci95_high": 2.7060140008050437,
+          "ci95_low": -1.8802932027007024,
+          "df": 1,
+          "effect": 0.4128603990521706,
+          "estimable": true,
+          "event_count": 49,
+          "sd_across_sites": 0.25523033758229513,
+          "site_count": 2,
+          "site_means": {
+            "JORN": 0.5933355015211432,
+            "SRER": 0.23238529658319795
+          },
+          "species": "Chaetodipus penicillatus",
+          "standard_error": 0.1804751024689726
+        },
+        {
+          "ci95_high": 1.8403972450030763,
+          "ci95_low": -1.5624111681031838,
+          "df": 1,
+          "effect": 0.1389930384499462,
+          "estimable": true,
+          "event_count": 123,
+          "sd_across_sites": 0.18936802561788899,
+          "site_count": 2,
+          "site_means": {
+            "JORN": 0.27289645350426334,
+            "SRER": 0.005089623395629048
+          },
+          "species": "Dipodomys merriami",
+          "standard_error": 0.13390341505431713
+        },
+        {
+          "ci95_high": 0.3252568657579731,
+          "ci95_low": -0.7330455292819489,
+          "df": 4,
+          "effect": -0.2038943317619879,
+          "estimable": true,
+          "event_count": 56,
+          "sd_across_sites": 0.42616295413690836,
+          "site_count": 5,
+          "site_means": {
+            "CPER": -0.4333189217217909,
+            "JORN": -0.08573445016489042,
+            "MOAB": 0.3075623455306746,
+            "ONAQ": -0.005118585546378829,
+            "STER": -0.8028620469075539
+          },
+          "species": "Dipodomys ordii",
+          "standard_error": 0.19058586698845045
+        }
+      ]
+    },
+    "n_min_5_per_sex": {
+      "family": {
+        "ci95_high": 0.23683801778882674,
+        "ci95_low": 0.14434693264595866,
+        "df": 2,
+        "effect": 0.1905924752173927,
+        "estimable": true,
+        "sd_across_species": 0.018616336104349592,
+        "species_count": 3,
+        "standard_error": 0.010748146661170787,
+        "status": "estimable"
+      },
+      "n_min_per_sex": 5,
+      "species": [
+        {
+          "ci95_high": 3.627567848991116,
+          "ci95_low": -3.2582419380165955,
+          "df": 1,
+          "effect": 0.18466295548726036,
+          "estimable": true,
+          "event_count": 8,
+          "sd_across_sites": 0.383198830449485,
+          "site_count": 2,
+          "site_means": {
+            "JORN": 0.4556254470408453,
+            "SRER": -0.08629953606632457
+          },
+          "species": "Chaetodipus penicillatus",
+          "standard_error": 0.27096249155358487
+        },
+        {
+          "ci95_high": 0.5956314057895811,
+          "ci95_low": -0.17272874948579403,
+          "df": 1,
+          "effect": 0.2114513281518935,
+          "estimable": true,
+          "event_count": 23,
+          "sd_across_sites": 0.04275963495550718,
+          "site_count": 2,
+          "site_means": {
+            "JORN": 0.24168695598999396,
+            "SRER": 0.18121570031379303
+          },
+          "species": "Dipodomys merriami",
+          "standard_error": 0.03023562783810046
+        },
+        {
+          "ci95_high": 1.3294200422959639,
+          "ci95_low": -0.9780937582699155,
+          "df": 1,
+          "effect": 0.17566314201302421,
+          "estimable": true,
+          "event_count": 12,
+          "sd_across_sites": 0.1284143211872171,
+          "site_count": 2,
+          "site_means": {
+            "CPER": 0.08486050470007567,
+            "MOAB": 0.26646577932597276
+          },
+          "species": "Dipodomys ordii",
+          "standard_error": 0.09080263731294855
+        }
+      ]
+    }
+  },
+  "sex_specific_movement_magnitudes_inspected": true,
+  "site_stops": []
+}
