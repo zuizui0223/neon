@@ -1,0 +1,80 @@
+{
+  "schema": "neon.public_mammal_sex_packing.phase3_analysis_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_observed_sex_effect_extraction",
+  "preconditions": {
+    "exact_mechanical_gate": "pass",
+    "support_estimability_gate": "authorize_effect_extraction",
+    "ecological_effects_inspected": false,
+    "ecological_model_fits": 0
+  },
+  "response": {
+    "name": "Delta_sex_packing",
+    "definition": "Packing_z_male - Packing_z_female",
+    "packing_null": "exact_finite_population_pairwise_distance_moments_v2",
+    "primary_n_per_sex_min": 3,
+    "trap_support": "all retained individual locations valid and unique within session"
+  },
+  "source_estimators": {
+    "Portal": {
+      "spatial_unit": "plot_id",
+      "qualifying_species": [
+        "Chaetodipus baileyi",
+        "Chaetodipus penicillatus",
+        "Dipodomys merriami",
+        "Dipodomys ordii"
+      ]
+    },
+    "NEON": {
+      "spatial_unit": "site",
+      "qualifying_species": [
+        "Chaetodipus penicillatus",
+        "Dipodomys merriami",
+        "Dipodomys ordii"
+      ]
+    }
+  },
+  "shared_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "weighting": {
+    "within_spatial_unit": "equal_session_weight",
+    "species_effect": "equal_spatial_unit_weight",
+    "source_family_effect": "equal_species_weight"
+  },
+  "uncertainty": {
+    "species_effect": "Student-t interval over spatial-unit means, df=G-1",
+    "source_family_effect": "Student-t interval over frozen species effects, df=S-1",
+    "confidence_level": 0.95
+  },
+  "replicated_positive_support_rule": {
+    "portal_family_effect_positive": true,
+    "neon_family_effect_positive": true,
+    "portal_family_ci95_low_above_zero": true,
+    "neon_family_ci95_low_above_zero": true,
+    "minimum_shared_species_positive_in_both_sources": 2,
+    "shared_species_denominator": 3
+  },
+  "primary_failure_decision": "no_replicated_positive_support",
+  "sensitivities": [
+    "n_min_2_per_sex",
+    "n_min_5_per_sex",
+    "portal_pit_reliable_fraction_1",
+    "known_sex_fraction_ge_0.8",
+    "leave_one_species_out",
+    "leave_one_spatial_unit_out"
+  ],
+  "season": {
+    "primary_role": "marginalized_over_observed_session_distribution",
+    "secondary_only": "harmonic_month_effect_modification",
+    "can_rescue_primary": false
+  },
+  "claim_boundary": {
+    "universal_heteromyidae_claim": false,
+    "individual_home_range_claim": false,
+    "sex_biased_dispersal_claim": false,
+    "reproductive_cause_claim": false
+  }
+}
