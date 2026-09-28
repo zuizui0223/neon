@@ -1,0 +1,57 @@
+{
+  "available_site_count": 46,
+  "candidate_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "data_query_requests": 46,
+  "downloaded_required_bytes": 929662137,
+  "downloaded_required_file_count": 5404,
+  "event_species_rows": 574,
+  "gate": {
+    "decision": "authorize_sex_specific_recapture_displacement",
+    "minimum_primary_paired_events_per_species": 5,
+    "minimum_sites_per_species": 2,
+    "minimum_species": 2,
+    "passed": true,
+    "qualifying_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "movement_effect_models_fit": 0,
+  "processed_site_count": 6,
+  "product_code": "DP1.10072.001",
+  "release": "RELEASE-2026",
+  "schema": "neon.public_mammal_sex_packing.recapture_estimability.v1",
+  "sex_specific_movement_magnitudes_inspected": false,
+  "site_stops": [],
+  "species": {
+    "Chaetodipus penicillatus": {
+      "event_count": 121,
+      "independent_plots": 6,
+      "independent_sites": 2,
+      "paired_n2_events": 49,
+      "paired_n3_events": 29,
+      "paired_n5_events": 8
+    },
+    "Dipodomys merriami": {
+      "event_count": 196,
+      "independent_plots": 6,
+      "independent_sites": 2,
+      "paired_n2_events": 123,
+      "paired_n3_events": 70,
+      "paired_n5_events": 23
+    },
+    "Dipodomys ordii": {
+      "event_count": 257,
+      "independent_plots": 8,
+      "independent_sites": 4,
+      "paired_n2_events": 56,
+      "paired_n3_events": 42,
+      "paired_n5_events": 12
+    }
+  }
+}
