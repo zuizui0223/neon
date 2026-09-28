@@ -1,0 +1,42 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_result_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36480831898,
+    "run_number": 2,
+    "workflow_name": "public-mammal-sex-recapture-effects",
+    "workflow_head_sha": "618e5088d06205bf6ac7f051f07914f3e276b0f6",
+    "conclusion": "success"
+  },
+  "effect_screen": {
+    "sites": [
+      "CPER",
+      "JORN",
+      "MOAB",
+      "ONAQ",
+      "SRER",
+      "STER"
+    ],
+    "data_query_requests": 6
+  },
+  "artifact": {
+    "name": "heteromyid-sex-recapture-effect-v1",
+    "artifact_id": 10995913743,
+    "digest": "sha256:ea7fdc1104deb7bf1c01cea2f17602296fad46d422082eae316c65bc837d1185",
+    "size_in_bytes": 10053
+  },
+  "result_commit": "39837c9e3d43e8b99824ab92cb41c6a0bf2035a3",
+  "primary_movement_family": {
+    "effect": 0.2532894521472151,
+    "ci95_low": -0.2963688635036089,
+    "ci95_high": 0.8029477677980391
+  },
+  "manuscript_decision": "stop_no_confirmatory_movement_dimorphism",
+  "phase3_primary_decision": "no_replicated_positive_support",
+  "sensitivity_n5_family": {
+    "effect": 0.1905924752173927,
+    "ci95_low": 0.14434693264595866,
+    "ci95_high": 0.23683801778882674,
+    "status": "hypothesis_generating_only"
+  }
+}
