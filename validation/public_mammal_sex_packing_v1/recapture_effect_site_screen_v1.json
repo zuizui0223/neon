@@ -1,0 +1,66 @@
+{
+  "schema": "neon.public_mammal_sex_packing.recapture_effect_site_screen.v1",
+  "frozen_date": "2026-09-29",
+  "source_artifact_id": 10994126454,
+  "source_artifact_digest": "sha256:b18d96da89232225feefc07f6ad592e4a1c7a66fe370acd74e2975d15e572747",
+  "rule": "retain every site containing at least one paired_n2 eligible event for any frozen qualifying species",
+  "sites": [
+    "CPER",
+    "JORN",
+    "MOAB",
+    "ONAQ",
+    "SRER",
+    "STER"
+  ],
+  "counts": {
+    "paired_n2": {
+      "Chaetodipus penicillatus": {
+        "JORN": 19,
+        "SRER": 30
+      },
+      "Dipodomys merriami": {
+        "JORN": 66,
+        "SRER": 57
+      },
+      "Dipodomys ordii": {
+        "CPER": 7,
+        "JORN": 15,
+        "MOAB": 22,
+        "ONAQ": 10,
+        "STER": 2
+      }
+    },
+    "paired_n3": {
+      "Chaetodipus penicillatus": {
+        "JORN": 12,
+        "SRER": 17
+      },
+      "Dipodomys merriami": {
+        "JORN": 38,
+        "SRER": 32
+      },
+      "Dipodomys ordii": {
+        "CPER": 6,
+        "JORN": 11,
+        "MOAB": 19,
+        "ONAQ": 6
+      }
+    },
+    "paired_n5": {
+      "Chaetodipus penicillatus": {
+        "JORN": 7,
+        "SRER": 1
+      },
+      "Dipodomys merriami": {
+        "JORN": 13,
+        "SRER": 10
+      },
+      "Dipodomys ordii": {
+        "CPER": 2,
+        "MOAB": 10
+      }
+    }
+  },
+  "rationale": "All frozen primary and prespecified n2/n5 sensitivity events are contained in these six sites; excluding the other 40 sites changes no eligible event set for the frozen species.",
+  "sex_specific_movement_magnitudes_inspected": false
+}
