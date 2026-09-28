@@ -1,0 +1,55 @@
+{
+  "schema": "neon.public_mammal_sex_packing.programme_final_decision.v1",
+  "frozen_date": "2026-09-29",
+  "packing": {
+    "decision": "no_replicated_positive_support",
+    "portal_family_effect": -0.008977736664561068,
+    "portal_ci95": [
+      -0.0640584312644819,
+      0.046102957935359755
+    ],
+    "neon_family_effect": 0.4243290769548106,
+    "neon_ci95": [
+      -2.2145737614208287,
+      3.06323191533045
+    ],
+    "shared_species_positive_in_both": 0,
+    "shared_species_total": 3
+  },
+  "recapture": {
+    "estimability_decision": "authorize_sex_specific_recapture_displacement",
+    "primary_family_effect": 0.2532894521472151,
+    "primary_ci95": [
+      -0.2963688635036089,
+      0.8029477677980391
+    ],
+    "positive_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ],
+    "manuscript_gate_decision": "stop_no_confirmatory_movement_dimorphism"
+  },
+  "manuscript_authorized": false,
+  "programme_decision": "stop_current_programme_no_confirmatory_cross_scale_result",
+  "prespecified_sensitivity_n5": {
+    "family_effect": 0.1905924752173927,
+    "ci95": [
+      0.14434693264595866,
+      0.23683801778882674
+    ],
+    "species_effects": {
+      "Chaetodipus penicillatus": 0.18466295548726036,
+      "Dipodomys merriami": 0.2114513281518935,
+      "Dipodomys ordii": 0.17566314201302421
+    },
+    "interpretation": "hypothesis_generating_only",
+    "may_rescue_current_programme": false,
+    "permitted_future_use": "motivate an explicitly separate validation programme in outcome-uninspected heteromyid species"
+  },
+  "result_artifacts": {
+    "phase3": "validation/public_mammal_sex_packing_v1/phase3_result_artifact_v1.json",
+    "recapture_estimability": "validation/public_mammal_sex_packing_v1/recapture_estimability_artifact_v1.json",
+    "recapture_result": "validation/public_mammal_sex_packing_v1/recapture_result_artifact_v1.json"
+  }
+}
