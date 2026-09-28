@@ -6,6 +6,10 @@ on:
       - design/public-mammal-sex-packing-v1
     paths:
       - validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json
+      - validation/public_mammal_sex_packing_v1/recapture_effect_site_screen_v1.json
+      - validation/public_mammal_sex_packing_v1/recapture_interpretation_gate_v1.json
+      - analysis/neon_sex_recapture_effects_v1.py
+      - tests/test_neon_sex_recapture_effects.py
       - .github/workflows/public-mammal-sex-recapture-effects.yml
   workflow_dispatch:
 
@@ -112,7 +116,8 @@ jobs:
           python analysis/neon_sex_recapture_effects_v1.py \
             --output-dir results/generated/sex_recapture_effect \
             --estimability-gate validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json \
-            --interpretation-gate validation/public_mammal_sex_packing_v1/recapture_interpretation_gate_v1.json
+            --interpretation-gate validation/public_mammal_sex_packing_v1/recapture_interpretation_gate_v1.json \
+            --sites CPER JORN MOAB ONAQ SRER STER
 
           cp results/generated/sex_recapture_effect/heteromyid_sex_recapture_effect_v1.json \
              /tmp/heteromyid_sex_recapture_effect_v1.json
