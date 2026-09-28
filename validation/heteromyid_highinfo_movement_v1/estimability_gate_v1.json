@@ -1,0 +1,154 @@
+{
+  "available_site_count": 46,
+  "candidate_species_count": 14,
+  "data_query_requests": 46,
+  "discovery_species_excluded": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "downloaded_required_bytes": 929662137,
+  "downloaded_required_file_count": 5404,
+  "event_species_rows": 904,
+  "gate": {
+    "decision": "stop_unseen_species_not_estimable",
+    "minimum_distinct_sites_over_qualifying_species": 3,
+    "minimum_primary_events_per_species": 5,
+    "minimum_qualifying_species": 3,
+    "passed": false,
+    "qualifying_sites": [
+      "ONAQ",
+      "SRER"
+    ],
+    "qualifying_species": [
+      "Chaetodipus baileyi",
+      "Perognathus parvus"
+    ]
+  },
+  "movement_effect_models_fit": 0,
+  "processed_site_count": 13,
+  "product_code": "DP1.10072.001",
+  "release": "RELEASE-2026",
+  "schema": "neon.heteromyid_high_information_movement_validation.estimability.v1",
+  "site_stops": [],
+  "species": {
+    "Chaetodipus baileyi": {
+      "event_count": 103,
+      "n3_sites": [
+        "SRER"
+      ],
+      "n5_sites": [
+        "SRER"
+      ],
+      "paired_n3_events": 17,
+      "paired_n5_events": 5
+    },
+    "Chaetodipus californicus": {
+      "event_count": 26,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Chaetodipus eremicus": {
+      "event_count": 58,
+      "n3_sites": [
+        "JORN"
+      ],
+      "n5_sites": [
+        "JORN"
+      ],
+      "paired_n3_events": 9,
+      "paired_n5_events": 2
+    },
+    "Chaetodipus hispidus": {
+      "event_count": 301,
+      "n3_sites": [
+        "OAES",
+        "STER"
+      ],
+      "n5_sites": [
+        "STER"
+      ],
+      "paired_n3_events": 8,
+      "paired_n5_events": 1
+    },
+    "Chaetodipus intermedius": {
+      "event_count": 3,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Dipodomys heermanni": {
+      "event_count": 1,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Dipodomys microps": {
+      "event_count": 48,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Dipodomys spectabilis": {
+      "event_count": 35,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Perognathus amplus": {
+      "event_count": 5,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Perognathus flavescens": {
+      "event_count": 27,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Perognathus flavus": {
+      "event_count": 125,
+      "n3_sites": [
+        "JORN"
+      ],
+      "n5_sites": [],
+      "paired_n3_events": 1,
+      "paired_n5_events": 0
+    },
+    "Perognathus inornatus": {
+      "event_count": 23,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Perognathus mollipilosus": {
+      "event_count": 1,
+      "n3_sites": [],
+      "n5_sites": [],
+      "paired_n3_events": 0,
+      "paired_n5_events": 0
+    },
+    "Perognathus parvus": {
+      "event_count": 148,
+      "n3_sites": [
+        "ONAQ"
+      ],
+      "n5_sites": [
+        "ONAQ"
+      ],
+      "paired_n3_events": 44,
+      "paired_n5_events": 15
+    }
+  },
+  "validation_species_movement_magnitudes_inspected": false
+}

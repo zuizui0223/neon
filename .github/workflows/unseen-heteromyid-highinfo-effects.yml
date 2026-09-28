@@ -1,0 +1,148 @@
+name: unseen-heteromyid-highinfo-effects
+
+on:
+  push:
+    branches:
+      - design/heteromyid-high-info-movement-validation-v1
+    paths:
+      - validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json
+      - analysis/neon_unseen_heteromyid_highinfo_effects_v1.py
+      - tests/test_neon_unseen_heteromyid_highinfo_effects.py
+      - .github/workflows/unseen-heteromyid-highinfo-effects.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  effects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/heteromyid-high-info-movement-validation-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install numpy==2.1.1 scipy==1.18.1
+
+      - name: Verify frozen effect estimator
+        run: |
+          python -m unittest \
+            tests.test_neon_unseen_heteromyid_highinfo_estimability \
+            tests.test_neon_unseen_heteromyid_highinfo_effects -v
+
+      - name: Read effect-blind estimability gate
+        id: gate
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          path=Path("validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json")
+          present=path.exists()
+          authorized=False
+          if present:
+              p=json.loads(path.read_text())
+              assert p["validation_species_movement_magnitudes_inspected"] is False
+              assert p["movement_effect_models_fit"] == 0
+              authorized=p["gate"]["decision"]=="authorize_unseen_species_movement_effects"
+              print(json.dumps(p["gate"],indent=2,sort_keys=True))
+          else:
+              print("ESTIMABILITY_GATE_NOT_YET_FROZEN")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a",encoding="utf-8") as fh:
+              fh.write(f"gate_present={'true' if present else 'false'}\n")
+              fh.write(f"authorized={'true' if authorized else 'false'}\n")
+          PY
+
+      - name: Freeze non-estimable validation stop
+        if: steps.gate.outputs.gate_present == 'true' && steps.gate.outputs.authorized != 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          gate=json.loads(
+              Path("validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json").read_text()
+          )
+          out={
+              "schema":"neon.heteromyid_high_information_movement_validation.effect.v1",
+              "status":"not_run_non_estimable",
+              "estimability_gate":gate["gate"],
+              "primary":{"decision":"stop_unseen_species_not_estimable"},
+              "validation_species_movement_magnitudes_inspected":False,
+              "movement_effect_models_fit":0,
+          }
+          Path("/tmp/unseen_heteromyid_highinfo_effect_v1.json").write_text(
+              json.dumps(out,indent=2,sort_keys=True)+"\n",encoding="utf-8"
+          )
+          PY
+
+      - name: Require NEON token
+        if: steps.gate.outputs.gate_present == 'true' && steps.gate.outputs.authorized == 'true'
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then exit 3; fi
+
+      - name: Run frozen unseen-species movement validation
+        if: steps.gate.outputs.authorized == 'true'
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/neon_unseen_heteromyid_highinfo_effects_v1.py \
+            --output-dir results/generated/unseen_heteromyid_highinfo_effect \
+            --gate validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json
+          cp results/generated/unseen_heteromyid_highinfo_effect/unseen_heteromyid_highinfo_effect_v1.json \
+             /tmp/unseen_heteromyid_highinfo_effect_v1.json
+
+      - name: Validate frozen decision
+        if: steps.gate.outputs.gate_present == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/unseen_heteromyid_highinfo_effect_v1.json").read_text())
+          allowed={
+              "replicated_highinfo_positive_support",
+              "no_replicated_highinfo_positive_support",
+              "stop_unseen_species_not_estimable",
+          }
+          decision=(
+              p.get("primary",{}).get("decision")
+              or p.get("status")
+          )
+          assert decision in allowed or p.get("status")=="not_run_non_estimable"
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist validation result
+        if: steps.gate.outputs.gate_present == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/heteromyid-high-info-movement-validation-v1
+          mkdir -p results
+          cp /tmp/unseen_heteromyid_highinfo_effect_v1.json \
+             results/unseen_heteromyid_highinfo_effect_v1.json
+          git add results/unseen_heteromyid_highinfo_effect_v1.json
+          if git diff --cached --quiet; then
+            echo "validation result unchanged"
+          else
+            git commit -m "Freeze unseen heteromyid high-information validation result"
+            git push origin HEAD:design/heteromyid-high-info-movement-validation-v1
+          fi
+
+      - name: Upload validation event outcomes
+        if: steps.gate.outputs.gate_present == 'true' && steps.gate.outputs.authorized == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: unseen-heteromyid-highinfo-effect-v1
+          path: |
+            results/generated/unseen_heteromyid_highinfo_effect/unseen_heteromyid_highinfo_effect_events_v1.csv
+            results/generated/unseen_heteromyid_highinfo_effect/unseen_heteromyid_highinfo_effect_v1.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,58 @@
+{
+  "schema": "neon.heteromyid_high_information_movement_validation.design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_unseen_species_movement_outcomes",
+  "discovery_species": [
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "discovery_result": {
+    "source": "prespecified_n5_sensitivity_from_stopped_programme",
+    "family_effect": 0.1905924752173927,
+    "ci95": [
+      0.14434693264595866,
+      0.23683801778882674
+    ],
+    "status": "hypothesis_generating_only"
+  },
+  "validation_scope": {
+    "family": "Heteromyidae",
+    "genera": [
+      "Chaetodipus",
+      "Dipodomys",
+      "Perognathus",
+      "Microdipodops"
+    ],
+    "exclude_discovery_species": true
+  },
+  "primary_threshold_per_sex": 5,
+  "sensitivity_threshold_per_sex": 3,
+  "advance_gate": {
+    "minimum_qualifying_species": 3,
+    "minimum_primary_events_per_species": 5,
+    "minimum_distinct_sites_over_qualifying_species": 3
+  },
+  "effect_estimator": {
+    "individual": "log1p(median successive-night displacement)",
+    "event": "median male individual value - median female individual value",
+    "species": "equal-weight mean of site-level event means",
+    "family": "equal-weight mean of qualifying species effects",
+    "uncertainty": "two-sided Student-t 95% CI over species effects"
+  },
+  "positive_support_rule": {
+    "family_effect_positive": true,
+    "family_ci95_low_above_zero": true,
+    "minimum_positive_species_fraction": 0.6666666666666666
+  },
+  "sensitivity_can_rescue_primary": false,
+  "validation_species_movement_magnitudes_inspected": false,
+  "movement_effect_models_fit": 0,
+  "estimand_population": "recapture-eligible captured individuals with >=2 valid nights within pathogen-grid events",
+  "selection_boundary": {
+    "unconditional_population_movement_claim": false,
+    "capture_probability_claim": false,
+    "dispersal_claim": false,
+    "note": "Recapture eligibility may depend on movement/survival/detection; event pairing does not remove selection into recapture eligibility."
+  }
+}
