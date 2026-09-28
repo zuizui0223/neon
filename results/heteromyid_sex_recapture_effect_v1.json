@@ -1,16 +1,7 @@
 {
-  "available_site_count": 46,
-  "data_query_requests": 6,
-  "downloaded_required_bytes": 149336258,
-  "downloaded_required_file_count": 892,
-  "effect_screen_sites": [
-    "CPER",
-    "JORN",
-    "MOAB",
-    "ONAQ",
-    "SRER",
-    "STER"
-  ],
+  "data_query_requests": 46,
+  "downloaded_required_bytes": 929662137,
+  "downloaded_required_file_count": 5404,
   "manuscript_gate": {
     "decision": "stop_no_confirmatory_movement_dimorphism",
     "family_ci95_low_above_zero": false,
