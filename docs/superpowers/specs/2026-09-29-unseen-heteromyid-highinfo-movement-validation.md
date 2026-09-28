@@ -95,3 +95,21 @@ Not allowed:
 At this lock:
 - validation-species movement magnitudes inspected: false
 - movement effect models fit: 0
+
+## Recapture-selection boundary
+
+The estimand is conditional on an individual being observed at valid trap coordinates on at least two nights within a pathogen-grid event.
+
+Therefore the validation population is:
+
+**recapture-eligible captured individuals**, not all individuals present in the population.
+
+A positive result may be described as male-biased successive-night movement among recapture-eligible individuals under high-information events.
+
+It may not be generalized to:
+- all resident males and females;
+- individuals never recaptured;
+- sex differences in capture probability or detectability;
+- emigration/dispersal outside the trapping grid.
+
+Because recapture eligibility can itself depend on movement, survival, and detection, this analysis does not identify an unconditional sex effect on movement in the latent population. The paired-event design controls event context but does not remove selection into recapture eligibility.
