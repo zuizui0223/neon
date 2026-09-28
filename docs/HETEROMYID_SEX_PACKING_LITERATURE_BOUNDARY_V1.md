@@ -1,0 +1,42 @@
+# Literature boundary — heteromyid sex differences in movement versus one-night population packing
+
+Date: 2026-09-29
+
+## Already established; not novel here
+
+Sex differences in heteromyid movement, home-range size, overlap, and excursions have a long literature. Examples include:
+
+- Maza, French & Aschwanden (1973), *Journal of Mammalogy* 54:405–425: home-range size differed by sex and year in heteromyid rodents; long-distance excursions were more frequent in males and during the reproductive season.
+- Shier & Randall (2004), *Journal of Mammalogy* 85:1002–1008, DOI 10.1644/107: male *Dipodomys heermanni* home ranges were larger and overlapped both sexes, while females maintained essentially non-overlapping territories.
+- Cooper & Randall (2007), *Journal of Mammalogy* 88:1000–1008, DOI 10.1644/06-MAMM-A-197R1.1: male *D. ingens* home ranges expanded during the breeding season as male mobility increased and overlapped female territories.
+- Price, Kelly & Goldingay (1994), *Journal of Mammalogy* 75:929–939, DOI 10.2307/1382474: male *D. stephensi* moved longer distances than females in live-trapping/radiotelemetry data.
+
+Accordingly, this programme must not claim novelty for 'males move farther' or 'males have larger home ranges.'
+
+## Distinct level tested here
+
+The Phase-3 endpoint is not an individual movement or home-range endpoint. It is a one-night population configuration:
+
+`Delta_sex_packing = Packing_z_male - Packing_z_female`
+
+with each sex standardized against the exact finite active-trap geometry and its exact captured N.
+
+The tested cross-scale question is therefore:
+
+> Does sex-biased individual movement propagate into a replicated sex difference in one-night population spatial packing?
+
+The frozen Phase-3 result answers the second-level question negatively: Portal is centered near zero, NEON is heterogeneous and driven by *Dipodomys ordii*, and no shared species is positive in both sources.
+
+## Conditional novelty of the recapture validation
+
+The independently pre-locked recapture analysis can make this a positive ecological contribution only if it confirms male-biased repeated-night movement while the one-night packing result remains non-replicated.
+
+If so, the allowed novelty is a **cross-scale decoupling**:
+
+> detectable sex-biased individual movement need not generate a replicated sex difference in abundance- and trap-geometry-conditioned one-night population spatial configuration.
+
+If the recapture analysis does not confirm movement dimorphism under its frozen family gate, the programme does not get this decoupling claim and should stop rather than reframing the packing null post hoc.
+
+## Species-level caution
+
+The literature itself is heterogeneous among species and seasons. In particular, reports for *Dipodomys ordii* do not uniformly support strong male-biased home-range size. Therefore the positive Phase-3 NEON *D. ordii* packing effect is not interpreted as confirmation of a universal male-mobility mechanism.
