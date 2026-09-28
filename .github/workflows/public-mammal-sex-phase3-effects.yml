@@ -1,0 +1,217 @@
+name: public-mammal-sex-phase3-effects
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - validation/public_mammal_sex_packing_v1/phase3_analysis_lock_v1.json
+      - docs/superpowers/specs/2026-09-29-heteromyid-sex-packing-phase3-analysis-lock.md
+      - analysis/mammal_sex_effects_phase3_v1.py
+      - analysis/build_portal_sex_effects_phase3_v1.py
+      - analysis/build_neon_sex_effects_phase3_v1.py
+      - analysis/run_neon_sex_effects_phase3_v1.py
+      - analysis/analyze_heteromyid_sex_packing_phase3_v1.py
+      - tests/test_mammal_sex_effects_phase3.py
+      - tests/test_heteromyid_sex_packing_phase3.py
+      - .github/workflows/public-mammal-sex-phase3-effects.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  phase3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-sex-packing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen Phase-3 dependencies
+        run: python -m pip install numpy==2.1.1 scipy==1.18.1
+
+      - name: Verify frozen pre-effect authorization
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          exact=json.loads(
+              Path("results/heteromyid_sex_packing_mechanical_null_v2.json").read_text()
+          )
+          gate=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json").read_text()
+          )
+          lock=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/phase3_analysis_lock_v1.json").read_text()
+          )
+
+          assert exact["passes"] is True
+          assert exact["ecological_effects_inspected"] is False
+          assert exact["ecological_model_fits"] == 0
+          assert gate["decision"] == "authorize_effect_extraction"
+          assert gate["ecological_effects_inspected"] is False
+          assert gate["ecological_model_fits"] == 0
+          assert lock["state"] == "frozen_before_observed_sex_effect_extraction"
+          assert lock["preconditions"]["ecological_effects_inspected"] is False
+          assert lock["preconditions"]["ecological_model_fits"] == 0
+          print("PHASE3_AUTHORIZED")
+          PY
+
+      - name: Verify Phase-3 estimator contracts
+        run: |
+          python -m unittest \
+            tests.test_mammal_spatial_packing_exact_v2 \
+            tests.test_mammal_sex_effects_phase3 \
+            tests.test_heteromyid_sex_packing_phase3 -v
+
+      - name: Download pinned Portal public files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request
+
+          sha="72d7ff8568052763bf6899dc462e285684cf20f6"
+          paths=[
+              "Rodents/Portal_rodent.csv",
+              "Rodents/Portal_rodent_trapping.csv",
+              "Rodents/Portal_rodent_species.csv",
+          ]
+          root=Path("data/cache/portal")
+          for path in paths:
+              out=root/path
+              out.parent.mkdir(parents=True,exist_ok=True)
+              req=urllib.request.Request(
+                  f"https://raw.githubusercontent.com/weecology/PortalData/{sha}/{path}",
+                  headers={"User-Agent":"heteromyid-sex-packing-phase3/1.0"},
+              )
+              with urllib.request.urlopen(req,timeout=180) as response:
+                  raw=response.read()
+              if not raw:
+                  raise RuntimeError(f"empty source file: {path}")
+              out.write_bytes(raw)
+          PY
+
+      - name: Extract Portal exact-v2 sex effects
+        run: |
+          python analysis/build_portal_sex_effects_phase3_v1.py \
+            --portal-dir data/cache/portal \
+            --output-dir results/generated/phase3
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Extract complete NEON primary-gate exact-v2 sex effects
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/run_neon_sex_effects_phase3_v1.py \
+            --output-dir results/generated/phase3 \
+            --sites CPER JORN KONZ MOAB OAES ONAQ SJER SRER STER
+
+      - name: Assert effect extraction reproduces support gate
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          gate=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json").read_text()
+          )
+
+          def rows(path):
+              with Path(path).open(newline="",encoding="utf-8-sig") as fh:
+                  return list(csv.DictReader(fh))
+
+          portal=rows("results/generated/phase3/portal_heteromyid_sex_effect_sessions_v1.csv")
+          neon=rows("results/generated/phase3/neon_heteromyid_sex_effect_sessions_v1.csv")
+
+          portal_n3=sum(int(float(r["n_male"]))>=3 and int(float(r["n_female"]))>=3 for r in portal)
+          neon_n3=sum(int(float(r["n_male"]))>=3 and int(float(r["n_female"]))>=3 for r in neon)
+
+          assert portal_n3 == gate["portal_summary"]["support_paired_n3_sessions"], (
+              portal_n3, gate["portal_summary"]["support_paired_n3_sessions"]
+          )
+          assert neon_n3 == gate["neon_summary"]["support_paired_n3_sessions"], (
+              neon_n3, gate["neon_summary"]["support_paired_n3_sessions"]
+          )
+          print(json.dumps({"portal_n3":portal_n3,"neon_n3":neon_n3},sort_keys=True))
+          PY
+
+      - name: Run frozen hierarchical Phase-3 analysis
+        run: |
+          python analysis/analyze_heteromyid_sex_packing_phase3_v1.py \
+            --portal results/generated/phase3/portal_heteromyid_sex_effect_sessions_v1.csv \
+            --neon results/generated/phase3/neon_heteromyid_sex_effect_sessions_v1.csv \
+            --lock validation/public_mammal_sex_packing_v1/phase3_analysis_lock_v1.json \
+            --support-gate validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json \
+            --output-json /tmp/heteromyid_sex_packing_phase3_summary_v1.json \
+            --output-md /tmp/HETEROMYID_SEX_PACKING_PHASE3_RESULT_V1.md
+
+      - name: Validate frozen decision contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(
+              Path("/tmp/heteromyid_sex_packing_phase3_summary_v1.json").read_text()
+          )
+          assert p["primary"]["decision"]["decision"] in {
+              "replicated_positive_support",
+              "no_replicated_positive_support",
+          }
+          assert p["provenance_checks"]["portal_support_gate_n3_sessions"] == 1308
+          assert p["provenance_checks"]["neon_support_gate_n3_sessions"] == 110
+          assert p["ecological_effects_inspected"] is True
+          assert p["ecological_model_fits"] == 2
+          print(json.dumps(p["primary"],indent=2,sort_keys=True))
+          PY
+
+      - name: Persist compact Phase-3 result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/public-mammal-sex-packing-v1
+
+          mkdir -p results docs
+          cp /tmp/heteromyid_sex_packing_phase3_summary_v1.json \
+             results/heteromyid_sex_packing_phase3_summary_v1.json
+          cp /tmp/HETEROMYID_SEX_PACKING_PHASE3_RESULT_V1.md \
+             docs/HETEROMYID_SEX_PACKING_PHASE3_RESULT_V1.md
+
+          git add results/heteromyid_sex_packing_phase3_summary_v1.json
+          git add docs/HETEROMYID_SEX_PACKING_PHASE3_RESULT_V1.md
+
+          if git diff --cached --quiet; then
+            echo "Phase-3 result unchanged"
+          else
+            git commit -m "Freeze heteromyid sex-packing Phase 3 result"
+            git push origin HEAD:design/public-mammal-sex-packing-v1
+          fi
+
+      - name: Upload Phase-3 session outcomes
+        uses: actions/upload-artifact@v4
+        with:
+          name: heteromyid-sex-packing-phase3-v1
+          path: |
+            results/generated/phase3/portal_heteromyid_sex_effect_sessions_v1.csv
+            results/generated/phase3/portal_heteromyid_sex_effect_inventory_v1.json
+            results/generated/phase3/neon_heteromyid_sex_effect_sessions_v1.csv
+            results/generated/phase3/neon_heteromyid_sex_effect_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 30
