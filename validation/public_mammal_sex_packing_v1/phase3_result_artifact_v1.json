@@ -1,0 +1,18 @@
+{
+  "schema": "neon.public_mammal_sex_packing.phase3_result_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36473323137,
+    "workflow_name": "public-mammal-sex-phase3-effects",
+    "workflow_head_sha": "404ad95a63d7076a0f681139b074e73e02280b11",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "name": "heteromyid-sex-packing-phase3-v1",
+    "artifact_id": 10992870363,
+    "digest": "sha256:24bfe7629e37d9c3beb3fa90c816c9dec699275c62205dd3c758e23a6acf35b6",
+    "size_in_bytes": 185978
+  },
+  "compact_result_commit": "0cf9b6c7214fc4a03eae76721024b87eb04277ec",
+  "primary_decision": "no_replicated_positive_support"
+}
