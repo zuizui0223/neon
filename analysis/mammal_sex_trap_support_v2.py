@@ -1,10 +1,26 @@
 from __future__ import annotations
 
+import importlib.util
 import statistics
 from collections import Counter, defaultdict
+from pathlib import Path
 from typing import Iterable
 
-from analysis.mammal_sex_packing_estimability_v1 import normalize_sex
+ROOT=Path(__file__).resolve().parents[1]
+
+
+def _load_sex_helper():
+    path=ROOT/"analysis"/"mammal_sex_packing_estimability_v1.py"
+    spec=importlib.util.spec_from_file_location("sex_estimability_v1",path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot import {path}")
+    module=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+SEXHELP=_load_sex_helper()
+normalize_sex=SEXHELP.normalize_sex
 
 
 def _truthy(value: object) -> bool:
