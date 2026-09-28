@@ -1,0 +1,29 @@
+{
+  "schema": "neon.public_mammal_sex_packing.primary_source_artifacts.v1",
+  "portal": {
+    "name": "public-mammal-sex-portal-v1",
+    "artifact_id": 10956322657,
+    "workflow_run_id": 36390858126,
+    "workflow_head_sha": "afa34add9c390b81278e791d2b61e4af0c86925b",
+    "digest": "sha256:214d3767dc6c4c556a9370bb32869f8080dbdc0ab8d0c38b84706bce177c27cf"
+  },
+  "neon_primary": {
+    "name": "public-mammal-sex-neon-primary-gate-v1",
+    "artifact_id": 10957171076,
+    "workflow_run_id": 36392846360,
+    "workflow_head_sha": "1f2821bbc4e009a0e5ad51d1190ccdf733cc4bd9",
+    "digest": "sha256:ec5acbd39eaa0537a7a6169d9e1a97ef2657ca456a1385ca0f5f7e2143396aaa",
+    "scope": "complete_primary_gate_site_subset",
+    "sites": [
+      "CPER",
+      "JORN",
+      "KONZ",
+      "MOAB",
+      "OAES",
+      "ONAQ",
+      "SJER",
+      "SRER",
+      "STER"
+    ]
+  }
+}
