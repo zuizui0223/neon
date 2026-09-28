@@ -36,6 +36,27 @@ class NeonSexPackingRunnerTests(unittest.TestCase):
         self.assertFalse(out["ecological_effects_inspected"])
         self.assertEqual(out["ecological_model_fits"],0)
 
+    def test_primary_gate_sites_are_complete_from_phase1_n5_heteromyid_counts(self):
+        phase1={
+            "neon":{
+                "n5_species_site_session_counts":{
+                    "Dipodomys ordii":{"JORN":22,"MOAB":37},
+                    "Perognathus parvus":{"ONAQ":38},
+                    "Peromyscus maniculatus":{"WOOD":42},
+                    "Chaetodipus hispidus":{"OAES":15,"STER":5},
+                }
+            }
+        }
+        self.assertEqual(
+            m.primary_gate_sites_from_phase1(phase1),
+            ["JORN","MOAB","OAES","ONAQ","STER"],
+        )
+
+    def test_primary_gate_site_rule_documents_completeness_logic(self):
+        self.assertEqual(m.PRIMARY_SEX_COUNT_MIN,3)
+        self.assertEqual(m.PHASE1_TOTAL_N_SCREEN,5)
+        self.assertGreaterEqual(2*m.PRIMARY_SEX_COUNT_MIN,m.PHASE1_TOTAL_N_SCREEN)
+
 
 if __name__=="__main__":
     unittest.main()
