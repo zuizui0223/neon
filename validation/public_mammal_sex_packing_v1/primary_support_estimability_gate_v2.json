@@ -1,0 +1,100 @@
+{
+  "cross_source_gate": {
+    "passed": true,
+    "shared_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "decision": "authorize_effect_extraction",
+  "ecological_effects_inspected": false,
+  "ecological_model_fits": 0,
+  "frozen_date": "2026-09-29",
+  "neon_family_gate": {
+    "counts": {
+      "Chaetodipus penicillatus": {
+        "count_only_paired_n3_sessions": 16,
+        "independent_sites": 2,
+        "support_paired_n3_sessions": 16,
+        "trap_support_invalid_sessions": 0
+      },
+      "Dipodomys merriami": {
+        "count_only_paired_n3_sessions": 32,
+        "independent_sites": 2,
+        "support_paired_n3_sessions": 32,
+        "trap_support_invalid_sessions": 0
+      },
+      "Dipodomys ordii": {
+        "count_only_paired_n3_sessions": 33,
+        "independent_sites": 3,
+        "support_paired_n3_sessions": 33,
+        "trap_support_invalid_sessions": 0
+      }
+    },
+    "passed": true,
+    "qualifying_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "neon_summary": {
+    "count_only_paired_n3_sessions": 110,
+    "duplicate_location_sessions": 0,
+    "missing_or_invalid_location_sessions": 2,
+    "processed_site_count": 9,
+    "session_count": 714,
+    "site_stops": [],
+    "support_paired_n3_sessions": 110,
+    "support_paired_n5_sessions": 50,
+    "trap_support_invalid_sessions": 2
+  },
+  "portal_family_gate": {
+    "counts": {
+      "Chaetodipus baileyi": {
+        "count_only_paired_n3_sessions": 321,
+        "independent_plots": 17,
+        "support_paired_n3_sessions": 303,
+        "trap_support_invalid_sessions": 35
+      },
+      "Chaetodipus penicillatus": {
+        "count_only_paired_n3_sessions": 653,
+        "independent_plots": 24,
+        "support_paired_n3_sessions": 573,
+        "trap_support_invalid_sessions": 113
+      },
+      "Dipodomys merriami": {
+        "count_only_paired_n3_sessions": 388,
+        "independent_plots": 17,
+        "support_paired_n3_sessions": 366,
+        "trap_support_invalid_sessions": 43
+      },
+      "Dipodomys ordii": {
+        "count_only_paired_n3_sessions": 58,
+        "independent_plots": 9,
+        "support_paired_n3_sessions": 55,
+        "trap_support_invalid_sessions": 13
+      }
+    },
+    "passed": true,
+    "qualifying_species": [
+      "Chaetodipus baileyi",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "portal_summary": {
+    "count_only_paired_n3_sessions": 1431,
+    "duplicate_location_sessions": 206,
+    "missing_or_invalid_location_sessions": 0,
+    "session_count": 18971,
+    "support_paired_n3_sessions": 1308,
+    "support_paired_n5_sessions": 204,
+    "trap_support_invalid_sessions": 206
+  },
+  "primary_sex_count_threshold": 3,
+  "schema": "neon.public_mammal_sex_packing.primary_support_estimability_gate.v2",
+  "trap_support_rule": "all retained individual trap locations valid and unique within candidate session"
+}

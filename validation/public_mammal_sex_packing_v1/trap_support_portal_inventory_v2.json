@@ -1,0 +1,108 @@
+{
+  "count_only_paired_n3_sessions": 1431,
+  "duplicate_location_sessions": 206,
+  "ecological_effects_inspected": false,
+  "ecological_model_fits": 0,
+  "median_known_sex_fraction": 1.0,
+  "missing_or_invalid_location_sessions": 0,
+  "portal_commit_sha": "72d7ff8568052763bf6899dc462e285684cf20f6",
+  "schema": "neon.public_mammal_sex_packing.portal_trap_support.v2",
+  "session_count": 18971,
+  "source": "Portal",
+  "species": {
+    "Chaetodipus baileyi": {
+      "count_only_paired_n3_sessions": 321,
+      "independent_plots": 17,
+      "independent_sites": 1,
+      "session_count": 2947,
+      "support_paired_n2_sessions": 705,
+      "support_paired_n3_sessions": 303,
+      "support_paired_n5_sessions": 51,
+      "trap_support_invalid_sessions": 35,
+      "years": 19
+    },
+    "Chaetodipus hispidus": {
+      "count_only_paired_n3_sessions": 0,
+      "independent_plots": 0,
+      "independent_sites": 0,
+      "session_count": 40,
+      "support_paired_n2_sessions": 0,
+      "support_paired_n3_sessions": 0,
+      "support_paired_n5_sessions": 0,
+      "trap_support_invalid_sessions": 0,
+      "years": 0
+    },
+    "Chaetodipus intermedius": {
+      "count_only_paired_n3_sessions": 0,
+      "independent_plots": 0,
+      "independent_sites": 0,
+      "session_count": 79,
+      "support_paired_n2_sessions": 2,
+      "support_paired_n3_sessions": 0,
+      "support_paired_n5_sessions": 0,
+      "trap_support_invalid_sessions": 0,
+      "years": 0
+    },
+    "Chaetodipus penicillatus": {
+      "count_only_paired_n3_sessions": 653,
+      "independent_plots": 24,
+      "independent_sites": 1,
+      "session_count": 4944,
+      "support_paired_n2_sessions": 1205,
+      "support_paired_n3_sessions": 573,
+      "support_paired_n5_sessions": 135,
+      "trap_support_invalid_sessions": 113,
+      "years": 28
+    },
+    "Dipodomys merriami": {
+      "count_only_paired_n3_sessions": 388,
+      "independent_plots": 17,
+      "independent_sites": 1,
+      "session_count": 5653,
+      "support_paired_n2_sessions": 1237,
+      "support_paired_n3_sessions": 366,
+      "support_paired_n5_sessions": 18,
+      "trap_support_invalid_sessions": 43,
+      "years": 42
+    },
+    "Dipodomys ordii": {
+      "count_only_paired_n3_sessions": 58,
+      "independent_plots": 9,
+      "independent_sites": 1,
+      "session_count": 2633,
+      "support_paired_n2_sessions": 223,
+      "support_paired_n3_sessions": 55,
+      "support_paired_n5_sessions": 0,
+      "trap_support_invalid_sessions": 13,
+      "years": 16
+    },
+    "Dipodomys spectabilis": {
+      "count_only_paired_n3_sessions": 6,
+      "independent_plots": 2,
+      "independent_sites": 1,
+      "session_count": 1346,
+      "support_paired_n2_sessions": 48,
+      "support_paired_n3_sessions": 6,
+      "support_paired_n5_sessions": 0,
+      "trap_support_invalid_sessions": 0,
+      "years": 2
+    },
+    "Perognathus flavus": {
+      "count_only_paired_n3_sessions": 5,
+      "independent_plots": 4,
+      "independent_sites": 1,
+      "session_count": 1329,
+      "support_paired_n2_sessions": 39,
+      "support_paired_n3_sessions": 5,
+      "support_paired_n5_sessions": 0,
+      "trap_support_invalid_sessions": 2,
+      "years": 5
+    }
+  },
+  "species_count": 8,
+  "support_paired_n2_sessions": 3459,
+  "support_paired_n3_sessions": 1308,
+  "support_paired_n5_sessions": 204,
+  "support_rule": "first retained record per individual; all retained trap locations must be valid and unique within session",
+  "trap_support_invalid_sessions": 206
+}
