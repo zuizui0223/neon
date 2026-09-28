@@ -1,0 +1,166 @@
+name: public-mammal-sex-recapture-effects
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  movement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-sex-packing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen movement dependencies
+        run: python -m pip install numpy==2.1.1 scipy==1.18.1
+
+      - name: Verify movement estimator tests
+        run: |
+          python -m unittest \
+            tests.test_neon_sex_recapture_estimability \
+            tests.test_neon_sex_recapture_effects -v
+
+      - name: Read frozen recapture gate
+        id: gate
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          gate=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json").read_text()
+          )
+          interpretation=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/recapture_interpretation_gate_v1.json").read_text()
+          )
+
+          authorized=(
+              gate["gate"]["decision"]
+              == "authorize_sex_specific_recapture_displacement"
+          )
+          assert gate["sex_specific_movement_magnitudes_inspected"] is False
+          assert gate["movement_effect_models_fit"] == 0
+          assert interpretation["movement_effects_inspected"] is False
+          assert interpretation["movement_effect_models_fit"] == 0
+
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a",encoding="utf-8") as fh:
+              fh.write(f"authorized={'true' if authorized else 'false'}\n")
+          print(json.dumps({
+              "authorized":authorized,
+              "gate":gate["gate"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Freeze non-estimable stop receipt
+        if: steps.gate.outputs.authorized != 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          gate=json.loads(
+              Path("validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json").read_text()
+          )
+          out={
+              "schema":"neon.public_mammal_sex_packing.recapture_effect.v1",
+              "status":"not_run_non_estimable",
+              "recapture_estimability_gate":gate["gate"],
+              "manuscript_gate":{
+                  "decision":"stop_recapture_validation_not_estimable"
+              },
+              "phase3_primary_decision":"no_replicated_positive_support",
+              "sex_specific_movement_magnitudes_inspected":False,
+              "movement_effect_models_fit":0,
+          }
+          Path("/tmp/heteromyid_sex_recapture_effect_v1.json").write_text(
+              json.dumps(out,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Require NEON token
+        if: steps.gate.outputs.authorized == 'true'
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Run frozen sex-specific recapture displacement analysis
+        if: steps.gate.outputs.authorized == 'true'
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/neon_sex_recapture_effects_v1.py \
+            --output-dir results/generated/sex_recapture_effect \
+            --estimability-gate validation/public_mammal_sex_packing_v1/recapture_estimability_gate_v1.json \
+            --interpretation-gate validation/public_mammal_sex_packing_v1/recapture_interpretation_gate_v1.json
+
+          cp results/generated/sex_recapture_effect/heteromyid_sex_recapture_effect_v1.json \
+             /tmp/heteromyid_sex_recapture_effect_v1.json
+
+      - name: Validate movement decision contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(
+              Path("/tmp/heteromyid_sex_recapture_effect_v1.json").read_text()
+          )
+          allowed={
+              "authorize_movement_packing_decoupling_manuscript",
+              "stop_no_confirmatory_movement_dimorphism",
+              "stop_no_directional_movement_dimorphism",
+              "stop_recapture_validation_not_estimable",
+          }
+          assert p["manuscript_gate"]["decision"] in allowed
+          assert p["phase3_primary_decision"] == "no_replicated_positive_support"
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist recapture result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/public-mammal-sex-packing-v1
+
+          mkdir -p results
+          cp /tmp/heteromyid_sex_recapture_effect_v1.json \
+             results/heteromyid_sex_recapture_effect_v1.json
+
+          git add results/heteromyid_sex_recapture_effect_v1.json
+          if git diff --cached --quiet; then
+            echo "recapture result unchanged"
+          else
+            git commit -m "Freeze heteromyid sex recapture validation result"
+            git push origin HEAD:design/public-mammal-sex-packing-v1
+          fi
+
+      - name: Upload recapture effect events
+        if: steps.gate.outputs.authorized == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: heteromyid-sex-recapture-effect-v1
+          path: |
+            results/generated/sex_recapture_effect/heteromyid_sex_recapture_effect_events_v1.csv
+            results/generated/sex_recapture_effect/heteromyid_sex_recapture_effect_v1.json
+          if-no-files-found: error
+          retention-days: 30
