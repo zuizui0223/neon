@@ -1,0 +1,180 @@
+name: public-mammal-sex-trap-support-v2
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - analysis/mammal_spatial_packing_exact_v2.py
+      - analysis/audit_sex_packing_mechanical_null_v2.py
+      - analysis/mammal_sex_trap_support_v2.py
+      - analysis/build_portal_sex_trap_support_v2.py
+      - analysis/build_neon_sex_trap_support_v2.py
+      - analysis/run_neon_sex_trap_support_v2.py
+      - analysis/freeze_sex_trap_support_gate_v2.py
+      - tests/test_mammal_spatial_packing_exact_v2.py
+      - tests/test_sex_packing_mechanical_null_v2.py
+      - tests/test_mammal_sex_trap_support_v2.py
+      - tests/test_sex_trap_support_gate_v2.py
+      - docs/superpowers/specs/2026-09-29-public-mammal-sex-packing-null-amendment.md
+      - .github/workflows/public-mammal-sex-trap-support-v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  support-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-sex-packing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen numerical dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Verify pre-effect v2 contracts
+        run: |
+          python -m unittest \
+            tests.test_mammal_spatial_packing_exact_v2 \
+            tests.test_sex_packing_mechanical_null_v2 \
+            tests.test_mammal_sex_trap_support_v2 \
+            tests.test_sex_trap_support_gate_v2 -v
+
+      - name: Require exact mechanical gate before source audit
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import json
+          from pathlib import Path
+          p=Path("analysis/audit_sex_packing_mechanical_null_v2.py")
+          spec=importlib.util.spec_from_file_location("audit",p)
+          m=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          out=m.audit_standard_geometries()
+          assert out["passes"] is True
+          assert out["ecological_effects_inspected"] is False
+          assert out["ecological_model_fits"] == 0
+          Path("/tmp/heteromyid_sex_packing_mechanical_null_v2.json").write_text(
+              json.dumps(out,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Download pinned Portal public files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request
+
+          sha="72d7ff8568052763bf6899dc462e285684cf20f6"
+          paths=[
+              "Rodents/Portal_rodent.csv",
+              "Rodents/Portal_rodent_trapping.csv",
+              "Rodents/Portal_rodent_species.csv",
+          ]
+          root=Path("data/cache/portal")
+          for path in paths:
+              out=root/path
+              out.parent.mkdir(parents=True,exist_ok=True)
+              req=urllib.request.Request(
+                  f"https://raw.githubusercontent.com/weecology/PortalData/{sha}/{path}",
+                  headers={"User-Agent":"public-mammal-sex-support-v2/1.0"},
+              )
+              with urllib.request.urlopen(req,timeout=180) as response:
+                  raw=response.read()
+              if not raw:
+                  raise RuntimeError(f"empty source file: {path}")
+              out.write_bytes(raw)
+          PY
+
+      - name: Build Portal trap-support inventory
+        run: |
+          python analysis/build_portal_sex_trap_support_v2.py \
+            --portal-dir data/cache/portal \
+            --output-dir results/generated/support_v2
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Build complete NEON primary-gate trap-support inventory
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/run_neon_sex_trap_support_v2.py \
+            --output-dir results/generated/support_v2 \
+            --sites CPER JORN KONZ MOAB OAES ONAQ SJER SRER STER
+
+      - name: Freeze post-support estimability gate
+        run: |
+          python analysis/freeze_sex_trap_support_gate_v2.py \
+            --portal results/generated/support_v2/portal_heteromyid_sex_support_inventory_v2.json \
+            --neon results/generated/support_v2/neon_heteromyid_sex_support_inventory_v2.json \
+            --output /tmp/primary_support_estimability_gate_v2.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/primary_support_estimability_gate_v2.json").read_text())
+          assert p["ecological_effects_inspected"] is False
+          assert p["ecological_model_fits"] == 0
+          assert p["decision"] in {
+              "authorize_effect_extraction",
+              "stop_trap_support_estimability_failed",
+          }
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist pre-effect v2 receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/public-mammal-sex-packing-v1
+
+          mkdir -p results
+          mkdir -p validation/public_mammal_sex_packing_v1
+          cp /tmp/heteromyid_sex_packing_mechanical_null_v2.json \
+             results/heteromyid_sex_packing_mechanical_null_v2.json
+          cp /tmp/primary_support_estimability_gate_v2.json \
+             validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json
+          cp results/generated/support_v2/portal_heteromyid_sex_support_inventory_v2.json \
+             validation/public_mammal_sex_packing_v1/trap_support_portal_inventory_v2.json
+          cp results/generated/support_v2/neon_heteromyid_sex_support_inventory_v2.json \
+             validation/public_mammal_sex_packing_v1/trap_support_neon_inventory_v2.json
+
+          git add results/heteromyid_sex_packing_mechanical_null_v2.json
+          git add validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json
+          git add validation/public_mammal_sex_packing_v1/trap_support_portal_inventory_v2.json
+          git add validation/public_mammal_sex_packing_v1/trap_support_neon_inventory_v2.json
+
+          if git diff --cached --quiet; then
+            echo "pre-effect v2 receipts unchanged"
+          else
+            git commit -m "Freeze sex-packing v2 trap-support estimability"
+            git push origin HEAD:design/public-mammal-sex-packing-v1
+          fi
+
+      - name: Upload support-v2 audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: heteromyid-sex-trap-support-v2
+          path: |
+            results/generated/support_v2/portal_heteromyid_sex_support_sessions_v2.csv
+            results/generated/support_v2/portal_heteromyid_sex_support_inventory_v2.json
+            results/generated/support_v2/neon_heteromyid_sex_support_sessions_v2.csv
+            results/generated/support_v2/neon_heteromyid_sex_support_inventory_v2.json
+            validation/public_mammal_sex_packing_v1/primary_support_estimability_gate_v2.json
+          if-no-files-found: error
+          retention-days: 30
