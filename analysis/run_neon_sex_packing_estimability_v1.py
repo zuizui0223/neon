@@ -32,6 +32,20 @@ BUILDER=_load_module(
 )
 
 
+def build_query_for_site(site: str, *, package: str="expanded") -> dict:
+    if package not in {"basic","expanded"}:
+        raise ValueError("package must be basic or expanded")
+    return {
+        "productCode":BASE.PRODUCT_CODE,
+        "siteCodes":[str(site)],
+        "startDateMonth":"2013-01",
+        "endDateMonth":"2026-09",
+        "release":BASE.RELEASE,
+        "package":package,
+        "includeProvisional":False,
+    }
+
+
 def primary_gate_sites_from_phase1(phase1: dict) -> list[str]:
     """Return every site that can possibly contain a >=3/sex primary session.
 
@@ -125,15 +139,7 @@ def run_estimability(*, token: str, output_dir: Path, site_codes: list[str] | No
 
     for index,site in enumerate(sites,start=1):
         print(f"SEX_NEON_SITE_START {index}/{len(sites)} {site}",flush=True)
-        query={
-            "productCode":BASE.PRODUCT_CODE,
-            "siteCodes":[site],
-            "startDateMonth":"2013-01",
-            "endDateMonth":"2026-09",
-            "release":BASE.RELEASE,
-            "package":"expanded",
-            "includeProvisional":False,
-        }
+        query=build_query_for_site(site,package="expanded")
         try:
             payload=BASE._request_json(BASE.QUERY_URL,token=token,body=query)
             query_count+=1
