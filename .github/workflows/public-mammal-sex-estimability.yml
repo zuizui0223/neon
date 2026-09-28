@@ -1,0 +1,173 @@
+name: public-mammal-sex-estimability
+
+on:
+  push:
+    branches:
+      - design/public-mammal-sex-packing-v1
+    paths:
+      - validation/public_mammal_sex_packing_v1/source_artifacts_v1.json
+      - analysis/audit_heteromyid_sex_packing_estimability_v1.py
+      - .github/workflows/public-mammal-sex-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  freeze-estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/public-mammal-sex-packing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Read frozen source artifact IDs
+        id: sources
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=json.loads(Path("validation/public_mammal_sex_packing_v1/source_artifacts_v1.json").read_text())
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a") as fh:
+              fh.write(f"portal_run_id={p['portal']['workflow_run_id']}\n")
+              fh.write(f"neon_run_id={p['neon']['workflow_run_id']}\n")
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Download Portal sex inventory
+        uses: actions/download-artifact@v4
+        with:
+          name: public-mammal-sex-portal-v1
+          path: results/generated/sex_inputs/portal
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.sources.outputs.portal_run_id }}
+
+      - name: Download NEON sex inventory
+        uses: actions/download-artifact@v4
+        with:
+          name: public-mammal-sex-neon-v1
+          path: results/generated/sex_inputs/neon
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.sources.outputs.neon_run_id }}
+
+      - name: Freeze effect-blind estimability gate
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import json
+          from pathlib import Path
+
+          root=Path(".")
+          spec=importlib.util.spec_from_file_location(
+              "gate",
+              root/"analysis"/"audit_heteromyid_sex_packing_estimability_v1.py",
+          )
+          gate_mod=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(gate_mod)
+
+          portal=json.loads(
+              (root/"results/generated/sex_inputs/portal/portal_heteromyid_sex_inventory_v1.json").read_text()
+          )
+          neon=json.loads(
+              (root/"results/generated/sex_inputs/neon/neon_heteromyid_sex_inventory_v1.json").read_text()
+          )
+          sources=json.loads(
+              (root/"validation/public_mammal_sex_packing_v1/source_artifacts_v1.json").read_text()
+          )
+          gate=gate_mod.evaluate_gate(portal,neon)
+          decision=(
+              "authorize_cross_source_effect_modeling"
+              if gate["cross_source_headline_authorized"]
+              else "authorize_source_specific_effect_modeling_only"
+              if gate["effect_modeling_authorized"]
+              else "stop_insufficient_estimability"
+          )
+          payload={
+              "schema":"neon.public_mammal_sex_packing.estimability_gate.v1",
+              "decision":decision,
+              "primary_sex_count_threshold":3,
+              "sensitivity_thresholds":[2,5],
+              "source_artifacts":sources,
+              "portal_inventory":{
+                  "session_count":portal["session_count"],
+                  "paired_n2_sessions":portal["paired_n2_sessions"],
+                  "paired_n3_sessions":portal["paired_n3_sessions"],
+                  "paired_n5_sessions":portal["paired_n5_sessions"],
+                  "species":portal["species"],
+              },
+              "neon_inventory":{
+                  "session_count":neon["session_count"],
+                  "paired_n2_sessions":neon["paired_n2_sessions"],
+                  "paired_n3_sessions":neon["paired_n3_sessions"],
+                  "paired_n5_sessions":neon["paired_n5_sessions"],
+                  "species":neon["species"],
+              },
+              "gate":gate,
+              "ecological_effects_inspected":False,
+              "ecological_model_fits":0,
+          }
+          out=root/"results/heteromyid_sex_packing_estimability_v1.json"
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\n")
+
+          lock=root/"validation/public_mammal_sex_packing_v1/estimability_gate_v1.json"
+          lock.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\n")
+
+          memo=root/"docs/HETEROMYID_SEX_PACKING_ESTIMABILITY_V1.md"
+          memo.write_text(
+              "# Heteromyid sex-packing estimability — V1\n\n"
+              f"**Decision: {decision}**\n\n"
+              "No sex-effect statistic was inspected before this gate.\n\n"
+              "## Portal\n\n"
+              f"- sessions: {portal['session_count']}\n"
+              f"- paired >=2/sex: {portal['paired_n2_sessions']}\n"
+              f"- paired >=3/sex: {portal['paired_n3_sessions']}\n"
+              f"- paired >=5/sex: {portal['paired_n5_sessions']}\n"
+              f"- family qualifying species: {', '.join(gate['portal_family_qualifying_species']) or 'none'}\n\n"
+              "## NEON\n\n"
+              f"- sessions: {neon['session_count']}\n"
+              f"- paired >=2/sex: {neon['paired_n2_sessions']}\n"
+              f"- paired >=3/sex: {neon['paired_n3_sessions']}\n"
+              f"- paired >=5/sex: {neon['paired_n5_sessions']}\n"
+              f"- family qualifying species: {', '.join(gate['neon_family_qualifying_species']) or 'none'}\n\n"
+              "## Cross-source\n\n"
+              f"- shared species with >=10 paired >=3/sex sessions in both sources: "
+              f"{', '.join(gate['shared_species_with_ge10_paired_n3_sessions']) or 'none'}\n"
+              f"- cross-source headline authorized: {gate['cross_source_headline_authorized']}\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(payload,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist estimability gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/heteromyid_sex_packing_estimability_v1.json
+          git add validation/public_mammal_sex_packing_v1/estimability_gate_v1.json
+          git add docs/HETEROMYID_SEX_PACKING_ESTIMABILITY_V1.md
+          if git diff --cached --quiet; then
+            echo "sex-packing estimability unchanged"
+          else
+            git commit -m "Freeze heteromyid sex-packing estimability gate"
+            git push origin HEAD:design/public-mammal-sex-packing-v1
+          fi
+
+      - name: Upload estimability gate
+        uses: actions/upload-artifact@v4
+        with:
+          name: heteromyid-sex-packing-estimability-v1
+          path: |
+            results/heteromyid_sex_packing_estimability_v1.json
+            validation/public_mammal_sex_packing_v1/estimability_gate_v1.json
+            docs/HETEROMYID_SEX_PACKING_ESTIMABILITY_V1.md
+          if-no-files-found: error
+          retention-days: 30
