@@ -8,6 +8,9 @@ import os
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
+PRIMARY_SEX_COUNT_MIN=3
+PHASE1_TOTAL_N_SCREEN=5
+HETEROMYID_GENERA={"Chaetodipus","Dipodomys","Perognathus","Microdipodops"}
 
 
 def _load_module(name: str, path: Path):
@@ -27,6 +30,29 @@ BUILDER=_load_module(
     "build_neon_sex_packing_inventory_v1",
     ROOT/"analysis"/"build_neon_sex_packing_inventory_v1.py",
 )
+
+
+def primary_gate_sites_from_phase1(phase1: dict) -> list[str]:
+    """Return every site that can possibly contain a >=3/sex primary session.
+
+    A paired >=3/sex session has total N >= 6. Therefore any species-site
+    capable of entering the primary gate must already occur in the frozen
+    Phase-1 N>=5 species-site inventory. The screen is response-derived but
+    effect-blind and is used only to avoid downloading sites that cannot
+    change the primary estimability decision.
+    """
+    if 2*PRIMARY_SEX_COUNT_MIN < PHASE1_TOTAL_N_SCREEN:
+        raise RuntimeError("primary sex threshold no longer implies Phase-1 N screen")
+    counts=((phase1.get("neon") or {}).get("n5_species_site_session_counts") or {})
+    sites=set()
+    for species,site_map in counts.items():
+        genus=str(species).split(" ",1)[0]
+        if genus not in HETEROMYID_GENERA:
+            continue
+        for site,count in (site_map or {}).items():
+            if int(count or 0)>0:
+                sites.add(str(site))
+    return sorted(sites)
 
 
 def build_inventory(
@@ -73,11 +99,18 @@ def _write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def run_estimability(*, token: str, output_dir: Path) -> dict:
+def run_estimability(*, token: str, output_dir: Path, site_codes: list[str] | None=None) -> dict:
     product=BASE._request_json(BASE.PRODUCT_URL,token=token)
-    sites=sorted(BASE.collect_site_codes(product))
-    if not sites:
+    available_sites=sorted(BASE.collect_site_codes(product))
+    if not available_sites:
         raise RuntimeError("no NEON sites discovered")
+    if site_codes is None:
+        sites=available_sites
+    else:
+        unknown=sorted(set(site_codes)-set(available_sites))
+        if unknown:
+            raise RuntimeError(f"requested sites absent from NEON release metadata: {unknown}")
+        sites=sorted(set(site_codes))
 
     taxonomy=BASE._request_json(BASE.TAXONOMY_URL,token=token)
     target_ids,_=BASE.target_taxa_from_taxonomy(taxonomy)
@@ -143,7 +176,7 @@ def run_estimability(*, token: str, output_dir: Path) -> dict:
     processed=len({str(row.get("site","")) for row in all_sessions if str(row.get("site",""))})
     inventory=build_inventory(
         all_sessions,
-        available_site_count=len(sites),
+        available_site_count=len(available_sites),
         processed_site_count=processed,
         target_taxon_count=len(target_ids),
         data_query_requests=query_count,
@@ -164,11 +197,12 @@ def run_estimability(*, token: str, output_dir: Path) -> dict:
 def main() -> int:
     parser=argparse.ArgumentParser()
     parser.add_argument("--output-dir",type=Path,default=ROOT/"results"/"generated")
+    parser.add_argument("--sites",nargs="*",default=None)
     args=parser.parse_args()
     token=os.environ.get("NEON_API_TOKEN","").strip()
     if not token:
         raise RuntimeError("NEON_API_TOKEN is required")
-    inventory=run_estimability(token=token,output_dir=args.output_dir)
+    inventory=run_estimability(token=token,output_dir=args.output_dir,site_codes=args.sites)
     print("NEON_SEX_ESTIMABILITY "+json.dumps({
         "session_count":inventory["session_count"],
         "paired_n2_sessions":inventory["paired_n2_sessions"],
