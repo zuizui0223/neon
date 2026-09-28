@@ -332,6 +332,7 @@ def run(
     output_dir: Path,
     estimability_gate: dict,
     interpretation_gate: dict,
+    site_codes: list[str] | None=None,
 ) -> dict:
     if estimability_gate["gate"]["decision"] != (
         "authorize_sex_specific_recapture_displacement"
@@ -340,7 +341,14 @@ def run(
 
     species_set=list(estimability_gate["gate"]["qualifying_species"])
     product=DEV._request_json(DEV.PRODUCT_URL,token=token)
-    sites=sorted(DEV.collect_site_codes(product))
+    available_sites=sorted(DEV.collect_site_codes(product))
+    if site_codes is None:
+        sites=available_sites
+    else:
+        unknown=sorted(set(site_codes)-set(available_sites))
+        if unknown:
+            raise RuntimeError(f"requested sites absent from NEON release metadata: {unknown}")
+        sites=sorted(set(site_codes))
     taxonomy=DEV._request_json(DEV.TAXONOMY_URL,token=token)
     target_ids,_=DEV.target_taxa_from_taxonomy(taxonomy)
 
@@ -445,6 +453,8 @@ def run(
         },
         "manuscript_gate":decision,
         "phase3_primary_decision":"no_replicated_positive_support",
+        "available_site_count":len(available_sites),
+        "effect_screen_sites":sites,
         "data_query_requests":query_count,
         "downloaded_required_file_count":file_count,
         "downloaded_required_bytes":byte_count,
@@ -464,6 +474,7 @@ def main() -> int:
     parser.add_argument("--output-dir",type=Path,required=True)
     parser.add_argument("--estimability-gate",type=Path,required=True)
     parser.add_argument("--interpretation-gate",type=Path,required=True)
+    parser.add_argument("--sites",nargs="*",default=None)
     args=parser.parse_args()
 
     token=os.environ.get("NEON_API_TOKEN","").strip()
@@ -475,6 +486,7 @@ def main() -> int:
         output_dir=args.output_dir,
         estimability_gate=json.loads(args.estimability_gate.read_text()),
         interpretation_gate=json.loads(args.interpretation_gate.read_text()),
+        site_codes=args.sites,
     )
     print(json.dumps({
         "primary":result["primary"],
