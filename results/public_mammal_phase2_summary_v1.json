@@ -1,0 +1,1356 @@
+{
+  "decision": "stop_no_replicated_ecological_signal",
+  "ecological_interpretation": {
+    "descriptive_only": [
+      "several species show large adjusted site-to-site ranges in Packing_z; these site effects were not frozen as a causal mechanism test"
+    ],
+    "not_supported": [
+      "kangaroo-rat exclosure changes Chaetodipus penicillatus population spatial packing at matched captured abundance",
+      "Myodes rutilus population packing differs detectably between shrub/scrub and forest after N and site are controlled",
+      "the three frozen secondary within-site habitat contrasts provide replicated generalization",
+      "population Packing_z predicts independent recapture displacement after N and species-site context are controlled"
+    ],
+    "supported": [
+      "Packing_z passes the prespecified mechanical N-independence audit"
+    ]
+  },
+  "gate": {
+    "cross_system_primary_support": false,
+    "decision": "stop_no_replicated_ecological_signal",
+    "movement_validation_supported": false,
+    "neon_myodes_primary_supported": false,
+    "packing_metric_mechanical_audit_passed": true,
+    "portal_interaction_ci_excludes_zero": false,
+    "portal_interaction_reversal_labels": [
+      "n_min_8",
+      "long_term_plots"
+    ],
+    "portal_primary_supported": false,
+    "portal_robust": false,
+    "portal_treatment_ci_excludes_zero": false,
+    "portal_treatment_reversal_labels": [
+      "n_min_8",
+      "long_term_plots",
+      "leave_plot_out:1",
+      "leave_plot_out:3",
+      "leave_period_out:425"
+    ],
+    "secondary_neon_supported": [],
+    "secondary_neon_supported_count": 0
+  },
+  "inferential_status": "retrospective_public_data_phase2",
+  "manuscript_authorized": false,
+  "movement_validation": {
+    "nobs": 1452,
+    "packing_z": {
+      "ci95_high": 0.016454516656289466,
+      "ci95_low": -0.014995139128109378,
+      "estimate": 0.000729688764090043,
+      "p_value": 0.9275327954892427,
+      "standard_error": 0.008023018798424287
+    },
+    "status": "estimable",
+    "stratum_count": 76,
+    "z_logN": {
+      "ci95_high": -0.04006226371362606,
+      "ci95_low": -0.07561499725446774,
+      "estimate": -0.0578386304840469,
+      "p_value": 1.8047500572306118e-10,
+      "standard_error": 0.009069741541496965
+    }
+  },
+  "neon_myodes": {
+    "habitat_effect": {
+      "ci95_high": 1.0805011365132209,
+      "ci95_low": -0.42235928290814356,
+      "estimate": 0.32907092680253863,
+      "p_value": 0.3907160918905298,
+      "standard_error": 0.38338980493410485
+    },
+    "model": {
+      "covariance": "HC3",
+      "design_columns": 4,
+      "design_rank": 4,
+      "formula": "packing_z ~ habitat_group + z_logN + site",
+      "implemented_formula": "packing_z ~ C(habitat_group, Treatment(reference='forest')) + z_logN + C(site)",
+      "nobs": 39,
+      "rsquared": 0.061057309625590195
+    },
+    "n_range": [
+      5,
+      25
+    ],
+    "robustness": {
+      "leave_one_site_out": [
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.6038075926396285,
+              "ci95_low": -0.26417160791120686,
+              "estimate": 0.6698179923642108,
+              "p_value": 0.1598418674985682,
+              "standard_error": 0.4765340626881966,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.2626166698519366,
+              "ci95_low": -0.9053111430002743,
+              "estimate": -0.3213472365741688,
+              "p_value": 0.2807923991120115,
+              "standard_error": 0.29794624341688836,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "BONA",
+          "session_count": 18,
+          "site_count": 1
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.4605458864018444,
+              "ci95_low": -1.1904917849352994,
+              "estimate": 0.13502705073327256,
+              "p_value": 0.8417494107662472,
+              "standard_error": 0.6762975473652043,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.745807022402507,
+              "ci95_low": -0.12781261301728908,
+              "estimate": 0.30899720469260894,
+              "p_value": 0.16560365505128016,
+              "standard_error": 0.222866247112395,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "DEJU",
+          "session_count": 21,
+          "site_count": 1
+        }
+      ],
+      "leave_one_year_out": [
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.0399195079096188,
+              "ci95_low": -0.6975144669392203,
+              "estimate": 0.17120252048519932,
+              "p_value": 0.6993039930360814,
+              "standard_error": 0.44323109724298426,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.4755715840450587,
+              "ci95_low": -0.38137340373702666,
+              "estimate": 0.04709909015401603,
+              "p_value": 0.8294199084633072,
+              "standard_error": 0.21861243230527658,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2017",
+          "session_count": 33,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 0.965304389172077,
+              "ci95_low": -0.540280176324023,
+              "estimate": 0.2125121064240269,
+              "p_value": 0.5800615435965686,
+              "standard_error": 0.3840847529270841,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.4403082640344942,
+              "ci95_low": -0.3590810295477286,
+              "estimate": 0.04061361724338279,
+              "p_value": 0.8421414213529776,
+              "standard_error": 0.20392958745357148,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2018",
+          "session_count": 34,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.4782964176191524,
+              "ci95_low": -0.0820889464271185,
+              "estimate": 0.6981037355960169,
+              "p_value": 0.0794743947322208,
+              "standard_error": 0.39806480536234123,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.5642435002919411,
+              "ci95_low": -0.3338144084198851,
+              "estimate": 0.11521454593602803,
+              "p_value": 0.6150350518515644,
+              "standard_error": 0.22910061506119309,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2019",
+          "session_count": 32,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.0344046624285643,
+              "ci95_low": -0.5316228393594469,
+              "estimate": 0.2513909115345587,
+              "p_value": 0.5291806095922287,
+              "standard_error": 0.39950415266317046,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.48955674618601036,
+              "ci95_low": -0.32053203572414307,
+              "estimate": 0.08451235523093363,
+              "p_value": 0.6825794913494967,
+              "standard_error": 0.20665909891713072,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2020",
+          "session_count": 32,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.4127038542882477,
+              "ci95_low": -0.3134551102409413,
+              "estimate": 0.5496243720236532,
+              "p_value": 0.21197981356928863,
+              "standard_error": 0.44035476624695935,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.42955062550508777,
+              "ci95_low": -0.3518652856521976,
+              "estimate": 0.038842669926445084,
+              "p_value": 0.8455087971425199,
+              "standard_error": 0.19934445666374342,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2021",
+          "session_count": 31,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.0833431605129649,
+              "ci95_low": -0.4535683894968341,
+              "estimate": 0.3148873855080654,
+              "p_value": 0.4219010674584951,
+              "standard_error": 0.39207647745896385,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.4520452028868653,
+              "ci95_low": -0.31044392587150976,
+              "estimate": 0.07080063850767777,
+              "p_value": 0.7158703880844453,
+              "standard_error": 0.19451610712563905,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2023",
+          "session_count": 38,
+          "site_count": 2
+        },
+        {
+          "coefficients": {
+            "habitat_effect": {
+              "ci95_high": 1.0279707425910196,
+              "ci95_low": -0.81312721169315,
+              "estimate": 0.10742176544893477,
+              "p_value": 0.8190909149710381,
+              "standard_error": 0.4696764758961174,
+              "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+            },
+            "z_logN": {
+              "ci95_high": 0.5581871128843894,
+              "ci95_low": -0.24317112837663896,
+              "estimate": 0.15750799225387524,
+              "p_value": 0.4410229939427275,
+              "standard_error": 0.20443187925442508,
+              "term": "z_logN"
+            }
+          },
+          "estimable": true,
+          "left_out": "2024",
+          "session_count": 34,
+          "site_count": 2
+        }
+      ],
+      "n_min_3": {
+        "coefficients": {
+          "habitat_effect": {
+            "ci95_high": 1.1834802633094437,
+            "ci95_low": -0.15007521455950013,
+            "estimate": 0.5167025243749718,
+            "p_value": 0.1288066875922731,
+            "standard_error": 0.34019897518216136,
+            "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+          },
+          "z_logN": {
+            "ci95_high": 0.4080188898341624,
+            "ci95_low": -0.18644461585487876,
+            "estimate": 0.11078713698964181,
+            "p_value": 0.4650619939618277,
+            "standard_error": 0.1516516401265772,
+            "term": "z_logN"
+          }
+        },
+        "estimable": true,
+        "habitat_session_counts": {
+          "forest": 40,
+          "shrub_scrub": 16
+        },
+        "label": "n_min_3",
+        "n_min": 3,
+        "n_range": [
+          3,
+          25
+        ],
+        "rsquared": 0.058248151418249794,
+        "session_count": 56,
+        "site_count": 2
+      },
+      "n_min_8": {
+        "coefficients": {
+          "habitat_effect": {
+            "ci95_high": 1.8148169653871253,
+            "ci95_low": -0.7804812308845804,
+            "estimate": 0.5171678672512724,
+            "p_value": 0.4347270569785606,
+            "standard_error": 0.662078032235053,
+            "term": "C(habitat_group, Treatment(reference='forest'))[T.shrub_scrub]"
+          },
+          "z_logN": {
+            "ci95_high": 1.1085374499134604,
+            "ci95_low": 0.12237279549866192,
+            "estimate": 0.6154551227060612,
+            "p_value": 0.014429628214516646,
+            "standard_error": 0.2515772387129405,
+            "term": "z_logN"
+          }
+        },
+        "estimable": true,
+        "habitat_session_counts": {
+          "forest": 16,
+          "shrub_scrub": 6
+        },
+        "label": "n_min_8",
+        "n_min": 8,
+        "n_range": [
+          8,
+          25
+        ],
+        "rsquared": 0.3033282714010913,
+        "session_count": 22,
+        "site_count": 2
+      }
+    },
+    "session_count": 39,
+    "site_effect": {
+      "ci95_high": 0.34460300667921084,
+      "ci95_low": -1.106921700261113,
+      "estimate": -0.381159346790951,
+      "p_value": 0.30331839833406216,
+      "standard_error": 0.3702937192697839
+    },
+    "species": "Myodes rutilus",
+    "z_logN": {
+      "ci95_high": 0.45133920693022334,
+      "ci95_low": -0.2879291255084948,
+      "estimate": 0.08170504071086425,
+      "p_value": 0.6648431126383034,
+      "standard_error": 0.18859232574424134
+    }
+  },
+  "neon_secondary_habitat": [
+    {
+      "habitat_effect": {
+        "ci95_high": 1.3633904797925545,
+        "ci95_low": -1.003941284283254,
+        "estimate": 0.1797245977546501,
+        "p_value": 0.7660118458556292,
+        "q_value_bh3": 0.9609611659132632,
+        "standard_error": 0.6039222615183287
+      },
+      "habitats": [
+        "grassland_herbaceous",
+        "shrub_scrub"
+      ],
+      "session_count": 15,
+      "site": "OAES",
+      "species": "Chaetodipus hispidus"
+    },
+    {
+      "habitat_effect": {
+        "ci95_high": 0.10993047982478421,
+        "ci95_low": -1.2567098729414867,
+        "estimate": -0.5733896965583513,
+        "p_value": 0.10004182031303237,
+        "q_value_bh3": 0.3001254609390971,
+        "standard_error": 0.34863914937880386
+      },
+      "habitats": [
+        "forest",
+        "shrub_scrub"
+      ],
+      "session_count": 38,
+      "site": "ONAQ",
+      "species": "Perognathus parvus"
+    },
+    {
+      "habitat_effect": {
+        "ci95_high": 0.9457440742694259,
+        "ci95_low": -0.9941913487236556,
+        "estimate": -0.02422363722711479,
+        "p_value": 0.9609611659132631,
+        "q_value_bh3": 0.9609611659132632,
+        "standard_error": 0.49489057918794543
+      },
+      "habitats": [
+        "forest",
+        "grassland_herbaceous"
+      ],
+      "session_count": 28,
+      "site": "SJER",
+      "species": "Peromyscus boylii"
+    }
+  ],
+  "neon_site_context_descriptive": {
+    "Chaetodipus hispidus": {
+      "adjusted_site_means": {
+        "KONZ": -0.9333814207114175,
+        "OAES": -0.3020674130502943,
+        "STER": -0.20117414829933433
+      },
+      "session_count": 24,
+      "site_adjusted_range": 0.7322072724120832,
+      "site_adjusted_sd": 0.3240137714690532,
+      "site_count": 3
+    },
+    "Chaetodipus penicillatus": {
+      "adjusted_site_means": {
+        "JORN": 1.5113126186688712,
+        "SRER": -0.21537975600815407
+      },
+      "session_count": 21,
+      "site_adjusted_range": 1.7266923746770253,
+      "site_adjusted_sd": 0.8633461873385126,
+      "site_count": 2
+    },
+    "Dipodomys merriami": {
+      "adjusted_site_means": {
+        "JORN": 1.4487637922423,
+        "SRER": 0.7052545514808616
+      },
+      "session_count": 61,
+      "site_adjusted_range": 0.7435092407614384,
+      "site_adjusted_sd": 0.3717546203807192,
+      "site_count": 2
+    },
+    "Dipodomys ordii": {
+      "adjusted_site_means": {
+        "CPER": 0.3436849058885602,
+        "JORN": 0.7423441641737141,
+        "MOAB": 1.1880484424301183,
+        "ONAQ": 1.0919770408882128
+      },
+      "session_count": 67,
+      "site_adjusted_range": 0.844363536541558,
+      "site_adjusted_sd": 0.33184571638128374,
+      "site_count": 4
+    },
+    "Myodes rutilus": {
+      "adjusted_site_means": {
+        "BONA": 0.7031759241029003,
+        "DEJU": 0.2722737624494937,
+        "HEAL": 0.22892846625176327
+      },
+      "session_count": 52,
+      "site_adjusted_range": 0.47424745785113703,
+      "site_adjusted_sd": 0.21407842252011644,
+      "site_count": 3
+    },
+    "Onychomys leucogaster": {
+      "adjusted_site_means": {
+        "OAES": 0.10062755562886777,
+        "STER": -0.03057024896525487
+      },
+      "session_count": 31,
+      "site_adjusted_range": 0.13119780459412264,
+      "site_adjusted_sd": 0.06559890229706132,
+      "site_count": 2
+    },
+    "Peromyscus gossypinus": {
+      "adjusted_site_means": {
+        "JERC": 0.3636697207817464,
+        "OSBS": 2.2569374390235515,
+        "TALL": 0.08612510224503267
+      },
+      "session_count": 27,
+      "site_adjusted_range": 2.1708123367785186,
+      "site_adjusted_sd": 0.9645908671973622,
+      "site_count": 3
+    },
+    "Peromyscus leucopus": {
+      "adjusted_site_means": {
+        "CLBJ": 0.5123274837579048,
+        "GRSM": 0.44767369584958644,
+        "MLBS": 0.15170898740884436,
+        "OAES": -0.5992200922534512,
+        "ORNL": 1.1246400953219902,
+        "SCBI": -0.7175902251017401,
+        "SERC": 0.25949822894195834,
+        "TALL": 1.724877683261069,
+        "TREE": 1.2490720443942702,
+        "UKFS": -1.8117608357970436
+      },
+      "session_count": 43,
+      "site_adjusted_range": 3.536638519058113,
+      "site_adjusted_sd": 0.9980876130607627,
+      "site_count": 10
+    },
+    "Peromyscus maniculatus": {
+      "adjusted_site_means": {
+        "ABBY": -0.7014983585350951,
+        "CLBJ": 0.6255259452210402,
+        "DCFS": 0.7204367955701569,
+        "GRSM": 0.7367880203432438,
+        "KONA": 0.37625604696298476,
+        "KONZ": 0.522299144921144,
+        "MOAB": 1.9256960200070126,
+        "NIWO": 1.372426031282665,
+        "NOGP": 0.3015379063592911,
+        "OAES": 1.5552313715020898,
+        "ONAQ": 1.15153981450478,
+        "RMNP": 0.9122416654375136,
+        "SJER": 0.703918329556767,
+        "STEI": 1.3523227830137652,
+        "STER": -0.6239813350562652,
+        "TEAK": -0.34973436154016635,
+        "TREE": -1.0939861141753973,
+        "UNDE": -0.6359608154395939,
+        "WOOD": 0.11199757566180557,
+        "WREF": 1.5162714710949692,
+        "YELL": 0.08417886511660333
+      },
+      "session_count": 186,
+      "site_adjusted_range": 3.0196821341824096,
+      "site_adjusted_sd": 0.8182908063229208,
+      "site_count": 21
+    },
+    "Sigmodon hispidus": {
+      "adjusted_site_means": {
+        "CLBJ": 0.6302615499007664,
+        "DSNY": 1.2805801214202643,
+        "JERC": -0.09587801953066455,
+        "KONA": 1.062690786567601,
+        "KONZ": 0.41368145680338386,
+        "OAES": -1.6410335325547953,
+        "ORNL": -0.224799332708554,
+        "OSBS": -0.23289848526166101,
+        "UKFS": -0.2876639864246864
+      },
+      "session_count": 62,
+      "site_adjusted_range": 2.9216136539750597,
+      "site_adjusted_sd": 0.8257171269441387,
+      "site_count": 9
+    }
+  },
+  "packing_n_independence": {
+    "audits": [
+      {
+        "by_n": [
+          {
+            "mean_packing_z": -0.0616405656674278,
+            "n": 3,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0316196408707607,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.017165994580139652,
+            "n": 4,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0705976992079027,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.06214583589733043,
+            "n": 5,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0395942412093346,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.07081042129833466,
+            "n": 6,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0551800664501052,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.1576587630179786,
+            "n": 7,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9650791846103296,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.08420597522825293,
+            "n": 8,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8978766029097434,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.08585671935671076,
+            "n": 9,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0853162337649982,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.042354317629092336,
+            "n": 10,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0151376766584066,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.1135163284323271,
+            "n": 11,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0857465365388779,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04260429332876333,
+            "n": 12,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9986612240929077,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.0777183610133533,
+            "n": 13,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.1403517294975043,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.11391106579466123,
+            "n": 14,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0385245958778022,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.016727166027949658,
+            "n": 15,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8776758239459715,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.0644225170815982,
+            "n": 16,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9568114608940171,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.12830855103203898,
+            "n": 17,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0331785298987524,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.1085576621709763,
+            "n": 18,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9715399017983736,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04505585857093379,
+            "n": 19,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0788036759104367,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.16840841226604877,
+            "n": 20,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9632858005210432,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.05757028721535409,
+            "n": 21,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.1253421947083928,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.04615713471587166,
+            "n": 22,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0042390556109833,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.0569209021395691,
+            "n": 23,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9446141419408326,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.018590517960492242,
+            "n": 24,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0591122547219185,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.046973022036938934,
+            "n": 25,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0559673778095036,
+            "simulated_sessions": 100
+          }
+        ],
+        "label": "portal_7x7_6.25m",
+        "mean_packing_z": -0.025687710723834408,
+        "n_values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "null_replicates": 999,
+        "passes_abs_rho_le_0_2": true,
+        "seed": 2026092801,
+        "sessions_per_n": 100,
+        "simulated_session_count": 2300,
+        "spearman_n_vs_packing_z": -0.005296666976975892,
+        "trap_count": 49
+      },
+      {
+        "by_n": [
+          {
+            "mean_packing_z": -0.09214487454428494,
+            "n": 3,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.00666859546468,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.1652332712393423,
+            "n": 4,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9956189045692072,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.26894098187603527,
+            "n": 5,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0129568233450335,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.041208445464393055,
+            "n": 6,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.021160745315346,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04883658987444491,
+            "n": 7,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9675101815961734,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.10024107905615665,
+            "n": 8,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0088486991710781,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.08346296787666133,
+            "n": 9,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0234914120968992,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.08772903945636677,
+            "n": 10,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8724673245648498,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.07229313668249143,
+            "n": 11,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0895611837757009,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.04758877148762035,
+            "n": 12,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9851913807753662,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.12175473321939193,
+            "n": 13,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9606934706789446,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.02223270052735458,
+            "n": 14,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9786501897399025,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.004949411026598147,
+            "n": 15,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0128884813538162,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.005867411743096418,
+            "n": 16,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0621315971421958,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.13707991056184046,
+            "n": 17,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9790173721385954,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.05891172814052832,
+            "n": 18,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.072792201270737,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.17164515352369075,
+            "n": 19,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.1417123054623424,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.3021706267453135,
+            "n": 20,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9573423186597921,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.019399402236018694,
+            "n": 21,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9371940075891262,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.08127186721868625,
+            "n": 22,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9654734004489371,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.08269892202540133,
+            "n": 23,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9314835971727585,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.013432306203918238,
+            "n": 24,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9977147248384716,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04103753857521673,
+            "n": 25,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9217830413298085,
+            "simulated_sessions": 100
+          }
+        ],
+        "label": "neon_standard_10x10_10m",
+        "mean_packing_z": -0.01657244223532563,
+        "n_values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "null_replicates": 999,
+        "passes_abs_rho_le_0_2": true,
+        "seed": 2026092802,
+        "sessions_per_n": 100,
+        "simulated_session_count": 2300,
+        "spearman_n_vs_packing_z": 0.03542793256372661,
+        "trap_count": 100
+      },
+      {
+        "by_n": [
+          {
+            "mean_packing_z": -0.07562076187671217,
+            "n": 3,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9444776621831278,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.05228243938035237,
+            "n": 4,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9775793799856926,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.05073900965804535,
+            "n": 5,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9354207766969346,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.060206160315191576,
+            "n": 6,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8794765391869495,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.0012632647734145605,
+            "n": 7,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0131799889599147,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.05257037949946899,
+            "n": 8,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9929306843490388,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.011898497056321766,
+            "n": 9,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0281365354639163,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04440369534905552,
+            "n": 10,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9667596526949771,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.057733749168495,
+            "n": 11,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0226079892350495,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.023826504423102447,
+            "n": 12,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.001998823185574,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.054364195548577715,
+            "n": 13,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0287599382015367,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.0961455502271975,
+            "n": 14,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9171677741109959,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.05358549373639681,
+            "n": 15,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0265875493115921,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.05643798310546786,
+            "n": 16,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8132866644474788,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.06529788052028244,
+            "n": 17,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9592564825375571,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.03486376600184557,
+            "n": 18,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9653107987794596,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.0592582375228623,
+            "n": 19,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.8804605226107988,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.025944551658393156,
+            "n": 20,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0061006317077064,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.045363985296356886,
+            "n": 21,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.2516515475436638,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.002859852441365407,
+            "n": 22,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9684565283575773,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.04292699110165102,
+            "n": 23,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0132107029531705,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": -0.016805868442758692,
+            "n": 24,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 0.9723199372273603,
+            "simulated_sessions": 100
+          },
+          {
+            "mean_packing_z": 0.085565234881384,
+            "n": 25,
+            "null_draw_count": 999,
+            "null_mode": "monte_carlo",
+            "sd_packing_z": 1.0442691445713526,
+            "simulated_sessions": 100
+          }
+        ],
+        "label": "neon_reduced_7x7_10m",
+        "mean_packing_z": 0.01559046627946892,
+        "n_values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "null_replicates": 999,
+        "passes_abs_rho_le_0_2": true,
+        "seed": 2026092803,
+        "sessions_per_n": 100,
+        "simulated_session_count": 2300,
+        "spearman_n_vs_packing_z": 0.009909198855331583,
+        "trap_count": 49
+      }
+    ],
+    "ecological_model_fits": 0,
+    "failure_rule": "absolute Spearman rho between N and Packing_z > 0.2 in any representative geometry",
+    "passes": true,
+    "representative_geometries": [
+      {
+        "label": "portal_7x7_6.25m",
+        "rationale": "Portal primary 49-stake regular grid"
+      },
+      {
+        "label": "neon_standard_10x10_10m",
+        "rationale": "standard NEON mammal diversity-grid geometry"
+      },
+      {
+        "label": "neon_reduced_7x7_10m",
+        "rationale": "reduced-grid geometry sensitivity"
+      }
+    ],
+    "response": "Packing_z",
+    "schema": "neon.public_mammal_space_use.packing_n_independence.v1",
+    "status": "mechanical_null_audit"
+  },
+  "peromyscus_cryptic_complex_sensitivity": {
+    "decision_relevance": "not required to establish current stop decision because no primary or supported secondary ecological signal depends on Peromyscus",
+    "executed": false,
+    "future_use": "must be completed before any future manuscript promotes a Peromyscus ecological result",
+    "required_by_amendment": true
+  },
+  "portal": {
+    "direction_reversal_summary": {
+      "interaction_reversal_labels": [
+        "n_min_8",
+        "long_term_plots"
+      ],
+      "treatment_reversal_labels": [
+        "n_min_8",
+        "long_term_plots",
+        "leave_plot_out:1",
+        "leave_plot_out:3",
+        "leave_period_out:425"
+      ]
+    },
+    "interaction": {
+      "ci95_high": 0.238616039886208,
+      "ci95_low": -0.4420446389372071,
+      "estimate": -0.10171429952549953,
+      "p_value": 0.536714123745226,
+      "standard_error": 0.16130809867335005
+    },
+    "model": {
+      "cluster_count": 18,
+      "cluster_variable": "plot_id",
+      "covariance": "cluster_by_plot",
+      "df_resid": 350.0,
+      "formula": "packing_z ~ treatment * z_logN + period_fixed_effects",
+      "implemented_formula": "packing_z ~ C(treatment, Treatment(reference='control')) * z_logN + C(period)",
+      "rsquared": 0.14390788560918277,
+      "small_sample_correction": true,
+      "use_t": true
+    },
+    "plot_count": 18,
+    "session_count": 390,
+    "species": "Chaetodipus penicillatus",
+    "treatment": {
+      "ci95_high": 0.2209591570614295,
+      "ci95_low": -0.1608103093996504,
+      "estimate": 0.03007442383088954,
+      "p_value": 0.7436453317049999,
+      "standard_error": 0.09047460604427325
+    },
+    "z_logN": {
+      "ci95_high": 0.5183655419032726,
+      "ci95_low": -0.07230199678778934,
+      "estimate": 0.22303177255774162,
+      "p_value": 0.12951443073951277,
+      "standard_error": 0.1399808459319583
+    }
+  },
+  "schema": "neon.public_mammal_space_use.phase2_summary.v1",
+  "source_artifacts": {
+    "frozen_date": "2026-09-28",
+    "neon": {
+      "artifact_id": 10948585014,
+      "digest": "sha256:12d77b65704dfc850c3057730e2d9753e86a6206c60e0442677acac007fcd555",
+      "name": "public-mammal-phase2-neon-myodes-v1",
+      "workflow_head_sha": "e3b9e5d3f362e85656a8dd9b80b3729e3f742a6c",
+      "workflow_run_id": 36367773226
+    },
+    "portal": {
+      "artifact_id": 10934836351,
+      "digest": "sha256:5f0161ad71fdf3652e0f3d0f95b82253396195397945ea6b5c9d140a0dc92ba2",
+      "name": "public-mammal-phase2-portal-v1",
+      "workflow_head_sha": "fc0d8b24906cc729e8fc24c5fee9f513d46d9425",
+      "workflow_run_id": 36328080321
+    },
+    "recapture": {
+      "artifact_id": 10934987820,
+      "digest": "sha256:ce8c421ec5a8d03d0513db87c42222f7929cfbd348df07b805f5d5af8dc5a947",
+      "name": "public-mammal-phase2-recapture-v1",
+      "workflow_head_sha": "7d375dc53f6ec824f0c09e05c07ed18480a882d9",
+      "workflow_run_id": 36328869087
+    },
+    "schema": "neon.public_mammal_space_use.phase2_result_artifacts.v1"
+  }
+}

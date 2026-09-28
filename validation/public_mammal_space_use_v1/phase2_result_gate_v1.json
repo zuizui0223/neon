@@ -1,0 +1,60 @@
+{
+  "decision": "stop_no_replicated_ecological_signal",
+  "gate": {
+    "cross_system_primary_support": false,
+    "decision": "stop_no_replicated_ecological_signal",
+    "movement_validation_supported": false,
+    "neon_myodes_primary_supported": false,
+    "packing_metric_mechanical_audit_passed": true,
+    "portal_interaction_ci_excludes_zero": false,
+    "portal_interaction_reversal_labels": [
+      "n_min_8",
+      "long_term_plots"
+    ],
+    "portal_primary_supported": false,
+    "portal_robust": false,
+    "portal_treatment_ci_excludes_zero": false,
+    "portal_treatment_reversal_labels": [
+      "n_min_8",
+      "long_term_plots",
+      "leave_plot_out:1",
+      "leave_plot_out:3",
+      "leave_period_out:425"
+    ],
+    "secondary_neon_supported": [],
+    "secondary_neon_supported_count": 0
+  },
+  "manuscript_authorized": false,
+  "peromyscus_cryptic_complex_sensitivity": {
+    "decision_relevance": "not required to establish current stop decision because no primary or supported secondary ecological signal depends on Peromyscus",
+    "executed": false,
+    "future_use": "must be completed before any future manuscript promotes a Peromyscus ecological result",
+    "required_by_amendment": true
+  },
+  "schema": "neon.public_mammal_space_use.phase2_result_gate.v1",
+  "source_artifacts": {
+    "frozen_date": "2026-09-28",
+    "neon": {
+      "artifact_id": 10948585014,
+      "digest": "sha256:12d77b65704dfc850c3057730e2d9753e86a6206c60e0442677acac007fcd555",
+      "name": "public-mammal-phase2-neon-myodes-v1",
+      "workflow_head_sha": "e3b9e5d3f362e85656a8dd9b80b3729e3f742a6c",
+      "workflow_run_id": 36367773226
+    },
+    "portal": {
+      "artifact_id": 10934836351,
+      "digest": "sha256:5f0161ad71fdf3652e0f3d0f95b82253396195397945ea6b5c9d140a0dc92ba2",
+      "name": "public-mammal-phase2-portal-v1",
+      "workflow_head_sha": "fc0d8b24906cc729e8fc24c5fee9f513d46d9425",
+      "workflow_run_id": 36328080321
+    },
+    "recapture": {
+      "artifact_id": 10934987820,
+      "digest": "sha256:ce8c421ec5a8d03d0513db87c42222f7929cfbd348df07b805f5d5af8dc5a947",
+      "name": "public-mammal-phase2-recapture-v1",
+      "workflow_head_sha": "7d375dc53f6ec824f0c09e05c07ed18480a882d9",
+      "workflow_run_id": 36328869087
+    },
+    "schema": "neon.public_mammal_space_use.phase2_result_artifacts.v1"
+  }
+}
