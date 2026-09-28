@@ -61,6 +61,23 @@ class SexPackingMechanicalNullTests(unittest.TestCase):
         )
         self.assertLess(abs(out["mean_delta"]),0.25)
 
+    def test_standard_geometry_audit_reports_all_three_geometries(self):
+        out=m.audit_standard_geometries(
+            sessions_per_design=50,
+            packing_replicates=99,
+        )
+        self.assertEqual(
+            [x["label"] for x in out["geometries"]],
+            ["portal_7x7_6.25m","neon_10x10_10m","neon_7x7_10m"],
+        )
+        self.assertEqual(out["warning_threshold_abs_rho"],0.2)
+        self.assertEqual(out["ecological_effects_inspected"],False)
+        self.assertEqual(out["ecological_model_fits"],0)
+        self.assertEqual(
+            out["passes"],
+            all(x["passes"] for x in out["geometries"]),
+        )
+
 
 if __name__=="__main__":
     unittest.main()
