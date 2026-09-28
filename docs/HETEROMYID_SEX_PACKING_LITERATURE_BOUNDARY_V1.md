@@ -10,6 +10,7 @@ Sex differences in heteromyid movement, home-range size, overlap, and excursions
 - Shier & Randall (2004), *Journal of Mammalogy* 85:1002–1008, DOI 10.1644/107: male *Dipodomys heermanni* home ranges were larger and overlapped both sexes, while females maintained essentially non-overlapping territories.
 - Cooper & Randall (2007), *Journal of Mammalogy* 88:1000–1008, DOI 10.1644/06-MAMM-A-197R1.1: male *D. ingens* home ranges expanded during the breeding season as male mobility increased and overlapped female territories.
 - Price, Kelly & Goldingay (1994), *Journal of Mammalogy* 75:929–939, DOI 10.2307/1382474: male *D. stephensi* moved longer distances than females in live-trapping/radiotelemetry data.
+- Jones (1989), *Journal of Mammalogy* 70:27–34, studied *D. merriami* at Portal and reported individual nightly/lifetime movement and home-range information; compiled exposure summaries report larger adult male than female minimum-convex-polygon home ranges at Portal. This makes the current near-zero Portal one-night packing result especially useful as a cross-scale comparison, but it is not itself evidence against male-biased individual movement.
 
 Accordingly, this programme must not claim novelty for 'males move farther' or 'males have larger home ranges.'
 
