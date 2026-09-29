@@ -7,7 +7,9 @@ on:
     paths:
       - docs/SEVILLETA_HETEROMYID_CROSSSCALE_SOURCE_AUDIT_V1.md
       - analysis/audit_sevilleta_source_schema_v1.py
+      - analysis/audit_sevilleta_source_schema_v2.py
       - tests/test_sevilleta_source_schema_audit.py
+      - tests/test_sevilleta_source_schema_audit_v2.py
       - .github/workflows/sevilleta-heteromyid-source-audit.yml
   workflow_dispatch:
 
@@ -28,7 +30,10 @@ jobs:
           python-version: "3.12"
 
       - name: Verify source-audit tests
-        run: python -m unittest tests.test_sevilleta_source_schema_audit -v
+        run: |
+          python -m unittest \
+            tests.test_sevilleta_source_schema_audit \
+            tests.test_sevilleta_source_schema_audit_v2 -v
 
       - name: Download frozen Sevilleta public source
         run: |
@@ -64,7 +69,7 @@ jobs:
 
       - name: Audit schema only
         run: |
-          python analysis/audit_sevilleta_source_schema_v1.py             --input data/cache/sevilleta/sev008_rodentpopns_20151022.txt             --output /tmp/sevilleta_source_schema_audit_v1.json
+          python analysis/audit_sevilleta_source_schema_v1.py             --input data/cache/sevilleta/sev008_rodentpopns_20151022.txt             --output /tmp/sevilleta_source_schema_audit_v2.json
 
       - name: Assert no ecological outcome was opened
         run: |
@@ -72,7 +77,7 @@ jobs:
           import json
           from pathlib import Path
 
-          p=json.loads(Path("/tmp/sevilleta_source_schema_audit_v1.json").read_text())
+          p=json.loads(Path("/tmp/sevilleta_source_schema_audit_v2.json").read_text())
           assert p["sex_specific_effects_inspected"] is False
           assert p["movement_distances_computed"] is False
           assert p["packing_effects_computed"] is False
@@ -95,9 +100,9 @@ jobs:
           git pull --rebase origin design/sevilleta-heteromyid-crossscale-v1
 
           mkdir -p validation/sevilleta_heteromyid_crossscale_v1
-          cp /tmp/sevilleta_source_schema_audit_v1.json              validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          cp /tmp/sevilleta_source_schema_audit_v2.json              validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v2.json
 
-          git add validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          git add validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v2.json
           if git diff --cached --quiet; then
             echo "source schema receipt unchanged"
           else
@@ -108,7 +113,7 @@ jobs:
       - name: Upload source audit receipt
         uses: actions/upload-artifact@v4
         with:
-          name: sevilleta-heteromyid-source-audit-v1
-          path: /tmp/sevilleta_source_schema_audit_v1.json
+          name: sevilleta-heteromyid-source-audit-v2
+          path: /tmp/sevilleta_source_schema_audit_v2.json
           if-no-files-found: error
           retention-days: 30
