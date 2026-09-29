@@ -1,0 +1,30 @@
+{
+  "schema": "neon.usgs_hispidus_source_stop.v1",
+  "frozen_date": "2026-09-29",
+  "catalog_identifier": "USGS:f36fdaba-fe3d-4e59-a68f-fdc034219816",
+  "figshare_article_id": "30290941",
+  "raw_archive": {
+    "name": "Goldberg_etal_Data_raw.zip",
+    "file_id": 65268627,
+    "size_bytes": 159691,
+    "md5": "a4f03175b83757c2cef91f916e2b3991",
+    "sha256": "4c8bb6eb23c4528158d6d5c1a34f60c60046577cdeab4dcaf20286d480d4e0c1"
+  },
+  "raw_text_members": 6,
+  "shared_structure": {
+    "identity_present": true,
+    "sex_present": true,
+    "species_present": true,
+    "capture_date_or_session_present": true,
+    "site_present": true,
+    "trap_or_station_present": false,
+    "latitude_longitude_present": false
+  },
+  "decision": "stop_source_no_capture_location",
+  "ruling": "The public raw tag-loss tables contain individual identifiers, sex, species, date/session and site, but no trap/station or capture coordinates. They cannot support either one-night spatial packing or displacement distance.",
+  "species_specific_counts_inspected": false,
+  "sex_specific_counts_inspected": false,
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "ecological_effect_models_fit": 0
+}
