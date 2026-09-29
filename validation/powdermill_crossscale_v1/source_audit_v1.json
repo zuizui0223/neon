@@ -1,0 +1,222 @@
+{
+  "adequate_object_count": 0,
+  "adequate_object_identifiers": [],
+  "dataone_discovery_queries": [
+    {
+      "identifiers": [
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/18",
+        "knb-lter-vcr.67.14",
+        "knb-lter-vcr.67.17",
+        "knb-lter-vcr.67.16",
+        "knb-lter-vcr.67.15",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/19",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/17",
+        "https://pasta.lternet.edu/package/metadata/eml/edi/356/2",
+        "https://pasta.lternet.edu/package/metadata/eml/edi/956/1"
+      ],
+      "query": "title:\"Long Term Mammal Data from Powdermill Biological Station 1979-1999\"",
+      "result_count": 10
+    },
+    {
+      "identifiers": [
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/18",
+        "knb-lter-vcr.67.14",
+        "knb-lter-vcr.67.17",
+        "knb-lter-vcr.67.16",
+        "knb-lter-vcr.67.15",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/19",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/17",
+        "https://pasta.lternet.edu/package/metadata/eml/edi/356/2",
+        "https://pasta.lternet.edu/package/metadata/eml/edi/956/1"
+      ],
+      "query": "title:Powdermill",
+      "result_count": 10
+    },
+    {
+      "identifiers": [],
+      "query": "seriesId:\"knb-lter-vcr.67\"",
+      "result_count": 0
+    },
+    {
+      "identifiers": [
+        "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/18",
+        "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
+        "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/19",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/18",
+        "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/17",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/19",
+        "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/17",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/18/82cf3f3ce41a598251f85e4b0da6caf8",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/18/49d834f986406e8c542fa276504b6362",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/82cf3f3ce41a598251f85e4b0da6caf8",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/49d834f986406e8c542fa276504b6362",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/19/82cf3f3ce41a598251f85e4b0da6caf8",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/19/49d834f986406e8c542fa276504b6362",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/17/d97866b0e6804e6357cead3543554290",
+        "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/17/49d834f986406e8c542fa276504b6362"
+      ],
+      "query": "identifier:\"knb-lter-vcr.67\"",
+      "result_count": 16
+    }
+  ],
+  "dataone_documents_at_latest_version": [
+    {
+      "authoritativeMN": "urn:node:LTER",
+      "checksum": "d016c6f1a6575e6c064c18fd5bf724d79894c24a",
+      "datasource": "urn:node:LTER",
+      "dateModified": "2019-04-04T20:29:29.643Z",
+      "dateUploaded": "2018-05-14T20:00:32.492Z",
+      "formatId": "eml://ecoinformatics.org/eml-2.1.0",
+      "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+      "replicaMN": [
+        "urn:node:LTER",
+        "urn:node:CN"
+      ],
+      "size": 83088,
+      "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+    },
+    {
+      "authoritativeMN": "urn:node:LTER",
+      "checksum": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
+      "datasource": "urn:node:LTER",
+      "dateModified": "2018-05-14T20:00:31.558Z",
+      "dateUploaded": "2018-05-14T20:00:31.558Z",
+      "formatId": "text/xml",
+      "identifier": "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
+      "replicaMN": [
+        "urn:node:LTER"
+      ],
+      "size": 31077
+    },
+    {
+      "authoritativeMN": "urn:node:LTER",
+      "checksum": "093dcd72508c8497627b9cfd96cffa0c3c403770",
+      "datasource": "urn:node:LTER",
+      "dateModified": "2018-05-14T20:00:30.334Z",
+      "dateUploaded": "2018-05-14T20:00:30.334Z",
+      "formatId": "text/csv",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/82cf3f3ce41a598251f85e4b0da6caf8",
+      "replicaMN": [
+        "urn:node:LTER"
+      ],
+      "size": 2444072
+    },
+    {
+      "authoritativeMN": "urn:node:LTER",
+      "checksum": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
+      "datasource": "urn:node:LTER",
+      "dateModified": "2018-05-14T20:00:29.004Z",
+      "dateUploaded": "2018-05-14T20:00:29.004Z",
+      "formatId": "application/octet-stream",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/49d834f986406e8c542fa276504b6362",
+      "replicaMN": [
+        "urn:node:LTER"
+      ],
+      "size": 472763
+    }
+  ],
+  "documented_expected_columns": [
+    "animal_id",
+    "is_new",
+    "species_code",
+    "period",
+    "time",
+    "date",
+    "quadrat",
+    "sex",
+    "sex_unknown",
+    "weight",
+    "sex_shrew",
+    "scrotal_male",
+    "inguinal_male",
+    "pregnant",
+    "open_vulva",
+    "large_nipples"
+  ],
+  "ecological_effect_models_fit": 0,
+  "geometry_note": "documented 10x10 stations at 10 m spacing with two trap slots per station",
+  "latest_dataone_package_version": 20,
+  "movement_distances_computed": false,
+  "package_series": "knb-lter-vcr.67",
+  "packing_effects_computed": false,
+  "resolved_candidate_objects": [
+    {
+      "bytes_received": 31077,
+      "content_type": "application/octet-stream",
+      "document": {
+        "authoritativeMN": "urn:node:LTER",
+        "checksum": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
+        "datasource": "urn:node:LTER",
+        "dateModified": "2018-05-14T20:00:31.558Z",
+        "dateUploaded": "2018-05-14T20:00:31.558Z",
+        "formatId": "text/xml",
+        "identifier": "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
+        "replicaMN": [
+          "urn:node:LTER"
+        ],
+        "size": 31077
+      },
+      "http_status": 200,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Freport%2Feml%2Fknb-lter-vcr%2F67%2F20",
+      "sha1": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
+      "sha256": "d0748b056940dd864e02fdddd765fea29a27d84e63d7796eff95616be1454e25",
+      "structure": {
+        "documented_schema_match": false,
+        "expected_field_count": 16,
+        "record_block_found": false
+      }
+    },
+    {
+      "bytes_received": 263,
+      "content_type": "text/xml;charset=UTF-8",
+      "document": {
+        "authoritativeMN": "urn:node:LTER",
+        "checksum": "093dcd72508c8497627b9cfd96cffa0c3c403770",
+        "datasource": "urn:node:LTER",
+        "dateModified": "2018-05-14T20:00:30.334Z",
+        "dateUploaded": "2018-05-14T20:00:30.334Z",
+        "formatId": "text/csv",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/82cf3f3ce41a598251f85e4b0da6caf8",
+        "replicaMN": [
+          "urn:node:LTER"
+        ],
+        "size": 2444072
+      },
+      "http_status": 500,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-vcr%2F67%2F20%2F82cf3f3ce41a598251f85e4b0da6caf8"
+    },
+    {
+      "bytes_received": 472763,
+      "content_type": "application/octet-stream",
+      "document": {
+        "authoritativeMN": "urn:node:LTER",
+        "checksum": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
+        "datasource": "urn:node:LTER",
+        "dateModified": "2018-05-14T20:00:29.004Z",
+        "dateUploaded": "2018-05-14T20:00:29.004Z",
+        "formatId": "application/octet-stream",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/49d834f986406e8c542fa276504b6362",
+        "replicaMN": [
+          "urn:node:LTER"
+        ],
+        "size": 472763
+      },
+      "http_status": 200,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-vcr%2F67%2F20%2F49d834f986406e8c542fa276504b6362",
+      "sha1": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
+      "sha256": "d4a3dde868278e55977e64af179c6aff3e03004ffb62f86e99f99abe072843af",
+      "structure": {
+        "documented_schema_match": false,
+        "expected_field_count": 16,
+        "record_block_found": false
+      }
+    }
+  ],
+  "schema": "neon.powdermill_crossscale.source_audit.v1",
+  "sex_specific_counts_inspected": false,
+  "source_adequacy_for_estimability_design": false,
+  "species_specific_counts_inspected": false
+}
