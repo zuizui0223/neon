@@ -63,12 +63,15 @@ def infer_sex(*, age: str, condition: str) -> str | None:
 
 
 def _section(text: str, start_marker: str, end_marker: str) -> str:
-    start=text.find(start_marker)
+    # The dissertation table of contents repeats appendix titles before the
+    # actual appendix tables. The actual table heading is the last exact
+    # occurrence of each start marker.
+    start=text.rfind(start_marker)
     if start<0:
         raise RuntimeError(f"start marker not found: {start_marker}")
     end=text.find(end_marker,start+len(start_marker))
     if end<0:
-        raise RuntimeError(f"end marker not found: {end_marker}")
+        raise RuntimeError(f"end marker not found after actual table: {end_marker}")
     return text[start:end]
 
 
