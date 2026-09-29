@@ -42,6 +42,8 @@ The new programme prospectively uses **N_male >= 5 and N_female >= 5** as the pr
 
 This threshold is not a sensitivity here. It is the primary threshold fixed before any held-out effect is computed.
 
+It is treated as a **high-information inclusion rule**, not as a biological abundance threshold. The study will not claim that a sex difference begins at N=5, and it will not compare N>=3 versus N>=5 significance as evidence for a threshold mechanism.
+
 N>=3/sex counts may be reported only as an estimability diagnostic and cannot authorize effects.
 
 ## Effect-blind estimability definitions
