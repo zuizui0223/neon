@@ -1,0 +1,94 @@
+{
+  "schema": "neon.san_jacinto_crossscale.programme_final_decision.v1",
+  "frozen_date": "2026-09-29",
+  "primary": {
+    "decision": "stop_no_confirmatory_crossscale_result",
+    "movement": {
+      "family_effect": 0.11281671878479602,
+      "ci95": [
+        -0.230297286452413,
+        0.4559307240220051
+      ],
+      "positive_species": [
+        "CHFA",
+        "DKR",
+        "LAPM"
+      ],
+      "positive_species_count": 3,
+      "directional_gate_passed": false
+    },
+    "packing": {
+      "family_effect": -0.1710734090227189,
+      "ci95": [
+        -1.2117637408946562,
+        0.8696169228492185
+      ],
+      "ci90": [
+        -0.9406457251094262,
+        0.5984989070639886
+      ],
+      "positive_species": [
+        "CHFA"
+      ],
+      "positive_species_count": 1,
+      "directional_gate_passed": false,
+      "equivalence_margin": 0.5,
+      "species_point_effects_inside_margin": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "SKR"
+      ],
+      "equivalence_gate_passed": false
+    }
+  },
+  "frozen_sensitivity": {
+    "last_nightly_capture": {
+      "movement_family_effect": -0.009123546389327237,
+      "packing_family_effect": -0.14266720157639307
+    },
+    "n_min_2_per_sex": {
+      "movement_family_effect": 0.0689644070833078,
+      "packing_family_effect": 0.07390502332596022
+    },
+    "matched_grid_spearman": {
+      "rho": -0.5393939393939393,
+      "p_value": 0.10759318778241479,
+      "inferential_role": "descriptive_only"
+    },
+    "can_rescue_primary": false
+  },
+  "postresult_measurement_audit": {
+    "nightly_states": 2787,
+    "first_last_flag_different_count": 1413,
+    "first_last_flag_different_fraction": 0.5069967707212056,
+    "median_first_last_distance_m": 6.25,
+    "q90_first_last_distance_m": 18.75,
+    "max_first_last_distance_m": 44.19417382415922,
+    "median_first_last_time_span_hours": 3.616666666666667,
+    "can_change_primary_decision": false
+  },
+  "interpretation": {
+    "supported": [
+      "the held-out four-species sample does not show confirmatory male-biased repeated-night movement under the frozen family gate",
+      "the held-out four-species sample does not show confirmatory male-biased nightly packing",
+      "a small packing sex difference is not established by the frozen equivalence gate",
+      "within-night representative location is frequently time-sensitive in this protocol"
+    ],
+    "not_supported": [
+      "cross-scale propagation of male-biased movement into nightly population packing",
+      "confirmatory movement-packing decoupling",
+      "universal absence of sex differences",
+      "home-range or dispersal claims"
+    ]
+  },
+  "manuscript_authorized": false,
+  "programme_decision": "stop_current_san_jacinto_programme",
+  "result_files": {
+    "effect_result": "results/san_jacinto_crossscale_effect_result_v1.json",
+    "measurement_audit": "validation/san_jacinto_crossscale_v1/postresult_measurement_sensitivity_v1.json",
+    "mechanical_audit": "validation/san_jacinto_crossscale_v1/iid_packing_mechanical_audit_v1.json",
+    "estimability": "validation/san_jacinto_crossscale_v1/estimability_result_v1.json",
+    "effect_lock": "validation/san_jacinto_crossscale_v1/effect_analysis_lock_v1.json"
+  }
+}
