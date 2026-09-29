@@ -1,0 +1,17 @@
+{
+  "schema": "neon.live_trap_aliasing.review_package_provenance.v1",
+  "frozen_date": "2026-09-30",
+  "workflow": {
+    "run_id": 36624255885,
+    "workflow_name": "build-live-trap-aliasing-review-package",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11059783225,
+    "name": "live-trap-aliasing-review-package-v1",
+    "size_in_bytes": 504731,
+    "digest": "sha256:6b1eb81aafd64dda946c5d12507f948e2450679c76eb436c0e9f4663260ff95e"
+  },
+  "package_tests_passed": true,
+  "note": "This artifact predates later editorial-only manuscript/readme updates; rebuild before external submission."
+}
