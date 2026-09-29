@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-TARGET_SPECIES="Ch"
+TARGET_SPECIES_NORMALIZED="ch"
 PRIMARY_DAYS={1,2,3,4}
 
 
@@ -93,7 +93,7 @@ def movement_identity_summary(rows: Iterable[dict]) -> dict:
     target=[]
     for raw in rows:
         row=dict(raw)
-        if str(row.get("Species","")).strip()!=TARGET_SPECIES:
+        if str(row.get("Species","")).strip().lower()!=TARGET_SPECIES_NORMALIZED:
             continue
         day=_int(row.get("TrapDay"))
         sta=_int(row.get("Sta"))
@@ -203,7 +203,7 @@ def packing_night_rows(rows: Iterable[dict]) -> list[dict]:
         if species and species.upper()!="X" and sta is not None and 1<=sta<=20:
             occupancy[(day,sta)]+=1
 
-        if species==TARGET_SPECIES:
+        if species.lower()==TARGET_SPECIES_NORMALIZED:
             target_by_day[day].append(row)
 
     out=[]
@@ -279,7 +279,9 @@ def summarize(
 
     return {
         "schema":"neon.konza_hispidus_crossscale.estimability.v1",
-        "target_species_code":TARGET_SPECIES,
+        "target_species_code_metadata":"Ch",
+        "target_species_code_observed":"ch",
+        "target_species_match":"case_insensitive",
         "target_scientific_name":"Chaetodipus hispidus",
         "primary_n_per_sex":5,
         "diagnostic_n_per_sex":3,
