@@ -1,0 +1,63 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.cluster_robust_offline_verification.v1",
+  "frozen_date": "2026-09-29",
+  "source_artifact": {
+    "workflow_run_id": 36581223875,
+    "artifact_id": 11040206808,
+    "artifact_digest": "sha256:00c4e11d43608052400194b972f04ff618cc1de03aae6375ed962285da9b81c7",
+    "night_csv_sha256": "29628e62adbb336e629a3d44026b8d567d7f878beddf338812e1aee1083ee158"
+  },
+  "method": "equal-weight cluster changed fractions with two-sided Student-t 95% interval across clusters",
+  "inferential_role": "independent_offline_post_result_robustness",
+  "species": {
+    "PEMA": {
+      "individual": {
+        "cluster_count": 170,
+        "mean_fraction": 0.7111155674390969,
+        "df": 169,
+        "ci95_low": 0.6553501222577642,
+        "ci95_high": 0.7668810126204295
+      },
+      "grid": {
+        "cluster_count": 8,
+        "mean_fraction": 0.6914768245957831,
+        "df": 7,
+        "ci95_low": 0.5625219190113361,
+        "ci95_high": 0.8204317301802301
+      },
+      "bout": {
+        "cluster_count": 12,
+        "mean_fraction": 0.6936814809836485,
+        "df": 11,
+        "ci95_low": 0.6006040031883007,
+        "ci95_high": 0.7867589587789963
+      }
+    },
+    "PEER": {
+      "individual": {
+        "cluster_count": 34,
+        "mean_fraction": 0.6592760180995475,
+        "df": 33,
+        "ci95_low": 0.5192301093853197,
+        "ci95_high": 0.7993219268137753
+      },
+      "grid": {
+        "cluster_count": 3,
+        "mean_fraction": 0.6807187521473236,
+        "df": 2,
+        "ci95_low": 0.4480916035643781,
+        "ci95_high": 0.9133459007302691
+      },
+      "bout": {
+        "cluster_count": 10,
+        "mean_fraction": 0.6537401487401487,
+        "df": 9,
+        "ci95_low": 0.47330664703892444,
+        "ci95_high": 0.834173650441373
+      }
+    }
+  },
+  "all_cluster_ci95_lows_above_0_25": true,
+  "can_change_primary_decision": false,
+  "awaiting_github_actions_reproduction": true
+}
