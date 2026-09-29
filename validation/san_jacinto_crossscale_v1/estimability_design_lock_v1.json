@@ -1,0 +1,66 @@
+{
+  "schema": "neon.san_jacinto_crossscale.estimability_design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_species_sex_support_counts",
+  "focal_species": {
+    "LAPM": "Perognathus longimembris brevinasus",
+    "CHFA": "Chaetodipus fallax",
+    "DKR": "Dipodomys simulans",
+    "SKR": "Dipodomys stephensi"
+  },
+  "source": {
+    "figshare_article_id": 18295520,
+    "doi": "10.6084/m9.figshare.18295520.v1",
+    "file": "year round trap data.csv",
+    "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "geometry": {
+    "flags": "A1-G7",
+    "flag_count": 49,
+    "spacing_m": 6.25
+  },
+  "bout_rule": {
+    "global_distinct_dates": true,
+    "new_bout_gap_days_gt": 7,
+    "min_bouts": 10,
+    "max_bouts": 14
+  },
+  "identity_key": [
+    "grid",
+    "species",
+    "unique_ID"
+  ],
+  "sex_resolution": "within grid-species-unique_ID-bout; exactly one of M/F; otherwise exclude",
+  "nightly_state": "earliest parsed nocturnal time; source-row-order tie break",
+  "nocturnal_time_rule": {
+    "evening_hours_7_11_add": 12,
+    "midnight_hour_12_maps_to": 24,
+    "post_midnight_hours_0_6_add": 24
+  },
+  "primary_n_per_sex_min": 3,
+  "diagnostic_n_per_sex_min": 2,
+  "packing_gate": {
+    "sessions_min": 10,
+    "grids_min": 2
+  },
+  "movement_gate": {
+    "events_min": 5,
+    "grids_min": 2,
+    "individual_nights_min": 2
+  },
+  "matched_grid_gate": {
+    "overlap_grids_min": 2,
+    "packing_sessions_within_overlap_min": 10,
+    "movement_events_within_overlap_min": 5
+  },
+  "programme_gate": {
+    "qualifying_species_min": 2,
+    "qualifying_genera_min": 2,
+    "pass": "authorize_san_jacinto_crossscale_effect_lock",
+    "fail": "stop_san_jacinto_crossscale_not_estimable"
+  },
+  "species_by_sex_support_counts_inspected": false,
+  "packing_effects_computed": false,
+  "movement_distances_computed": false,
+  "ecological_effect_models_fit": 0
+}
