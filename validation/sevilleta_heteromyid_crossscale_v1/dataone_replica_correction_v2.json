@@ -1,0 +1,25 @@
+{
+  "schema": "neon.sevilleta_dataone_replica_probe.correction.v2",
+  "frozen_date": "2026-09-29",
+  "supersedes": "validation/sevilleta_heteromyid_crossscale_v1/dataone_replica_probe_v1.json",
+  "pid": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+  "dataone_document": {
+    "authoritativeMN": "urn:node:LTER",
+    "replicaMN": [
+      "urn:node:LTER"
+    ],
+    "formatId": "text/csv",
+    "size": 1306268,
+    "checksum": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461"
+  },
+  "cn_resolver": {
+    "http_status": 200,
+    "content_type": "application/octet-stream",
+    "bytes_received": 1306268,
+    "anonymous_public_object_available": true
+  },
+  "old_node_probe_bug": "base URL https://gmn.lternet.edu/mn was incorrectly expanded to /mn/mn/v2/object; node-probe 404 must not be used as source-access ruling",
+  "corrected_ruling": "authorize_raw_source_schema_audit_via_dataone_cn_resolver",
+  "sex_specific_effects_inspected": false,
+  "ecological_effect_models_fit": 0
+}
