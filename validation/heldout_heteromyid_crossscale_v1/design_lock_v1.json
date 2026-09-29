@@ -1,0 +1,43 @@
+{
+  "schema": "neon.heldout_heteromyid_crossscale.design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_heldout_estimability_scan",
+  "source": {
+    "provider": "NSF NEON",
+    "product_code": "DP1.10072.001",
+    "release": "RELEASE-2026"
+  },
+  "taxon_scope": {
+    "family": "Heteromyidae",
+    "genera": [
+      "Chaetodipus",
+      "Dipodomys",
+      "Perognathus",
+      "Microdipodops"
+    ],
+    "excluded_previously_inspected_species": [
+      "Chaetodipus baileyi",
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ]
+  },
+  "primary_threshold_per_sex": 5,
+  "diagnostic_threshold_per_sex": 3,
+  "packing_gate": {
+    "minimum_sessions_per_species": 10,
+    "minimum_sites_per_species": 2
+  },
+  "movement_gate": {
+    "minimum_events_per_species": 5,
+    "minimum_sites_per_species": 2
+  },
+  "crossscale_gate": {
+    "minimum_species_meeting_both": 2,
+    "pass_decision": "authorize_heldout_crossscale_effect_lock",
+    "fail_decision": "stop_heldout_crossscale_not_estimable"
+  },
+  "heldout_packing_effects_inspected": false,
+  "heldout_movement_distances_inspected": false,
+  "ecological_effect_models_fit": 0
+}
