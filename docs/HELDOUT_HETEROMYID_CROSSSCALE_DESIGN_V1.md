@@ -82,14 +82,16 @@ No distance is calculated during estimability.
 A held-out species qualifies only if it has both:
 
 Packing side:
-- >=10 primary N>=5/sex diversity sessions;
-- >=2 independent NEON sites.
+- >=10 primary N>=5/sex diversity sessions.
 
 Movement side:
-- >=5 primary N>=5/sex pathogen events;
-- >=2 independent NEON sites.
+- >=5 primary N>=5/sex pathogen events.
 
-The programme advances to any held-out effect extraction only if **at least two species** meet both sides.
+Site-matching requirement:
+- the packing and movement eligible sets must overlap at >=2 independent NEON sites;
+- the >=10 packing sessions and >=5 movement events used to pass the gate must be contained within those overlapping sites.
+
+The programme advances to any held-out effect extraction only if **at least two species** meet this site-matched cross-scale gate.
 
 If fewer than two species qualify, decision = `stop_heldout_crossscale_not_estimable`.
 
