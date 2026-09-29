@@ -1,0 +1,41 @@
+{
+  "schema": "neon.wyoming_pocketmouse_crossscale.estimability_design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_species_support_counts",
+  "focal_species": "Perognathus fasciatus",
+  "excluded_previously_inspected_species": [
+    "Dipodomys ordii"
+  ],
+  "primary_threshold_per_sex": 5,
+  "diagnostic_threshold_per_sex": 3,
+  "packing_gate": {
+    "minimum_sessions": 10,
+    "minimum_sites": 2,
+    "site_matched_with_movement": true
+  },
+  "movement_gate": {
+    "minimum_events": 5,
+    "minimum_sites": 2,
+    "minimum_distinct_nights_per_individual": 2,
+    "site_matched_with_packing": true
+  },
+  "crossscale_gate": {
+    "minimum_overlapping_sites": 2,
+    "packing_sessions_within_overlap_minimum": 10,
+    "movement_events_within_overlap_minimum": 5,
+    "pass_decision": "authorize_wyoming_pocketmouse_effect_lock",
+    "fail_decision": "stop_wyoming_pocketmouse_not_estimable"
+  },
+  "effect_status": {
+    "focal_species_support_counts_inspected": false,
+    "sex_specific_effects_inspected": false,
+    "movement_distances_inspected": false,
+    "packing_effects_inspected": false,
+    "ecological_effect_models_fit": 0
+  },
+  "rule_notes": [
+    "N>=5 is a high-information inclusion rule, not a biological abundance threshold",
+    "N>=3 may be reported only as an estimability diagnostic",
+    "No effect direction may be used to change the focal species, sites, threshold, or gate"
+  ]
+}
