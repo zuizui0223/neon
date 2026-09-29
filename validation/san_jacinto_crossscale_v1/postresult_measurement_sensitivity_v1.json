@@ -1,0 +1,64 @@
+{
+  "can_change_primary_decision": false,
+  "date": "2026-09-29",
+  "first_last_nightly_state_comparison": {
+    "first_last_flag_different_count": 1413,
+    "first_last_flag_different_fraction": 0.5069967707212056,
+    "max_first_last_distance_m": 44.19417382415922,
+    "median_first_last_distance_m": 6.25,
+    "median_first_last_time_span_hours": 3.616666666666667,
+    "nightly_states": 2787,
+    "q90_first_last_distance_m": 18.75,
+    "q90_first_last_time_span_hours": 7.150000000000002,
+    "species": {
+      "CHFA": {
+        "first_last_flag_different_count": 369,
+        "first_last_flag_different_fraction": 0.5633587786259542,
+        "max_first_last_distance_m": 44.19417382415922,
+        "median_first_last_distance_m": 6.25,
+        "median_first_last_time_span_hours": 5.0,
+        "nightly_states": 655,
+        "q90_first_last_distance_m": 18.3210678118655
+      },
+      "DKR": {
+        "first_last_flag_different_count": 333,
+        "first_last_flag_different_fraction": 0.658102766798419,
+        "max_first_last_distance_m": 44.19417382415922,
+        "median_first_last_distance_m": 6.25,
+        "median_first_last_time_span_hours": 4.358333333333334,
+        "nightly_states": 506,
+        "q90_first_last_distance_m": 25.0
+      },
+      "LAPM": {
+        "first_last_flag_different_count": 139,
+        "first_last_flag_different_fraction": 0.26990291262135924,
+        "max_first_last_distance_m": 31.868871959954905,
+        "median_first_last_distance_m": 0.0,
+        "median_first_last_time_span_hours": 0.0,
+        "nightly_states": 515,
+        "q90_first_last_distance_m": 12.5
+      },
+      "SKR": {
+        "first_last_flag_different_count": 572,
+        "first_last_flag_different_fraction": 0.5148514851485149,
+        "max_first_last_distance_m": 39.528470752104745,
+        "median_first_last_distance_m": 6.25,
+        "median_first_last_time_span_hours": 4.150000000000002,
+        "nightly_states": 1111,
+        "q90_first_last_distance_m": 17.67766952966369
+      }
+    }
+  },
+  "inferential_role": "post_result_explanatory_only",
+  "last_capture_family_effects": {
+    "movement": -0.009123546389327237,
+    "packing": -0.14266720157639307
+  },
+  "primary_decision": "stop_no_confirmatory_crossscale_result",
+  "primary_family_effects": {
+    "movement": 0.11281671878479602,
+    "packing": -0.1710734090227189
+  },
+  "ruling": "The movement endpoint is timing-definition-sensitive: first-versus-last nightly representative locations can change between captures within a night. This audit is explanatory only and cannot rescue or redefine the frozen primary decision.",
+  "schema": "neon.san_jacinto_crossscale.postresult_measurement_sensitivity.v1"
+}
