@@ -1,4 +1,5 @@
 name: live-trap-home-range-support
+# Triggered after frozen estimability lock; no effect values are read here.
 on:
   push:
     branches: [paper/live-trap-aliasing-v1]
