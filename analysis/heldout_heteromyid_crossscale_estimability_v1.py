@@ -5,6 +5,7 @@ import csv
 import io
 import json
 import os
+import urllib.parse
 import urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -154,6 +155,44 @@ def _download_csv(row: dict, *, token: str) -> tuple[list[dict],int]:
     return list(csv.DictReader(io.StringIO(text))),len(raw)
 
 
+def _collect_location_names(value: object) -> set[str]:
+    out=set()
+    if isinstance(value,dict):
+        name=value.get("locationName")
+        if isinstance(name,str) and name.strip():
+            out.add(name.strip())
+        for child in value.values():
+            out.update(_collect_location_names(child))
+    elif isinstance(value,list):
+        for child in value:
+            out.update(_collect_location_names(child))
+    return out
+
+
+def registry_nodes_for_site(site: str) -> set[str]:
+    url=(
+        "https://data.neonscience.org/api/v0/locations/"
+        + urllib.parse.quote(str(site))
+        + "?hierarchy=true"
+    )
+    req=urllib.request.Request(url,headers={"User-Agent":USER_AGENT})
+    with urllib.request.urlopen(req,timeout=180) as response:
+        payload=json.loads(response.read().decode("utf-8"))
+    return {
+        name for name in _collect_location_names(payload)
+        if name.startswith(str(site)+"_")
+        and ".mammalGrid.mam." in name
+        and _valid_trap_coordinate(name.rsplit(".",1)[-1])
+    }
+
+
+def _node_id(row: dict) -> str:
+    return (
+        f"{str(row.get('namedLocation','')).strip()}."
+        f"{str(row.get('trapCoordinate','')).strip()}"
+    )
+
+
 def is_heteromyid(name: object) -> bool:
     parts=str(name or "").strip().split()
     if len(parts)<2:
@@ -246,6 +285,7 @@ def build_diversity_estimability_rows(
     trap_rows: Iterable[dict],
     *,
     target_taxon_ids: set[str],
+    valid_registry_nodes: set[str],
 ) -> list[dict]:
     plots=[dict(x) for x in plot_rows]
     traps=[dict(x) for x in trap_rows]
@@ -287,11 +327,17 @@ def build_diversity_estimability_rows(
         if not session:
             continue
 
-        active_coords={
-            str(row.get("trapCoordinate","")).strip()
+        active_nodes={
+            _node_id(row)
             for row in session
             if _valid_trap_coordinate(row.get("trapCoordinate"))
             and is_usable_active_trap(row.get("trapStatus"))
+            and _node_id(row) in valid_registry_nodes
+        }
+        active_coords={
+            str(row.get("trapCoordinate","")).strip()
+            for row in session
+            if _node_id(row) in active_nodes
         }
         expected_count=len(expected_coords.get(plot,set()))
         required_active=min(90,expected_count) if expected_count else 90
@@ -315,10 +361,10 @@ def build_diversity_estimability_rows(
                 continue
             if not str(row.get("tagID","")).strip():
                 continue
-            coord=str(row.get("trapCoordinate","")).strip()
+            node=_node_id(row)
             row["_support_location"]=(
-                coord
-                if _valid_trap_coordinate(coord) and coord in active_coords
+                node
+                if node in active_nodes
                 else ""
             )
             grouped[(taxon,name)].append(row)
@@ -351,6 +397,7 @@ def build_recapture_estimability_rows(
     trap_rows: Iterable[dict],
     *,
     target_taxon_ids: set[str],
+    valid_registry_nodes: set[str],
 ) -> list[dict]:
     plots=[dict(x) for x in plot_rows]
     traps=[dict(x) for x in trap_rows]
@@ -404,6 +451,8 @@ def build_recapture_estimability_rows(
                 continue
             if not _valid_trap_coordinate(row.get("trapCoordinate")):
                 continue
+            if _node_id(row) not in valid_registry_nodes:
+                continue
             grouped[(taxon,name)].append(row)
 
         for (taxon,name),captures in sorted(grouped.items()):
@@ -430,6 +479,7 @@ def build_recapture_estimability_rows(
                     for row in observations
                     if str(row.get("nightuid","")).strip()
                     and _valid_trap_coordinate(row.get("trapCoordinate"))
+                    and _node_id(row) in valid_registry_nodes
                 }
                 if len(nights)<2:
                     n_single_night+=1
@@ -624,15 +674,25 @@ def run(*, token: str, output_dir: Path) -> dict:
                 })
                 continue
 
+            registry_nodes=registry_nodes_for_site(site)
+            if not registry_nodes:
+                site_stops.append({
+                    "site_code":site,
+                    "status":"no_registry_trap_nodes",
+                })
+                continue
+
             p=build_diversity_estimability_rows(
                 plot_rows,
                 trap_rows,
                 target_taxon_ids=target_ids,
+                valid_registry_nodes=registry_nodes,
             )
             m=build_recapture_estimability_rows(
                 plot_rows,
                 trap_rows,
                 target_taxon_ids=target_ids,
+                valid_registry_nodes=registry_nodes,
             )
             packing_rows.extend(p)
             movement_rows.extend(m)
