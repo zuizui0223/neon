@@ -32,7 +32,7 @@ We call this **temporal positional aliasing**: unresolved within-occasion variat
 
 The problem is distinct from location measurement error. The alternative positions are each observed detector locations. It is also distinct from estimating an unrestricted movement path: repeated trap detections reveal only a sparse subset of the animal's trajectory. The methodological question is narrower—whether assigning a single spatial state to an occasion discards positional variation that is material at the scale of the ecological statistic being analysed.
 
-Existing capture–recapture and live-trapping methods already recognize that detector process, trapping occasions, trap availability, capture timing and recapture structure matter (Efford et al. 2009; Efford 2013; Drickamer & Springer 1998). In standard multi-catch SCR/SECR formulations, detained animals generally contribute at most one detector location per occasion, whereas proximity-type observation processes may retain multiple detector locations within an occasion (Efford et al. 2009; Efford & Boulanger 2019). Repeated-check live trapping can therefore create an intermediate data problem when animals are released and recaptured at another trap before the ecological occasion ends. Yet there is no routine diagnostic for asking whether collapsing those locations to one state is spatially consequential.
+Existing capture–recapture and live-trapping methods already recognize that detector process, trapping occasions, trap availability, capture timing and recapture structure matter (Efford et al. 2009; Efford 2013; Drickamer & Springer 1998). In standard multi-catch SCR/SECR formulations, detained animals generally contribute at most one detector location per occasion, whereas proximity-type observation processes may retain multiple detector locations within an occasion (Efford et al. 2009; Efford & Boulanger 2019). Continuous-time SECR explicitly avoids some subjectivity introduced by discrete occasion definitions (Borchers et al. 2014), and movement-ecology methods have long addressed temporal autocorrelation and irregular sampling. Repeated-check live trapping can nevertheless create an intermediate practical problem when animals are released and recaptured at another trap before the ecological occasion ends. The missing tool is not another full continuous-time movement model, but a lightweight pre-analysis diagnostic for deciding whether collapsing those valid within-occasion locations to one state is spatially consequential at the scale of the planned analysis.
 
 Here we contribute three linked components.
 
@@ -44,7 +44,7 @@ Second, we derive deterministic sensitivity bounds showing how unresolved within
 
 Third, we evaluate the diagnostic using both simulation and a prospectively locked empirical holdout. The simulation separates non-informative from informative repeat-observation mechanisms. The empirical validation asks whether material first-to-last shifts replicate across two held-out Cricetidae and independent trapping grids.
 
-Our goal is not to identify whether the first or last observation is biologically correct. Rather, we provide a diagnostic for deciding when a single-state reduction should itself be treated as an analytical assumption and carried forward into sensitivity analysis.
+Our goal is not to replace continuous-time or observation-process models, nor to identify whether the first or last observation is biologically correct. Rather, we provide a diagnostic for deciding when a single-state reduction should itself be treated as a material analytical assumption, when finer temporal modelling may be warranted, and how much sensitivity selected downstream statistics can inherit from the unresolved within-occasion positional span.
 
 # 2. Materials and Methods
 
@@ -253,7 +253,13 @@ Simulation gives the paper an important boundary: the high repeat-conditioned em
 
 The denominator audit provides the safer statement. Even treating every single-capture night as unresolved rather than shifted, material shifts were directly observed on roughly one quarter to three tenths of all valid individual-nights.
 
-## 4.3 Propagating positional uncertainty rather than choosing a 'correct' state
+## 4.3 A diagnostic before thinning, aggregation or continuous-time modelling
+
+Temporal aggregation already has mature solutions in telemetry and spatial capture–recapture. Our contribution is complementary: it supplies an interpretable screening quantity before an analyst chooses among splitting occasions, retaining continuous time, thinning observations, or collapsing to one representative state.
+
+A small span relative to the planned spatial scale supports a simple collapse rule. A large span does not prescribe one universal correction; it signals that the observation process deserves explicit modelling or sensitivity analysis.
+
+## 4.4 Propagating positional uncertainty rather than choosing a 'correct' state
 
 The deterministic bounds provide a generic way to translate within-occasion span into a maximum downstream sensitivity. This avoids an artificial contest between FIRST and LAST as if one must represent the true nightly location.
 
@@ -265,7 +271,7 @@ The recommended workflow is:
 5. if spans are negligible, collapse with documented rules;
 6. if spans are not negligible, split occasions or carry representative-state sensitivity through downstream analysis.
 
-## 4.4 Scope and limitations
+## 4.5 Scope and limitations
 
 This empirical validation concerns one repeated-check live-trapping design and two held-out Cricetidae species. Broad applicability lies in the diagnostic and bounds, not in a claim that the empirical magnitude generalizes to all taxa or protocols.
 
@@ -273,7 +279,7 @@ Repeat capture is informative in many real protocols. The diagnostic exposes rat
 
 First-to-last distance is also not a movement path. It is a lower-dimensional description of positional ambiguity among observed detections.
 
-## 4.5 Implications for ecological data collection and analysis
+## 4.6 Implications for ecological data collection and analysis
 
 Recommended reporting items:
 - exact occasion definition;
@@ -317,3 +323,6 @@ Efford MG. 2013. Varying effort in capture–recapture studies. *Methods in Ecol
 Efford MG, Boulanger J. 2019. Fast evaluation of study designs for spatially explicit capture–recapture. *Methods in Ecology and Evolution* 10:1529–1535. https://doi.org/10.1111/2041-210X.13239.
 
 Efford MG, Dawson DK, Borchers DL. 2009. Population density estimated from locations of individuals on a passive detector array. *Ecology* 90:2676–2682. https://doi.org/10.1890/08-1735.1.
+
+
+Borchers DL, Distiller G, Foster RJ, Harmsen BJ, Milazzo L. 2014. Continuous-time spatially explicit capture–recapture models, with an application to a jaguar camera-trap survey. *Methods in Ecology and Evolution*. https://doi.org/10.1111/2041-210X.12196.
