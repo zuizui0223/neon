@@ -1,0 +1,34 @@
+{
+  "schema": "neon.sex_bias_crossscale_transfer.design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_effect_blind_estimability",
+  "source": {
+    "product_code": "DP1.10072.001",
+    "release": "RELEASE-2026"
+  },
+  "excluded_species": [
+    "Chaetodipus baileyi",
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii",
+    "Peromyscus maniculatus",
+    "Peromyscus leucopus"
+  ],
+  "primary_threshold_per_sex": 3,
+  "stratum_gate": {
+    "minimum_packing_sessions": 5,
+    "minimum_movement_events": 5
+  },
+  "programme_gate": {
+    "minimum_species_site_strata": 10,
+    "minimum_species": 5,
+    "minimum_sites": 4,
+    "minimum_species_with_two_or_more_sites": 3,
+    "pass_decision": "authorize_crossscale_transfer_effect_lock",
+    "fail_decision": "stop_crossscale_transfer_not_estimable"
+  },
+  "packing_sex_effects_inspected": false,
+  "movement_sex_effects_inspected": false,
+  "crossscale_slope_fitted": false,
+  "ecological_effect_models_fit": 0
+}

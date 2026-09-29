@@ -1,0 +1,120 @@
+name: sex-bias-crossscale-transfer-estimability
+
+on:
+  push:
+    branches:
+      - design/sex-bias-crossscale-transfer-v1
+    paths:
+      - README_SEX_BIAS_CROSSSCALE_TRANSFER.md
+      - docs/SEX_BIAS_CROSSSCALE_TRANSFER_DESIGN_V1.md
+      - validation/sex_bias_crossscale_transfer_v1/design_lock_v1.json
+      - analysis/sex_bias_crossscale_transfer_estimability_v1.py
+      - tests/test_sex_bias_crossscale_transfer_estimability.py
+      - .github/workflows/sex-bias-crossscale-transfer-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/sex-bias-crossscale-transfer-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify design lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lock=json.loads(
+              Path("validation/sex_bias_crossscale_transfer_v1/design_lock_v1.json").read_text()
+          )
+          assert lock["state"] == "frozen_before_effect_blind_estimability"
+          assert lock["primary_threshold_per_sex"] == 3
+          assert lock["packing_sex_effects_inspected"] is False
+          assert lock["movement_sex_effects_inspected"] is False
+          assert lock["crossscale_slope_fitted"] is False
+          assert lock["ecological_effect_models_fit"] == 0
+          PY
+
+      - name: Verify effect-blind estimability tests
+        run: |
+          python -m unittest tests.test_sex_bias_crossscale_transfer_estimability -v
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Scan all RELEASE-2026 sites without opening effects
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/sex_bias_crossscale_transfer_estimability_v1.py \
+            --output-dir results/generated/sex_bias_crossscale_transfer \
+            --sites BART BONA CLBJ DEJU HEAL JERC JORN KONZ OAES ONAQ ORNL SJER STER UKFS WOOD
+
+      - name: Assert effect-blind gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("results/generated/sex_bias_crossscale_transfer/sex_bias_crossscale_transfer_estimability_v1.json").read_text()
+          )
+          assert p["packing_sex_effects_inspected"] is False
+          assert p["movement_sex_effects_inspected"] is False
+          assert p["crossscale_slope_fitted"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          assert p["programme_gate"]["decision"] in {
+              "authorize_crossscale_transfer_effect_lock",
+              "stop_crossscale_transfer_not_estimable",
+          }
+          print(json.dumps({
+              "programme_gate":p["programme_gate"],
+              "packing_eligible_sessions":p["packing_eligible_sessions"],
+              "movement_eligible_events":p["movement_eligible_events"],
+              "site_stop_count":len(p["site_stops"]),
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist estimability receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/sex-bias-crossscale-transfer-v1
+          mkdir -p validation/sex_bias_crossscale_transfer_v1
+          cp results/generated/sex_bias_crossscale_transfer/sex_bias_crossscale_transfer_estimability_v1.json \
+             validation/sex_bias_crossscale_transfer_v1/estimability_gate_v1.json
+          git add validation/sex_bias_crossscale_transfer_v1/estimability_gate_v1.json
+          if git diff --cached --quiet; then
+            echo "estimability receipt unchanged"
+          else
+            git commit -m "Freeze sex-bias cross-scale transfer estimability"
+            git push origin HEAD:design/sex-bias-crossscale-transfer-v1
+          fi
+
+      - name: Upload estimability tables
+        uses: actions/upload-artifact@v4
+        with:
+          name: sex-bias-crossscale-transfer-estimability-v1
+          path: |
+            results/generated/sex_bias_crossscale_transfer/sex_bias_transfer_packing_estimability_v1.csv
+            results/generated/sex_bias_crossscale_transfer/sex_bias_transfer_movement_estimability_v1.csv
+            results/generated/sex_bias_crossscale_transfer/sex_bias_transfer_strata_v1.csv
+            results/generated/sex_bias_crossscale_transfer/sex_bias_crossscale_transfer_estimability_v1.json
+          if-no-files-found: error
+          retention-days: 30
