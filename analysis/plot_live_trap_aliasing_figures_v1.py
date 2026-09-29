@@ -66,20 +66,30 @@ def figure2(sim: dict,outdir: Path) -> None:
         rows=[r for r in cells if float(r["repeat_beta"])==beta]
         xs=np.full(len(rows),i,dtype=float)
         jitter=np.linspace(-0.12,0.12,len(rows))
-        bias=[float(r["mean_repeat_conditioned_bias"]) for r in rows]
-        coverage=[float(r["wilson_coverage"]) for r in rows]
+        if "mean_repeat_conditioned_bias_vs_probability" in rows[0]:
+            bias=[
+                float(r["mean_repeat_conditioned_bias_vs_probability"])
+                for r in rows
+            ]
+            coverage=[
+                float(r["wilson_coverage_latent_probability"])
+                for r in rows
+            ]
+        else:
+            bias=[float(r["mean_repeat_conditioned_bias"]) for r in rows]
+            coverage=[float(r["wilson_coverage"]) for r in rows]
         axes[0].scatter(xs+jitter,bias,s=18,alpha=0.65)
         axes[1].scatter(xs+jitter,coverage,s=18,alpha=0.65)
 
     axes[0].axhline(0,linewidth=1)
     axes[0].set_xticks(range(3),labels,rotation=18)
-    axes[0].set_ylabel("Mean conditional-fraction bias")
+    axes[0].set_ylabel("Mean bias vs generating probability")
     axes[0].set_title("A. Observation-process bias")
 
     axes[1].axhline(0.95,linewidth=1,linestyle="--")
     axes[1].set_xticks(range(3),labels,rotation=18)
     axes[1].set_ylim(0,1.03)
-    axes[1].set_ylabel("Wilson coverage of latent fraction")
+    axes[1].set_ylabel("Wilson coverage of generating probability")
     axes[1].set_title("B. Interval coverage")
 
     fig.tight_layout()
