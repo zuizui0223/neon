@@ -1,5 +1,10 @@
 {
-  "adequate_capture_tables": [],
+  "adequate_capture_tables": [
+    {
+      "sheet_or_table": "year round trap data.csv",
+      "source_file": "year round trap data.csv"
+    }
+  ],
   "doi": "10.6084/m9.figshare.18295520.v1",
   "ecological_effect_models_fit": 0,
   "figshare_article_id": 18295520,
@@ -34,7 +39,7 @@
   "packing_effects_computed": false,
   "schema": "neon.san_jacinto_crossscale.source_schema_audit.v1",
   "sex_specific_counts_inspected": false,
-  "source_adequacy_for_estimability_design": false,
+  "source_adequacy_for_estimability_design": true,
   "species_specific_counts_inspected": false,
   "tables": [
     {
@@ -77,9 +82,11 @@
         "time": [
           "time"
         ],
-        "trap": []
+        "trap": [
+          "flag"
+        ]
       },
-      "structurally_adequate_capture_table": false,
+      "structurally_adequate_capture_table": true,
       "table_type": "csv"
     },
     {
@@ -87,6 +94,118 @@
         "Species",
         "",
         ""
+      ],
+      "metadata_preview_rows": [
+        [
+          "Species",
+          "",
+          ""
+        ],
+        [
+          "CHFA",
+          "Chaetodipus fallax",
+          "San Diego pocket mouse"
+        ],
+        [
+          "DKR",
+          "Dipodomys simulans",
+          "Dulzura kangaroo rat"
+        ],
+        [
+          "SKR",
+          "Dipodomys stephensi",
+          "Stephens' kangaroo rat"
+        ],
+        [
+          "LAPM",
+          "Perognathus longimembris brevinasus",
+          "Los Angeles pocket mouse"
+        ],
+        [
+          "PEMA",
+          "Peromyscus maniculatus",
+          "Deer mouse"
+        ],
+        [
+          "PEER",
+          "Peromyscus eremicus",
+          "Cactus mouse"
+        ],
+        [
+          "REME",
+          "Reithrodontomys megalotis",
+          "Western harvest mouse"
+        ],
+        [
+          "History",
+          "",
+          ""
+        ],
+        [
+          "NID",
+          "New ID",
+          ""
+        ],
+        [
+          "NTB",
+          "New This Bout",
+          ""
+        ],
+        [
+          "R",
+          "Recapture",
+          ""
+        ],
+        [
+          "Repro",
+          "",
+          ""
+        ],
+        [
+          "PS",
+          "partially scrotal",
+          ""
+        ],
+        [
+          "S",
+          "scrotal",
+          ""
+        ],
+        [
+          "NNV",
+          "no nipples visible",
+          ""
+        ],
+        [
+          "VN",
+          "visible nipples",
+          ""
+        ],
+        [
+          "P",
+          "pregnant",
+          ""
+        ],
+        [
+          "R",
+          "nipples are red",
+          ""
+        ],
+        [
+          "Ext",
+          "nipples are extended",
+          ""
+        ],
+        [
+          "Lact",
+          "lactating",
+          ""
+        ],
+        [
+          "JV",
+          "juvenile/non-reproductive",
+          ""
+        ]
       ],
       "row_count": 21,
       "sheet_or_table": "Sheet1",
