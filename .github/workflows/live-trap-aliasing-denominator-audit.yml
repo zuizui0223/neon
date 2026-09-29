@@ -1,0 +1,52 @@
+name: live-trap-aliasing-denominator-audit
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - results/san_jacinto_positional_aliasing_result_v1.json
+      - analysis/live_trap_aliasing_denominator_audit_v1.py
+      - tests/test_live_trap_aliasing_denominator_audit.py
+      - .github/workflows/live-trap-aliasing-denominator-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  denominator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify denominator audit
+        run: python -m unittest tests.test_live_trap_aliasing_denominator_audit -v
+
+      - name: Compute all-night observational lower bounds
+        run: |
+          python analysis/live_trap_aliasing_denominator_audit_v1.py \
+            --frozen-result results/san_jacinto_positional_aliasing_result_v1.json \
+            --output /tmp/live_trap_aliasing_denominator_audit_v1.json
+
+      - name: Persist denominator context
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p validation/live_trap_aliasing_v1
+          cp /tmp/live_trap_aliasing_denominator_audit_v1.json \
+             validation/live_trap_aliasing_v1/denominator_audit_v1.json
+          git add validation/live_trap_aliasing_v1/denominator_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "denominator audit unchanged"
+          else
+            git commit -m "Freeze all-night aliasing denominator audit"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi
