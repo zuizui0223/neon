@@ -1,0 +1,70 @@
+name: sevilleta-dataone-replica-probe
+
+on:
+  push:
+    branches:
+      - design/sevilleta-heteromyid-crossscale-v1
+    paths:
+      - analysis/probe_sevilleta_dataone_replica_v1.py
+      - tests/test_sevilleta_dataone_replica_probe.py
+      - .github/workflows/sevilleta-dataone-replica-probe.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/sevilleta-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify DataONE probe tests
+        run: python -m unittest tests.test_sevilleta_dataone_replica_probe -v
+
+      - name: Probe CN metadata and anonymous replica access
+        run: |
+          python analysis/probe_sevilleta_dataone_replica_v1.py \
+            --output /tmp/sevilleta_dataone_replica_probe_v1.json
+
+      - name: Assert effect-blind source probe
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/sevilleta_dataone_replica_probe_v1.json").read_text())
+          assert p["sex_specific_effects_inspected"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "solr_num_found":p["solr_num_found"],
+              "documents":p["documents"],
+              "resolver":p["resolver"],
+              "node_probes":p["node_probes"],
+              "anonymous_public_replica_available":
+                  p["anonymous_public_replica_available"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist DataONE source-access receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/sevilleta-heteromyid-crossscale-v1
+          mkdir -p validation/sevilleta_heteromyid_crossscale_v1
+          cp /tmp/sevilleta_dataone_replica_probe_v1.json \
+             validation/sevilleta_heteromyid_crossscale_v1/dataone_replica_probe_v1.json
+          git add validation/sevilleta_heteromyid_crossscale_v1/dataone_replica_probe_v1.json
+          if git diff --cached --quiet; then
+            echo "probe receipt unchanged"
+          else
+            git commit -m "Freeze Sevilleta DataONE replica probe"
+            git push origin HEAD:design/sevilleta-heteromyid-crossscale-v1
+          fi
