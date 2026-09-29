@@ -1,9 +1,9 @@
 {
   "available_site_count": 46,
   "crossscale_slope_fitted": false,
-  "data_query_requests": 15,
-  "downloaded_required_bytes": 324896252,
-  "downloaded_required_file_count": 1343,
+  "data_query_requests": 46,
+  "downloaded_required_bytes": 889641211,
+  "downloaded_required_file_count": 3717,
   "ecological_effect_models_fit": 0,
   "excluded_species": [
     "Chaetodipus baileyi",
@@ -13,13 +13,13 @@
     "Peromyscus leucopus",
     "Peromyscus maniculatus"
   ],
-  "movement_eligible_events": 289,
+  "movement_eligible_events": 390,
   "movement_sex_effects_inspected": false,
-  "packing_eligible_sessions": 151,
+  "packing_eligible_sessions": 172,
   "packing_sex_effects_inspected": false,
   "primary_threshold_per_sex": 3,
-  "processed_movement_sites": 14,
-  "processed_packing_sites": 15,
+  "processed_movement_sites": 35,
+  "processed_packing_sites": 29,
   "product_code": "DP1.10072.001",
   "programme_gate": {
     "conditions": {
@@ -62,26 +62,15 @@
   },
   "release": "RELEASE-2026",
   "schema": "neon.sex_bias_crossscale_transfer.estimability.v1",
-  "screen_site_count": 15,
-  "screen_sites": [
-    "BART",
-    "BONA",
-    "CLBJ",
-    "DEJU",
-    "HEAL",
-    "JERC",
-    "JORN",
-    "KONZ",
-    "OAES",
-    "ONAQ",
-    "ORNL",
-    "SJER",
-    "STER",
-    "UKFS",
-    "WOOD"
-  ],
   "site_stops": [],
   "strata": [
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "TOOL",
+      "species": "Alexandromys oeconomus"
+    },
     {
       "crossscale_estimable": false,
       "movement_events": 0,
@@ -133,6 +122,41 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "ABBY",
+      "species": "Microtus oregoni"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 2,
+      "site": "BLAN",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 6,
+      "packing_sessions": 1,
+      "site": "DCFS",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 1,
+      "site": "NOGP",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "UNDE",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 26,
       "packing_sessions": 4,
       "site": "WOOD",
@@ -147,9 +171,51 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 3,
+      "site": "LAJA",
+      "species": "Mus musculus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "SCBI",
+      "species": "Mus musculus"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 0,
       "packing_sessions": 3,
       "site": "BART",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 8,
+      "packing_sessions": 1,
+      "site": "HARV",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "NIWO",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "RMNP",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "STEI",
       "species": "Myodes gapperi"
     },
     {
@@ -182,6 +248,34 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "HARV",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "STEI",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "UNDE",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "SRER",
+      "species": "Neotoma albigula"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 4,
       "packing_sessions": 1,
       "site": "JERC",
@@ -197,6 +291,13 @@
     {
       "crossscale_estimable": false,
       "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "MOAB",
+      "species": "Onychomys leucogaster"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
       "packing_sessions": 4,
       "site": "OAES",
       "species": "Onychomys leucogaster"
@@ -207,6 +308,13 @@
       "packing_sessions": 8,
       "site": "STER",
       "species": "Onychomys leucogaster"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "SRER",
+      "species": "Onychomys torridus"
     },
     {
       "crossscale_estimable": false,
@@ -230,6 +338,20 @@
       "species": "Peromyscus boylii"
     },
     {
+      "crossscale_estimable": false,
+      "movement_events": 14,
+      "packing_sessions": 0,
+      "site": "SOAP",
+      "species": "Peromyscus boylii"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "DELA",
+      "species": "Peromyscus gossypinus"
+    },
+    {
       "crossscale_estimable": true,
       "movement_events": 25,
       "packing_sessions": 10,
@@ -238,10 +360,45 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "OSBS",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 3,
+      "packing_sessions": 0,
+      "site": "TALL",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "ABBY",
+      "species": "Peromyscus keeni"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "WREF",
+      "species": "Peromyscus keeni"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 0,
       "packing_sessions": 6,
       "site": "JERC",
       "species": "Peromyscus polionotus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 12,
+      "packing_sessions": 0,
+      "site": "MOAB",
+      "species": "Peromyscus truei"
     },
     {
       "crossscale_estimable": false,
@@ -259,6 +416,27 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "OSBS",
+      "species": "Podomys floridanus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 3,
+      "packing_sessions": 2,
+      "site": "GUAN",
+      "species": "Rattus rattus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "NOGP",
+      "species": "Reithrodontomys megalotis"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 7,
       "packing_sessions": 4,
       "site": "SJER",
@@ -273,9 +451,23 @@
     },
     {
       "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "DSNY",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
       "movement_events": 14,
       "packing_sessions": 1,
       "site": "JERC",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 2,
+      "site": "KONA",
       "species": "Sigmodon hispidus"
     },
     {
@@ -297,6 +489,13 @@
       "movement_events": 0,
       "packing_sessions": 6,
       "site": "ORNL",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "OSBS",
       "species": "Sigmodon hispidus"
     },
     {
