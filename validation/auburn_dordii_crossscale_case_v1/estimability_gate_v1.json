@@ -1,0 +1,104 @@
+{
+  "appendix2_parse_failures": 0,
+  "appendix2_total_parsed_records": 0,
+  "appendix4_parse_failures": 0,
+  "appendix4_total_parsed_records": 0,
+  "burrow_use_effects_inspected": false,
+  "ecological_effect_models_fit": 0,
+  "gate": {
+    "decision": "stop_auburn_case_not_estimable",
+    "every_summer_must_pass": true,
+    "passed": false
+  },
+  "packing_effects_inspected": false,
+  "schema": "neon.auburn_dordii_crossscale_case.estimability.v1",
+  "seasons": {
+    "Summer 2006": {
+      "burrow_counts": {
+        "female": 0,
+        "male": 0
+      },
+      "burrow_gate_passed": false,
+      "burrow_records_sex_diagnostic": 0,
+      "capture_records_sex_diagnostic": 0,
+      "linkage_gate_passed": false,
+      "linkage_sex_conflicts": [],
+      "linked_counts": {
+        "female": 0,
+        "male": 0
+      },
+      "linked_ids": {
+        "female": [],
+        "male": []
+      },
+      "night_counts": [
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 1
+        },
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 2
+        },
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 3
+        }
+      ],
+      "packing_gate_passed": false,
+      "season_gate_passed": false,
+      "usable_nights_n3": 0
+    },
+    "Summer 2007": {
+      "burrow_counts": {
+        "female": 0,
+        "male": 0
+      },
+      "burrow_gate_passed": false,
+      "burrow_records_sex_diagnostic": 0,
+      "capture_records_sex_diagnostic": 0,
+      "linkage_gate_passed": false,
+      "linkage_sex_conflicts": [],
+      "linked_counts": {
+        "female": 0,
+        "male": 0
+      },
+      "linked_ids": {
+        "female": [],
+        "male": []
+      },
+      "night_counts": [
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 1
+        },
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 2
+        },
+        {
+          "eligible_n3": false,
+          "n_female": 0,
+          "n_male": 0,
+          "night": 3
+        }
+      ],
+      "packing_gate_passed": false,
+      "season_gate_passed": false,
+      "usable_nights_n3": 0
+    }
+  },
+  "source_file": "White_Jeremy_46.pdf.txt",
+  "source_sha256": "abd7736e936c0628c3309d556aef2f0d28bf4ed5a51e1adec4f2f8bd55d43fba",
+  "source_size_bytes": 234171
+}
