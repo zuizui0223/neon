@@ -23,7 +23,15 @@ Within site × trapping session × night, retain one capture location per unique
 A primary packing session requires:
 - >=5 retained males and >=5 retained females;
 - valid spatial grid/trap locations;
-- no duplicate retained location within the same sex-specific one-night configuration unless the field protocol allows more than one simultaneously active trap at that grid point and the geometry model explicitly represents them.
+- capture records resolve to a unique trap unit.
+
+Published field methods establish a 4 x 20 grid with 25 m point spacing. Havahart and Sherman traps were colocated within <0.5 m at every grid point, with Longworth traps added on one line in 2016. Therefore the geometric support is **trap-unit identity**, not unique XY coordinate.
+
+For packing:
+- trap unit = site x night x grid point x trap type;
+- different trap units at the same grid point are allowed to share the same coordinate;
+- two animals at the same grid point are valid only when their recorded trap units are distinct;
+- exact-null calculations must preserve duplicated coordinates arising from distinct colocated traps rather than fail them as duplicate locations.
 
 Packing advance requirement:
 - >=10 primary sessions;
