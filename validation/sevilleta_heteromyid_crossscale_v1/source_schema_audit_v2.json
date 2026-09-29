@@ -1,4 +1,5 @@
 {
+  "audit_revision": "correct exact-token column classification; valid_name is species, not identity",
   "column_count": 9,
   "columns": [
     "ABUNDANCE",
@@ -14,21 +15,28 @@
   "data_row_count": 6966,
   "detected_delimiter": "','",
   "ecological_effect_models_fit": 0,
-  "identity_column_present": true,
+  "identity_column_present": false,
   "malformed_row_count": 0,
+  "missing_required_structural_fields": [
+    "identity",
+    "sex",
+    "site",
+    "web",
+    "trap"
+  ],
   "movement_distances_computed": false,
   "packing_effects_computed": false,
   "required_presence": {
     "date": true,
-    "identity": true,
+    "identity": false,
     "night": true,
     "sex": false,
     "site": false,
-    "species": false,
+    "species": true,
     "trap": false,
     "web": false
   },
-  "schema": "neon.sevilleta_heteromyid_crossscale.source_schema_audit.v1",
+  "schema": "neon.sevilleta_heteromyid_crossscale.source_schema_audit.v2",
   "sex_specific_effects_inspected": false,
   "sha256": "d332efb2495f5927d2d35c400e3c65150b97bbc0cfd02942534f7da0e9181a03",
   "size_bytes": 666646,
@@ -39,15 +47,15 @@
       "MONTH",
       "YEAR"
     ],
-    "identity": [
-      "valid_name"
-    ],
+    "identity": [],
     "night": [
       "DAY"
     ],
     "sex": [],
     "site": [],
-    "species": [],
+    "species": [
+      "valid_name"
+    ],
     "trap": [],
     "web": []
   },
