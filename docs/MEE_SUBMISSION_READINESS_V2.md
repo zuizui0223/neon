@@ -109,7 +109,7 @@ Date: 2026-09-30
 - [x] Review-package manifest defined.
 - [x] Review-package builder implemented.
 - [x] Raw third-party data excluded from package; public DOI/source retained.
-- [ ] Review-package builder rerun successfully after the corrected simulation-module docstring.
+- [x] Review-package builder rerun successfully after the corrected simulation-module docstring.
 - [ ] Create versioned archival release / persistent repository identifier.
 - [ ] Insert final repository/archive identifier into Data Availability statement.
 
