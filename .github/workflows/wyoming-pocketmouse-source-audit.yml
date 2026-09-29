@@ -34,12 +34,38 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p data/cache/wyoming
-          URL="https://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip"
           OUT="data/cache/wyoming/Harkins_etal_OriginalData.zip"
+          urls=(
+            "https://datacorral.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip"
+            "http://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip"
+            "https://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip"
+          )
 
-          curl -L --fail --retry 4 --retry-delay 5 --connect-timeout 30 --max-time 600 \
-            -A "Mozilla/5.0 wyoming-pocketmouse-source-audit/1.0" \
-            "$URL" -o "$OUT"
+          ok=0
+          for URL in "${urls[@]}"; do
+            echo "TRY_SOURCE $URL"
+            rm -f "$OUT"
+            if curl -L --fail --retry 1 --retry-delay 2 \
+              --connect-timeout 20 --max-time 300 \
+              -A "Mozilla/5.0 wyoming-pocketmouse-source-audit/1.0" \
+              "$URL" -o "$OUT"; then
+              if python - <<'PY'
+from pathlib import Path
+import zipfile
+p=Path("data/cache/wyoming/Harkins_etal_OriginalData.zip")
+raise SystemExit(0 if p.exists() and p.stat().st_size>10000 and zipfile.is_zipfile(p) else 1)
+PY
+              then
+                ok=1
+                break
+              fi
+            fi
+          done
+
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::All public Wyoming resource routes failed."
+            exit 4
+          fi
 
           test -s "$OUT"
           python - <<'PY'
