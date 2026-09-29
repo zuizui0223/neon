@@ -28,6 +28,10 @@ class TemporalAliasingDiagnosticTests(unittest.TestCase):
         self.assertAlmostEqual(out["material_shift_fraction"],2/3)
         self.assertAlmostEqual(out["median_span_in_material_scales"],1.0)
 
+    def test_wilson_boundary_endpoints(self):
+        self.assertEqual(m.wilson_interval(0,50)[0],0.0)
+        self.assertEqual(m.wilson_interval(50,50)[1],1.0)
+
     def test_bounds(self):
         self.assertEqual(m.movement_sensitivity_bound(2,3),5)
         self.assertEqual(m.mpd_sensitivity_bound([2,4]),6)
