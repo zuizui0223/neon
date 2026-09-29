@@ -1,0 +1,18 @@
+{
+  "schema": "neon.arches_heteromyid_crossscale.source_access_stop.v1",
+  "frozen_date": "2026-09-29",
+  "dataset_doi": "10.5061/dryad.pv608",
+  "source_structure_supported_by_landing_page": true,
+  "source_files": [
+    "Rodent Trapping, Salt Valley.csv",
+    "Rodent Trapping, Willow Flats.csv"
+  ],
+  "dryad_api_file_listing_resolved": true,
+  "anonymous_file_download_status": "HTTP_401_UNAUTHORIZED",
+  "ruling": "stop_source_access_not_analyzable_without_authenticated_download",
+  "species_specific_counts_inspected": false,
+  "sex_specific_counts_inspected": false,
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "ecological_effect_models_fit": 0
+}
