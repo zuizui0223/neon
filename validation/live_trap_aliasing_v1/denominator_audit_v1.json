@@ -1,0 +1,79 @@
+{
+  "claim": "observed aliasing exposure among all valid individual-nights is a lower bound, not an estimate of latent movement on single-capture nights",
+  "inferential_role": "post_result_denominator_context_only",
+  "primary_result_unchanged": true,
+  "schema": "neon.live_trap_aliasing.denominator_audit.v1",
+  "species": {
+    "PEER": {
+      "all_valid_individual_nights": 301,
+      "any_flag_change_observed_nights": 74,
+      "grid_all_nights": {
+        "1": 105,
+        "2": 115,
+        "4": 2,
+        "6": 78,
+        "7": 1
+      },
+      "grid_observed_one_spacing_shift_nights": {
+        "1": 28,
+        "2": 33,
+        "6": 13
+      },
+      "grid_repeat_nights": {
+        "1": 36,
+        "2": 49,
+        "6": 22
+      },
+      "interpretation": "The all-night fractions are observational lower bounds: single-capture nights cannot reveal first-to-last positional change.",
+      "observed_any_change_lower_bound_fraction_all_nights": 0.24584717607973422,
+      "observed_one_spacing_aliasing_lower_bound_fraction_all_nights": 0.24584717607973422,
+      "one_spacing_shift_observed_nights": 74,
+      "repeat_capture_fraction": 0.3554817275747508,
+      "repeat_capture_individual_nights": 107,
+      "scientific_name": "Peromyscus eremicus",
+      "single_capture_or_unresolved_within_night_count": 194
+    },
+    "PEMA": {
+      "all_valid_individual_nights": 1219,
+      "any_flag_change_observed_nights": 352,
+      "grid_all_nights": {
+        "1": 170,
+        "2": 202,
+        "3": 62,
+        "4": 241,
+        "5": 55,
+        "6": 247,
+        "7": 148,
+        "8": 94
+      },
+      "grid_observed_one_spacing_shift_nights": {
+        "1": 74,
+        "2": 62,
+        "3": 22,
+        "4": 60,
+        "5": 3,
+        "6": 73,
+        "7": 33,
+        "8": 25
+      },
+      "grid_repeat_nights": {
+        "1": 85,
+        "2": 82,
+        "3": 26,
+        "4": 91,
+        "5": 8,
+        "6": 107,
+        "7": 46,
+        "8": 40
+      },
+      "interpretation": "The all-night fractions are observational lower bounds: single-capture nights cannot reveal first-to-last positional change.",
+      "observed_any_change_lower_bound_fraction_all_nights": 0.2887612797374898,
+      "observed_one_spacing_aliasing_lower_bound_fraction_all_nights": 0.2887612797374898,
+      "one_spacing_shift_observed_nights": 352,
+      "repeat_capture_fraction": 0.3978671041837572,
+      "repeat_capture_individual_nights": 485,
+      "scientific_name": "Peromyscus maniculatus",
+      "single_capture_or_unresolved_within_night_count": 734
+    }
+  }
+}
