@@ -1,0 +1,132 @@
+name: heldout-heteromyid-crossscale-estimability
+
+on:
+  push:
+    branches:
+      - design/heldout-heteromyid-crossscale-v1
+    paths:
+      - README_HELDOUT_HETEROMYID_CROSSSCALE.md
+      - docs/HELDOUT_HETEROMYID_CROSSSCALE_DESIGN_V1.md
+      - validation/heldout_heteromyid_crossscale_v1/design_lock_v1.json
+      - analysis/heldout_heteromyid_crossscale_estimability_v1.py
+      - tests/test_heldout_heteromyid_crossscale_estimability.py
+      - .github/workflows/heldout-heteromyid-crossscale-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/heldout-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify prospective design lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          lock=json.loads(
+              Path("validation/heldout_heteromyid_crossscale_v1/design_lock_v1.json").read_text()
+          )
+          assert lock["state"] == "frozen_before_heldout_estimability_scan"
+          assert lock["primary_threshold_per_sex"] == 5
+          assert lock["heldout_packing_effects_inspected"] is False
+          assert lock["heldout_movement_distances_inspected"] is False
+          assert lock["ecological_effect_models_fit"] == 0
+          assert set(lock["taxon_scope"]["excluded_previously_inspected_species"]) == {
+              "Chaetodipus baileyi",
+              "Chaetodipus penicillatus",
+              "Dipodomys merriami",
+              "Dipodomys ordii",
+          }
+          print("HELDOUT_DESIGN_LOCK_OK")
+          PY
+
+      - name: Verify effect-blind estimability tests
+        run: |
+          python -m unittest tests.test_heldout_heteromyid_crossscale_estimability -v
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Scan all RELEASE-2026 sites without opening effects
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/heldout_heteromyid_crossscale_estimability_v1.py \
+            --output-dir results/generated/heldout_crossscale
+
+      - name: Assert effect-blind gate result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(
+              Path("results/generated/heldout_crossscale/heldout_heteromyid_crossscale_estimability_v1.json").read_text()
+          )
+
+          assert p["primary_threshold_per_sex"] == 5
+          assert p["heldout_packing_effects_inspected"] is False
+          assert p["heldout_movement_distances_inspected"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          assert not (
+              set(p["excluded_previously_inspected_species"])
+              & set(p["crossscale_gate"]["qualifying_species"])
+          )
+          assert p["crossscale_gate"]["decision"] in {
+              "authorize_heldout_crossscale_effect_lock",
+              "stop_heldout_crossscale_not_estimable",
+          }
+          print(json.dumps({
+              "crossscale_gate":p["crossscale_gate"],
+              "species":p["species"],
+              "site_stop_count":len(p["site_stops"]),
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist held-out estimability receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/heldout-heteromyid-crossscale-v1
+
+          mkdir -p validation/heldout_heteromyid_crossscale_v1
+          cp results/generated/heldout_crossscale/heldout_heteromyid_crossscale_estimability_v1.json \
+             validation/heldout_heteromyid_crossscale_v1/estimability_gate_v1.json
+
+          git add validation/heldout_heteromyid_crossscale_v1/estimability_gate_v1.json
+          if git diff --cached --quiet; then
+            echo "held-out estimability receipt unchanged"
+          else
+            git commit -m "Freeze held-out heteromyid cross-scale estimability"
+            git push origin HEAD:design/heldout-heteromyid-crossscale-v1
+          fi
+
+      - name: Upload held-out estimability tables
+        uses: actions/upload-artifact@v4
+        with:
+          name: heldout-heteromyid-crossscale-estimability-v1
+          path: |
+            results/generated/heldout_crossscale/heldout_heteromyid_packing_estimability_v1.csv
+            results/generated/heldout_crossscale/heldout_heteromyid_movement_estimability_v1.csv
+            results/generated/heldout_crossscale/heldout_heteromyid_crossscale_estimability_v1.json
+          if-no-files-found: error
+          retention-days: 30
