@@ -1,0 +1,81 @@
+name: auburn-pdf-sex-symbol-audit
+
+on:
+  push:
+    branches:
+      - design/auburn-dordii-crossscale-case-v1
+    paths:
+      - analysis/audit_auburn_pdf_sex_symbols_v1.py
+      - tests/test_auburn_pdf_sex_symbols.py
+      - .github/workflows/auburn-pdf-sex-symbol-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sex-symbol-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/auburn-dordii-crossscale-case-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify symbol audit tests
+        run: python -m unittest tests.test_auburn_pdf_sex_symbols -v
+
+      - name: Download frozen Auburn PDF
+        run: |
+          mkdir -p data/cache/auburn
+          curl -L --fail --retry 3 --retry-delay 2 \
+            -A "Mozilla/5.0 auburn-pdf-sex-symbol-audit/1.0" \
+            "https://auetd.auburn.edu/bitstream/handle/10415/1146/White_Jeremy_46.pdf?isAllowed=y&sequence=1" \
+            -o data/cache/auburn/White_Jeremy_46.pdf
+          test "$(wc -c < data/cache/auburn/White_Jeremy_46.pdf)" -gt 1000000
+          sha256sum data/cache/auburn/White_Jeremy_46.pdf
+
+      - name: Extract positioned PDF text
+        run: |
+          command -v pdftotext
+          pdftotext -layout -enc UTF-8 \
+            data/cache/auburn/White_Jeremy_46.pdf \
+            /tmp/White_Jeremy_46.layout.txt
+          test "$(wc -c < /tmp/White_Jeremy_46.layout.txt)" -gt 100000
+
+      - name: Audit sex symbols only
+        run: |
+          python analysis/audit_auburn_pdf_sex_symbols_v1.py \
+            --layout-text /tmp/White_Jeremy_46.layout.txt \
+            --output /tmp/auburn_pdf_sex_symbol_audit_v1.json
+
+      - name: Assert no ecological effect opened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/auburn_pdf_sex_symbol_audit_v1.json").read_text())
+          assert p["sex_specific_effects_inspected"] is False
+          assert p["packing_effects_inspected"] is False
+          assert p["burrow_use_effects_inspected"] is False
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist sex-symbol audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/auburn-dordii-crossscale-case-v1
+          mkdir -p validation/auburn_dordii_crossscale_case_v1
+          cp /tmp/auburn_pdf_sex_symbol_audit_v1.json \
+             validation/auburn_dordii_crossscale_case_v1/pdf_sex_symbol_audit_v1.json
+          git add validation/auburn_dordii_crossscale_case_v1/pdf_sex_symbol_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "sex-symbol audit unchanged"
+          else
+            git commit -m "Freeze Auburn PDF sex-symbol extraction audit"
+            git push origin HEAD:design/auburn-dordii-crossscale-case-v1
+          fi
