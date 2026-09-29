@@ -1,0 +1,55 @@
+name: san-jacinto-postresult-measurement-audit
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - results/san_jacinto_crossscale_effect_result_v1.json
+      - analysis/audit_san_jacinto_measurement_sensitivity_v1.py
+      - tests/test_san_jacinto_measurement_sensitivity.py
+      - .github/workflows/san-jacinto-postresult-measurement-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Verify explanatory audit test
+        run: python -m unittest tests.test_san_jacinto_measurement_sensitivity -v
+
+      - name: Run post-result measurement audit
+        run: |
+          python analysis/audit_san_jacinto_measurement_sensitivity_v1.py \
+            --source-receipt validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json \
+            --result results/san_jacinto_crossscale_effect_result_v1.json \
+            --output /tmp/san_jacinto_measurement_sensitivity_v1.json
+
+      - name: Persist explanatory-only receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+          cp /tmp/san_jacinto_measurement_sensitivity_v1.json \
+             validation/san_jacinto_crossscale_v1/postresult_measurement_sensitivity_v1.json
+          git add validation/san_jacinto_crossscale_v1/postresult_measurement_sensitivity_v1.json
+          if git diff --cached --quiet; then
+            echo "post-result audit unchanged"
+          else
+            git commit -m "Freeze San Jacinto post-result measurement sensitivity audit"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
