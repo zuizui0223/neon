@@ -1,0 +1,75 @@
+{
+  "schema": "neon.auburn_dordii_crossscale_case.estimability_design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_appendix_support_counts",
+  "source": {
+    "title": "Placement and recovery of seed caches by a solitary rodent, Ord's kangaroo rat (Dipodomys ordii)",
+    "author": "Jeremy Andrew White",
+    "year": 2008,
+    "handle": "10415/1146",
+    "text_companion": "https://auetd.auburn.edu/bitstream/handle/10415/1146/White_Jeremy_46.pdf.txt?isAllowed=y&sequence=2"
+  },
+  "role": "single_population_mechanistic_case_study_not_confirmatory_external_replication",
+  "seasons": [
+    "Summer 2006",
+    "Summer 2007"
+  ],
+  "sex_inference": {
+    "use_corrupted_sex_column": false,
+    "adults_only": true,
+    "male_conditions": [
+      "scrotal",
+      "non-scrotal"
+    ],
+    "female_conditions": [
+      "estrus",
+      "pregnant",
+      "lactating",
+      "lactating/pregnant",
+      "post-lactating",
+      "post-lactating, estrus"
+    ],
+    "exclude_conditions": [
+      "non-reproductive",
+      "missing",
+      "ambiguous"
+    ]
+  },
+  "packing": {
+    "source": "Appendix 2",
+    "grid": "1 ha, 100 Sherman live traps, 10 m spacing",
+    "primary_unit": "summer x trapping night",
+    "minimum_per_sex": 3,
+    "minimum_usable_nights_per_summer": 2,
+    "statistic_if_authorized": "conditional sex-label permutation Z of MPD_male - MPD_female",
+    "conditioning": "pooled focal D. ordii adult sex-diagnostic captures and trap locations fixed within night"
+  },
+  "space_use": {
+    "source": "Appendix 4",
+    "primary_endpoint": "number of burrows used during 4 nights",
+    "minimum_individuals_per_sex_per_summer": 3,
+    "secondary_distance_endpoint": false
+  },
+  "linkage": {
+    "key": "tag ID / Appendix 4 ID",
+    "minimum_linked_individuals_per_sex_per_summer": 2
+  },
+  "advance_gate": {
+    "every_summer_must_pass": true,
+    "pass_decision": "authorize_auburn_case_effect_lock",
+    "fail_decision": "stop_auburn_case_not_estimable"
+  },
+  "effect_status": {
+    "appendix_species_counts_inspected": false,
+    "sex_specific_support_counts_inspected": false,
+    "packing_effects_inspected": false,
+    "burrow_use_effects_inspected": false,
+    "ecological_effect_models_fit": 0
+  },
+  "claim_boundary": {
+    "multi_site_generalization": false,
+    "movement_distance_claim": false,
+    "home_range_claim": false,
+    "confirmatory_replication_claim": false
+  }
+}
