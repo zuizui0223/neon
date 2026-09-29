@@ -90,7 +90,7 @@ jobs:
           import json
           from pathlib import Path
           p=json.loads(Path("/tmp/sevilleta_dataone_raw_schema_audit_v3.json").read_text())
-          assert p["sex_specific_effects_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
           assert p["movement_distances_computed"] is False
           assert p["packing_effects_computed"] is False
           assert p["ecological_effect_models_fit"] == 0
