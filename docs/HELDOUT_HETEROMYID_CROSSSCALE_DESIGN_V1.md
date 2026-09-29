@@ -60,7 +60,7 @@ Requirements:
 - target species-rank identification with no identificationQualifier;
 - valid tagID;
 - deterministic first record per individual;
-- all retained trap coordinates valid and unique within the session;
+- all retained trap coordinates resolve to current NEON location-registry nodes and are unique within the session;
 - >=5 retained males and >=5 retained females.
 
 ### Pathogen-grid movement
@@ -71,7 +71,7 @@ An individual is recapture-eligible when:
 - target species-rank identification with no identificationQualifier;
 - valid tagID;
 - sex is consistently male or consistently female across retained records;
-- at least two distinct trapping nights have valid trap coordinates.
+- at least two distinct trapping nights have trap locations that resolve to current NEON location-registry nodes.
 
 A primary paired event requires >=5 recapture-eligible males and >=5 recapture-eligible females.
 
