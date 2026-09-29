@@ -1,0 +1,64 @@
+name: temporal-aliasing-simulation-benchmark
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/simulate_temporal_aliasing_diagnostic_v1.py
+      - tests/test_temporal_aliasing_simulation.py
+      - docs/SIMULATION_BENCHMARK_PLAN_V1.md
+      - .github/workflows/temporal-aliasing-simulation-benchmark.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify simulation tests
+        run: python -m unittest tests.test_temporal_aliasing_simulation -v
+
+      - name: Run frozen simulation benchmark
+        run: |
+          python analysis/simulate_temporal_aliasing_diagnostic_v1.py             --replicates 400             --output /tmp/temporal_aliasing_simulation_benchmark_v1.json
+
+      - name: Assert benchmark contracts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/temporal_aliasing_simulation_benchmark_v1.json").read_text())
+          s=p["summary"]
+          assert s["mcar_mean_abs_bias"] < 0.02
+          assert s["mcar_mean_wilson_coverage"] > 0.90
+          assert s["span_enriched_mean_bias"] > 0
+          assert s["span_depleted_mean_bias"] < 0
+          assert s["total_lower_bound_violations"] == 0
+          print(json.dumps(s,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist compact benchmark
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p results
+          cp /tmp/temporal_aliasing_simulation_benchmark_v1.json              results/temporal_aliasing_simulation_benchmark_v1.json
+          git add results/temporal_aliasing_simulation_benchmark_v1.json
+          if git diff --cached --quiet; then
+            echo "simulation benchmark unchanged"
+          else
+            git commit -m "Freeze temporal-aliasing simulation benchmark"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi
