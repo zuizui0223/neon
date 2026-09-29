@@ -1,0 +1,112 @@
+{
+  "adequate_capture_tables": [],
+  "doi": "10.6084/m9.figshare.18295520.v1",
+  "ecological_effect_models_fit": 0,
+  "figshare_article_id": 18295520,
+  "files": [
+    {
+      "download_url": "https://ndownloader.figshare.com/files/33058799",
+      "downloaded_bytes": 462472,
+      "id": 33058799,
+      "name": "year round trap data.csv",
+      "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
+      "size": 462472,
+      "supplied_md5": "574b531622c95219553bca8f263ddec3",
+      "tabular_candidate": true
+    },
+    {
+      "download_url": "https://ndownloader.figshare.com/files/33060218",
+      "downloaded_bytes": 9544,
+      "id": 33060218,
+      "name": "Metadata.xlsx",
+      "sha256": "229a7b6e7e5e4baf5ca1dfb7599c55dcd001dad73512d35b70b66144028a3f50",
+      "size": 9544,
+      "supplied_md5": "4463647615a2b1776ab267d90d3e0672",
+      "tabular_candidate": true
+    }
+  ],
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "value": 1
+  },
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "schema": "neon.san_jacinto_crossscale.source_schema_audit.v1",
+  "sex_specific_counts_inspected": false,
+  "source_adequacy_for_estimability_design": false,
+  "species_specific_counts_inspected": false,
+  "tables": [
+    {
+      "columns": [
+        "date",
+        "time_bin",
+        "time",
+        "grid",
+        "flag",
+        "species",
+        "left_tag",
+        "right_tag",
+        "VIE",
+        "unique_ID",
+        "history",
+        "sex",
+        "repro",
+        "weight_g"
+      ],
+      "row_count": 8981,
+      "sheet_or_table": "year round trap data.csv",
+      "source_file": "year round trap data.csv",
+      "structural_columns": {
+        "date": [
+          "date"
+        ],
+        "grid": [
+          "grid"
+        ],
+        "identity": [
+          "unique_ID"
+        ],
+        "night": [],
+        "sex": [
+          "sex"
+        ],
+        "species": [
+          "species"
+        ],
+        "time": [
+          "time"
+        ],
+        "trap": []
+      },
+      "structurally_adequate_capture_table": false,
+      "table_type": "csv"
+    },
+    {
+      "columns": [
+        "Species",
+        "",
+        ""
+      ],
+      "row_count": 21,
+      "sheet_or_table": "Sheet1",
+      "source_file": "Metadata.xlsx",
+      "structural_columns": {
+        "date": [],
+        "grid": [],
+        "identity": [],
+        "night": [],
+        "sex": [],
+        "species": [
+          "Species"
+        ],
+        "time": [],
+        "trap": []
+      },
+      "structurally_adequate_capture_table": false,
+      "table_type": "xlsx"
+    }
+  ],
+  "title": "Rodent survey data 2015 2016",
+  "version": 1
+}
