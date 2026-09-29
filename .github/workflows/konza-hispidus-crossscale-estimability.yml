@@ -1,0 +1,131 @@
+name: konza-hispidus-crossscale-estimability
+
+on:
+  push:
+    branches:
+      - design/konza-heteromyid-crossscale-v1
+    paths:
+      - docs/KONZA_HISPID_CROSSSCALE_ESTIMABILITY_LOCK_V1.md
+      - validation/konza_heteromyid_crossscale_v1/estimability_lock_v1.json
+      - analysis/konza_hispidus_crossscale_estimability_v1.py
+      - tests/test_konza_hispidus_crossscale_estimability.py
+      - .github/workflows/konza-hispidus-crossscale-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/konza-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify prospective estimability lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lock=json.loads(
+              Path("validation/konza_heteromyid_crossscale_v1/estimability_lock_v1.json").read_text()
+          )
+          assert lock["state"] == "frozen_before_species_by_sex_support_counts"
+          assert lock["target"]["species_code"] == "Ch"
+          assert lock["primary_n_per_sex"] == 5
+          assert lock["packing_effects_inspected"] is False
+          assert lock["movement_distances_inspected"] is False
+          assert lock["ecological_effect_models_fit"] == 0
+          print("KONZA_ESTIMABILITY_LOCK_OK")
+          PY
+
+      - name: Verify estimability tests
+        run: python -m unittest tests.test_konza_hispidus_crossscale_estimability -v
+
+      - name: Download pinned Konza CSM012 source
+        run: |
+          set -euo pipefail
+          mkdir -p data/cache/konza
+          curl -L --fail --retry 3 --retry-delay 2 \
+            -A "konza-hispidus-crossscale-estimability/1.0" \
+            "https://raw.githubusercontent.com/sarahsupp/KNZ-incidence/c354a2fb8a034e254365f0ffbe0e0ce82bdfea66/Datasets/Raw_data/Small_mammals/CSM012.csv" \
+            -o data/cache/konza/CSM012.csv
+
+      - name: Verify source checksum
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          raw=Path("data/cache/konza/CSM012.csv").read_bytes()
+          observed=hashlib.sha256(raw).hexdigest()
+          source=json.loads(
+              Path("validation/konza_heteromyid_crossscale_v1/source_schema_audit_v1.json").read_text()
+          )
+          lock=json.loads(
+              Path("validation/konza_heteromyid_crossscale_v1/estimability_lock_v1.json").read_text()
+          )
+          assert observed == source["sha256"] == lock["source"]["sha256"]
+          print("SOURCE_SHA256",observed)
+          PY
+
+      - name: Run effect-blind cross-scale estimability
+        run: |
+          python analysis/konza_hispidus_crossscale_estimability_v1.py \
+            --input data/cache/konza/CSM012.csv \
+            --output-dir results/generated/konza_hispidus_estimability
+
+      - name: Assert effect-blind gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("results/generated/konza_hispidus_estimability/konza_hispidus_crossscale_estimability_v1.json").read_text()
+          )
+          assert p["primary_n_per_sex"] == 5
+          assert p["packing_effects_inspected"] is False
+          assert p["movement_distances_inspected"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          assert p["crossscale_gate"]["decision"] in {
+              "authorize_konza_crossscale_effect_lock",
+              "stop_konza_crossscale_not_estimable",
+          }
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist estimability receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/konza-heteromyid-crossscale-v1
+
+          mkdir -p validation/konza_heteromyid_crossscale_v1
+          cp results/generated/konza_hispidus_estimability/konza_hispidus_crossscale_estimability_v1.json \
+             validation/konza_heteromyid_crossscale_v1/estimability_gate_v1.json
+
+          git add validation/konza_heteromyid_crossscale_v1/estimability_gate_v1.json
+          if git diff --cached --quiet; then
+            echo "Konza estimability receipt unchanged"
+          else
+            git commit -m "Freeze Konza hispid cross-scale estimability"
+            git push origin HEAD:design/konza-heteromyid-crossscale-v1
+          fi
+
+      - name: Upload estimability tables
+        uses: actions/upload-artifact@v4
+        with:
+          name: konza-hispidus-crossscale-estimability-v1
+          path: |
+            results/generated/konza_hispidus_estimability/konza_hispidus_packing_estimability_v1.csv
+            results/generated/konza_hispidus_estimability/konza_hispidus_movement_estimability_v1.csv
+            results/generated/konza_hispidus_estimability/konza_hispidus_crossscale_estimability_v1.json
+          if-no-files-found: error
+          retention-days: 30
