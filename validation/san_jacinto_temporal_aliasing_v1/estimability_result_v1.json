@@ -1,0 +1,86 @@
+{
+  "ecological_model_fits": 0,
+  "excluded_rows": {
+    "missing_id": 47
+  },
+  "first_last_change_outcomes_inspected": false,
+  "first_last_distance_values_inspected": false,
+  "first_last_movement_sensitivity_inspected": false,
+  "packing_stability_inspected": false,
+  "programme_gate": {
+    "decision": "stop_temporal_aliasing_holdout_not_estimable",
+    "passed": false,
+    "qualifying_species": [
+      "PEMA"
+    ],
+    "qualifying_species_count": 1
+  },
+  "schema": "neon.san_jacinto_temporal_aliasing_holdout.estimability_result.v1",
+  "species": {
+    "PEER": {
+      "movement_event_eligible_individual_counts": {},
+      "movement_support_events": 0,
+      "movement_support_grid_counts": {},
+      "movement_support_grids": 0,
+      "repeat_capture_bouts": 10,
+      "repeat_capture_grid_counts": {
+        "1": 36,
+        "2": 49,
+        "6": 22
+      },
+      "repeat_capture_grids": 3,
+      "repeat_capture_individual_nights": 107,
+      "scientific_name": "Peromyscus eremicus",
+      "species_gate_passed": false
+    },
+    "PEMA": {
+      "movement_event_eligible_individual_counts": {
+        "1:bout11": 10,
+        "1:bout12": 11,
+        "2:bout6": 12,
+        "4:bout2": 10,
+        "4:bout5": 10,
+        "6:bout10": 14,
+        "6:bout11": 10,
+        "7:bout10": 10
+      },
+      "movement_support_events": 8,
+      "movement_support_grid_counts": {
+        "1": 2,
+        "2": 1,
+        "4": 2,
+        "6": 2,
+        "7": 1
+      },
+      "movement_support_grids": 5,
+      "repeat_capture_bouts": 12,
+      "repeat_capture_grid_counts": {
+        "1": 85,
+        "2": 82,
+        "3": 26,
+        "4": 91,
+        "5": 8,
+        "6": 107,
+        "7": 46,
+        "8": 40
+      },
+      "repeat_capture_grids": 8,
+      "repeat_capture_individual_nights": 485,
+      "scientific_name": "Peromyscus maniculatus",
+      "species_gate_passed": true
+    },
+    "REME": {
+      "movement_event_eligible_individual_counts": {},
+      "movement_support_events": 0,
+      "movement_support_grid_counts": {},
+      "movement_support_grids": 0,
+      "repeat_capture_bouts": 0,
+      "repeat_capture_grid_counts": {},
+      "repeat_capture_grids": 0,
+      "repeat_capture_individual_nights": 0,
+      "scientific_name": "Reithrodontomys megalotis",
+      "species_gate_passed": false
+    }
+  },
+  "valid_holdout_capture_rows": 2325
+}
