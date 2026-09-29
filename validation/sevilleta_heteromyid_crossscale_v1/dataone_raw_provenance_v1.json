@@ -1,0 +1,9 @@
+{
+  "content_type": "application/octet-stream",
+  "http_status": 200,
+  "pid": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+  "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-sev%2F8%2F297976%2Fd70c7027949ca1d8ae053eb10300dc0e",
+  "sex_specific_effects_inspected": false,
+  "sha1": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461",
+  "size_bytes": 1306268
+}

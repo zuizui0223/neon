@@ -1,0 +1,127 @@
+{
+  "audit_revision": "correct exact-token column classification; valid_name is species, not identity",
+  "column_count": 12,
+  "columns": [
+    "year",
+    "location",
+    "season",
+    "night",
+    "web",
+    "trap",
+    "recap",
+    "species",
+    "sex",
+    "age",
+    "reprod",
+    "mass"
+  ],
+  "data_row_count": 32066,
+  "detected_delimiter": "','",
+  "ecological_effect_models_fit": 0,
+  "identity_column_present": false,
+  "malformed_row_count": 0,
+  "missing_required_structural_fields": [
+    "identity"
+  ],
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "required_presence": {
+    "date": true,
+    "identity": false,
+    "night": true,
+    "sex": true,
+    "site": true,
+    "species": true,
+    "trap": true,
+    "web": true
+  },
+  "schema": "neon.sevilleta_heteromyid_crossscale.source_schema_audit.v2",
+  "sex_specific_effects_inspected": false,
+  "sha256": "4a0e0c387364ffbe7153c18189f7d2f0f245a774e21ef2049205e9bbfd47eced",
+  "size_bytes": 1306268,
+  "source_adequacy_for_next_estimability_design": false,
+  "source_file": "sev008_raw_object.txt",
+  "structural_columns": {
+    "date": [
+      "year",
+      "season"
+    ],
+    "identity": [],
+    "night": [
+      "night"
+    ],
+    "sex": [
+      "sex"
+    ],
+    "site": [
+      "location"
+    ],
+    "species": [
+      "species"
+    ],
+    "trap": [
+      "trap"
+    ],
+    "web": [
+      "web"
+    ]
+  },
+  "structural_examples": {
+    "location": [
+      "5pgrass",
+      "5plarrea",
+      "rsgrass",
+      "rslarrea",
+      "two22",
+      "goatdraw",
+      "savanna",
+      "blugrama"
+    ],
+    "night": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "season": [
+      "1",
+      "2",
+      "3"
+    ],
+    "trap": [
+      "21",
+      "42",
+      "60",
+      "68",
+      "75",
+      "83",
+      "93",
+      "102",
+      "105",
+      "106",
+      "107",
+      "138"
+    ],
+    "web": [
+      "2",
+      "3",
+      "5",
+      "1",
+      "4"
+    ],
+    "year": [
+      "1989",
+      "1990",
+      "1991",
+      "1992",
+      "1993",
+      "1994",
+      "1995",
+      "1996",
+      "1997",
+      "1998",
+      "1999",
+      "2000"
+    ]
+  }
+}
