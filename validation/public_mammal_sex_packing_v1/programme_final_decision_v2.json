@@ -1,0 +1,58 @@
+{
+  "schema": "neon.public_mammal_sex_packing.programme_final_decision.v2",
+  "frozen_date": "2026-09-29",
+  "supersedes_for_family_uncertainty_interpretation": "validation/public_mammal_sex_packing_v1/programme_final_decision_v1.json",
+  "uncertainty_audit": "validation/public_mammal_sex_packing_v1/family_uncertainty_audit_v1.json",
+  "packing": {
+    "decision": "no_replicated_positive_support",
+    "Portal": {
+      "family_effect": -0.008977736664561068,
+      "corrected_ci95": [
+        -0.3064630775499216,
+        0.2885076042207994
+      ]
+    },
+    "NEON": {
+      "family_effect": 0.4243290769548106,
+      "corrected_ci95": [
+        -2.2145737614208287,
+        3.06323191533045
+      ]
+    },
+    "shared_species_positive_in_both": 0,
+    "shared_species_total": 3
+  },
+  "recapture": {
+    "estimability_decision": "authorize_sex_specific_recapture_displacement",
+    "primary_family_effect": 0.2532894521472151,
+    "corrected_primary_ci95": [
+      -0.2963688635036087,
+      0.8029477677980389
+    ],
+    "primary_positive_species": [
+      "Chaetodipus penicillatus",
+      "Dipodomys merriami",
+      "Dipodomys ordii"
+    ],
+    "manuscript_gate_decision": "stop_no_confirmatory_movement_dimorphism"
+  },
+  "n5_sensitivity": {
+    "family_effect": 0.1905924752173927,
+    "corrected_ci95": [
+      -0.22155480442540743,
+      0.6027397548601928
+    ],
+    "species_effects": {
+      "Chaetodipus penicillatus": 0.18466295548726036,
+      "Dipodomys merriami": 0.2114513281518935,
+      "Dipodomys ordii": 0.17566314201302421
+    },
+    "all_species_point_estimates_positive": true,
+    "prior_family_interval_above_zero_supported": false,
+    "interpretation": "hypothesis_generating_sign_concordance_only",
+    "may_rescue_current_programme": false
+  },
+  "manuscript_authorized": false,
+  "programme_decision": "stop_current_programme_no_confirmatory_cross_scale_result",
+  "ruling": "Family-level uncertainty propagation strengthens the stop decision and removes the apparent confirmatory precision of the N>=5 sensitivity; no primary conclusion is reversed."
+}
