@@ -32,7 +32,7 @@ The gap addressed here is therefore narrower. Before an analyst commits to conti
 
 A useful diagnostic should satisfy four requirements. First, it should be expressed relative to a spatial scale chosen from the study design or inferential context rather than rely on an arbitrary absolute distance. Second, it should distinguish what is observed among repeat-observed occasions from what can be claimed about all occasions. Third, it should remain useful when repeat observation is informative—that is, when the probability that an occasion is observed more than once depends on the underlying spatial process. Fourth, it should connect the raw positional span to interpretable changes in commonly used spatial summaries without requiring a full movement model.
 
-Here we develop such a framework (Figure 1). For individual (i) in occasion (t), we define the first-to-last observed positional span (delta_{it}=d(F_{it},L_{it})). We compare this span with a user-defined **material spatial scale** (s), which may be trap spacing, detector resolution, positional error, habitat-patch width or another scale below which positional differences are operationally negligible for the planned analysis.
+Here we develop such a framework (Figure 1). For individual $i$ in occasion $t$, we define the first-to-last observed positional span $\delta_{it}=d(F_{it},L_{it})$. We compare this span with a user-defined **material spatial scale** (s), which may be trap spacing, detector resolution, positional error, habitat-patch width or another scale below which positional differences are operationally negligible for the planned analysis.
 
 We then make three contributions. First, we provide a generic diagnostic that summarizes the frequency and magnitude of material positional spans, including both repeat-observation-conditioned estimates and a conservative all-occasion directly observed lower bound. Second, we derive deterministic metric-geometry bounds showing how unresolved within-occasion positional span can propagate into inter-occasion movement distances and mean-pairwise-distance (MPD) summaries. These inequalities are not presented as new mathematics; their contribution is to turn an easily measured observation-process quantity into an interpretable sensitivity scale. Third, we evaluate the framework using simulation and a prospectively locked empirical holdout. Simulation quantifies how repeat-observation selection affects the conditional estimator. The empirical validation tests whether material positional aliasing replicates across two previously unopened Cricetidae species and independent trapping grids.
 
@@ -44,39 +44,39 @@ Our aim is not to identify whether the first or last observation is the biologic
 
 Consider individual (i) during ecological occasion (t), with temporally ordered observed locations
 
-[
-X_{it1}, X_{it2}, ldots, X_{itK}.
-]
+\[
+X_{it1}, X_{it2}, \ldots, X_{itK}.
+\]
 
-For an occasion with (Kge2), define the first and last observed states
+For an occasion with $K\ge 2$, define the first and last observed states
 
-[
-F_{it}=X_{it1}, qquad L_{it}=X_{itK},
-]
+\[
+F_{it}=X_{it1}, \qquad L_{it}=X_{itK},
+\]
 
 and the within-occasion positional span
 
-[
-delta_{it}=d(F_{it},L_{it}),
-]
+\[
+\delta_{it}=d(F_{it},L_{it}),
+\]
 
-where (d) is an appropriate metric for the coordinate system. The generic software currently implements Euclidean distance, while the theoretical movement bound applies to any metric satisfying the triangle inequality.
+where $d$ is an appropriate metric for the coordinate system. The generic software currently implements Euclidean distance, while the theoretical movement bound applies to any metric satisfying the triangle inequality.
 
-Let (s>0) be a prechosen **material spatial scale**. We define a material positional-aliasing event as
+Let $s>0$ be a prechosen **material spatial scale**. We define a material positional-aliasing event as
 
-[
-I(delta_{it}ge s).
-]
+\[
+I(\delta_{it}\ge s).
+\]
 
-The choice of (s) is deliberately external to the observed effect. It should be fixed from detector spacing, location precision or the scale of the planned ecological analysis. In the empirical live-trapping validation below, (s) was one adjacent-trap spacing (6.25 m), a protocol-defined spatial resolution.
+The choice of $s$ is deliberately external to the observed effect. It should be fixed from detector spacing, location precision or the scale of the planned ecological analysis. In the empirical live-trapping validation below, $s$ was one adjacent-trap spacing (6.25 m), a protocol-defined spatial resolution.
 
-For (R) repeat-observed individual-occasions, the diagnostic reports the material-shift count and fraction, a two-sided 95% Wilson confidence interval, median and upper quantiles of (delta), and span expressed in units of (s). The Wilson interval describes uncertainty in the repeat-observation-conditioned proportion; it does not by itself correct selection into the repeat-observed subset.
+For $R$ repeat-observed individual-occasions, the diagnostic reports the material-shift count and fraction, a two-sided 95% Wilson confidence interval, median and upper quantiles of $\delta$, and span expressed in units of $s$. The Wilson interval describes uncertainty in the repeat-observation-conditioned proportion; it does not by itself correct selection into the repeat-observed subset.
 
-The diagnostic also reports the number (N) of all valid individual-occasions and the quantity
+The diagnostic also reports the number $N$ of all valid individual-occasions and the quantity
 
-[
-rac{#{	ext{directly observed material shifts}}}{N}.
-]
+\[
+\frac{\#\{\text{directly observed material shifts}\}}{N}.
+\]
 
 This fraction is an observational lower bound on the latent all-occasion material-shift fraction. A singly observed occasion cannot reveal a first-to-last change; treating such occasions as unresolved rather than as zero-shift ensures that the numerator contains only events directly exposed by repeated observation.
 
@@ -84,47 +84,47 @@ This fraction is an observational lower bound on the latent all-occasion materia
 
 ### 2.2.1 Inter-occasion movement
 
-For two occasions (t) and (u), define the FIRST-based movement distance (d(F_t,F_u)) and LAST-based movement distance (d(L_t,L_u)). By the triangle inequality,
+For two occasions $t$ and $u$, define the FIRST-based movement distance $d(F_t,F_u)$ and LAST-based movement distance $d(L_t,L_u)$. By the triangle inequality,
 
-[
-|d(F_t,F_u)-d(L_t,L_u)|le delta_t+delta_u.
-]
+\[
+|d(F_t,F_u)-d(L_t,L_u)|\le \delta_t+\delta_u.
+\]
 
 Thus the combined within-occasion spans provide a deterministic upper bound on how much an inter-occasion movement estimate can change solely because the representative-location rule changes from FIRST to LAST (Figure 1).
 
-The bound does not assert that either representation is correct, that the bound is typically attained, or that (delta) is itself a movement path.
+The bound does not assert that either representation is correct, that the bound is typically attained, or that $\delta$ is itself a movement path.
 
 ### 2.2.2 Population mean pairwise distance
 
-For (n) individuals represented within an occasion by paired FIRST and LAST locations, define
+For $n$ individuals represented within an occasion by paired FIRST and LAST locations, define
 
-[
-MPD(F)=rac{2}{n(n-1)}sum_{i<j}d(F_i,F_j)
-]
+\[
+MPD(F)=\frac{2}{n(n-1)}\sum_{i<j} d(F_i,F_j)
+\]
 
-and (MPD(L)) analogously. Pairwise application of the triangle inequality gives
+and $MPD(L)$ analogously. Pairwise application of the triangle inequality gives
 
-[
-|d(F_i,F_j)-d(L_i,L_j)|ledelta_i+delta_j.
-]
+\[
+|d(F_i,F_j)-d(L_i,L_j)|\le \delta_i+\delta_j.
+\]
 
 Summing across pairs yields
 
-[
-|MPD(F)-MPD(L)|le2overline{delta}.
-]
+\[
+|MPD(F)-MPD(L)|\le 2\overline{\delta}.
+\]
 
-If a standardized packing score uses common (n) and fixed null moments,
+If a standardized packing score uses common $n$ and fixed null moments,
 
-[
-z=rac{MPD-mu_n}{sigma_n},
-]
+\[
+z=\frac{MPD-\mu_n}{\sigma_n},
+\]
 
 then
 
-[
-|z_F-z_L|lerac{2overline{delta}}{sigma_n}.
-]
+\[
+|z_F-z_L|\le\frac{2\overline{\delta}}{\sigma_n}.
+\]
 
 We verified the inequalities numerically using sharpness examples and random Euclidean configurations. The inequalities are upper sensitivity bounds and are not stochastic estimators.
 
@@ -148,26 +148,26 @@ The software outputs the repeat-observed count, material-shift fraction and Wils
 We evaluated the diagnostic in a factorial simulation independent of the empirical values. Each simulated individual-occasion had a latent first-to-last displacement with independent Gaussian (x) and (y) components. The Euclidean span was compared with a material scale fixed to one simulation unit.
 
 We varied:
-- number of occasions (N=100,500);
+- number of occasions ($N=100,500$);
 - displacement component SD relative to material scale: 0.25, 0.5, 1.0 and 2.0;
 - baseline repeat-observation probability: 0.25, 0.50 and 0.75;
-- dependence of repeat observation on positional span: (eta=-1,0,+1).
+- dependence of repeat observation on positional span: $\beta=-1,0,+1$.
 
 Each of the 72 parameter cells used 400 replicates and a fixed reproducible random seed sequence.
 
 ### 2.4.2 Repeat-observation mechanisms
 
-Let (q) be the baseline repeat-observation probability and (r=delta/s) the span expressed in material-scale units. We generated the probability that an occasion was repeat-observed as
+Let $q$ be the baseline repeat-observation probability and $r=\delta/s$ the span expressed in material-scale units. We generated the probability that an occasion was repeat-observed as
 
-[
-p_{mathrm{repeat}}=
-operatorname{logit}^{-1}
-left[
-operatorname{logit}(q)+eta(r-1)
-ight].
-]
+\[
+p_{\mathrm{repeat}}=
+\operatorname{logit}^{-1}
+\left[
+\operatorname{logit}(q)+\beta(r-1)
+\right].
+\]
 
-When (eta=0), repeat observation was independent of positional span. When (eta>0), large spans were preferentially repeat-observed; when (eta<0), large spans were preferentially absent from the repeat-observed subset. The latter two scenarios were deliberate failure modes rather than assumptions of the proposed diagnostic.
+When $\beta=0$, repeat observation was independent of positional span. When $\beta>0$, large spans were preferentially repeat-observed; when $\beta<0$, large spans were preferentially absent from the repeat-observed subset. The latter two scenarios were deliberate failure modes rather than assumptions of the proposed diagnostic.
 
 ### 2.4.3 Performance metrics
 
@@ -202,9 +202,9 @@ A third candidate cricetid lacked sufficient repeat-capture support and was excl
 
 For each valid repeat-capture individual-night, we retained the earliest and latest valid trap flags under a deterministic nocturnal time ordering. The primary outcome was
 
-[
-I(d_{mathrm{first,last}}ge6.25mathrm{ m}),
-]
+\[
+I(d_{\mathrm{first,last}}\ge 6.25\,\mathrm{m}),
+\]
 
 where 6.25 m is exactly one adjacent-trap spacing.
 
@@ -219,13 +219,13 @@ Secondary, non-rescuing summaries included median, 75th and 90th percentile firs
 
 ## 2.6 All-occasion denominator audit
 
-The confirmatory fraction is conditioned on repeat observation. We therefore conducted a post-result denominator audit that did not alter the frozen decision rule. For each held-out species we counted all valid individual-nights, the subset with at least two valid captures, and nights on which a (ge1)-spacing shift was directly observed.
+The confirmatory fraction is conditioned on repeat observation. We therefore conducted a post-result denominator audit that did not alter the frozen decision rule. For each held-out species we counted all valid individual-nights, the subset with at least two valid captures, and nights on which a $\ge 1$-spacing shift was directly observed.
 
 We interpret
 
-[
-rac{	ext{directly observed material-shift nights}}{	ext{all valid individual-nights}}
-]
+\[
+\frac{\text{directly observed material-shift nights}}{\text{all valid individual-nights}}
+\]
 
 only as a lower bound. No assumption is made that single-capture nights had zero positional span.
 
@@ -239,9 +239,9 @@ Before any MCP area was calculated, the support gate required at least 20 eligib
 
 ## 3.1 Simulation benchmark
 
-The simulation benchmark produced the expected distinction between non-informative and informative repeat observation (Figure 2). Across (eta=0) cells, the mean absolute bias of the repeat-conditioned material-shift fraction was 0.00063, and mean Wilson coverage of the latent all-occasion fraction was 95.3%.
+The simulation benchmark produced the expected distinction between non-informative and informative repeat observation (Figure 2). Across $\beta=0$ cells, the mean absolute bias of the repeat-conditioned material-shift fraction was 0.00063, and mean Wilson coverage of the latent all-occasion fraction was 95.3%.
 
-When repeat observation was span-enriched ((eta=+1)), the conditional fraction was biased upward, with mean bias +0.0508 across parameter cells. When repeat observation was span-depleted ((eta=-1)), bias was downward, averaging -0.0799. The magnitude of bias varied with baseline repeat probability, span distribution and sample size, and Wilson coverage could deteriorate sharply under strongly informative repeat observation.
+When repeat observation was span-enriched ($\beta=+1$), the conditional fraction was biased upward, with mean bias +0.0508 across parameter cells. When repeat observation was span-depleted ($\beta=-1$), bias was downward, averaging -0.0799. The magnitude of bias varied with baseline repeat probability, span distribution and sample size, and Wilson coverage could deteriorate sharply under strongly informative repeat observation.
 
 The directly observed material-shift count divided by all occasions never exceeded the latent material-shift fraction in any simulated replicate. Across the full 72-cell benchmark and all replicates, the lower-bound violation count was zero.
 
@@ -257,15 +257,15 @@ For *P. eremicus*, 74 of 107 repeat-capture nights exhibited a material shift, c
 
 The frozen empirical programme decision was therefore
 
-[
-	exttt{authorize_live_trap_positional_aliasing_result}.
-]
+\[
+\texttt{authorize\_live\_trap\_positional\_aliasing\_result}.
+\]
 
 ## 3.3 Denominator context
 
 Repeat-observed nights represented a substantial but incomplete subset of all valid individual-nights (Figure 4).
 
-For *P. maniculatus*, 485 of 1,219 valid individual-nights were repeat-observed (39.8%). A material (ge6.25)-m shift was directly observed on 352 nights, so directly observed material shifts comprised at least 28.9% of all valid individual-nights.
+For *P. maniculatus*, 485 of 1,219 valid individual-nights were repeat-observed (39.8%). A material $\ge 6.25$-m shift was directly observed on 352 nights, so directly observed material shifts comprised at least 28.9% of all valid individual-nights.
 
 For *P. eremicus*, 107 of 301 valid individual-nights were repeat-observed (35.5%). Seventy-four nights showed a material shift, corresponding to an all-night directly observed lower bound of 24.6%.
 
@@ -362,13 +362,13 @@ This study is a secondary analysis of previously collected public data and invol
 
 # Figure captions
 
-**Figure 1. Temporal positional aliasing and deterministic sensitivity bounds.** A single ecological occasion can contain more than one valid observed spatial state for the same marked individual. For occasions (t) and (u), (F) and (L) denote first and last observed positions and (delta) the within-occasion positional span. The difference between FIRST→FIRST and LAST→LAST inter-occasion movement estimates is bounded by (delta_t+delta_u); population MPD sensitivity is bounded by twice mean within-occasion span.
+**Figure 1. Temporal positional aliasing and deterministic sensitivity bounds.** A single ecological occasion can contain more than one valid observed spatial state for the same marked individual. For occasions $t$ and $u$, $F$ and $L$ denote first and last observed positions and $\delta$ the within-occasion positional span. The difference between FIRST→FIRST and LAST→LAST inter-occasion movement estimates is bounded by $\delta_t+\delta_u$; population MPD sensitivity is bounded by twice mean within-occasion span.
 
 **Figure 2. Simulation benchmark for informative repeat observation.** Mean bias and Wilson coverage across the frozen parameter grid under span-depleted, non-informative and span-enriched repeat-observation mechanisms. Under non-informative repeat observation, bias is concentrated near zero and coverage is near nominal; informative repeat observation can produce large directional bias.
 
 **Figure 3. Prospectively held-out positional-aliasing validation.** Species-level material-shift fractions and 95% Wilson intervals for PEMA and PEER; small points show eligible trapping-grid fractions. The vertical dashed line is the frozen 25% materiality threshold.
 
-**Figure 4. Denominator context and positional-span magnitude.** A: fraction of all valid individual-nights that were repeat-observed and the conservative all-night fraction with directly observed (ge1)-spacing shifts. B: median and 90th-percentile first-to-last spans in trap-spacing units.
+**Figure 4. Denominator context and positional-span magnitude.** A: fraction of all valid individual-nights that were repeat-observed and the conservative all-night fraction with directly observed $\ge 1$-spacing shifts. B: median and 90th-percentile first-to-last spans in trap-spacing units.
 
 # References
 
