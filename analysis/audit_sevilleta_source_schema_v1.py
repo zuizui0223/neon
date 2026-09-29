@@ -47,7 +47,6 @@ def audit_file(path: Path) -> dict:
 
     row_count=0
     malformed_rows=0
-    structural_examples={name:set() for name in STRUCTURAL_PATTERNS}
     structural_columns={
         name:[col for col in header if pattern.search(col)]
         for name,pattern in STRUCTURAL_PATTERNS.items()
@@ -70,10 +69,7 @@ def audit_file(path: Path) -> dict:
         if len(row)!=len(header):
             malformed_rows+=1
             continue
-        for col in example_columns:
-            value=str(row[index[col]]).strip()
-            if value and len(structural_examples[col] if col in structural_examples else set())<20:
-                pass
+        # Row-shape validation only. Values are summarized in a separate pass.
 
     # Re-read with DictReader for deterministic small structural examples.
     examples={}
@@ -111,7 +107,7 @@ def audit_file(path: Path) -> dict:
         "required_presence":required_presence,
         "source_adequacy_for_next_estimability_design":all(
             required_presence[key]
-            for key in ("sex","species","site","web","trap","night","date")
+            for key in ("identity","sex","species","site","web","trap","night","date")
         ),
         "identity_column_present":required_presence["identity"],
         "sex_specific_effects_inspected":False,
