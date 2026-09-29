@@ -7,7 +7,9 @@ on:
     paths:
       - docs/ARCHES_HETEROMYID_CROSSSCALE_SOURCE_AUDIT_V1.md
       - analysis/audit_arches_heteromyid_source_v1.py
+      - analysis/resolve_dryad_files_v1.py
       - tests/test_arches_heteromyid_source_audit.py
+      - tests/test_dryad_file_resolver.py
       - .github/workflows/arches-heteromyid-source-audit.yml
   workflow_dispatch:
 
