@@ -27,6 +27,39 @@ class LiveTrapAliasingManuscriptV02Tests(unittest.TestCase):
         self.assertGreaterEqual(len(words),4000)
         self.assertLessEqual(len(words),8000)
 
+    def test_no_nonprinting_control_characters_remain(self):
+        forbidden=[
+            (index,ord(char))
+            for index,char in enumerate(self.text)
+            if ord(char)<32 and char not in {"\\n"}
+        ]
+        self.assertEqual(forbidden,[])
+
+    def test_mathematical_notation_is_well_formed(self):
+        required=(
+            r"\\delta_{it}",
+            r"\\ge",
+            r"\\le",
+            r"\\frac",
+            r"\\sum_{i<j}",
+            r"\\beta",
+            r"\\operatorname{logit}",
+            r"\\texttt{authorize\\_live\\_trap\\_positional\\_aliasing\\_result}",
+        )
+        for token in required:
+            self.assertIn(token,self.text)
+        broken=(
+            "Kge2",
+            "qquad",
+            "ledelta",
+            "2overline{",
+            "operatorname{logit}^{-1}",
+            "(ge1)",
+            "(ge6.25)",
+        )
+        for token in broken:
+            self.assertNotIn(token,self.text)
+
     def test_no_placeholder_markers_remain(self):
         upper=self.text.upper()
         for token in ("[CITE","TODO","TBD","PLACEHOLDER"):
