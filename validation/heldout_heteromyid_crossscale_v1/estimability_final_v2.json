@@ -1,0 +1,52 @@
+{
+  "schema": "neon.heldout_heteromyid_crossscale.estimability_final.v2",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36506349678,
+    "run_number": 10,
+    "workflow_head_sha": "2d24e4d73c82e99a3f888243b868bcb3a620262d",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11007392621,
+    "name": "heldout-heteromyid-crossscale-estimability-v1",
+    "digest": "sha256:53b393d9036abb2e9d6daad55e80a5f41be9ada868aa1c42145a9fdbf65f130e"
+  },
+  "final_gate": {
+    "registry_backed_coordinates": true,
+    "minimum_overlapping_sites_per_species": 2,
+    "packing_sessions_within_overlap_minimum": 10,
+    "movement_events_within_overlap_minimum": 5,
+    "minimum_species_meeting_both": 2,
+    "qualifying_species": [],
+    "qualifying_species_count": 0,
+    "decision": "stop_heldout_crossscale_not_estimable"
+  },
+  "nearest_species": {
+    "Perognathus parvus": {
+      "movement_gate_passed": true,
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false,
+      "overlapping_sites": [
+        "ONAQ"
+      ],
+      "overlap_packing_n5_sessions": 4,
+      "overlap_movement_n5_events": 15
+    },
+    "Chaetodipus eremicus": {
+      "movement_gate_passed": false,
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false,
+      "overlapping_sites": [
+        "JORN"
+      ],
+      "overlap_packing_n5_sessions": 2,
+      "overlap_movement_n5_events": 2
+    }
+  },
+  "heldout_packing_effects_inspected": false,
+  "heldout_movement_distances_inspected": false,
+  "ecological_effect_models_fit": 0,
+  "effect_analysis_authorized": false,
+  "manuscript_authorized": false
+}
