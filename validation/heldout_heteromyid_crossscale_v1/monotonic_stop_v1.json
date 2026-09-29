@@ -1,0 +1,69 @@
+{
+  "schema": "neon.heldout_heteromyid_crossscale.monotonic_stop.v1",
+  "frozen_date": "2026-09-29",
+  "effect_status": {
+    "heldout_packing_effects_inspected": false,
+    "heldout_movement_distances_inspected": false,
+    "ecological_effect_models_fit": 0
+  },
+  "broad_effect_blind_scan": {
+    "workflow_run_id": 36505882451,
+    "workflow_run_number": 2,
+    "workflow_head_sha": "245deeaa889ba50d2c3c530818909c8e9697d112",
+    "artifact_id": 11006848941,
+    "artifact_digest": "sha256:1e4884103d650f40c13d2ebfda29f754e40865f2ee67640c119c426685fdc3bd",
+    "gate_definition": "packing >=10 N5/sex sessions at >=2 sites AND movement >=5 N5/sex events at >=2 sites; no registry or site-overlap requirement",
+    "qualifying_species": [],
+    "qualifying_species_count": 0
+  },
+  "stricter_final_gate": {
+    "additionally_requires": [
+      "all used trap nodes resolve to finite NEON registry coordinates",
+      "packing and movement N5 eligible sets overlap at >=2 sites",
+      ">=10 packing sessions and >=5 movement events occur within those overlapping sites"
+    ],
+    "monotonic_relation": "strict_final_eligible_set_is_subset_of_broad_scan_eligible_set"
+  },
+  "nearest_candidates": {
+    "Perognathus parvus": {
+      "packing_n5_sessions": 4,
+      "packing_n5_sites": 1,
+      "packing_sites": {
+        "ONAQ": 4
+      },
+      "movement_n5_events": 15,
+      "movement_n5_sites": 1,
+      "movement_sites": {
+        "ONAQ": 15
+      }
+    },
+    "Chaetodipus eremicus": {
+      "packing_n5_sessions": 2,
+      "packing_n5_sites": 1,
+      "packing_sites": {
+        "JORN": 2
+      },
+      "movement_n5_events": 2,
+      "movement_n5_sites": 1,
+      "movement_sites": {
+        "JORN": 2
+      }
+    },
+    "Chaetodipus californicus": {
+      "packing_n5_sessions": 1,
+      "packing_n5_sites": 1,
+      "movement_n5_events": 0,
+      "movement_n5_sites": 0
+    },
+    "Chaetodipus hispidus": {
+      "packing_n5_sessions": 0,
+      "packing_n5_sites": 0,
+      "movement_n5_events": 1,
+      "movement_n5_sites": 1
+    }
+  },
+  "decision": "stop_heldout_crossscale_not_estimable",
+  "effect_analysis_authorized": false,
+  "manuscript_authorized": false,
+  "ruling": "Because zero held-out species pass the broader effect-blind gate, no species can pass the stricter registry-backed site-matched gate. No held-out sex-specific effect is opened."
+}
