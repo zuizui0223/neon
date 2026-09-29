@@ -17,6 +17,14 @@ def row(**kwargs):
 
 
 class KonzaHispidusEstimabilityTests(unittest.TestCase):
+    def test_raw_species_code_is_case_insensitive(self):
+        rows=[
+            row(Species="ch",TrapDay="1",Sta="1",Sex="M",REarTag="1"),
+            row(Species="CH",TrapDay="2",Sta="2",Sex="M",REarTag="1"),
+        ]
+        out=m.movement_identity_summary(rows)
+        self.assertEqual(out["n_recapture_male"],1)
+
     def test_mark_normalization_requires_digit(self):
         self.assertIsNone(m._mark("RE"))
         self.assertEqual(m._mark("R-010"),"R010")
