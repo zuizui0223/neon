@@ -64,29 +64,66 @@ jobs:
 
               results=(payload.get("results") or [])
               print("DATAGOV_V4_RESULTS",len(results),flush=True)
+
+              def collect_urls(value):
+                  found=[]
+                  if isinstance(value,dict):
+                      for key,child in value.items():
+                          if isinstance(child,str) and child.startswith(("http://","https://")):
+                              found.append((str(key),child))
+                          else:
+                              found.extend(collect_urls(child))
+                  elif isinstance(value,list):
+                      for child in value:
+                          found.extend(collect_urls(child))
+                  return found
+
+              metadata_matches=[]
               for result in results:
                   dcat=result.get("dcat") or {}
                   title=str(dcat.get("title",""))
                   if "Small Mammal Exclusion Study" not in title or "Rodent" not in title:
                       continue
                   print("DATAGOV_MATCH",title,flush=True)
-                  for resource in (dcat.get("distribution") or []):
-                      if not isinstance(resource,dict):
-                          continue
-                      candidates=[
-                          resource.get("downloadURL"),
-                          resource.get("accessURL"),
-                          resource.get("url"),
-                      ]
-                      fmt=" ".join(str(resource.get(k,"")) for k in (
-                          "format","mediaType","title","description"
-                      )).lower()
-                      for candidate in candidates:
-                          url=str(candidate or "").strip()
-                          if not url:
-                              continue
-                          if "csv" in fmt or ".csv" in url.lower():
-                              urls.append(url)
+
+                  record={
+                      "title":title,
+                      "identifier":result.get("identifier"),
+                      "slug":result.get("slug"),
+                      "distribution_titles":result.get("distribution_titles"),
+                      "dcat_distribution":dcat.get("distribution"),
+                      "landingPage":dcat.get("landingPage"),
+                      "harvest_record":result.get("harvest_record"),
+                      "harvest_record_raw":result.get("harvest_record_raw"),
+                  }
+
+                  raw_url=str(result.get("harvest_record_raw") or "")
+                  if raw_url:
+                      try:
+                          raw_req=urllib.request.Request(raw_url,headers=api_headers)
+                          with urllib.request.urlopen(raw_req,timeout=90) as response:
+                              raw_payload=json.loads(response.read().decode("utf-8"))
+                          record["harvest_raw"]=raw_payload
+                      except Exception as raw_error:
+                          record["harvest_raw_error"]=f"{type(raw_error).__name__}: {raw_error}"
+
+                  metadata_matches.append(record)
+
+                  for key,url in collect_urls(record):
+                      low=url.lower()
+                      if (
+                          ".csv" in low
+                          or "download" in low
+                          or "data_files" in low
+                          or "resource" in low
+                      ):
+                          print("DATAGOV_URL",key,url,flush=True)
+                          urls.append(url)
+
+              pathlib.Path("data/cache/jornada_smes/datagov_metadata.json").write_text(
+                  json.dumps(metadata_matches,indent=2,sort_keys=True)+"\n",
+                  encoding="utf-8",
+              )
           except Exception as error:
               print("DATAGOV_DISCOVERY_ERROR",type(error).__name__,error,flush=True)
 
@@ -124,6 +161,7 @@ jobs:
               encoding="utf-8",
           )
           if not saved:
+              print("NO_DOWNLOADABLE_CSV_AFTER_METADATA_DISCOVERY",flush=True)
               raise SystemExit("no public CSV resource could be downloaded")
           PY
 
