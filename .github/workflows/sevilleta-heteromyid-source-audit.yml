@@ -1,0 +1,113 @@
+name: sevilleta-heteromyid-source-audit
+
+on:
+  push:
+    branches:
+      - design/sevilleta-heteromyid-crossscale-v1
+    paths:
+      - docs/SEVILLETA_HETEROMYID_CROSSSCALE_SOURCE_AUDIT_V1.md
+      - analysis/audit_sevilleta_source_schema_v1.py
+      - tests/test_sevilleta_source_schema_audit.py
+      - .github/workflows/sevilleta-heteromyid-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/sevilleta-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify source-audit tests
+        run: python -m unittest tests.test_sevilleta_source_schema_audit -v
+
+      - name: Download frozen Sevilleta public source
+        run: |
+          set -euo pipefail
+          mkdir -p data/cache/sevilleta
+          OUT=data/cache/sevilleta/sev008_rodentpopns_20151022.txt
+
+          urls=(
+            "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1280&context=lter_sev_data&filename=3&type=additional"
+            "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1227&context=lter_sev_data&filename=3&type=additional"
+          )
+
+          ok=0
+          for url in "${urls[@]}"; do
+            echo "TRY_SOURCE $url"
+            if curl -L --fail --retry 3 --retry-delay 3               -A "Mozilla/5.0 sevilleta-crossscale-source-audit/1.0"               "$url" -o "$OUT"; then
+              if [ -s "$OUT" ] && [ "$(wc -c < "$OUT")" -gt 500000 ]; then
+                ok=1
+                break
+              fi
+            fi
+          done
+
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::Could not retrieve the frozen public Sevilleta data file."
+            exit 4
+          fi
+
+          file "$OUT"
+          wc -c "$OUT"
+          sha256sum "$OUT"
+
+      - name: Audit schema only
+        run: |
+          python analysis/audit_sevilleta_source_schema_v1.py             --input data/cache/sevilleta/sev008_rodentpopns_20151022.txt             --output /tmp/sevilleta_source_schema_audit_v1.json
+
+      - name: Assert no ecological outcome was opened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(Path("/tmp/sevilleta_source_schema_audit_v1.json").read_text())
+          assert p["sex_specific_effects_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "sha256":p["sha256"],
+              "size_bytes":p["size_bytes"],
+              "data_row_count":p["data_row_count"],
+              "columns":p["columns"],
+              "structural_columns":p["structural_columns"],
+              "source_adequacy_for_next_estimability_design":
+                  p["source_adequacy_for_next_estimability_design"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source-schema receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/sevilleta-heteromyid-crossscale-v1
+
+          mkdir -p validation/sevilleta_heteromyid_crossscale_v1
+          cp /tmp/sevilleta_source_schema_audit_v1.json              validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v1.json
+
+          git add validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "source schema receipt unchanged"
+          else
+            git commit -m "Freeze Sevilleta source schema audit"
+            git push origin HEAD:design/sevilleta-heteromyid-crossscale-v1
+          fi
+
+      - name: Upload source audit receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: sevilleta-heteromyid-source-audit-v1
+          path: /tmp/sevilleta_source_schema_audit_v1.json
+          if-no-files-found: error
+          retention-days: 30
