@@ -3,21 +3,22 @@
 This package is intentionally narrower than the parent NEON repository.
 
 ## Manuscript
-- MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_2.md
-- SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_1.md
+- MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md
+- SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md
 - README_LIVE_TRAP_ALIASING.md
-- docs/FIGURE_CAPTIONS_V1.md
+- docs/FIGURE_CAPTIONS_V2.md
 - docs/SUBMISSION_STATEMENTS_V1.md
 - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md
 - docs/MEE_PRESUBMISSION_ENQUIRY_DRAFT_V1.md
-- docs/MEE_PRESUBMISSION_ENQUIRY_READY_V2.md
+- docs/MEE_PRESUBMISSION_ENQUIRY_READY_V3.md
 - docs/APPLICABILITY_MATRIX_V1.md
 - docs/KEY_METHOD_STATEMENTS_V1.md
 
 ## Generic method
 - analysis/temporal_aliasing_diagnostic_v1.py
 - analysis/temporal_aliasing_bounds_v1.py
-- analysis/simulate_temporal_aliasing_diagnostic_v1.py
+- analysis/simulate_temporal_aliasing_diagnostic_v2.py
+- docs/SIMULATION_BENCHMARK_CORRECTION_V2.md
 - examples/repeated_locations_example.csv
 - examples/repeated_locations_example_expected.json
 - docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md
@@ -28,7 +29,7 @@ This package is intentionally narrower than the parent NEON repository.
 - tests/test_temporal_aliasing_diagnostic.py
 - tests/test_temporal_aliasing_example.py
 - tests/test_temporal_aliasing_bounds.py
-- tests/test_temporal_aliasing_simulation.py
+- tests/test_temporal_aliasing_simulation_v2.py
 
 ## Prospectively held-out empirical validation
 - analysis/san_jacinto_positional_aliasing_v1.py
@@ -40,9 +41,13 @@ This package is intentionally narrower than the parent NEON repository.
 
 ## Observation-process context
 - analysis/live_trap_aliasing_denominator_audit_v1.py
+- analysis/audit_live_trap_aliasing_individual_cluster_v1.py
 - tests/test_live_trap_aliasing_denominator_audit.py
+- tests/test_live_trap_aliasing_individual_cluster_v1.py
 - validation/live_trap_aliasing_v1/denominator_audit_v1.json
-- results/temporal_aliasing_simulation_benchmark_v1.json
+- validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
+- validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
+- results/temporal_aliasing_simulation_benchmark_v2.json
 - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
 - validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
 - validation/live_trap_aliasing_v1/downstream_home_range_stop_v1.json
@@ -59,7 +64,7 @@ This package is intentionally narrower than the parent NEON repository.
 - analysis/plot_live_trap_aliasing_figures_v1.py
 
 ## Manuscript claim invariants
-- tests/test_live_trap_aliasing_manuscript_v0_2.py
+- tests/test_live_trap_aliasing_manuscript_v0_3.py
 
 ## Environment / license
 - LICENSE
