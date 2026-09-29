@@ -89,5 +89,30 @@ class HeldoutCrossscaleEstimabilityTests(unittest.TestCase):
         )
 
 
+    def test_disjoint_endpoint_sites_do_not_pass_crossscale_gate(self):
+        packing=[]
+        movement=[]
+        for species in ("Chaetodipus hispidus","Perognathus parvus"):
+            for site in ("A","B"):
+                for _ in range(5):
+                    packing.append({
+                        "species":species,"site":site,
+                        "paired_n3_eligible":True,
+                        "paired_n5_eligible":True,
+                    })
+            for site in ("C","D"):
+                for _ in range(3):
+                    movement.append({
+                        "species":species,"site":site,
+                        "paired_n3_eligible":True,
+                        "paired_n5_eligible":True,
+                    })
+        out=m.summarize_crossscale(packing,movement)
+        self.assertFalse(out["crossscale_gate"]["passed"])
+        for species in out["species"].values():
+            self.assertEqual(species["overlapping_n5_site_count"],0)
+            self.assertFalse(species["site_matched_gate_passed"])
+
+
 if __name__=="__main__":
     unittest.main()
