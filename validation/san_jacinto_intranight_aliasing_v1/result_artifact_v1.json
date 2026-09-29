@@ -1,0 +1,19 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.result_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36581223875,
+    "run_number": 1,
+    "workflow_name": "san-jacinto-intranight-aliasing",
+    "workflow_head_sha": "3123e4f85d705e10a0ce950bde90e9ade8dacaa6",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11040206808,
+    "name": "san-jacinto-intranight-aliasing-v1",
+    "digest": "sha256:00c4e11d43608052400194b972f04ff618cc1de03aae6375ed962285da9b81c7",
+    "size_in_bytes": 13027
+  },
+  "result_commit": "7a8cf49ae184a57ccf0b287401e9caee9496f5b0",
+  "decision": "confirm_intranight_positional_aliasing_across_cricetids"
+}
