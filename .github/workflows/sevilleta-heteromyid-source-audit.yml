@@ -69,7 +69,9 @@ jobs:
 
       - name: Audit schema only
         run: |
-          python analysis/audit_sevilleta_source_schema_v1.py             --input data/cache/sevilleta/sev008_rodentpopns_20151022.txt             --output /tmp/sevilleta_source_schema_audit_v2.json
+          python analysis/audit_sevilleta_source_schema_v2.py \
+            --input data/cache/sevilleta/sev008_rodentpopns_20151022.txt \
+            --output /tmp/sevilleta_source_schema_audit_v2.json
 
       - name: Assert no ecological outcome was opened
         run: |
@@ -78,6 +80,11 @@ jobs:
           from pathlib import Path
 
           p=json.loads(Path("/tmp/sevilleta_source_schema_audit_v2.json").read_text())
+          assert p["schema"] == "neon.sevilleta_heteromyid_crossscale.source_schema_audit.v2"
+          assert p["structural_columns"]["species"] == ["valid_name"]
+          assert p["structural_columns"]["identity"] == []
+          assert p["identity_column_present"] is False
+          assert p["source_adequacy_for_next_estimability_design"] is False
           assert p["sex_specific_effects_inspected"] is False
           assert p["movement_distances_computed"] is False
           assert p["packing_effects_computed"] is False
@@ -106,7 +113,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "source schema receipt unchanged"
           else
-            git commit -m "Freeze Sevilleta source schema audit"
+            git commit -m "Freeze corrected Sevilleta source schema audit v2"
             git push origin HEAD:design/sevilleta-heteromyid-crossscale-v1
           fi
 
