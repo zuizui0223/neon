@@ -1,0 +1,38 @@
+{
+  "schema": "neon.wyoming_crossscale.source_access_stop.v1",
+  "frozen_date": "2026-09-29",
+  "dataset": {
+    "title": "It's a Trap: Optimizing Detection of Rare Small Mammals",
+    "doi": "10.15786/n57k-sz82",
+    "repository_page": "https://datacorral.uwyo.edu/repository/Harkins1",
+    "advertised_resource": "https://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip"
+  },
+  "access_attempts": [
+    {
+      "route": "https://datacorral.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip",
+      "result": "HTTP 404"
+    },
+    {
+      "route": "http://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip",
+      "result": "TCP connect timeout on port 80 after repeated attempts"
+    },
+    {
+      "route": "https://pathfinder.arcc.uwyo.edu/publications/ZooPhys/Harkins_etal_OriginalData.zip",
+      "result": "TCP connect timeout on port 443 after repeated attempts"
+    }
+  ],
+  "github_workflow_run": {
+    "id": 36522860228,
+    "run_number": 3,
+    "conclusion": "failure_at_source_download"
+  },
+  "source_schema_inspected": false,
+  "species_support_counts_inspected": false,
+  "sex_specific_effects_inspected": false,
+  "movement_distances_inspected": false,
+  "packing_effects_inspected": false,
+  "ecological_effect_models_fit": 0,
+  "source_analysis_authorized": false,
+  "decision": "stop_wyoming_source_unavailable",
+  "ruling": "The biological design remains viable in principle, but the advertised CC0 source file is not reproducibly retrievable from any tested public route. No ecological outcome was opened."
+}
