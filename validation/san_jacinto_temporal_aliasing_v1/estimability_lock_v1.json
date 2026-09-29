@@ -1,0 +1,47 @@
+{
+  "schema": "neon.san_jacinto_temporal_aliasing_holdout.estimability_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_holdout_support_counts",
+  "heldout_species": {
+    "PEMA": "Peromyscus maniculatus",
+    "PEER": "Peromyscus eremicus",
+    "REME": "Reithrodontomys megalotis"
+  },
+  "source": {
+    "figshare_article_id": 18295520,
+    "file_id": 33058799,
+    "file": "year round trap data.csv",
+    "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "geometry": {
+    "flags": "A1-G7",
+    "flag_count": 49,
+    "spacing_m": 6.25
+  },
+  "preprocessing": {
+    "bout_gap_days_max": 7,
+    "identity_key": [
+      "grid",
+      "species",
+      "unique_ID"
+    ],
+    "require_valid_id": true,
+    "require_valid_flag": true,
+    "require_valid_date": true,
+    "require_valid_nocturnal_time": true
+  },
+  "repeat_capture_night_min": 100,
+  "repeat_capture_grid_min": 2,
+  "repeat_capture_bout_min": 6,
+  "movement_event_individual_min": 10,
+  "movement_event_min": 5,
+  "movement_event_grid_min": 2,
+  "programme_species_min": 2,
+  "pass_decision": "authorize_temporal_aliasing_effect_lock",
+  "fail_decision": "stop_temporal_aliasing_holdout_not_estimable",
+  "first_last_distance_values_inspected": false,
+  "first_last_change_outcomes_inspected": false,
+  "first_last_movement_sensitivity_inspected": false,
+  "packing_stability_inspected": false,
+  "ecological_model_fits": 0
+}
