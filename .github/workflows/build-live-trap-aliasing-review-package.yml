@@ -6,6 +6,8 @@ on:
       - paper/live-trap-aliasing-v1
     paths:
       - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_2.md
+      - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_1.md
+      - README_LIVE_TRAP_ALIASING.md
       - docs/REVIEW_PACKAGE_MANIFEST_V1.md
       - docs/SUBMISSION_STATEMENTS_V1.md
       - figures/**
@@ -36,6 +38,8 @@ jobs:
           mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,figures}
 
           cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_2.md /tmp/live-trap-aliasing-review/
+          cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_1.md /tmp/live-trap-aliasing-review/
+          cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
 
           cp docs/REVIEW_PACKAGE_MANIFEST_V1.md /tmp/live-trap-aliasing-review/docs/
@@ -43,6 +47,9 @@ jobs:
           cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_PRESUBMISSION_ENQUIRY_DRAFT_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_PRESUBMISSION_ENQUIRY_READY_V2.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/APPLICABILITY_MATRIX_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/KEY_METHOD_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/TEMPORAL_ALIASING_GEOMETRY_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SIMULATION_BENCHMARK_PLAN_V1.md /tmp/live-trap-aliasing-review/docs/
