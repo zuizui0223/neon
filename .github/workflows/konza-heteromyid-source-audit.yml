@@ -1,0 +1,87 @@
+name: konza-heteromyid-source-audit
+
+on:
+  push:
+    branches:
+      - design/konza-heteromyid-crossscale-v1
+    paths:
+      - docs/KONZA_HETEROMYID_CROSSSCALE_SOURCE_AUDIT_V1.md
+      - analysis/audit_konza_heteromyid_source_v1.py
+      - tests/test_konza_heteromyid_source_audit.py
+      - .github/workflows/konza-heteromyid-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/konza-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify source-audit tests
+        run: python -m unittest tests.test_konza_heteromyid_source_audit -v
+
+      - name: Download pinned Konza CSM012 source
+        run: |
+          set -euo pipefail
+          mkdir -p data/cache/konza
+          curl -L --fail --retry 3 --retry-delay 2 \
+            -A "konza-heteromyid-source-audit/1.0" \
+            "https://raw.githubusercontent.com/sarahsupp/KNZ-incidence/c354a2fb8a034e254365f0ffbe0e0ce82bdfea66/Datasets/Raw_data/Small_mammals/CSM012.csv" \
+            -o data/cache/konza/CSM012.csv
+          test "$(wc -c < data/cache/konza/CSM012.csv)" -gt 1000000
+          sha256sum data/cache/konza/CSM012.csv
+
+      - name: Audit structural schema only
+        run: |
+          python analysis/audit_konza_heteromyid_source_v1.py \
+            --input data/cache/konza/CSM012.csv \
+            --output /tmp/konza_source_schema_audit_v1.json
+
+      - name: Assert effect-blind audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/konza_source_schema_audit_v1.json").read_text())
+          assert p["source_adequacy_for_estimability_design"] is True
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "sha256":p["sha256"],
+              "size_bytes":p["size_bytes"],
+              "data_row_count":p["data_row_count"],
+              "columns":p["columns"],
+              "non_stratified_structural_examples":
+                  p["non_stratified_structural_examples"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/konza-heteromyid-crossscale-v1
+          mkdir -p validation/konza_heteromyid_crossscale_v1
+          cp /tmp/konza_source_schema_audit_v1.json \
+             validation/konza_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          git add validation/konza_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "source audit unchanged"
+          else
+            git commit -m "Freeze Konza heteromyid source schema audit"
+            git push origin HEAD:design/konza-heteromyid-crossscale-v1
+          fi
