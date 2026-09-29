@@ -20,17 +20,19 @@ class CrossscaleTransferEstimabilityTests(unittest.TestCase):
     def test_programme_gate_passes_with_crossed_replication(self):
         packing=[]
         movement=[]
-        species=[f"Species {i}" for i in range(5)]
-        # 10 strata: every species at two sites.
-        for i,name in enumerate(species):
-            for site in ("A","B"):
-                for j in range(5):
-                    packing.append({
-                        "species":name,"site":site,
-                    })
-                    movement.append({
-                        "species":name,"site":site,
-                    })
+        species_sites={
+            "Species 0":("A","B"),
+            "Species 1":("A","C"),
+            "Species 2":("B","D"),
+            "Species 3":("C","D"),
+            "Species 4":("A","D"),
+        }
+        # 10 strata across 5 species and 4 sites; every species has two sites.
+        for name,sites in species_sites.items():
+            for site in sites:
+                for _ in range(5):
+                    packing.append({"species":name,"site":site})
+                    movement.append({"species":name,"site":site})
         out=m.summarize(packing,movement)
         self.assertTrue(out["programme_gate"]["passed"])
         self.assertEqual(
@@ -40,6 +42,7 @@ class CrossscaleTransferEstimabilityTests(unittest.TestCase):
         self.assertEqual(
             out["programme_gate"]["qualifying_species_site_strata"],10
         )
+        self.assertEqual(out["programme_gate"]["qualifying_site_count"],4)
         self.assertEqual(
             out["programme_gate"]["species_with_two_or_more_sites_count"],5
         )
