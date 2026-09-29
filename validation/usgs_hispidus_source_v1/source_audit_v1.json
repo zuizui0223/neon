@@ -1,0 +1,81 @@
+{
+  "audited_text_files": [],
+  "catalog_identifier": "USGS:f36fdaba-fe3d-4e59-a68f-fdc034219816",
+  "catalog_name": "USGS:f36fdaba-fe3d-4e59-a68f-fdc034219816",
+  "catalog_resolution_mode": "pinned_figshare_article_from_public_data_gov_distribution",
+  "catalog_resources": [
+    {
+      "format": "FIGSHARE",
+      "name": "Digital Data",
+      "url": "https://doi.org/10.6084/m9.figshare.30290941"
+    }
+  ],
+  "catalog_title": "To ear tag or to PIT tag",
+  "ecological_effect_models_fit": 0,
+  "figshare_articles": [
+    {
+      "api_status": 200,
+      "api_url": "https://api.figshare.com/v2/articles/30290941",
+      "article_id": "30290941",
+      "doi": "10.6084/m9.figshare.30290941.v1",
+      "files": [
+        {
+          "computed_md5": "a4f03175b83757c2cef91f916e2b3991",
+          "download_url": "https://ndownloader.figshare.com/files/65268627",
+          "id": 65268627,
+          "is_link_only": false,
+          "name": "Goldberg_etal_Data_raw.zip",
+          "size": 159691,
+          "supplied_md5": "a4f03175b83757c2cef91f916e2b3991"
+        },
+        {
+          "computed_md5": "0395c1e63f4af74e99e9cb735bc221c9",
+          "download_url": "https://ndownloader.figshare.com/files/65268630",
+          "id": 65268630,
+          "is_link_only": false,
+          "name": "Goldberg_etal_Data_input.zip",
+          "size": 59879,
+          "supplied_md5": "0395c1e63f4af74e99e9cb735bc221c9"
+        },
+        {
+          "computed_md5": "bdab825e5b2ea4c010ebddfa723e7bc3",
+          "download_url": "https://ndownloader.figshare.com/files/65268633",
+          "id": 65268633,
+          "is_link_only": false,
+          "name": "Goldberg_etal_LogRegression.zip",
+          "size": 45147,
+          "supplied_md5": "bdab825e5b2ea4c010ebddfa723e7bc3"
+        },
+        {
+          "computed_md5": "e2d1dcdfae174c1fb31e7bde4ec2c989",
+          "download_url": "https://ndownloader.figshare.com/files/65268636",
+          "id": 65268636,
+          "is_link_only": false,
+          "name": "Goldberg_etal_Rcode_mvmscjs.zip",
+          "size": 40009,
+          "supplied_md5": "e2d1dcdfae174c1fb31e7bde4ec2c989"
+        },
+        {
+          "computed_md5": "4da8c6e74d50df08adb367612ead2f1c",
+          "download_url": "https://ndownloader.figshare.com/files/65874303",
+          "id": 65874303,
+          "is_link_only": false,
+          "name": "tagloss_metadata.xml",
+          "size": 129712,
+          "supplied_md5": "4da8c6e74d50df08adb367612ead2f1c"
+        }
+      ],
+      "title": "Data associated with: To ear tag or to PIT tag? A comparison of mark loss rates for eight rodent species"
+    }
+  ],
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "pinned_figshare_article_id": "30290941",
+  "schema": "neon.usgs_hispidus_source_audit.v1",
+  "sciencebase_items": [],
+  "sex_specific_counts_inspected": false,
+  "source_adequacy_for_estimability_design": false,
+  "species_specific_counts_inspected": false,
+  "structurally_adequate_files": [],
+  "xml_metadata": []
+}
