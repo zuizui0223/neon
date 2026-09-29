@@ -1,0 +1,72 @@
+{
+  "both_species_robust_to_individual_grid_and_bout_clustering": true,
+  "can_change_primary_decision": false,
+  "date": "2026-09-29",
+  "inferential_role": "post_result_robustness_only",
+  "primary_decision": "confirm_intranight_positional_aliasing_across_cricetids",
+  "schema": "neon.san_jacinto_intranight_aliasing.cluster_robust_audit.v1",
+  "species": {
+    "PEER": {
+      "all_cluster_ci95_lows_above_0_25": true,
+      "bout_equal_weight": {
+        "ci95_high": 0.834173650441373,
+        "ci95_low": 0.47330664703892444,
+        "cluster_count": 10,
+        "df": 9,
+        "mean_fraction": 0.6537401487401487,
+        "sd_across_clusters": 0.2522286430664912,
+        "standard_error": 0.0797617003223749
+      },
+      "grid_equal_weight": {
+        "ci95_high": 0.9133459007302691,
+        "ci95_low": 0.4480916035643781,
+        "cluster_count": 3,
+        "df": 2,
+        "mean_fraction": 0.6807187521473236,
+        "sd_across_clusters": 0.0936450292117806,
+        "standard_error": 0.0540659828236919
+      },
+      "individual_equal_weight": {
+        "ci95_high": 0.7993219268137753,
+        "ci95_low": 0.5192301093853197,
+        "cluster_count": 34,
+        "df": 33,
+        "mean_fraction": 0.6592760180995475,
+        "sd_across_clusters": 0.4013737118646034,
+        "standard_error": 0.0688350236981765
+      },
+      "night_level_primary_fraction": 0.6915887850467289
+    },
+    "PEMA": {
+      "all_cluster_ci95_lows_above_0_25": true,
+      "bout_equal_weight": {
+        "ci95_high": 0.7867589587789963,
+        "ci95_low": 0.6006040031883007,
+        "cluster_count": 12,
+        "df": 11,
+        "mean_fraction": 0.6936814809836485,
+        "sd_across_clusters": 0.1464934189517153,
+        "standard_error": 0.04228900743314073
+      },
+      "grid_equal_weight": {
+        "ci95_high": 0.8204317301802301,
+        "ci95_low": 0.5625219190113361,
+        "cluster_count": 8,
+        "df": 7,
+        "mean_fraction": 0.6914768245957831,
+        "sd_across_clusters": 0.15424841920590532,
+        "standard_error": 0.05453505160390047
+      },
+      "individual_equal_weight": {
+        "ci95_high": 0.7668810126204295,
+        "ci95_low": 0.6553501222577642,
+        "cluster_count": 170,
+        "df": 169,
+        "mean_fraction": 0.7111155674390969,
+        "sd_across_clusters": 0.36831583198548884,
+        "standard_error": 0.02824853479710604
+      },
+      "night_level_primary_fraction": 0.7257731958762886
+    }
+  }
+}
