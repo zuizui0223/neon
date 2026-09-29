@@ -28,7 +28,9 @@ def wilson_interval(success: int, total: int, z: float=Z95) -> tuple[float,float
     denom=1+z2/total
     center=(p+z2/(2*total))/denom
     half=z*math.sqrt((p*(1-p)+z2/(4*total))/total)/denom
-    return max(0.0,center-half),min(1.0,center+half)
+    low=0.0 if success==0 else max(0.0,center-half)
+    high=1.0 if success==total else min(1.0,center+half)
+    return low,high
 
 
 def quantile(values: list[float], q: float) -> float | None:
