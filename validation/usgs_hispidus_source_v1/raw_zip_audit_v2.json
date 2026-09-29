@@ -1,0 +1,325 @@
+{
+  "archive_md5": "a4f03175b83757c2cef91f916e2b3991",
+  "archive_name": "Goldberg_etal_Data_raw.zip",
+  "archive_sha256": "4c8bb6eb23c4528158d6d5c1a34f60c60046577cdeab4dcaf20286d480d4e0c1",
+  "archive_size_bytes": 159691,
+  "ecological_effect_models_fit": 0,
+  "members": [
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_bad.csv",
+      "audited_as_text": true,
+      "column_count": 14,
+      "columns": [
+        "Species",
+        "Date",
+        "Session",
+        "Site",
+        "Sex",
+        "Mass",
+        "LEFT",
+        "RIGHT",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Study",
+        "ID_use"
+      ],
+      "data_row_count": 689,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "a78599eb3ddf24fe166177289e1be37b9aca7f210f3425a91fb12fe76e764ac6",
+      "size_bytes": 47598,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "PIT_numb",
+          "PIT",
+          "ID_use"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    },
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_btpd.csv",
+      "audited_as_text": true,
+      "column_count": 14,
+      "columns": [
+        "Site",
+        "Species",
+        "Date",
+        "Session",
+        "L_EAR",
+        "R_EAR",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Study",
+        "ID_use",
+        "Sex",
+        "Mass"
+      ],
+      "data_row_count": 3932,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "fb4fcf4c41d03d4dda6ec8d0e4feff0e26b6da6cdc11dbc5d1461eae5ed1c59d",
+      "size_bytes": 315379,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "PIT_numb",
+          "PIT",
+          "ID_use"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    },
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_co_mice.csv",
+      "audited_as_text": true,
+      "column_count": 14,
+      "columns": [
+        "Site",
+        "Date",
+        "Session",
+        "Species",
+        "Sex",
+        "Mass",
+        "Left",
+        "Right",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Study",
+        "ID_use"
+      ],
+      "data_row_count": 576,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "1f6e4f62feee8513e5d150daf3aa53ccd2c8175c2f3337322312af64a4ddd894",
+      "size_bytes": 35889,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "PIT_numb",
+          "PIT",
+          "ID_use"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    },
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_co_nmex.csv",
+      "audited_as_text": true,
+      "column_count": 14,
+      "columns": [
+        "Species",
+        "Date",
+        "Session",
+        "Sex",
+        "Mass",
+        "Site",
+        "L",
+        "R",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Study",
+        "ID_use"
+      ],
+      "data_row_count": 242,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "d32cdad4ec3ed4f7a54c3622f1a04ec82bd48a00c9328ffa9705bae3f69bba04",
+      "size_bytes": 17187,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "PIT_numb",
+          "PIT",
+          "ID_use"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    },
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_nm.csv",
+      "audited_as_text": true,
+      "column_count": 15,
+      "columns": [
+        "",
+        "Species",
+        "Date",
+        "Session",
+        "Sex",
+        "Mass",
+        "Site",
+        "L.Ear.Tag",
+        "R.Ear.Tag",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Study",
+        "ID_use"
+      ],
+      "data_row_count": 4531,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "54e9366900b918c74af276ecab3f8d41e2396ec8b3290761664798c815433054",
+      "size_bytes": 334709,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "L.Ear.Tag",
+          "R.Ear.Tag",
+          "PIT_numb",
+          "PIT",
+          "ID_use"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    },
+    {
+      "archive_member": "Goldberg_etal_Data_raw/tagloss_raw_upd.csv",
+      "audited_as_text": true,
+      "column_count": 14,
+      "columns": [
+        "Study",
+        "Site",
+        "Date",
+        "Species",
+        "ID_use",
+        "Session",
+        "lt",
+        "rt",
+        "PIT_numb",
+        "LET",
+        "RET",
+        "PIT",
+        "Sex",
+        "Mass"
+      ],
+      "data_row_count": 3492,
+      "delimiter": "','",
+      "has_spatial_capture_field": false,
+      "malformed_row_count": 0,
+      "sha256": "3fe426640887902fa8ce408882481824b1d2f68bb9f129596ff6383abffcc1dc",
+      "size_bytes": 214918,
+      "structural_columns": {
+        "capture_time": [
+          "Date",
+          "Session"
+        ],
+        "identity": [
+          "ID_use",
+          "PIT_numb",
+          "PIT"
+        ],
+        "latitude": [],
+        "longitude": [],
+        "sex": [
+          "Sex"
+        ],
+        "site_or_plot": [
+          "Site"
+        ],
+        "species": [
+          "Species"
+        ],
+        "trap_or_station": []
+      },
+      "structurally_adequate_for_estimability_design": false
+    }
+  ],
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "schema": "neon.usgs_hispidus_source_audit.raw_zip.v2",
+  "sex_specific_counts_inspected": false,
+  "source_adequacy_for_estimability_design": false,
+  "species_specific_counts_inspected": false,
+  "structurally_adequate_members": []
+}
