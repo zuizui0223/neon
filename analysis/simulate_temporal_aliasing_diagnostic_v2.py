@@ -10,6 +10,8 @@ observed all-occasion fraction is evaluated as a deterministic lower bound on
 the realized all-occasion fraction.
 """
 
+# AI assistance disclosure: This file was drafted or refactored with OpenAI ChatGPT (GPT-5.6 Sol, September 2026); it remains under author responsibility and is verified by repository tests/workflows.
+
 from __future__ import annotations
 
 import argparse
