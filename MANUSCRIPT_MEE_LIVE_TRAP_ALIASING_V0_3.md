@@ -14,6 +14,10 @@
 
 4. Temporal positional aliasing is therefore a measurable property of repeated-location observation protocols, not merely a theoretical possibility. The diagnostic does not reconstruct movement paths or identify a uniquely correct representative location. Instead, it provides a lightweight pre-analysis screen for deciding when within-occasion spatial variation is material relative to the intended analytical scale, when finer temporal modelling or sensitivity analysis may be warranted, and how much selected downstream spatial statistics can change solely because of the representative-location rule. Open-source code and a generic command-line implementation are provided.
 
+## Data/Code for peer review
+
+An anonymized, self-contained review package containing the generic diagnostic, deterministic sensitivity bounds, corrected simulation benchmark, frozen empirical result files, tests and figures is supplied as a single reviewer file. The third-party San Jacinto capture data are not redistributed in that package; they are publicly available from Figshare (DOI 10.6084/m9.figshare.18295520.v1), and the empirical pipeline verifies the frozen source-file checksum before analysis. A versioned archival code release and persistent identifier will replace the review-stage package record before final publication.
+
 ## Keywords
 
 observation process; spatial ecology; temporal aggregation; capture–recapture; live trapping; positional uncertainty; repeated observations; sensitivity analysis; spatial scale; Peromyscus
@@ -239,6 +243,10 @@ Before any MCP area was calculated, the support gate required at least 20 eligib
 The frozen confirmatory rule treated repeat-capture individual-nights as the binomial units and separately required replication across trapping grids. Because the same marked individual could contribute multiple nights, we conducted a post-result, non-rescuing dependence audit to test whether a small number of repeatedly observed individuals dominated the species-level fractions.
 
 Within each species, identity was defined as grid × individual ID. We reported the number and size distribution of individual clusters, an equal-individual mean of individual-specific material-shift fractions, deterministic leave-one-individual fractions, and a grid-stratified cluster bootstrap. The bootstrap resampled individual clusters with replacement within each grid, retained all repeat nights from a sampled cluster, used 20,000 replicates and a fixed seed (20260930), and reported percentile 95% intervals. This audit was not part of the frozen confirmatory decision and could not rescue a failed primary result.
+
+## 2.9 AI-assisted development and verification
+
+OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026) was used interactively to assist with drafting and refactoring Python analysis, test and workflow code; checking mathematical and statistical logic; identifying potential failure modes; supporting literature discovery; and drafting and editing manuscript text. AI output was not treated as empirical evidence, an independent author or a substitute for source verification. Analysis decisions and claim boundaries were preserved in version-controlled design locks and frozen result receipts, and computational outputs were checked with deterministic unit tests, continuous-integration workflows, source checksums, simulation benchmarks and manuscript-value invariants. The authors retain responsibility for the scientific content, code, source attribution, interpretation and conclusions. Source files substantially drafted or refactored with AI assistance are annotated accordingly.
 
 # 3. Results
 
