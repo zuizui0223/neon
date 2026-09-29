@@ -1,0 +1,86 @@
+name: san-jacinto-crossscale-source-audit
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - docs/SAN_JACINTO_CROSSSCALE_SOURCE_AUDIT_V1.md
+      - analysis/audit_san_jacinto_figshare_source_v1.py
+      - tests/test_san_jacinto_figshare_source_audit.py
+      - .github/workflows/san-jacinto-crossscale-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install source-audit dependency
+        run: python -m pip install openpyxl==3.1.5
+
+      - name: Verify source audit tests
+        run: python -m unittest tests.test_san_jacinto_figshare_source_audit -v
+
+      - name: Query Figshare and audit only schemas
+        run: |
+          python analysis/audit_san_jacinto_figshare_source_v1.py \
+            --article-id 18295520 \
+            --cache-dir data/cache/san_jacinto \
+            --output /tmp/san_jacinto_source_schema_audit_v1.json
+
+      - name: Assert effect-blind boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/san_jacinto_source_schema_audit_v1.json").read_text())
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "doi":p["doi"],
+              "files":[{
+                  "id":x["id"],"name":x["name"],"size":x["size"],
+                  "tabular_candidate":x["tabular_candidate"],
+              } for x in p["files"]],
+              "tables":[{
+                  "source_file":x["source_file"],
+                  "sheet_or_table":x["sheet_or_table"],
+                  "row_count":x["row_count"],
+                  "columns":x["columns"],
+                  "structural_columns":x["structural_columns"],
+                  "adequate":x["structurally_adequate_capture_table"],
+              } for x in p["tables"]],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+          mkdir -p validation/san_jacinto_crossscale_v1
+          cp /tmp/san_jacinto_source_schema_audit_v1.json \
+             validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json
+          git add validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "source audit unchanged"
+          else
+            git commit -m "Freeze San Jacinto source schema audit"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
