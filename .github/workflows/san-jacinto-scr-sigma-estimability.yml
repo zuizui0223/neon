@@ -1,0 +1,90 @@
+name: san-jacinto-scr-sigma-estimability
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SAN_JACINTO_SCR_SIGMA_ESTIMABILITY_DESIGN_V1.md
+      - validation/san_jacinto_scr_sigma_v1/estimability_lock_v1.json
+      - analysis/san_jacinto_scr_sigma_estimability_v1.py
+      - tests/test_san_jacinto_scr_sigma_estimability.py
+      - .github/workflows/san-jacinto-scr-sigma-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen support-count design
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("validation/san_jacinto_scr_sigma_v1/estimability_lock_v1.json").read_text()
+          )
+          assert p["state"]=="frozen_before_session_support_counts"
+          assert p["species_session_support_counts_inspected"] is False
+          assert p["first_sigma_inspected"] is False
+          assert p["last_sigma_inspected"] is False
+          assert p["scr_models_fit"] == 0
+          PY
+
+      - name: Verify estimability tests
+        run: python -m unittest tests.test_san_jacinto_scr_sigma_estimability -v
+
+      - name: Count SCR session support only
+        run: |
+          python analysis/san_jacinto_scr_sigma_estimability_v1.py \
+            --lock validation/san_jacinto_scr_sigma_v1/estimability_lock_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-json /tmp/scr_sigma_estimability_v1.json \
+            --output-csv /tmp/scr_sigma_sessions_v1.csv
+
+      - name: Assert sigma remains unopened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/scr_sigma_estimability_v1.json").read_text())
+          assert p["first_sigma_inspected"] is False
+          assert p["last_sigma_inspected"] is False
+          assert p["sigma_ratio_inspected"] is False
+          assert p["scr_models_fit"] == 0
+          assert p["programme_gate"]["decision"] in {
+              "authorize_scr_sigma_sensitivity_fit",
+              "stop_scr_sigma_sensitivity_not_estimable",
+          }
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist support gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p validation/san_jacinto_scr_sigma_v1
+          cp /tmp/scr_sigma_estimability_v1.json \
+             validation/san_jacinto_scr_sigma_v1/estimability_result_v1.json
+          cp /tmp/scr_sigma_sessions_v1.csv \
+             validation/san_jacinto_scr_sigma_v1/eligible_sessions_v1.csv
+          git add validation/san_jacinto_scr_sigma_v1/estimability_result_v1.json
+          git add validation/san_jacinto_scr_sigma_v1/eligible_sessions_v1.csv
+          if git diff --cached --quiet; then
+            echo "support gate unchanged"
+          else
+            git commit -m "Freeze San Jacinto SCR sigma estimability"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
