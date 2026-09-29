@@ -72,6 +72,10 @@ jobs:
           printf '%s\n' "Source branch commit: $GITHUB_SHA" > /tmp/live-trap-aliasing-review/SOURCE_SNAPSHOT.txt
           find /tmp/live-trap-aliasing-review -type f | sort
 
+      - name: Install review-package dependencies
+        run: |
+          python -m pip install -r /tmp/live-trap-aliasing-review/requirements-aliasing.txt
+
       - name: Verify generic tests inside review package
         run: |
           cd /tmp/live-trap-aliasing-review
