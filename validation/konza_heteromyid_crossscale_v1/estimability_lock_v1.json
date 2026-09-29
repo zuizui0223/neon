@@ -1,0 +1,53 @@
+{
+  "schema": "neon.konza_hispidus_crossscale.estimability_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_species_by_sex_support_counts",
+  "source": {
+    "repository": "sarahsupp/KNZ-incidence",
+    "commit": "c354a2fb8a034e254365f0dfc6dd699c8c94501",
+    "file": "Datasets/Raw_data/Small_mammals/CSM012.csv",
+    "sha256": "2d810218ece91bb38725ae3d7080de9687a952ec11c54906ac47ffd5830dc82c"
+  },
+  "target": {
+    "species_code": "Ch",
+    "scientific_name": "Chaetodipus hispidus",
+    "previously_effect_inspected": false
+  },
+  "primary_trap_days": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "primary_n_per_sex": 5,
+  "diagnostic_n_per_sex": 3,
+  "trap_geometry": {
+    "stations": 20,
+    "spacing_m": 15,
+    "trap_slots_per_station": 2,
+    "total_trap_slots": 40
+  },
+  "identity": {
+    "scope": "species_x_year_x_season_x_watershed_x_line",
+    "strong_marks": [
+      "REarTag_digit_containing",
+      "LEarTag_digit_containing",
+      "ToeClip_digit_containing"
+    ],
+    "hair_clip_used": false,
+    "shared_token_connected_components": true,
+    "fail_on_sex_conflict": true,
+    "fail_on_multiple_stations_same_trap_day": true
+  },
+  "gate": {
+    "min_packing_n5_nights_within_overlap": 20,
+    "min_movement_n5_periods_within_overlap": 6,
+    "min_overlapping_traplines": 6,
+    "min_overlapping_watersheds": 3,
+    "pass": "authorize_konza_crossscale_effect_lock",
+    "fail": "stop_konza_crossscale_not_estimable"
+  },
+  "packing_effects_inspected": false,
+  "movement_distances_inspected": false,
+  "ecological_effect_models_fit": 0
+}
