@@ -1,0 +1,59 @@
+{
+  "ecological_effect_models_fit": 0,
+  "first_nightly_state_count": 2787,
+  "last_nightly_state_count": 2787,
+  "movement_distances_computed": true,
+  "movement_first_n2_rows": 74,
+  "movement_first_n3_rows": 46,
+  "packing_effects_computed": true,
+  "packing_first_n2_rows": 217,
+  "packing_first_n3_rows": 130,
+  "primary_support_checks": {
+    "CHFA": {
+      "movement_primary_grid_counts": {
+        "2": 2,
+        "6": 8
+      },
+      "packing_primary_grid_counts": {
+        "2": 6,
+        "6": 19
+      }
+    },
+    "DKR": {
+      "movement_primary_grid_counts": {
+        "1": 8,
+        "2": 1
+      },
+      "packing_primary_grid_counts": {
+        "1": 23,
+        "2": 3
+      }
+    },
+    "LAPM": {
+      "movement_primary_grid_counts": {
+        "3": 2,
+        "5": 4,
+        "6": 1
+      },
+      "packing_primary_grid_counts": {
+        "3": 5,
+        "5": 13,
+        "6": 3
+      }
+    },
+    "SKR": {
+      "movement_primary_grid_counts": {
+        "3": 9,
+        "4": 4,
+        "5": 7
+      },
+      "packing_primary_grid_counts": {
+        "3": 25,
+        "4": 10,
+        "5": 20,
+        "6": 3
+      }
+    }
+  },
+  "schema": "neon.san_jacinto_crossscale.effect_extraction.v1"
+}

@@ -1,0 +1,846 @@
+{
+  "claim_boundary": {
+    "home_range_size": false,
+    "natal_or_breeding_dispersal": false,
+    "reproductive_causation": false,
+    "universal_heteromyidae": false
+  },
+  "ecological_effect_models_fit": 2,
+  "frozen_date": "2026-09-29",
+  "movement_distances_computed": true,
+  "packing_effects_computed": true,
+  "primary": {
+    "decision": {
+      "decision": "stop_no_confirmatory_crossscale_result",
+      "movement_positive_gate_passed": false,
+      "packing_equivalence_gate_passed": false,
+      "packing_positive_gate_passed": false
+    },
+    "movement": {
+      "directional_gate": {
+        "family_ci95_low_above_zero": false,
+        "family_effect_positive": true,
+        "passed": false,
+        "positive_species": [
+          "CHFA",
+          "DKR",
+          "LAPM"
+        ],
+        "positive_species_count": 3,
+        "species_denominator": 4
+      },
+      "family": {
+        "ci90_high": 0.36654353031116516,
+        "ci90_low": -0.14091009274157315,
+        "ci95_high": 0.4559307240220051,
+        "ci95_low": -0.230297286452413,
+        "df": 3,
+        "effect": 0.11281671878479602,
+        "mean_species_sampling_variance": 0.04649590576762083,
+        "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+        "observed_species_variance": 0.044152780976428836,
+        "species_count": 4,
+        "standard_error": 0.10781454652274529,
+        "tau2_method_of_moments": 0.0
+      },
+      "species": [
+        {
+          "effect": 0.267427010385053,
+          "grid_count": 2,
+          "grid_effects": {
+            "2": 0.41234253309118873,
+            "6": 0.12251148767891731
+          },
+          "row_count": 10,
+          "sd_across_grids": 0.20494149760940333,
+          "species": "CHFA",
+          "standard_error": 0.1449155227061357
+        },
+        {
+          "effect": 0.3064520640337366,
+          "grid_count": 2,
+          "grid_effects": {
+            "1": -0.022890323082286085,
+            "2": 0.6357944511497593
+          },
+          "row_count": 9,
+          "sd_across_grids": 0.46576047052380937,
+          "species": "DKR",
+          "standard_error": 0.32934238711602265
+        },
+        {
+          "effect": 0.01088060945072857,
+          "grid_count": 3,
+          "grid_effects": {
+            "3": -0.24421121186804673,
+            "5": 0.06984846240296688,
+            "6": 0.20700457781726556
+          },
+          "row_count": 7,
+          "sd_across_grids": 0.23131542961221285,
+          "species": "LAPM",
+          "standard_error": 0.13355002555432502
+        },
+        {
+          "effect": -0.13349280873033412,
+          "grid_count": 3,
+          "grid_effects": {
+            "3": -0.20981959688884413,
+            "4": -0.42950595074301345,
+            "5": 0.23884712144085524
+          },
+          "row_count": 20,
+          "sd_across_grids": 0.34065127508545956,
+          "species": "SKR",
+          "standard_error": 0.19667510537037936
+        }
+      ]
+    },
+    "packing": {
+      "directional_gate": {
+        "family_ci95_low_above_zero": false,
+        "family_effect_positive": false,
+        "passed": false,
+        "positive_species": [
+          "CHFA"
+        ],
+        "positive_species_count": 1,
+        "species_denominator": 4
+      },
+      "family": {
+        "ci90_high": 0.5984989070639886,
+        "ci90_low": -0.9406457251094262,
+        "ci95_high": 0.8696169228492185,
+        "ci95_low": -1.2117637408946562,
+        "df": 3,
+        "effect": -0.1710734090227189,
+        "mean_species_sampling_variance": 0.4277409812591463,
+        "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+        "observed_species_variance": 0.05854580029258791,
+        "species_count": 4,
+        "standard_error": 0.32700954927155657,
+        "tau2_method_of_moments": 0.0
+      },
+      "species": [
+        {
+          "effect": 0.17563028275619633,
+          "grid_count": 2,
+          "grid_effects": {
+            "2": 0.07049870485502258,
+            "6": 0.2807618606573701
+          },
+          "row_count": 25,
+          "sd_across_grids": 0.1486785033015235,
+          "species": "CHFA",
+          "standard_error": 0.10513157790117375
+        },
+        {
+          "effect": -0.29976842994468905,
+          "grid_count": 2,
+          "grid_effects": {
+            "1": 0.5226183901432956,
+            "2": -1.1221552500326737
+          },
+          "row_count": 26,
+          "sd_across_grids": 1.1630305944853103,
+          "species": "DKR",
+          "standard_error": 0.8223868200879846
+        },
+        {
+          "effect": -0.1931649942642297,
+          "grid_count": 3,
+          "grid_effects": {
+            "3": 1.239613992716767,
+            "5": 0.0354120100563412,
+            "6": -1.8545209855657974
+          },
+          "row_count": 21,
+          "sd_across_grids": 1.5596805445782915,
+          "species": "LAPM",
+          "standard_error": 0.9004819822620987
+        },
+        {
+          "effect": -0.36699049463815314,
+          "grid_count": 3,
+          "grid_effects": {
+            "3": 0.42788415600010865,
+            "4": -0.35908734612819343,
+            "5": -1.1697682937863747
+          },
+          "row_count": 55,
+          "sd_across_grids": 0.7988555453863144,
+          "species": "SKR",
+          "standard_error": 0.46121946417241394
+        }
+      ]
+    },
+    "packing_equivalence": {
+      "family_ci90_inside_margin": false,
+      "margin": 0.5,
+      "passed": false,
+      "species_denominator": 4,
+      "species_inside_margin": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "SKR"
+      ],
+      "species_inside_margin_count": 4
+    }
+  },
+  "schema": "neon.san_jacinto_crossscale.effect_result.v1",
+  "sensitivities": {
+    "last_nightly_capture": {
+      "movement": {
+        "directional_gate": {
+          "family_ci95_low_above_zero": false,
+          "family_effect_positive": false,
+          "passed": false,
+          "positive_species": [
+            "CHFA",
+            "DKR"
+          ],
+          "positive_species_count": 2,
+          "species_denominator": 4
+        },
+        "family": {
+          "ci90_high": 0.32213449740460104,
+          "ci90_low": -0.3403815901832555,
+          "ci95_high": 0.438835711402257,
+          "ci95_low": -0.45708280418091146,
+          "df": 3,
+          "effect": -0.009123546389327237,
+          "mean_species_sampling_variance": 0.011402615162645513,
+          "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+          "observed_species_variance": 0.07925284371532944,
+          "species_count": 4,
+          "standard_error": 0.1407594079585175,
+          "tau2_method_of_moments": 0.06785022855268392
+        },
+        "species": [
+          {
+            "effect": 0.35601975716816486,
+            "grid_count": 2,
+            "grid_effects": {
+              "2": 0.3451344022910878,
+              "6": 0.3669051120452419
+            },
+            "row_count": 10,
+            "sd_across_grids": 0.015394216498406459,
+            "species": "CHFA",
+            "standard_error": 0.010885354877077036
+          },
+          {
+            "effect": 0.02650408166257942,
+            "grid_count": 2,
+            "grid_effects": {
+              "1": 0.21813442790818932,
+              "2": -0.16512626458303048
+            },
+            "row_count": 9,
+            "sd_across_grids": 0.27100623462279366,
+            "species": "DKR",
+            "standard_error": 0.1916303462456099
+          },
+          {
+            "effect": -0.3163989119062347,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": -0.3509354999380949,
+              "5": -0.20542849791802698,
+              "6": -0.3928327378625822
+            },
+            "row_count": 7,
+            "sd_across_grids": 0.09835989641088959,
+            "species": "LAPM",
+            "standard_error": 0.05678811267029081
+          },
+          {
+            "effect": -0.10261911248181853,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": -0.06389452271902536,
+              "4": -0.24652046020017074,
+              "5": 0.0025576454737405363
+            },
+            "row_count": 20,
+            "sd_across_grids": 0.12897546693363238,
+            "species": "SKR",
+            "standard_error": 0.07446402055299034
+          }
+        ]
+      },
+      "packing": {
+        "directional_gate": {
+          "family_ci95_low_above_zero": false,
+          "family_effect_positive": false,
+          "passed": false,
+          "positive_species": [
+            "DKR"
+          ],
+          "positive_species_count": 1,
+          "species_denominator": 4
+        },
+        "family": {
+          "ci90_high": 0.35592706312018285,
+          "ci90_low": -0.641261466272969,
+          "ci95_high": 0.5315803251993256,
+          "ci95_low": -0.8169147283521119,
+          "df": 3,
+          "effect": -0.14266720157639307,
+          "mean_species_sampling_variance": 0.16461804773796215,
+          "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+          "observed_species_variance": 0.17954633549152044,
+          "species_count": 4,
+          "standard_error": 0.21186454132978483,
+          "tau2_method_of_moments": 0.014928287753558284
+        },
+        "species": [
+          {
+            "effect": -0.20359542136125736,
+            "grid_count": 2,
+            "grid_effects": {
+              "2": -0.5291072050501653,
+              "6": 0.1219163623276506
+            },
+            "row_count": 25,
+            "sd_across_grids": 0.46034317920511086,
+            "species": "CHFA",
+            "standard_error": 0.32551178368890793
+          },
+          {
+            "effect": 0.4119026872411098,
+            "grid_count": 2,
+            "grid_effects": {
+              "1": 0.5288878537995574,
+              "2": 0.29491752068266225
+            },
+            "row_count": 26,
+            "sd_across_grids": 0.165442009143432,
+            "species": "DKR",
+            "standard_error": 0.11698516655844755
+          },
+          {
+            "effect": -0.15977305157637026,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": 0.48187397922217057,
+              "5": 0.2904685746092843,
+              "6": -1.2516617085605657
+            },
+            "row_count": 21,
+            "sd_across_grids": 0.9504339202000411,
+            "species": "LAPM",
+            "standard_error": 0.5487332796744451
+          },
+          {
+            "effect": -0.6192030206090544,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": 0.19986405696737222,
+              "4": -0.5704697959653012,
+              "5": -1.4870033228292343
+            },
+            "row_count": 55,
+            "sd_across_grids": 0.844488948798977,
+            "species": "SKR",
+            "standard_error": 0.48756592191675346
+          }
+        ]
+      }
+    },
+    "leave_one_matched_grid_out": {
+      "movement": {
+        "CHFA": [
+          {
+            "effect": 0.12251148767891731,
+            "excluded_grid": "2",
+            "remaining_grid_count": 1
+          },
+          {
+            "effect": 0.41234253309118873,
+            "excluded_grid": "6",
+            "remaining_grid_count": 1
+          }
+        ],
+        "DKR": [
+          {
+            "effect": 0.6357944511497593,
+            "excluded_grid": "1",
+            "remaining_grid_count": 1
+          },
+          {
+            "effect": -0.022890323082286085,
+            "excluded_grid": "2",
+            "remaining_grid_count": 1
+          }
+        ],
+        "LAPM": [
+          {
+            "effect": 0.13842652011011622,
+            "excluded_grid": "3",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": -0.018603317025390587,
+            "excluded_grid": "5",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": -0.08718137473253992,
+            "excluded_grid": "6",
+            "remaining_grid_count": 2
+          }
+        ],
+        "SKR": [
+          {
+            "effect": -0.09532941465107911,
+            "excluded_grid": "3",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": 0.014513762276005551,
+            "excluded_grid": "4",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": -0.3196627738159288,
+            "excluded_grid": "5",
+            "remaining_grid_count": 2
+          }
+        ]
+      },
+      "packing": {
+        "CHFA": [
+          {
+            "effect": 0.2807618606573701,
+            "excluded_grid": "2",
+            "remaining_grid_count": 1
+          },
+          {
+            "effect": 0.07049870485502258,
+            "excluded_grid": "6",
+            "remaining_grid_count": 1
+          }
+        ],
+        "DKR": [
+          {
+            "effect": -1.1221552500326737,
+            "excluded_grid": "1",
+            "remaining_grid_count": 1
+          },
+          {
+            "effect": 0.5226183901432956,
+            "excluded_grid": "2",
+            "remaining_grid_count": 1
+          }
+        ],
+        "LAPM": [
+          {
+            "effect": -0.9095544877547281,
+            "excluded_grid": "3",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": -0.30745349642451514,
+            "excluded_grid": "5",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": 0.6375130013865542,
+            "excluded_grid": "6",
+            "remaining_grid_count": 2
+          }
+        ],
+        "SKR": [
+          {
+            "effect": -0.764427819957284,
+            "excluded_grid": "3",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": -0.370942068893133,
+            "excluded_grid": "4",
+            "remaining_grid_count": 2
+          },
+          {
+            "effect": 0.03439840493595761,
+            "excluded_grid": "5",
+            "remaining_grid_count": 2
+          }
+        ]
+      }
+    },
+    "leave_one_species_out": {
+      "movement": [
+        {
+          "excluded_species": "CHFA",
+          "family": {
+            "ci90_high": 0.45662764055871286,
+            "ci90_low": -0.3340677307226255,
+            "ci95_high": 0.6438320778620255,
+            "ci95_low": -0.521272168025938,
+            "df": 2,
+            "effect": 0.06127995491804368,
+            "mean_species_sampling_variance": 0.0549943714497636,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.05029294328549892,
+            "species_count": 3,
+            "standard_error": 0.13539371163359545,
+            "tau2_method_of_moments": 0.0
+          }
+        },
+        {
+          "excluded_species": "DKR",
+          "family": {
+            "ci90_high": 0.3905986226104354,
+            "ci90_low": -0.2940554152068037,
+            "ci95_high": 0.5526967941089159,
+            "ci95_low": -0.4561535867052843,
+            "df": 2,
+            "effect": 0.048271603701815824,
+            "mean_species_sampling_variance": 0.02583907170640107,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.04123274017819231,
+            "species_count": 3,
+            "standard_error": 0.11723585938638445,
+            "tau2_method_of_moments": 0.01539366847179124
+          }
+        },
+        {
+          "excluded_species": "LAPM",
+          "family": {
+            "ci90_high": 0.557334241471541,
+            "ci90_low": -0.2637433976792374,
+            "ci95_high": 0.7517319615068366,
+            "ci95_low": -0.45814111771453303,
+            "df": 2,
+            "effect": 0.14679542189615183,
+            "mean_species_sampling_variance": 0.05604933791497416,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.059301857873865285,
+            "species_count": 3,
+            "standard_error": 0.14059618045293795,
+            "tau2_method_of_moments": 0.0032525199588911285
+          }
+        },
+        {
+          "excluded_species": "SKR",
+          "family": {
+            "ci90_high": 0.5684834922498971,
+            "ci90_low": -0.17864370300355165,
+            "ci95_high": 0.7453727611914479,
+            "ci95_low": -0.35553297194510247,
+            "df": 2,
+            "effect": 0.19491989462317272,
+            "mean_species_sampling_variance": 0.04910084199934451,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.025783582568158825,
+            "species_count": 3,
+            "standard_error": 0.12793337067831378,
+            "tau2_method_of_moments": 0.0
+          }
+        }
+      ],
+      "packing": [
+        {
+          "excluded_species": "CHFA",
+          "family": {
+            "ci90_high": 0.9823907113669569,
+            "ci90_low": -1.5556733239316713,
+            "ci95_high": 1.5833008302638025,
+            "ci95_low": -2.1565834428285173,
+            "df": 2,
+            "effect": -0.2866413062823573,
+            "mean_species_sampling_variance": 0.5666370921215315,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.007683067176795827,
+            "species_count": 3,
+            "standard_error": 0.4346021522118559,
+            "tau2_method_of_moments": 0.0
+          }
+        },
+        {
+          "excluded_species": "DKR",
+          "family": {
+            "ci90_high": 0.8618698313105111,
+            "ci90_low": -1.1182199687413021,
+            "ci95_high": 1.3306743928296092,
+            "ci95_low": -1.5870245302604002,
+            "df": 2,
+            "effect": -0.1281750687153955,
+            "mean_species_sampling_variance": 0.3448812810607193,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.0767770948321443,
+            "species_count": 3,
+            "standard_error": 0.33905814696042885,
+            "tau2_method_of_moments": 0.0
+          }
+        },
+        {
+          "excluded_species": "LAPM",
+          "family": {
+            "ci90_high": 0.759720279193552,
+            "ci90_low": -1.0871393737446493,
+            "ci95_high": 1.1969813719785114,
+            "ci95_low": -1.5244004665296085,
+            "df": 2,
+            "effect": -0.16370954727554862,
+            "mean_species_sampling_variance": 0.30003204155263546,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.08749334167989323,
+            "species_count": 3,
+            "standard_error": 0.31624465294696313,
+            "tau2_method_of_moments": 0.0
+          }
+        },
+        {
+          "excluded_species": "SKR",
+          "family": {
+            "ci90_high": 1.0856120602765715,
+            "ci90_low": -1.2971474879117197,
+            "ci95_high": 1.649752406418765,
+            "ci95_low": -1.8612878340539132,
+            "df": 2,
+            "effect": -0.10576771381757415,
+            "mean_species_sampling_variance": 0.4994135103016988,
+            "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+            "observed_species_variance": 0.06222969748151826,
+            "species_count": 3,
+            "standard_error": 0.4080087867933315,
+            "tau2_method_of_moments": 0.0
+          }
+        }
+      ]
+    },
+    "matched_grid_spearman_descriptive": {
+      "inferential_role": "descriptive_only",
+      "n": 10,
+      "p_value": 0.10759318778241479,
+      "pairs": [
+        {
+          "grid": "2",
+          "movement_effect": 0.41234253309118873,
+          "packing_effect": 0.07049870485502258,
+          "species": "CHFA"
+        },
+        {
+          "grid": "6",
+          "movement_effect": 0.12251148767891731,
+          "packing_effect": 0.2807618606573701,
+          "species": "CHFA"
+        },
+        {
+          "grid": "1",
+          "movement_effect": -0.022890323082286085,
+          "packing_effect": 0.5226183901432956,
+          "species": "DKR"
+        },
+        {
+          "grid": "2",
+          "movement_effect": 0.6357944511497593,
+          "packing_effect": -1.1221552500326737,
+          "species": "DKR"
+        },
+        {
+          "grid": "3",
+          "movement_effect": -0.24421121186804673,
+          "packing_effect": 1.239613992716767,
+          "species": "LAPM"
+        },
+        {
+          "grid": "5",
+          "movement_effect": 0.06984846240296688,
+          "packing_effect": 0.0354120100563412,
+          "species": "LAPM"
+        },
+        {
+          "grid": "6",
+          "movement_effect": 0.20700457781726556,
+          "packing_effect": -1.8545209855657974,
+          "species": "LAPM"
+        },
+        {
+          "grid": "3",
+          "movement_effect": -0.20981959688884413,
+          "packing_effect": 0.42788415600010865,
+          "species": "SKR"
+        },
+        {
+          "grid": "4",
+          "movement_effect": -0.42950595074301345,
+          "packing_effect": -0.35908734612819343,
+          "species": "SKR"
+        },
+        {
+          "grid": "5",
+          "movement_effect": 0.23884712144085524,
+          "packing_effect": -1.1697682937863747,
+          "species": "SKR"
+        }
+      ],
+      "rho": -0.5393939393939393
+    },
+    "n_min_2_per_sex": {
+      "movement": {
+        "directional_gate": {
+          "family_ci95_low_above_zero": false,
+          "family_effect_positive": true,
+          "passed": false,
+          "positive_species": [
+            "DKR"
+          ],
+          "positive_species_count": 1,
+          "species_denominator": 4
+        },
+        "family": {
+          "ci90_high": 0.46325392194887727,
+          "ci90_low": -0.32532510778226165,
+          "ci95_high": 0.6021609339095697,
+          "ci95_low": -0.46423211974295414,
+          "df": 3,
+          "effect": 0.0689644070833078,
+          "mean_species_sampling_variance": 0.11228259601900765,
+          "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+          "observed_species_variance": 0.0338953281726867,
+          "species_count": 4,
+          "standard_error": 0.1675429765903421,
+          "tau2_method_of_moments": 0.0
+        },
+        "species": [
+          {
+            "effect": -0.01318389249602965,
+            "grid_count": 2,
+            "grid_effects": {
+              "2": -0.11146124024864869,
+              "6": 0.08509345525658939
+            },
+            "row_count": 17,
+            "sd_across_grids": 0.13898515806581085,
+            "species": "CHFA",
+            "standard_error": 0.09827734775261902
+          },
+          {
+            "effect": 0.3434681947440724,
+            "grid_count": 2,
+            "grid_effects": {
+              "1": -0.07961446987622305,
+              "2": 0.7665508593643678
+            },
+            "row_count": 13,
+            "sd_across_grids": 0.5983292423109694,
+            "species": "DKR",
+            "standard_error": 0.42308266462029537
+          },
+          {
+            "effect": -0.05050491329580907,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": -0.11640342612812844,
+              "5": 0.8247598774381881,
+              "6": -0.8598711911974869
+            },
+            "row_count": 12,
+            "sd_across_grids": 0.8442466581801065,
+            "species": "LAPM",
+            "standard_error": 0.48742603536272644
+          },
+          {
+            "effect": -0.003921760619002522,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": -0.14664257604568828,
+              "4": -0.16362341050550694,
+              "5": 0.29850070469418766
+            },
+            "row_count": 27,
+            "sd_across_grids": 0.2620431220797805,
+            "species": "SKR",
+            "standard_error": 0.15129066707205124
+          }
+        ]
+      },
+      "packing": {
+        "directional_gate": {
+          "family_ci95_low_above_zero": false,
+          "family_effect_positive": true,
+          "passed": false,
+          "positive_species": [
+            "CHFA",
+            "DKR",
+            "LAPM"
+          ],
+          "positive_species_count": 3,
+          "species_denominator": 4
+        },
+        "family": {
+          "ci90_high": 0.581880687723765,
+          "ci90_low": -0.4340706410718446,
+          "ci95_high": 0.7608389887435221,
+          "ci95_low": -0.6130289420916017,
+          "df": 3,
+          "effect": 0.07390502332596022,
+          "mean_species_sampling_variance": 0.1863664800546114,
+          "method": "equal_species_random_effects_moments_with_grid_uncertainty",
+          "observed_species_variance": 0.026861796767345937,
+          "species_count": 4,
+          "standard_error": 0.21585092080798,
+          "tau2_method_of_moments": 0.0
+        },
+        "species": [
+          {
+            "effect": 0.2370401890493153,
+            "grid_count": 2,
+            "grid_effects": {
+              "2": 0.38138422355615714,
+              "6": 0.0926961545424734
+            },
+            "row_count": 47,
+            "sd_across_grids": 0.2041332912472258,
+            "species": "CHFA",
+            "standard_error": 0.14434403450684186
+          },
+          {
+            "effect": 0.04268269918638523,
+            "grid_count": 2,
+            "grid_effects": {
+              "1": 0.4204761929417075,
+              "2": -0.33511079456893705
+            },
+            "row_count": 36,
+            "sd_across_grids": 0.534280682645092,
+            "species": "DKR",
+            "standard_error": 0.3777934937553223
+          },
+          {
+            "effect": 0.15677228276410088,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": 1.0232455440122115,
+              "5": 0.45062695583388007,
+              "6": -1.003555651553789
+            },
+            "row_count": 34,
+            "sd_across_grids": 1.0448653971926969,
+            "species": "LAPM",
+            "standard_error": 0.6032533183361288
+          },
+          {
+            "effect": -0.14087507769596055,
+            "grid_count": 3,
+            "grid_effects": {
+              "3": 0.32267918642149807,
+              "4": 0.3293469162446806,
+              "5": -1.0746513357540604
+            },
+            "row_count": 80,
+            "sd_across_grids": 0.8086808330484834,
+            "species": "SKR",
+            "standard_error": 0.4668920966490327
+          }
+        ]
+      }
+    }
+  },
+  "sensitivities_can_rescue_primary": false
+}
