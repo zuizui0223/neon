@@ -59,7 +59,7 @@ All eligible validation grids passed the pre-specified spatial-replication crite
 
 ## Simulation
 
-Under non-informative repeat observation, the repeat-conditioned fraction was essentially unbiased and Wilson coverage was near nominal. Span-dependent repeat observation produced directional bias. The all-occasion directly observed fraction remained a valid lower bound in all simulated replicates.
+In corrected simulation v2, non-informative repeat observation was essentially unbiased for the analytic generating material-shift probability and mean Wilson coverage was near nominal; the most extreme ultra-rare-event cell showed finite-sample undercoverage. Span-dependent repeat observation produced directional bias. The all-occasion directly observed fraction remained a deterministic lower bound on the realized all-occasion fraction in every simulated replicate.
 
 ## License
 
@@ -67,4 +67,4 @@ MIT.
 
 ## Review manuscript
 
-See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_2.md`.
+See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md`.
