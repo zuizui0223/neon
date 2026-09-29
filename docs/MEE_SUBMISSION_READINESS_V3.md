@@ -91,7 +91,7 @@ Date: 2026-09-30
 - [x] Figure 4 denominator and span magnitude rendered.
 - [x] PNG and PDF versions committed.
 - [x] Figure-rendering workflow completed successfully.
-- [x] Figure captions drafted.
+- [x] Corrected Figure captions v2 drafted.
 - [ ] Final editorial polish after co-author review.
 
 ## MEE fit / submission
@@ -112,13 +112,13 @@ Date: 2026-09-30
 - [x] Review-package manifest defined.
 - [x] Review-package builder implemented.
 - [x] Raw third-party data excluded from package; public DOI/source retained.
-- [ ] Review package rebuilt against manuscript v0.3, Supplement v0.2 and simulation v2.
+- [x] Review package rebuilt against manuscript v0.3, Supplement v0.2 and simulation v2.
 - [ ] Create versioned archival release / persistent repository identifier.
 - [ ] Insert final repository/archive identifier into Data Availability statement.
 
 ## Current decision
 
-**Scientific status:** proceed toward MEE pre-submission enquiry after the v0.3 review package passes self-check.
+**Scientific status:** v0.3 review package passed self-check; proceed to MEE pre-submission enquiry.
 
 **Do not add more post-hoc biological effect analyses.**
 
