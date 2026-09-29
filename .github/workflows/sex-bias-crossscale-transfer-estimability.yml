@@ -64,7 +64,8 @@ jobs:
           NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
         run: |
           python analysis/sex_bias_crossscale_transfer_estimability_v1.py \
-            --output-dir results/generated/sex_bias_crossscale_transfer
+            --output-dir results/generated/sex_bias_crossscale_transfer \
+            --sites BART BONA CLBJ DEJU HEAL JERC JORN KONZ OAES ONAQ ORNL SJER STER UKFS WOOD
 
       - name: Assert effect-blind gate
         run: |

@@ -595,11 +595,23 @@ def _write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def run(*, token: str, output_dir: Path) -> dict:
+def run(
+    *,
+    token: str,
+    output_dir: Path,
+    site_codes: list[str] | None=None,
+) -> dict:
     product=_request_json(PRODUCT_URL,token=token)
-    sites=sorted(collect_site_codes(product))
-    if not sites:
+    available_sites=sorted(collect_site_codes(product))
+    if not available_sites:
         raise RuntimeError("no NEON sites discovered")
+    if site_codes is None:
+        sites=available_sites
+    else:
+        unknown=sorted(set(site_codes)-set(available_sites))
+        if unknown:
+            raise RuntimeError(f"requested sites absent from NEON release metadata: {unknown}")
+        sites=sorted(set(site_codes))
 
     taxonomy=_request_json(TAXONOMY_URL,token=token)
     target_ids,target_names=target_taxa_from_taxonomy(taxonomy)
@@ -683,7 +695,9 @@ def run(*, token: str, output_dir: Path) -> dict:
     result.update({
         "product_code":PRODUCT_CODE,
         "release":RELEASE,
-        "available_site_count":len(sites),
+        "available_site_count":len(available_sites),
+        "screen_site_count":len(sites),
+        "screen_sites":sites,
         "processed_packing_sites":len({row["site"] for row in packing}),
         "processed_movement_sites":len({row["site"] for row in movement}),
         "target_taxon_count":len(target_ids),
@@ -717,13 +731,18 @@ def run(*, token: str, output_dir: Path) -> dict:
 def main() -> int:
     parser=argparse.ArgumentParser()
     parser.add_argument("--output-dir",type=Path,required=True)
+    parser.add_argument("--sites",nargs="*",default=None)
     args=parser.parse_args()
 
     token=os.environ.get("NEON_API_TOKEN","").strip()
     if not token:
         raise RuntimeError("NEON_API_TOKEN is required")
 
-    result=run(token=token,output_dir=args.output_dir)
+    result=run(
+        token=token,
+        output_dir=args.output_dir,
+        site_codes=args.sites,
+    )
     print(json.dumps({
         "programme_gate":result["programme_gate"],
         "packing_eligible_sessions":result["packing_eligible_sessions"],
