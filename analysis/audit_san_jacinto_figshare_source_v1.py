@@ -48,7 +48,7 @@ TOKENS={
     "trap":{
         "trap","trap_id","trapid","trap_location","traplocation","station",
         "station_id","stationid","stake","stake_id","stakeid","location",
-        "trap_number","trapnumber",
+        "trap_number","trapnumber","flag","flag_id","flagid",
     },
     "date":{
         "date","capture_date","capturedate","sample_date","sampledate","year",
@@ -95,19 +95,27 @@ def audit_xlsx(path: Path) -> list[dict]:
     wb=openpyxl.load_workbook(path,read_only=True,data_only=True)
     out=[]
     for ws in wb.worksheets:
-        rows=ws.iter_rows(values_only=True)
-        try:
-            first=next(rows)
-        except StopIteration:
+        all_rows=list(ws.iter_rows(values_only=True))
+        if not all_rows:
             continue
+        first=all_rows[0]
         header=["" if x is None else str(x).strip() for x in first]
-        data_rows=sum(1 for row in rows if any(x not in (None,"") for x in row))
+        data_rows=sum(
+            1 for row in all_rows[1:]
+            if any(x not in (None,"") for x in row)
+        )
+        preview=[
+            ["" if x is None else str(x) for x in row]
+            for row in all_rows[:30]
+            if any(x not in (None,"") for x in row)
+        ]
         out.append({
             "table_type":"xlsx",
             "sheet_or_table":ws.title,
             "columns":header,
             "row_count":data_rows,
             "structural_columns":classify(header),
+            "metadata_preview_rows":preview,
         })
     return out
 
