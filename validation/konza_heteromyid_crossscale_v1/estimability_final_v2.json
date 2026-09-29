@@ -1,0 +1,51 @@
+{
+  "schema": "neon.konza_hispidus_crossscale.monotonic_estimability_stop.v2",
+  "frozen_date": "2026-09-29",
+  "source": {
+    "repository": "sarahsupp/KNZ-incidence",
+    "commit": "c354a2fb8a034e254365f0ffbe0e0ce82bdfea66",
+    "blob_sha": "c850d408500040bc1701ab4305bd6f28115722ab",
+    "file": "Datasets/Raw_data/Small_mammals/CSM012.csv",
+    "sha256": "2d810218ece91bb38725ae3d7080de9687a952ec11c54906ac47ffd5830dc82c",
+    "data_rows": 30708
+  },
+  "target": {
+    "scientific_name": "Chaetodipus hispidus",
+    "metadata_code": "Ch",
+    "observed_raw_code": "ch",
+    "matching_rule": "case_insensitive",
+    "total_capture_rows_all_years": 26
+  },
+  "prospective_gate": {
+    "primary_n_per_sex": 5,
+    "packing_required_nights": 20,
+    "movement_required_periods": 6,
+    "overlapping_traplines_required": 6,
+    "watersheds_required": 3
+  },
+  "monotonic_ceiling": {
+    "minimum_target_capture_rows_for_20_packing_nights": 200,
+    "explanation_packing": "Each N>=5/sex packing night requires at least 10 target capture rows; 20 such nights require at least 200 rows even before geometry/QC exclusions.",
+    "minimum_target_capture_rows_for_6_movement_periods": 120,
+    "explanation_movement": "Each N>=5/sex movement period requires at least 10 recapture-eligible individuals and each requires >=2 distinct trap days, hence at least 20 target capture rows per period and 120 rows across 6 periods.",
+    "observed_target_capture_rows": 26,
+    "packing_gate_mathematically_impossible": true,
+    "movement_gate_mathematically_impossible": true
+  },
+  "diagnostic_direct_scan": {
+    "paired_n3_packing_nights": 0,
+    "paired_n5_packing_nights": 0,
+    "maximum_minimum_sex_count_in_one_packing_night": 1,
+    "paired_n3_movement_periods": 0,
+    "paired_n5_movement_periods": 0
+  },
+  "effect_status": {
+    "packing_effects_inspected": false,
+    "movement_distances_inspected": false,
+    "ecological_effect_models_fit": 0
+  },
+  "decision": "stop_konza_crossscale_not_estimable",
+  "effect_analysis_authorized": false,
+  "manuscript_authorized": false,
+  "ruling": "The prospective N>=5/sex cross-scale gate is impossible from the available target capture-row total alone. No packing or movement effect is opened."
+}
