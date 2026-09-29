@@ -187,7 +187,50 @@ jobs:
           },indent=2,sort_keys=True))
           PY
 
+      - name: Persist metadata-only access stop
+        if: steps.access.outputs.downloadable != 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          metadata=json.loads(Path("data/cache/jornada_smes/datagov_metadata.json").read_text())
+          out={
+              "schema":"neon.jornada_smes_heteromyid_source.access_stop.v1",
+              "date":"2026-09-29",
+              "dataset_title":"Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007",
+              "datagov_v4_match_count":len(metadata),
+              "downloadable_csv_found":False,
+              "effect_status":{
+                  "species_specific_counts_inspected":False,
+                  "sex_specific_counts_inspected":False,
+                  "movement_distances_computed":False,
+                  "packing_effects_computed":False,
+                  "ecological_effect_models_fit":0,
+              },
+              "metadata":metadata,
+              "decision":"stop_source_access_no_current_downloadable_csv",
+          }
+          Path("/tmp/jornada_smes_source_access_stop_v1.json").write_text(
+              json.dumps(out,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/jornada-smes-heteromyid-source-v1
+          mkdir -p validation/jornada_smes_heteromyid_source_v1
+          cp /tmp/jornada_smes_source_access_stop_v1.json \
+             validation/jornada_smes_heteromyid_source_v1/source_access_stop_v1.json
+          git add validation/jornada_smes_heteromyid_source_v1/source_access_stop_v1.json
+          if git diff --cached --quiet; then
+            echo "metadata-only access stop unchanged"
+          else
+            git commit -m "Freeze Jornada SMES source-access stop"
+            git push origin HEAD:design/jornada-smes-heteromyid-source-v1
+          fi
+
       - name: Persist source receipt
+        if: steps.access.outputs.downloadable == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
