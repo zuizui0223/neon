@@ -45,15 +45,15 @@ def request(url: str, *, timeout: int=180) -> tuple[int,dict[str,str],bytes]:
         )
 
 
-def solr_search() -> list[dict]:
+def solr_query(query: str, *, rows: int=200) -> list[dict]:
     params=urllib.parse.urlencode({
-        "q":f'identifier:*{PACKAGE_TOKEN}*',
+        "q":query,
         "wt":"json",
-        "rows":"1000",
+        "rows":str(rows),
     })
     status,headers,raw=request(f"{CN}/query/solr/?{params}")
     if status!=200:
-        raise RuntimeError(f"DataONE Solr query failed: HTTP {status}")
+        raise RuntimeError(f"DataONE Solr query failed: HTTP {status}: {query}")
     payload=json.loads(raw.decode("utf-8"))
     docs=((payload.get("response") or {}).get("docs") or [])
     return [doc for doc in docs if isinstance(doc,dict)]
@@ -71,21 +71,119 @@ def package_version(identifier: str) -> int | None:
     return None
 
 
-def relevant_docs(docs: list[dict]) -> tuple[int,list[dict]]:
-    rows=[]
-    versions=[]
-    for doc in docs:
-        identifier=str(doc.get("identifier",""))
-        version=package_version(identifier)
-        if version is None:
-            continue
-        versions.append(version)
-        rows.append((version,doc))
-    if not rows:
-        raise RuntimeError("DataONE index returned no documents for package 67")
+def _string_values(value: Any) -> list[str]:
+    if isinstance(value,str):
+        return [value]
+    if isinstance(value,list):
+        return [str(x) for x in value if x]
+    return []
+
+
+def discovery_docs() -> tuple[int,list[dict],list[dict]]:
+    seed_queries=[
+        'title:"Long Term Mammal Data from Powdermill Biological Station 1979-1999"',
+        'title:Powdermill',
+        f'seriesId:"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}"',
+        f'identifier:"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}"',
+    ]
+    seeds={}
+    query_receipts=[]
+    for query in seed_queries:
+        docs=solr_query(query,rows=300)
+        query_receipts.append({
+            "query":query,
+            "result_count":len(docs),
+            "identifiers":[str(doc.get("identifier","")) for doc in docs[:30]],
+        })
+        for doc in docs:
+            identifier=str(doc.get("identifier","")).strip()
+            if identifier:
+                seeds[identifier]=doc
+
+    if not seeds:
+        raise RuntimeError("DataONE title/series discovery returned no Powdermill documents")
+
+    versions=[
+        package_version(identifier)
+        for identifier in seeds
+        if package_version(identifier) is not None
+    ]
+    if not versions:
+        # Follow relations once: title docs can expose the data/metadata PIDs
+        # even when the visible identifier itself is a series identifier.
+        related=set()
+        for doc in seeds.values():
+            for key in ("documents","isDocumentedBy","resourceMap","memberNode"):
+                related.update(_string_values(doc.get(key)))
+        for pid in sorted(related):
+            docs=solr_query(f'identifier:"{pid}"',rows=20)
+            for doc in docs:
+                identifier=str(doc.get("identifier","")).strip()
+                if identifier:
+                    seeds[identifier]=doc
+        versions=[
+            package_version(identifier)
+            for identifier in seeds
+            if package_version(identifier) is not None
+        ]
+
+    if not versions:
+        raise RuntimeError(
+            "Powdermill title resolved in DataONE but package version could not be inferred; "
+            + json.dumps(query_receipts,sort_keys=True)[:4000]
+        )
+
     latest=max(versions)
-    selected=[doc for version,doc in rows if version==latest]
-    return latest,selected
+    latest_docs={
+        identifier:doc
+        for identifier,doc in seeds.items()
+        if package_version(identifier)==latest
+    }
+
+    metadata_pids=[
+        identifier for identifier in latest_docs
+        if "/package/metadata/" in identifier
+        or str(latest_docs[identifier].get("formatId","")).lower() in {
+            "eml://ecoinformatics.org/eml-2.1.1",
+            "eml://ecoinformatics.org/eml-2.2.0",
+        }
+    ]
+
+    # Pull data objects documented by the latest metadata and any explicit
+    # document-member PIDs exposed by the metadata index record.
+    candidate_pids=set(latest_docs)
+    for metadata_pid in metadata_pids:
+        meta=latest_docs[metadata_pid]
+        candidate_pids.update(_string_values(meta.get("documents")))
+        try:
+            child_docs=solr_query(f'isDocumentedBy:"{metadata_pid}"',rows=300)
+        except RuntimeError:
+            child_docs=[]
+        for doc in child_docs:
+            pid=str(doc.get("identifier","")).strip()
+            if pid:
+                latest_docs[pid]=doc
+                candidate_pids.add(pid)
+
+    # Resolve exact records for relation-only PIDs.
+    for pid in sorted(candidate_pids):
+        if pid in latest_docs:
+            continue
+        docs=solr_query(f'identifier:"{pid}"',rows=20)
+        for doc in docs:
+            identifier=str(doc.get("identifier","")).strip()
+            if identifier:
+                latest_docs[identifier]=doc
+
+    selected=[
+        doc for identifier,doc in latest_docs.items()
+        if (
+            package_version(identifier)==latest
+            or str(doc.get("isDocumentedBy","")) in metadata_pids
+            or any(x in metadata_pids for x in _string_values(doc.get("isDocumentedBy")))
+        )
+    ]
+    return latest,selected,query_receipts
 
 
 def resolver_url(pid: str) -> str:
@@ -175,8 +273,7 @@ def summarize_doc(doc: dict) -> dict:
 
 
 def audit(output_dir: Path) -> dict:
-    docs=solr_search()
-    latest_version,latest_docs=relevant_docs(docs)
+    latest_version,latest_docs,discovery_receipts=discovery_docs()
 
     candidate_docs=[
         doc for doc in latest_docs
@@ -219,6 +316,7 @@ def audit(output_dir: Path) -> dict:
         "schema":"neon.powdermill_crossscale.source_audit.v1",
         "package_series":f"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}",
         "latest_dataone_package_version":latest_version,
+        "dataone_discovery_queries":discovery_receipts,
         "dataone_documents_at_latest_version":[
             summarize_doc(doc) for doc in latest_docs
         ],
