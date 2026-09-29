@@ -1,0 +1,76 @@
+{
+  "schema": "neon.wyoming_crossscale.external_replication_design_lock.v2",
+  "frozen_date": "2026-09-29",
+  "supersedes": "validation/wyoming_pocketmouse_crossscale_v1/estimability_design_lock_v1.json",
+  "state": "frozen_before_source_schema_and_species_support_counts",
+  "rationale": {
+    "primary_threshold_change": "Return to N>=3/sex because the completed programme's primary analysis used N>=3; the apparent N>=5 family significance was superseded by a within-species uncertainty audit.",
+    "prior_n5_status": "hypothesis-generating sign concordance only",
+    "external_dataset_status": "independent Wyoming field dataset; no sex-specific outcome from this dataset has been inspected"
+  },
+  "species_roles": {
+    "confirmatory_external_replication": "Dipodomys ordii",
+    "heldout_extension": "Perognathus fasciatus"
+  },
+  "thresholds": {
+    "primary_n_per_sex": 3,
+    "high_information_sensitivity_n_per_sex": 5
+  },
+  "estimability": {
+    "packing": {
+      "unit": "site x night",
+      "minimum_primary_site_nights": 10,
+      "minimum_sites": 5
+    },
+    "movement": {
+      "unit": "site four-night trapping session",
+      "minimum_recapture_eligible_per_sex": 3,
+      "minimum_sites": 5,
+      "minimum_distinct_nights_per_individual": 2
+    },
+    "crossscale": {
+      "minimum_overlapping_sites": 5,
+      "pass_decision": "authorize_wyoming_external_effect_lock",
+      "fail_decision": "stop_wyoming_external_not_estimable"
+    }
+  },
+  "packing_geometry": {
+    "published_grid": "4 x 20 points at 25 m spacing",
+    "trap_unit": "site x night x grid point x trap type",
+    "colocated_distinct_trap_coordinates_allowed": true,
+    "active_support": "trap units rather than unique XY coordinates"
+  },
+  "effect_decision_if_authorized": {
+    "movement": {
+      "contrast": "male minus female median log1p individual median successive-night displacement",
+      "confirm_positive_if": "lower two-sided 95% Student-t CI > 0"
+    },
+    "packing": {
+      "contrast": "Packing_z_male minus Packing_z_female",
+      "equivalence_margin_z": 0.5,
+      "equivalent_if": "two-sided 95% Student-t CI entirely within [-0.5,+0.5]",
+      "positive_if": "lower two-sided 95% Student-t CI > 0",
+      "negative_if": "upper two-sided 95% Student-t CI < 0"
+    },
+    "crossscale_classification": {
+      "decoupled": "movement confirmed positive AND packing equivalent",
+      "coupled_positive": "movement confirmed positive AND packing confirmed positive",
+      "opposed": "movement confirmed positive AND packing confirmed negative",
+      "unresolved": "all other estimable combinations"
+    }
+  },
+  "manuscript_boundary": {
+    "confirmatory_decision_species": "Dipodomys ordii",
+    "heldout_extension_cannot_rescue_confirmatory_species": true,
+    "movement_unconfirmed": "stop_no_external_movement_replication",
+    "crossscale_unresolved": "stop_external_crossscale_unresolved"
+  },
+  "effect_status": {
+    "source_schema_inspected": false,
+    "species_support_counts_inspected": false,
+    "sex_specific_effects_inspected": false,
+    "movement_distances_inspected": false,
+    "packing_effects_inspected": false,
+    "ecological_effect_models_fit": 0
+  }
+}
