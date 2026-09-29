@@ -1,0 +1,143 @@
+name: jornada-smes-heteromyid-source-audit
+
+on:
+  push:
+    branches:
+      - design/jornada-smes-heteromyid-source-v1
+    paths:
+      - docs/JORNADA_SMES_HETEROMYID_SOURCE_AUDIT_V1.md
+      - analysis/audit_jornada_smes_source_v1.py
+      - tests/test_jornada_smes_source_audit.py
+      - .github/workflows/jornada-smes-heteromyid-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/jornada-smes-heteromyid-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test source-schema logic
+        run: python -m unittest tests.test_jornada_smes_source_audit -v
+
+      - name: Discover and download public CSV resources
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import urllib.parse
+          import urllib.request
+
+          root=pathlib.Path("data/cache/jornada_smes")
+          root.mkdir(parents=True,exist_ok=True)
+          headers={"User-Agent":"Mozilla/5.0 jornada-smes-source-audit/1.0"}
+
+          legacy=[
+              "https://jornada.nmsu.edu/sites/jornada.nmsu.edu/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv",
+              "http://jornada.nmsu.edu/sites/jornada.nmsu.edu/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv",
+              "https://jornada.nmsu.edu/sites/default/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv",
+          ]
+
+          urls=[]
+          urls.extend(legacy)
+
+          query=urllib.parse.urlencode({
+              "q":'"Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007"'
+          })
+          api="https://catalog.data.gov/api/3/action/package_search?"+query
+          try:
+              req=urllib.request.Request(api,headers=headers)
+              with urllib.request.urlopen(req,timeout=90) as response:
+                  payload=json.loads(response.read().decode("utf-8"))
+              for result in ((payload.get("result") or {}).get("results") or []):
+                  for resource in result.get("resources",[]):
+                      url=str(resource.get("url","")).strip()
+                      fmt=str(resource.get("format","")).strip().lower()
+                      if url and (fmt=="csv" or ".csv" in url.lower()):
+                          urls.append(url)
+          except Exception as error:
+              print("DATAGOV_DISCOVERY_ERROR",type(error).__name__,error,flush=True)
+
+          seen=set()
+          saved=[]
+          for index,url in enumerate(urls,1):
+              if url in seen:
+                  continue
+              seen.add(url)
+              try:
+                  req=urllib.request.Request(url,headers=headers)
+                  with urllib.request.urlopen(req,timeout=120) as response:
+                      raw=response.read()
+                  if not raw or b"<html" in raw[:5000].lower():
+                      print("SKIP_NONCSV",url,len(raw),flush=True)
+                      continue
+                  first=raw[:4096].decode("utf-8-sig",errors="replace")
+                  if "," not in first and "\t" not in first:
+                      print("SKIP_NO_DELIMITER",url,len(raw),flush=True)
+                      continue
+                  name=urllib.parse.urlparse(url).path.rsplit("/",1)[-1] or f"resource_{index}.csv"
+                  if not name.lower().endswith(".csv"):
+                      name=f"resource_{index}.csv"
+                  out=root/name
+                  if out.exists():
+                      out=root/f"{index}_{name}"
+                  out.write_bytes(raw)
+                  saved.append({"url":url,"file":out.name,"size":len(raw)})
+                  print("SAVED",url,out,len(raw),flush=True)
+              except Exception as error:
+                  print("DOWNLOAD_ERROR",url,type(error).__name__,error,flush=True)
+
+          (root/"source_urls.json").write_text(
+              json.dumps(saved,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          if not saved:
+              raise SystemExit("no public CSV resource could be downloaded")
+          PY
+
+      - name: Audit structural schemas only
+        run: |
+          python analysis/audit_jornada_smes_source_v1.py             --directory data/cache/jornada_smes             --output /tmp/jornada_smes_source_schema_audit_v1.json
+
+      - name: Assert effect-blind audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/jornada_smes_source_schema_audit_v1.json").read_text())
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "source_adequacy_for_estimability_design":p["source_adequacy_for_estimability_design"],
+              "structurally_adequate_capture_tables":p["structurally_adequate_capture_tables"],
+              "files":p["files"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/jornada-smes-heteromyid-source-v1
+          mkdir -p validation/jornada_smes_heteromyid_source_v1
+          cp /tmp/jornada_smes_source_schema_audit_v1.json              validation/jornada_smes_heteromyid_source_v1/source_schema_audit_v1.json
+          cp data/cache/jornada_smes/source_urls.json              validation/jornada_smes_heteromyid_source_v1/source_urls_v1.json
+          git add validation/jornada_smes_heteromyid_source_v1/
+          if git diff --cached --quiet; then
+            echo "source receipt unchanged"
+          else
+            git commit -m "Freeze Jornada SMES source schema audit"
+            git push origin HEAD:design/jornada-smes-heteromyid-source-v1
+          fi
