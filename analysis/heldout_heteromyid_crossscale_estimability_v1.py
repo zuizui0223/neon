@@ -4,6 +4,7 @@ import argparse
 import csv
 import io
 import json
+import math
 import os
 import urllib.parse
 import urllib.request
@@ -178,12 +179,53 @@ def registry_nodes_for_site(site: str) -> set[str]:
     req=urllib.request.Request(url,headers={"User-Agent":USER_AGENT})
     with urllib.request.urlopen(req,timeout=180) as response:
         payload=json.loads(response.read().decode("utf-8"))
-    return {
+
+    names=sorted(
         name for name in _collect_location_names(payload)
         if name.startswith(str(site)+"_")
         and ".mammalGrid.mam." in name
         and _valid_trap_coordinate(name.rsplit(".",1)[-1])
-    }
+    )
+    if not names:
+        return set()
+
+    query="""
+    query FindLocations($query: LocationQuery!) {
+      locations: findLocations(query: $query) {
+        locationName locationDecimalLatitude locationDecimalLongitude
+      }
+    }"""
+    valid=set()
+    for start in range(0,len(names),500):
+        body=json.dumps({
+            "query":query,
+            "variables":{"query":{"locationNames":names[start:start+500]}},
+        }).encode("utf-8")
+        req=urllib.request.Request(
+            "https://data.neonscience.org/graphql",
+            data=body,
+            method="POST",
+            headers={
+                "User-Agent":USER_AGENT,
+                "Content-Type":"application/json",
+            },
+        )
+        with urllib.request.urlopen(req,timeout=180) as response:
+            result=json.loads(response.read().decode("utf-8"))
+        if not isinstance(result,dict) or result.get("errors"):
+            raise RuntimeError(f"{site}: location GraphQL failure")
+        rows=((result.get("data") or {}).get("locations") or [])
+        for row in rows:
+            name=str(row.get("locationName","")).strip()
+            try:
+                lat=float(row.get("locationDecimalLatitude"))
+                lon=float(row.get("locationDecimalLongitude"))
+            except (TypeError,ValueError):
+                continue
+            if name in names and math.isfinite(lat) and math.isfinite(lon):
+                valid.add(name)
+
+    return valid
 
 
 def _node_id(row: dict) -> str:
