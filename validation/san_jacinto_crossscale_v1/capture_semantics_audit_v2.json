@@ -1,0 +1,1310 @@
+{
+  "all_observed_flags_compatible_with_canonical_geometry": true,
+  "audit_revision": "correct two-digit years; fixed canonical 7x7 geometry; decompose slot duplicates; grid-species-ID sex consistency",
+  "canonical_geometry": {
+    "columns": "1-7",
+    "flag_count": 49,
+    "rows": "A-G",
+    "source": "published fixed 7x7 grid design",
+    "spacing_m": 6.25
+  },
+  "date_max": "2016-07-07",
+  "date_min": "2015-08-09",
+  "duplicate_capture_slot_count": 140,
+  "duplicate_capture_slot_excess": 140,
+  "ecological_effect_models_fit": 0,
+  "exact_duplicate_row_excess": 0,
+  "figshare_article_id": 18295520,
+  "geometry_semantics_passed": true,
+  "grid_bout_date_lengths": {
+    "1": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "2": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "3": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "4": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3,
+      3
+    ],
+    "5": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "6": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3,
+      3
+    ],
+    "7": [
+      4,
+      3,
+      3,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3,
+      3
+    ],
+    "8": [
+      4,
+      3,
+      3,
+      2,
+      1,
+      3,
+      3,
+      3,
+      3,
+      2,
+      3,
+      3,
+      3
+    ]
+  },
+  "grid_distinct_capture_date_counts": {
+    "1": 36,
+    "2": 37,
+    "3": 36,
+    "4": 36,
+    "5": 37,
+    "6": 36,
+    "7": 36,
+    "8": 36
+  },
+  "grid_species_identity_sex_conflict_count": 81,
+  "grid_values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "history_code_values": [
+    "NID",
+    "NTB",
+    "NTBF",
+    "NTM",
+    "NTP",
+    "NYB",
+    "R"
+  ],
+  "missing_structural_fields": {
+    "history": 133,
+    "sex": 6962,
+    "unique_ID": 146
+  },
+  "movement_distances_computed": false,
+  "multi_individual_capture_slot_count": 106,
+  "multi_individual_capture_slot_examples": [
+    {
+      "date": "2015-12-06",
+      "flag": "F7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:48",
+          "unique_ID": "816817"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "10:47",
+          "unique_ID": "776784"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "G7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:48",
+          "unique_ID": "748749"
+        },
+        {
+          "history": "NTB",
+          "sex": "M",
+          "species": "DKR",
+          "time": "10:47",
+          "unique_ID": "816817"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "A6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "3:00",
+          "unique_ID": "816817"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "11:44",
+          "unique_ID": "greengreen"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "B1",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "3:00",
+          "unique_ID": "478477"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "11:44",
+          "unique_ID": "855856"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "C6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "11:44",
+          "unique_ID": "816817"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "3:06",
+          "unique_ID": "792723"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "D2",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "3:00",
+          "unique_ID": "803818"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "11:44",
+          "unique_ID": "855856"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "E5",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:44",
+          "unique_ID": "OBB"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "3:06",
+          "unique_ID": "greengreen"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "F7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:44",
+          "unique_ID": "ORR"
+        },
+        {
+          "history": "NID",
+          "sex": "F",
+          "species": "DKR",
+          "time": "3:06",
+          "unique_ID": "326327"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "A3",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:44",
+          "unique_ID": "478477"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:45",
+          "unique_ID": "884885"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "B1",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:44",
+          "unique_ID": "855856"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:45",
+          "unique_ID": "399"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "C6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "1:44",
+          "unique_ID": "BOO"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "10:45",
+          "unique_ID": "792723"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "E7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "10:45",
+          "unique_ID": "ORR"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:44",
+          "unique_ID": "748749"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2016-03-31",
+      "flag": "D1",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "NTB",
+          "sex": "M",
+          "species": "DKR",
+          "time": "10:36",
+          "unique_ID": "478477"
+        },
+        {
+          "history": "NTB",
+          "sex": "M",
+          "species": "DKR",
+          "time": "10:47",
+          "unique_ID": "748749"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2016-05-14",
+      "flag": "D7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "12:26",
+          "unique_ID": "332857"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "12:26",
+          "unique_ID": "13601369"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2016-06-04",
+      "flag": "D4",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "LAPM",
+          "time": "12:13",
+          "unique_ID": "LYOR"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "12:13",
+          "unique_ID": "12131218"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2016-07-05",
+      "flag": "A4",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "NTB",
+          "sex": "F",
+          "species": "DKR",
+          "time": "10:11",
+          "unique_ID": "13721373"
+        },
+        {
+          "history": "NTB",
+          "sex": "M",
+          "species": "PEMA",
+          "time": "9:55",
+          "unique_ID": "redred"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2016-07-07",
+      "flag": "D7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:09",
+          "unique_ID": "816817"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "10:09",
+          "unique_ID": "792723"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2015-08-10",
+      "flag": "C1",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "LAPM",
+          "time": "4:52",
+          "unique_ID": "YRY"
+        },
+        {
+          "history": "NID",
+          "sex": "F",
+          "species": "PEMA",
+          "time": "5:10",
+          "unique_ID": "557556"
+        }
+      ],
+      "time_bin": "late"
+    },
+    {
+      "date": "2015-10-12",
+      "flag": "G6",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "9:44",
+          "unique_ID": "OOR"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "9:44",
+          "unique_ID": "RRB"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "A4",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "1:59",
+          "unique_ID": "616"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "11:02",
+          "unique_ID": "617"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "A7",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEER",
+          "time": "1:59",
+          "unique_ID": "616"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "11:02",
+          "unique_ID": "967966"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "B6",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "11:02",
+          "unique_ID": "518517"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "1:59",
+          "unique_ID": "967966"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "F5",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:02",
+          "unique_ID": "ORB"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:59",
+          "unique_ID": "783"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "F6",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "1:59",
+          "unique_ID": "OOR"
+        },
+        {
+          "history": "NTB",
+          "sex": "F",
+          "species": "PEMA",
+          "time": "11:02",
+          "unique_ID": "559558"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "G6",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "1:59",
+          "unique_ID": "ORB"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "11:02",
+          "unique_ID": "707708"
+        }
+      ],
+      "time_bin": "middle"
+    }
+  ],
+  "noncanonical_flag_row_count": 0,
+  "noncanonical_flag_values": [],
+  "observed_capture_flag_counts_by_grid": {
+    "1": 49,
+    "2": 49,
+    "3": 49,
+    "4": 49,
+    "5": 49,
+    "6": 49,
+    "7": 49,
+    "8": 47
+  },
+  "packing_effects_computed": false,
+  "row_count": 8981,
+  "same_individual_repeat_slot_count": 34,
+  "same_individual_repeat_slot_examples": [
+    {
+      "date": "2015-08-11",
+      "flag": "C7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:22",
+          "unique_ID": "464786"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:26",
+          "unique_ID": "464786"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "A6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "1:42",
+          "unique_ID": "ORR"
+        },
+        {
+          "history": "NTB",
+          "sex": "M",
+          "species": "CHFA",
+          "time": "10:47",
+          "unique_ID": "ORR"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "B7",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "1:42",
+          "unique_ID": "greengreen"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "DKR",
+          "time": "10:47",
+          "unique_ID": "greengreen"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "B6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "3:00",
+          "unique_ID": "BOO"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:44",
+          "unique_ID": "BOO"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "G6",
+      "grid": "1",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "1:44",
+          "unique_ID": "RYY"
+        },
+        {
+          "history": "NTB",
+          "sex": "F",
+          "species": "CHFA",
+          "time": "10:45",
+          "unique_ID": "RYY"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-08-13",
+      "flag": "B2",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "",
+          "sex": "",
+          "species": "CHFA",
+          "time": "4:00",
+          "unique_ID": ""
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "4:08",
+          "unique_ID": "ROR"
+        }
+      ],
+      "time_bin": "late"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "G4",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "2:51",
+          "unique_ID": "ORB"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:32",
+          "unique_ID": "ORB"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "G6",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "2:51",
+          "unique_ID": "OBY"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "CHFA",
+          "time": "11:32",
+          "unique_ID": "OBY"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "A7",
+      "grid": "2",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "1:59",
+          "unique_ID": "814815"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "11:03",
+          "unique_ID": "814815"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "B7",
+      "grid": "3",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:15",
+          "unique_ID": "939938"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:22",
+          "unique_ID": "939938"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-09",
+      "flag": "D5",
+      "grid": "3",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "1:33",
+          "unique_ID": "640"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "10:33",
+          "unique_ID": "640"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2016-07-05",
+      "flag": "A5",
+      "grid": "3",
+      "rows": [
+        {
+          "history": "NTB",
+          "sex": "F",
+          "species": "SKR",
+          "time": "10:48",
+          "unique_ID": "19631964"
+        },
+        {
+          "history": "NTB",
+          "sex": "",
+          "species": "SKR",
+          "time": "10:58",
+          "unique_ID": "19631964"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2016-07-07",
+      "flag": "D1",
+      "grid": "3",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "1:01",
+          "unique_ID": "303304"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "1:10",
+          "unique_ID": "303304"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "A5",
+      "grid": "4",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "2:30",
+          "unique_ID": "purplepurple"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "11:36",
+          "unique_ID": "purplepurple"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "A6",
+      "grid": "4",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "2:30",
+          "unique_ID": "blueblue"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "PEMA",
+          "time": "11:36",
+          "unique_ID": "blueblue"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-06",
+      "flag": "D2",
+      "grid": "4",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:30",
+          "unique_ID": "927"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:44",
+          "unique_ID": "927"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "E2",
+      "grid": "4",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:36",
+          "unique_ID": "green"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:46",
+          "unique_ID": "green"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-09",
+      "flag": "E1",
+      "grid": "4",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "1:53",
+          "unique_ID": "redred"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "10:48",
+          "unique_ID": "redred"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-08-10",
+      "flag": "D1",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:23",
+          "unique_ID": "921"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:25",
+          "unique_ID": "921"
+        }
+      ],
+      "time_bin": "early"
+    },
+    {
+      "date": "2015-08-10",
+      "flag": "C3",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:10",
+          "unique_ID": "922"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:16",
+          "unique_ID": "922"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "A4",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:31",
+          "unique_ID": "977976"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:18",
+          "unique_ID": "977976"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "B6",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:32",
+          "unique_ID": "636635"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:18",
+          "unique_ID": "636635"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-07",
+      "flag": "C7",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:32",
+          "unique_ID": "905906"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "11:21",
+          "unique_ID": "905906"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2015-12-08",
+      "flag": "A4",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "2:50",
+          "unique_ID": "977976"
+        },
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "12:00",
+          "unique_ID": "977976"
+        }
+      ],
+      "time_bin": "middle"
+    },
+    {
+      "date": "2016-03-31",
+      "flag": "A2",
+      "grid": "5",
+      "rows": [
+        {
+          "history": "R",
+          "sex": "",
+          "species": "SKR",
+          "time": "3:39",
+          "unique_ID": "10971098"
+        },
+        {
+          "history": "NTB",
+          "sex": "F",
+          "species": "SKR",
+          "time": "12:39",
+          "unique_ID": "10971098"
+        }
+      ],
+      "time_bin": "middle"
+    }
+  ],
+  "schema": "neon.san_jacinto_crossscale.capture_semantics_audit.v2",
+  "sex_raw_code_values": [
+    "?",
+    "F",
+    "M",
+    "f",
+    "m"
+  ],
+  "sex_specific_support_counts_inspected": false,
+  "source_doi": "10.6084/m9.figshare.18295520.v1",
+  "source_file": "year round trap data.csv",
+  "source_sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
+  "species_specific_support_counts_inspected": false,
+  "time_bin_canonical_passed": true,
+  "time_bin_values": [
+    "early",
+    "late",
+    "middle"
+  ]
+}
