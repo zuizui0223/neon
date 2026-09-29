@@ -1,0 +1,170 @@
+{
+  "dataset_title": "Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007",
+  "date": "2026-09-29",
+  "decision": "stop_source_access_no_current_downloadable_csv",
+  "discovery": {
+    "attempts": [
+      {
+        "error": "HTTPError: HTTP Error 404: Not Found",
+        "status": "download_error",
+        "url": "https://jornada.nmsu.edu/sites/jornada.nmsu.edu/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv"
+      },
+      {
+        "error": "HTTPError: HTTP Error 404: Not Found",
+        "status": "download_error",
+        "url": "http://jornada.nmsu.edu/sites/jornada.nmsu.edu/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv"
+      },
+      {
+        "error": "HTTPError: HTTP Error 404: Not Found",
+        "status": "download_error",
+        "url": "https://jornada.nmsu.edu/sites/default/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv"
+      },
+      {
+        "status": "metadata_url_not_data_candidate",
+        "url": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+      },
+      {
+        "status": "metadata_url_not_data_candidate",
+        "url": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f"
+      },
+      {
+        "status": "metadata_url_not_data_candidate",
+        "url": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f/raw"
+      },
+      {
+        "status": "metadata_url_not_data_candidate",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "catalog_match_count": 1,
+    "date": "2026-09-29",
+    "downloadable_csv_found": false,
+    "ecological_effect_models_fit": 0,
+    "metadata_file": "datagov_metadata.json",
+    "movement_distances_computed": false,
+    "packing_effects_computed": false,
+    "saved": [],
+    "schema": "neon.jornada_smes_source.discovery.v1",
+    "sex_specific_counts_inspected": false,
+    "species_specific_counts_inspected": false
+  },
+  "downloadable_csv_found": false,
+  "effect_status": {
+    "ecological_effect_models_fit": 0,
+    "movement_distances_computed": false,
+    "packing_effects_computed": false,
+    "sex_specific_counts_inspected": false,
+    "species_specific_counts_inspected": false
+  },
+  "metadata": [
+    {
+      "all_metadata_urls": [
+        {
+          "key": "downloadURL",
+          "url": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+        },
+        {
+          "key": "title",
+          "url": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+        },
+        {
+          "key": "harvest_record",
+          "url": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f"
+        },
+        {
+          "key": "harvest_record_raw",
+          "url": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f/raw"
+        },
+        {
+          "key": "downloadURL",
+          "url": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+        },
+        {
+          "key": "title",
+          "url": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+        },
+        {
+          "key": "license",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "dcat_distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "downloadURL": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009",
+          "mediaType": "text/html",
+          "title": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+        }
+      ],
+      "distribution_titles": [
+        "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+      ],
+      "harvest_raw": {
+        "@type": "dcat:Dataset",
+        "accessLevel": "public",
+        "bureauCode": [
+          "005:18"
+        ],
+        "contactPoint": {
+          "fn": "Data Manager",
+          "hasEmail": "mailto:jornada.data@nmsu.edu"
+        },
+        "description": "<p>This data package contains rodent trapping data from plots with various levels of herbivore exclusion on the Jornada Experimental Range (JER) and Chihuahuan Desert Rangeland Research Center (CDRRC) lands. Study sites were established in 1995; one in black grama grassland and the other in creosotebush shrubland to compare the impact of herbivores on ecosystem processes between these vegetation types. Parallel studies were established at the Sevilleta LTER site (New Mexico, USA) and Mapimi Biosphere Reserve (Durango, Mexico). Each study site is 1 km by 0.5 km in area. Three replicate rodent trapping webs and four replicate experimental blocks were randomly located at each study site. Rodent trapping webs were used to measure rodent population density and species diversity over time, while the experimental blocks measure vegetation responses to herbivore exclusion treatments including a) all mammalian herbivores, including cattle, lagomorphs, and rodents, b) lagomorphs and cattle only, c) cattle only, and d) control accessible to all herbivores. Rodent populations were sampled from each of the three webs at each study site during overnight trapping campaigns twice per year, in the early (April-May) and late (September-October) summer between 1995 and 2007 (trapping study terminated after October 2007). During each trapping campaign, live-traps were left open for three consecutive nights, and captured animals were recorded on the three subsequent mornings. Each animal caught was identified, measured, and released at the same location where it was captured. This study is complete. </p><div><br>Resources in this dataset:</div><br><ul><li><p>Resource Title: Website Pointer to html file.</p> <p>File Name: Web Page, url: <a href=\"https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009\">https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009</a> </p><p>Webpage with information and links to data files for download</p></li></ul><p></p>",
+        "distribution": [
+          {
+            "@type": "dcat:Distribution",
+            "downloadURL": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009",
+            "mediaType": "text/html",
+            "title": "https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-jrn&identifier=210086009"
+          }
+        ],
+        "identifier": "10.6073/pasta/0c38baecb2e10b4fe70d187ba6f08dda",
+        "keyword": [
+          "ARS",
+          "Abundance",
+          "Land Use and Land Cover Change",
+          "NP216",
+          "NSF > LTER=Long-Term Ecological Research",
+          "Plant-Animal Interactions",
+          "Populations",
+          "SMES",
+          "consumers",
+          "data.gov",
+          "deserts",
+          "fauna",
+          "grasslands",
+          "herbivory",
+          "land use",
+          "long term",
+          "long term monitoring",
+          "rabbits",
+          "shrubs",
+          "small mammals",
+          "study 086",
+          "trapping",
+          "trapping web",
+          "vertebrates"
+        ],
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "modified": "2025-11-22",
+        "programCode": [
+          "005:040"
+        ],
+        "publisher": {
+          "@type": "org:Organization",
+          "name": "Agricultural Research Service"
+        },
+        "spatial": "{\"type\": \"Polygon\", \"coordinates\": [[[-106.8514602, 32.5427713], [-106.7294433, 32.5427713], [-106.7294433, 32.46722784], [-106.8514602, 32.46722784], [-106.8514602, 32.5427713]]]}",
+        "temporal": "1995-04-04/2007-10-18",
+        "title": "Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007"
+      },
+      "harvest_record": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f",
+      "harvest_record_raw": "https://catalog.data.gov/harvest_record/af5e97b9-485b-4ecd-b6df-79d44beb2f6f/raw",
+      "identifier": "10.6073/pasta/0c38baecb2e10b4fe70d187ba6f08dda",
+      "landingPage": null,
+      "slug": "rodent-data-from-trapping-webs-in-the-long-term-small-mammal-exclusion-study-sme-1995-2007",
+      "title": "Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007"
+    }
+  ],
+  "schema": "neon.jornada_smes_heteromyid_source.access_stop.v1"
+}
