@@ -1,0 +1,45 @@
+{
+  "schema": "neon.sevilleta_heteromyid_crossscale.source_stop.v3",
+  "frozen_date": "2026-09-29",
+  "dataone_raw": {
+    "pid": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+    "size_bytes": 1306268,
+    "sha1": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461",
+    "sha256": "4a0e0c387364ffbe7153c18189f7d2f0f245a774e21ef2049205e9bbfd47eced",
+    "data_row_count": 32066,
+    "columns": [
+      "year",
+      "location",
+      "season",
+      "night",
+      "web",
+      "trap",
+      "recap",
+      "species",
+      "sex",
+      "age",
+      "reprod",
+      "mass"
+    ]
+  },
+  "structural_ruling": {
+    "one_night_packing_possible": true,
+    "sex_present": true,
+    "species_present": true,
+    "site_web_trap_night_present": true,
+    "individual_identity_present": false,
+    "recap_values": [
+      "n",
+      "y",
+      "na"
+    ],
+    "recap_is_identity": false,
+    "individual_movement_reconstructable": false
+  },
+  "decision": "stop_crossscale_source_missing_individual_identity",
+  "species_specific_counts_inspected": false,
+  "sex_specific_counts_inspected": false,
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "ecological_effect_models_fit": 0
+}
