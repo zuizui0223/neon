@@ -34,6 +34,7 @@ jobs:
           python analysis/resolve_usgs_hispidus_source_v1.py \
             --identifier "USGS:f36fdaba-fe3d-4e59-a68f-fdc034219816" \
             --title-hint "To ear tag or to PIT tag" \
+            --figshare-article-id "30290941" \
             --cache-dir data/cache/usgs_hispidus \
             --output /tmp/usgs_hispidus_source_audit_v1.json
 
