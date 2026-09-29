@@ -37,14 +37,14 @@ class LiveTrapAliasingManuscriptV02Tests(unittest.TestCase):
 
     def test_mathematical_notation_is_well_formed(self):
         required=(
-            r"\\delta_{it}",
-            r"\\ge",
-            r"\\le",
-            r"\\frac",
-            r"\\sum_{i<j}",
-            r"\\beta",
-            r"\\operatorname{logit}",
-            r"\\texttt{authorize\\_live\\_trap\\_positional\\_aliasing\\_result}",
+            "\\delta_{it}",
+            "\\ge",
+            "\\le",
+            "\\frac",
+            "\\sum_{i<j}",
+            "\\beta",
+            "\\operatorname{logit}",
+            "\\texttt{authorize\\_live\\_trap\\_positional\\_aliasing\\_result}",
         )
         for token in required:
             self.assertIn(token,self.text)
