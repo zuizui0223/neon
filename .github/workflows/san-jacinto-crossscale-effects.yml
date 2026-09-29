@@ -1,0 +1,143 @@
+name: san-jacinto-crossscale-effects
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - validation/san_jacinto_crossscale_v1/effect_analysis_lock_v1.json
+      - analysis/finite_iid_packing_null_v1.py
+      - analysis/san_jacinto_crossscale_effects_v1.py
+      - analysis/analyze_san_jacinto_crossscale_v1.py
+      - tests/test_finite_iid_packing_null.py
+      - tests/test_san_jacinto_crossscale_effects.py
+      - tests/test_analyze_san_jacinto_crossscale.py
+      - .github/workflows/san-jacinto-crossscale-effects.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  effects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install frozen numerical dependencies
+        run: python -m pip install numpy==2.1.1 scipy==1.18.1
+
+      - name: Verify authorization receipts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          mech=json.loads(
+              Path("validation/san_jacinto_crossscale_v1/iid_packing_mechanical_audit_v1.json").read_text()
+          )
+          est=json.loads(
+              Path("validation/san_jacinto_crossscale_v1/estimability_result_v1.json").read_text()
+          )
+          lock=json.loads(
+              Path("validation/san_jacinto_crossscale_v1/effect_analysis_lock_v1.json").read_text()
+          )
+
+          assert mech["passes"] is True
+          assert mech["observed_ecological_effects_inspected"] is False
+          assert est["programme_gate"]["decision"] == "authorize_san_jacinto_crossscale_effect_lock"
+          assert est["packing_effects_computed"] is False
+          assert est["movement_distances_computed"] is False
+          assert set(est["programme_gate"]["qualifying_species"]) == {
+              "LAPM","CHFA","DKR","SKR"
+          }
+          assert lock["state"] == "frozen_before_effect_extraction"
+          assert lock["packing_effects_computed"] is False
+          assert lock["movement_distances_computed"] is False
+          print("SAN_JACINTO_EFFECT_EXTRACTION_AUTHORIZED")
+          PY
+
+      - name: Verify frozen effect contracts
+        run: |
+          python -m unittest \
+            tests.test_finite_iid_packing_null \
+            tests.test_san_jacinto_crossscale_effects \
+            tests.test_analyze_san_jacinto_crossscale -v
+
+      - name: Extract frozen packing and movement effects
+        run: |
+          python analysis/san_jacinto_crossscale_effects_v1.py \
+            --source-receipt validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json \
+            --estimability validation/san_jacinto_crossscale_v1/estimability_result_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-dir results/generated/san_jacinto_effects
+
+      - name: Run frozen hierarchical cross-scale analysis
+        run: |
+          python analysis/analyze_san_jacinto_crossscale_v1.py \
+            --packing-first results/generated/san_jacinto_effects/packing_first_v1.csv \
+            --movement-first results/generated/san_jacinto_effects/movement_first_v1.csv \
+            --packing-last results/generated/san_jacinto_effects/packing_last_v1.csv \
+            --movement-last results/generated/san_jacinto_effects/movement_last_v1.csv \
+            --lock validation/san_jacinto_crossscale_v1/effect_analysis_lock_v1.json \
+            --output /tmp/san_jacinto_crossscale_effect_result_v1.json
+
+      - name: Validate final frozen decision
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/san_jacinto_crossscale_effect_result_v1.json").read_text())
+          allowed={
+              "authorize_crossscale_propagation_manuscript",
+              "authorize_crossscale_decoupling_manuscript",
+              "stop_no_confirmatory_crossscale_result",
+          }
+          assert p["primary"]["decision"]["decision"] in allowed
+          assert p["packing_effects_computed"] is True
+          assert p["movement_distances_computed"] is True
+          assert p["ecological_effect_models_fit"] == 2
+          assert p["sensitivities_can_rescue_primary"] is False
+          print(json.dumps(p["primary"],indent=2,sort_keys=True))
+          PY
+
+      - name: Persist compact frozen result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+
+          mkdir -p results
+          cp /tmp/san_jacinto_crossscale_effect_result_v1.json \
+             results/san_jacinto_crossscale_effect_result_v1.json
+          cp results/generated/san_jacinto_effects/effect_extraction_inventory_v1.json \
+             validation/san_jacinto_crossscale_v1/effect_extraction_inventory_v1.json
+
+          git add results/san_jacinto_crossscale_effect_result_v1.json
+          git add validation/san_jacinto_crossscale_v1/effect_extraction_inventory_v1.json
+          if git diff --cached --quiet; then
+            echo "cross-scale result unchanged"
+          else
+            git commit -m "Freeze San Jacinto held-out cross-scale result"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
+
+      - name: Upload inspectable effect tables
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-crossscale-effects-v1
+          path: |
+            results/generated/san_jacinto_effects/packing_first_v1.csv
+            results/generated/san_jacinto_effects/movement_first_v1.csv
+            results/generated/san_jacinto_effects/packing_last_v1.csv
+            results/generated/san_jacinto_effects/movement_last_v1.csv
+            results/generated/san_jacinto_effects/effect_extraction_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 30
