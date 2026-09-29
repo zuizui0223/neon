@@ -2,15 +2,18 @@
   "available_site_count": 46,
   "crossscale_gate": {
     "decision": "stop_heldout_crossscale_not_estimable",
+    "minimum_overlapping_sites_per_species": 2,
     "minimum_species_meeting_both": 2,
+    "movement_events_within_overlap_minimum": 5,
+    "packing_sessions_within_overlap_minimum": 10,
     "passed": false,
     "qualifying_species": [],
     "qualifying_species_count": 0
   },
-  "data_query_requests": 45,
+  "data_query_requests": 46,
   "diagnostic_threshold_per_sex": 3,
-  "downloaded_required_bytes": 881344468,
-  "downloaded_required_file_count": 3679,
+  "downloaded_required_bytes": 889641211,
+  "downloaded_required_file_count": 3717,
   "ecological_effect_models_fit": 0,
   "excluded_previously_inspected_species": [
     "Chaetodipus baileyi",
@@ -36,13 +39,7 @@
   "product_code": "DP1.10072.001",
   "release": "RELEASE-2026",
   "schema": "neon.heldout_heteromyid_crossscale.estimability.v1",
-  "site_stops": [
-    {
-      "detail": "HTTPError: HTTP Error 502: Bad Gateway",
-      "site_code": "BARR",
-      "status": "site_error"
-    }
-  ],
+  "site_stops": [],
   "species": {
     "Chaetodipus californicus": {
       "crossscale_gate_passed": false,
@@ -54,6 +51,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 38,
         "paired_n3_sessions": 2,
@@ -63,7 +64,8 @@
         },
         "paired_n5_sites": 1
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Chaetodipus eremicus": {
       "crossscale_gate_passed": false,
@@ -77,6 +79,12 @@
         "paired_n5_sites": 1
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 2,
+      "overlap_packing_n5_sessions": 2,
+      "overlapping_n5_site_count": 1,
+      "overlapping_n5_sites": [
+        "JORN"
+      ],
       "packing": {
         "candidate_rows": 29,
         "paired_n3_sessions": 6,
@@ -86,7 +94,8 @@
         },
         "paired_n5_sites": 1
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Chaetodipus hispidus": {
       "crossscale_gate_passed": false,
@@ -100,6 +109,10 @@
         "paired_n5_sites": 1
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 158,
         "paired_n3_sessions": 7,
@@ -107,7 +120,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Chaetodipus intermedius": {
       "crossscale_gate_passed": false,
@@ -119,6 +133,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 0,
         "paired_n3_sessions": 0,
@@ -126,7 +144,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Dipodomys heermanni": {
       "crossscale_gate_passed": false,
@@ -138,6 +157,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 0,
         "paired_n3_sessions": 0,
@@ -145,7 +168,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Dipodomys microps": {
       "crossscale_gate_passed": false,
@@ -157,6 +181,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 9,
         "paired_n3_sessions": 0,
@@ -164,7 +192,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Dipodomys spectabilis": {
       "crossscale_gate_passed": false,
@@ -176,6 +205,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 19,
         "paired_n3_sessions": 0,
@@ -183,7 +216,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus amplus": {
       "crossscale_gate_passed": false,
@@ -195,6 +229,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 2,
         "paired_n3_sessions": 0,
@@ -202,7 +240,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus flavescens": {
       "crossscale_gate_passed": false,
@@ -214,6 +253,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 12,
         "paired_n3_sessions": 0,
@@ -221,7 +264,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus flavus": {
       "crossscale_gate_passed": false,
@@ -233,6 +277,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 55,
         "paired_n3_sessions": 0,
@@ -240,7 +288,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus inornatus": {
       "crossscale_gate_passed": false,
@@ -252,6 +301,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 3,
         "paired_n3_sessions": 0,
@@ -259,7 +312,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus mollipilosus": {
       "crossscale_gate_passed": false,
@@ -271,6 +325,10 @@
         "paired_n5_sites": 0
       },
       "movement_gate_passed": false,
+      "overlap_movement_n5_events": 0,
+      "overlap_packing_n5_sessions": 0,
+      "overlapping_n5_site_count": 0,
+      "overlapping_n5_sites": [],
       "packing": {
         "candidate_rows": 1,
         "paired_n3_sessions": 0,
@@ -278,7 +336,8 @@
         "paired_n5_site_counts": {},
         "paired_n5_sites": 0
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     },
     "Perognathus parvus": {
       "crossscale_gate_passed": false,
@@ -291,7 +350,13 @@
         },
         "paired_n5_sites": 1
       },
-      "movement_gate_passed": false,
+      "movement_gate_passed": true,
+      "overlap_movement_n5_events": 15,
+      "overlap_packing_n5_sessions": 4,
+      "overlapping_n5_site_count": 1,
+      "overlapping_n5_sites": [
+        "ONAQ"
+      ],
       "packing": {
         "candidate_rows": 103,
         "paired_n3_sessions": 11,
@@ -301,7 +366,8 @@
         },
         "paired_n5_sites": 1
       },
-      "packing_gate_passed": false
+      "packing_gate_passed": false,
+      "site_matched_gate_passed": false
     }
   },
   "target_taxa": {
