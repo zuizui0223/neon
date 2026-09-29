@@ -1,0 +1,219 @@
+{
+  "changed_values_inspected": true,
+  "distance_values_inspected": true,
+  "ecological_model_fits": 0,
+  "excluded_rows": {
+    "missing_id": 47
+  },
+  "programme_gate": {
+    "both_species_required": true,
+    "decision": "confirm_intranight_positional_aliasing_across_cricetids",
+    "passed": true
+  },
+  "schema": "neon.san_jacinto_intranight_aliasing.result.v1",
+  "species": {
+    "PEER": {
+      "all_night_distance_max_m": 39.528470752104745,
+      "all_night_distance_mean_m": 9.64211892880342,
+      "all_night_distance_median_m": 6.25,
+      "all_night_distance_q90_m": 19.764235376052376,
+      "bout_count": 10,
+      "bout_counts": {
+        "1": 15,
+        "10": 9,
+        "11": 10,
+        "12": 20,
+        "2": 11,
+        "3": 10,
+        "4": 14,
+        "5": 13,
+        "8": 4,
+        "9": 1
+      },
+      "changed_distance_mean_m": 13.941982775431972,
+      "changed_distance_median_m": 12.5,
+      "changed_fraction": 0.6915887850467289,
+      "changed_fraction_ci95_high": 0.7711826025212977,
+      "changed_fraction_ci95_low": 0.5987150913219855,
+      "changed_nights": 74,
+      "elapsed_hours_median": 3.0666666666666664,
+      "fraction_ge_1_spacing": 0.6915887850467289,
+      "fraction_ge_2_spacings": 0.38317757009345793,
+      "fraction_ge_3_spacings": 0.205607476635514,
+      "grid_count": 3,
+      "grid_counts": {
+        "1": 36,
+        "2": 49,
+        "6": 22
+      },
+      "individual_changed_fraction_median": 0.9,
+      "individuals_with_ge3_repeat_nights": 14,
+      "leave_one_grid_out": [
+        {
+          "changed": 46,
+          "ci95_high": 0.7487725187834671,
+          "ci95_low": 0.5318206221160442,
+          "excluded_grid": "1",
+          "fraction": 0.647887323943662,
+          "n": 71
+        },
+        {
+          "changed": 41,
+          "ci95_high": 0.808218172090378,
+          "ci95_low": 0.5798709910321587,
+          "excluded_grid": "2",
+          "fraction": 0.7068965517241379,
+          "n": 58
+        },
+        {
+          "changed": 61,
+          "ci95_high": 0.8023114653651233,
+          "ci95_low": 0.6141607593275837,
+          "excluded_grid": "6",
+          "fraction": 0.7176470588235294,
+          "n": 85
+        }
+      ],
+      "repeat_capture_nights": 107,
+      "scientific_name": "Peromyscus eremicus",
+      "species": "PEER"
+    },
+    "PEMA": {
+      "all_night_distance_max_m": 53.033008588991066,
+      "all_night_distance_mean_m": 10.801331195155768,
+      "all_night_distance_median_m": 8.838834764831844,
+      "all_night_distance_q90_m": 25.0,
+      "bout_count": 12,
+      "bout_counts": {
+        "1": 30,
+        "10": 67,
+        "11": 64,
+        "12": 46,
+        "2": 29,
+        "3": 9,
+        "4": 42,
+        "5": 39,
+        "6": 42,
+        "7": 40,
+        "8": 52,
+        "9": 25
+      },
+      "changed_distance_mean_m": 14.882515993325418,
+      "changed_distance_median_m": 13.975424859373685,
+      "changed_fraction": 0.7257731958762886,
+      "changed_fraction_ci95_high": 0.7635863226940263,
+      "changed_fraction_ci95_low": 0.6844116857570708,
+      "changed_nights": 352,
+      "elapsed_hours_median": 4.383333333333333,
+      "fraction_ge_1_spacing": 0.7257731958762886,
+      "fraction_ge_2_spacings": 0.4515463917525773,
+      "fraction_ge_3_spacings": 0.2329896907216495,
+      "grid_count": 8,
+      "grid_counts": {
+        "1": 85,
+        "2": 82,
+        "3": 26,
+        "4": 91,
+        "5": 8,
+        "6": 107,
+        "7": 46,
+        "8": 40
+      },
+      "individual_changed_fraction_median": 0.75,
+      "individuals_with_ge3_repeat_nights": 71,
+      "leave_one_grid_out": [
+        {
+          "changed": 278,
+          "ci95_high": 0.7380873904399811,
+          "ci95_low": 0.6482028147696431,
+          "excluded_grid": "1",
+          "fraction": 0.695,
+          "n": 400
+        },
+        {
+          "changed": 290,
+          "ci95_high": 0.7612271105107893,
+          "ci95_low": 0.6738317955138511,
+          "excluded_grid": "2",
+          "fraction": 0.7196029776674938,
+          "n": 403
+        },
+        {
+          "changed": 330,
+          "ci95_high": 0.7581289103568183,
+          "ci95_low": 0.6761450643906943,
+          "excluded_grid": "3",
+          "fraction": 0.7189542483660131,
+          "n": 459
+        },
+        {
+          "changed": 292,
+          "ci95_high": 0.7818931033553406,
+          "ci95_low": 0.6956840716409748,
+          "excluded_grid": "4",
+          "fraction": 0.7411167512690355,
+          "n": 394
+        },
+        {
+          "changed": 349,
+          "ci95_high": 0.7694533684751855,
+          "ci95_low": 0.6901575821737495,
+          "excluded_grid": "5",
+          "fraction": 0.7316561844863732,
+          "n": 477
+        },
+        {
+          "changed": 279,
+          "ci95_high": 0.7798645007190034,
+          "ci95_low": 0.6915353324890633,
+          "excluded_grid": "6",
+          "fraction": 0.7380952380952381,
+          "n": 378
+        },
+        {
+          "changed": 319,
+          "ci95_high": 0.7662412122417774,
+          "ci95_low": 0.6831295411875551,
+          "excluded_grid": "7",
+          "fraction": 0.7266514806378133,
+          "n": 439
+        },
+        {
+          "changed": 327,
+          "ci95_high": 0.7737083064359109,
+          "ci95_low": 0.6919349533225254,
+          "excluded_grid": "8",
+          "fraction": 0.7348314606741573,
+          "n": 445
+        }
+      ],
+      "repeat_capture_nights": 485,
+      "scientific_name": "Peromyscus maniculatus",
+      "species": "PEMA"
+    }
+  },
+  "species_gates": {
+    "PEER": {
+      "conditions": {
+        "bouts_ge_6": true,
+        "changed_distance_median_ge_6_25": true,
+        "changed_fraction_gt_0_25": true,
+        "grids_ge_2": true,
+        "repeat_nights_ge_100": true,
+        "wilson_ci95_low_gt_0_25": true
+      },
+      "passed": true
+    },
+    "PEMA": {
+      "conditions": {
+        "bouts_ge_6": true,
+        "changed_distance_median_ge_6_25": true,
+        "changed_fraction_gt_0_25": true,
+        "grids_ge_2": true,
+        "repeat_nights_ge_100": true,
+        "wilson_ci95_low_gt_0_25": true
+      },
+      "passed": true
+    }
+  }
+}

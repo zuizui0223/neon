@@ -1,0 +1,44 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.programme_final_decision.v1",
+  "frozen_date": "2026-09-29",
+  "primary_decision": "confirm_intranight_positional_aliasing_across_cricetids",
+  "manuscript_authorized": true,
+  "manuscript_lane": "methods_ecology_observation_process",
+  "heldout_species": {
+    "PEMA": {
+      "scientific_name": "Peromyscus maniculatus",
+      "repeat_capture_nights": 485,
+      "changed_nights": 352,
+      "changed_fraction": 0.7257731958762886,
+      "wilson_ci95": [
+        0.6844116857570708,
+        0.7635863226940263
+      ],
+      "changed_distance_median_m": 13.975424859373685,
+      "gates_passed": true
+    },
+    "PEER": {
+      "scientific_name": "Peromyscus eremicus",
+      "repeat_capture_nights": 107,
+      "changed_nights": 74,
+      "changed_fraction": 0.6915887850467289,
+      "wilson_ci95": [
+        0.5987150913219855,
+        0.7711826025212977
+      ],
+      "changed_distance_median_m": 12.5,
+      "gates_passed": true
+    }
+  },
+  "primary_claim": "Repeated within-night detections in this live-trapping protocol frequently occupy different trap locations, so reducing a repeat-capture individual-night to one location creates substantial positional aliasing.",
+  "observation_process_boundary": {
+    "natural_path_length_claim": false,
+    "home_range_claim": false,
+    "foraging_distance_claim": false,
+    "undisturbed_speed_claim": false,
+    "trap_independent_behavior_claim": false
+  },
+  "external_replication_required_for_protocol_generality": true,
+  "result_file": "results/san_jacinto_intranight_aliasing_result_v1.json",
+  "discovery_sample_used_for_confirmation": false
+}
