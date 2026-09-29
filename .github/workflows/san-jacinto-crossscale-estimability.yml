@@ -1,0 +1,94 @@
+name: san-jacinto-crossscale-estimability
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - docs/SAN_JACINTO_CROSSSCALE_ESTIMABILITY_DESIGN_V1.md
+      - validation/san_jacinto_crossscale_v1/estimability_design_lock_v1.json
+      - analysis/san_jacinto_crossscale_estimability_v1.py
+      - tests/test_san_jacinto_crossscale_estimability.py
+      - .github/workflows/san-jacinto-crossscale-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen pre-count design
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("validation/san_jacinto_crossscale_v1/estimability_design_lock_v1.json").read_text())
+          assert p["state"]=="frozen_before_species_sex_support_counts"
+          assert p["primary_n_per_sex_min"]==3
+          assert p["species_by_sex_support_counts_inspected"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["movement_distances_computed"] is False
+          PY
+
+      - name: Verify estimability tests
+        run: python -m unittest tests.test_san_jacinto_crossscale_estimability -v
+
+      - name: Count support only
+        run: |
+          python analysis/san_jacinto_crossscale_estimability_v1.py \
+            --source-receipt validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json \
+            --design-lock validation/san_jacinto_crossscale_v1/estimability_design_lock_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-dir results/generated/san_jacinto_estimability
+
+      - name: Assert effects remain unopened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/generated/san_jacinto_estimability/estimability_result_v1.json").read_text())
+          assert p["packing_effects_computed"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          assert p["programme_gate"]["decision"] in {
+              "authorize_san_jacinto_crossscale_effect_lock",
+              "stop_san_jacinto_crossscale_not_estimable",
+          }
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist estimability receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+          cp results/generated/san_jacinto_estimability/estimability_result_v1.json \
+             validation/san_jacinto_crossscale_v1/estimability_result_v1.json
+          git add validation/san_jacinto_crossscale_v1/estimability_result_v1.json
+          if git diff --cached --quiet; then
+            echo "estimability receipt unchanged"
+          else
+            git commit -m "Freeze San Jacinto cross-scale estimability"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
+
+      - name: Upload support tables
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-crossscale-estimability-v1
+          path: |
+            results/generated/san_jacinto_estimability/packing_support_v1.csv
+            results/generated/san_jacinto_estimability/movement_support_v1.csv
+            results/generated/san_jacinto_estimability/estimability_result_v1.json
+          if-no-files-found: error
+          retention-days: 30
