@@ -1,0 +1,52 @@
+{
+  "schema": "neon.powdermill_crossscale.estimability_design_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_sex_specific_support_counts",
+  "source_precondition": "DataONE source audit must verify documented individual-capture schema",
+  "rodent_species_codes": {
+    "CG": "Clethrionomys/Myodes gapperi",
+    "GV": "Glaucomys volans",
+    "MM": "Marmota monax",
+    "NI": "Napaeozapus insignis",
+    "NM": "Neotoma magister",
+    "PL": "Peromyscus leucopus",
+    "PM": "Peromyscus maniculatus",
+    "TS": "Tamias striatus"
+  },
+  "primary_threshold_per_sex": 3,
+  "diagnostic_threshold_per_sex": 5,
+  "packing_period": {
+    "minimum_eligible_nights": 2,
+    "station_capacity": 2,
+    "require_valid_animal_id": true,
+    "require_known_sex": true
+  },
+  "movement_period": {
+    "minimum_distinct_capture_dates_per_individual": 2,
+    "minimum_movement_eligible_per_sex": 3,
+    "zero_displacement_individuals_retained": true
+  },
+  "species_gate": {
+    "minimum_paired_periods": 10,
+    "minimum_calendar_years": 3
+  },
+  "programme_gate": {
+    "minimum_qualifying_species": 3,
+    "pass_decision": "authorize_powdermill_crossscale_effect_lock",
+    "fail_decision": "stop_powdermill_crossscale_not_estimable"
+  },
+  "geometry": {
+    "stations": 100,
+    "station_layout": "10x10",
+    "spacing_m": 10,
+    "trap_slots_per_station": 2,
+    "active_slot_count": 200,
+    "packing_null": "exact_finite_trap_slot_moments"
+  },
+  "future_question": "positive covariance between sex-specific movement contrast and sex-specific one-night packing contrast across temporally matched periods",
+  "species_specific_support_counts_inspected": false,
+  "sex_specific_support_counts_inspected": false,
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "ecological_effect_models_fit": 0
+}
