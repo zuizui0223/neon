@@ -37,6 +37,7 @@ jobs:
           OUT=data/cache/sevilleta/sev008_rodentpopns_20151022.txt
 
           urls=(
+            "https://biotime.st-andrews.ac.uk/dl_request.php?dl=rawdata&study=56"
             "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1280&context=lter_sev_data&filename=3&type=additional"
             "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1227&context=lter_sev_data&filename=3&type=additional"
           )
@@ -45,7 +46,7 @@ jobs:
           for url in "${urls[@]}"; do
             echo "TRY_SOURCE $url"
             if curl -L --fail --retry 3 --retry-delay 3               -A "Mozilla/5.0 sevilleta-crossscale-source-audit/1.0"               "$url" -o "$OUT"; then
-              if [ -s "$OUT" ] && [ "$(wc -c < "$OUT")" -gt 500000 ]; then
+              if [ -s "$OUT" ] && [ "$(wc -c < "$OUT")" -gt 100000 ]; then
                 ok=1
                 break
               fi
