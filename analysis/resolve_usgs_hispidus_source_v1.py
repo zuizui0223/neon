@@ -260,8 +260,27 @@ def audit_text_file(name: str, raw: bytes, content_type: str) -> dict:
     }
 
 
-def audit(identifier: str, title_hint: str, output_dir: Path) -> dict:
-    package=ckan_package(identifier,title_hint)
+def audit(
+    identifier: str,
+    title_hint: str,
+    output_dir: Path,
+    *,
+    figshare_article_id: str | None=None,
+) -> dict:
+    if figshare_article_id:
+        package={
+            "title":title_hint,
+            "name":identifier,
+            "resources":[{
+                "name":"Digital Data",
+                "format":"FIGSHARE",
+                "url":f"https://doi.org/10.6084/m9.figshare.{figshare_article_id}",
+            }],
+        }
+        catalog_resolution_mode="pinned_figshare_article_from_public_data_gov_distribution"
+    else:
+        package=ckan_package(identifier,title_hint)
+        catalog_resolution_mode="data_gov_ckan_search"
     resources=package.get("resources",[]) or []
     xml=xml_metadata(resources)
     item_ids=sorted({
@@ -336,6 +355,8 @@ def audit(identifier: str, title_hint: str, output_dir: Path) -> dict:
     return {
         "schema":"neon.usgs_hispidus_source_audit.v1",
         "catalog_identifier":identifier,
+        "catalog_resolution_mode":catalog_resolution_mode,
+        "pinned_figshare_article_id":figshare_article_id,
         "catalog_title":package.get("title"),
         "catalog_name":package.get("name"),
         "catalog_resources":[{
@@ -363,9 +384,15 @@ def main() -> int:
     parser.add_argument("--title-hint",required=True)
     parser.add_argument("--cache-dir",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--figshare-article-id",default=None)
     args=parser.parse_args()
 
-    out=audit(args.identifier,args.title_hint,args.cache_dir)
+    out=audit(
+        args.identifier,
+        args.title_hint,
+        args.cache_dir,
+        figshare_article_id=args.figshare_article_id,
+    )
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(
         json.dumps(out,indent=2,sort_keys=True)+"\n",
