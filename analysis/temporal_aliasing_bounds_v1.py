@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# AI assistance disclosure: This file was drafted or refactored with OpenAI ChatGPT (GPT-5.6 Sol, September 2026); it remains under author responsibility and is verified by repository tests/workflows.
+
 import math
 from typing import Iterable, Sequence
 
