@@ -477,30 +477,35 @@ def summarize_crossscale(
         m3=[row for row in mrows if row["paired_n3_eligible"]]
         m5=[row for row in mrows if row["paired_n5_eligible"]]
 
+        packing_site_counts=Counter(row["site"] for row in p5)
+        movement_site_counts=Counter(row["site"] for row in m5)
+        overlap_sites=sorted(set(packing_site_counts)&set(movement_site_counts))
+        overlap_packing_sessions=sum(packing_site_counts[site] for site in overlap_sites)
+        overlap_movement_events=sum(movement_site_counts[site] for site in overlap_sites)
+
         packing_summary={
             "candidate_rows":len(prows),
             "paired_n3_sessions":len(p3),
             "paired_n5_sessions":len(p5),
-            "paired_n5_sites":len({row["site"] for row in p5}),
-            "paired_n5_site_counts":dict(sorted(Counter(row["site"] for row in p5).items())),
+            "paired_n5_sites":len(packing_site_counts),
+            "paired_n5_site_counts":dict(sorted(packing_site_counts.items())),
         }
         movement_summary={
             "candidate_rows":len(mrows),
             "paired_n3_events":len(m3),
             "paired_n5_events":len(m5),
-            "paired_n5_sites":len({row["site"] for row in m5}),
-            "paired_n5_site_counts":dict(sorted(Counter(row["site"] for row in m5).items())),
+            "paired_n5_sites":len(movement_site_counts),
+            "paired_n5_site_counts":dict(sorted(movement_site_counts.items())),
         }
 
-        packing_pass=(
-            packing_summary["paired_n5_sessions"]>=10
-            and packing_summary["paired_n5_sites"]>=2
+        packing_pass=packing_summary["paired_n5_sessions"]>=10
+        movement_pass=movement_summary["paired_n5_events"]>=5
+        site_matched_pass=(
+            len(overlap_sites)>=2
+            and overlap_packing_sessions>=10
+            and overlap_movement_events>=5
         )
-        movement_pass=(
-            movement_summary["paired_n5_events"]>=5
-            and movement_summary["paired_n5_sites"]>=2
-        )
-        both=packing_pass and movement_pass
+        both=packing_pass and movement_pass and site_matched_pass
         if both:
             qualifying.append(name)
 
@@ -509,6 +514,11 @@ def summarize_crossscale(
             "movement":movement_summary,
             "packing_gate_passed":packing_pass,
             "movement_gate_passed":movement_pass,
+            "overlapping_n5_sites":overlap_sites,
+            "overlapping_n5_site_count":len(overlap_sites),
+            "overlap_packing_n5_sessions":overlap_packing_sessions,
+            "overlap_movement_n5_events":overlap_movement_events,
+            "site_matched_gate_passed":site_matched_pass,
             "crossscale_gate_passed":both,
         }
 
@@ -528,6 +538,9 @@ def summarize_crossscale(
         },
         "crossscale_gate":{
             "minimum_species_meeting_both":2,
+            "minimum_overlapping_sites_per_species":2,
+            "packing_sessions_within_overlap_minimum":10,
+            "movement_events_within_overlap_minimum":5,
             "qualifying_species":qualifying,
             "qualifying_species_count":len(qualifying),
             "passed":passed,
