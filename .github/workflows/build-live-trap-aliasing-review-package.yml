@@ -33,8 +33,15 @@ on:
       - tests/test_live_trap_aliasing_manuscript_v0_3.py
       - results/san_jacinto_positional_aliasing_result_v1.json
       - results/temporal_aliasing_simulation_benchmark_v2.json
-      - validation/san_jacinto_positional_aliasing_v1/**
-      - validation/live_trap_aliasing_v1/**
+      - validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json
+      - validation/san_jacinto_positional_aliasing_v1/result_artifact_v1.json
+      - validation/san_jacinto_positional_aliasing_v1/programme_final_decision_v1.json
+      - validation/live_trap_aliasing_v1/denominator_audit_v1.json
+      - validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
+      - validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_stop_v1.json
       - .github/workflows/build-live-trap-aliasing-review-package.yml
   workflow_dispatch:
 
