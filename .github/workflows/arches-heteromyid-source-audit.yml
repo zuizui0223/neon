@@ -24,19 +24,25 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: design/arches-heteromyid-crossscale-source-v1
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Verify source audit tests
-        run: python -m unittest tests.test_arches_heteromyid_source_audit -v
-
-      - name: Download frozen Dryad trapping files
+      - name: Verify source audit and Dryad resolver tests
         run: |
-          set -euo pipefail
-          mkdir -p data/cache/arches
-          curl -L --fail --retry 3 --retry-delay 2             -A "Mozilla/5.0 arches-heteromyid-source-audit/1.0"             "https://datadryad.org/downloads/file_stream/21848"             -o "data/cache/arches/Rodent Trapping, Salt Valley.csv"
-          curl -L --fail --retry 3 --retry-delay 2             -A "Mozilla/5.0 arches-heteromyid-source-audit/1.0"             "https://datadryad.org/downloads/file_stream/21850"             -o "data/cache/arches/Rodent Trapping, Willow Flats.csv"
+          python -m unittest \
+            tests.test_arches_heteromyid_source_audit \
+            tests.test_dryad_file_resolver -v
+
+      - name: Resolve and download frozen Dryad trapping files by DOI
+        run: |
+          python analysis/resolve_dryad_files_v1.py \
+            --doi "10.5061/dryad.pv608" \
+            --output-dir data/cache/arches \
+            --manifest /tmp/arches_dryad_resolver_manifest_v1.json \
+            --file "Rodent Trapping, Salt Valley.csv" \
+            --file "Rodent Trapping, Willow Flats.csv"
 
           test "$(wc -c < 'data/cache/arches/Rodent Trapping, Salt Valley.csv')" -gt 10000
           test "$(wc -c < 'data/cache/arches/Rodent Trapping, Willow Flats.csv')" -gt 10000
@@ -44,7 +50,10 @@ jobs:
 
       - name: Audit schemas only
         run: |
-          python analysis/audit_arches_heteromyid_source_v1.py             --salt "data/cache/arches/Rodent Trapping, Salt Valley.csv"             --willow "data/cache/arches/Rodent Trapping, Willow Flats.csv"             --output /tmp/arches_source_schema_audit_v1.json
+          python analysis/audit_arches_heteromyid_source_v1.py \
+            --salt "data/cache/arches/Rodent Trapping, Salt Valley.csv" \
+            --willow "data/cache/arches/Rodent Trapping, Willow Flats.csv" \
+            --output /tmp/arches_source_schema_audit_v1.json
 
       - name: Assert effect-blind source audit
         run: |
@@ -58,7 +67,8 @@ jobs:
           assert p["packing_effects_computed"] is False
           assert p["ecological_effect_models_fit"] == 0
           print(json.dumps({
-              "both_site_files_structurally_adequate":p["both_site_files_structurally_adequate"],
+              "both_site_files_structurally_adequate":
+                  p["both_site_files_structurally_adequate"],
               "sources":[{
                   "site_context":x["site_context"],
                   "sha256":x["sha256"],
@@ -69,17 +79,31 @@ jobs:
           },indent=2,sort_keys=True))
           PY
 
-      - name: Persist schema receipt
+      - name: Persist schema and resolver receipts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin design/arches-heteromyid-crossscale-source-v1
           mkdir -p validation/arches_heteromyid_crossscale_v1
-          cp /tmp/arches_source_schema_audit_v1.json              validation/arches_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          cp /tmp/arches_source_schema_audit_v1.json \
+             validation/arches_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          cp /tmp/arches_dryad_resolver_manifest_v1.json \
+             validation/arches_heteromyid_crossscale_v1/dryad_resolver_manifest_v1.json
           git add validation/arches_heteromyid_crossscale_v1/source_schema_audit_v1.json
+          git add validation/arches_heteromyid_crossscale_v1/dryad_resolver_manifest_v1.json
           if git diff --cached --quiet; then
-            echo "schema receipt unchanged"
+            echo "source receipts unchanged"
           else
-            git commit -m "Freeze Arches heteromyid source schema audit"
+            git commit -m "Freeze Arches Dryad source schema audit"
             git push origin HEAD:design/arches-heteromyid-crossscale-source-v1
           fi
+
+      - name: Upload source audit receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: arches-heteromyid-source-audit-v1
+          path: |
+            /tmp/arches_source_schema_audit_v1.json
+            /tmp/arches_dryad_resolver_manifest_v1.json
+          if-no-files-found: error
+          retention-days: 30
