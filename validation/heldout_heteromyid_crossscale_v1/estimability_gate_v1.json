@@ -1,0 +1,438 @@
+{
+  "available_site_count": 46,
+  "crossscale_gate": {
+    "decision": "stop_heldout_crossscale_not_estimable",
+    "minimum_species_meeting_both": 2,
+    "passed": false,
+    "qualifying_species": [],
+    "qualifying_species_count": 0
+  },
+  "data_query_requests": 46,
+  "diagnostic_threshold_per_sex": 3,
+  "downloaded_required_bytes": 889641211,
+  "downloaded_required_file_count": 3717,
+  "ecological_effect_models_fit": 0,
+  "excluded_previously_inspected_species": [
+    "Chaetodipus baileyi",
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii"
+  ],
+  "heldout_movement_distances_inspected": false,
+  "heldout_packing_effects_inspected": false,
+  "movement_candidate_rows": 801,
+  "movement_gate": {
+    "minimum_events_per_species": 5,
+    "minimum_sites_per_species": 2
+  },
+  "packing_candidate_rows": 429,
+  "packing_gate": {
+    "minimum_sessions_per_species": 10,
+    "minimum_sites_per_species": 2
+  },
+  "primary_threshold_per_sex": 5,
+  "processed_movement_site_count": 13,
+  "processed_packing_site_count": 12,
+  "product_code": "DP1.10072.001",
+  "release": "RELEASE-2026",
+  "schema": "neon.heldout_heteromyid_crossscale.estimability.v1",
+  "site_stops": [],
+  "species": {
+    "Chaetodipus californicus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 26,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 38,
+        "paired_n3_sessions": 2,
+        "paired_n5_sessions": 1,
+        "paired_n5_site_counts": {
+          "SJER": 1
+        },
+        "paired_n5_sites": 1
+      },
+      "packing_gate_passed": false
+    },
+    "Chaetodipus eremicus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 58,
+        "paired_n3_events": 9,
+        "paired_n5_events": 2,
+        "paired_n5_site_counts": {
+          "JORN": 2
+        },
+        "paired_n5_sites": 1
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 29,
+        "paired_n3_sessions": 6,
+        "paired_n5_sessions": 2,
+        "paired_n5_site_counts": {
+          "JORN": 2
+        },
+        "paired_n5_sites": 1
+      },
+      "packing_gate_passed": false
+    },
+    "Chaetodipus hispidus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 301,
+        "paired_n3_events": 8,
+        "paired_n5_events": 1,
+        "paired_n5_site_counts": {
+          "STER": 1
+        },
+        "paired_n5_sites": 1
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 158,
+        "paired_n3_sessions": 7,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Chaetodipus intermedius": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 3,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 0,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Dipodomys heermanni": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 1,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 0,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Dipodomys microps": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 48,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 9,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Dipodomys spectabilis": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 35,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 19,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus amplus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 5,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 2,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus flavescens": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 27,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 12,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus flavus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 125,
+        "paired_n3_events": 1,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 55,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus inornatus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 23,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 3,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus mollipilosus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 1,
+        "paired_n3_events": 0,
+        "paired_n5_events": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 1,
+        "paired_n3_sessions": 0,
+        "paired_n5_sessions": 0,
+        "paired_n5_site_counts": {},
+        "paired_n5_sites": 0
+      },
+      "packing_gate_passed": false
+    },
+    "Perognathus parvus": {
+      "crossscale_gate_passed": false,
+      "movement": {
+        "candidate_rows": 148,
+        "paired_n3_events": 44,
+        "paired_n5_events": 15,
+        "paired_n5_site_counts": {
+          "ONAQ": 15
+        },
+        "paired_n5_sites": 1
+      },
+      "movement_gate_passed": false,
+      "packing": {
+        "candidate_rows": 103,
+        "paired_n3_sessions": 11,
+        "paired_n5_sessions": 4,
+        "paired_n5_site_counts": {
+          "ONAQ": 4
+        },
+        "paired_n5_sites": 1
+      },
+      "packing_gate_passed": false
+    }
+  },
+  "target_taxa": {
+    "ALOE": "Alexandromys oeconomus",
+    "ARAL": "Arborimus albipes",
+    "ARLO": "Arborimus longicaudus",
+    "ARPO": "Arborimus pomo",
+    "BATA": "Baiomys taylori",
+    "CHBA": "Chaetodipus baileyi",
+    "CHCA": "Chaetodipus californicus",
+    "CHER": "Chaetodipus eremicus",
+    "CHFA": "Chaetodipus fallax",
+    "CHFO": "Chaetodipus formosus",
+    "CHHI": "Chaetodipus hispidus",
+    "CHIN": "Chaetodipus intermedius",
+    "CHNE": "Chaetodipus nelsoni",
+    "CHPE": "Chaetodipus penicillatus",
+    "CHRU": "Chaetodipus rudinoris",
+    "CHSN": "Chaetodipus spinatus",
+    "CLGA": "Clethrionomys gapperi",
+    "CLRU": "Clethrionomys rutilus",
+    "DIAG": "Dipodomys agilis",
+    "DICA": "Dipodomys californicus",
+    "DICO": "Dipodomys compactus",
+    "DIDE": "Dipodomys deserti",
+    "DIEL": "Dipodomys elator",
+    "DIGR": "Dicrostonyx groenlandicus",
+    "DIHE": "Dipodomys heermanni",
+    "DIIN": "Dipodomys ingens",
+    "DIME": "Dipodomys merriami",
+    "DIMI": "Dipodomys microps",
+    "DINE": "Dicrostonyx nelsoni",
+    "DINI": "Dipodomys nitratoides",
+    "DIOR": "Dipodomys ordii",
+    "DIPA": "Dipodomys panamintinus",
+    "DISI": "Dipodomys simulans",
+    "DISP": "Dipodomys spectabilis",
+    "DIST": "Dipodomys stephensi",
+    "DIVE": "Dipodomys venustus",
+    "LECU": "Lemmiscus curtatus",
+    "LETR": "Lemmus trimucronatus",
+    "LIIR": "Liomys irroratus",
+    "MIBO": "Mictomys borealis",
+    "MICA": "Microtus californicus",
+    "MICC": "Microtus canicaudus",
+    "MICH": "Microtus chrotorrhinus",
+    "MILO": "Microtus longicaudus",
+    "MIME": "Microdipodops megacephalus",
+    "MIMI": "Microtus miurus",
+    "MIMO": "Microtus montanus",
+    "MIOC": "Microtus ochrogaster",
+    "MIOE": "Microtus oeconomus",
+    "MIOR": "Microtus oregoni",
+    "MIPA": "Microdipodops pallidus",
+    "MIPE": "Microtus pennsylvanicus",
+    "MIPI": "Microtus pinetorum",
+    "MIRI": "Microtus richardsoni",
+    "MITO": "Microtus townsendii",
+    "MIXA": "Microtus xanthognathus",
+    "MUMU": "Mus musculus",
+    "MYCA": "Myodes californicus",
+    "MYGA": "Myodes gapperi",
+    "MYRU": "Myodes rutilus",
+    "NAAB": "Napaeozapus abietorum",
+    "NAIN": "Napaeozapus insignis",
+    "NEAL": "Neotoma albigula",
+    "NEAN": "Neofiber alleni",
+    "NECI": "Neotoma cinerea",
+    "NEDE": "Neotoma devia",
+    "NEFL": "Neotoma floridana",
+    "NEFU": "Neotoma fuscipes",
+    "NELC": "Neotoma leucodon",
+    "NELE": "Neotoma lepida",
+    "NEMA": "Neotoma magister",
+    "NEMC": "Neotoma macrotis",
+    "NEME": "Neotoma mexicana",
+    "NEMI": "Neotoma micropus",
+    "NEST": "Neotoma stephensi",
+    "OCNU": "Ochrotomys nuttalli",
+    "ONAR": "Onychomys arenicola",
+    "ONLE": "Onychomys leucogaster",
+    "ONTO": "Onychomys torridus",
+    "ONZI": "Ondatra zibethicus",
+    "ORCO": "Oryzomys couesi",
+    "ORPA": "Oryzomys palustris",
+    "PEAL": "Perognathus alticolus",
+    "PEAM": "Perognathus amplus",
+    "PEAT": "Peromyscus attwateri",
+    "PEBO": "Peromyscus boylii",
+    "PECA": "Peromyscus californicus",
+    "PECR": "Peromyscus crinitus",
+    "PEER": "Peromyscus eremicus",
+    "PEFA": "Perognathus fasciatus",
+    "PEFL": "Perognathus flavus",
+    "PEFR": "Peromyscus fraterculus",
+    "PEFV": "Perognathus flavescens",
+    "PEGO": "Peromyscus gossypinus",
+    "PEGR": "Peromyscus gratus",
+    "PEIN": "Perognathus inornatus",
+    "PEKE": "Peromyscus keeni",
+    "PELE": "Peromyscus leucopus",
+    "PELO": "Perognathus longimembris",
+    "PEMA": "Peromyscus maniculatus",
+    "PEME": "Peromyscus merriami",
+    "PEML": "Peromyscus melanotis",
+    "PEMO": "Perognathus mollipilosus",
+    "PEMR": "Perognathus merriami",
+    "PENA": "Peromyscus nasutus",
+    "PEPA": "Perognathus parvus",
+    "PEPE": "Peromyscus pectoralis",
+    "PEPO": "Peromyscus polionotus",
+    "PETR": "Peromyscus truei",
+    "PHIN": "Phenacomys intermedius",
+    "PHUN": "Phenacomys ungava",
+    "POFL": "Podomys floridanus",
+    "RAEX": "Rattus exulans",
+    "RANO": "Rattus norvegicus",
+    "RARA": "Rattus rattus",
+    "REFU": "Reithrodontomys fulvescens",
+    "REHU": "Reithrodontomys humulis",
+    "REME": "Reithrodontomys megalotis",
+    "REMO": "Reithrodontomys montanus",
+    "RERA": "Reithrodontomys raviventris",
+    "SIAR": "Sigmodon arizonae",
+    "SIFU": "Sigmodon fulviventer",
+    "SIHI": "Sigmodon hispidus",
+    "SIOC": "Sigmodon ochrognathus",
+    "SYBO": "Synaptomys borealis",
+    "SYCO": "Synaptomys cooperi",
+    "ZAHU": "Zapus hudsonius",
+    "ZALU": "Zapus luteus",
+    "ZAMO": "Zapus montanus",
+    "ZAOR": "Zapus oregonus",
+    "ZAPA": "Zapus pacificus",
+    "ZAPR": "Zapus princeps",
+    "ZASA": "Zapus saltator",
+    "ZATR": "Zapus trinotatus"
+  },
+  "target_taxon_count": 134
+}
