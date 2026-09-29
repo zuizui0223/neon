@@ -1,101 +1,123 @@
 {
   "appendix2_parse_failures": 0,
-  "appendix2_total_parsed_records": 0,
+  "appendix2_total_parsed_records": 38,
   "appendix4_parse_failures": 0,
-  "appendix4_total_parsed_records": 0,
+  "appendix4_total_parsed_records": 47,
   "burrow_use_effects_inspected": false,
   "ecological_effect_models_fit": 0,
   "gate": {
-    "decision": "stop_auburn_case_not_estimable",
+    "decision": "authorize_auburn_case_effect_lock",
     "every_summer_must_pass": true,
-    "passed": false
+    "passed": true
   },
   "packing_effects_inspected": false,
   "schema": "neon.auburn_dordii_crossscale_case.estimability.v1",
   "seasons": {
     "Summer 2006": {
       "burrow_counts": {
-        "female": 0,
-        "male": 0
+        "female": 11,
+        "male": 10
       },
-      "burrow_gate_passed": false,
-      "burrow_records_sex_diagnostic": 0,
-      "capture_records_sex_diagnostic": 0,
-      "linkage_gate_passed": false,
+      "burrow_gate_passed": true,
+      "burrow_records_sex_diagnostic": 21,
+      "capture_records_sex_diagnostic": 13,
+      "linkage_gate_passed": true,
       "linkage_sex_conflicts": [],
       "linked_counts": {
-        "female": 0,
-        "male": 0
+        "female": 5,
+        "male": 3
       },
       "linked_ids": {
-        "female": [],
-        "male": []
+        "female": [
+          "167",
+          "911",
+          "919",
+          "920",
+          "929"
+        ],
+        "male": [
+          "103",
+          "156",
+          "910"
+        ]
       },
       "night_counts": [
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 6,
+          "n_male": 5,
           "night": 1
         },
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 5,
+          "n_male": 4,
           "night": 2
         },
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 5,
+          "n_male": 5,
           "night": 3
         }
       ],
-      "packing_gate_passed": false,
-      "season_gate_passed": false,
-      "usable_nights_n3": 0
+      "packing_gate_passed": true,
+      "season_gate_passed": true,
+      "usable_nights_n3": 3
     },
     "Summer 2007": {
       "burrow_counts": {
-        "female": 0,
-        "male": 0
+        "female": 11,
+        "male": 10
       },
-      "burrow_gate_passed": false,
-      "burrow_records_sex_diagnostic": 0,
-      "capture_records_sex_diagnostic": 0,
-      "linkage_gate_passed": false,
+      "burrow_gate_passed": true,
+      "burrow_records_sex_diagnostic": 21,
+      "capture_records_sex_diagnostic": 18,
+      "linkage_gate_passed": true,
       "linkage_sex_conflicts": [],
       "linked_counts": {
-        "female": 0,
-        "male": 0
+        "female": 5,
+        "male": 5
       },
       "linked_ids": {
-        "female": [],
-        "male": []
+        "female": [
+          "845",
+          "848",
+          "987",
+          "990",
+          "999"
+        ],
+        "male": [
+          "843",
+          "844",
+          "985",
+          "992",
+          "998"
+        ]
       },
       "night_counts": [
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 4,
+          "n_male": 8,
           "night": 1
         },
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 5,
+          "n_male": 5,
           "night": 2
         },
         {
-          "eligible_n3": false,
-          "n_female": 0,
-          "n_male": 0,
+          "eligible_n3": true,
+          "n_female": 3,
+          "n_male": 7,
           "night": 3
         }
       ],
-      "packing_gate_passed": false,
-      "season_gate_passed": false,
-      "usable_nights_n3": 0
+      "packing_gate_passed": true,
+      "season_gate_passed": true,
+      "usable_nights_n3": 3
     }
   },
   "source_file": "White_Jeremy_46.pdf.txt",
