@@ -35,7 +35,11 @@
   "crossscale_gate": {
     "minimum_species_meeting_both": 2,
     "pass_decision": "authorize_heldout_crossscale_effect_lock",
-    "fail_decision": "stop_heldout_crossscale_not_estimable"
+    "fail_decision": "stop_heldout_crossscale_not_estimable",
+    "minimum_overlapping_sites_per_species": 2,
+    "packing_sessions_must_be_within_overlapping_sites": true,
+    "movement_events_must_be_within_overlapping_sites": true,
+    "site_matched_context_required": true
   },
   "heldout_packing_effects_inspected": false,
   "heldout_movement_distances_inspected": false,
