@@ -1,4 +1,9 @@
-"""Simulation benchmark for the temporal positional-aliasing diagnostic.\n\nUsed by the unified paper-validation workflow; no empirical data are read here.\n"""\n\nfrom __future__ import annotations
+"""Simulation benchmark for the temporal positional-aliasing diagnostic.
+
+Used by the unified paper-validation workflow; no empirical data are read here.
+"""
+
+from __future__ import annotations
 
 import argparse
 import json
