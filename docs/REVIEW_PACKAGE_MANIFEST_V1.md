@@ -4,10 +4,15 @@ This package is intentionally narrower than the parent NEON repository.
 
 ## Manuscript
 - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_2.md
+- SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_1.md
+- README_LIVE_TRAP_ALIASING.md
 - docs/FIGURE_CAPTIONS_V1.md
 - docs/SUBMISSION_STATEMENTS_V1.md
 - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md
 - docs/MEE_PRESUBMISSION_ENQUIRY_DRAFT_V1.md
+- docs/MEE_PRESUBMISSION_ENQUIRY_READY_V2.md
+- docs/APPLICABILITY_MATRIX_V1.md
+- docs/KEY_METHOD_STATEMENTS_V1.md
 
 ## Generic method
 - analysis/temporal_aliasing_diagnostic_v1.py
