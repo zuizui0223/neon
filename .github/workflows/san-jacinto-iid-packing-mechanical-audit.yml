@@ -1,0 +1,70 @@
+name: san-jacinto-iid-packing-mechanical-audit
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - analysis/finite_iid_packing_null_v1.py
+      - tests/test_finite_iid_packing_null.py
+      - analysis/audit_san_jacinto_iid_packing_null_v1.py
+      - .github/workflows/san-jacinto-iid-packing-mechanical-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numerical dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Exhaustively verify iid finite-grid null
+        run: python -m unittest tests.test_finite_iid_packing_null -v
+
+      - name: Freeze canonical-grid mechanical audit
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import json
+          from pathlib import Path
+
+          p=Path("analysis/audit_san_jacinto_iid_packing_null_v1.py")
+          spec=importlib.util.spec_from_file_location("audit",p)
+          m=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          out=m.audit()
+          assert out["passes"] is True
+          assert out["null_mean_spread"] < 1e-12
+          assert out["all_sd_positive"] is True
+          assert out["expected_male_minus_female_standardized_score"] == 0.0
+          assert out["observed_ecological_effects_inspected"] is False
+          Path("/tmp/san_jacinto_iid_packing_mechanical_audit_v1.json").write_text(
+              json.dumps(out,indent=2,sort_keys=True)+"\n",encoding="utf-8"
+          )
+          PY
+
+      - name: Persist mechanical audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+          cp /tmp/san_jacinto_iid_packing_mechanical_audit_v1.json \
+             validation/san_jacinto_crossscale_v1/iid_packing_mechanical_audit_v1.json
+          git add validation/san_jacinto_crossscale_v1/iid_packing_mechanical_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "mechanical audit unchanged"
+          else
+            git commit -m "Freeze San Jacinto iid packing mechanical audit"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
