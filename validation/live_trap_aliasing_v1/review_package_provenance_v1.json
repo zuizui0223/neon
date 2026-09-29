@@ -1,27 +1,33 @@
 {
-  "schema": "neon.live_trap_aliasing.review_package_provenance.v2",
+  "schema": "neon.live_trap_aliasing.review_package_provenance.v3",
   "frozen_date": "2026-09-30",
+  "source_branch_head": "89af8affadf3a909e7b6f80141e636fe963d747e",
   "workflow": {
-    "run_id": 36625045142,
-    "run_number": 7,
+    "run_id": 36627261070,
+    "run_number": 18,
     "workflow_name": "build-live-trap-aliasing-review-package",
-    "workflow_head_sha": "acd880ba82c4e17cbdc300f7db562f9b903a15a8",
+    "workflow_head_sha": "89af8affadf3a909e7b6f80141e636fe963d747e",
     "conclusion": "success"
   },
   "artifact": {
-    "artifact_id": 11059519295,
-    "name": "live-trap-aliasing-review-package-v1",
-    "size_in_bytes": 528785,
-    "digest": "sha256:eee71eaf2b6e66c1350661b21ae8c1f5dafc50a82ff0ab61944edacecd9c9bb0"
+    "artifact_id": 11061257425,
+    "name": "live-trap-aliasing-review-package-v2",
+    "size_in_bytes": 558137,
+    "digest": "sha256:b7a02b6bf86e25e512a01a2688aa157956799025a8459b6f9783de5de3a73c89"
   },
+  "manuscript": "MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md",
+  "supplement": "SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md",
+  "simulation": "results/temporal_aliasing_simulation_benchmark_v2.json",
   "package_tests_passed": true,
   "included_self_checks": [
-    "generic diagnostic tests",
-    "simulation tests",
-    "deterministic-bound tests",
-    "prospective positional-aliasing validation tests",
-    "denominator-audit tests",
-    "manuscript v0.2 frozen-claim invariant tests"
+    "generic temporal-aliasing diagnostic tests",
+    "generic checked example",
+    "deterministic sensitivity-bound tests",
+    "corrected simulation-v2 tests",
+    "prospectively held-out positional-aliasing validation tests",
+    "all-night denominator audit tests",
+    "individual-cluster dependence audit tests",
+    "manuscript v0.3 frozen-claim and formatting invariants"
   ],
-  "note": "This review package was rebuilt after adding denominator-generation code and manuscript claim-invariant tests to the package itself."
+  "note": "Current self-contained review artifact after simulation-target correction, v0.3 manuscript update, v0.2 supplement update, corrected Figure 2 input, and individual-cluster robustness audit."
 }
