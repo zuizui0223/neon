@@ -1,0 +1,53 @@
+name: live-trap-home-range-effect
+on:
+  push:
+    branches: [paper/live-trap-aliasing-v1]
+    paths:
+      - docs/DOWNSTREAM_HOME_RANGE_EFFECT_LOCK_V1.md
+      - validation/live_trap_aliasing_v1/downstream_home_range_effect_lock_v1.json
+      - analysis/live_trap_home_range_sensitivity_v1.py
+      - tests/test_live_trap_home_range_sensitivity.py
+      - .github/workflows/live-trap-home-range-effect.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  effect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: paper/live-trap-aliasing-v1}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m unittest tests.test_live_trap_home_range_support tests.test_live_trap_home_range_sensitivity -v
+      - run: |
+          python analysis/live_trap_home_range_sensitivity_v1.py \
+            --estim-lock validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json \
+            --effect-lock validation/live_trap_aliasing_v1/downstream_home_range_effect_lock_v1.json \
+            --output-json /tmp/home_range_effect_v1.json \
+            --output-csv /tmp/home_range_individuals_v1.csv
+      - run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/home_range_effect_v1.json").read_text())
+          assert p["programme_gate"]["decision"] in {"confirm_downstream_home_range_sensitivity","home_range_downstream_sensitivity_not_replicated"}
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p results
+          cp /tmp/home_range_effect_v1.json results/live_trap_aliasing_home_range_effect_v1.json
+          git add results/live_trap_aliasing_home_range_effect_v1.json
+          if git diff --cached --quiet; then echo unchanged; else git commit -m "Freeze downstream home-range sensitivity result"; git push origin HEAD:paper/live-trap-aliasing-v1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-trap-home-range-effect-v1
+          path: |
+            /tmp/home_range_effect_v1.json
+            /tmp/home_range_individuals_v1.csv
+          if-no-files-found: error
+          retention-days: 30

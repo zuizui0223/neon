@@ -1,0 +1,32 @@
+{
+  "schema": "neon.live_trap_aliasing.downstream_home_range_effect_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_home_range_effects",
+  "species": [
+    "PEMA",
+    "PEER"
+  ],
+  "eligibility_source": "downstream_home_range_estimability_lock_v1",
+  "primary": {
+    "estimator": "100% minimum convex polygon area",
+    "material_area_ratio": 1.25,
+    "wilson_ci_level": 0.95,
+    "wilson_lower_material_fraction_must_exceed": 0.25,
+    "median_area_ratio_must_be_at_least": 1.25,
+    "require_both_species": true
+  },
+  "secondary": [
+    "first and last MCP area distributions",
+    "signed log area ratio",
+    "RMS radius first and last",
+    "RMS multiplicative ratio",
+    "grid-specific material-change fractions",
+    "leave-one-grid-out"
+  ],
+  "pass_decision": "confirm_downstream_home_range_sensitivity",
+  "fail_decision": "home_range_downstream_sensitivity_not_replicated",
+  "mcp_areas_inspected": false,
+  "mcp_area_ratios_inspected": false,
+  "rms_radius_differences_inspected": false,
+  "ecological_model_fits": 0
+}
