@@ -36,6 +36,19 @@ Drickamer & Springer (1998, Behavioural Processes, DOI 10.1016/S0376-6357(98)000
 
 This establishes that within-night trapping intervals and recapture timing are methodologically meaningful. It does **not** directly answer the present representative-location question: how much spatial information is discarded when multiple valid locations for the same marked individual within one ecological occasion are collapsed to one location.
 
+## Continuous-time and tracking approaches that further narrow the claim
+
+Temporal aggregation itself is already a substantial methods literature.
+
+- Borchers et al. (2014, Methods in Ecology and Evolution, DOI 10.1111/2041-210X.12196) developed continuous-time SECR specifically to use exact detection times, avoid arbitrary occasion definitions, and retain more of the continuous-time detection process.
+- Time-weighted home-range approaches have addressed irregular and temporally autocorrelated telemetry sampling rather than treating every recorded location as equally independent.
+- Recent continuous-time camera-trap methods likewise emphasize that aggregation over time can create biased or over-precise inference when temporal dynamics are ignored.
+- Telemetry analyses frequently thin or aggregate locations to control temporal dependence, which again makes the aggregation rule an explicit analytical choice.
+
+These approaches mean the paper must **not** claim that temporal aggregation, autocorrelation, or the value of continuous-time modelling is new.
+
+The proposed diagnostic instead occupies an earlier decision point: before committing to a continuous-time model, finer occasion definition, thinning rule, or one-location collapse, quantify whether the set of valid within-occasion positions is material relative to the spatial scale of the planned analysis and bound the maximum sensitivity of selected downstream statistics.
+
 ## Specific gap retained after literature audit
 
 The manuscript should not claim:
@@ -47,7 +60,7 @@ The manuscript should not claim:
 
 The narrower gap is:
 
-> **There is no routine, scale-aware diagnostic for the representativeness of a single spatial state assigned to an occasion when the same marked individual is observed at multiple locations within that occasion, together with transparent bounds linking the observed within-occasion positional span to downstream spatial statistics.**
+> **There is no routine, lightweight pre-analysis diagnostic that asks whether alternative valid positions observed for the same marked individual within one ecological occasion are material relative to the study's spatial scale, and then converts that observed within-occasion span into transparent sensitivity bounds for downstream spatial statistics.**
 
 The contribution is therefore an **observation-process diagnostic and sensitivity framework**, not a new movement model.
 
