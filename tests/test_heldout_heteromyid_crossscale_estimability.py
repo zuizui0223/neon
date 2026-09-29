@@ -114,5 +114,13 @@ class HeldoutCrossscaleEstimabilityTests(unittest.TestCase):
             self.assertFalse(species["site_matched_gate_passed"])
 
 
+    def test_node_id_matches_registry_style(self):
+        row={"namedLocation":"SITE_plot.mammalGrid.mam","trapCoordinate":"A1"}
+        self.assertEqual(
+            m._node_id(row),
+            "SITE_plot.mammalGrid.mam.A1",
+        )
+
+
 if __name__=="__main__":
     unittest.main()
