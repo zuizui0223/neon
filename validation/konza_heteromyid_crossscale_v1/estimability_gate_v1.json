@@ -1,0 +1,40 @@
+{
+  "crossscale_gate": {
+    "conditions": {
+      "movement_n5_periods_within_overlap_ge_6": false,
+      "overlapping_traplines_ge_6": false,
+      "overlapping_watersheds_ge_3": false,
+      "packing_n5_nights_within_overlap_ge_20": false
+    },
+    "decision": "stop_konza_crossscale_not_estimable",
+    "movement_n5_periods_within_overlap": 0,
+    "overlapping_trapline_count": 0,
+    "overlapping_traplines": [],
+    "overlapping_watershed_count": 0,
+    "overlapping_watersheds": [],
+    "packing_n5_nights_within_overlap": 0,
+    "passed": false
+  },
+  "diagnostic_n_per_sex": 3,
+  "ecological_effect_models_fit": 0,
+  "movement": {
+    "candidate_periods": 1222,
+    "paired_n3_periods": 0,
+    "paired_n5_periods": 0,
+    "paired_n5_trapline_counts": {},
+    "paired_n5_traplines": 0
+  },
+  "movement_distances_inspected": false,
+  "packing": {
+    "candidate_nights": 4888,
+    "paired_n3_nights": 0,
+    "paired_n5_nights": 0,
+    "paired_n5_trapline_counts": {},
+    "paired_n5_traplines": 0
+  },
+  "packing_effects_inspected": false,
+  "primary_n_per_sex": 5,
+  "schema": "neon.konza_hispidus_crossscale.estimability.v1",
+  "target_scientific_name": "Chaetodipus hispidus",
+  "target_species_code": "Ch"
+}
