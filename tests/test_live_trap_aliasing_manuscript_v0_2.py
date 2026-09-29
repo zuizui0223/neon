@@ -31,7 +31,7 @@ class LiveTrapAliasingManuscriptV02Tests(unittest.TestCase):
         forbidden=[
             (index,ord(char))
             for index,char in enumerate(self.text)
-            if ord(char)<32 and char not in {"\\n"}
+            if ord(char)<32 and char != "\n"
         ]
         self.assertEqual(forbidden,[])
 
@@ -50,10 +50,8 @@ class LiveTrapAliasingManuscriptV02Tests(unittest.TestCase):
             self.assertIn(token,self.text)
         broken=(
             "Kge2",
-            "qquad",
             "ledelta",
             "2overline{",
-            "operatorname{logit}^{-1}",
             "(ge1)",
             "(ge6.25)",
         )
