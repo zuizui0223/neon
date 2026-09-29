@@ -7,10 +7,10 @@
     "qualifying_species": [],
     "qualifying_species_count": 0
   },
-  "data_query_requests": 46,
+  "data_query_requests": 45,
   "diagnostic_threshold_per_sex": 3,
-  "downloaded_required_bytes": 889641211,
-  "downloaded_required_file_count": 3717,
+  "downloaded_required_bytes": 881344468,
+  "downloaded_required_file_count": 3679,
   "ecological_effect_models_fit": 0,
   "excluded_previously_inspected_species": [
     "Chaetodipus baileyi",
@@ -36,7 +36,13 @@
   "product_code": "DP1.10072.001",
   "release": "RELEASE-2026",
   "schema": "neon.heldout_heteromyid_crossscale.estimability.v1",
-  "site_stops": [],
+  "site_stops": [
+    {
+      "detail": "HTTPError: HTTP Error 502: Bad Gateway",
+      "site_code": "BARR",
+      "status": "site_error"
+    }
+  ],
   "species": {
     "Chaetodipus californicus": {
       "crossscale_gate_passed": false,
