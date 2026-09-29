@@ -1,0 +1,67 @@
+name: san-jacinto-temporal-aliasing-estimability
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-temporal-aliasing-holdout-v1
+    paths:
+      - docs/SAN_JACINTO_TEMPORAL_ALIASING_HOLDOUT_DESIGN_V1.md
+      - validation/san_jacinto_temporal_aliasing_v1/estimability_lock_v1.json
+      - analysis/san_jacinto_temporal_aliasing_estimability_v1.py
+      - tests/test_san_jacinto_temporal_aliasing_estimability.py
+      - .github/workflows/san-jacinto-temporal-aliasing-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-temporal-aliasing-holdout-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify holdout support tests
+        run: python -m unittest tests.test_san_jacinto_temporal_aliasing_estimability -v
+
+      - name: Count held-out support only
+        run: |
+          python analysis/san_jacinto_temporal_aliasing_estimability_v1.py \
+            --lock validation/san_jacinto_temporal_aliasing_v1/estimability_lock_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output /tmp/temporal_aliasing_estimability_v1.json
+
+      - name: Assert outcomes remain unopened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/temporal_aliasing_estimability_v1.json").read_text())
+          assert p["first_last_distance_values_inspected"] is False
+          assert p["first_last_change_outcomes_inspected"] is False
+          assert p["first_last_movement_sensitivity_inspected"] is False
+          assert p["packing_stability_inspected"] is False
+          assert p["ecological_model_fits"] == 0
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist held-out support gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-temporal-aliasing-holdout-v1
+          cp /tmp/temporal_aliasing_estimability_v1.json \
+             validation/san_jacinto_temporal_aliasing_v1/estimability_result_v1.json
+          git add validation/san_jacinto_temporal_aliasing_v1/estimability_result_v1.json
+          if git diff --cached --quiet; then
+            echo "holdout support gate unchanged"
+          else
+            git commit -m "Freeze temporal-aliasing holdout estimability"
+            git push origin HEAD:design/san-jacinto-temporal-aliasing-holdout-v1
+          fi
