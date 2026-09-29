@@ -1,0 +1,74 @@
+name: usgs-hispidus-source-audit
+
+on:
+  push:
+    branches:
+      - design/usgs-hispidus-source-v1
+    paths:
+      - docs/USGS_HISPIDUS_SOURCE_AUDIT_V1.md
+      - analysis/resolve_usgs_hispidus_source_v1.py
+      - tests/test_usgs_hispidus_source_resolver.py
+      - .github/workflows/usgs-hispidus-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/usgs-hispidus-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify resolver tests
+        run: python -m unittest tests.test_usgs_hispidus_source_resolver -v
+
+      - name: Resolve public USGS files and audit schemas
+        run: |
+          python analysis/resolve_usgs_hispidus_source_v1.py \
+            --identifier "USGS:f36fdaba-fe3d-4e59-a68f-fdc034219816" \
+            --title-hint "To ear tag or to PIT tag" \
+            --cache-dir data/cache/usgs_hispidus \
+            --output /tmp/usgs_hispidus_source_audit_v1.json
+
+      - name: Assert source audit remains effect-blind
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/usgs_hispidus_source_audit_v1.json").read_text())
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "catalog_title":p["catalog_title"],
+              "sciencebase_items":p["sciencebase_items"],
+              "audited_text_files":p["audited_text_files"],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/usgs-hispidus-source-v1
+          mkdir -p validation/usgs_hispidus_source_v1
+          cp /tmp/usgs_hispidus_source_audit_v1.json \
+             validation/usgs_hispidus_source_v1/source_audit_v1.json
+          git add validation/usgs_hispidus_source_v1/source_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "USGS source audit unchanged"
+          else
+            git commit -m "Freeze USGS hispidus source audit"
+            git push origin HEAD:design/usgs-hispidus-source-v1
+          fi
