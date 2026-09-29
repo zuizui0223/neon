@@ -6,7 +6,7 @@ Status: frozen after source-schema audit and before species-by-sex support count
 
 ## Target taxon
 
-Prospective target: `Species == "Ch"`, documented by the pinned Konza metadata/codebook as *Chaetodipus hispidus*.
+Prospective target: species code `Ch` in the Konza metadata/codebook, matched **case-insensitively** in CSM012 (`ch` in the pinned raw file), corresponding to *Chaetodipus hispidus*.
 
 This species had no sex-specific packing or movement effect inspected in the completed Portal/NEON programme. Held-out NEON work inspected only its estimability, not its effects.
 
