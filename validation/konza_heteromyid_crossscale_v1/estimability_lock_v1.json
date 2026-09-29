@@ -9,9 +9,10 @@
     "sha256": "2d810218ece91bb38725ae3d7080de9687a952ec11c54906ac47ffd5830dc82c"
   },
   "target": {
-    "species_code": "Ch",
     "scientific_name": "Chaetodipus hispidus",
-    "previously_effect_inspected": false
+    "previously_effect_inspected": false,
+    "species_code_metadata": "Ch",
+    "species_code_match": "case_insensitive_ch"
   },
   "primary_trap_days": [
     1,
