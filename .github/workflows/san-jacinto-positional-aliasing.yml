@@ -1,0 +1,75 @@
+name: san-jacinto-positional-aliasing
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-positional-aliasing-v1
+    paths:
+      - docs/SAN_JACINTO_POSITIONAL_ALIASING_EFFECT_LOCK_V1.md
+      - validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json
+      - analysis/san_jacinto_positional_aliasing_v1.py
+      - tests/test_san_jacinto_positional_aliasing.py
+      - .github/workflows/san-jacinto-positional-aliasing.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-positional-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify locked positional-aliasing tests
+        run: python -m unittest tests.test_san_jacinto_positional_aliasing -v
+
+      - name: Verify pre-outcome lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json").read_text())
+          assert p["state"]=="frozen_before_holdout_positional_outcomes"
+          assert p["heldout_first_last_distances_inspected"] is False
+          assert p["heldout_change_outcomes_inspected"] is False
+          assert p["heldout_grid_shift_fractions_inspected"] is False
+          PY
+
+      - name: Run held-out positional-aliasing validation
+        run: |
+          python analysis/san_jacinto_positional_aliasing_v1.py \
+            --lock validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-json /tmp/san_jacinto_positional_aliasing_result_v1.json \
+            --output-csv /tmp/san_jacinto_positional_aliasing_repeat_nights_v1.csv
+
+      - name: Persist frozen result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-positional-aliasing-v1
+          mkdir -p results
+          cp /tmp/san_jacinto_positional_aliasing_result_v1.json \
+             results/san_jacinto_positional_aliasing_result_v1.json
+          git add results/san_jacinto_positional_aliasing_result_v1.json
+          if git diff --cached --quiet; then
+            echo "positional result unchanged"
+          else
+            git commit -m "Freeze held-out positional-aliasing result"
+            git push origin HEAD:design/san-jacinto-positional-aliasing-v1
+          fi
+
+      - name: Upload repeat-night table
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-positional-aliasing-v1
+          path: /tmp/san_jacinto_positional_aliasing_repeat_nights_v1.csv
+          if-no-files-found: error
+          retention-days: 30
