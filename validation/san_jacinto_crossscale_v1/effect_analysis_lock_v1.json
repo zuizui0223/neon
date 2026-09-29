@@ -1,0 +1,72 @@
+{
+  "schema": "neon.san_jacinto_crossscale.effect_analysis_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_effect_extraction",
+  "matched_grids": {
+    "CHFA": [
+      "2",
+      "6"
+    ],
+    "DKR": [
+      "1",
+      "2"
+    ],
+    "LAPM": [
+      "3",
+      "5",
+      "6"
+    ],
+    "SKR": [
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  "packing": {
+    "geometry": "7x7, 6.25 m",
+    "null": "iid_uniform_flags_with_replacement_exact_U_statistic_moments",
+    "response": "Delta_packing = Packing_z_male - Packing_z_female",
+    "primary_n_per_sex_min": 3,
+    "equivalence_margin": 0.5,
+    "equivalence_ci_level": 0.9
+  },
+  "movement": {
+    "response": "male mean individual movement - female mean individual movement",
+    "individual_metric": "median log1p(euclidean_meters / elapsed_days) across successive observed nightly states",
+    "primary_n_movers_per_sex_min": 3
+  },
+  "weighting": {
+    "within_grid": "equal session/event weight",
+    "species": "equal matched-grid weight",
+    "family": "equal species weight",
+    "family_uncertainty": "method-of-moments between-species variance plus propagated species grid SE"
+  },
+  "directional_gate": {
+    "family_effect_positive": true,
+    "family_ci95_low_above_zero": true,
+    "minimum_positive_species": 3,
+    "species_denominator": 4
+  },
+  "packing_equivalence_gate": {
+    "margin": 0.5,
+    "family_ci90_inside_margin": true,
+    "minimum_species_point_effects_inside_margin": 3,
+    "species_denominator": 4
+  },
+  "decisions": {
+    "propagation": "authorize_crossscale_propagation_manuscript",
+    "decoupling": "authorize_crossscale_decoupling_manuscript",
+    "stop": "stop_no_confirmatory_crossscale_result"
+  },
+  "sensitivities": [
+    "n_min_2_per_sex",
+    "last_nightly_capture",
+    "leave_one_species_out",
+    "leave_one_matched_grid_out",
+    "matched_grid_spearman_descriptive"
+  ],
+  "sensitivities_can_rescue_primary": false,
+  "packing_effects_computed": false,
+  "movement_distances_computed": false,
+  "ecological_effect_models_fit": 0
+}
