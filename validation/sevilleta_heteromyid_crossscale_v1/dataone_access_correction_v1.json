@@ -1,0 +1,14 @@
+{
+  "schema": "neon.sevilleta_dataone_access_correction.v1",
+  "frozen_date": "2026-09-29",
+  "previous_probe": "validation/sevilleta_heteromyid_crossscale_v1/dataone_replica_probe_v1.json",
+  "ruling": "CN resolver returned the full 1,306,268-byte raw object anonymously with HTTP 200; the prior anonymous_public_replica_available=false flag reflected failure of a separate member-node URL, not failure of the canonical CN resolver.",
+  "canonical_pid": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+  "canonical_resolver_template": "https://cn.dataone.org/cn/v2/resolve/{urlencoded_pid}",
+  "expected_size_bytes": 1306268,
+  "expected_checksum_sha1": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461",
+  "sex_specific_effects_inspected": false,
+  "movement_distances_computed": false,
+  "packing_effects_computed": false,
+  "ecological_effect_models_fit": 0
+}
