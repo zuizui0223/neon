@@ -1,0 +1,95 @@
+name: auburn-dordii-case-estimability
+
+on:
+  push:
+    branches:
+      - design/auburn-dordii-crossscale-case-v1
+    paths:
+      - validation/auburn_dordii_crossscale_case_v1/estimability_design_lock_v1.json
+      - docs/AUBURN_DORDII_CROSSSCALE_CASE_DESIGN_V1.md
+      - analysis/audit_auburn_dordii_estimability_v1.py
+      - tests/test_auburn_dordii_estimability.py
+      - .github/workflows/auburn-dordii-case-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/auburn-dordii-crossscale-case-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify effect-blind parser tests
+        run: python -m unittest tests.test_auburn_dordii_estimability -v
+
+      - name: Verify design lock before counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lock=json.loads(
+              Path("validation/auburn_dordii_crossscale_case_v1/estimability_design_lock_v1.json").read_text()
+          )
+          assert lock["state"] == "frozen_before_appendix_support_counts"
+          assert lock["packing"]["minimum_per_sex"] == 3
+          assert lock["effect_status"]["sex_specific_support_counts_inspected"] is False
+          assert lock["effect_status"]["packing_effects_inspected"] is False
+          assert lock["effect_status"]["burrow_use_effects_inspected"] is False
+          PY
+
+      - name: Download frozen Auburn text companion
+        run: |
+          mkdir -p data/cache/auburn
+          curl -L --fail --retry 3 --retry-delay 2 \
+            -A "Mozilla/5.0 auburn-dordii-case-estimability/1.0" \
+            "https://auetd.auburn.edu/bitstream/handle/10415/1146/White_Jeremy_46.pdf.txt?isAllowed=y&sequence=2" \
+            -o data/cache/auburn/White_Jeremy_46.pdf.txt
+          test "$(wc -c < data/cache/auburn/White_Jeremy_46.pdf.txt)" -gt 100000
+          sha256sum data/cache/auburn/White_Jeremy_46.pdf.txt
+
+      - name: Run count-only appendix estimability
+        run: |
+          python analysis/audit_auburn_dordii_estimability_v1.py \
+            --input data/cache/auburn/White_Jeremy_46.pdf.txt \
+            --output /tmp/auburn_dordii_estimability_v1.json
+
+      - name: Assert effects remain unopened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/auburn_dordii_estimability_v1.json").read_text())
+          assert p["packing_effects_inspected"] is False
+          assert p["burrow_use_effects_inspected"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          assert p["gate"]["decision"] in {
+              "authorize_auburn_case_effect_lock",
+              "stop_auburn_case_not_estimable",
+          }
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist estimability receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/auburn-dordii-crossscale-case-v1
+          mkdir -p validation/auburn_dordii_crossscale_case_v1
+          cp /tmp/auburn_dordii_estimability_v1.json \
+             validation/auburn_dordii_crossscale_case_v1/estimability_gate_v1.json
+          git add validation/auburn_dordii_crossscale_case_v1/estimability_gate_v1.json
+          if git diff --cached --quiet; then
+            echo "estimability receipt unchanged"
+          else
+            git commit -m "Freeze Auburn D. ordii case estimability"
+            git push origin HEAD:design/auburn-dordii-crossscale-case-v1
+          fi
