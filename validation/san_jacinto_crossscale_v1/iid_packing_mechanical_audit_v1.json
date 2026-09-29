@@ -1,0 +1,251 @@
+{
+  "all_sd_positive": true,
+  "ecological_model_fits": 0,
+  "expected_male_minus_female_standardized_score": 0.0,
+  "expected_standardized_score": 0.0,
+  "geometry": "canonical_7x7_6.25m",
+  "n_range": [
+    2,
+    30
+  ],
+  "null_mean_spread": 0.0,
+  "null_mode": "exact_iid_uniform_finite_support_with_replacement",
+  "observed_ecological_effects_inspected": false,
+  "passes": true,
+  "rows": [
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 2,
+      "sd": 10.774244507715773,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 116.0843447120435
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 3,
+      "sd": 6.851367956562294,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 46.941242876208584
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 4,
+      "sd": 5.252985064786307,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 27.593852090868
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 5,
+      "sd": 4.362367435943358,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 19.030249646179026
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 6,
+      "sd": 3.7863076154161286,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 14.336125358558169
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 7,
+      "sd": 3.379076122643125,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 11.418155442616895
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 8,
+      "sd": 3.073624246318163,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 9.447166007554895
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 9,
+      "sd": 2.834607714031654,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 8.035000892447759
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 10,
+      "sd": 2.641545911203015,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 6.977764800993367
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 11,
+      "sd": 2.4817105536350006,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 6.158887272023342
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 12,
+      "sd": 2.3467520555590653,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 5.507245210270698
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 13,
+      "sd": 2.2309523314174666,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 4.97714830505703
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 14,
+      "sd": 2.1302554964935534,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 4.537988480340996
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 15,
+      "sd": 2.0416994219979565,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 4.168536529786789
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 16,
+      "sd": 1.9630667324881306,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 3.853630996201626
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 17,
+      "sd": 1.8926621141630295,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 3.5821698783880684
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 18,
+      "sd": 1.8291654716640156,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 3.3458463227278408
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 19,
+      "sd": 1.77153231207142,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 3.1383267327131104
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 20,
+      "sd": 1.7189244728065525,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.9547013432132845
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 21,
+      "sd": 1.6706608888003494,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.791107805367173
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 22,
+      "sd": 1.6261819185514763,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.64446763222376
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 23,
+      "sd": 1.5850230443833828,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.512298051226367
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 24,
+      "sd": 1.546795180126949,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.3925753292639604
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 25,
+      "sd": 1.5111697177941723,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.2836339159781183
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 26,
+      "sd": 1.4778670271296324,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.1840909498769774
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 27,
+      "sd": 1.4466475072844087,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.092789010332193
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 28,
+      "sd": 1.4173045497077101,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 2.008752186622175
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 29,
+      "sd": 1.389658949601058,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 1.9311519962063162
+    },
+    {
+      "kernel_variance": 116.0843447120435,
+      "mean": 22.559159011096945,
+      "n": 30,
+      "sd": 1.3635544274898723,
+      "shared_pair_covariance": 12.369691958291128,
+      "variance": 1.8592806767272336
+    }
+  ],
+  "schema": "neon.san_jacinto_crossscale.iid_packing_mechanical_audit.v1",
+  "support_count": 49
+}
