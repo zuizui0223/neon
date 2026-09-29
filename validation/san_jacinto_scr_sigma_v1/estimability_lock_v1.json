@@ -1,0 +1,49 @@
+{
+  "schema": "neon.san_jacinto_scr_sigma_sensitivity.estimability_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_session_support_counts",
+  "focal_species": {
+    "PEMA": "Peromyscus maniculatus",
+    "PEER": "Peromyscus eremicus"
+  },
+  "source": {
+    "figshare_article_id": 18295520,
+    "file_id": 33058799,
+    "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "session": "species × grid × trapping bout",
+  "occasion": "capture date within bout",
+  "support_gate": {
+    "occasions_min": 2,
+    "unique_individuals_min": 10,
+    "temporal_recapture_individuals_min": 5,
+    "raw_interdate_spatial_recapture_individuals_min": 3,
+    "eligible_sessions_per_species_min": 5,
+    "grids_per_species_min": 2
+  },
+  "collapse": {
+    "first": "earliest valid nocturnal capture per individual-occasion",
+    "last": "latest valid nocturnal capture per individual-occasion",
+    "exact_time_tie_break": "source row order"
+  },
+  "scr": {
+    "package": "secr",
+    "detector": "multi",
+    "detectfn": "HN",
+    "conditional_likelihood": true,
+    "model_g0": "~ b + grid + bout",
+    "model_sigma": "~ 1",
+    "buffer_m": 100
+  },
+  "material_relative_sigma_change_threshold": 0.1,
+  "decisions": {
+    "both": "material_sigma_sensitivity_in_both_species",
+    "one": "material_sigma_sensitivity_in_one_species",
+    "neither": "sigma_sensitivity_below_10pct"
+  },
+  "species_session_support_counts_inspected": false,
+  "first_sigma_inspected": false,
+  "last_sigma_inspected": false,
+  "sigma_ratio_inspected": false,
+  "scr_models_fit": 0
+}
