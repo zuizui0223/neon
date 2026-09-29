@@ -35,11 +35,6 @@
       "result_count": 10
     },
     {
-      "identifiers": [],
-      "query": "seriesId:\"knb-lter-vcr.67\"",
-      "result_count": 0
-    },
-    {
       "identifiers": [
         "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/18",
         "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
@@ -64,58 +59,84 @@
   ],
   "dataone_documents_at_latest_version": [
     {
-      "authoritativeMN": "urn:node:LTER",
-      "checksum": "d016c6f1a6575e6c064c18fd5bf724d79894c24a",
-      "datasource": "urn:node:LTER",
-      "dateModified": "2019-04-04T20:29:29.643Z",
-      "dateUploaded": "2018-05-14T20:00:32.492Z",
-      "formatId": "eml://ecoinformatics.org/eml-2.1.0",
-      "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "e657319af19c82cb360c40f8ea7c3f53bb6009c9",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:45:58.405Z",
+      "dateUploaded": "2021-08-16T19:45:58.405Z",
+      "formatId": "https://eml.ecoinformatics.org/eml-2.2.0",
+      "identifier": "https://pasta.lternet.edu/package/metadata/eml/edi/956/1",
       "replicaMN": [
-        "urn:node:LTER",
+        "urn:node:EDI",
         "urn:node:CN"
       ],
-      "size": 83088,
-      "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+      "size": 111271,
+      "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999 (Reformatted to a Darwin Core Archive)"
     },
     {
-      "authoritativeMN": "urn:node:LTER",
-      "checksum": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
-      "datasource": "urn:node:LTER",
-      "dateModified": "2018-05-14T20:00:31.558Z",
-      "dateUploaded": "2018-05-14T20:00:31.558Z",
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "ed675356fd2bae161103475b6112a7b3ed0d2f43",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:45:59.002Z",
+      "dateUploaded": "2021-08-16T19:45:59.002Z",
       "formatId": "text/xml",
-      "identifier": "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
+      "identifier": "https://pasta.lternet.edu/package/report/eml/edi/956/1",
       "replicaMN": [
-        "urn:node:LTER"
+        "urn:node:EDI"
       ],
-      "size": 31077
+      "size": 80403
     },
     {
-      "authoritativeMN": "urn:node:LTER",
-      "checksum": "093dcd72508c8497627b9cfd96cffa0c3c403770",
-      "datasource": "urn:node:LTER",
-      "dateModified": "2018-05-14T20:00:30.334Z",
-      "dateUploaded": "2018-05-14T20:00:30.334Z",
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "66adc5888528a4f1c071fd102381a396bbad648c",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:46:00.652Z",
+      "dateUploaded": "2021-08-16T19:46:00.652Z",
       "formatId": "text/csv",
-      "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/82cf3f3ce41a598251f85e4b0da6caf8",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/7ad56af78ac5f73d81f5e80293f1d6c9",
       "replicaMN": [
-        "urn:node:LTER"
+        "urn:node:EDI"
       ],
-      "size": 2444072
+      "size": 147965
     },
     {
-      "authoritativeMN": "urn:node:LTER",
-      "checksum": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
-      "datasource": "urn:node:LTER",
-      "dateModified": "2018-05-14T20:00:29.004Z",
-      "dateUploaded": "2018-05-14T20:00:29.004Z",
-      "formatId": "application/octet-stream",
-      "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/49d834f986406e8c542fa276504b6362",
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "da6eaa7c19e8a9b3bd579ddfe020888acad04b63",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:45:59.611Z",
+      "dateUploaded": "2021-08-16T19:45:59.611Z",
+      "formatId": "text/csv",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/4119639092e62c55ea8be348e4d9260d",
       "replicaMN": [
-        "urn:node:LTER"
+        "urn:node:EDI"
       ],
-      "size": 472763
+      "size": 6755147
+    },
+    {
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "80b9c75af95fd4d66850bc735bc95dd849564de6",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:46:02.834Z",
+      "dateUploaded": "2021-08-16T19:46:02.834Z",
+      "formatId": "application/xml",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/e9a23cbc455158951716b440c3d165e0",
+      "replicaMN": [
+        "urn:node:EDI"
+      ],
+      "size": 2875
+    },
+    {
+      "authoritativeMN": "urn:node:EDI",
+      "checksum": "2531e6680e56258c1511df61489bdfb0e6f81cf3",
+      "datasource": "urn:node:EDI",
+      "dateModified": "2021-08-16T19:46:01.728Z",
+      "dateUploaded": "2021-08-16T19:46:01.728Z",
+      "formatId": "text/csv",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/f616903aa9a2592cb3082cb3b9525270",
+      "replicaMN": [
+        "urn:node:EDI"
+      ],
+      "size": 2679816
     }
   ],
   "documented_expected_columns": [
@@ -138,31 +159,50 @@
   ],
   "ecological_effect_models_fit": 0,
   "geometry_note": "documented 10x10 stations at 10 m spacing with two trap slots per station",
-  "latest_dataone_package_version": 20,
+  "latest_dataone_package_version": null,
   "movement_distances_computed": false,
   "package_series": "knb-lter-vcr.67",
   "packing_effects_computed": false,
   "resolved_candidate_objects": [
     {
-      "bytes_received": 31077,
+      "bytes_received": 260,
+      "content_type": "text/xml;charset=UTF-8",
+      "document": {
+        "authoritativeMN": "urn:node:EDI",
+        "checksum": "ed675356fd2bae161103475b6112a7b3ed0d2f43",
+        "datasource": "urn:node:EDI",
+        "dateModified": "2021-08-16T19:45:59.002Z",
+        "dateUploaded": "2021-08-16T19:45:59.002Z",
+        "formatId": "text/xml",
+        "identifier": "https://pasta.lternet.edu/package/report/eml/edi/956/1",
+        "replicaMN": [
+          "urn:node:EDI"
+        ],
+        "size": 80403
+      },
+      "http_status": 500,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Freport%2Feml%2Fedi%2F956%2F1"
+    },
+    {
+      "bytes_received": 147965,
       "content_type": "application/octet-stream",
       "document": {
-        "authoritativeMN": "urn:node:LTER",
-        "checksum": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
-        "datasource": "urn:node:LTER",
-        "dateModified": "2018-05-14T20:00:31.558Z",
-        "dateUploaded": "2018-05-14T20:00:31.558Z",
-        "formatId": "text/xml",
-        "identifier": "https://pasta.lternet.edu/package/report/eml/knb-lter-vcr/67/20",
+        "authoritativeMN": "urn:node:EDI",
+        "checksum": "66adc5888528a4f1c071fd102381a396bbad648c",
+        "datasource": "urn:node:EDI",
+        "dateModified": "2021-08-16T19:46:00.652Z",
+        "dateUploaded": "2021-08-16T19:46:00.652Z",
+        "formatId": "text/csv",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/7ad56af78ac5f73d81f5e80293f1d6c9",
         "replicaMN": [
-          "urn:node:LTER"
+          "urn:node:EDI"
         ],
-        "size": 31077
+        "size": 147965
       },
       "http_status": 200,
-      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Freport%2Feml%2Fknb-lter-vcr%2F67%2F20",
-      "sha1": "f7d5d9a2b4b4ade3c4c82887058e3f4851591626",
-      "sha256": "d0748b056940dd864e02fdddd765fea29a27d84e63d7796eff95616be1454e25",
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fedi%2F956%2F1%2F7ad56af78ac5f73d81f5e80293f1d6c9",
+      "sha1": "66adc5888528a4f1c071fd102381a396bbad648c",
+      "sha256": "3146a414c18c0285f3232510cb8cf73bce23812c9b4c70dd333d97e1f4f7647e",
       "structure": {
         "documented_schema_match": false,
         "expected_field_count": 16,
@@ -170,44 +210,77 @@
       }
     },
     {
-      "bytes_received": 263,
-      "content_type": "text/xml;charset=UTF-8",
-      "document": {
-        "authoritativeMN": "urn:node:LTER",
-        "checksum": "093dcd72508c8497627b9cfd96cffa0c3c403770",
-        "datasource": "urn:node:LTER",
-        "dateModified": "2018-05-14T20:00:30.334Z",
-        "dateUploaded": "2018-05-14T20:00:30.334Z",
-        "formatId": "text/csv",
-        "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/82cf3f3ce41a598251f85e4b0da6caf8",
-        "replicaMN": [
-          "urn:node:LTER"
-        ],
-        "size": 2444072
-      },
-      "http_status": 500,
-      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-vcr%2F67%2F20%2F82cf3f3ce41a598251f85e4b0da6caf8"
-    },
-    {
-      "bytes_received": 472763,
+      "bytes_received": 6755147,
       "content_type": "application/octet-stream",
       "document": {
-        "authoritativeMN": "urn:node:LTER",
-        "checksum": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
-        "datasource": "urn:node:LTER",
-        "dateModified": "2018-05-14T20:00:29.004Z",
-        "dateUploaded": "2018-05-14T20:00:29.004Z",
-        "formatId": "application/octet-stream",
-        "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-vcr/67/20/49d834f986406e8c542fa276504b6362",
+        "authoritativeMN": "urn:node:EDI",
+        "checksum": "da6eaa7c19e8a9b3bd579ddfe020888acad04b63",
+        "datasource": "urn:node:EDI",
+        "dateModified": "2021-08-16T19:45:59.611Z",
+        "dateUploaded": "2021-08-16T19:45:59.611Z",
+        "formatId": "text/csv",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/4119639092e62c55ea8be348e4d9260d",
         "replicaMN": [
-          "urn:node:LTER"
+          "urn:node:EDI"
         ],
-        "size": 472763
+        "size": 6755147
       },
       "http_status": 200,
-      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-vcr%2F67%2F20%2F49d834f986406e8c542fa276504b6362",
-      "sha1": "b2d836edb46ca1b26ba0e2769a31a47db0d9306c",
-      "sha256": "d4a3dde868278e55977e64af179c6aff3e03004ffb62f86e99f99abe072843af",
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fedi%2F956%2F1%2F4119639092e62c55ea8be348e4d9260d",
+      "sha1": "da6eaa7c19e8a9b3bd579ddfe020888acad04b63",
+      "sha256": "5118e1e57ae485fe369558d07e2f325014443fb2e8f0e5509699db93ed6ffc8a",
+      "structure": {
+        "documented_schema_match": false,
+        "expected_field_count": 16,
+        "record_block_found": false
+      }
+    },
+    {
+      "bytes_received": 2875,
+      "content_type": "application/octet-stream",
+      "document": {
+        "authoritativeMN": "urn:node:EDI",
+        "checksum": "80b9c75af95fd4d66850bc735bc95dd849564de6",
+        "datasource": "urn:node:EDI",
+        "dateModified": "2021-08-16T19:46:02.834Z",
+        "dateUploaded": "2021-08-16T19:46:02.834Z",
+        "formatId": "application/xml",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/e9a23cbc455158951716b440c3d165e0",
+        "replicaMN": [
+          "urn:node:EDI"
+        ],
+        "size": 2875
+      },
+      "http_status": 200,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fedi%2F956%2F1%2Fe9a23cbc455158951716b440c3d165e0",
+      "sha1": "80b9c75af95fd4d66850bc735bc95dd849564de6",
+      "sha256": "666743945c9fe10adf9ea6732ffb83841e5035be9520f446b1d3682e676558b5",
+      "structure": {
+        "documented_schema_match": false,
+        "expected_field_count": 16,
+        "record_block_found": false
+      }
+    },
+    {
+      "bytes_received": 2679816,
+      "content_type": "application/octet-stream",
+      "document": {
+        "authoritativeMN": "urn:node:EDI",
+        "checksum": "2531e6680e56258c1511df61489bdfb0e6f81cf3",
+        "datasource": "urn:node:EDI",
+        "dateModified": "2021-08-16T19:46:01.728Z",
+        "dateUploaded": "2021-08-16T19:46:01.728Z",
+        "formatId": "text/csv",
+        "identifier": "https://pasta.lternet.edu/package/data/eml/edi/956/1/f616903aa9a2592cb3082cb3b9525270",
+        "replicaMN": [
+          "urn:node:EDI"
+        ],
+        "size": 2679816
+      },
+      "http_status": 200,
+      "resolver_url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fedi%2F956%2F1%2Ff616903aa9a2592cb3082cb3b9525270",
+      "sha1": "2531e6680e56258c1511df61489bdfb0e6f81cf3",
+      "sha256": "9332bb7e063be1859f98d2f0fba257496d0d4222b56a41d744856d22698407a2",
       "structure": {
         "documented_schema_match": false,
         "expected_field_count": 16,
@@ -216,6 +289,52 @@
     }
   ],
   "schema": "neon.powdermill_crossscale.source_audit.v1",
+  "selected_metadata": {
+    "metadata_candidates": [
+      {
+        "dateModified": "2021-08-16T19:45:58.405Z",
+        "dateUploaded": "2021-08-16T19:45:58.405Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/edi/956/1",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999 (Reformatted to a Darwin Core Archive)"
+      },
+      {
+        "dateModified": "2021-08-16T19:45:34.946Z",
+        "dateUploaded": "2021-08-16T19:45:34.946Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/edi/356/2",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999 (Reformatted to the ecocomDP Design Pattern)"
+      },
+      {
+        "dateModified": "2019-04-05T14:09:04.758Z",
+        "dateUploaded": "2015-02-28T03:32:48.441Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/17",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+      },
+      {
+        "dateModified": "2019-04-05T08:36:35.457Z",
+        "dateUploaded": "2018-02-22T20:02:00.808Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/19",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+      },
+      {
+        "dateModified": "2019-04-04T20:29:29.643Z",
+        "dateUploaded": "2018-05-14T20:00:32.492Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/20",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+      },
+      {
+        "dateModified": "2019-04-04T20:28:21.125Z",
+        "dateUploaded": "2017-06-17T00:01:28.034Z",
+        "identifier": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-vcr/67/18",
+        "title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999"
+      }
+    ],
+    "selected_legacy_package_version": null,
+    "selected_metadata_dateModified": "2021-08-16T19:45:58.405Z",
+    "selected_metadata_dateUploaded": "2021-08-16T19:45:58.405Z",
+    "selected_metadata_identifier": "https://pasta.lternet.edu/package/metadata/eml/edi/956/1",
+    "selected_metadata_title": "Long Term Mammal Data from Powdermill Biological Station 1979-1999 (Reformatted to a Darwin Core Archive)",
+    "selection_rule": "newest exact-title DataONE metadata by dateModified then dateUploaded"
+  },
   "sex_specific_counts_inspected": false,
   "source_adequacy_for_estimability_design": false,
   "species_specific_counts_inspected": false
