@@ -1,0 +1,65 @@
+name: san-jacinto-capture-semantics-audit-v2
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-crossscale-source-v1
+    paths:
+      - analysis/audit_san_jacinto_capture_semantics_v2.py
+      - tests/test_san_jacinto_capture_semantics_v2.py
+      - .github/workflows/san-jacinto-capture-semantics-audit-v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-crossscale-source-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify corrected semantic tests
+        run: python -m unittest tests.test_san_jacinto_capture_semantics_v2 -v
+
+      - name: Run corrected effect-blind semantics audit
+        run: |
+          python analysis/audit_san_jacinto_capture_semantics_v2.py \
+            --source-receipt validation/san_jacinto_crossscale_v1/source_schema_audit_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output /tmp/san_jacinto_capture_semantics_audit_v2.json
+
+      - name: Assert no ecological outcome was opened
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/san_jacinto_capture_semantics_audit_v2.json").read_text())
+          assert p["species_specific_support_counts_inspected"] is False
+          assert p["sex_specific_support_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist corrected semantics receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-crossscale-source-v1
+          cp /tmp/san_jacinto_capture_semantics_audit_v2.json \
+             validation/san_jacinto_crossscale_v1/capture_semantics_audit_v2.json
+          git add validation/san_jacinto_crossscale_v1/capture_semantics_audit_v2.json
+          if git diff --cached --quiet; then
+            echo "corrected semantics receipt unchanged"
+          else
+            git commit -m "Freeze corrected San Jacinto capture semantics"
+            git push origin HEAD:design/san-jacinto-crossscale-source-v1
+          fi
