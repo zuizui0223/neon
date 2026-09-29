@@ -1,0 +1,64 @@
+{
+  "date": "2026-09-29",
+  "packing": {
+    "NEON": {
+      "ci95_high": 3.06323191533045,
+      "ci95_low": -2.2145737614208287,
+      "df": 2,
+      "effect": 0.4243290769548106,
+      "mean_species_sampling_variance": 0.3612134017359547,
+      "method": "equal_weight_species_random_effects_moments_with_within_species_variance",
+      "observed_species_variance": 1.1284841527358456,
+      "species_count": 3,
+      "standard_error": 0.6133199688949332,
+      "tau2_method_of_moments": 0.7672707509998908
+    },
+    "Portal": {
+      "ci95_high": 0.2885076042207994,
+      "ci95_low": -0.3064630775499216,
+      "df": 3,
+      "effect": -0.008977736664561068,
+      "mean_species_sampling_variance": 0.0349517529070678,
+      "method": "equal_weight_species_random_effects_moments_with_within_species_variance",
+      "observed_species_variance": 0.0011982202037929132,
+      "species_count": 4,
+      "standard_error": 0.09347693954536034,
+      "tau2_method_of_moments": 0.0
+    }
+  },
+  "purpose": "propagate spatial-unit uncertainty into equal-weight family means without changing frozen primary estimands",
+  "recapture": {
+    "primary_n3": {
+      "ci95_high": 0.8029477677980389,
+      "ci95_low": -0.2963688635036087,
+      "df": 2,
+      "effect": 0.2532894521472151,
+      "mean_species_sampling_variance": 0.012422619229080632,
+      "method": "equal_weight_species_random_effects_moments_with_within_species_variance",
+      "observed_species_variance": 0.048959195129916644,
+      "species_count": 3,
+      "standard_error": 0.12774870531622703,
+      "tau2_method_of_moments": 0.03653657590083601
+    },
+    "sensitivity_n5": {
+      "ci95_high": 0.6027397548601928,
+      "ci95_low": -0.22155480442540743,
+      "df": 2,
+      "effect": 0.1905924752173927,
+      "mean_species_sampling_variance": 0.02752666132089252,
+      "method": "equal_weight_species_random_effects_moments_with_within_species_variance",
+      "observed_species_variance": 0.0003465679699501102,
+      "species_count": 3,
+      "standard_error": 0.09578911093454641,
+      "tau2_method_of_moments": 0.0
+    }
+  },
+  "rulings": {
+    "n5_interpretation": "hypothesis_generating_sign_concordance_only",
+    "n5_point_estimate_sign_concordance_retained": true,
+    "n5_previous_interval_supported": false,
+    "phase3_primary_decision_changes": false,
+    "recapture_primary_decision_changes": false
+  },
+  "schema": "neon.public_mammal_sex_packing.family_uncertainty_audit.v1"
+}
