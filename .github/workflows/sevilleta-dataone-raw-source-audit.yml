@@ -6,8 +6,8 @@ on:
       - design/sevilleta-heteromyid-crossscale-v1
     paths:
       - validation/sevilleta_heteromyid_crossscale_v1/dataone_access_correction_v1.json
-      - analysis/audit_sevilleta_source_schema_v2.py
-      - tests/test_sevilleta_source_schema_audit_v2.py
+      - analysis/audit_sevilleta_raw_source_v3.py
+      - tests/test_sevilleta_raw_source_audit_v3.py
       - .github/workflows/sevilleta-dataone-raw-source-audit.yml
   workflow_dispatch:
 
@@ -27,8 +27,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Verify corrected schema classifier
-        run: python -m unittest tests.test_sevilleta_source_schema_audit_v2 -v
+      - name: Verify raw-source schema classifier
+        run: python -m unittest tests.test_sevilleta_raw_source_audit_v3 -v
 
       - name: Download frozen raw object through DataONE CN resolver
         run: |
@@ -80,7 +80,7 @@ jobs:
 
       - name: Audit true raw schema only
         run: |
-          python analysis/audit_sevilleta_source_schema_v2.py \
+          python analysis/audit_sevilleta_raw_source_v3.py \
             --input data/cache/sevilleta_dataone/sev008_raw_object.txt \
             --output /tmp/sevilleta_dataone_raw_schema_audit_v3.json
 
@@ -101,9 +101,9 @@ jobs:
               "column_count":p["column_count"],
               "columns":p["columns"],
               "structural_columns":p["structural_columns"],
-              "missing_required_structural_fields":p["missing_required_structural_fields"],
-              "source_adequacy_for_next_estimability_design":
-                  p["source_adequacy_for_next_estimability_design"],
+              "required_presence":p["required_presence"],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
           },indent=2,sort_keys=True))
           PY
 
