@@ -18,10 +18,12 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
     steps:
       - uses: actions/checkout@v4
         with:
           ref: design/jornada-smes-heteromyid-source-v1
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -29,10 +31,12 @@ jobs:
       - name: Test source-schema logic
         run: python -m unittest tests.test_jornada_smes_source_audit -v
 
-      - name: Discover and download public CSV resources
+      - name: Discover Data.gov metadata and test public CSV access
+        id: discover
         run: |
           python - <<'PY'
           import json
+          import os
           import pathlib
           import urllib.parse
           import urllib.request
@@ -47,38 +51,36 @@ jobs:
               "https://jornada.nmsu.edu/sites/default/files/data_files/JornadaStudy_086_smes_rodent_trapping_data_0.csv",
           ]
 
-          urls=[]
-          urls.extend(legacy)
+          def collect_urls(value):
+              found=[]
+              if isinstance(value,dict):
+                  for key,child in value.items():
+                      if isinstance(child,str) and child.startswith(("http://","https://")):
+                          found.append({"key":str(key),"url":child})
+                      else:
+                          found.extend(collect_urls(child))
+              elif isinstance(value,list):
+                  for child in value:
+                      found.extend(collect_urls(child))
+              return found
 
           query=urllib.parse.urlencode({
               "q":"Rodent data from trapping webs long-term Small Mammal Exclusion Study Jornada Basin",
               "per_page":20,
           })
           api="https://api.gsa.gov/technology/datagov/v4/search?"+query
+          api_headers=dict(headers)
+          api_headers["X-Api-Key"]="DEMO_KEY"
+
+          metadata_matches=[]
+          candidate_urls=list(legacy)
           try:
-              api_headers=dict(headers)
-              api_headers["X-Api-Key"]="DEMO_KEY"
               req=urllib.request.Request(api,headers=api_headers)
               with urllib.request.urlopen(req,timeout=90) as response:
                   payload=json.loads(response.read().decode("utf-8"))
-
-              results=(payload.get("results") or [])
+              results=payload.get("results") or []
               print("DATAGOV_V4_RESULTS",len(results),flush=True)
 
-              def collect_urls(value):
-                  found=[]
-                  if isinstance(value,dict):
-                      for key,child in value.items():
-                          if isinstance(child,str) and child.startswith(("http://","https://")):
-                              found.append((str(key),child))
-                          else:
-                              found.extend(collect_urls(child))
-                  elif isinstance(value,list):
-                      for child in value:
-                          found.extend(collect_urls(child))
-                  return found
-
-              metadata_matches=[]
               for result in results:
                   dcat=result.get("dcat") or {}
                   title=str(dcat.get("title",""))
@@ -102,104 +104,189 @@ jobs:
                       try:
                           raw_req=urllib.request.Request(raw_url,headers=api_headers)
                           with urllib.request.urlopen(raw_req,timeout=90) as response:
-                              raw_payload=json.loads(response.read().decode("utf-8"))
+                              raw_bytes=response.read()
+                          try:
+                              raw_payload=json.loads(raw_bytes.decode("utf-8"))
+                          except Exception:
+                              raw_payload=raw_bytes.decode("utf-8",errors="replace")
                           record["harvest_raw"]=raw_payload
-                      except Exception as raw_error:
-                          record["harvest_raw_error"]=f"{type(raw_error).__name__}: {raw_error}"
+                      except Exception as error:
+                          record["harvest_raw_error"]=f"{type(error).__name__}: {error}"
 
+                  urls=collect_urls(record)
+                  record["all_metadata_urls"]=urls
                   metadata_matches.append(record)
-
-                  for key,url in collect_urls(record):
-                      low=url.lower()
-                      if (
-                          ".csv" in low
-                          or "download" in low
-                          or "data_files" in low
-                          or "resource" in low
-                      ):
-                          print("DATAGOV_URL",key,url,flush=True)
-                          urls.append(url)
-
-              pathlib.Path("data/cache/jornada_smes/datagov_metadata.json").write_text(
-                  json.dumps(metadata_matches,indent=2,sort_keys=True)+"\n",
-                  encoding="utf-8",
-              )
+                  for item in urls:
+                      candidate_urls.append(item["url"])
           except Exception as error:
-              print("DATAGOV_DISCOVERY_ERROR",type(error).__name__,error,flush=True)
+              metadata_matches.append({
+                  "catalog_api_error":f"{type(error).__name__}: {error}"
+              })
+
+          (root/"datagov_metadata.json").write_text(
+              json.dumps(metadata_matches,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
 
           seen=set()
           saved=[]
-          for index,url in enumerate(urls,1):
-              if url in seen:
+          attempts=[]
+          for index,url in enumerate(candidate_urls,1):
+              if not url or url in seen:
                   continue
               seen.add(url)
+
+              low=url.lower()
+              likely_data=(
+                  ".csv" in low
+                  or "download" in low
+                  or "data_files" in low
+                  or "resource" in low
+                  or "file" in low
+              )
+              if not likely_data:
+                  attempts.append({
+                      "url":url,
+                      "status":"metadata_url_not_data_candidate",
+                  })
+                  continue
+
               try:
                   req=urllib.request.Request(url,headers=headers)
                   with urllib.request.urlopen(req,timeout=120) as response:
                       raw=response.read()
-                  if not raw or b"<html" in raw[:5000].lower():
-                      print("SKIP_NONCSV",url,len(raw),flush=True)
-                      continue
+                      content_type=str(response.headers.get("content-type",""))
                   first=raw[:4096].decode("utf-8-sig",errors="replace")
-                  if "," not in first and "\t" not in first:
-                      print("SKIP_NO_DELIMITER",url,len(raw),flush=True)
+                  if not raw or b"<html" in raw[:5000].lower():
+                      attempts.append({
+                          "url":url,"status":"non_csv_html",
+                          "size":len(raw),"content_type":content_type,
+                      })
                       continue
-                  name=urllib.parse.urlparse(url).path.rsplit("/",1)[-1] or f"resource_{index}.csv"
+                  if "," not in first and "\t" not in first:
+                      attempts.append({
+                          "url":url,"status":"no_delimiter",
+                          "size":len(raw),"content_type":content_type,
+                      })
+                      continue
+
+                  name=urllib.parse.urlparse(url).path.rsplit("/",1)[-1]
                   if not name.lower().endswith(".csv"):
                       name=f"resource_{index}.csv"
                   out=root/name
                   if out.exists():
                       out=root/f"{index}_{name}"
                   out.write_bytes(raw)
-                  saved.append({"url":url,"file":out.name,"size":len(raw)})
+                  saved.append({
+                      "url":url,
+                      "file":out.name,
+                      "size":len(raw),
+                      "content_type":content_type,
+                  })
+                  attempts.append({
+                      "url":url,"status":"saved_csv",
+                      "file":out.name,"size":len(raw),
+                  })
                   print("SAVED",url,out,len(raw),flush=True)
               except Exception as error:
-                  print("DOWNLOAD_ERROR",url,type(error).__name__,error,flush=True)
+                  attempts.append({
+                      "url":url,
+                      "status":"download_error",
+                      "error":f"{type(error).__name__}: {error}",
+                  })
 
-          (root/"source_urls.json").write_text(
-              json.dumps(saved,indent=2,sort_keys=True)+"\n",
+          discovery={
+              "schema":"neon.jornada_smes_source.discovery.v1",
+              "date":"2026-09-29",
+              "catalog_match_count":len([
+                  x for x in metadata_matches if x.get("title")
+              ]),
+              "downloadable_csv_found":bool(saved),
+              "saved":saved,
+              "attempts":attempts,
+              "metadata_file":"datagov_metadata.json",
+              "species_specific_counts_inspected":False,
+              "sex_specific_counts_inspected":False,
+              "movement_distances_computed":False,
+              "packing_effects_computed":False,
+              "ecological_effect_models_fit":0,
+          }
+          (root/"source_discovery.json").write_text(
+              json.dumps(discovery,indent=2,sort_keys=True)+"\n",
               encoding="utf-8",
           )
-          if not saved:
-              print("NO_DOWNLOADABLE_CSV_AFTER_METADATA_DISCOVERY",flush=True)
-              raise SystemExit("no public CSV resource could be downloaded")
+
+          output=os.environ["GITHUB_OUTPUT"]
+          with open(output,"a",encoding="utf-8") as fh:
+              fh.write(
+                  f"downloadable={'true' if saved else 'false'}\n"
+              )
+
+          print("DISCOVERY_SUMMARY")
+          print(json.dumps(discovery,indent=2,sort_keys=True))
+          print("DATAGOV_METADATA")
+          print(json.dumps(metadata_matches,indent=2,sort_keys=True))
           PY
 
-      - name: Audit structural schemas only
-        run: |
-          python analysis/audit_jornada_smes_source_v1.py             --directory data/cache/jornada_smes             --output /tmp/jornada_smes_source_schema_audit_v1.json
+      - name: Upload Data.gov source-discovery evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jornada-smes-source-discovery-v1
+          path: |
+            data/cache/jornada_smes/datagov_metadata.json
+            data/cache/jornada_smes/source_discovery.json
+          if-no-files-found: error
+          retention-days: 30
 
-      - name: Assert effect-blind audit
+      - name: Audit structural schemas
+        if: steps.discover.outputs.downloadable == 'true'
+        run: |
+          python analysis/audit_jornada_smes_source_v1.py \
+            --directory data/cache/jornada_smes \
+            --output /tmp/jornada_smes_source_schema_audit_v1.json
+
+      - name: Assert effect-blind schema audit
+        if: steps.discover.outputs.downloadable == 'true'
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=json.loads(Path("/tmp/jornada_smes_source_schema_audit_v1.json").read_text())
+          p=json.loads(
+              Path("/tmp/jornada_smes_source_schema_audit_v1.json").read_text()
+          )
           assert p["species_specific_counts_inspected"] is False
           assert p["sex_specific_counts_inspected"] is False
           assert p["movement_distances_computed"] is False
           assert p["packing_effects_computed"] is False
           assert p["ecological_effect_models_fit"] == 0
           print(json.dumps({
-              "source_adequacy_for_estimability_design":p["source_adequacy_for_estimability_design"],
-              "structurally_adequate_capture_tables":p["structurally_adequate_capture_tables"],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
+              "structurally_adequate_capture_tables":
+                  p["structurally_adequate_capture_tables"],
               "files":p["files"],
           },indent=2,sort_keys=True))
           PY
 
       - name: Persist metadata-only access stop
-        if: steps.access.outputs.downloadable != 'true'
+        if: steps.discover.outputs.downloadable != 'true'
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          metadata=json.loads(Path("data/cache/jornada_smes/datagov_metadata.json").read_text())
+          metadata=json.loads(
+              Path("data/cache/jornada_smes/datagov_metadata.json").read_text()
+          )
+          discovery=json.loads(
+              Path("data/cache/jornada_smes/source_discovery.json").read_text()
+          )
           out={
               "schema":"neon.jornada_smes_heteromyid_source.access_stop.v1",
               "date":"2026-09-29",
               "dataset_title":"Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007",
-              "datagov_v4_match_count":len(metadata),
               "downloadable_csv_found":False,
+              "metadata":metadata,
+              "discovery":discovery,
               "effect_status":{
                   "species_specific_counts_inspected":False,
                   "sex_specific_counts_inspected":False,
@@ -207,7 +294,6 @@ jobs:
                   "packing_effects_computed":False,
                   "ecological_effect_models_fit":0,
               },
-              "metadata":metadata,
               "decision":"stop_source_access_no_current_downloadable_csv",
           }
           Path("/tmp/jornada_smes_source_access_stop_v1.json").write_text(
@@ -229,15 +315,17 @@ jobs:
             git push origin HEAD:design/jornada-smes-heteromyid-source-v1
           fi
 
-      - name: Persist source receipt
-        if: steps.access.outputs.downloadable == 'true'
+      - name: Persist source schema receipt
+        if: steps.discover.outputs.downloadable == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin design/jornada-smes-heteromyid-source-v1
           mkdir -p validation/jornada_smes_heteromyid_source_v1
-          cp /tmp/jornada_smes_source_schema_audit_v1.json              validation/jornada_smes_heteromyid_source_v1/source_schema_audit_v1.json
-          cp data/cache/jornada_smes/source_urls.json              validation/jornada_smes_heteromyid_source_v1/source_urls_v1.json
+          cp /tmp/jornada_smes_source_schema_audit_v1.json \
+             validation/jornada_smes_heteromyid_source_v1/source_schema_audit_v1.json
+          cp data/cache/jornada_smes/source_discovery.json \
+             validation/jornada_smes_heteromyid_source_v1/source_discovery_v1.json
           git add validation/jornada_smes_heteromyid_source_v1/
           if git diff --cached --quiet; then
             echo "source receipt unchanged"
