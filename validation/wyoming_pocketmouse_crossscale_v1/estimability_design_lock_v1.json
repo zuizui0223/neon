@@ -37,5 +37,18 @@
     "N>=5 is a high-information inclusion rule, not a biological abundance threshold",
     "N>=3 may be reported only as an estimability diagnostic",
     "No effect direction may be used to change the focal species, sites, threshold, or gate"
-  ]
+  ],
+  "packing_geometry": {
+    "published_grid_points": "4x20",
+    "grid_point_spacing_m": 25,
+    "primary_trap_types": [
+      "Havahart",
+      "Sherman"
+    ],
+    "extra_2016_trap_type": "Longworth on one trap line",
+    "trap_unit_definition": "site x night x grid point x trap type",
+    "colocated_distinct_traps_allowed": true,
+    "coordinate_duplicates_allowed_when_trap_units_distinct": true,
+    "exact_null_support": "active trap units, not unique coordinates"
+  }
 }
