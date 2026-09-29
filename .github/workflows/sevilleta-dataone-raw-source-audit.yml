@@ -1,0 +1,139 @@
+name: sevilleta-dataone-raw-source-audit
+
+on:
+  push:
+    branches:
+      - design/sevilleta-heteromyid-crossscale-v1
+    paths:
+      - validation/sevilleta_heteromyid_crossscale_v1/dataone_access_correction_v1.json
+      - analysis/audit_sevilleta_source_schema_v2.py
+      - tests/test_sevilleta_source_schema_audit_v2.py
+      - .github/workflows/sevilleta-dataone-raw-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  raw-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/sevilleta-heteromyid-crossscale-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify corrected schema classifier
+        run: python -m unittest tests.test_sevilleta_source_schema_audit_v2 -v
+
+      - name: Download frozen raw object through DataONE CN resolver
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          receipt=json.loads(
+              Path("validation/sevilleta_heteromyid_crossscale_v1/dataone_access_correction_v1.json").read_text()
+          )
+          pid=receipt["canonical_pid"]
+          url="https://cn.dataone.org/cn/v2/resolve/"+urllib.parse.quote(pid,safe="")
+          req=urllib.request.Request(
+              url,
+              headers={"User-Agent":"sevilleta-dataone-raw-source-audit/1.0"},
+          )
+          with urllib.request.urlopen(req,timeout=180) as response:
+              raw=response.read()
+              status=int(response.status)
+              ctype=str(response.headers.get("Content-Type",""))
+
+          assert status == 200
+          assert len(raw) == receipt["expected_size_bytes"], (len(raw),receipt["expected_size_bytes"])
+          sha1=hashlib.sha1(raw).hexdigest()
+          assert sha1 == receipt["expected_checksum_sha1"], (sha1,receipt["expected_checksum_sha1"])
+
+          out=Path("data/cache/sevilleta_dataone/sev008_raw_object.txt")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_bytes(raw)
+
+          provenance={
+              "pid":pid,
+              "resolver_url":url,
+              "http_status":status,
+              "content_type":ctype,
+              "size_bytes":len(raw),
+              "sha1":sha1,
+              "sex_specific_effects_inspected":False,
+          }
+          Path("/tmp/sevilleta_dataone_raw_provenance_v1.json").write_text(
+              json.dumps(provenance,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(provenance,indent=2,sort_keys=True))
+          PY
+
+      - name: Audit true raw schema only
+        run: |
+          python analysis/audit_sevilleta_source_schema_v2.py \
+            --input data/cache/sevilleta_dataone/sev008_raw_object.txt \
+            --output /tmp/sevilleta_dataone_raw_schema_audit_v3.json
+
+      - name: Assert effect-blind raw audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/sevilleta_dataone_raw_schema_audit_v3.json").read_text())
+          assert p["sex_specific_effects_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "sha256":p["sha256"],
+              "size_bytes":p["size_bytes"],
+              "data_row_count":p["data_row_count"],
+              "column_count":p["column_count"],
+              "columns":p["columns"],
+              "structural_columns":p["structural_columns"],
+              "missing_required_structural_fields":p["missing_required_structural_fields"],
+              "source_adequacy_for_next_estimability_design":
+                  p["source_adequacy_for_next_estimability_design"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist raw source receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/sevilleta-heteromyid-crossscale-v1
+
+          mkdir -p validation/sevilleta_heteromyid_crossscale_v1
+          cp /tmp/sevilleta_dataone_raw_provenance_v1.json \
+             validation/sevilleta_heteromyid_crossscale_v1/dataone_raw_provenance_v1.json
+          cp /tmp/sevilleta_dataone_raw_schema_audit_v3.json \
+             validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_raw_v3.json
+
+          git add validation/sevilleta_heteromyid_crossscale_v1/dataone_raw_provenance_v1.json
+          git add validation/sevilleta_heteromyid_crossscale_v1/source_schema_audit_raw_v3.json
+          if git diff --cached --quiet; then
+            echo "raw source receipts unchanged"
+          else
+            git commit -m "Freeze Sevilleta DataONE raw source audit"
+            git push origin HEAD:design/sevilleta-heteromyid-crossscale-v1
+          fi
+
+      - name: Upload raw source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: sevilleta-dataone-raw-source-audit-v3
+          path: |
+            /tmp/sevilleta_dataone_raw_provenance_v1.json
+            /tmp/sevilleta_dataone_raw_schema_audit_v3.json
+          if-no-files-found: error
+          retention-days: 30
