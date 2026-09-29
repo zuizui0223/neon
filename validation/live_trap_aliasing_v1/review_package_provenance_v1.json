@@ -1,17 +1,27 @@
 {
-  "schema": "neon.live_trap_aliasing.review_package_provenance.v1",
+  "schema": "neon.live_trap_aliasing.review_package_provenance.v2",
   "frozen_date": "2026-09-30",
   "workflow": {
-    "run_id": 36624255885,
+    "run_id": 36625045142,
+    "run_number": 7,
     "workflow_name": "build-live-trap-aliasing-review-package",
+    "workflow_head_sha": "acd880ba82c4e17cbdc300f7db562f9b903a15a8",
     "conclusion": "success"
   },
   "artifact": {
-    "artifact_id": 11059783225,
+    "artifact_id": 11059519295,
     "name": "live-trap-aliasing-review-package-v1",
-    "size_in_bytes": 504731,
-    "digest": "sha256:6b1eb81aafd64dda946c5d12507f948e2450679c76eb436c0e9f4663260ff95e"
+    "size_in_bytes": 528785,
+    "digest": "sha256:eee71eaf2b6e66c1350661b21ae8c1f5dafc50a82ff0ab61944edacecd9c9bb0"
   },
   "package_tests_passed": true,
-  "note": "This artifact predates later editorial-only manuscript/readme updates; rebuild before external submission."
+  "included_self_checks": [
+    "generic diagnostic tests",
+    "simulation tests",
+    "deterministic-bound tests",
+    "prospective positional-aliasing validation tests",
+    "denominator-audit tests",
+    "manuscript v0.2 frozen-claim invariant tests"
+  ],
+  "note": "This review package was rebuilt after adding denominator-generation code and manuscript claim-invariant tests to the package itself."
 }
