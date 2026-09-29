@@ -79,11 +79,17 @@ def _string_values(value: Any) -> list[str]:
     return []
 
 
-def discovery_docs() -> tuple[int,list[dict],list[dict]]:
+def _metadata_sort_key(doc: dict) -> tuple[str,str]:
+    return (
+        str(doc.get("dateModified","")),
+        str(doc.get("dateUploaded","")),
+    )
+
+
+def discovery_docs() -> tuple[int | None,list[dict],list[dict],dict]:
     seed_queries=[
         'title:"Long Term Mammal Data from Powdermill Biological Station 1979-1999"',
         'title:Powdermill',
-        f'seriesId:"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}"',
         f'identifier:"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}"',
     ]
     seeds={}
@@ -93,97 +99,65 @@ def discovery_docs() -> tuple[int,list[dict],list[dict]]:
         query_receipts.append({
             "query":query,
             "result_count":len(docs),
-            "identifiers":[str(doc.get("identifier","")) for doc in docs[:30]],
+            "identifiers":[str(doc.get("identifier","")) for doc in docs[:40]],
         })
         for doc in docs:
             identifier=str(doc.get("identifier","")).strip()
             if identifier:
                 seeds[identifier]=doc
 
-    if not seeds:
-        raise RuntimeError("DataONE title/series discovery returned no Powdermill documents")
-
-    versions=[
-        package_version(identifier)
-        for identifier in seeds
-        if package_version(identifier) is not None
+    metadata_candidates=[
+        doc for doc in seeds.values()
+        if "/package/metadata/" in str(doc.get("identifier",""))
+        and "powdermill biological station" in str(doc.get("title","")).lower()
     ]
-    if not versions:
-        # Follow relations once: title docs can expose the data/metadata PIDs
-        # even when the visible identifier itself is a series identifier.
-        related=set()
-        for doc in seeds.values():
-            for key in ("documents","isDocumentedBy","resourceMap","memberNode"):
-                related.update(_string_values(doc.get(key)))
-        for pid in sorted(related):
-            docs=solr_query(f'identifier:"{pid}"',rows=20)
-            for doc in docs:
-                identifier=str(doc.get("identifier","")).strip()
-                if identifier:
-                    seeds[identifier]=doc
-        versions=[
-            package_version(identifier)
-            for identifier in seeds
-            if package_version(identifier) is not None
-        ]
-
-    if not versions:
+    if not metadata_candidates:
         raise RuntimeError(
-            "Powdermill title resolved in DataONE but package version could not be inferred; "
+            "DataONE title discovery returned no Powdermill metadata package; "
             + json.dumps(query_receipts,sort_keys=True)[:4000]
         )
 
-    latest=max(versions)
-    latest_docs={
-        identifier:doc
-        for identifier,doc in seeds.items()
-        if package_version(identifier)==latest
-    }
+    # Package migration is allowed: select the newest metadata record by
+    # DataONE modification/upload timestamp before reading any biological
+    # object. This handles legacy knb-lter-vcr -> edi package migration.
+    metadata_candidates.sort(key=_metadata_sort_key,reverse=True)
+    selected_metadata=metadata_candidates[0]
+    metadata_pid=str(selected_metadata["identifier"])
+    selected={metadata_pid:selected_metadata}
 
-    metadata_pids=[
-        identifier for identifier in latest_docs
-        if "/package/metadata/" in identifier
-        or str(latest_docs[identifier].get("formatId","")).lower() in {
-            "eml://ecoinformatics.org/eml-2.1.1",
-            "eml://ecoinformatics.org/eml-2.2.0",
-        }
-    ]
+    related_pids=set(_string_values(selected_metadata.get("documents")))
+    child_docs=solr_query(f'isDocumentedBy:"{metadata_pid}"',rows=300)
+    for doc in child_docs:
+        pid=str(doc.get("identifier","")).strip()
+        if pid:
+            selected[pid]=doc
+            related_pids.add(pid)
 
-    # Pull data objects documented by the latest metadata and any explicit
-    # document-member PIDs exposed by the metadata index record.
-    candidate_pids=set(latest_docs)
-    for metadata_pid in metadata_pids:
-        meta=latest_docs[metadata_pid]
-        candidate_pids.update(_string_values(meta.get("documents")))
-        try:
-            child_docs=solr_query(f'isDocumentedBy:"{metadata_pid}"',rows=300)
-        except RuntimeError:
-            child_docs=[]
-        for doc in child_docs:
-            pid=str(doc.get("identifier","")).strip()
-            if pid:
-                latest_docs[pid]=doc
-                candidate_pids.add(pid)
-
-    # Resolve exact records for relation-only PIDs.
-    for pid in sorted(candidate_pids):
-        if pid in latest_docs:
+    for pid in sorted(related_pids):
+        if pid in selected:
             continue
         docs=solr_query(f'identifier:"{pid}"',rows=20)
         for doc in docs:
             identifier=str(doc.get("identifier","")).strip()
             if identifier:
-                latest_docs[identifier]=doc
+                selected[identifier]=doc
 
-    selected=[
-        doc for identifier,doc in latest_docs.items()
-        if (
-            package_version(identifier)==latest
-            or str(doc.get("isDocumentedBy","")) in metadata_pids
-            or any(x in metadata_pids for x in _string_values(doc.get("isDocumentedBy")))
-        )
-    ]
-    return latest,selected,query_receipts
+    selected_version=package_version(metadata_pid)
+    selection_receipt={
+        "selected_metadata_identifier":metadata_pid,
+        "selected_metadata_dateModified":selected_metadata.get("dateModified"),
+        "selected_metadata_dateUploaded":selected_metadata.get("dateUploaded"),
+        "selected_metadata_title":selected_metadata.get("title"),
+        "selected_legacy_package_version":selected_version,
+        "metadata_candidates":[{
+            "identifier":doc.get("identifier"),
+            "dateModified":doc.get("dateModified"),
+            "dateUploaded":doc.get("dateUploaded"),
+            "title":doc.get("title"),
+        } for doc in metadata_candidates],
+        "selection_rule":"newest exact-title DataONE metadata by dateModified then dateUploaded",
+    }
+    return selected_version,list(selected.values()),query_receipts,selection_receipt
 
 
 def resolver_url(pid: str) -> str:
@@ -273,7 +247,7 @@ def summarize_doc(doc: dict) -> dict:
 
 
 def audit(output_dir: Path) -> dict:
-    latest_version,latest_docs,discovery_receipts=discovery_docs()
+    latest_version,latest_docs,discovery_receipts,selection_receipt=discovery_docs()
 
     candidate_docs=[
         doc for doc in latest_docs
@@ -316,6 +290,7 @@ def audit(output_dir: Path) -> dict:
         "schema":"neon.powdermill_crossscale.source_audit.v1",
         "package_series":f"{PACKAGE_TOKEN}.{PACKAGE_NUMBER}",
         "latest_dataone_package_version":latest_version,
+        "selected_metadata":selection_receipt,
         "dataone_discovery_queries":discovery_receipts,
         "dataone_documents_at_latest_version":[
             summarize_doc(doc) for doc in latest_docs
