@@ -53,7 +53,7 @@ jobs:
           query=urllib.parse.urlencode({
               "q":'"Rodent data from trapping webs in the long-term Small Mammal Exclusion Study (SMES) at Jornada Basin LTER, 1995-2007"'
           })
-          api="https://catalog.data.gov/api/3/action/package_search?"+query
+          api="https://catalog-old.data.gov/api/3/action/package_search?"+query
           try:
               req=urllib.request.Request(api,headers=headers)
               with urllib.request.urlopen(req,timeout=90) as response:
