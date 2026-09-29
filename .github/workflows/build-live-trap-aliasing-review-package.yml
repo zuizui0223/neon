@@ -12,8 +12,11 @@ on:
       - docs/SUBMISSION_STATEMENTS_V1.md
       - figures/**
       - analysis/temporal_aliasing_*.py
+      - analysis/live_trap_aliasing_denominator_audit_v1.py
       - analysis/san_jacinto_positional_aliasing_v1.py
       - tests/test_temporal_aliasing_*.py
+      - tests/test_live_trap_aliasing_denominator_audit.py
+      - tests/test_live_trap_aliasing_manuscript_v0_2.py
       - tests/test_san_jacinto_positional_aliasing.py
       - results/san_jacinto_positional_aliasing_result_v1.json
       - results/temporal_aliasing_simulation_benchmark_v1.json
@@ -58,6 +61,7 @@ jobs:
           cp analysis/temporal_aliasing_bounds_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/simulate_temporal_aliasing_diagnostic_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/san_jacinto_positional_aliasing_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/live_trap_aliasing_denominator_audit_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/plot_live_trap_aliasing_figures_v1.py /tmp/live-trap-aliasing-review/analysis/
 
           cp tests/test_temporal_aliasing_diagnostic.py /tmp/live-trap-aliasing-review/tests/
@@ -65,6 +69,8 @@ jobs:
           cp tests/test_temporal_aliasing_bounds.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_temporal_aliasing_simulation.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_san_jacinto_positional_aliasing.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_denominator_audit.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_manuscript_v0_2.py /tmp/live-trap-aliasing-review/tests/
 
           cp examples/repeated_locations_example.csv examples/repeated_locations_example_expected.json /tmp/live-trap-aliasing-review/examples/
           cp results/san_jacinto_positional_aliasing_result_v1.json results/temporal_aliasing_simulation_benchmark_v1.json /tmp/live-trap-aliasing-review/results/
@@ -86,7 +92,14 @@ jobs:
       - name: Verify generic tests inside review package
         run: |
           cd /tmp/live-trap-aliasing-review
-          python -m unittest             tests.test_temporal_aliasing_diagnostic             tests.test_temporal_aliasing_example             tests.test_temporal_aliasing_bounds             tests.test_temporal_aliasing_simulation             tests.test_san_jacinto_positional_aliasing -v
+          python -m unittest \
+            tests.test_temporal_aliasing_diagnostic \
+            tests.test_temporal_aliasing_example \
+            tests.test_temporal_aliasing_bounds \
+            tests.test_temporal_aliasing_simulation \
+            tests.test_san_jacinto_positional_aliasing \
+            tests.test_live_trap_aliasing_denominator_audit \
+            tests.test_live_trap_aliasing_manuscript_v0_2 -v
 
       - uses: actions/upload-artifact@v4
         with:
