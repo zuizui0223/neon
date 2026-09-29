@@ -1,0 +1,43 @@
+{
+  "anonymous_public_replica_available": false,
+  "documents": [
+    {
+      "authoritativeMN": "urn:node:LTER",
+      "checksum": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461",
+      "datasource": "urn:node:LTER",
+      "dateModified": "2016-08-26T22:00:38.19Z",
+      "dateUploaded": "2016-08-26T22:00:37.162Z",
+      "formatId": "text/csv",
+      "identifier": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+      "replicaMN": [
+        "urn:node:LTER"
+      ],
+      "size": 1306268
+    }
+  ],
+  "ecological_effect_models_fit": 0,
+  "node_probes": [
+    {
+      "anonymous_success": false,
+      "attempted": true,
+      "base_url": "https://gmn.lternet.edu/mn",
+      "bytes_received": 6690,
+      "content_length_header": null,
+      "content_type": "text/html; charset=utf-8",
+      "http_status": 404,
+      "node_id": "urn:node:LTER",
+      "object_url": "https://gmn.lternet.edu/mn/mn/v2/object/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-sev%2F8%2F297976%2Fd70c7027949ca1d8ae053eb10300dc0e"
+    }
+  ],
+  "pid": "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/8/297976/d70c7027949ca1d8ae053eb10300dc0e",
+  "resolver": {
+    "bytes_received": 1306268,
+    "content_type": "application/octet-stream",
+    "http_status": 200,
+    "location": null,
+    "url": "https://cn.dataone.org/cn/v2/resolve/https%3A%2F%2Fpasta.lternet.edu%2Fpackage%2Fdata%2Feml%2Fknb-lter-sev%2F8%2F297976%2Fd70c7027949ca1d8ae053eb10300dc0e"
+  },
+  "schema": "neon.sevilleta_dataone_replica_probe.v1",
+  "sex_specific_effects_inspected": false,
+  "solr_num_found": 1
+}
