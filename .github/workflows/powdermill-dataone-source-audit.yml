@@ -1,0 +1,81 @@
+name: powdermill-dataone-source-audit
+
+on:
+  push:
+    branches:
+      - design/powdermill-crossscale-source-v1
+    paths:
+      - docs/POWDERMILL_CROSSSCALE_SOURCE_AUDIT_V1.md
+      - analysis/audit_powdermill_dataone_source_v1.py
+      - tests/test_powdermill_dataone_source_audit.py
+      - .github/workflows/powdermill-dataone-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/powdermill-crossscale-source-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify source-audit tests
+        run: python -m unittest tests.test_powdermill_dataone_source_audit -v
+
+      - name: Discover and audit latest DataONE raw object
+        run: |
+          python analysis/audit_powdermill_dataone_source_v1.py \
+            --cache-dir data/cache/powdermill \
+            --output /tmp/powdermill_source_audit_v1.json
+
+      - name: Assert source audit remains effect-blind
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/powdermill_source_audit_v1.json").read_text())
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "latest_dataone_package_version":p["latest_dataone_package_version"],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
+              "adequate_object_identifiers":p["adequate_object_identifiers"],
+              "resolved_candidate_objects":p["resolved_candidate_objects"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist source audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/powdermill-crossscale-source-v1
+          mkdir -p validation/powdermill_crossscale_v1
+          cp /tmp/powdermill_source_audit_v1.json \
+             validation/powdermill_crossscale_v1/source_audit_v1.json
+          git add validation/powdermill_crossscale_v1/source_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "source audit unchanged"
+          else
+            git commit -m "Freeze Powdermill DataONE source audit"
+            git push origin HEAD:design/powdermill-crossscale-source-v1
+          fi
+
+      - name: Upload source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: powdermill-dataone-source-audit-v1
+          path: /tmp/powdermill_source_audit_v1.json
+          if-no-files-found: error
+          retention-days: 30
