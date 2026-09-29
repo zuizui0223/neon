@@ -17,7 +17,7 @@ class SanJacintoSourceAuditTests(unittest.TestCase):
         self.assertFalse(m.adequate(s))
 
     def test_trap_location_classifies_as_trap(self):
-        self.assertIn("trap",m.classify(["Trap Location"])["trap"])
+        self.assertIn("Trap Location",m.classify(["Trap Location"])["trap"])
 
 
 if __name__=="__main__":
