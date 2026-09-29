@@ -1,5 +1,4 @@
 {
-  "audit_revision": "correct exact-token column classification; valid_name is species, not identity",
   "column_count": 12,
   "columns": [
     "year",
@@ -16,57 +15,11 @@
     "mass"
   ],
   "data_row_count": 32066,
-  "detected_delimiter": "','",
+  "delimiter": "','",
   "ecological_effect_models_fit": 0,
-  "identity_column_present": false,
   "malformed_row_count": 0,
-  "missing_required_structural_fields": [
-    "identity"
-  ],
   "movement_distances_computed": false,
-  "packing_effects_computed": false,
-  "required_presence": {
-    "date": true,
-    "identity": false,
-    "night": true,
-    "sex": true,
-    "site": true,
-    "species": true,
-    "trap": true,
-    "web": true
-  },
-  "schema": "neon.sevilleta_heteromyid_crossscale.source_schema_audit.v2",
-  "sex_specific_effects_inspected": false,
-  "sha256": "4a0e0c387364ffbe7153c18189f7d2f0f245a774e21ef2049205e9bbfd47eced",
-  "size_bytes": 1306268,
-  "source_adequacy_for_next_estimability_design": false,
-  "source_file": "sev008_raw_object.txt",
-  "structural_columns": {
-    "date": [
-      "year",
-      "season"
-    ],
-    "identity": [],
-    "night": [
-      "night"
-    ],
-    "sex": [
-      "sex"
-    ],
-    "site": [
-      "location"
-    ],
-    "species": [
-      "species"
-    ],
-    "trap": [
-      "trap"
-    ],
-    "web": [
-      "web"
-    ]
-  },
-  "structural_examples": {
+  "non_biological_structural_examples": {
     "location": [
       "5pgrass",
       "5plarrea",
@@ -82,6 +35,11 @@
       "2",
       "3",
       "4"
+    ],
+    "recap": [
+      "n",
+      "y",
+      "na"
     ],
     "season": [
       "1",
@@ -100,7 +58,10 @@
       "105",
       "106",
       "107",
-      "138"
+      "138",
+      "140",
+      "5",
+      "6"
     ],
     "web": [
       "2",
@@ -121,7 +82,57 @@
       "1997",
       "1998",
       "1999",
-      "2000"
+      "2000",
+      "2001",
+      "2002",
+      "2003"
+    ]
+  },
+  "packing_effects_computed": false,
+  "required_presence": {
+    "date_context": true,
+    "identity": false,
+    "night_or_recapture_structure": true,
+    "sex": true,
+    "site": true,
+    "species": true,
+    "trap": true,
+    "web": true
+  },
+  "schema": "neon.sevilleta_heteromyid_crossscale.raw_source_schema_audit.v3",
+  "sex_specific_counts_inspected": false,
+  "sha1": "9dfa50528d16ef9fbe4df7ef82189e1ad9bb8461",
+  "sha256": "4a0e0c387364ffbe7153c18189f7d2f0f245a774e21ef2049205e9bbfd47eced",
+  "size_bytes": 1306268,
+  "source_adequacy_for_estimability_design": false,
+  "source_file": "sev008_raw_object.txt",
+  "species_specific_counts_inspected": false,
+  "structural_columns": {
+    "date": [
+      "year",
+      "season"
+    ],
+    "identity": [],
+    "night": [
+      "night"
+    ],
+    "recap": [
+      "recap"
+    ],
+    "sex": [
+      "sex"
+    ],
+    "site": [
+      "location"
+    ],
+    "species": [
+      "species"
+    ],
+    "trap": [
+      "trap"
+    ],
+    "web": [
+      "web"
     ]
   }
 }
