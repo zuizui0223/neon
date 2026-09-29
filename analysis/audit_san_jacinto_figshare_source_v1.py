@@ -9,7 +9,6 @@ import re
 import urllib.request
 from pathlib import Path
 
-import openpyxl
 
 API_URL="https://api.figshare.com/v2/articles/18295520"
 USER_AGENT="san-jacinto-crossscale-source-audit/1.0"
@@ -92,6 +91,7 @@ def audit_csv(path: Path) -> list[dict]:
 
 
 def audit_xlsx(path: Path) -> list[dict]:
+    import openpyxl
     wb=openpyxl.load_workbook(path,read_only=True,data_only=True)
     out=[]
     for ws in wb.worksheets:
