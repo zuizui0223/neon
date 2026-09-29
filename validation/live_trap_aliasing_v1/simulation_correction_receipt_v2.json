@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-30",
+  "denominator_audit_changed": false,
+  "empirical_heldout_result_changed": false,
+  "geometry_bounds_changed": false,
+  "schema": "neon.live_trap_aliasing.simulation_correction_receipt.v2",
+  "summary": {
+    "mcar_max_wilson_coverage_latent_probability": 0.995,
+    "mcar_mean_abs_bias_vs_latent_probability": 0.0017558694757951665,
+    "mcar_mean_wilson_coverage_latent_probability": 0.9520833333333334,
+    "mcar_min_wilson_coverage_latent_probability": 0.86,
+    "span_depleted_mean_bias_vs_latent_probability": -0.07987799079896353,
+    "span_enriched_mean_bias_vs_latent_probability": 0.05074588087920361,
+    "total_lower_bound_realized_violations": 0
+  },
+  "target_definition": {
+    "bias_target": "analytic generating probability P(span>=material_scale)",
+    "lower_bound_target": "finite realized all-occasion material-shift fraction",
+    "wilson_coverage_target": "analytic generating probability P(span>=material_scale)"
+  },
+  "v1_status": "superseded_for_simulation_performance_claims",
+  "v2_schema": "temporal_aliasing_diagnostic.simulation_benchmark.v2"
+}
