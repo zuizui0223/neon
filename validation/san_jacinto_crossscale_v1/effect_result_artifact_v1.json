@@ -1,0 +1,19 @@
+{
+  "schema": "neon.san_jacinto_crossscale.effect_result_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36539068794,
+    "run_number": 3,
+    "workflow_name": "san-jacinto-crossscale-effects",
+    "workflow_head_sha": "b8b328f16c86c6f0298b343e3eb20259584958e6",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11019612750,
+    "name": "san-jacinto-crossscale-effects-v1",
+    "digest": "sha256:3db80d4a89ed141d53c425cadf5867f267af09ffae8db4b27e3d0f64ba2dbe38",
+    "size_in_bytes": 29118
+  },
+  "result_commit": "ef701d8428cf1296d7c4cf812c3229671aaadffe",
+  "final_decision": "stop_no_confirmatory_crossscale_result"
+}
