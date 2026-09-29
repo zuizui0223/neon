@@ -81,7 +81,7 @@ Date: 2026-09-30
 - [ ] Author-contribution statement.
 - [ ] Funding statement.
 - [ ] Conflict-of-interest statement.
-- [ ] Final AI-tool disclosure if required by current journal policy.
+- [x] AI-tool disclosure prepared in Methods and review-package documentation.
 
 ## Figures
 
@@ -123,3 +123,12 @@ Date: 2026-09-30
 **Do not add more post-hoc biological effect analyses.**
 
 The remaining work is packaging, author metadata, editorial polishing, and editor feedback—not searching for a larger biological effect.
+
+## Current MEE author-guideline check — 2026-09-30
+
+- [x] Pre-submission enquiries are currently encouraged by MEE.
+- [x] Research Article remains the intended article type; Workflows are aimed primarily at broadly useful assemblages of existing tools/pipelines rather than this new diagnostic method.
+- [x] Manuscript includes Data/Code for peer review statement under the Abstract.
+- [x] Double-anonymous review requirement acknowledged; reviewer code package is anonymized separately from the title page.
+- [x] AI-assisted development is disclosed in Methods with application/model/version and code annotation.
+- [x] Code-review package is self-contained and testable.
