@@ -7,8 +7,27 @@ import math
 import statistics
 from pathlib import Path
 
-from scipy.stats import spearmanr
-from scipy.stats import t as student_t
+T_CRITICAL={
+    0.95:{
+        1:6.313751514800932,
+        2:2.9199855803537256,
+        3:2.3533634348018264,
+    },
+    0.975:{
+        1:12.706204736432095,
+        2:4.302652729696142,
+        3:3.182446305284263,
+    },
+}
+
+
+def t_critical(*, df: int, quantile: float) -> float:
+    try:
+        return T_CRITICAL[float(quantile)][int(df)]
+    except KeyError as exc:
+        raise ValueError(
+            f"unsupported frozen Student-t critical: quantile={quantile}, df={df}"
+        ) from exc
 
 
 def truthy(value: object) -> bool:
@@ -79,8 +98,8 @@ def family_summary(species_rows: list[dict]) -> dict:
     mean=float(statistics.mean(effects))
     df=s-1
 
-    t95=float(student_t.ppf(0.975,df))
-    t90=float(student_t.ppf(0.95,df))
+    t95=t_critical(df=df,quantile=0.975)
+    t90=t_critical(df=df,quantile=0.95)
     return {
         "species_count":s,
         "effect":mean,
@@ -184,6 +203,7 @@ def leave_one_grid_out(species_rows: list[dict]) -> dict[str,list[dict]]:
 
 
 def matched_grid_spearman(packing: dict, movement: dict) -> dict:
+    from scipy.stats import spearmanr
     p={
         (row["species"],grid):value
         for row in packing["species"]
