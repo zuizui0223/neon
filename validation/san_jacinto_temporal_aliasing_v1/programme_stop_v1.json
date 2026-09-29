@@ -1,0 +1,42 @@
+{
+  "schema": "neon.san_jacinto_temporal_aliasing_holdout.programme_stop.v1",
+  "frozen_date": "2026-09-29",
+  "programme_gate": {
+    "decision": "stop_temporal_aliasing_holdout_not_estimable",
+    "qualifying_species": [
+      "PEMA"
+    ],
+    "qualifying_species_count": 1,
+    "required_species_count": 2
+  },
+  "structural_support": {
+    "PEMA": {
+      "repeat_capture_individual_nights": 485,
+      "repeat_capture_grids": 8,
+      "repeat_capture_bouts": 12,
+      "movement_support_events": 8,
+      "movement_support_grids": 5
+    },
+    "PEER": {
+      "repeat_capture_individual_nights": 107,
+      "repeat_capture_grids": 3,
+      "repeat_capture_bouts": 10,
+      "movement_support_events": 0,
+      "movement_support_grids": 0
+    },
+    "REME": {
+      "repeat_capture_individual_nights": 0,
+      "repeat_capture_grids": 0,
+      "repeat_capture_bouts": 0,
+      "movement_support_events": 0,
+      "movement_support_grids": 0
+    }
+  },
+  "first_last_distance_values_inspected": false,
+  "first_last_change_outcomes_inspected": false,
+  "first_last_movement_sensitivity_inspected": false,
+  "packing_stability_inspected": false,
+  "ecological_model_fits": 0,
+  "effect_analysis_authorized": false,
+  "ruling": "The pre-specified multi-species movement-plus-aliasing programme stops. Only PEMA passes the full support gate. No held-out first-vs-last outcome is opened."
+}
