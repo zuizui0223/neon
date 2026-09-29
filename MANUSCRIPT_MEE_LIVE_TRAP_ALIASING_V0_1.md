@@ -32,7 +32,7 @@ We call this **temporal positional aliasing**: unresolved within-occasion variat
 
 The problem is distinct from location measurement error. The alternative positions are each observed detector locations. It is also distinct from estimating an unrestricted movement path: repeated trap detections reveal only a sparse subset of the animal's trajectory. The methodological question is narrower—whether assigning a single spatial state to an occasion discards positional variation that is material at the scale of the ecological statistic being analysed.
 
-Existing capture–recapture and live-trapping methods already recognize that detector process, trapping occasions, trap availability, capture timing and recapture structure matter [CITE]. In standard multi-catch SCR/SECR formulations, detained animals generally contribute at most one detector location per occasion, whereas repeated-check protocols may expose multiple within-occasion locations if traps are reset [CITE]. Yet there is no routine diagnostic for asking whether collapsing those locations to one state is spatially consequential.
+Existing capture–recapture and live-trapping methods already recognize that detector process, trapping occasions, trap availability, capture timing and recapture structure matter (Efford et al. 2009; Efford 2013; Drickamer & Springer 1998). In standard multi-catch SCR/SECR formulations, detained animals generally contribute at most one detector location per occasion, whereas proximity-type observation processes may retain multiple detector locations within an occasion (Efford et al. 2009; Efford & Boulanger 2019). Repeated-check live trapping can therefore create an intermediate data problem when animals are released and recaptured at another trap before the ecological occasion ends. Yet there is no routine diagnostic for asking whether collapsing those locations to one state is spatially consequential.
 
 Here we contribute three linked components.
 
@@ -136,7 +136,7 @@ The final metric must have zero violations by construction and provides a robust
 
 ### 2.4.1 Dataset and sampling design
 
-Use the public San Jacinto repeated-check small-mammal live-trapping dataset [CITE DATA/PAPER].
+Use the public San Jacinto repeated-check small-mammal live-trapping dataset deposited by Chock, Shier & Grether (2022; Figshare DOI 10.6084/m9.figshare.18295520.v1).
 
 The source contains repeated nightly trap checks on fixed 7 x 7 trapping grids with 6.25 m spacing. Individual identity, species, trap flag and capture time are retained.
 
@@ -144,7 +144,7 @@ The empirical outcome was locked before inspection for:
 - *Peromyscus maniculatus* (PEMA);
 - *Peromyscus eremicus* (PEER).
 
-These species were selected from an effect-blind support scan. Their first-to-last positional outcomes had not been inspected when the confirmatory lock was frozen.
+These species were selected from an effect-blind support scan. Their first-to-last positional outcomes had not been inspected when the confirmatory lock was frozen. This study is a secondary analysis of public data and involved no new animal handling. The original field study reported compliance with applicable institutional animal-care guidelines (Chock et al. 2022).
 
 ### 2.4.2 Frozen primary endpoint
 
@@ -304,3 +304,16 @@ Recommended reporting items:
 - Denominator audit.
 - Failed downstream MCP estimability receipt.
 - Generic CLI example.
+
+
+# References
+
+Chock RY, Shier DM, Grether GF. 2022. Niche partitioning in an assemblage of granivorous rodents, and the challenge of community-level conservation. *Oecologia* 198:553–565. https://doi.org/10.1007/s00442-021-05104-5.
+
+Drickamer LC, Springer LM. 1998. Methodological aspects of the interval trapping method with comments on nocturnal activity patterns in house mice living in outdoor enclosures. *Behavioural Processes* 43:171–181. https://doi.org/10.1016/S0376-6357(98)00012-6.
+
+Efford MG. 2013. Varying effort in capture–recapture studies. *Methods in Ecology and Evolution*. https://doi.org/10.1111/2041-210X.12049.
+
+Efford MG, Boulanger J. 2019. Fast evaluation of study designs for spatially explicit capture–recapture. *Methods in Ecology and Evolution* 10:1529–1535. https://doi.org/10.1111/2041-210X.13239.
+
+Efford MG, Dawson DK, Borchers DL. 2009. Population density estimated from locations of individuals on a passive detector array. *Ecology* 90:2676–2682. https://doi.org/10.1890/08-1735.1.
