@@ -18,6 +18,10 @@ CKAN_ROOT="https://catalog.data.gov/api/3/action/package_search"
 SCIENCEBASE_ITEM_RE=re.compile(
     r"https?://(?:www\.)?sciencebase\.gov/catalog/item/([0-9a-fA-F]{24})"
 )
+FIGSHARE_ARTICLE_RE=re.compile(
+    r"(?:m9\.figshare\.|figshare\.com/(?:articles/[^/]+/)?)" r"(\d{6,})",
+    re.I,
+)
 URL_RE=re.compile(r"https?://[^\s<>\"']+")
 
 
@@ -119,6 +123,57 @@ def sciencebase_items(item_ids: list[str]) -> list[dict]:
     return out
 
 
+def figshare_articles(resources: list[dict], xml: list[dict]) -> list[dict]:
+    candidate_urls=[]
+    for row in resources:
+        for key in ("url","access_url","download_url"):
+            value=row.get(key)
+            if isinstance(value,str) and value:
+                candidate_urls.append(value)
+    for row in xml:
+        candidate_urls.extend(row.get("urls") or [])
+
+    article_ids=set()
+    for url in candidate_urls:
+        for match in FIGSHARE_ARTICLE_RE.finditer(str(url)):
+            article_ids.add(match.group(1))
+
+    out=[]
+    for article_id in sorted(article_ids):
+        api_url=f"https://api.figshare.com/v2/articles/{article_id}"
+        payload,status=fetch_json(api_url)
+        if status!=200 or payload is None:
+            out.append({
+                "article_id":article_id,
+                "api_status":status,
+                "api_url":api_url,
+                "files":[],
+            })
+            continue
+        files=[]
+        for row in payload.get("files",[]) or []:
+            if not isinstance(row,dict):
+                continue
+            files.append({
+                "id":row.get("id"),
+                "name":row.get("name"),
+                "size":row.get("size"),
+                "download_url":row.get("download_url"),
+                "supplied_md5":row.get("supplied_md5"),
+                "computed_md5":row.get("computed_md5"),
+                "is_link_only":row.get("is_link_only"),
+            })
+        out.append({
+            "article_id":article_id,
+            "api_status":status,
+            "api_url":api_url,
+            "title":payload.get("title"),
+            "doi":payload.get("doi"),
+            "files":files,
+        })
+    return out
+
+
 def _candidate_download_url(row: dict) -> str | None:
     for key in ("downloadUri","url"):
         value=row.get(key)
@@ -215,32 +270,63 @@ def audit(identifier: str, title_hint: str, output_dir: Path) -> dict:
         for item_id in row["sciencebase_item_ids"]
     })
     items=sciencebase_items(item_ids)
+    figshare=figshare_articles(resources,xml)
 
     output_dir.mkdir(parents=True,exist_ok=True)
     audited_files=[]
+    download_candidates=[]
+
     for item in items:
         for row in item["files"]:
             name=str(row.get("name") or "").strip()
             url=_candidate_download_url(row)
-            if not name or not url:
-                continue
-            lower=name.lower()
-            if not lower.endswith((".csv",".txt",".tsv")):
-                continue
-            raw,status,ctype=fetch_bytes(url)
-            if status!=200:
-                audited_files.append({
+            if name and url:
+                download_candidates.append({
+                    "provider":"ScienceBase",
                     "name":name,
-                    "download_status":status,
-                    "download_url":url,
+                    "url":url,
                 })
-                continue
-            path=output_dir/name.replace("/","_")
-            path.write_bytes(raw)
-            record=audit_text_file(name,raw,ctype)
-            record["download_status"]=status
-            record["download_url"]=url
-            audited_files.append(record)
+
+    for article in figshare:
+        for row in article["files"]:
+            name=str(row.get("name") or "").strip()
+            url=str(row.get("download_url") or "").strip()
+            if name and url:
+                download_candidates.append({
+                    "provider":"Figshare",
+                    "article_id":article["article_id"],
+                    "name":name,
+                    "url":url,
+                    "declared_size":row.get("size"),
+                    "declared_md5":row.get("computed_md5") or row.get("supplied_md5"),
+                })
+
+    seen=set()
+    for candidate in download_candidates:
+        name=candidate["name"]
+        url=candidate["url"]
+        key=(candidate["provider"],name,url)
+        if key in seen:
+            continue
+        seen.add(key)
+        lower=name.lower()
+        if not lower.endswith((".csv",".txt",".tsv")):
+            continue
+        raw,status,ctype=fetch_bytes(url)
+        if status!=200:
+            audited_files.append({
+                **candidate,
+                "download_status":status,
+                "download_url":url,
+            })
+            continue
+        out_path=output_dir/name.replace("/","_")
+        out_path.write_bytes(raw)
+        record=audit_text_file(name,raw,ctype)
+        record.update(candidate)
+        record["download_status"]=status
+        record["download_url"]=url
+        audited_files.append(record)
 
     adequate_files=[
         row["name"] for row in audited_files
@@ -259,6 +345,7 @@ def audit(identifier: str, title_hint: str, output_dir: Path) -> dict:
         } for r in resources],
         "xml_metadata":xml,
         "sciencebase_items":items,
+        "figshare_articles":figshare,
         "audited_text_files":audited_files,
         "structurally_adequate_files":adequate_files,
         "source_adequacy_for_estimability_design":bool(adequate_files),
