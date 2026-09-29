@@ -1,0 +1,123 @@
+name: usgs-hispidus-raw-zip-audit
+
+on:
+  push:
+    branches:
+      - design/usgs-hispidus-source-v1
+    paths:
+      - analysis/audit_usgs_hispidus_raw_zip_v2.py
+      - tests/test_usgs_hispidus_raw_zip_audit_v2.py
+      - validation/usgs_hispidus_source_v1/source_audit_v1.json
+      - .github/workflows/usgs-hispidus-raw-zip-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  raw-zip-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/usgs-hispidus-source-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify raw ZIP audit tests
+        run: python -m unittest tests.test_usgs_hispidus_raw_zip_audit_v2 -v
+
+      - name: Verify frozen Figshare source receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("validation/usgs_hispidus_source_v1/source_audit_v1.json").read_text()
+          )
+          articles=p["figshare_articles"]
+          assert len(articles)==1
+          files={row["name"]:row for row in articles[0]["files"]}
+          raw=files["Goldberg_etal_Data_raw.zip"]
+          assert int(raw["id"]) == 65268627
+          assert int(raw["size"]) == 159691
+          assert raw["computed_md5"] == "a4f03175b83757c2cef91f916e2b3991"
+          print(raw["download_url"])
+          PY
+
+      - name: Download and verify raw ZIP
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import urllib.request
+          from pathlib import Path
+
+          p=json.loads(
+              Path("validation/usgs_hispidus_source_v1/source_audit_v1.json").read_text()
+          )
+          files={
+              row["name"]:row
+              for row in p["figshare_articles"][0]["files"]
+          }
+          meta=files["Goldberg_etal_Data_raw.zip"]
+          req=urllib.request.Request(
+              meta["download_url"],
+              headers={"User-Agent":"usgs-hispidus-raw-zip-audit/1.0"},
+          )
+          with urllib.request.urlopen(req,timeout=180) as response:
+              raw=response.read()
+          assert len(raw) == int(meta["size"])
+          md5=hashlib.md5(raw).hexdigest()
+          assert md5 == meta["computed_md5"], (md5,meta["computed_md5"])
+          out=Path("data/cache/usgs_hispidus/Goldberg_etal_Data_raw.zip")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_bytes(raw)
+          print(json.dumps({
+              "bytes":len(raw),
+              "md5":md5,
+          },sort_keys=True))
+          PY
+
+      - name: Audit archive schemas only
+        run: |
+          python analysis/audit_usgs_hispidus_raw_zip_v2.py \
+            --zip data/cache/usgs_hispidus/Goldberg_etal_Data_raw.zip \
+            --output /tmp/usgs_hispidus_raw_zip_audit_v2.json
+
+      - name: Assert raw audit remains effect-blind
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/usgs_hispidus_raw_zip_audit_v2.json").read_text())
+          assert p["species_specific_counts_inspected"] is False
+          assert p["sex_specific_counts_inspected"] is False
+          assert p["movement_distances_computed"] is False
+          assert p["packing_effects_computed"] is False
+          assert p["ecological_effect_models_fit"] == 0
+          print(json.dumps({
+              "members":p["members"],
+              "structurally_adequate_members":p["structurally_adequate_members"],
+              "source_adequacy_for_estimability_design":
+                  p["source_adequacy_for_estimability_design"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Persist raw ZIP audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/usgs-hispidus-source-v1
+          cp /tmp/usgs_hispidus_raw_zip_audit_v2.json \
+             validation/usgs_hispidus_source_v1/raw_zip_audit_v2.json
+          git add validation/usgs_hispidus_source_v1/raw_zip_audit_v2.json
+          if git diff --cached --quiet; then
+            echo "raw ZIP audit unchanged"
+          else
+            git commit -m "Freeze USGS hispidus raw ZIP source audit"
+            git push origin HEAD:design/usgs-hispidus-source-v1
+          fi
