@@ -36,7 +36,7 @@ observation process; spatial ecology; temporal aggregation; capture–recapture;
 
 ## Word count
 
-Current manuscript v0.2 is approximately 4,900 words before final author/funding/conflict statements.
+Current manuscript v0.3 is approximately 4,900 words before final author/funding/conflict statements.
 
 ## Data availability
 
@@ -52,7 +52,13 @@ Secondary analysis only; no new animal handling. Cite the original study's anima
 
 ## Author contributions
 
-To be completed by the authors.
+To be completed by the authors using the journal's authorship policy.
+
+Because AI-assisted tools contributed to code and text development, the final contribution statement must explicitly identify the corresponding or senior author who takes responsibility for all AI-assisted code/text used in the submitted work.
+
+Template sentence to complete:
+
+`[NAME], as [corresponding/senior] author, takes responsibility for the AI-assisted code and text described in the Methods disclosure and for its verification, attribution and scientific use.`
 
 ## Funding
 
@@ -68,4 +74,4 @@ To be completed by the authors.
 
 ## AI-assisted tools disclosure
 
-Complete using the journal's current disclosure requirements at the time of submission.
+The main manuscript contains the required Methods disclosure naming OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026), describing its role in code/text development, and stating that AI output was not treated as evidence or authorship. The final title-page Author Contributions statement must name the responsible corresponding or senior author as specified above.
