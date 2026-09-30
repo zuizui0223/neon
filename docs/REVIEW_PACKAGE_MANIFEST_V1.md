@@ -49,8 +49,7 @@ This package is intentionally narrower than the parent NEON repository.
 - validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
 - results/temporal_aliasing_simulation_benchmark_v2.json
 - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
-- validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
-- validation/live_trap_aliasing_v1/downstream_home_range_stop_v1.json
+- validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json
 
 ## Figures
 - figures/figure1_observation_process.png
@@ -76,4 +75,6 @@ This package is intentionally narrower than the parent NEON repository.
 - carrier/Oikos manuscript material;
 - unrelated NEON mammal analyses;
 - exploratory heteromyid discovery-effect tables;
-- raw third-party data files (downloaded from the cited public source by checksum-controlled scripts where needed).
+- raw third-party data files (downloaded from the cited public source by checksum-controlled scripts where needed);
+- detailed individual-level downstream-support tables containing third-party animal identifiers;
+- repository-specific workflow/run/commit provenance that could compromise double-anonymous review.
