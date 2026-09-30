@@ -38,7 +38,7 @@ python analysis/temporal_aliasing_diagnostic_v1.py \
 - fraction exceeding the material scale;
 - Wilson 95% interval;
 - spans expressed in material-scale units;
-- deterministic sensitivity bounds for inter-occasion movement and MPD.
+- deterministic FIRST-versus-LAST representative-location sensitivity bounds for inter-occasion movement and MPD.
 
 ## Interpretation
 
