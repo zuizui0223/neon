@@ -23,6 +23,7 @@ on:
       - analysis/live_trap_aliasing_denominator_audit_v1.py
       - analysis/audit_live_trap_aliasing_individual_cluster_v1.py
       - analysis/plot_live_trap_aliasing_figures_v1.py
+      - analysis/audit_live_trap_night_label_semantics_v1.py
       - tests/test_temporal_aliasing_diagnostic.py
       - tests/test_temporal_aliasing_example.py
       - tests/test_temporal_aliasing_bounds.py
@@ -31,6 +32,7 @@ on:
       - tests/test_live_trap_aliasing_denominator_audit.py
       - tests/test_live_trap_aliasing_individual_cluster_v1.py
       - tests/test_live_trap_aliasing_manuscript_v0_3.py
+      - tests/test_live_trap_night_label_semantics_v1.py
       - results/san_jacinto_positional_aliasing_result_v1.json
       - results/temporal_aliasing_simulation_benchmark_v2.json
       - validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json
@@ -41,6 +43,7 @@ on:
       - validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
       - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
       - validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json
+      - validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json
       - .github/workflows/build-live-trap-aliasing-review-package.yml
   workflow_dispatch:
 
@@ -84,6 +87,7 @@ jobs:
           cp analysis/live_trap_aliasing_denominator_audit_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/audit_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/plot_live_trap_aliasing_figures_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/audit_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/analysis/
 
           cp tests/test_temporal_aliasing_diagnostic.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_temporal_aliasing_example.py /tmp/live-trap-aliasing-review/tests/
@@ -93,6 +97,7 @@ jobs:
           cp tests/test_live_trap_aliasing_denominator_audit.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_manuscript_v0_3.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/tests/
 
           cp examples/repeated_locations_example.csv examples/repeated_locations_example_expected.json /tmp/live-trap-aliasing-review/examples/
           cp results/san_jacinto_positional_aliasing_result_v1.json /tmp/live-trap-aliasing-review/results/
@@ -107,6 +112,7 @@ jobs:
           cp validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
 
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
@@ -139,6 +145,7 @@ jobs:
             tests.test_san_jacinto_positional_aliasing \
             tests.test_live_trap_aliasing_denominator_audit \
             tests.test_live_trap_aliasing_individual_cluster_v1 \
+            tests.test_live_trap_night_label_semantics_v1 \
             tests.test_live_trap_aliasing_manuscript_v0_3 -v
 
       - uses: actions/upload-artifact@v4
