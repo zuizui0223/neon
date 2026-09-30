@@ -229,10 +229,12 @@ fit_one <- function(capthist, behaviour = FALSE) {
     ridx <- grep("^sigma", rownames(pr))
   }
   sigma_hat <- if (length(ridx) >= 1L) as.numeric(pr[ridx[1], "estimate"]) else NA_real_
+  aa <- suppressWarnings(AIC(fit, criterion = "AIC"))
+  aic_value <- if ("AIC" %in% colnames(aa)) as.numeric(aa[1, "AIC"]) else NA_real_
   list(
     ok = is.finite(sigma_hat),
     sigma = sigma_hat,
-    aic = suppressWarnings(AIC(fit)),
+    aic = aic_value,
     error = if (is.finite(sigma_hat)) "" else "sigma row not found"
   )
 }
