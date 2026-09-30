@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# AI assistance disclosure: This test file was drafted or refactored with OpenAI ChatGPT (GPT-5.6 Sol, September 2026); it remains under author responsibility and is verified in repository workflows.
+
 import unittest
 
 from analysis import live_trap_aliasing_denominator_audit_v1 as m
