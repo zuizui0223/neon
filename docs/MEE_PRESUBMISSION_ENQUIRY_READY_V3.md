@@ -12,7 +12,7 @@ Ecological observations are often collected more frequently than the occasions u
 Our proposed Research Article contributes:
 
 1. a generic diagnostic of first-to-last within-occasion positional span relative to a user-defined material spatial scale;
-2. deterministic bounds translating observed positional span into maximum sensitivity of inter-occasion movement and population mean-pairwise-distance statistics;
+2. deterministic bounds translating observed positional span into the maximum FIRST-versus-LAST representative-location difference in inter-occasion movement and population mean-pairwise-distance statistics;
 3. a 72-cell simulation benchmark separating the generating material-shift probability, the realized finite-dataset fraction and the repeat-observation-conditioned fraction;
 4. a prospectively locked taxon-level holdout validation in two Cricetidae species from the same public trapping programme; these species were selected using effect-blind support counts and their first-to-last outcomes were unopened when the validation rule was frozen.
 
@@ -22,7 +22,7 @@ In the held-out validation, first-to-last shifts of at least one 6.25-m trap spa
 
 We position the method as complementary to continuous-time capture–recapture and movement models, not as a replacement. It is intended as a scale-aware pre-analysis diagnostic that tells analysts when a one-state-per-occasion reduction is spatially non-negligible and should be retained, modelled at finer temporal resolution, or carried through sensitivity analysis.
 
-The method is implemented as generic MIT-licensed code requiring only individual identifier, occasion identifier, within-occasion time, coordinates and a study-defined material spatial scale. The paper includes simulation failure modes, a checked generic example, deterministic sensitivity bounds and a prospectively held-out empirical validation.
+The method is implemented as generic MIT-licensed code requiring only individual identifier, occasion identifier, within-occasion time, coordinates and a study-defined material spatial scale. The paper includes simulation failure modes, a checked generic example, deterministic FIRST-versus-LAST sensitivity bounds and a prospectively held-out empirical validation.
 
 A prospectively planned downstream MCP home-range analysis did not meet its frozen high-information support gate and was stopped before effect values were calculated; we therefore make no home-range-bias claim.
 
