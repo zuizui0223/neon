@@ -14,7 +14,7 @@ EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 SIMULATION=ROOT/"results"/"temporal_aliasing_simulation_benchmark_v2.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
 CLUSTER=ROOT/"validation"/"live_trap_aliasing_v1"/"individual_cluster_sensitivity_v1.json"
-HOME_STOP=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_stop_v1.json"
+HOME_SUPPORT=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
 
 
 class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
@@ -26,7 +26,7 @@ class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
         cls.sim=json.loads(SIMULATION.read_text())
         cls.den=json.loads(DENOM.read_text())
         cls.cluster=json.loads(CLUSTER.read_text())
-        cls.home=json.loads(HOME_STOP.read_text())
+        cls.home=json.loads(HOME_SUPPORT.read_text())
 
     def test_version_and_length(self):
         self.assertIn("**Version:** v0.3",self.text)
@@ -118,6 +118,12 @@ class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
 
     def test_home_range_nonestimability_is_preserved(self):
         self.assertFalse(self.home["mcp_areas_inspected"])
+        self.assertEqual(self.home["eligible_individuals"]["PEMA"],17)
+        self.assertEqual(self.home["eligible_individuals"]["PEER"],6)
+        self.assertEqual(
+            self.home["programme_gate"]["decision"],
+            "stop_downstream_home_range_not_estimable",
+        )
         self.assertIn("Seventeen PEMA and six PEER",self.text)
         self.assertIn("non-estimable",self.text.lower())
 
