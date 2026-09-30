@@ -50,6 +50,7 @@ This package is intentionally narrower than the parent NEON repository.
 - results/temporal_aliasing_simulation_benchmark_v2.json
 - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
 - validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json
+- validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json
 
 ## Figures
 - figures/figure1_observation_process.png
@@ -61,9 +62,11 @@ This package is intentionally narrower than the parent NEON repository.
 - figures/figure4_denominator_and_span.png
 - figures/figure4_denominator_and_span.pdf
 - analysis/plot_live_trap_aliasing_figures_v1.py
+- analysis/audit_live_trap_night_label_semantics_v1.py
 
 ## Manuscript claim invariants
 - tests/test_live_trap_aliasing_manuscript_v0_3.py
+- tests/test_live_trap_night_label_semantics_v1.py
 
 ## Environment / license
 - LICENSE
