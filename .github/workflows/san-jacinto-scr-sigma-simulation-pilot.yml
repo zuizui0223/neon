@@ -1,0 +1,59 @@
+name: san-jacinto-scr-sigma-simulation-pilot
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - analysis/san_jacinto_scr_sigma_simulation_pilot_v1.R
+      - docs/SAN_JACINTO_SCR_SIGMA_SIMULATION_PILOT_V1.md
+      - .github/workflows/san-jacinto-scr-sigma-simulation-pilot.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      RCPP_PARALLEL_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+
+      - name: Install R dependencies
+        run: |
+          install.packages(c("secr", "jsonlite"), repos = "https://cloud.r-project.org")
+        shell: Rscript {0}
+
+      - name: Run targeted sigma simulation pilot
+        run: |
+          mkdir -p /tmp/sigma-pilot
+          Rscript analysis/san_jacinto_scr_sigma_simulation_pilot_v1.R             /tmp/sigma-pilot/san_jacinto_scr_sigma_simulation_pilot_v1.json             /tmp/sigma-pilot/san_jacinto_scr_sigma_simulation_pilot_v1.csv             8
+
+      - name: Verify empirical sigma remains unopened
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open("/tmp/sigma-pilot/san_jacinto_scr_sigma_simulation_pilot_v1.json"))
+          assert p["claim_boundary"]["empirical_sigma_opened"] is False
+          assert p["n_reps_per_regime"] == 8
+          assert len(p["regimes"]) == 2
+          print(json.dumps(p, indent=2))
+          PY
+
+      - name: Upload simulation pilot
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-scr-sigma-simulation-pilot-v1
+          path: /tmp/sigma-pilot/
+          if-no-files-found: error
+          retention-days: 30
