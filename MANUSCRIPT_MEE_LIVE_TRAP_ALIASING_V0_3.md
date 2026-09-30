@@ -190,7 +190,7 @@ The final event should be impossible except for numerical error because directly
 
 We used the public San Jacinto small-mammal dataset deposited with Chock, Shier & Grether (2022; Figshare DOI 10.6084/m9.figshare.18295520.v1). The raw capture table contained date, capture time, trapping grid, trap flag, species and unique individual identifier.
 
-The original study used fixed 7×7 trapping grids with 6.25-m trap spacing and repeated trap checks within nights. Our analysis is a secondary analysis of public data and involved no new animal handling. Chock et al. (2022) reported compliance with applicable institutional animal-care guidelines.
+The original study used fixed 7×7 trapping grids with 6.25-m trap spacing and repeated trap checks within nights. We treated the source `date` field as the trapping-night label rather than as a literal timestamp date. A structural, effect-independent audit supported that interpretation: the raw grid × date grouping contained all three published activity bins (early, middle and late) in 250/290 groups (86.2%), whereas an alternative that moved midnight/post-midnight records to the previous calendar date produced only 142/405 complete groups (35.1%); median transformed capture times also ordered early < middle < late. Our analysis is a secondary analysis of public data and involved no new animal handling. Chock et al. (2022) reported compliance with applicable institutional animal-care guidelines.
 
 ### 2.5.2 Prospectively held-out taxa
 
