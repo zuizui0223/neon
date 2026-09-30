@@ -148,6 +148,15 @@ jobs:
             tests.test_live_trap_night_label_semantics_v1 \
             tests.test_live_trap_aliasing_manuscript_v0_3 -v
 
+      - name: Remove transient Python bytecode
+        run: |
+          find /tmp/live-trap-aliasing-review -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find /tmp/live-trap-aliasing-review -type f -name '*.pyc' -delete
+          if find /tmp/live-trap-aliasing-review \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) | grep -q .; then
+            echo "::error::Transient Python bytecode remains in reviewer package."
+            exit 8
+          fi
+
       - uses: actions/upload-artifact@v4
         with:
           name: live-trap-aliasing-review-package-v2
