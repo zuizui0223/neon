@@ -40,8 +40,7 @@ on:
       - validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
       - validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
       - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
-      - validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
-      - validation/live_trap_aliasing_v1/downstream_home_range_stop_v1.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json
       - .github/workflows/build-live-trap-aliasing-review-package.yml
   workflow_dispatch:
 
@@ -107,8 +106,7 @@ jobs:
           cp validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
-          cp validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
-          cp validation/live_trap_aliasing_v1/downstream_home_range_stop_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
 
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
