@@ -14,7 +14,7 @@ Our proposed Research Article contributes:
 1. a generic diagnostic of first-to-last within-occasion positional span relative to a user-defined material spatial scale;
 2. deterministic bounds translating observed positional span into maximum sensitivity of inter-occasion movement and population mean-pairwise-distance statistics;
 3. a 72-cell simulation benchmark separating the generating material-shift probability, the realized finite-dataset fraction and the repeat-observation-conditioned fraction;
-4. a prospectively locked held-out validation in two Cricetidae species.
+4. a prospectively locked taxon-level holdout validation in two Cricetidae species from the same public trapping programme; these species were selected using effect-blind support counts and their first-to-last outcomes were unopened when the validation rule was frozen.
 
 In the corrected simulation benchmark, non-informative repeat observation produced mean absolute bias of 0.00176 relative to the analytic generating probability and mean Wilson coverage of 95.2%. Cell-level coverage ranged from 86.0% to 99.5%, with the lowest value in an ultra-rare-event cell. Informative repeat observation produced directional bias (+0.0507 when larger spans increased repeat-observation probability and -0.0799 when they reduced it). The all-occasion directly observed fraction never exceeded the realized all-occasion material-shift fraction in any simulated replicate.
 
@@ -26,6 +26,6 @@ The method is implemented as generic MIT-licensed code requiring only individual
 
 A prospectively planned downstream MCP home-range analysis did not meet its frozen high-information support gate and was stopped before effect values were calculated; we therefore make no home-range-bias claim.
 
-Would this combination of a general observation-process diagnostic, corrected simulation benchmark, sensitivity framework and held-out empirical validation be within scope for a Research Article?
+Would this combination of a general observation-process diagnostic, corrected simulation benchmark, deterministic sensitivity framework and prospectively locked taxon-level empirical validation be within scope for a Research Article?
 
 Thank you for your consideration.
