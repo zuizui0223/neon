@@ -115,8 +115,8 @@ jobs:
             'Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.' \
             > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt
 
-          if grep -R -n -E \
-            'zuizui0223|workflow_head_sha|artifact_id|run_id|source_branch_head|commit_sha' \
+          if grep -R -n -i -E \
+            'zuizui0223|zhang[[:space:]_]+ruiqi|rachelzhang|workflow_head_sha|artifact_id|run_id|source_branch_head|commit_sha' \
             /tmp/live-trap-aliasing-review; then
             echo "::error::Potential identity/provenance leak found in anonymized review package."
             exit 7
