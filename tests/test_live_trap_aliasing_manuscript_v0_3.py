@@ -15,6 +15,7 @@ SIMULATION=ROOT/"results"/"temporal_aliasing_simulation_benchmark_v2.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
 CLUSTER=ROOT/"validation"/"live_trap_aliasing_v1"/"individual_cluster_sensitivity_v1.json"
 HOME_SUPPORT=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
+NIGHT_AUDIT=ROOT/"validation"/"live_trap_aliasing_v1"/"night_label_semantics_audit_v1.json"
 
 
 class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
@@ -27,6 +28,7 @@ class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
         cls.den=json.loads(DENOM.read_text())
         cls.cluster=json.loads(CLUSTER.read_text())
         cls.home=json.loads(HOME_SUPPORT.read_text())
+        cls.night_audit=json.loads(NIGHT_AUDIT.read_text())
 
     def test_version_and_length(self):
         self.assertIn("**Version:** v0.3",self.text)
@@ -126,6 +128,24 @@ class LiveTrapAliasingManuscriptV03Tests(unittest.TestCase):
         )
         self.assertIn("Seventeen PEMA and six PEER",self.text)
         self.assertIn("non-estimable",self.text.lower())
+
+    def test_trapping_night_semantics_are_frozen(self):
+        self.assertTrue(
+            self.night_audit["raw_date_supported_as_trapping_night_label"]
+        )
+        self.assertEqual(
+            self.night_audit["raw_date_grouping"]["groups_with_all_three_bins"],
+            250,
+        )
+        self.assertEqual(
+            self.night_audit["literal_calendar_shift_grouping"][
+                "groups_with_all_three_bins"
+            ],
+            142,
+        )
+        self.assertIn("86.2%",self.text)
+        self.assertIn("35.1%",self.text)
+        self.assertIn("early < middle < late",self.text)
 
     def test_math_is_clean(self):
         required=(
