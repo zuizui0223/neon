@@ -112,10 +112,10 @@ jobs:
 
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
-          cat > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt <<'EOF'
-live-trap-aliasing-review-package-v2
-Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.
-EOF
+          printf '%s\n' \
+            'live-trap-aliasing-review-package-v2' \
+            'Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.' \
+            > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt
 
           if grep -R -n -E \
             'zuizui0223|workflow_head_sha|artifact_id|run_id|source_branch_head|commit_sha' \
