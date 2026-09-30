@@ -26,7 +26,7 @@ To be completed by the authors before submission.
 
 ## Use of AI-assisted tools
 
-To be completed in accordance with the journal's current disclosure policy at the time of submission.
+OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026) was used interactively to assist with drafting and refactoring analysis/test/workflow code, checking mathematical and statistical logic, identifying failure modes, supporting literature discovery, and drafting/editing manuscript text. AI output was not treated as empirical evidence or authorship. The authors retain responsibility for scientific content, source verification, interpretation and conclusions. Source files substantially drafted or refactored with AI assistance are annotated. The final Author Contributions statement must name the corresponding or senior author who assumes responsibility for the AI-assisted code/text.
 
 ## Open research / reproducibility note
 
