@@ -218,6 +218,8 @@ The species-level confirmatory criterion was frozen as:
 
 Both held-out species were required to pass. The 25% threshold was an operational materiality criterion selected before outcome inspection to distinguish widespread positional aliasing from a rare edge case; it was not fitted to the observed fractions.
 
+Because the same marked individual could contribute repeat-capture nights on more than one occasion, the prospectively frozen Wilson interval is best viewed as a night-level binomial working interval rather than as the sole assessment of dependence-aware uncertainty. We therefore assessed repeated contributions separately with a grid-stratified individual-cluster bootstrap and deterministic leave-one-individual summaries (Section 2.8). That post-result audit could not alter or rescue the frozen decision rule.
+
 Secondary, non-rescuing summaries included median, 75th and 90th percentile first-to-last span, maximum span, elapsed time between first and last capture, and grid-specific raw fractions.
 
 ## 2.6 All-occasion denominator audit
@@ -314,7 +316,7 @@ This matters because live-trap recapture is rarely guaranteed to be missing comp
 
 Instead, the framework separates three quantities. The generating probability is the population-level target in simulation. The repeat-conditioned fraction characterizes occasions on which positional aliasing is exposed. The all-occasion directly observed fraction is a conservative lower bound on the realized finite-dataset fraction because every directly observed material shift is necessarily a realized material shift. In San Jacinto, those lower bounds were still approximately 29% and 25% of all valid individual-nights.
 
-The held-out result was also robust to repeated contributions from the same marked individuals. Grid-stratified individual-cluster bootstrap intervals remained far above the pre-specified 25% materiality threshold in both species, although these post-result intervals do not replace the frozen confirmatory rule.
+The held-out result was also robust to repeated contributions from the same marked individuals. This dependence audit is important because the prospectively frozen Wilson intervals use individual-nights as the working binomial units and therefore do not themselves model within-individual correlation across nights. Grid-stratified individual-cluster bootstrap intervals remained far above the pre-specified 25% materiality threshold in both species, although these post-result intervals do not replace the frozen confirmatory rule.
 
 If a study requires the latent all-occasion aliasing probability itself, then a model of repeat-observation probability is needed. The diagnostic identifies when that extra modelling effort may be worth undertaking.
 
