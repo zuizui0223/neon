@@ -99,7 +99,10 @@ jobs:
           cp results/san_jacinto_positional_aliasing_result_v1.json /tmp/live-trap-aliasing-review/results/
           cp results/temporal_aliasing_simulation_benchmark_v2.json /tmp/live-trap-aliasing-review/results/
 
-          cp validation/san_jacinto_positional_aliasing_v1/*.json /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
+          cp validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json \
+             /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
+          cp validation/san_jacinto_positional_aliasing_v1/programme_final_decision_v1.json \
+             /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
           cp validation/live_trap_aliasing_v1/denominator_audit_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
@@ -109,7 +112,18 @@ jobs:
 
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
-          printf '%s\n' "Source branch commit: $GITHUB_SHA" > /tmp/live-trap-aliasing-review/SOURCE_SNAPSHOT.txt
+          cat > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt <<'EOF'
+live-trap-aliasing-review-package-v2
+Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.
+EOF
+
+          if grep -R -n -E \
+            'zuizui0223|workflow_head_sha|artifact_id|run_id|source_branch_head|commit_sha' \
+            /tmp/live-trap-aliasing-review; then
+            echo "::error::Potential identity/provenance leak found in anonymized review package."
+            exit 7
+          fi
+
           find /tmp/live-trap-aliasing-review -type f | sort
 
       - name: Install review-package dependencies
