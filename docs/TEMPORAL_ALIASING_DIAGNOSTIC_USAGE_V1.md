@@ -29,6 +29,6 @@ The diagnostic reports:
 - first-to-last positional spans;
 - fraction exceeding the prechosen material scale and a Wilson interval;
 - span magnitudes expressed in material-scale units;
-- deterministic sensitivity bounds for inter-night movement, MPD, and standardized MPD.
+- deterministic FIRST-versus-LAST sensitivity bounds for inter-night movement, MPD, and standardized MPD.
 
 Important: the span is protocol-conditioned positional uncertainty. It is not a reconstructed movement path.
