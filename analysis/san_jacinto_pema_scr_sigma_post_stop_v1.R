@@ -197,8 +197,8 @@ fit_pair <- function(model_name, formula_g0) {
     relative_change = (sl$estimate - sf$estimate) / sf$estimate,
     abs_relative_change_ge_10pct =
       abs((sl$estimate - sf$estimate) / sf$estimate) >= 0.10,
-    AIC_first = suppressWarnings(AIC(f)),
-    AIC_last = suppressWarnings(AIC(l))
+    AIC_first = as.numeric(suppressWarnings(AIC(f, criterion = "AIC"))[1, "AIC"]),
+    AIC_last = as.numeric(suppressWarnings(AIC(l, criterion = "AIC"))[1, "AIC"])
   )
 }
 
