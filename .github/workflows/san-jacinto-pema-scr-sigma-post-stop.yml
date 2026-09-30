@@ -1,0 +1,65 @@
+name: san-jacinto-pema-scr-sigma-post-stop
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - analysis/san_jacinto_pema_scr_sigma_post_stop_v1.R
+      - docs/SAN_JACINTO_PEMA_SCR_SIGMA_POST_STOP_V1.md
+      - .github/workflows/san-jacinto-pema-scr-sigma-post-stop.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      RCPP_PARALLEL_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+
+      - name: Install R dependencies
+        run: |
+          install.packages(c("secr", "jsonlite"), repos = "https://cloud.r-project.org")
+        shell: Rscript {0}
+
+      - name: Download and verify frozen public source
+        run: |
+          mkdir -p /tmp/pema-sigma
+          curl -L --fail --retry 3             https://ndownloader.figshare.com/files/33058799             -o /tmp/pema-sigma/year_round_trap_data.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/pema-sigma/year_round_trap_data.csv"             | sha256sum -c -
+
+      - name: Fit PEMA FIRST/LAST post-stop exploratory SCR
+        run: |
+          Rscript analysis/san_jacinto_pema_scr_sigma_post_stop_v1.R             /tmp/pema-sigma/year_round_trap_data.csv             validation/san_jacinto_scr_sigma_v1/estimability_result_v1.json             /tmp/pema-sigma/san_jacinto_pema_scr_sigma_post_stop_v1.json
+
+      - name: Verify claim boundary
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open("/tmp/pema-sigma/san_jacinto_pema_scr_sigma_post_stop_v1.json"))
+          assert p["status"] == "post_stop_exploratory"
+          assert p["confirmatory_two_species_gate_remains"] == "stop_scr_sigma_sensitivity_not_estimable"
+          assert p["empirical_claim_boundary"]["replaces_failed_confirmatory_gate"] is False
+          assert p["first_last_keys_identical"] is True
+          print(json.dumps(p, indent=2))
+          PY
+
+      - name: Upload PEMA exploratory result
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-pema-scr-sigma-post-stop-v1
+          path: /tmp/pema-sigma/san_jacinto_pema_scr_sigma_post_stop_v1.json
+          if-no-files-found: error
+          retention-days: 30
