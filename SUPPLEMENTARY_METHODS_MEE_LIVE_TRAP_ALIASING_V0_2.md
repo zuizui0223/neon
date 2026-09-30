@@ -161,7 +161,9 @@ The capture file checksum frozen for the analysis is:
 
 `ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301`.
 
-The trapping design uses fixed 7×7 grids with 6.25-m spacing.
+The trapping design uses fixed 7×7 grids with 6.25-m spacing and three repeated checks per night.
+
+We audited the temporal meaning of the source `date` field without inspecting ecological effects. Under the raw grid × date grouping, 250/290 groups (86.2%) contained captures from all three source activity bins (early, middle and late). Under an alternative interpretation in which midnight/post-midnight records were reassigned to the preceding literal calendar date, only 142/405 groups (35.1%) contained all three bins. Median transformed capture times also followed the expected nocturnal sequence (early 22.37 h, middle 25.40 h, late 28.25 h). We therefore treated the source date as the trapping-night label.
 
 ### S4.2 Discovery versus confirmatory taxa
 
