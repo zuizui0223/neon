@@ -139,11 +139,6 @@ make_trap <- function(nocc) {
 
 session_nocc <- vapply(session_order, function(s) length(occasion_map[[s]]), integer(1))
 traplist <- lapply(session_nocc, make_trap)
-masklist <- lapply(
-  traplist,
-  function(tr) make.mask(tr, buffer = buffer_m, spacing = mask_spacing_m,
-                         type = "trapbuffer")
-)
 
 make_ch <- function(dat) {
   make.capthist(
@@ -156,6 +151,20 @@ make_ch <- function(dat) {
 
 ch_first <- make_ch(first_dat)
 ch_last <- make_ch(last_dat)
+
+# secr::secr.fit verifies a user-supplied mask before it reaches the
+# multi-session class-normalization block. Construct masks from the fitted
+# capthist trap layouts, then explicitly mark the list as a multi-session
+# mask so verify.mask dispatches correctly.
+masklist <- lapply(
+  traps(ch_first),
+  function(tr) make.mask(tr, buffer = buffer_m, spacing = mask_spacing_m,
+                         type = "trapbuffer")
+)
+class(masklist) <- c("mask", "list")
+names(masklist) <- session(ch_first)
+stopifnot(identical(names(masklist), session(ch_first)))
+stopifnot(!verify(masklist, report = 1)$errors)
 
 sessioncov <- data.frame(
   grid = factor(session_meta$grid),
