@@ -18,25 +18,28 @@ estimate was produced. The first run did not persist the underlying
 `make.capthist` exception text, so its precise cause cannot be reconstructed
 from that result file alone.
 
-An initial hypothesis was a mismatch between numeric simulated detector
-indices and the default alphanumeric detector labels from `make.grid`.
-Current `secr` documentation shows that this hypothesis is not sufficient:
-for `fmt="trapID"`, the fourth capture column is the **numeric detector
-index (row number)**, not the detector row name. The numeric-ID change made
-during debugging is therefore only a harmless normalization and must not be
-reported as the established root cause.
+The leading hypothesis is a detector-identifier mismatch. There is a
+version-specific documentation/implementation discrepancy in current
+`secr`: the `make.capthist` help page describes the fourth
+`fmt="trapID"` field as a numeric detector index, whereas the current
+`make.capthist.R` implementation matches that field against
+`rownames(traps)`. Current `make.grid` defaults to `ID="alphay"`, yielding
+alphanumeric labels such as `A1`, while the simulation emitted numeric
+detector indices `1..49`.
 
-A diagnostic rerun now persists the CHECK/FIRST/LAST exception messages so the
-failure can be localized from direct evidence before any further scientific
-interpretation.
+The repair therefore makes the trap row names explicitly numeric
+(`ID="numy", leadingzero=FALSE`) so both documented-index and implemented-ID
+interpretations coincide. A diagnostic rerun also persists the
+CHECK/FIRST/LAST exception messages; these provide the direct confirmation of
+the failure mode before the repaired output is interpreted scientifically.
 
 ## Repair status
 
 - detector identifiers have been normalized to numeric row-dominant labels;
 - this does not alter detector geometry, seeds, data-generating parameters,
   estimands, or thresholds;
-- the exact implementation failure remains **under diagnosis** until the
-  diagnostic rerun exposes the `make.capthist` exception text;
+- direct confirmation is pending from the diagnostic rerun that records the
+  original `make.capthist` exception text;
 - no sigma estimate from run 1 exists.
 
 ## Fail-closed change
