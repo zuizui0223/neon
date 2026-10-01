@@ -10,6 +10,10 @@ on:
       - .github/workflows/san-jacinto-pema-scr-sigma-post-stop.yml
   workflow_dispatch:
 
+concurrency:
+  group: pema-scr-sigma-post-stop-\${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
