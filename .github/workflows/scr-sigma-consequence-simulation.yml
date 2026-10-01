@@ -10,6 +10,10 @@ on:
       - .github/workflows/scr-sigma-consequence-simulation.yml
   workflow_dispatch:
 
+concurrency:
+  group: scr-sigma-consequence-\${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
