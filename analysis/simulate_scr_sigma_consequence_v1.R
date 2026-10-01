@@ -117,7 +117,8 @@ build_empirical_kernel <- function(path) {
       repeat_fraction = nrow(rsp) / nrow(nsp),
       changed_fraction_given_repeat = nrow(csp) / nrow(rsp),
       changed_median_distance_m = median(csp$distance),
-      changed_q90_distance_m = as.numeric(quantile(csp$distance, 0.90, names = FALSE))
+      changed_q90_distance_m = as.numeric(quantile(csp$distance, 0.90, names = FALSE)),
+      changed_rms_distance_m = sqrt(mean(csp$distance^2))
     )
   })
   names(by_species) <- SPECIES
@@ -151,12 +152,28 @@ build_empirical_kernel <- function(path) {
       repeat_probability = repeat_p,
       change_probability_given_repeat = change_p,
       changed_median_distance_m = median(changed$distance),
-      changed_q90_distance_m = as.numeric(quantile(changed$distance, 0.90, names = FALSE))
+      changed_q90_distance_m = as.numeric(quantile(changed$distance, 0.90, names = FALSE)),
+      changed_rms_distance_m = sqrt(mean(changed$distance^2)),
+      effective_transition_probability = nrow(changed) / nrow(nights)
     )
   )
 }
 
 kernel <- build_empirical_kernel(source_path)
+
+# Continuous dense-detector second-moment benchmark for an isotropic random
+# transition vector H. For random transition length R and overall transition
+# probability q, Cov(H) contributes q E[R^2] / 2 per spatial axis.
+q_transition <- kernel$pooled$effective_transition_probability
+r2_transition <- mean(kernel$changed$distance^2)
+analytic_benchmark <- lapply(SIGMAS, function(sigma_true) {
+  ratio <- sqrt(1 + q_transition * r2_transition / (2 * sigma_true^2))
+  list(
+    sigma_true_m = sigma_true,
+    predicted_sigma_ratio = ratio,
+    predicted_relative_inflation = ratio - 1
+  )
+})
 
 tr <- make.grid(nx = 7, ny = 7, spacing = SPACING, detector = "multi", ID = "numy", leadingzero = FALSE)
 trxy <- as.matrix(tr)
@@ -607,6 +624,7 @@ out <- list(
     species=kernel$species,
     pooled=kernel$pooled
   ),
+  analytic_second_moment_benchmark=analytic_benchmark,
   summaries=summary_df,
   paired_contrasts=paired_df,
   transition_calibration=calibration_summary,
