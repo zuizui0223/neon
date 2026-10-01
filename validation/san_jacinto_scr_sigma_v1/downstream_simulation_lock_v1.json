@@ -1,0 +1,52 @@
+{
+  "schema": "neon.scr_sigma_downstream_simulation.lock.v1",
+  "date": "2026-10-01",
+  "state": "frozen_before_sigma_simulation_results",
+  "empirical_first_sigma_inspected": false,
+  "empirical_last_sigma_inspected": false,
+  "simulation_sigma_results_inspected": false,
+  "branch": "design/san-jacinto-scr-sigma-impact-v1",
+  "seed_base": 20261001,
+  "replicates_per_cell": 12,
+  "detector": {
+    "nx": 7,
+    "ny": 7,
+    "spacing_m": 6.25,
+    "type": "multi"
+  },
+  "schedule": {
+    "nights": 5,
+    "checks_per_night": 4
+  },
+  "population": {
+    "exact_n": 350,
+    "buffer_m": 100
+  },
+  "detection": {
+    "detectfn": "HHN",
+    "lambda0": 0.1
+  },
+  "sigma_spacing": [
+    0.5,
+    1,
+    2
+  ],
+  "response_probability": 0.7,
+  "shift_spacing": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "practical_relative_change_threshold": 0.1,
+  "empirical_scale_region": {
+    "material_shift_fraction": [
+      0.6,
+      0.8
+    ],
+    "median_changed_span_spacing": [
+      1.5,
+      2.5
+    ]
+  }
+}
