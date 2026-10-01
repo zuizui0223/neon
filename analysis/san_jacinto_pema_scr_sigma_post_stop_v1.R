@@ -132,7 +132,7 @@ lk <- do.call(paste, c(last_dat[key_cols], sep = "|"))
 if (!identical(fk, lk)) stop("FIRST/LAST observation keys differ")
 
 make_trap <- function(nocc) {
-  tr <- make.grid(nx = 7, ny = 7, spacing = spacing, detector = "multi")
+  tr <- make.grid(nx = 7, ny = 7, spacing = spacing, detector = "multi", ID = "numy", leadingzero = FALSE)
   usage(tr) <- matrix(1, nrow = nrow(tr), ncol = nocc)
   tr
 }
