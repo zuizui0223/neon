@@ -10,6 +10,10 @@ on:
       - .github/workflows/san-jacinto-scr-sigma-simulation-pilot.yml
   workflow_dispatch:
 
+concurrency:
+  group: scr-sigma-pilot-\${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
