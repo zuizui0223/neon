@@ -103,12 +103,12 @@ build_empirical_kernel <- function(path) {
     )
   })
   nights <- do.call(rbind, rows)
-  repeat <- nights[nights$n_records >= 2, , drop = FALSE]
-  changed <- repeat[repeat$distance >= SPACING - 1e-10, , drop = FALSE]
+  repeat_nights <- nights[nights$n_records >= 2, , drop = FALSE]
+  changed <- repeat_nights[repeat_nights$distance >= SPACING - 1e-10, , drop = FALSE]
 
   by_species <- lapply(SPECIES, function(sp) {
     nsp <- nights[nights$species == sp, , drop = FALSE]
-    rsp <- repeat[repeat$species == sp, , drop = FALSE]
+    rsp <- repeat_nights[repeat_nights$species == sp, , drop = FALSE]
     csp <- changed[changed$species == sp, , drop = FALSE]
     list(
       all_valid_captured_nights = nrow(nsp),
@@ -134,12 +134,12 @@ build_empirical_kernel <- function(path) {
     stop("PEER calibration counts do not reproduce frozen results")
   }
 
-  repeat_p <- nrow(repeat) / nrow(nights)
-  change_p <- nrow(changed) / nrow(repeat)
+  repeat_p <- nrow(repeat_nights) / nrow(nights)
+  change_p <- nrow(changed) / nrow(repeat_nights)
 
   list(
     nights = nights,
-    repeat = repeat,
+    repeat_nights = repeat_nights,
     changed = changed,
     vectors = as.matrix(changed[, c("dx", "dy"), drop = FALSE]),
     repeat_probability = repeat_p,
@@ -147,7 +147,7 @@ build_empirical_kernel <- function(path) {
     species = by_species,
     pooled = list(
       all_valid_captured_nights = nrow(nights),
-      repeat_capture_nights = nrow(repeat),
+      repeat_capture_nights = nrow(repeat_nights),
       changed_repeat_nights = nrow(changed),
       repeat_probability = repeat_p,
       change_probability_given_repeat = change_p,
