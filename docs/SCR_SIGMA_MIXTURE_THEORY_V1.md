@@ -72,6 +72,41 @@ h/sigma >= 0.775 approximately.
 
 This is an analytic benchmark, not a claim that the fitted discrete-trap SCR estimator must cross 10% at exactly that value.
 
+## Random-length empirical transition kernel
+
+The exact-protocol consequence benchmark uses the already-opened San Jacinto
+first-to-last displacement-vector distribution rather than a fixed shift
+length. Let a transition occur with overall probability q and let R be its
+random length. If transition direction is approximately isotropic and has
+mean zero, then
+
+Cov(H) = E[R^2] / 2 * I
+
+conditional on a transition, and the mixture benchmark becomes
+
+sigma_eff / sigma ~= sqrt(1 + q E[R^2] / (2 sigma^2)).
+
+For the pooled held-out San Jacinto calibration,
+
+q = P(repeat capture | captured night) *
+    P(material position change | repeat-capture night)
+  = (592 / 1520) * (426 / 592)
+  = 426 / 1520
+  ~= 0.2803.
+
+Thus the empirically anchored benchmark is governed by
+
+sqrt(q E[R^2]) / sigma,
+
+the RMS observation-state displacement scaled by the baseline SCR spatial
+scale. The exact simulation reports E[R^2] from the frozen empirical vector
+kernel and compares the corresponding continuous-limit prediction with fitted
+discrete-grid SCR estimates.
+
+This is the more general criterion: a large raw positional span need not imply
+a large sigma consequence if the baseline sigma is much larger; the same
+observation-process displacement can be consequential when sigma is small.
+
 ## Expected ordering of representations
 
 Under the locked simulation mechanism:
