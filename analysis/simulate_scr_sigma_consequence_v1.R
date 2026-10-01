@@ -167,24 +167,17 @@ coord_key <- function(x, y) sprintf("%.6f,%.6f", x, y)
 trap_lookup <- setNames(seq_len(nrow(trxy)), coord_key(trxy[,1], trxy[,2]))
 fitmask <- make.mask(tr, buffer = BUFFER, spacing = 5)
 
-cap_matrix <- function(ch) {
-  m <- as.matrix(ch)
-  storage.mode(m) <- "integer"
-  m
-}
-
 records_from_capthist <- function(ch) {
-  m <- cap_matrix(ch)
-  ids <- rownames(m)
-  if (is.null(ids)) ids <- as.character(seq_len(nrow(m)))
-  idx <- which(m > 0, arr.ind = TRUE)
-  if (nrow(idx) == 0) {
+  ids <- as.character(animalID(ch, names = TRUE))
+  occ <- as.integer(occasion(ch))
+  k <- as.integer(trap(ch, names = FALSE))
+  if (!length(ids)) {
     return(data.frame(ID=character(), occasion=integer(), trap=integer()))
   }
   data.frame(
-    ID = ids[idx[,1]],
-    occasion = idx[,2],
-    trap = m[idx],
+    ID = ids,
+    occasion = occ,
+    trap = k,
     stringsAsFactors = FALSE
   )
 }
