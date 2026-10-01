@@ -158,7 +158,7 @@ build_empirical_kernel <- function(path) {
 
 kernel <- build_empirical_kernel(source_path)
 
-tr <- make.grid(nx = 7, ny = 7, spacing = SPACING, detector = "multi")
+tr <- make.grid(nx = 7, ny = 7, spacing = SPACING, detector = "multi", ID = "numy", leadingzero = FALSE)
 trxy <- as.matrix(tr)
 if (ncol(trxy) < 2) stop("unexpected trap coordinate object")
 trxy <- trxy[, 1:2, drop = FALSE]
