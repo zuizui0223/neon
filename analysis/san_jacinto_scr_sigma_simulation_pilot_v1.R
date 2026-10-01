@@ -35,7 +35,7 @@ target <- list(
 )
 
 make_base_traps <- function(check_level = FALSE) {
-  tr <- make.grid(nx = nx, ny = ny, spacing = spacing, detector = "multi")
+  tr <- make.grid(nx = nx, ny = ny, spacing = spacing, detector = "multi", ID = "numy", leadingzero = FALSE)
   if (check_level) {
     # 3 checks, closed separator, 3 checks, closed separator, 3 checks.
     u <- matrix(1, nrow = nrow(tr), ncol = 11)
