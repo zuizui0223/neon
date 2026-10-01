@@ -11,6 +11,10 @@ on:
       - .github/workflows/scr-sigma-downstream-simulation-v1.yml
   workflow_dispatch:
 
+concurrency:
+  group: scr-sigma-downstream-\${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
