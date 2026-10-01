@@ -28,10 +28,11 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install simulation dependencies
-        run: |
-          mkdir -p "$R_LIBS_USER"
-          Rscript -e 'install.packages(c("secr","jsonlite"), repos="https://cloud.r-project.org")'
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
 
       - name: Download and verify frozen San Jacinto source
         run: |
