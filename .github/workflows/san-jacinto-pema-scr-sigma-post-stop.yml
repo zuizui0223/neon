@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 55
     env:
       RCPP_PARALLEL_NUM_THREADS: 2
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,10 +30,11 @@ jobs:
           r-version: "release"
           use-public-rspm: true
 
-      - name: Install R dependencies
-        run: |
-          install.packages(c("secr", "jsonlite"), repos = "https://cloud.r-project.org")
-        shell: Rscript {0}
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
 
       - name: Download and verify frozen public source
         run: |
