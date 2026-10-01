@@ -1,0 +1,101 @@
+name: scr-sigma-downstream-simulation-v1
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - analysis/simulate_scr_sigma_downstream_v1.R
+      - docs/SCR_SIGMA_DOWNSTREAM_SIMULATION_DESIGN_V1.md
+      - validation/san_jacinto_scr_sigma_v1/downstream_simulation_lock_v1.json
+      - .github/workflows/scr-sigma-downstream-simulation-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Verify frozen simulation lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("validation/san_jacinto_scr_sigma_v1/downstream_simulation_lock_v1.json").read_text())
+          assert p["state"]=="frozen_before_sigma_simulation_results"
+          assert p["simulation_sigma_results_inspected"] is False
+          assert p["empirical_first_sigma_inspected"] is False
+          assert p["empirical_last_sigma_inspected"] is False
+          assert p["replicates_per_cell"] == 12
+          assert p["sigma_spacing"] == [0.5,1,2]
+          assert p["shift_spacing"] == [0,1,2,3]
+          PY
+
+      - name: Run SCR sigma downstream simulation
+        run: |
+          Rscript analysis/simulate_scr_sigma_downstream_v1.R \
+            --replicates 12 \
+            --seed 20261001 \
+            --output-json /tmp/scr_sigma_downstream_simulation_v1.json \
+            --output-csv /tmp/scr_sigma_downstream_simulation_replicates_v1.csv
+
+      - name: Validate result shape
+        run: |
+          python - <<'PY'
+          import csv, json, math
+          from pathlib import Path
+          p=json.loads(Path("/tmp/scr_sigma_downstream_simulation_v1.json").read_text())
+          assert p["schema"]=="neon.scr_sigma_downstream_simulation.result.v1"
+          assert len(p["scenario_summaries"]) == 12
+          rows=list(csv.DictReader(Path("/tmp/scr_sigma_downstream_simulation_replicates_v1.csv").open()))
+          assert len(rows) == 144
+          assert {float(x["shift_spacing"]) for x in rows} == {0.0,1.0,2.0,3.0}
+          assert {float(x["sigma_spacing"]) for x in rows} == {0.5,1.0,2.0}
+          assert all(x["check_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
+          assert all(x["first_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
+          assert all(x["last_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
+          print("validated", len(rows), "replicate rows")
+          PY
+
+      - name: Upload simulation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-downstream-simulation-v1
+          path: |
+            /tmp/scr_sigma_downstream_simulation_v1.json
+            /tmp/scr_sigma_downstream_simulation_replicates_v1.csv
+
+      - name: Persist simulation results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/scr_sigma_downstream_simulation_v1.json results/scr_sigma_downstream_simulation_v1.json
+          cp /tmp/scr_sigma_downstream_simulation_replicates_v1.csv results/scr_sigma_downstream_simulation_replicates_v1.csv
+          git add results/scr_sigma_downstream_simulation_v1.json
+          git add results/scr_sigma_downstream_simulation_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "simulation results unchanged"
+          else
+            git commit -m "Add SCR sigma downstream simulation results"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
