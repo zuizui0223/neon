@@ -72,6 +72,10 @@ jobs:
           assert all(x["check_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
           assert all(x["first_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
           assert all(x["last_status"] in {"ok","capthist_fail","fit_fail","extract_fail"} for x in rows)
+          # Fail closed on implementation-wide construction/fitting bugs.
+          assert any(x["check_status"]=="ok" for x in rows), "zero successful CHECK fits"
+          assert any(x["first_status"]=="ok" for x in rows), "zero successful FIRST fits"
+          assert any(x["last_status"]=="ok" for x in rows), "zero successful LAST fits"
           print("validated", len(rows), "replicate rows")
           PY
 
