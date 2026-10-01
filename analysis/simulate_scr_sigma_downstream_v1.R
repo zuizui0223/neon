@@ -33,7 +33,7 @@ sigma_spacing <- c(0.5, 1, 2)
 shift_spacing <- c(0, 1, 2, 3)
 practical_threshold <- 0.10
 
-tr <- make.grid(nx = nx, ny = ny, spacing = spacing, detector = "multi")
+tr <- make.grid(nx = nx, ny = ny, spacing = spacing, detector = "multi", ID = "numy", leadingzero = FALSE)
 trdf <- as.data.frame(tr)
 mask <- make.mask(tr, buffer = buffer, spacing = spacing, type = "traprect")
 
