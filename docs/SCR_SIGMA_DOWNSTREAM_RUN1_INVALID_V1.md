@@ -11,31 +11,33 @@ successful CHECK/FIRST/LAST fits across all 144 simulated datasets.
 This was not evidence that the SCR models were unestimable and is not a null
 downstream result.
 
-## Root cause
+## Failure localization
 
-`secr::make.grid()` uses alphanumeric detector row names by default
-(`A1`, `A2`, ...). The simulator encoded detections as numeric detector
-indices `1..49`. `make.capthist(..., fmt="trapID")` matches the fourth
-capture column to detector row names, so the simulated detector identifiers
-did not match the `traps` object.
+The failure occurred during capture-history construction, before any sigma
+estimate was produced. The first run did not persist the underlying
+`make.capthist` exception text, so its precise cause cannot be reconstructed
+from that result file alone.
 
-The bug occurred before any sigma estimate was produced.
+An initial hypothesis was a mismatch between numeric simulated detector
+indices and the default alphanumeric detector labels from `make.grid`.
+Current `secr` documentation shows that this hypothesis is not sufficient:
+for `fmt="trapID"`, the fourth capture column is the **numeric detector
+index (row number)**, not the detector row name. The numeric-ID change made
+during debugging is therefore only a harmless normalization and must not be
+reported as the established root cause.
 
-## Repair
+A diagnostic rerun now persists the CHECK/FIRST/LAST exception messages so the
+failure can be localized from direct evidence before any further scientific
+interpretation.
 
-The detector grid is now constructed with numeric row-dominant IDs and no
-leading zero padding:
+## Repair status
 
-`ID = "numy", leadingzero = FALSE`
-
-This preserves the frozen detector geometry, data-generating process,
-parameter grid, seeds, estimands, and thresholds. It changes only the
-identifier representation needed to connect simulated detections to the
-`secr` capture-history object.
-
-The same identifier repair was applied to the exact-protocol consequence
-benchmark and the PEMA post-stop exploratory script because they used the same
-numeric detector-index convention.
+- detector identifiers have been normalized to numeric row-dominant labels;
+- this does not alter detector geometry, seeds, data-generating parameters,
+  estimands, or thresholds;
+- the exact implementation failure remains **under diagnosis** until the
+  diagnostic rerun exposes the `make.capthist` exception text;
+- no sigma estimate from run 1 exists.
 
 ## Fail-closed change
 
