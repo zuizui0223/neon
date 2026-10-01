@@ -170,6 +170,8 @@ sessioncov <- data.frame(
   grid = factor(session_meta$grid),
   bout = factor(session_meta$bout)
 )
+rownames(sessioncov) <- session(ch_first)
+stopifnot(nrow(sessioncov) == length(session(ch_first)))
 
 extract_sigma <- function(fit) {
   pr <- predict(fit)
