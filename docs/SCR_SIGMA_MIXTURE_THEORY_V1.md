@@ -94,13 +94,41 @@ q = P(repeat capture | captured night) *
   = 426 / 1520
   ~= 0.2803.
 
-Thus the empirically anchored benchmark is governed by
+Define the dimensionless **state-mixing ratio**
 
-sqrt(q E[R^2]) / sigma,
+A_sigma = sqrt(q E[R^2] / 2) / sigma.
 
-the RMS observation-state displacement scaled by the baseline SCR spatial
-scale. The exact simulation reports E[R^2] from the frozen empirical vector
-kernel and compares the corresponding continuous-limit prediction with fitted
+Then
+
+sigma_eff / sigma ~= sqrt(1 + A_sigma^2).
+
+This is the natural downstream diagnostic because it compares the per-axis
+second-moment contribution of the within-occasion transition directly with the
+baseline SCR spatial scale.
+
+For a 10% material change,
+
+A_sigma >= sqrt(1.10^2 - 1) ~= 0.4583.
+
+For the held-out San Jacinto transition kernel, the directly observed
+per-axis transition scale is
+
+sqrt(q E[R^2] / 2) ~= 6.34 m,
+
+so the 10% second-moment boundary occurs near baseline sigma ~= 13.84 m.
+
+An empirical dataset can also report the directly observed quantity
+
+A_obs = sqrt( sum(delta_i^2) / (2 N) ) / sigma_ref,
+
+where N is the all-occasion denominator and the sum includes only transitions
+that were directly exposed by repeated observation. This treats unresolved
+single-observation occasions as contributing no observed transition energy and
+is therefore a conservative observation-process summary, not a claim that
+their true displacement was zero.
+
+The exact simulation reports E[R^2] from the frozen empirical vector kernel
+and compares the corresponding continuous-limit prediction with fitted
 discrete-grid SCR estimates.
 
 This is the more general criterion: a large raw positional span need not imply
