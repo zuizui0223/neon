@@ -1,6 +1,6 @@
 {
   "schema": "neon.scr_sigma_downstream_simulation.result.v1",
-  "generated_at": "2026-10-01 03:15:37 UTC",
+  "generated_at": "2026-10-01 03:16:05 UTC",
   "locked_design": {
     "seed_base": 20261001,
     "replicates_per_cell": 12,
