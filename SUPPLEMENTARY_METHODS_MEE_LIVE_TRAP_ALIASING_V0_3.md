@@ -314,7 +314,7 @@ An initial effect-blind estimability check at 20 animals ha$^{-1}$ yielded insuf
 
 The stationary-negative-control family generated all nine check-level occasions directly from a static SCR process.
 
-The empirical-transition family first generated one baseline SCR detector state per captured individual-night. A night was expanded to repeated observations with probability 0.3895; conditional on repeat observation, a material detector transition was introduced with probability 0.7196 by resampling an observed held-out displacement vector. Edge-incompatible vectors were resampled, with a deterministic nearest-distance fallback after repeated failures.
+The empirical-transition family first generated one baseline SCR detector state per captured individual-night. A night was expanded to repeated observations with probability 0.3895; conditional on repeat observation, a material detector transition was introduced with probability 0.7196 by resampling an observed held-out displacement vector. Edge-incompatible vectors were resampled, with a deterministic nearest-distance fallback after repeated failures. Because this expansion occurs conditional on a baseline captured night, the resulting CHECK histories are intentionally not independent check-level draws from the fitted static SCR model. They reproduce empirical repeat frequency and transition scale as an observation-process stress test, and therefore combine state mixing with within-night encounter dependence.
 
 Two mirrored orientations were used:
 - **POST:** baseline detector state first, transitioned state last;
@@ -350,7 +350,7 @@ PRE median LAST/FIRST ratios:
 
 At $\sigma=6.25$ m, POST median relative biases were -0.6% for FIRST and +38.8% for LAST; under PRE they were +35.0% for FIRST and -0.7% for LAST. At $\sigma=12.5$ m, POST biases were -1.7% and +15.1%, and PRE biases were +16.6% and approximately 0.0%.
 
-CHECK retained all injected detections but did not consistently recover baseline sigma under the state-transition process. This is interpreted as a state-mixture issue, not evidence that finer occasions are generally inferior.
+CHECK retained all injected detections but did not consistently recover baseline sigma under the empirical-transition stress process. Because repeat checks are generated conditional on a captured night, this deviation cannot be decomposed uniquely into a state-mixture component and a within-night encounter-dependence component. It is used only to show that finer occasions are not automatically sufficient when the observation process departs from a stationary, conditionally independent check-level model.
 
 ### S9.4 Claim boundary
 
