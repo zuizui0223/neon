@@ -21,8 +21,24 @@ sha_expected <- "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab30
 flags <- as.vector(outer(LETTERS[1:7],1:7,paste0))
 
 parse_date <- function(x) {
-  z <- as.Date(x,tryFormats=c("%m/%d/%Y","%m/%d/%y","%Y-%m-%d"))
-  z
+  out <- rep(as.Date(NA), length(x))
+  for (i in seq_along(x)) {
+    txt <- trimws(as.character(x[i]))
+    sep <- if (grepl("/",txt,fixed=TRUE)) "/" else if (grepl("-",txt,fixed=TRUE)) "-" else NA_character_
+    if (is.na(sep)) next
+    p <- strsplit(txt,sep,fixed=TRUE)[[1]]
+    if (length(p)!=3) next
+    v <- suppressWarnings(as.integer(as.numeric(p)))
+    if (any(is.na(v))) next
+    if (v[1] > 1900) {
+      yy <- v[1]; mm <- v[2]; dd <- v[3]
+    } else {
+      mm <- v[1]; dd <- v[2]; yy <- v[3]
+      if (yy < 100) yy <- yy + 2000
+    }
+    out[i] <- as.Date(sprintf("%04d-%02d-%02d",yy,mm,dd))
+  }
+  out
 }
 parse_time <- function(x) {
   m <- regexec("^(\\d{1,2}):(\\d{2})$",trimws(as.character(x)))
