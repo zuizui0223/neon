@@ -137,3 +137,10 @@ Before any primary simulation is run, the simulated buffered population is incre
 The negative-control implementation gate is also repaired: a control cell cannot pass merely because all fitted ratios are missing. A valid full run now requires >=80% successful FIRST and LAST fits in each zero-perturbation control cell, a finite median LAST/FIRST ratio, and |median ratio - 1| < 0.10.
 
 Smoke-v1 files remain in repository history as an audit record.
+
+
+## Detector-identity implementation correction after smoke v3
+
+Smoke v3 exposed a deterministic input-construction error: every attempted SCR fit failed with `failed to match some capture locations to detector sites`. The simulation had exported detector IDs from a simulated `capthist` and then passed those values through a second detector-index conversion before reconstructing the fitted capture history.
+
+No sigma effect from smoke v3 is interpretable. The raw simulated detector coordinates are now exported with `fmt="XY"` and passed unchanged to `make.capthist(..., fmt="XY")`. This correction changes only capture-history encoding; the frozen ecological data-generating process and analysis grid are unchanged.
