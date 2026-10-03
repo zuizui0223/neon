@@ -8,6 +8,8 @@
   "source_sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
   "species": {
     "COMBINED": {
+      "all_night_directly_observed_cross_trap_conflict_lower_bound": 0.29605263157894735,
+      "all_valid_individual_nights": 1520,
       "any_cross_trap_conflict_count": 450,
       "any_cross_trap_conflict_fraction": 0.7601351351351351,
       "endpoint_false_negative_count": 24,
@@ -15,9 +17,12 @@
       "first_last_change_count": 426,
       "first_last_change_fraction": 0.7195945945945946,
       "fraction_of_cross_trap_conflicts_missed_by_first_last": 0.05333333333333334,
-      "repeat_nights": 592
+      "repeat_nights": 592,
+      "repeat_observation_fraction": 0.3894736842105263
     },
     "PEER": {
+      "all_night_directly_observed_cross_trap_conflict_lower_bound": 0.25249169435215946,
+      "all_valid_individual_nights": 301,
       "any_cross_trap_conflict_count": 76,
       "any_cross_trap_conflict_fraction": 0.7102803738317757,
       "capture_count_distribution": {
@@ -31,6 +36,7 @@
       "first_last_change_fraction": 0.6915887850467289,
       "fraction_of_cross_trap_conflicts_missed_by_first_last": 0.02631578947368421,
       "repeat_nights": 107,
+      "repeat_observation_fraction": 0.3554817275747508,
       "returned_to_first_after_other_trap_count": 2,
       "scientific_name": "Peromyscus eremicus",
       "unique_trap_count_distribution": {
@@ -41,6 +47,8 @@
       }
     },
     "PEMA": {
+      "all_night_directly_observed_cross_trap_conflict_lower_bound": 0.30680885972108285,
+      "all_valid_individual_nights": 1219,
       "any_cross_trap_conflict_count": 374,
       "any_cross_trap_conflict_fraction": 0.7711340206185567,
       "capture_count_distribution": {
@@ -55,6 +63,7 @@
       "first_last_change_fraction": 0.7257731958762886,
       "fraction_of_cross_trap_conflicts_missed_by_first_last": 0.058823529411764705,
       "repeat_nights": 485,
+      "repeat_observation_fraction": 0.3978671041837572,
       "returned_to_first_after_other_trap_count": 22,
       "scientific_name": "Peromyscus maniculatus",
       "unique_trap_count_distribution": {
