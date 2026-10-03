@@ -14,7 +14,7 @@
 
 4. Frequent positional aliasing is therefore a warning condition, not a bias estimate. Large within-occasion spatial variation can coexist with a stable downstream parameter when observations remain exchangeable around a common spatial kernel. Systematic inferential divergence requires additional temporal structure. The proposed workflow separates these questions explicitly: screen for positional non-uniqueness, then test the stability of the intended downstream estimand before deciding whether coarser aggregation is defensible or finer temporal/state modelling is required.
 
-## Data/Code for peer review## Data/Code for peer review
+## Data/Code for peer review
 
 An anonymized, self-contained review package containing the generic diagnostic, deterministic sensitivity bounds, frozen empirical result files, the post-stop PEMA representation-stability result, the SCR consequence benchmark, tests and figures is supplied as a single reviewer file. The third-party San Jacinto capture data are not redistributed in that package; they are publicly available from Figshare (DOI 10.6084/m9.figshare.18295520.v1), and the empirical pipeline verifies the frozen source-file checksum before analysis. A versioned archival code release and persistent identifier will replace the review-stage package record before final publication.
 
@@ -44,7 +44,7 @@ The empirical and simulation components deliberately separate these stages. We f
 
 Our aim is not to identify whether FIRST or LAST is biologically “correct”, nor to infer that handling caused the empirical within-night shifts. Instead, the framework asks two separate questions: does a nominal occasion contain materially different observed positions, and does the intended downstream estimand materially change under a defensible representation of those positions? A “yes” to the first question does not imply a “yes” to the second.
 
-# 2. Materials and Methods# 2. Materials and Methods
+# 2. Materials and Methods
 
 ## 2.1 Diagnostic definition
 
@@ -421,7 +421,7 @@ A practical workflow follows directly from the results:
 
 The central methodological point is deliberately narrower than “never aggregate”. The useful question is: **when does temporal representation change the spatial quantity we intend to infer?** The San Jacinto example shows both sides of that decision: substantial positional non-uniqueness, but empirical PEMA sigma stability; and generative ordered-state conditions under which the same representation choice becomes consequential.
 
-# 5. Data and code availability# 5. Data and code availability
+# 5. Data and code availability
 
 The empirical source data are publicly available in Figshare (DOI 10.6084/m9.figshare.18295520.v1) with Chock et al. (2022). The analysis verifies the source file checksum before use.
 
