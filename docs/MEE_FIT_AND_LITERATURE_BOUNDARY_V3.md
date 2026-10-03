@@ -60,13 +60,13 @@ The stationary negative controls support this: CHECK, FIRST and LAST all remain 
 
 ### 2. State-mixture mismatch
 
-If the within-night observation process changes which spatial state is sampled, CHECK retains the observations but a static-centre SCR model is then fitted to more than one spatial state.
+If the within-night observation process changes which spatial state is sampled, CHECK retains the observations but a static-centre SCR model is then fitted to more than one spatial state. In the empirical-transition stress test, repeated checks are also generated conditional on a captured night to reproduce the observed repeat frequency, so the CHECK representation contains within-night encounter dependence as well as spatial-state mixing.
 
-In the empirical-transition simulations, CHECK therefore does not consistently recover the baseline generating sigma even though no detections are discarded. FIRST and LAST also differ because they preferentially select different states. Mirroring whether the transitioned state is PRE or POST reverses the FIRST/LAST direction.
+CHECK therefore does not consistently recover the baseline generating sigma even though no detections are discarded. This deviation is not decomposed into a unique “state-mixing bias”: it reflects deliberate misspecification of the stress process relative to a stationary independent-check SCR model. FIRST and LAST also differ because they preferentially select different spatial states, and mirroring whether the transitioned state is PRE or POST reverses their direction.
 
 Thus:
 
-> **Finer occasions are a remedy for record loss, not automatically for within-occasion state change under a static-state model.**
+> **Finer occasions are a remedy for record loss, not automatically for an observation process that changes state or dependence structure within the nominal occasion.**
 
 This is the direct response to the strongest foreseeable SCR reviewer objection.
 
