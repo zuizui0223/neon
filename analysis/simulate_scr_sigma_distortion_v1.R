@@ -120,9 +120,9 @@ simulate_raw <- function(traps_obj, sigma_true, g0, rho, jitter_sd, seed) {
 
       if (nrow(one) == 0) next
 
-      d <- as.data.frame(one, fmt = "trapID")
+      d <- as.data.frame(one, fmt = "XY")
       if (nrow(d) == 0) next
-      names(d)[1:4] <- c("Session", "ID", "Occasion", "TrapID")
+      names(d)[1:5] <- c("Session", "ID", "Occasion", "x", "y")
       d$ID <- as.character(d$ID)
       d$TrapID <- as.character(d$TrapID)
       d$night <- night
@@ -130,24 +130,23 @@ simulate_raw <- function(traps_obj, sigma_true, g0, rho, jitter_sd, seed) {
       d$Occasion <- (night - 1L) * CHECKS + check
 
       part_i <- part_i + 1L
-      raw_parts[[part_i]] <- d[, c("Session", "ID", "Occasion", "TrapID", "night", "check")]
+      raw_parts[[part_i]] <- d[, c("Session", "ID", "Occasion", "x", "y", "night", "check")]
 
       ids <- unique(d$ID)
       newly <- ids[!handled[ids]]
       if (length(newly) == 0) next
 
       first_rows <- d[match(newly, d$ID), , drop = FALSE]
-      tidx <- trap_index(traps_obj, first_rows$TrapID)
       pidx <- match(newly, rownames(base))
       if (anyNA(pidx)) stop("captured ID not found in simulated population")
 
       current[pidx, "x"] <-
         (1 - rho) * base[pidx, "x"] +
-        rho * traps_obj[tidx, "x"] +
+        rho * first_rows$x +
         rnorm(length(pidx), mean = 0, sd = jitter_sd)
       current[pidx, "y"] <-
         (1 - rho) * base[pidx, "y"] +
-        rho * traps_obj[tidx, "y"] +
+        rho * first_rows$y +
         rnorm(length(pidx), mean = 0, sd = jitter_sd)
 
       handled[newly] <- TRUE
@@ -157,7 +156,7 @@ simulate_raw <- function(traps_obj, sigma_true, g0, rho, jitter_sd, seed) {
   if (length(raw_parts) == 0) {
     return(data.frame(
       Session = numeric(0), ID = character(0), Occasion = integer(0),
-      TrapID = character(0), night = integer(0), check = integer(0)
+      x = numeric(0), y = numeric(0), night = integer(0), check = integer(0)
     ))
   }
 
@@ -185,12 +184,13 @@ build_capthist <- function(raw, traps_obj, nocc) {
     Session = 1,
     AnimalID = as.character(raw$ID),
     Occasion = as.integer(raw$Occasion),
-    TrapID = trap_index(traps_obj, raw$TrapID)
+    x = as.numeric(raw$x),
+    y = as.numeric(raw$y)
   )
   make.capthist(
     captures = capt,
     traps = traps_obj,
-    fmt = "trapID",
+    fmt = "XY",
     noccasions = nocc,
     bysession = TRUE
   )
@@ -253,9 +253,8 @@ observation_metrics <- function(raw, traps_obj) {
   for (g in groups) {
     if (nrow(g) < 2) next
     g <- g[order(g$check), , drop = FALSE]
-    ii <- trap_index(traps_obj, c(g$TrapID[1], g$TrapID[nrow(g)]))
-    dx <- traps_obj[ii[1], "x"] - traps_obj[ii[2], "x"]
-    dy <- traps_obj[ii[1], "y"] - traps_obj[ii[2], "y"]
+    dx <- g$x[1] - g$x[nrow(g)]
+    dy <- g$y[1] - g$y[nrow(g)]
     spans <- c(spans, sqrt(dx * dx + dy * dy))
   }
 
