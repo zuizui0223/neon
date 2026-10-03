@@ -298,7 +298,7 @@ For the empirical transition kernel this gives predicted scale inflation of appr
 
 ### S9.2 Generative SCR simulation
 
-The simulation used `secr` 5.4.3 with:
+The simulation used `secr` 5.4.3 (Efford 2026) with:
 - 7×7 multi-catch detector grid;
 - 6.25-m spacing;
 - three trap checks per night;
@@ -392,3 +392,8 @@ SCR downstream consequence:
 - `results/scr_sigma_consequence_replicates_v1.csv`
 
 Review-package workflows verify these files independently of unrelated NEON project analyses.
+
+
+## Supplementary references
+
+Efford MG. 2026. *secr: Spatially explicit capture-recapture models*. R package version 5.4.3. DOI 10.32614/CRAN.package.secr.
