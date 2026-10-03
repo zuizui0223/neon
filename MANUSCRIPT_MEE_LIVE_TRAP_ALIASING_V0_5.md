@@ -1,0 +1,460 @@
+# Diagnosing when temporal aggregation changes spatial scale inference in repeated-location ecological data
+
+**Target:** Methods in Ecology and Evolution — Research Article  
+**Version:** v0.5  
+**Status:** exchangeability/stability revision; pre-submission enquiry remains on hold pending final review
+
+## Abstract
+
+1. Ecological observations are often aggregated to occasions such as nights, days or visits before spatial analysis. When the same marked individual is observed at multiple locations within one occasion, reducing those records to one spatial state can hide genuine positional variation. We call this **temporal positional aliasing**. The unresolved methodological question is not simply whether aliasing occurs, but whether it changes the downstream quantity an ecologist would report.
+
+2. We introduce a two-stage framework. A scale-aware screen first quantifies first-to-last positional span relative to a prechosen material spatial scale. We then distinguish this positional non-uniqueness from **representation instability**: sensitivity of a downstream estimator to defensible temporal representations. Under a temporally exchangeable static observation process, FIRST and LAST detector states are distributionally equivalent even when realized locations differ. Time reversal leaves all span-only diagnostics unchanged while reversing any directed FIRST-versus-LAST contrast, so span magnitude alone cannot identify the direction of downstream change.
+
+3. In a prospectively locked validation, shifts of at least one 6.25-m trap spacing occurred on 72.6% of 485 repeat-capture nights for *Peromyscus maniculatus* and 69.2% of 107 nights for *P. eremicus*, with replication across every eligible grid. Yet a pre-designated post-stop exploratory SCR analysis of the 19 estimable PEMA sessions gave sigma = 8.85 m under FIRST and 8.56 m under LAST (LAST/FIRST = 0.967; -3.3%), below a pre-existing 10% contextual materiality threshold. Consistently, stationary SCR simulations showed no systematic FIRST-versus-LAST separation. When the same simulation was given an ordered within-night state transition drawn from the empirical displacement kernel, temporal exchangeability was broken and FIRST/LAST sigma diverged; reversing transition order reversed the direction of the effect.
+
+4. Frequent positional aliasing is therefore a warning condition, not a bias estimate. Large within-occasion spatial variation can coexist with a stable downstream parameter when observations remain exchangeable around a common spatial kernel. Systematic inferential divergence requires additional temporal structure. The proposed workflow separates these questions explicitly: screen for positional non-uniqueness, then test the stability of the intended downstream estimand before deciding whether coarser aggregation is defensible or finer temporal/state modelling is required.
+
+## Data/Code for peer review## Data/Code for peer review
+
+An anonymized, self-contained review package containing the generic diagnostic, deterministic sensitivity bounds, frozen empirical result files, the post-stop PEMA representation-stability result, the SCR consequence benchmark, tests and figures is supplied as a single reviewer file. The third-party San Jacinto capture data are not redistributed in that package; they are publicly available from Figshare (DOI 10.6084/m9.figshare.18295520.v1), and the empirical pipeline verifies the frozen source-file checksum before analysis. A versioned archival code release and persistent identifier will replace the review-stage package record before final publication.
+
+## Keywords
+
+observation process; spatial ecology; temporal aggregation; capture–recapture; live trapping; positional uncertainty; repeated observations; sensitivity analysis; spatial scale; Peromyscus
+
+# 1. Introduction
+
+Ecological data are frequently collected at finer temporal resolution than they are analysed. Automated detectors may generate repeated detections within minutes, live traps may be checked repeatedly through a night, telemetry fixes may arrive irregularly, and observers may revisit the same marked individual several times during a survey interval. Yet many downstream analyses require a simpler unit: one state per night, visit, day or sampling occasion. The reduction from multiple observations to one state is often performed during data preparation and then disappears from the analytical description.
+
+That reduction can be spatially consequential. Suppose a marked individual is detected twice within one ecological occasion, first at location (F_t) and later at (L_t). Both are valid observations, but an analysis that requires one location per occasion must either retain one of them, define a rule for combining them, or redefine the temporal occasion itself. If (F_t) and (L_t) differ substantially at the spatial scale of the ecological question, the retained state is not simply a formatting choice: it can alter distances, spatial overlap and population configuration passed to later analyses.
+
+We call this **temporal positional aliasing**: within-occasion variation among valid observed locations that is hidden when multiple observations are collapsed to one representative spatial state. The term emphasizes the observation process rather than unobserved animal behaviour. Temporal positional aliasing is distinct from measurement error because the alternative positions are themselves recorded locations. It is distinct from reconstructing a movement path because two or several detections provide only sparse samples from that path. It is also distinct from temporal autocorrelation among successive observations, although all three issues may coexist.
+
+Temporal aggregation is not a new problem in ecology. Spatial capture–recapture (SCR/SECR) methods explicitly distinguish detector processes and sampling occasions. Multi-catch traps detain animals and conventionally contribute at most one detector location per individual per occasion, whereas proximity detectors can generate multiple detector records within an occasion (Efford et al. 2009; Efford & Boulanger 2019). Current `secr` software (Efford 2026) makes the reduction choice explicit: when multiple old occasions are pooled to a `multi`-trap occasion and an animal has conflicting detector locations, `reduce.capthist` resolves the conflict by selecting the first, last or a random detector record, while pooling detector usage across the contributing occasions. Thus FIRST and LAST are not peculiar constructions of this study; they are explicit representations available when repeated trap checks are aggregated. This coarsening also has direct small-mammal precedent: Romairone et al. (2018) checked live traps twice per day but represented each trapping day as one of eight SCR capture occasions within a session. Efford, Borchers & Mowat (2013) showed that variation in detector effort and sampling interval should be represented explicitly rather than absorbed silently into detection probability. Continuous-time SECR was developed in part because aggregating exact detection times into user-defined occasions discards information and introduces subjectivity in occasion definition (Borchers et al. 2014). More recent continuous-time SCR work explicitly incorporates movement between detections, emphasizing that conditional independence around a static activity centre can fail when detection locations are temporally dependent (Panchaud et al. 2026). Movement ecology likewise has a mature literature on temporal autocorrelation, irregular sampling and thinning. Interval-trapping studies have also used repeated within-night trap checks to study activity timing directly (Drickamer & Springer 1998).
+
+The gap addressed here is therefore narrower than temporal aggregation itself. We ask whether alternative valid positions observed for the same marked individual within one ecological occasion are material relative to the spatial scale of the intended analysis, and—critically—whether defensible temporal representations remain *estimand-equivalent* downstream. The contribution is a scale-aware pre-analysis diagnostic plus an explicit estimand-stability test, not a claim that temporal aggregation or FIRST/LAST reduction is newly recognized.
+
+A useful diagnostic should satisfy four requirements. First, it should be expressed relative to a spatial scale chosen from the study design or inferential context rather than rely on an arbitrary absolute distance. Second, it should distinguish what is observed among repeat-observed occasions from what can be claimed about all occasions. Third, it should remain useful when repeat observation is informative—that is, when the probability that an occasion is observed more than once depends on the underlying spatial process. Fourth, it should connect the raw positional span to interpretable FIRST-versus-LAST sensitivity of commonly used spatial summaries without requiring a full movement model.
+
+Here we develop such a framework (Figure 1). For individual $i$ in occasion $t$, we define the first-to-last observed positional span $\delta_{it}=d(F_{it},L_{it})$. We compare this span with a user-defined **material spatial scale** (s), which may be trap spacing, detector resolution, positional error, habitat-patch width or another scale below which positional differences are operationally negligible for the planned analysis.
+
+We make three linked contributions. First, we provide a generic diagnostic that summarizes the frequency and magnitude of material positional spans, including repeat-observation-conditioned estimates and a conservative all-occasion directly observed lower bound. Second, we show that this screen has a precise inferential limit. If check-level observations are temporally exchangeable conditional on the latent spatial state, reversing within-occasion time exchanges FIRST and LAST but leaves the distribution unchanged. More generally, time reversal leaves every span-only aliasing summary unchanged while reversing a directed FIRST-versus-LAST estimator contrast. Positional span can therefore flag potential sensitivity but cannot, by itself, identify the direction or existence of downstream bias. Third, we turn this limit into a practical two-stage workflow by pairing the aliasing screen with a representation-stability test of a downstream SCR spatial scale.
+
+The empirical and simulation components deliberately separate these stages. We first ask whether positional non-uniqueness replicates across two held-out Cricetidae and trapping grids. We then examine whether it actually changes pooled SCR sigma where estimation is possible, using a clearly labelled post-stop PEMA analysis that cannot rescue the failed two-species confirmatory gate. Finally, generative simulations distinguish an exchangeable static observation process from an ordered within-occasion state-transition process. The stationary case provides the null under which FIRST and LAST are distributionally equivalent; the ordered-transition case shows the additional temporal structure required for representation instability.
+
+Our aim is not to identify whether FIRST or LAST is biologically “correct”, nor to infer that handling caused the empirical within-night shifts. Instead, the framework asks two separate questions: does a nominal occasion contain materially different observed positions, and does the intended downstream estimand materially change under a defensible representation of those positions? A “yes” to the first question does not imply a “yes” to the second.
+
+# 2. Materials and Methods# 2. Materials and Methods
+
+## 2.1 Diagnostic definition
+
+Consider individual (i) during ecological occasion (t), with temporally ordered observed locations
+
+\[
+X_{it1}, X_{it2}, \ldots, X_{itK}.
+\]
+
+For an occasion with $K\ge 2$, define the first and last observed states
+
+\[
+F_{it}=X_{it1}, \qquad L_{it}=X_{itK},
+\]
+
+and the within-occasion positional span
+
+\[
+\delta_{it}=d(F_{it},L_{it}),
+\]
+
+where $d$ is an appropriate metric for the coordinate system. The generic software currently implements Euclidean distance, while the theoretical movement bound applies to any metric satisfying the triangle inequality.
+
+Let $s>0$ be a prechosen **material spatial scale**. We define a material positional-aliasing event as
+
+\[
+I(\delta_{it}\ge s).
+\]
+
+The choice of $s$ is deliberately external to the observed effect. It should be fixed from detector spacing, location precision or the scale of the planned ecological analysis. In the empirical live-trapping validation below, $s$ was one adjacent-trap spacing (6.25 m), a protocol-defined spatial resolution.
+
+For $R$ repeat-observed individual-occasions, the diagnostic reports the material-shift count and fraction, a two-sided 95% Wilson confidence interval, median and upper quantiles of $\delta$, and span expressed in units of $s$. The Wilson interval describes uncertainty in the repeat-observation-conditioned proportion; it does not by itself correct selection into the repeat-observed subset.
+
+The diagnostic also reports the number $N$ of all valid individual-occasions and the quantity
+
+\[
+\frac{\#\{\text{directly observed material shifts}\}}{N}.
+\]
+
+This fraction is an observational lower bound on the latent all-occasion material-shift fraction. A singly observed occasion cannot reveal a first-to-last change; treating such occasions as unresolved rather than as zero-shift ensures that the numerator contains only events directly exposed by repeated observation.
+
+## 2.2 Temporal exchangeability and time-reversal limitation
+
+Let one ecological occasion contain ordered check-level detector outcomes \(Y_1,\ldots,Y_K\), with zero denoting no detection. FIRST is the detector on the earliest non-zero check and LAST the detector on the latest non-zero check.
+
+If, conditional on the latent spatial state used by the downstream model, the check-level outcomes are temporally exchangeable, then
+
+\[
+(Y_1,\ldots,Y_K)\overset{d}=(Y_K,\ldots,Y_1).
+\]
+
+Time reversal exchanges FIRST and LAST while leaving the conditioning event of at least one detection unchanged. Therefore
+
+\[
+\mathrm{FIRST}\overset{d}=\mathrm{LAST}.
+\]
+
+Independent, identically distributed checks around a fixed activity centre are a sufficient special case. FIRST and LAST can differ in any realized finite dataset, including by several detector spacings, but neither rule has a directional population-level advantage under this exchangeability null.
+
+The same argument exposes a limit of any span-only diagnostic. Reversing within-occasion time changes \((F_t,L_t)\) to \((L_t,F_t)\), but
+
+\[
+d(F_t,L_t)=d(L_t,F_t).
+\]
+
+Thus the material-shift fraction, span quantiles and any statistic based only on the unordered distribution of \(\delta_t\) are invariant to time reversal. By contrast, a directed downstream contrast \(T(L)-T(F)\) changes sign, and \(\log\{T(L)/T(F)\}\) changes to its negative. The direction of a representation effect is therefore not identifiable from positional-span summaries alone.
+
+Temporal exchangeability can be broken by post-detection behavioural response, capture and release, changing detector effort, changing environmental conditions, directional within-occasion movement, or any other process that makes later checks sample a different state distribution. This distinction motivates the two-stage framework used here: the aliasing screen asks whether positional non-uniqueness is material; the downstream representation-stability analysis asks whether that non-uniqueness changes the intended estimand.
+
+## 2.3 Deterministic sensitivity bounds
+
+### 2.3.1 Inter-occasion movement
+
+For two occasions $t$ and $u$, define the FIRST-based movement distance $d(F_t,F_u)$ and LAST-based movement distance $d(L_t,L_u)$. By the triangle inequality,
+
+\[
+|d(F_t,F_u)-d(L_t,L_u)|\le \delta_t+\delta_u.
+\]
+
+Thus the combined within-occasion spans provide a deterministic upper bound on how much an inter-occasion movement estimate can change solely because the representative-location rule changes from FIRST to LAST (Figure 1).
+
+The bound does not assert that either representation is correct, that the bound is typically attained, or that $\delta$ is itself a movement path.
+
+### 2.3.2 Population mean pairwise distance
+
+For $n$ individuals represented within an occasion by paired FIRST and LAST locations, define
+
+\[
+MPD(F)=\frac{2}{n(n-1)}\sum_{i<j} d(F_i,F_j)
+\]
+
+and $MPD(L)$ analogously. Pairwise application of the triangle inequality gives
+
+\[
+|d(F_i,F_j)-d(L_i,L_j)|\le \delta_i+\delta_j.
+\]
+
+Summing across pairs yields
+
+\[
+|MPD(F)-MPD(L)|\le 2\overline{\delta}.
+\]
+
+If a standardized packing score uses common $n$ and fixed null moments,
+
+\[
+z=\frac{MPD-\mu_n}{\sigma_n},
+\]
+
+then
+
+\[
+|z_F-z_L|\le\frac{2\overline{\delta}}{\sigma_n}.
+\]
+
+We verified the inequalities numerically using sharpness examples and random Euclidean configurations. The inequalities are upper sensitivity bounds and are not stochastic estimators.
+
+## 2.4 Generic software implementation
+
+The generic command-line implementation requires a tabular file containing:
+1. a marked-individual identifier;
+2. an occasion identifier;
+3. a sortable within-occasion time;
+4. one or more numeric coordinate columns; and
+5. a prechosen material spatial scale.
+
+For each individual-occasion, records are ordered by time with source-row order as a deterministic tie-breaker. Invalid or incomplete rows are reported in quality-control counts. Occasions with a single valid observation contribute to the all-occasion denominator but not to the first-to-last span distribution.
+
+The software outputs the repeat-observed count, material-shift fraction and Wilson interval, span quantiles in original and material-scale units, and the deterministic movement and MPD sensitivity formulas. A checked-in synthetic CSV and expected JSON output provide an end-to-end example independent of the San Jacinto schema. Source code is released under the MIT License.
+
+## 2.5 Empirically anchored SCR consequence benchmark
+
+The original diagnostic-estimator simulation is retained in Supplementary Methods S3 because it establishes the interpretation of repeat-observation-conditioned proportions and Wilson intervals. The main downstream benchmark instead asks whether the observed within-night spatial variation can alter a fitted SCR spatial scale.
+
+### 2.5.1 Empirical transition kernel
+
+We pooled only already-opened observation-process summaries from the two held-out species. Across 1,520 valid captured individual-nights, 592 were repeat-observed and 426 repeat nights exhibited a first-to-last displacement of at least one 6.25-m trap spacing. Thus the empirical repeat probability was 592/1,520 = 0.3895, the material-change probability conditional on repeat observation was 426/592 = 0.7196, and the directly observed transition probability was 426/1,520 = 0.2803.
+
+For the 426 material changes we retained the observed two-dimensional detector-to-detector displacement vectors. Their pooled median length was 12.5 m and root-mean-square length was 16.94 m. The mean vector was close to zero relative to this RMS scale.
+
+As a continuous dense-detector benchmark, if a zero-mean isotropic transition vector $H$ occurs with probability $q$, then the per-axis second moment of a baseline half-normal kernel with spatial scale $\sigma$ becomes approximately
+
+\[
+\sigma_{\mathrm{eff}}^2
+\approx
+\sigma^2 + \frac{qE[R^2]}{2},
+\]
+
+where $R=\|H\|$. Therefore
+
+\[
+\frac{\sigma_{\mathrm{eff}}}{\sigma}
+\approx
+\sqrt{1+\frac{qE[R^2]}{2\sigma^2}}.
+\]
+
+For the observed transition kernel, this benchmark predicts approximately 42.5%, 12.1% and 3.2% scale inflation for baseline $\sigma=6.25$, 12.5 and 25 m, respectively. The corresponding 10% second-moment boundary occurs near $\sigma=13.84$ m. This calculation is an interpretive benchmark, not an empirical estimate of SCR sigma.
+
+### 2.5.2 SCR simulation
+
+We simulated multi-catch SCR data on the San Jacinto 7×7 detector array with 6.25-m spacing. The source protocol checked traps three times per night and released animals at the point of capture during each check (Chock et al. 2022). Each simulated session contained three nights. The stationary negative-control family generated all three within-night checks directly from a half-normal SCR model.
+
+The empirical-transition family began from a baseline nightly SCR capture history. For each captured individual-night, repeat observation was imposed with the empirical probability 0.3895. Conditional on repeat observation, a material detector transition was imposed with probability 0.7196 by resampling an observed held-out displacement vector. Non-repeat nights contributed one randomly positioned check; repeat nights contributed an early and a late check. This family is therefore an empirically calibrated **observation-process stress test**, not a correctly specified independent-check SCR generator: check-level encounter histories inherit within-night dependence because repeat checks are created conditional on a captured night. To avoid privileging FIRST by construction, we simulated two mirrored transition orientations. In POST simulations the baseline detector state occurred first and the displaced state last; in PRE simulations the displaced state occurred first and the baseline state last.
+
+Generating sigma was fixed at 6.25, 12.5 or 25 m. The detection intercept was $g_0=0.15$. The buffered population density was increased from 20 to 60 animals ha$^{-1}$ after an effect-blind estimability run showed insufficient fitting support at the lower density; no sigma effects from the low-support run were used for inference. Each stationary and transition cell used 40 Monte Carlo replicates.
+
+Each simulated record set was analysed three ways:
+- **CHECK:** all three physical trap checks retained as separate occasions;
+- **FIRST:** the three check intervals reduced to one nightly occasion, with the first observed detector retained when an individual was captured at more than one detector;
+- **LAST:** the analogous nightly reduction retaining the last observed detector.
+
+The FIRST/LAST reductions were implemented deterministically from the simulated event records, but match the corresponding conflict semantics documented for `secr::reduce.capthist` when `multi`-detector occasions are pooled.
+
+All fits used `secr` 5.4.3 (Efford 2026), detector type `multi`, half-normal detection, conditional likelihood, $g_0\sim b$, $\sigma\sim1$, and a 100-m mask buffer.
+
+### 2.5.3 Frozen diagnostics and interpretation
+
+The stationary family was a mandatory implementation control: temporal representation was not considered consequential unless stationary FIRST and LAST remained approximately centred on the same generating sigma. We report median relative sigma bias, 95% interval coverage, and paired LAST/FIRST, CHECK/FIRST and CHECK/LAST sigma ratios.
+
+A 10% relative difference was retained as the practical materiality scale used in the earlier frozen empirical SCR design. No empirical FIRST or LAST SCR sigma estimate was opened by this simulation.
+
+## 2.6 Prospectively held-out empirical validation
+
+### 2.6.1 Dataset
+
+We used the public San Jacinto small-mammal dataset deposited with Chock, Shier & Grether (2022; Figshare DOI 10.6084/m9.figshare.18295520.v1). The raw capture table contained date, capture time, trapping grid, trap flag, species and unique individual identifier.
+
+The original study used fixed 7×7 trapping grids with 6.25-m trap spacing and repeated trap checks within nights. We treated the source `date` field as the trapping-night label rather than as a literal timestamp date. A structural, effect-independent audit supported that interpretation: the raw grid × date grouping contained all three published activity bins (early, middle and late) in 250/290 groups (86.2%), whereas an alternative that moved midnight/post-midnight records to the previous calendar date produced only 142/405 complete groups (35.1%); median transformed capture times also ordered early < middle < late. Our analysis is a secondary analysis of public data and involved no new animal handling. Chock et al. (2022) reported compliance with applicable institutional animal-care guidelines.
+
+### 2.6.2 Prospectively held-out taxa
+
+The methodological question was first motivated by an exploratory heteromyid analysis, but those discovery species were excluded from confirmatory inference. An effect-blind support scan was then conducted for previously unopened Cricetidae. Before first-to-last outcomes were inspected, an effect lock selected two species with sufficient repeat-capture support:
+
+- *Peromyscus maniculatus* (PEMA): 485 repeat-capture individual-nights across 8 grids and 12 trapping bouts;
+- *Peromyscus eremicus* (PEER): 107 repeat-capture individual-nights across 3 grids and 10 bouts.
+
+A third candidate cricetid lacked sufficient repeat-capture support and was excluded before outcomes were opened.
+
+### 2.6.3 Frozen empirical endpoint and decision rule
+
+For each valid repeat-capture individual-night, we retained the earliest and latest valid trap flags under a deterministic nocturnal time ordering. The primary outcome was
+
+\[
+I(d_{\mathrm{first,last}}\ge 6.25\,\mathrm{m}),
+\]
+
+where 6.25 m is exactly one adjacent-trap spacing.
+
+The species-level confirmatory criterion was frozen as:
+1. material-shift fraction (>0.25);
+2. lower two-sided Wilson 95% bound (>0.25);
+3. spatial replication in at least two grids with at least 20 repeat-capture nights and raw material-shift fraction (>0.25).
+
+Both held-out species were required to pass. The 25% threshold was an operational materiality criterion selected before outcome inspection to distinguish widespread positional aliasing from a rare edge case; it was not fitted to the observed fractions.
+
+Because the same marked individual could contribute repeat-capture nights on more than one occasion, the prospectively frozen Wilson interval is best viewed as a night-level binomial working interval rather than as the sole assessment of dependence-aware uncertainty. We therefore assessed repeated contributions separately with a grid-stratified individual-cluster bootstrap and deterministic leave-one-individual summaries (Section 2.8). That post-result audit could not alter or rescue the frozen decision rule.
+
+Secondary, non-rescuing summaries included median, 75th and 90th percentile first-to-last span, maximum span, elapsed time between first and last capture, and grid-specific raw fractions.
+
+## 2.7 All-occasion denominator audit
+
+The confirmatory fraction is conditioned on repeat observation. We therefore conducted a post-result denominator audit that did not alter the frozen decision rule. For each held-out species we counted all valid individual-nights, the subset with at least two valid captures, and nights on which a $\ge 1$-spacing shift was directly observed.
+
+We interpret
+
+\[
+\frac{\text{directly observed material-shift nights}}{\text{all valid individual-nights}}
+\]
+
+only as a lower bound. No assumption is made that single-capture nights had zero positional span.
+
+## 2.8 Prospectively gated downstream MCP analysis
+
+To test whether positional aliasing could be propagated empirically into a familiar downstream estimator, we pre-specified a 100% minimum convex polygon (MCP) sensitivity analysis. Eligibility required at least 10 capture nights, at least five unique FIRST flags, at least five unique LAST flags, and non-collinear FIRST and LAST geometries.
+
+Before any MCP area was calculated, the support gate required at least 20 eligible PEMA and 15 eligible PEER individuals. The effect-blind support scan produced only 17 and 6, respectively. The downstream effect stage was therefore declared non-estimable and no MCP area effect is reported. This failed gate is retained as a transparency result and does not modify the primary positional-aliasing inference.
+
+## 2.9 Post-stop PEMA SCR representation-stability analysis
+
+The prospectively planned two-species SCR sigma comparison stopped before any empirical sigma was fitted because only PEMA passed the frozen species-level session-support gate. After that stop, we conducted one explicitly exploratory PEMA-only comparison to provide empirical context for the simulation result. This analysis cannot rescue or replace the stopped confirmatory programme.
+
+We used the 19 PEMA species × grid × trapping-bout sessions that had passed the frozen effect-blind support gate, spanning five grids. FIRST and LAST capture histories contained exactly the same 525 individual × occasion observations and differed only in the retained trap location on repeat-capture nights. Each session used the fixed 7×7, 6.25-m multi-catch detector layout and a 100-m trap-buffer mask.
+
+The pre-designated primary exploratory model was fitted in `secr` 5.4.3 with half-normal detection and conditional likelihood:
+
+- \(g_0\sim b+\mathrm{grid}+\mathrm{bout}\);
+- \(\sigma\sim 1\).
+
+We report FIRST and LAST sigma estimates, their marginal 95% confidence intervals, and the ratio \(\sigma_{LAST}/\sigma_{FIRST}\). The existing 10% relative-change threshold is retained only as a contextual materiality benchmark; it is not an equivalence margin or a confirmatory test.
+
+## 2.10 Post-result individual-dependence audit
+
+The frozen confirmatory rule treated repeat-capture individual-nights as the binomial units and separately required replication across trapping grids. Because the same marked individual could contribute multiple nights, we conducted a post-result, non-rescuing dependence audit to test whether a small number of repeatedly observed individuals dominated the species-level fractions.
+
+Within each species, identity was defined as grid × individual ID. We reported the number and size distribution of individual clusters, an equal-individual mean of individual-specific material-shift fractions, deterministic leave-one-individual fractions, and a grid-stratified cluster bootstrap. The bootstrap resampled individual clusters with replacement within each grid, retained all repeat nights from a sampled cluster, used 20,000 replicates and a fixed seed (20260930), and reported percentile 95% intervals. This audit was not part of the frozen confirmatory decision and could not rescue a failed primary result.
+
+## 2.11 AI-assisted development and verification
+
+OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026) was used interactively to assist with drafting and refactoring Python analysis, test and workflow code; checking mathematical and statistical logic; identifying potential failure modes; supporting literature discovery; and drafting and editing manuscript text. AI output was not treated as empirical evidence, an independent author or a substitute for source verification. Analysis decisions and claim boundaries were preserved in version-controlled design locks and frozen result receipts, and computational outputs were checked with deterministic unit tests, continuous-integration workflows, source checksums, simulation benchmarks and manuscript-value invariants. The authors retain responsibility for the scientific content, code, source attribution, interpretation and conclusions. Source files substantially drafted or refactored with AI assistance are annotated accordingly.
+
+# 3. Results
+
+## 3.1 Prospectively held-out positional non-uniqueness
+
+Both held-out Cricetidae passed the frozen positional-aliasing criterion by wide margins.
+
+For *P. maniculatus*, 352 of 485 repeat-capture individual-nights exhibited a first-to-last shift of at least 6.25 m, corresponding to 72.6% (95% Wilson CI 68.4–76.4%). The median first-to-last span across repeat nights was 8.84 m and the 90th percentile was 25.0 m. All seven grids meeting the frozen replication support threshold exceeded the 25% grid-level material-shift threshold.
+
+For *P. eremicus*, 74 of 107 repeat-capture nights exhibited a material shift, corresponding to 69.2% (95% Wilson CI 59.9–77.1%). The median span was 6.25 m and the 90th percentile 19.76 m. All three eligible grids exceeded the grid-level threshold.
+
+Thus the frozen empirical programme decision for positional non-uniqueness was
+
+\[
+\texttt{authorize\_live\_trap\_positional\_aliasing\_result}.
+\]
+
+## 3.2 Frequent aliasing did not imply material PEMA sigma instability
+
+The prospectively planned empirical two-species SCR programme remained stopped because PEER did not meet its session-support requirement. The subsequent PEMA-only analysis is therefore exploratory.
+
+Across the 19 frozen eligible PEMA sessions, FIRST and LAST histories each contained 525 identical individual × occasion observations. Under the primary model, FIRST gave \(\hat\sigma=8.8515\) m (95% CI 8.0310–9.7559) and LAST gave \(\hat\sigma=8.5625\) m (7.7806–9.4229). The ratio was
+
+\[
+\hat\sigma_{LAST}/\hat\sigma_{FIRST}=0.9673,
+\]
+
+a relative change of -3.27%. This did not cross the existing 10% contextual materiality threshold.
+
+The empirical result therefore separates the two questions motivating the framework: within-night position was frequently non-unique, but the pooled PEMA SCR spatial scale was comparatively stable to whether the first or last nightly capture location was retained.
+
+## 3.3 Exchangeability null and ordered-state failure mode
+
+The SCR simulations reproduced the distinction predicted by the exchangeability argument.
+
+When all within-night checks sampled one stationary SCR state, FIRST and LAST did not separate systematically. Across generating \(\sigma=6.25\), 12.5 and 25 m, median LAST/FIRST sigma ratios were 1.007, 0.966 and 1.025, and the maximum absolute median relative bias across the three temporal representations was 3.95%.
+
+We then broke temporal exchangeability by imposing an ordered within-night state transition using the observed held-out displacement-vector distribution and repeat frequency. With the baseline state observed before the transition (POST), median LAST/FIRST sigma ratios were 1.347, 1.154 and 1.124 for generating \(\sigma=6.25\), 12.5 and 25 m. Reversing the temporal ordering (PRE) preserved the same displacement magnitudes but reversed the direction of the representation effect: corresponding ratios were 0.766, 0.856 and 0.894.
+
+At \(\sigma=6.25\) m, POST median sigma biases were approximately -0.6% for FIRST and +38.8% for LAST; PRE gave +35.0% for FIRST and -0.7% for LAST. At \(\sigma=12.5\) m, POST biases were -1.7% and +15.1%, whereas PRE biases were +16.6% and approximately 0.0%.
+
+The mirror experiment is important because all span-only aliasing summaries are invariant to reversing the temporal labels. The downstream direction changed while the positional-span distribution did not, demonstrating that span magnitude alone cannot identify which representation, if either, is closer to a baseline spatial scale.
+
+CHECK-level fits in this particular stress test are not used to isolate the effect of state mixing because the empirical-transition generator also clusters repeated detections within captured nights. The correctly generated stationary CHECK controls remained close to the generating sigma. A separate sequential-check robustness benchmark was attempted with every check generated directly through `secr`, but its pre-specified negative-control gate failed narrowly (maximum absolute median bias 10.22% versus a 10% requirement), so its non-zero-shift cells are not promoted as confirmatory support.
+
+## 3.4 Denominator context
+
+Repeat-observed nights represented a substantial but incomplete subset of all valid individual-nights.
+
+For *P. maniculatus*, 485 of 1,219 valid individual-nights were repeat-observed (39.8%). A material \(\ge6.25\)-m shift was directly observed on 352 nights, corresponding to at least 28.9% of all valid individual-nights.
+
+For *P. eremicus*, 107 of 301 valid individual-nights were repeat-observed (35.5%). Seventy-four nights showed a material shift, corresponding to an all-night directly observed lower bound of 24.6%.
+
+These values do not estimate latent aliasing on single-capture nights. They show only that directly observed positional non-uniqueness was not confined to a vanishingly small observation class.
+
+## 3.5 Downstream MCP support gate
+
+The prospectively gated MCP analysis did not reach its effect stage. Seventeen PEMA and six PEER individuals satisfied the frozen high-information eligibility rules, below the required thresholds of 20 and 15. No MCP areas, area ratios or inferential comparisons were authorized.
+
+## 3.6 Individual-cluster sensitivity
+
+The post-result dependence audit did not indicate that the confirmatory positional-aliasing fractions were driven by a few repeatedly sampled individuals. PEMA contained 170 grid-specific individual clusters; its equal-individual material-shift fraction was 71.1%, the grid-stratified cluster-bootstrap 95% interval was 68.0–77.0%, and the maximum single-individual contribution was 2.9% of repeat nights. PEER contained 34 clusters; its equal-individual fraction was 65.9%, the bootstrap interval was 61.3–78.9%, and the maximum individual contribution was 14.0%. These are robustness summaries only; the frozen Wilson/grid rule remains the confirmatory empirical analysis.
+
+# 4. Discussion
+
+## 4.1 Positional aliasing is a warning condition, not a bias estimate
+
+The held-out validation establishes a simple but important empirical fact: one live-trapping night often contained more than one materially different observed detector state for the same individual. Yet the post-stop PEMA analysis showed that this did not automatically propagate into a material change in pooled SCR sigma. A 72.6% material-shift fraction among repeat nights coexisted with only a -3.3% FIRST-versus-LAST sigma difference.
+
+This distinction changes the interpretation of the diagnostic. The first-stage screen identifies positional non-uniqueness at the scale relevant to the analysis. It does not estimate downstream bias and should not be presented as if it did.
+
+## 4.2 Temporal exchangeability explains the stable case
+
+The exchangeability null gives an exact reason why large realized FIRST-to-LAST distances can coexist with estimator stability. If repeated checks sample the same conditional detector distribution around a static spatial state, reversing check order does not change the joint distribution. FIRST and LAST are then distributionally equivalent even though they may be different traps in a particular night.
+
+The stationary SCR simulations behaved accordingly, and the exploratory PEMA result is compatible with this regime. We do not claim that PEMA detections are exactly independent or that handling has no effect. Rather, there is no empirical FIRST-versus-LAST sigma signal here that requires a systematic ordered state change to explain it.
+
+## 4.3 Ordered within-occasion state change breaks representation equivalence
+
+The failure mode is not aggregation by itself but temporal structure that makes later observations sample a different state distribution. In the ordered-transition simulations, the empirical displacement kernel was large relative to the generating spatial scale, and FIRST and LAST selected different mixtures of baseline and transitioned states.
+
+The time-reversal result makes this mechanism especially transparent. PRE and POST simulations retained the same span distribution, material-shift frequency and displacement magnitudes. Only temporal ordering changed, yet the FIRST/LAST sigma contrast reversed direction. Therefore neither the sign nor the existence of a downstream representation effect can be inferred from span summaries alone.
+
+The natural scale of the risk is the size and frequency of ordered state changes relative to the downstream spatial kernel. The existing second-moment approximation remains useful as a stress-test scale, but it should be interpreted as a model-dependent consequence benchmark rather than as a correction for the San Jacinto data.
+
+## 4.4 Why “use every trap check as an occasion” is sometimes right and sometimes incomplete
+
+When the check-level process is approximately exchangeable around a static activity centre, retaining every check is the cleanest way to avoid discarding detections, provided effort and detector use are represented correctly. In that setting coarsening mainly loses information.
+
+The answer changes when detections are temporally dependent because the latent spatial state itself evolves. Treating every check as an occasion retains the observations but does not make a static-centre SCR model correct. Continuous-time SECR already addresses information loss and subjective occasion definition (Borchers et al. 2014), and recent continuous-time SCR work explicitly models movement between detections when conditional independence around one activity centre is inadequate (Panchaud et al. 2026). Our contribution is therefore not a replacement for those models. It is a pre-analysis diagnostic for deciding whether a coarse representation appears benign, whether a simple representation-sensitivity analysis is sufficient, or whether a dynamic model is warranted.
+
+## 4.5 Repeat-observation conditioning remains a separate sampling issue
+
+The repeat-night material-shift fraction is conditional on being observed more than once. It estimates an all-occasion frequency only if repeat observation is non-informative with respect to the latent spatial process. The all-night directly observed fractions avoid pretending that single-capture nights are zero-shift, but they are lower bounds, not corrected prevalence estimates.
+
+This sampling limitation is conceptually separate from representation stability. A repeat-conditioned aliasing fraction may be biased upward or downward while a downstream parameter remains stable, and conversely a modest aliasing fraction can be consequential if the displaced state is strongly ordered and large relative to the model's spatial scale.
+
+## 4.6 The empirical stopping rules remain informative
+
+Two prospectively planned downstream routes stopped for insufficient support. The MCP analysis failed its individual-level gate, and the two-species empirical SCR sigma programme failed because PEER had only two eligible sessions. We retain those stops. The PEMA-only sigma comparison is useful precisely because it is labelled as post-stop exploratory rather than presented as rescued confirmation.
+
+The failed sequential robustness gate is treated the same way. Its negative control exceeded the pre-specified 10% tolerance by 0.22 percentage points, so non-zero-shift results are not promoted even though the paired FIRST/LAST ratios in the zero-shift cells remained close to one. Preserving that distinction prevents a favourable stress-test result from overriding its own quality criterion.
+
+## 4.7 Generality and recommended workflow
+
+The framework is not restricted to live trapping. Any repeated-location system can contain several valid states within one nominal analytical occasion: acoustic localization, camera detections, visual resightings, telemetry fixes, nest attendance, repeated plant or colony mapping, or other observation processes in which data are coarsened before analysis.
+
+A practical workflow follows directly from the results:
+
+1. define the ecological occasion and material spatial scale before inspecting the effect;
+2. quantify within-occasion positional non-uniqueness, keeping repeat-conditioned estimates separate from all-occasion lower bounds;
+3. ask whether the check-level observation process is plausibly exchangeable around the downstream model's latent state;
+4. if positional aliasing is material, re-run the intended downstream analysis under defensible temporal representations;
+5. treat stable downstream estimates as evidence that the coarsening choice is not practically important for that estimand, and unstable estimates as a trigger for finer temporal or state modelling.
+
+The central methodological point is deliberately narrower than “never aggregate”. The useful question is: **when does temporal representation change the spatial quantity we intend to infer?** The San Jacinto example shows both sides of that decision: substantial positional non-uniqueness, but empirical PEMA sigma stability; and generative ordered-state conditions under which the same representation choice becomes consequential.
+
+# 5. Data and code availability# 5. Data and code availability
+
+The empirical source data are publicly available in Figshare (DOI 10.6084/m9.figshare.18295520.v1) with Chock et al. (2022). The analysis verifies the source file checksum before use.
+
+The generic diagnostic, sensitivity-bound implementation, corrected simulation benchmark, empirical validation pipeline, tests and figure-generation scripts are released under the MIT License in the manuscript review repository. A versioned archival release and persistent repository identifier will be added before final submission.
+
+# 6. Ethics statement
+
+This study is a secondary analysis of previously collected public data and involved no new animal capture or handling. Chock et al. (2022) report compliance with applicable institutional guidelines for animal care and use in the original field study.
+
+# Figure captions
+
+**Figure 1. Temporal positional aliasing and deterministic sensitivity bounds.** A single ecological occasion can contain more than one valid observed spatial state for the same marked individual. For occasions $t$ and $u$, $F$ and $L$ denote first and last observed positions and $\delta$ the within-occasion positional span. The difference between FIRST→FIRST and LAST→LAST inter-occasion movement estimates is bounded by $\delta_t+\delta_u$; population MPD sensitivity is bounded by twice mean within-occasion span.
+
+**Figure 2. Temporal representation changes SCR spatial scale only when the within-night observation process changes state.** A: stationary negative controls show median relative sigma bias for CHECK, FIRST and LAST encodings at generating sigma values of 6.25, 12.5 and 25 m; dashed lines denote ±10%. B: paired LAST/FIRST sigma ratios after injecting the empirical transition kernel in mirrored POST and PRE orientations. The solid line at one denotes rule invariance and dashed lines at 0.9 and 1.1 denote the pre-specified 10% sensitivity band. Each cell used 40 Monte Carlo replicates.
+
+**Figure 3. Prospectively held-out positional-aliasing validation.** Species-level material-shift fractions and 95% Wilson intervals for PEMA and PEER; small points show eligible trapping-grid fractions. The vertical dashed line is the frozen 25% materiality threshold.
+
+**Figure 4. Denominator context and positional-span magnitude.** A: fraction of all valid individual-nights that were repeat-observed and the conservative all-night fraction with directly observed $\ge 1$-spacing shifts. B: median and 90th-percentile first-to-last spans in trap-spacing units.
+
+# References
+
+Borchers DL, Distiller G, Foster RJ, Harmsen BJ, Milazzo L. 2014. Continuous-time spatially explicit capture–recapture models, with an application to a jaguar camera-trap survey. *Methods in Ecology and Evolution* 5:656–665. https://doi.org/10.1111/2041-210X.12196.
+
+Chock RY, Shier DM, Grether GF. 2022. Niche partitioning in an assemblage of granivorous rodents, and the challenge of community-level conservation. *Oecologia* 198:553–565. https://doi.org/10.1007/s00442-021-05104-5.
+
+Drickamer LC, Springer LM. 1998. Methodological aspects of the interval trapping method with comments on nocturnal activity patterns in house mice living in outdoor enclosures. *Behavioural Processes* 43:171–181. https://doi.org/10.1016/S0376-6357(98)00012-6.
+
+Efford MG, Borchers DL, Mowat G. 2013. Varying effort in capture–recapture studies. *Methods in Ecology and Evolution* 4:629–636. https://doi.org/10.1111/2041-210X.12049.
+
+Efford MG, Boulanger J. 2019. Fast evaluation of study designs for spatially explicit capture–recapture. *Methods in Ecology and Evolution* 10:1529–1535. https://doi.org/10.1111/2041-210X.13239.
+
+Efford MG, Dawson DK, Borchers DL. 2009. Population density estimated from locations of individuals on a passive detector array. *Ecology* 90:2676–2682. https://doi.org/10.1890/08-1735.1.
+
+Efford MG. 2026. *secr: Spatially explicit capture-recapture models*. R package version 5.4.3. DOI 10.32614/CRAN.package.secr.
+
+Panchaud C, King R, Borchers D, Worthington H. 2026. Incorporating animal movement into continuous-time spatial capture-recapture models. arXiv:2608.17046.\n\nRomairone J, Jiménez J, Luque-Larena JJ, Mougeot F. 2018. Spatial capture-recapture design and modelling for the study of small mammals. *PLoS ONE* 13:e0198766. https://doi.org/10.1371/journal.pone.0198766.
