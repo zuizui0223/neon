@@ -1,0 +1,107 @@
+name: san-jacinto-scr-sigma-downstream-simulation
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SAN_JACINTO_SCR_SIGMA_SIMULATION_DESIGN_V1.md
+      - analysis/simulate_san_jacinto_scr_sigma_impact_v1.R
+      - .github/workflows/san-jacinto-scr-sigma-simulation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Verify frozen design boundary
+        shell: bash
+        run: |
+          test -f docs/SAN_JACINTO_SCR_SIGMA_SIMULATION_DESIGN_V1.md
+          grep -q "frozen before simulation results are opened"             docs/SAN_JACINTO_SCR_SIGMA_SIMULATION_DESIGN_V1.md
+          grep -q "No empirical first-versus-last sigma estimates are opened"             docs/SAN_JACINTO_SCR_SIGMA_SIMULATION_DESIGN_V1.md
+
+      - name: Run downstream sigma simulation
+        shell: bash
+        run: |
+          Rscript analysis/simulate_san_jacinto_scr_sigma_impact_v1.R             --reps 8             --output-json /tmp/simulation_result_v1.json             --output-csv /tmp/simulation_replicates_v1.csv
+
+      - name: Validate result contract
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+
+          p=json.loads(Path("/tmp/simulation_result_v1.json").read_text())
+          assert p["schema"]=="neon.san_jacinto_scr_sigma_downstream_simulation.v1"
+          assert p["claim_boundary"]["empirical_sigma_opened"] is False
+          assert p["claim_boundary"]["empirical_two_species_gate_remains_stopped"] is True
+          assert len(p["cells"])==12
+          assert sorted(p["constants"]["true_sigma_m"])==[6.25,12.5,25]
+          assert sorted(p["constants"]["handling_rms_m"])==[0,6.25,12.5,25]
+          assert p["constants"]["checks_per_night"]==3
+          assert p["constants"]["nights"]==3
+
+          # At least one representation must fit in every cell; otherwise the
+          # simulation is too sparse to answer the downstream question.
+          for cell in p["cells"]:
+              rates=[
+                  cell["check_fit_rate"],
+                  cell["first_fit_rate"],
+                  cell["last_fit_rate"],
+              ]
+              assert any((x is not None and math.isfinite(x) and x>0) for x in rates), cell
+
+          print(json.dumps({
+              "negative_control":p["negative_control"],
+              "empirically_scale_matched_cell":p["empirically_scale_matched_cell"],
+          },indent=2))
+          PY
+
+      - name: Persist simulation result
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p validation/san_jacinto_scr_sigma_v1
+          cp /tmp/simulation_result_v1.json              validation/san_jacinto_scr_sigma_v1/simulation_result_v1.json
+          cp /tmp/simulation_replicates_v1.csv              validation/san_jacinto_scr_sigma_v1/simulation_replicates_v1.csv
+          git add validation/san_jacinto_scr_sigma_v1/simulation_result_v1.json
+          git add validation/san_jacinto_scr_sigma_v1/simulation_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "simulation result unchanged"
+          else
+            git commit -m "Record SCR sigma downstream simulation"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - name: Upload simulation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-scr-sigma-downstream-simulation-v1
+          path: |
+            /tmp/simulation_result_v1.json
+            /tmp/simulation_replicates_v1.csv
+          if-no-files-found: error
+          retention-days: 30
