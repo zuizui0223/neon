@@ -126,3 +126,14 @@ Not permitted:
 - reopen PEER real-data sigma fitting after its frozen support failure;
 - lower the prior real-data estimability threshold.
 
+
+
+## Estimability amendment after smoke v1
+
+Smoke v1 was treated as an implementation/estimability check, not as a scientific result. With 120 simulated animals, the exact static negative-control cell (`rho=0`, `release_jitter_sd_m=0`) produced 0/3 successful FIRST, LAST and CHECK fits. Most other smoke cells were similarly non-estimable. Therefore no sigma-effect direction from smoke v1 is used for inference.
+
+Before any primary simulation is run, the simulated buffered population is increased from 120 to 600 animals. This amendment changes only statistical support. The generating sigma grid, release-location persistence grid, jitter grid, PEMA-like/PEER-like detection profiles, three representation rules, fitted SCR model and 10% materiality threshold are unchanged.
+
+The negative-control implementation gate is also repaired: a control cell cannot pass merely because all fitted ratios are missing. A valid full run now requires >=80% successful FIRST and LAST fits in each zero-perturbation control cell, a finite median LAST/FIRST ratio, and |median ratio - 1| < 0.10.
+
+Smoke-v1 files remain in repository history as an audit record.
