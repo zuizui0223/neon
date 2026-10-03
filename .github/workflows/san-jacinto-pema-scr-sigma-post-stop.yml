@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: pema-scr-sigma-post-stop-\${{ github.ref }}
+  group: pema-scr-sigma-post-stop-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
