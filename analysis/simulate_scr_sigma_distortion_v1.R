@@ -124,7 +124,6 @@ simulate_raw <- function(traps_obj, sigma_true, g0, rho, jitter_sd, seed) {
       if (nrow(d) == 0) next
       names(d)[1:5] <- c("Session", "ID", "Occasion", "x", "y")
       d$ID <- as.character(d$ID)
-      d$TrapID <- as.character(d$TrapID)
       d$night <- night
       d$check <- check
       d$Occasion <- (night - 1L) * CHECKS + check
