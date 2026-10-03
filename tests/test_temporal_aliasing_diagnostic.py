@@ -34,6 +34,26 @@ class TemporalAliasingDiagnosticTests(unittest.TestCase):
         self.assertEqual(m.wilson_interval(0,50)[0],0.0)
         self.assertEqual(m.wilson_interval(50,50)[1],1.0)
 
+    def test_state_mixing_scale_and_ratio(self):
+        # Two exposed spans among four total occasions:
+        # sqrt((3^2+4^2)/(2*4)) = sqrt(25/8).
+        scale=m.observed_transition_energy_scale([3,4],4)
+        self.assertAlmostEqual(scale,(25/8)**0.5)
+        out=m.state_mixing_sensitivity([3,4],4,sigma_ref=5)
+        self.assertAlmostEqual(out["state_mixing_ratio_A_sigma"],scale/5)
+        self.assertAlmostEqual(
+            out["second_moment_predicted_sigma_ratio"],
+            (1+(scale/5)**2)**0.5,
+        )
+        self.assertAlmostEqual(
+            out["ten_percent_materiality_A_sigma"],
+            (1.10**2-1)**0.5,
+        )
+
+    def test_state_mixing_denominator_validation(self):
+        with self.assertRaises(ValueError):
+            m.observed_transition_energy_scale([1,2],1)
+
     def test_bounds(self):
         self.assertEqual(m.movement_sensitivity_bound(2,3),5)
         self.assertEqual(m.mpd_sensitivity_bound([2,4]),6)
