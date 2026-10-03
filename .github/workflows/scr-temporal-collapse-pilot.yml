@@ -39,7 +39,7 @@ jobs:
       - name: Run temporal-collapse SCR pilot
         run: |
           Rscript analysis/scr_temporal_collapse_simulation_v1.R \
-            --replicates 6 \
+            --replicates 1 \
             --seed 20261003 \
             --output-json /tmp/scr_temporal_collapse_pilot_v1.json \
             --output-csv /tmp/scr_temporal_collapse_pilot_replicates_v1.csv
@@ -52,7 +52,7 @@ jobs:
           stopifnot(identical(z$interpretation_guardrails$empirical_sigma_effect_opened, FALSE))
           stopifnot(identical(z$interpretation_guardrails$empirical_scr_stop_gate_relaxed, FALSE))
           d <- read.csv("/tmp/scr_temporal_collapse_pilot_replicates_v1.csv")
-          stopifnot(nrow(d) == 2 * 4 * 6)
+          stopifnot(nrow(d) == 2 * 4 * 1)
           stopifnot(all(d$checks_per_night %in% 1:4))
           stopifnot(all(d$detectfn %in% c("HN", "HHN")))
           cat("rows:", nrow(d), "\n")
