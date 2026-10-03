@@ -154,8 +154,20 @@ simulate_one <- function(detectfn, checks, rep_id, seed) {
     seed = seed
   )
   d <- capture_frame(ch, checks)
-  first_ch <- collapse_history(d, "first", checks)
-  last_ch <- collapse_history(d, "last", checks)
+  first_ch <- reduce(
+    ch,
+    by = checks,
+    outputdetector = "multi",
+    select = "first",
+    dropunused = FALSE
+  )
+  last_ch <- reduce(
+    ch,
+    by = checks,
+    outputdetector = "multi",
+    select = "last",
+    dropunused = FALSE
+  )
   count_ch <- tryCatch(
     reduce(
       ch,
