@@ -131,6 +131,38 @@ The exact simulation reports E[R^2] from the frozen empirical vector kernel
 and compares the corresponding continuous-limit prediction with fitted
 discrete-grid SCR estimates.
 
+### Empirical robustness of the 6.34 m transition scale
+
+Using all 592 repeat-observed PEMA+PEER nights and assigning zero observed
+first-to-last displacement to same-trap repeat nights gives
+
+mean(delta^2 | repeat-observed night) = 206.46 m^2,
+
+so
+
+T_repeat = sqrt(mean(delta^2)/2) = 10.16 m
+
+and, with the observed repeat-night fraction 592/1520,
+
+T_obs = sqrt((592/1520) * mean(delta^2)/2) = 6.34 m.
+
+This calibration is not driven by one taxon or one trapping grid.
+
+Species-specific values using each species' own all-night denominator are:
+- PEMA: T_obs = 6.49 m;
+- PEER: T_obs = 5.70 m.
+
+As a non-inferential concentration audit, holding the pooled repeat-observation
+fraction fixed and leaving out each species x grid block in turn gives a
+transition-scale range of 5.98--6.48 m.
+
+There are 204 grid-specific individual clusters among the repeat nights.
+The largest single cluster contributes 7.6% of the observed squared-displacement
+energy; the five largest contribute 17.7% and the ten largest 27.1%.
+
+These are robustness descriptions of the empirical calibration, not confidence
+intervals and not a reopening of the frozen downstream empirical SCR gate.
+
 This is the more general criterion: a large raw positional span need not imply
 a large sigma consequence if the baseline sigma is much larger; the same
 observation-process displacement can be consequential when sigma is small.
