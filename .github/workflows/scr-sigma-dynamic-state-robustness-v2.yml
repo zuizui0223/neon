@@ -1,0 +1,106 @@
+name: scr-sigma-dynamic-state-robustness-v2
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SCR_SIGMA_DYNAMIC_STATE_ROBUSTNESS_V2.md
+      - analysis/simulate_scr_sigma_dynamic_state_v2.R
+      - .github/workflows/scr-sigma-dynamic-state-robustness-v2.yml
+  workflow_dispatch:
+
+concurrency:
+  group: scr-sigma-dynamic-state-v2-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      R_LIBS_USER: ${{ github.workspace }}/.R/library
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Download and verify frozen San Jacinto source
+        run: |
+          mkdir -p data/cache/san_jacinto
+          curl -L --fail --retry 4 \
+            https://ndownloader.figshare.com/files/33058799 \
+            -o data/cache/san_jacinto/year_round_trap_data.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  data/cache/san_jacinto/year_round_trap_data.csv" \
+            | sha256sum -c -
+
+      - name: Run sequential dynamic-state robustness simulation
+        run: |
+          Rscript analysis/simulate_scr_sigma_dynamic_state_v2.R \
+            --source data/cache/san_jacinto/year_round_trap_data.csv \
+            --nrepl 24 \
+            --cores 4 \
+            --seed 20261003 \
+            --output-json results/scr_sigma_dynamic_state_v2.json \
+            --output-csv results/scr_sigma_dynamic_state_replicates_v2.csv
+
+      - name: Verify result contract and negative control
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/scr_sigma_dynamic_state_v2.json").read_text())
+          assert p["schema"]=="neon.scr_sigma_dynamic_state_robustness.v2"
+          assert p["nrepl_per_cell"]==24
+          assert p["diagnostic_checks"]["empirical_real_data_sigma_opened"] is False
+          assert p["diagnostic_checks"]["v1_conditional_record_expansion_used"] is False
+          assert p["diagnostic_checks"]["zero_shift_within_10pct"] is True, p["diagnostic_checks"]
+
+          summaries=p["summaries"]
+          assert len(summaries)==36, len(summaries)
+          assert {x["method"] for x in summaries}=={"CHECK","FIRST","LAST"}
+          assert {float(x["shift_multiplier"]) for x in summaries}=={0.0,0.5,1.0,1.5}
+
+          failures=[
+              x for x in summaries
+              if x["failure_fraction"] is not None and x["failure_fraction"]>0.25
+          ]
+          if failures:
+              raise SystemExit(f"too many fit failures: {failures}")
+          PY
+
+      - name: Upload robustness artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-dynamic-state-v2
+          path: |
+            results/scr_sigma_dynamic_state_v2.json
+            results/scr_sigma_dynamic_state_replicates_v2.csv
+          if-no-files-found: error
+
+      - name: Persist robustness results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          git add results/scr_sigma_dynamic_state_v2.json
+          git add results/scr_sigma_dynamic_state_replicates_v2.csv
+          if git diff --cached --quiet; then
+            echo "results unchanged"
+          else
+            git commit -m "Run dynamic-state SCR robustness v2"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
