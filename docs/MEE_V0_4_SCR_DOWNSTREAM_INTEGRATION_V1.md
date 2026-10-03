@@ -1,0 +1,176 @@
+# MEE v0.4 integration plan — downstream SCR consequence
+
+Date: 2026-10-03
+
+Status: scientific integration note. Pre-submission enquiry remains on HOLD until the PEMA exploratory extraction repair and the dependence-aware CHECK pilot finish.
+
+## New central question
+
+The paper should no longer ask merely whether repeated within-occasion positions differ.
+
+The stronger methods question is:
+
+> When one ecological occasion contains observations from more than one observation-conditioned spatial state, does temporal aggregation change which spatial scale an SCR analysis estimates?
+
+This reframes temporal positional aliasing as an **estimand-stability problem** rather than a generic warning about discarded records.
+
+## Main result already supported
+
+### Stationary negative control
+
+In the frozen consequence benchmark, a correctly specified stationary SCR process was represented as CHECK, NIGHT-FIRST and NIGHT-LAST.
+
+At true sigma = 12.5 m:
+- CHECK median relative bias: +0.2%;
+- FIRST: +3.2%;
+- LAST: +0.7%.
+
+Across the stationary sigma grid, the maximum absolute median bias was <4%.
+
+Therefore nightly aggregation alone does not imply a systematic sigma bias.
+
+### Observation-state transition
+
+The empirical-transition family uses the already-opened San Jacinto repeat-capture frequency and resamples the observed PEMA+PEER changed-night displacement vectors.
+
+At true sigma = 12.5 m:
+
+POST mechanism:
+- FIRST is the canonical state: median bias -1.7%;
+- LAST is the displaced state: median bias +15.1%;
+- paired LAST/FIRST median ratio = 1.154.
+
+PRE mirror:
+- LAST is the canonical state: median bias +0.03%;
+- FIRST is the displaced state: median bias +16.6%;
+- paired LAST/FIRST median ratio = 0.856, i.e. FIRST is about 16.9% larger than LAST.
+
+The direction reverses when the timing mechanism is mirrored. Therefore the result does not privilege FIRST or LAST. It shows that the reduction rule selects which spatial state dominates the fitted sigma.
+
+This is the downstream consequence missing from manuscript v0.3.
+
+## General criterion: state-mixing ratio
+
+For transition probability q and transition-vector length R, define the per-axis transition scale
+
+T = sqrt(q E[R^2] / 2).
+
+For the pooled held-out San Jacinto observation process:
+
+T ~= 6.34 m.
+
+Define
+
+A_sigma = T / sigma_ref.
+
+Under the continuous dense-detector second-moment approximation,
+
+sigma_eff / sigma_ref ~= sqrt(1 + A_sigma^2).
+
+A 10% change corresponds to
+
+A_sigma >= sqrt(1.10^2 - 1) ~= 0.458.
+
+For the observed San Jacinto transition kernel, that boundary is approximately
+
+sigma_ref <= 13.84 m.
+
+This does not estimate the real San Jacinto sigma. It translates observed within-occasion transition energy into a prospective diagnostic relative to an independently chosen or previously estimated SCR scale.
+
+## Figure 2 replacement
+
+Move the current binomial/Wilson simulation to Supplementary Information.
+
+New Figure 2 should have three conceptual panels.
+
+A. **Stationary negative control**
+Show median relative sigma bias for CHECK, FIRST and LAST across true sigma = 6.25, 12.5, 25 m. Emphasize that all nightly rules are approximately centered under a single stationary spatial state.
+
+B. **State selection**
+For POST and PRE, plot the ratio of the displaced-state nightly estimate to the canonical-state nightly estimate against true sigma (or A_sigma). Show that mirroring the timing reverses whether FIRST or LAST is inflated.
+
+C. **Analytic scale criterion**
+Plot sqrt(1 + A_sigma^2) with the 10% boundary A_sigma = 0.458 and mark the three simulated sigma values using T = 6.34 m.
+
+CHECK should be shown as a secondary point/line rather than treated as a gold standard until the dependence-aware CHECK pilot is complete.
+
+## Response to the reviewer objection: "make every check an occasion"
+
+The response should be conditional, not absolute.
+
+1. If all checks sample the same stationary process, finer occasions preserve information and should be preferred when the downstream model can represent the effort structure.
+2. If the observation process changes after capture/release, simply making every check an occasion does not by itself restore a single stationary spatial kernel.
+3. A check-level model must also represent the relevant short-term response/dependence. The existing targeted pilot tests this directly with a transient local-response generator and a CHECK-Bk fit.
+4. Therefore the diagnostic is useful for deciding whether occasion refinement alone is adequate or whether an observation-state model/sensitivity analysis is needed.
+
+This is stronger than claiming that nightly collapse is always wrong.
+
+## Handling objection becomes part of the method
+
+The second observed position is post-capture and may contain handling/release effects.
+
+Do not defend it as undisturbed movement.
+
+Instead state:
+
+- the first and later positions are valid **observation states** generated by the protocol;
+- their biological interpretation may differ;
+- that difference is precisely why silently reducing them to one state can alter a spatial estimand;
+- the framework diagnoses observation-conditioned state mixing without claiming a natural movement path.
+
+This removes the weakest wording in v0.3 ("hidden movement information") and replaces it with a cleaner observation-process claim.
+
+## Numerical-validity correction
+
+The consequence benchmark originally treated two pathological PRE / sigma=25 / FIRST fits as successful even though sigma was >300 km and the reported sigma SE was exactly zero.
+
+The success criterion has now been repaired to require:
+- finite positive sigma;
+- finite positive sigma SE;
+- finite ordered confidence limits.
+
+No effect-size cutoff is used.
+
+The central sigma=12.5 m cells had no such failures and are unchanged.
+
+## PEMA empirical companion
+
+The original two-species empirical sigma programme remains stopped.
+
+PEMA has 19 eligible sessions across 5 grids and can be used only as post-stop exploratory support.
+
+The latest run completed the FIRST and LAST fits but failed while extracting sigma from the multi-session prediction object. This is an output-extraction bug, not a support-gate failure. The extractor has been repaired to handle multi-session prediction lists.
+
+If the rerun succeeds, report it as:
+"post-stop exploratory PEMA support consistent/inconsistent with the simulation",
+never as a recovered confirmatory test.
+
+## Manuscript hierarchy
+
+Main text:
+1. diagnostic definition and material scale;
+2. observation-state / estimand-stability framing;
+3. state-mixing ratio A_sigma;
+4. stationary negative-control simulation;
+5. mirrored empirical-transition SCR simulation;
+6. held-out PEMA/PEER positional-aliasing validation;
+7. dependence-aware check-level counterargument result, if the existing pilot completes cleanly;
+8. PEMA exploratory sigma as supporting evidence only, if the extraction-repaired fit succeeds.
+
+Supplement:
+- Wilson/binomial diagnostic benchmark;
+- deterministic triangle-inequality bounds;
+- fixed-h stress test;
+- numerical-validity correction details;
+- complete calibration and fit diagnostics.
+
+## Submission gate
+
+Do not send the MEE pre-submission enquiry yet.
+
+Release the HOLD only after:
+1. the consequence benchmark rerun confirms the numerical repair;
+2. the targeted CHECK-Bk pilot is available or explicitly fails for a documented reason;
+3. the repaired PEMA exploratory fit either yields a valid estimate or is documented as computationally non-estimable.
+
+No additional biological endpoints should be opened.
