@@ -39,6 +39,21 @@ The natural event-time representation is therefore **interval censored**, not ex
 
 This distinction matters because Baer et al. explicitly identify capture times known only to lie within an occasion (interval-censored capture time) as future work.
 
+## Existing software already names the ambiguity but does not quantify its consequence
+
+Current `secr::reduce.capthist` documentation explicitly states that reducing occasions for `multi` or `single` trap detectors can create **locational ambiguity**. For multi-catch data, the software resolves the conflict with `select = "last"`, `"first"`, or `"random"`.
+
+Therefore the paper should adopt the established phrase "locational ambiguity" as the software-level problem and reserve "temporal positional aliasing" for the measurable magnitude of that ambiguity relative to an ecological/analytical scale.
+
+The software documentation supplies a conflict-resolution rule, but not:
+- a materiality diagnostic;
+- uncertainty for the frequency of material conflicts;
+- an all-occasion lower bound;
+- a downstream estimand-sensitivity criterion;
+- guidance for routing interval-censored repeated-check data to discrete versus time/history-aware models.
+
+That is the narrow methodological contribution.
+
 ## Revised gap
 
 The defensible gap is no longer a missing likelihood.
