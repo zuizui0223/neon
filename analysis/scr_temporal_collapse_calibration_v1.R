@@ -74,8 +74,8 @@ night_summary <- function(ch) {
   )
 }
 
-sigma_values <- spacing * c(0.5,0.75,1,1.25,1.5,2,2.5,3)
-g0_values <- c(0.05,0.10,0.15,0.25,0.35)
+sigma_values <- spacing * c(1.25,1.375,1.5,1.625,1.75,1.875,2.0)
+g0_values <- c(0.05,0.06,0.07,0.08,0.09,0.10)
 rows <- list(); k <- 0L
 for (sig in sigma_values) {
   for (g0 in g0_values) {
