@@ -1,0 +1,67 @@
+name: pema-scr-sigma-post-stop-exploratory
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - analysis/pema_scr_sigma_post_stop_exploratory_v1.R
+      - docs/PEMA_SCR_SIGMA_POST_STOP_EXPLORATORY_V1.md
+      - .github/workflows/pema-scr-sigma-post-stop-exploratory.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pema-scr-sigma-post-stop-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+            any::digest
+      - name: Fit PEMA post-stop exploratory SCR
+        run: |
+          Rscript analysis/pema_scr_sigma_post_stop_exploratory_v1.R \
+            --eligible validation/san_jacinto_scr_sigma_v1/eligible_sessions_v1.csv \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output /tmp/pema_scr_sigma_post_stop_exploratory_v1.json
+      - name: Verify claim boundary
+        run: |
+          Rscript - <<'RS'
+          library(jsonlite)
+          z <- fromJSON("/tmp/pema_scr_sigma_post_stop_exploratory_v1.json",simplifyVector=FALSE)
+          stopifnot(z$status=="post_stop_exploratory_only")
+          stopifnot(z$binding_confirmatory_programme_decision=="stop_scr_sigma_sensitivity_not_estimable")
+          stopifnot(identical(z$guardrails$peER_fitted,FALSE))
+          stopifnot(identical(z$guardrails$original_two_species_stop_relaxed,FALSE))
+          stopifnot(identical(z$guardrails$result_confirmatory,FALSE))
+          RS
+      - name: Persist exploratory result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/pema_scr_sigma_post_stop_exploratory_v1.json results/
+          git add results/pema_scr_sigma_post_stop_exploratory_v1.json
+          if git diff --cached --quiet; then
+            echo "PEMA result unchanged"
+          else
+            git commit -m "Fit post-stop exploratory PEMA sigma sensitivity"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
