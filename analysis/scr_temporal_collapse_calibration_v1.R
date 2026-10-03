@@ -20,9 +20,12 @@ nights <- 3L
 checks <- 3L
 density <- 30
 pop_buffer <- 100
-empirical_fraction <- 426 / 592
-empirical_fraction_band <- c(0.69, 0.73)
-empirical_changed_median_band <- c(12.5, 14.0)
+empirical_endpoint_fraction <- 426 / 592
+empirical_conflict_fraction <- 450 / 592
+empirical_repeat_fraction <- 592 / 1520
+empirical_repeat_fraction_band <- c(107/301, 485/1219)
+empirical_diameter_median <- 13.975424859373685
+empirical_diameter_band <- c(12.5, 14.0)
 
 tr <- make.grid(nx=7, ny=7, spacing=spacing, detector="multi", origin=c(0,0))
 xy <- as.data.frame(tr)[,c("x","y"),drop=FALSE]
@@ -36,26 +39,39 @@ trap_index <- function(x) {
   out
 }
 
-night_distances <- function(ch) {
-  if (sum(ch) == 0) return(numeric())
+night_summary <- function(ch) {
+  if (sum(ch) == 0) {
+    return(list(all_captured_nights=0L, repeat_nights=0L,
+                conflict_nights=0L, conflict_diameters=numeric()))
+  }
   d <- as.data.frame(ch, fmt="trapID")
-  if (!nrow(d)) return(numeric())
   names(d)[1:4] <- c("Session","ID","Occasion","TrapID")
   d$Occasion <- as.integer(d$Occasion)
   d$TrapNum <- trap_index(d$TrapID)
   d$Night <- ((d$Occasion - 1L) %/% checks) + 1L
   key <- paste(d$ID,d$Night,sep="::")
   groups <- split(seq_len(nrow(d)),key)
-  ans <- c()
+  repeat_n <- 0L
+  conflict_n <- 0L
+  diam <- c()
   for (ii in groups) {
-    if (length(ii)<2) next
+    if (length(ii) < 2) next
+    repeat_n <- repeat_n + 1L
     z <- d[ii,,drop=FALSE]
-    z <- z[order(z$Occasion),,drop=FALSE]
-    a <- xy[z$TrapNum[[1]],]
-    b <- xy[z$TrapNum[[nrow(z)]],]
-    ans <- c(ans, sqrt((a$x-b$x)^2 + (a$y-b$y)^2))
+    traps_i <- z$TrapNum
+    if (length(unique(traps_i)) > 1) {
+      conflict_n <- conflict_n + 1L
+      coords <- xy[traps_i,,drop=FALSE]
+      dm <- as.matrix(dist(coords))
+      diam <- c(diam, max(dm))
+    }
   }
-  ans
+  list(
+    all_captured_nights=length(groups),
+    repeat_nights=repeat_n,
+    conflict_nights=conflict_n,
+    conflict_diameters=diam
+  )
 }
 
 sigma_values <- spacing * c(0.5,0.75,1,1.25,1.5,2,2.5,3)
@@ -63,7 +79,10 @@ g0_values <- c(0.05,0.10,0.15,0.25,0.35)
 rows <- list(); k <- 0L
 for (sig in sigma_values) {
   for (g0 in g0_values) {
-    all_dist <- c()
+    all_diam <- c()
+    all_captured_nights <- 0L
+    repeat_nights <- 0L
+    conflict_nights <- 0L
     detected <- c()
     for (r in seq_len(reps)) {
       k <- k + 1L
@@ -75,7 +94,11 @@ for (sig in sigma_values) {
         noccasions=nights*checks,
         seed=seed0 + k*1009L
       )
-      all_dist <- c(all_dist, night_distances(ch))
+      ns <- night_summary(ch)
+      all_captured_nights <- all_captured_nights + ns$all_captured_nights
+      repeat_nights <- repeat_nights + ns$repeat_nights
+      conflict_nights <- conflict_nights + ns$conflict_nights
+      all_diam <- c(all_diam, ns$conflict_diameters)
       if (sum(ch) == 0) {
         detected <- c(detected, 0)
       } else {
@@ -83,46 +106,57 @@ for (sig in sigma_values) {
         detected <- c(detected, length(unique(dd[,2])))
       }
     }
-    repeat_n <- length(all_dist)
-    material <- sum(all_dist >= spacing - 1e-12)
-    changed <- all_dist[all_dist > 1e-12]
-    frac <- if (repeat_n) material/repeat_n else NA_real_
-    changed_median <- if (length(changed)) median(changed) else NA_real_
+    repeat_fraction <- if (all_captured_nights) repeat_nights/all_captured_nights else NA_real_
+    conflict_fraction <- if (repeat_nights) conflict_nights/repeat_nights else NA_real_
+    diameter_median <- if (length(all_diam)) median(all_diam) else NA_real_
+    retention_needed <- if (is.finite(conflict_fraction) && conflict_fraction>0) {
+      max(0, min(1, 1 - empirical_conflict_fraction/conflict_fraction))
+    } else NA_real_
     rows[[length(rows)+1L]] <- data.frame(
       sigma_m=sig,
       sigma_over_spacing=sig/spacing,
       g0=g0,
       replicates=reps,
-      repeat_nights=repeat_n,
-      material_shift_count=material,
-      material_shift_fraction=frac,
-      changed_nights=length(changed),
-      changed_median_m=changed_median,
+      all_captured_nights=all_captured_nights,
+      repeat_nights=repeat_nights,
+      repeat_observation_fraction=repeat_fraction,
+      cross_trap_conflict_count=conflict_nights,
+      cross_trap_conflict_fraction=conflict_fraction,
+      conflict_diameter_median_m=diameter_median,
       mean_detected_animals=mean(detected),
-      fraction_distance_from_empirical=abs(frac-empirical_fraction),
-      changed_median_distance_from_band_mid=abs(changed_median-mean(empirical_changed_median_band)),
+      repeat_fraction_distance=abs(repeat_fraction-empirical_repeat_fraction),
+      diameter_median_distance_m=abs(diameter_median-empirical_diameter_median),
+      same_trap_retention_needed=retention_needed,
       stringsAsFactors=FALSE
     )
   }
 }
 res <- do.call(rbind,rows)
-res$within_empirical_fraction_band <- (
-  res$material_shift_fraction >= empirical_fraction_band[1] &
-  res$material_shift_fraction <= empirical_fraction_band[2]
+res$within_empirical_repeat_fraction_band <- (
+  res$repeat_observation_fraction >= min(empirical_repeat_fraction_band) &
+  res$repeat_observation_fraction <= max(empirical_repeat_fraction_band)
 )
-res$within_empirical_changed_median_band <- (
-  res$changed_median_m >= empirical_changed_median_band[1] &
-  res$changed_median_m <= empirical_changed_median_band[2]
+res$within_empirical_diameter_band <- (
+  res$conflict_diameter_median_m >= empirical_diameter_band[1] &
+  res$conflict_diameter_median_m <= empirical_diameter_band[2]
 )
-res$matches_both_empirical_summaries <- (
-  res$within_empirical_fraction_band &
-  res$within_empirical_changed_median_band
+res$matches_base_scr_targets <- (
+  res$within_empirical_repeat_fraction_band &
+  res$within_empirical_diameter_band
 )
 
+# Rank using only quantities intended to calibrate the base SCR process.
+# Conflict frequency is deliberately excluded: it is the mismatch to be
+# absorbed by the separately reported same-trap retention parameter.
+res$calibration_score <- (
+  res$repeat_fraction_distance / 0.05 +
+  res$diameter_median_distance_m / spacing
+)
 ord <- order(
-  !res$matches_both_empirical_summaries,
-  res$fraction_distance_from_empirical,
-  res$changed_median_distance_from_band_mid
+  !res$matches_base_scr_targets,
+  res$calibration_score,
+  res$repeat_fraction_distance,
+  res$diameter_median_distance_m
 )
 res <- res[ord,,drop=FALSE]
 
@@ -140,9 +174,12 @@ out <- list(
     population_buffer_m=pop_buffer
   ),
   empirical_targets=list(
-    material_shift_fraction_combined=empirical_fraction,
-    material_shift_fraction_species_band=empirical_fraction_band,
-    changed_night_median_distance_m_band=empirical_changed_median_band
+    repeat_observation_fraction_combined=empirical_repeat_fraction,
+    repeat_observation_fraction_species_band=sort(empirical_repeat_fraction_band),
+    cross_trap_conflict_fraction_combined=empirical_conflict_fraction,
+    endpoint_change_fraction_combined=empirical_endpoint_fraction,
+    conflict_diameter_median_m=empirical_diameter_median,
+    conflict_diameter_median_species_band=empirical_diameter_band
   ),
   cells=res,
   best_cells=head(res,10),
