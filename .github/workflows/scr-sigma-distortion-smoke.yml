@@ -1,0 +1,93 @@
+name: scr-sigma-distortion-smoke
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - analysis/simulate_scr_sigma_distortion_v1.R
+      - validation/san_jacinto_scr_sigma_v1/simulation_lock_v1.json
+      - docs/SAN_JACINTO_SCR_SIGMA_DISTORTION_SIMULATION_DESIGN_V1.md
+      - .github/workflows/scr-sigma-distortion-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::secr
+            any::jsonlite
+          needs: check
+
+      - name: Verify frozen simulation lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("validation/san_jacinto_scr_sigma_v1/simulation_lock_v1.json").read_text())
+          assert p["state"]=="frozen_before_simulated_sigma_effects"
+          assert p["empirical_sigma_effects_opened"] is False
+          assert p["real_data_sigma_gate_remains_stopped"] is True
+          assert p["simulated_sigma_effects_inspected"] is False
+          PY
+
+      - name: Run frozen smoke simulation
+        run: |
+          mkdir -p results
+          Rscript analysis/simulate_scr_sigma_distortion_v1.R             --mode smoke             --output-json /tmp/scr_sigma_distortion_smoke_v1.json             --output-csv /tmp/scr_sigma_distortion_smoke_replicates_v1.csv
+
+      - name: Validate smoke result boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/scr_sigma_distortion_smoke_v1.json").read_text())
+          assert p["mode"]=="smoke"
+          assert p["empirical_sigma_effects_opened"] is False
+          assert p["real_data_sigma_gate_remains_stopped"] is True
+          assert p["simulated_sigma_effects_inspected"] is True
+          assert len(p["summary"]) >= 1
+          PY
+
+      - name: Persist smoke result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/scr_sigma_distortion_smoke_v1.json              results/scr_sigma_distortion_smoke_v1.json
+          cp /tmp/scr_sigma_distortion_smoke_replicates_v1.csv              results/scr_sigma_distortion_smoke_replicates_v1.csv
+          git add results/scr_sigma_distortion_smoke_v1.json
+          git add results/scr_sigma_distortion_smoke_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "smoke result unchanged"
+          else
+            git commit -m "Run SCR sigma distortion smoke simulation"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - name: Upload smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-distortion-smoke-v1
+          path: |
+            /tmp/scr_sigma_distortion_smoke_v1.json
+            /tmp/scr_sigma_distortion_smoke_replicates_v1.csv
+          if-no-files-found: error
+          retention-days: 30
