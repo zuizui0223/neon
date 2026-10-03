@@ -17,7 +17,16 @@ The empirical SCR comparison remains stopped exactly as recorded:
 
 The present programme does not reopen that gate. It uses a generative SCR experiment.
 
-## Key theoretical prediction: closure under temporal aggregation
+## Two distinct aggregation mechanisms
+
+Repeated checks can be lost in two mathematically different ways.
+
+1. **Exposure aggregation**: several opportunities for detection are represented as one binary occasion.
+2. **Location-selection aggregation**: several detector locations observed within the same night are reduced to one categorical detector location (FIRST, LAST or another rule).
+
+These mechanisms should not be conflated.
+
+## Mechanism A: closure of repeated exposure
 
 Let one within-night check have radial distance d from an activity centre and half-normal kernel
 
@@ -29,17 +38,17 @@ For one check,
 
 p(d) = g0 h(d; sigma).
 
-For K conditionally independent checks collapsed to a binary "detected at least once" night,
+For K conditionally independent checks collapsed to "detected at least once" at a fixed detector,
 
 p_K(d) = 1 - [1 - g0 h(d; sigma)]^K.
 
-For K > 1 and 0 < g0 < 1 this is not, in general, another HN curve. Therefore temporal aggregation changes not only the intercept but also the shape. A static HN model fitted to the collapsed data can absorb this shape change into sigma.
+For K > 1 and 0 < g0 < 1 this is not, in general, another HN curve. Therefore repeated-exposure aggregation changes not only the intercept but also the radial shape.
 
 Because f(p)=1-(1-p)^K is concave with f(0)=0,
 
 f(alpha p0) / f(p0) >= alpha
 
-for 0 <= alpha <= 1. Thus the aggregated HN curve falls more slowly with distance than the one-check HN curve. The directional prediction, before any simulation is opened, is upward pressure on fitted sigma as K and/or g0 increase.
+for 0 <= alpha <= 1. Thus the aggregated HN curve falls more slowly with distance than the one-check HN curve. The frozen directional prediction is upward pressure on an HN sigma fitted to the aggregated exposure curve as K and/or g0 increase.
 
 ### Hazard half-normal (HHN)
 
@@ -48,7 +57,7 @@ For one check,
 lambda(d) = lambda0 h(d; sigma),
 p(d) = 1 - exp[-lambda(d)].
 
-For K conditionally independent checks,
+For K conditionally independent checks at a fixed detector,
 
 p_K(d)
 = 1 - exp[-K lambda0 h(d; sigma)].
@@ -58,9 +67,20 @@ This is exactly HHN with
 lambda0_K = K lambda0
 sigma_K = sigma.
 
-Thus HHN is closed under aggregation of repeated independent exposure, whereas probability HN is not.
+Thus HHN is closed under aggregation of repeated independent exposure **at a fixed detector**.
 
-This is a model-class statement, not a claim that HHN automatically solves post-capture behavioural displacement.
+## Mechanism B: location-selection aggregation is not covered by the closure result
+
+For a multi-catch trap detector, an animal can appear at only one detector per SCR occasion. Across several check-level occasions, however, it can be captured at different detectors. Collapsing those occasions to one nightly multi-catch occasion requires a conflict rule such as FIRST or LAST.
+
+The HHN closure result above does **not** imply that this multi-detector location-selection operation preserves sigma. FIRST/LAST discards detector multiplicity and the sequence of competing-risk outcomes.
+
+Therefore the end-to-end SCR simulation is deliberately stronger than the fixed-detector theorem:
+
+- the fixed-detector calculation isolates exposure aggregation;
+- the full 7x7 multi-detector simulation measures the additional effect of reducing a detector sequence to one nightly location.
+
+A small HHN bias in the full simulation would be consistent with exposure closure plus residual location-selection loss. A large HHN bias would show that location selection dominates the simpler closure argument.
 
 ## Primary simulation question
 
@@ -93,7 +113,7 @@ One-check centre detection probability is matched across HN and HHN:
 - HN g0 = 0.15;
 - HHN lambda0 = -log(1 - 0.15).
 
-Theoretical closure curves additionally vary K in {1,2,4,8} and one-check centre detection in {0.05,0.15,0.30,0.50}.
+Theoretical fixed-detector closure curves additionally vary K in {1,2,4,8} and one-check centre detection in {0.05,0.15,0.30,0.50}.
 
 ## Post-capture displacement perturbation
 
@@ -134,34 +154,40 @@ Primary contrasts:
 
 P1. With K=1 and no perturbation, all representations are equivalent up to Monte Carlo and optimizer variation.
 
-P2. With K>1 and no perturbation, HN nightly aggregation will tend to inflate sigma relative to CHECK because the probability-HN family is not closed under repeated-check aggregation.
+P2. At a fixed detector with K>1, HN exposure aggregation produces a broader normalized detection curve than the one-check HN curve, whereas HHN preserves sigma exactly.
 
-P3. With K>1 and no perturbation, HHN will show substantially less aggregation-induced sigma bias than HN because cumulative hazard is additive and the HHN family is closed under repeated independent exposure.
+P3. In the full multi-detector SCR simulation with K>1 and no perturbation, CHECK should be approximately unbiased for the generating sigma. FIRST/LAST may depart from CHECK because location-selection aggregation discards detector sequence information. HN additionally carries the exposure non-closure mechanism; HHN does not.
 
-P4. Under SAN_JACINTO perturbation, LAST and CHECK may move away from FIRST because post-first recorded locations have been altered. This contrast is descriptive sensitivity to handling-associated positional change, not evidence of natural movement.
+P4. Therefore HHN is predicted to show less aggregation-induced sigma distortion than HN, but zero distortion is **not** required because the FIRST/LAST operation is not itself closed under multi-detector competing risks.
 
-P5. If FIRST is relatively stable while LAST/CHECK shift under perturbation, the paper should not claim that "finer occasions solve the problem". Instead it should state that retaining finer observations preserves information but can also expose a second process that a static SCR model may absorb into sigma.
+P5. Under SAN_JACINTO perturbation, LAST and CHECK may move away from FIRST because post-first recorded locations have been altered. This contrast is descriptive sensitivity to handling-associated positional change, not evidence of natural movement.
+
+P6. If FIRST is relatively stable while LAST/CHECK shift under perturbation, the paper should not claim that "finer occasions solve the problem". Instead it should state that retaining finer observations preserves information but can also expose a second process that a static SCR model may absorb into sigma.
 
 ## Decision rule for manuscript use
 
 Replace the current Figure 2 proportion benchmark only if the end-to-end simulation satisfies both:
 - fit-success >= 0.80 in every primary representation/scenario cell; and
-- the predicted HN-vs-HHN aggregation contrast is directionally reproduced.
+- the fixed-detector closure predictions are reproduced by the deterministic calculation.
+
+The full multi-detector HN-vs-HHN difference is an empirical simulation result, not a pass/fail requirement.
 
 No minimum effect size is required for inclusion.
 
-If the contrast is weak, null, or unstable, report that result and retain the closure theorem as a model-diagnostic boundary rather than manufacturing a stronger empirical claim.
+If the end-to-end contrast is weak, null, or unstable, report that result and retain the two-mechanism decomposition as the methodological result rather than manufacturing a stronger empirical claim.
 
 ## Claim boundary
 
 Supported by this programme:
 - temporal aggregation can interact with SCR detection-function parameterisation;
-- hazard-based and probability-based half-normal detection functions differ in whether repeated independent exposure is closed under aggregation;
-- post-capture positional changes can create additional sigma sensitivity that is distinct from aggregation alone.
+- hazard-based and probability-based half-normal detection functions differ in closure under repeated independent exposure at a fixed detector;
+- reducing a sequence of multi-detector captures to one location is a separate information-loss mechanism;
+- post-capture positional changes can create additional sigma sensitivity distinct from exposure aggregation.
 
 Not supported:
 - FIRST or LAST is biologically correct;
 - all live-trapping SCR studies are biased;
 - observed first-to-last displacements are undisturbed movement;
 - check-level occasions automatically remove handling effects;
+- HHN guarantees invariance after FIRST/LAST location selection;
 - the San Jacinto empirical sigma effect for PEER, which remains unopened.
