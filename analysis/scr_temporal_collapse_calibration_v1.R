@@ -37,6 +37,7 @@ trap_index <- function(x) {
 }
 
 night_distances <- function(ch) {
+  if (sum(ch) == 0) return(numeric())
   d <- as.data.frame(ch, fmt="trapID")
   if (!nrow(d)) return(numeric())
   names(d)[1:4] <- c("Session","ID","Occasion","TrapID")
@@ -75,8 +76,12 @@ for (sig in sigma_values) {
         seed=seed0 + k*1009L
       )
       all_dist <- c(all_dist, night_distances(ch))
-      dd <- as.data.frame(ch,fmt="trapID")
-      detected <- c(detected, length(unique(dd[,2])))
+      if (sum(ch) == 0) {
+        detected <- c(detected, 0)
+      } else {
+        dd <- as.data.frame(ch,fmt="trapID")
+        detected <- c(detected, length(unique(dd[,2])))
+      }
     }
     repeat_n <- length(all_dist)
     material <- sum(all_dist >= spacing - 1e-12)
