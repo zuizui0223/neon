@@ -103,6 +103,13 @@ class LiveTrapAliasingManuscriptV04Tests(unittest.TestCase):
         self.assertIn(phrase,self.text)
         self.assertNotIn("Corrected simulation benchmark for informative repeat observation",self.captions)
 
+    def test_check_level_claim_is_bounded(self):
+        lower=self.text.lower()
+        self.assertIn("within-night encounter dependence",lower)
+        self.assertIn("not automatically sufficient",lower)
+        self.assertNotIn("check-level analysis is biased",lower)
+        self.assertNotIn("check is biased",lower)
+
     def test_forbidden_overclaims_are_absent(self):
         lower=self.text.lower()
         for phrase in (
