@@ -458,6 +458,17 @@ for (gi in seq_len(nrow(grid))) {
 replicates <- do.call(rbind, rows)
 summary_table <- summarise_results(replicates)
 
+fit_errors <- replicates$fit_error[!is.na(replicates$fit_error) & nzchar(replicates$fit_error)]
+fit_error_counts <- if (length(fit_errors)) {
+  as.list(sort(table(fit_errors), decreasing = TRUE))
+} else {
+  list()
+}
+if (length(fit_errors)) {
+  message("FIT ERRORS:")
+  print(sort(table(fit_errors), decreasing = TRUE))
+}
+
 # Mandatory implementation gate: in the exact static-control cell, FIRST and
 # LAST must not show a large systematic divergence. For smoke runs the Monte
 # Carlo sample is intentionally tiny, so this is recorded rather than used to
@@ -504,6 +515,7 @@ result <- list(
   ),
   negative_control_estimable = control_estimable,
   negative_control_pass = control_pass,
+  fit_error_counts = fit_error_counts,
   summary = summary_table,
   simulated_sigma_effects_inspected = TRUE,
   empirical_sigma_effects_opened = FALSE,
