@@ -73,7 +73,7 @@ collapse_history <- function(d, which = c("first", "last"), checks) {
     Session = 1,
     ID = as.character(z$ID),
     Occasion = as.integer(z$Night),
-    TrapID = as.integer(z$TrapNum)
+    TrapID = rownames(tr)[as.integer(z$TrapNum)]
   )
   make.capthist(
     captures = captures,
