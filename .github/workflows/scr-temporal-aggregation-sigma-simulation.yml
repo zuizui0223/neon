@@ -1,0 +1,97 @@
+name: scr-temporal-aggregation-sigma-simulation
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SCR_TEMPORAL_AGGREGATION_SIGMA_SIMULATION_DESIGN_V1.md
+      - analysis/simulate_scr_temporal_aggregation_sigma_v1.R
+      - .github/workflows/scr-temporal-aggregation-sigma-simulation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+          cache-version: 1
+
+      - name: Verify secr version
+        shell: Rscript {0}
+        run: |
+          stopifnot(packageVersion("secr") >= "5.4.0")
+          cat("secr", as.character(packageVersion("secr")), "\n")
+
+      - name: Run frozen SCR aggregation simulation
+        run: |
+          mkdir -p /tmp/scr-aggregation
+          Rscript analysis/simulate_scr_temporal_aggregation_sigma_v1.R             --replicates 12             --seed 20261003             --output-json /tmp/scr-aggregation/result_v1.json             --output-csv /tmp/scr-aggregation/replicates_v1.csv
+
+      - name: Validate result contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(Path("/tmp/scr-aggregation/result_v1.json").read_text())
+          assert p["schema"]=="neon.scr_temporal_aggregation_sigma_simulation.v1"
+          assert p["empirical_sigma_gate_reopened"] is False
+          assert p["gates"]["closure_predictions_pass"] is True
+
+          rows=p["end_to_end_summary"]
+          assert len(rows)==12
+          keys={(r["detectfn"],r["perturbation"],r["representation"]) for r in rows}
+          expected={
+              (d,p,r)
+              for d in ("HN","HHN")
+              for p in ("NONE","SAN_JACINTO")
+              for r in ("CHECK","FIRST","LAST")
+          }
+          assert keys==expected
+          print(json.dumps(p["gates"],indent=2,sort_keys=True))
+          PY
+
+      - name: Persist simulation result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/scr-aggregation/result_v1.json              results/scr_temporal_aggregation_sigma_v1.json
+          cp /tmp/scr-aggregation/replicates_v1.csv              results/scr_temporal_aggregation_sigma_replicates_v1.csv
+          git add results/scr_temporal_aggregation_sigma_v1.json
+          git add results/scr_temporal_aggregation_sigma_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "simulation results unchanged"
+          else
+            git commit -m "Record SCR temporal aggregation sigma simulation"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - name: Upload simulation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scr-temporal-aggregation-sigma-v1
+          path: |
+            /tmp/scr-aggregation/result_v1.json
+            /tmp/scr-aggregation/replicates_v1.csv
+          if-no-files-found: error
+          retention-days: 30
