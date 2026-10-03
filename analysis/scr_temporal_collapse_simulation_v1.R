@@ -113,13 +113,14 @@ repeat_night_summary <- function(d) {
   )
 }
 
-fit_sigma <- function(ch, detectfn) {
+fit_sigma <- function(ch, detectfn, binomN = NULL) {
   ans <- tryCatch({
     fit <- secr.fit(
       ch,
       mask = mk,
       CL = TRUE,
       detectfn = detectfn,
+      binomN = binomN,
       trace = FALSE,
       ncores = 1
     )
@@ -155,10 +156,25 @@ simulate_one <- function(detectfn, checks, rep_id, seed) {
   d <- capture_frame(ch, checks)
   first_ch <- collapse_history(d, "first", checks)
   last_ch <- collapse_history(d, "last", checks)
+  count_ch <- tryCatch(
+    reduce(
+      ch,
+      by = checks,
+      outputdetector = "count",
+      dropunused = FALSE
+    ),
+    error = function(e) e
+  )
 
   f_check <- fit_sigma(ch, detectfn)
   f_first <- fit_sigma(first_ch, detectfn)
   f_last <- fit_sigma(last_ch, detectfn)
+  f_count <- if (inherits(count_ch, "error")) {
+    list(ok = FALSE, sigma = NA_real_, logLik = NA_real_,
+         error = conditionMessage(count_ch))
+  } else {
+    fit_sigma(count_ch, detectfn, binomN = 1)
+  }
   rs <- repeat_night_summary(d)
 
   data.frame(
@@ -176,14 +192,18 @@ simulate_one <- function(detectfn, checks, rep_id, seed) {
     check_fit_ok = f_check$ok,
     first_fit_ok = f_first$ok,
     last_fit_ok = f_last$ok,
+    count_fit_ok = f_count$ok,
     sigma_check = f_check$sigma,
     sigma_first = f_first$sigma,
     sigma_last = f_last$sigma,
+    sigma_count = f_count$sigma,
     relerr_check = f_check$sigma / true_sigma - 1,
     relerr_first = f_first$sigma / true_sigma - 1,
     relerr_last = f_last$sigma / true_sigma - 1,
+    relerr_count = f_count$sigma / true_sigma - 1,
     first_vs_check = f_first$sigma / f_check$sigma - 1,
     last_vs_check = f_last$sigma / f_check$sigma - 1,
+    count_vs_check = f_count$sigma / f_check$sigma - 1,
     last_vs_first = f_last$sigma / f_first$sigma - 1,
     stringsAsFactors = FALSE
   )
@@ -230,12 +250,14 @@ for (i in seq_len(nrow(keys))) {
     detectfn = a$detectfn,
     checks_per_night = a$checks_per_night,
     replicates = nrow(z),
-    all_three_fit_fraction = mean(z$check_fit_ok & z$first_fit_ok & z$last_fit_ok),
+    all_four_fit_fraction = mean(z$check_fit_ok & z$first_fit_ok & z$last_fit_ok & z$count_fit_ok),
     mean_relerr_check = safe_mean(z$relerr_check),
     mean_relerr_first = safe_mean(z$relerr_first),
     mean_relerr_last = safe_mean(z$relerr_last),
+    mean_relerr_count = safe_mean(z$relerr_count),
     mean_first_vs_check = safe_mean(z$first_vs_check),
     mean_last_vs_check = safe_mean(z$last_vs_check),
+    mean_count_vs_check = safe_mean(z$count_vs_check),
     mean_last_vs_first = safe_mean(z$last_vs_first),
     mean_repeat_nights = safe_mean(z$repeat_nights),
     mean_material_shift_fraction = safe_mean(z$material_shift_fraction),
