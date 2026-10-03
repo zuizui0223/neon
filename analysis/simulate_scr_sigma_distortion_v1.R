@@ -79,7 +79,7 @@ make_design <- function() {
     ny = NY,
     spacing = SPACING,
     detector = "multi",
-    ID = "numeric",
+    ID = "numy",
     centre = TRUE
   )
 }
