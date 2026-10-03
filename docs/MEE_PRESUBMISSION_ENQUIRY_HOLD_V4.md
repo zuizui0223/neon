@@ -39,10 +39,10 @@ Thank you for your consideration.
 
 All of the following should be true before sending:
 - manuscript v0.4 and Supplement v0.3 pass invariant tests;
-- regenerated Figure 2 is visually checked against the frozen SCR consequence JSON;
+- regenerated Figure 2 is visually checked against the frozen SCR consequence JSON; **completed 2026-10-03**
 - anonymous review package v3 builds successfully and contains the v0.4/v0.3 files;
-- literature wording around `secr` detector/occasion semantics is rechecked against current documentation;
+- literature wording around `secr` detector/occasion semantics is rechecked against current CRAN documentation; **completed 2026-10-03**
 - no text implies that handling caused the empirical transition or that CHECK/FIRST/LAST has a universally correct ordering;
 - final author/affiliation metadata are supplied outside the double-anonymous manuscript package.
 
-No additional biological effect search is required to lift this hold.
+No additional biological effect search is required to lift this hold. The remaining hold items are final prose consistency, author/affiliation statements and archival-release metadata.
