@@ -168,7 +168,7 @@ jobs:
             tests.test_live_trap_aliasing_denominator_audit \
             tests.test_live_trap_aliasing_individual_cluster_v1 \
             tests.test_live_trap_night_label_semantics_v1 \
-            tests.test_live_trap_aliasing_manuscript_v0_3 -v
+            tests.test_live_trap_aliasing_manuscript_v0_4 -v
 
       - name: Remove transient Python bytecode
         run: |
