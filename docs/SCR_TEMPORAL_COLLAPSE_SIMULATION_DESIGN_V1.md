@@ -22,9 +22,10 @@ Therefore the simulation compares three representations of the same generated de
 
 1. CHECK — every trap check is its own SCR occasion;
 2. FIRST — one occasion per night, retaining the first detection within that night;
-3. LAST — one occasion per night, retaining the last detection within that night.
+3. LAST — one occasion per night, retaining the last detection within that night;
+4. COUNT — one occasion per night, retaining per-detector capture counts and summed detector effort via `reduce(..., outputdetector = "count")`.
 
-CHECK is the information-preserving reference representation. FIRST and LAST are one-location-per-night reductions.
+CHECK is the information-preserving reference representation. FIRST and LAST are deliberately lossy one-location-per-night reductions. COUNT is a candidate information-preserving nightly representation available within `secr`; the simulation tests whether it recovers CHECK-scale sigma under the repeated-check multi-catch process.
 
 ## Phase 1: aggregation only
 
@@ -81,7 +82,8 @@ For every replicate and representation:
 
 For FIRST and LAST:
 - relative sigma difference versus CHECK;
-- FIRST-vs-LAST sigma difference.
+- FIRST-vs-LAST sigma difference;
+- COUNT-vs-CHECK sigma difference.
 
 For the generated CHECK history:
 - number of repeat-detected individual-nights;
