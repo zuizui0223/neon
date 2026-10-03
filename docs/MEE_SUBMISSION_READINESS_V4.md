@@ -44,7 +44,7 @@ Date: 2026-10-03
 - [x] Main-text discussion explicitly answers the “use each trap check as an occasion” objection.
 - [x] MCP and empirical SCR stopping decisions remain visible.
 - [x] Handling is treated as one possible source of state change, not an inferred cause.
-- [ ] Final prose/literature consistency review.
+- [x] Current `secr` detector/occasion/reduction semantics rechecked against CRAN documentation; final prose consistency remains.
 
 ## Figures
 
@@ -53,7 +53,7 @@ Date: 2026-10-03
 - [x] Figure 3 held-out validation retained.
 - [x] Figure 4 denominator/span context retained.
 - [x] Figure workflow regenerated PNG/PDF successfully.
-- [ ] Human visual check of final Figure 2 typography and axes.
+- [x] Human visual check of final Figure 2 typography, axes, 10% reference band and PRE/POST direction.
 
 ## Reproducibility package
 
@@ -78,6 +78,6 @@ Date: 2026-10-03
 
 **Scientific status:** the specific weakness identified in v0.3—absence of a demonstrated downstream consequence—has been addressed by the empirically anchored SCR benchmark with stationary negative controls and mirrored state ordering.
 
-**Pre-submission status:** **HOLD. Do not send the enquiry yet.** Complete the final literature/wording consistency review and human visual check of Figure 2 first.
+**Pre-submission status:** **HOLD. Do not send the enquiry yet.** The scientific/literature and Figure 2 checks are now complete; the remaining blockers are final prose consistency, author metadata and archival-release details.
 
 **Analysis policy:** do not open new same-data biological-effect searches. The failed MCP and two-species empirical SCR gates remain binding. A PEMA-only post-stop fit, if retained at all, must remain explicitly exploratory and cannot alter the primary inference.
