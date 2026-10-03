@@ -180,17 +180,23 @@ extract_sigma <- function(fit) {
   list(estimate=mean(est),lcl=mean(lcl),ucl=mean(ucl))
 }
 
-fit_one <- function(ch,model) {
+fit_one <- function(ch,model,use_sessioncov=TRUE) {
+  stack <- character()
   tryCatch({
-    fit <- secr.fit(
-      ch,
-      mask=masks,
-      CL=TRUE,
-      detectfn="HN",
-      model=model,
-      sessioncov=sessioncov,
-      trace=FALSE,
-      ncores=2
+    fit <- withCallingHandlers(
+      secr.fit(
+        ch,
+        mask=masks,
+        CL=TRUE,
+        detectfn="HN",
+        model=model,
+        sessioncov=if (use_sessioncov) sessioncov else NULL,
+        trace=FALSE,
+        ncores=2
+      ),
+      error=function(e) {
+        stack <<- vapply(sys.calls(), function(x) paste(deparse(x),collapse=" "), character(1))
+      }
     )
     list(
       ok=TRUE,
@@ -198,12 +204,19 @@ fit_one <- function(ch,model) {
       logLik=as.numeric(logLik(fit)),
       AIC=as.numeric(AIC(fit))
     )
-  },error=function(e) list(ok=FALSE,error=conditionMessage(e)))
+  },error=function(e) list(
+    ok=FALSE,
+    error=conditionMessage(e),
+    call_stack=stack
+  ))
 }
 
 primary_model <- list(g0~b+grid+bout,sigma~1)
 sensitivity_model <- list(g0~grid+bout,sigma~1)
+null_model <- list(g0~1,sigma~1)
 
+first_null <- fit_one(first_ms,null_model,use_sessioncov=FALSE)
+last_null <- fit_one(last_ms,null_model,use_sessioncov=FALSE)
 first_primary <- fit_one(first_ms,primary_model)
 last_primary <- fit_one(last_ms,primary_model)
 first_sens <- fit_one(first_ms,sensitivity_model)
@@ -230,6 +243,25 @@ result <- list(
   eligible_sessions=length(sids),
   eligible_session_ids=sids,
   eligible_grids=sort(unique(vapply(session_meta,function(x)x$grid,character(1)))),
+  structure=list(
+    first_class=class(first_ms),
+    last_class=class(last_ms),
+    first_session_names=as.character(session(first_ms)),
+    last_session_names=as.character(session(last_ms)),
+    first_session_count=length(first_ms),
+    last_session_count=length(last_ms),
+    mask_count=length(masks),
+    mask_names=names(masks),
+    sessioncov_rows=nrow(sessioncov),
+    sessioncov_rownames=rownames(sessioncov),
+    sessioncov_grid=as.character(sessioncov$grid),
+    sessioncov_bout=as.character(sessioncov$bout)
+  ),
+  null_structure_check=list(
+    model="g0 ~ 1; sigma ~ 1",
+    first=first_null,
+    last=last_null
+  ),
   primary=list(
     model="g0 ~ b + grid + bout; sigma ~ 1",
     first=first_primary,
