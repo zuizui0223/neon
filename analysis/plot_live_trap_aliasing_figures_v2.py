@@ -49,13 +49,13 @@ def figure1(outdir: Path) -> None:
     save(fig,outdir/"figure1_observation_process")
 
 
-def figure2(consequence: dict, outdir: Path) -> None:
+def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
     summaries=consequence["summaries"]
     paired=consequence["paired_contrasts"]
     sigmas=sorted({float(r["sigma_true"]) for r in summaries})
     methods=["CHECK","FIRST","LAST"]
 
-    fig,axes=plt.subplots(1,2,figsize=(9.6,4.2))
+    fig,axes=plt.subplots(1,3,figsize=(13.6,4.2))
 
     for method in methods:
         rows=[
@@ -104,6 +104,38 @@ def figure2(consequence: dict, outdir: Path) -> None:
     axes[1].set_ylabel("Median σ_LAST / σ_FIRST")
     axes[1].set_title("B. Empirical transition kernel")
     axes[1].legend(frameon=False,fontsize=8)
+
+    pm=pema["primary_model"]
+    first=pm["first"]
+    last=pm["last"]
+    vals=[float(first["sigma_m"]),float(last["sigma_m"])]
+    lows=[float(first["lcl95_m"]),float(last["lcl95_m"])]
+    highs=[float(first["ucl95_m"]),float(last["ucl95_m"])]
+    x=np.arange(2)
+    axes[2].errorbar(
+        x,
+        vals,
+        yerr=[
+            [v-lo for v,lo in zip(vals,lows)],
+            [hi-v for v,hi in zip(vals,highs)],
+        ],
+        fmt="o",
+        capsize=4,
+        markersize=7,
+    )
+    axes[2].axhline(vals[0]*0.9,linewidth=1,linestyle="--")
+    axes[2].axhline(vals[0]*1.1,linewidth=1,linestyle="--")
+    axes[2].set_xticks(x,["FIRST","LAST"])
+    axes[2].set_ylabel("Estimated σ (m)")
+    axes[2].set_title("C. PEMA post-stop stability")
+    axes[2].text(
+        0.5,
+        max(highs)*0.995,
+        "LAST/FIRST = 0.967\nrelative change = −3.3%",
+        ha="center",
+        va="top",
+        fontsize=8,
+    )
 
     fig.tight_layout()
     save(fig,outdir/"figure2_simulation_benchmark")
@@ -180,16 +212,18 @@ def main() -> int:
     parser=argparse.ArgumentParser()
     parser.add_argument("--consequence",type=Path,required=True)
     parser.add_argument("--validation",type=Path,required=True)
+    parser.add_argument("--pema",type=Path,required=True)
     parser.add_argument("--denominator",type=Path,required=True)
     parser.add_argument("--outdir",type=Path,required=True)
     args=parser.parse_args()
 
     consequence=json.loads(args.consequence.read_text())
     result=json.loads(args.validation.read_text())
+    pema=json.loads(args.pema.read_text())
     denom=json.loads(args.denominator.read_text())
 
     figure1(args.outdir)
-    figure2(consequence,args.outdir)
+    figure2(consequence,pema,args.outdir)
     figure3(result,args.outdir)
     figure4(result,denom,args.outdir)
     return 0
