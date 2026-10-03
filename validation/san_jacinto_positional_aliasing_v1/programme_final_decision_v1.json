@@ -1,0 +1,49 @@
+{
+  "schema": "neon.san_jacinto_positional_aliasing.programme_final_decision.v1",
+  "frozen_date": "2026-09-29",
+  "primary_decision": "authorize_live_trap_positional_aliasing_result",
+  "heldout_species": {
+    "PEMA": {
+      "scientific_name": "Peromyscus maniculatus",
+      "repeat_capture_nights": 485,
+      "one_spacing_shift_fraction": 0.7257731958762886,
+      "wilson95": [
+        0.6844116857570708,
+        0.7635863226940263
+      ],
+      "median_distance_m": 8.838834764831844,
+      "q90_distance_m": 25,
+      "spatial_replication_passing_grids": 7
+    },
+    "PEER": {
+      "scientific_name": "Peromyscus eremicus",
+      "repeat_capture_nights": 107,
+      "one_spacing_shift_fraction": 0.6915887850467289,
+      "wilson95": [
+        0.5987150913219855,
+        0.7711826025212977
+      ],
+      "median_distance_m": 6.25,
+      "q90_distance_m": 19.764235376052373,
+      "spatial_replication_passing_grids": 3
+    }
+  },
+  "frozen_thresholds": {
+    "material_fraction": 0.25,
+    "wilson_lower_bound_must_exceed": 0.25,
+    "grid_repeat_night_min": 20,
+    "grid_shift_fraction_min_exclusive": 0.25,
+    "grids_passing_min": 2,
+    "one_spacing_m": 6.25
+  },
+  "claim_boundary": {
+    "allowed": "In two independently held-out Cricetidae species sampled with repeated nightly trap checks, collapsing repeated within-night captures to one nightly position would discard a materially frequent one-trap-spacing-or-greater positional change.",
+    "movement_rate": false,
+    "home_range": false,
+    "sex_specific": false,
+    "universal_small_mammal": false,
+    "causal_behavior": false
+  },
+  "manuscript_candidate": true,
+  "integration_candidate_with_geometry_bounds": true
+}

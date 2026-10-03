@@ -1,0 +1,23 @@
+{
+  "schema": "neon.live_trap_aliasing.downstream_home_range_support_summary.v1",
+  "candidate_individuals": {
+    "PEMA": 372,
+    "PEER": 89
+  },
+  "eligible_individuals": {
+    "PEMA": 17,
+    "PEER": 6
+  },
+  "required_minimum": {
+    "PEMA": 20,
+    "PEER": 15
+  },
+  "programme_gate": {
+    "decision": "stop_downstream_home_range_not_estimable",
+    "passed": false
+  },
+  "mcp_areas_inspected": false,
+  "mcp_area_ratios_inspected": false,
+  "rms_radius_differences_inspected": false,
+  "review_package_role": "compact support summary; individual-level third-party identifiers and GitHub workflow provenance intentionally excluded"
+}

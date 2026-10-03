@@ -1,0 +1,35 @@
+{
+  "schema": "neon.live_trap_aliasing.review_package_provenance.v4",
+  "frozen_date": "2026-09-30",
+  "source_branch_head": "e7a2835c893aa5dc1242217318da57abda4523cd",
+  "workflow": {
+    "run_id": 36627728802,
+    "run_number": 21,
+    "workflow_name": "build-live-trap-aliasing-review-package",
+    "workflow_head_sha": "e7a2835c893aa5dc1242217318da57abda4523cd",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11060738818,
+    "name": "live-trap-aliasing-review-package-v2",
+    "size_in_bytes": 558144,
+    "digest": "sha256:549d98088b27d8460eabe7b895bc4bd7ca99f9ec6a3e538fcbad6a7a87708d48"
+  },
+  "manuscript": "MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md",
+  "supplement": "SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md",
+  "simulation": "results/temporal_aliasing_simulation_benchmark_v2.json",
+  "figures": "corrected simulation-v2 Figure 2 plus held-out/denominator figures 1–4",
+  "package_tests_passed": true,
+  "included_self_checks": [
+    "generic temporal-aliasing diagnostic tests",
+    "generic checked example",
+    "deterministic sensitivity-bound tests",
+    "corrected simulation-v2 tests",
+    "prospectively held-out positional-aliasing validation tests",
+    "all-night denominator audit tests",
+    "individual-cluster dependence audit tests",
+    "manuscript v0.3 frozen-claim and formatting invariants"
+  ],
+  "provenance_trigger_isolation": true,
+  "note": "Final self-checking v0.3 review artifact. The package workflow trigger was narrowed before this run so later provenance-only commits do not recursively rebuild the package."
+}

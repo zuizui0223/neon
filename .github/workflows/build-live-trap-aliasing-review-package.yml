@@ -1,0 +1,191 @@
+name: build-live-trap-aliasing-review-package
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md
+      - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md
+      - README_LIVE_TRAP_ALIASING.md
+      - LICENSE
+      - requirements-aliasing.txt
+      - requirements-figures.txt
+      - examples/repeated_locations_example.csv
+      - examples/repeated_locations_example_expected.json
+      - docs/REVIEW_PACKAGE_MANIFEST_V4.md
+      - docs/FIGURE_CAPTIONS_V3.md
+      - docs/SUBMISSION_STATEMENTS_V1.md
+      - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md
+      - docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md
+      - docs/MEE_SUBMISSION_READINESS_V4.md
+      - docs/APPLICABILITY_MATRIX_V1.md
+      - docs/KEY_METHOD_STATEMENTS_V1.md
+      - docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md
+      - docs/TEMPORAL_ALIASING_GEOMETRY_V1.md
+      - docs/TEMPORAL_EXCHANGEABILITY_REPRESENTATION_STABILITY_V1.md
+      - docs/SIMULATION_BENCHMARK_PLAN_V1.md
+      - docs/SIMULATION_BENCHMARK_CORRECTION_V2.md
+      - figures/**
+      - analysis/temporal_aliasing_diagnostic_v1.py
+      - analysis/temporal_aliasing_bounds_v1.py
+      - analysis/simulate_temporal_aliasing_diagnostic_v2.py
+      - analysis/san_jacinto_positional_aliasing_v1.py
+      - analysis/live_trap_aliasing_denominator_audit_v1.py
+      - analysis/audit_live_trap_aliasing_individual_cluster_v1.py
+      - analysis/plot_live_trap_aliasing_figures_v2.py
+      - analysis/simulate_scr_sigma_consequence_v1.R
+      - docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md
+      - docs/SCR_SIGMA_EMPIRICAL_SCALE_BENCHMARK_V1.md
+      - docs/SCR_SIGMA_MIXTURE_THEORY_V1.md
+      - results/scr_sigma_consequence_simulation_v1.json
+      - results/scr_sigma_consequence_replicates_v1.csv
+      - results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json
+      - analysis/audit_live_trap_night_label_semantics_v1.py
+      - tests/test_temporal_aliasing_diagnostic.py
+      - tests/test_temporal_aliasing_example.py
+      - tests/test_temporal_aliasing_bounds.py
+      - tests/test_temporal_aliasing_simulation_v2.py
+      - tests/test_san_jacinto_positional_aliasing.py
+      - tests/test_live_trap_aliasing_denominator_audit.py
+      - tests/test_live_trap_aliasing_individual_cluster_v1.py
+      - tests/test_live_trap_aliasing_manuscript_v0_5.py
+      - tests/test_live_trap_night_label_semantics_v1.py
+      - results/san_jacinto_positional_aliasing_result_v1.json
+      - results/temporal_aliasing_simulation_benchmark_v2.json
+      - validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json
+      - validation/san_jacinto_positional_aliasing_v1/result_artifact_v1.json
+      - validation/san_jacinto_positional_aliasing_v1/programme_final_decision_v1.json
+      - validation/live_trap_aliasing_v1/denominator_audit_v1.json
+      - validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
+      - validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
+      - validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json
+      - validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json
+      - .github/workflows/build-live-trap-aliasing-review-package.yml
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Build clean review directory
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/live-trap-aliasing-review
+          mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,figures}
+
+          cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md /tmp/live-trap-aliasing-review/
+          cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md /tmp/live-trap-aliasing-review/
+          cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
+          cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
+
+          cp docs/REVIEW_PACKAGE_MANIFEST_V4.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/FIGURE_CAPTIONS_V3.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_SUBMISSION_READINESS_V4.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/APPLICABILITY_MATRIX_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/KEY_METHOD_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/TEMPORAL_ALIASING_GEOMETRY_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/TEMPORAL_EXCHANGEABILITY_REPRESENTATION_STABILITY_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SIMULATION_BENCHMARK_PLAN_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SIMULATION_BENCHMARK_CORRECTION_V2.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_EMPIRICAL_SCALE_BENCHMARK_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_MIXTURE_THEORY_V1.md /tmp/live-trap-aliasing-review/docs/
+
+          cp analysis/temporal_aliasing_diagnostic_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/temporal_aliasing_bounds_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/simulate_temporal_aliasing_diagnostic_v2.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/san_jacinto_positional_aliasing_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/live_trap_aliasing_denominator_audit_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/audit_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/plot_live_trap_aliasing_figures_v2.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/simulate_scr_sigma_consequence_v1.R /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/audit_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/analysis/
+
+          cp tests/test_temporal_aliasing_diagnostic.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_temporal_aliasing_example.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_temporal_aliasing_bounds.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_temporal_aliasing_simulation_v2.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_san_jacinto_positional_aliasing.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_denominator_audit.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_manuscript_v0_5.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/tests/
+
+          cp examples/repeated_locations_example.csv examples/repeated_locations_example_expected.json /tmp/live-trap-aliasing-review/examples/
+          cp results/san_jacinto_positional_aliasing_result_v1.json /tmp/live-trap-aliasing-review/results/
+          cp results/temporal_aliasing_simulation_benchmark_v2.json /tmp/live-trap-aliasing-review/results/
+          cp results/scr_sigma_consequence_simulation_v1.json /tmp/live-trap-aliasing-review/results/
+          cp results/scr_sigma_consequence_replicates_v1.csv /tmp/live-trap-aliasing-review/results/
+          cp results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json /tmp/live-trap-aliasing-review/results/
+
+          cp validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json \
+             /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
+          cp validation/san_jacinto_positional_aliasing_v1/programme_final_decision_v1.json \
+             /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/denominator_audit_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+
+          cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
+
+          printf '%s\n' \
+            'live-trap-aliasing-review-package-v4' \
+            'Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.' \
+            > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt
+
+          if grep -R -n -i -E \
+            'zuizui0223|zhang[[:space:]_]+ruiqi|rachelzhang|workflow_head_sha|artifact_id|run_id|source_branch_head|commit_sha' \
+            /tmp/live-trap-aliasing-review; then
+            echo "::error::Potential identity/provenance leak found in anonymized review package."
+            exit 7
+          fi
+
+          find /tmp/live-trap-aliasing-review -type f | sort
+
+      - name: Install review-package dependencies
+        run: |
+          python -m pip install -r /tmp/live-trap-aliasing-review/requirements-aliasing.txt
+
+      - name: Verify complete review package
+        run: |
+          cd /tmp/live-trap-aliasing-review
+          python -m unittest \
+            tests.test_temporal_aliasing_diagnostic \
+            tests.test_temporal_aliasing_example \
+            tests.test_temporal_aliasing_bounds \
+            tests.test_temporal_aliasing_simulation_v2 \
+            tests.test_san_jacinto_positional_aliasing \
+            tests.test_live_trap_aliasing_denominator_audit \
+            tests.test_live_trap_aliasing_individual_cluster_v1 \
+            tests.test_live_trap_night_label_semantics_v1 \
+            tests.test_live_trap_aliasing_manuscript_v0_5 -v
+
+      - name: Remove transient Python bytecode
+        run: |
+          find /tmp/live-trap-aliasing-review -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find /tmp/live-trap-aliasing-review -type f -name '*.pyc' -delete
+          if find /tmp/live-trap-aliasing-review \( -type d -name '__pycache__' -o -type f -name '*.pyc' \) | grep -q .; then
+            echo "::error::Transient Python bytecode remains in reviewer package."
+            exit 8
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-trap-aliasing-review-package-v4
+          path: /tmp/live-trap-aliasing-review
+          if-no-files-found: error
+          retention-days: 30

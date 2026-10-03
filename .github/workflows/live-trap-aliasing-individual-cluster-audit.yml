@@ -1,0 +1,52 @@
+name: live-trap-aliasing-individual-cluster-audit
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - results/san_jacinto_positional_aliasing_result_v1.json
+      - analysis/audit_live_trap_aliasing_individual_cluster_v1.py
+      - tests/test_live_trap_aliasing_individual_cluster_v1.py
+      - .github/workflows/live-trap-aliasing-individual-cluster-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify individual-cluster audit
+        run: python -m unittest tests.test_live_trap_aliasing_individual_cluster_v1 -v
+
+      - name: Run dependence sensitivity audit
+        run: |
+          python analysis/audit_live_trap_aliasing_individual_cluster_v1.py \
+            --frozen-result results/san_jacinto_positional_aliasing_result_v1.json \
+            --output /tmp/live_trap_aliasing_individual_cluster_v1.json
+
+      - name: Persist non-rescuing dependence audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p validation/live_trap_aliasing_v1
+          cp /tmp/live_trap_aliasing_individual_cluster_v1.json \
+             validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
+          git add validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json
+          if git diff --cached --quiet; then
+            echo "cluster audit unchanged"
+          else
+            git commit -m "Freeze individual-cluster sensitivity audit"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi

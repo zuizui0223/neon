@@ -1,0 +1,107 @@
+name: temporal-aliasing-simulation-benchmark-v2
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/simulate_temporal_aliasing_diagnostic_v2.py
+      - tests/test_temporal_aliasing_simulation_v2.py
+      - docs/SIMULATION_BENCHMARK_CORRECTION_V2.md
+      - .github/workflows/temporal-aliasing-simulation-benchmark-v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify corrected simulation tests
+        run: python -m unittest tests.test_temporal_aliasing_simulation_v2 -v
+
+      - name: Run corrected 72-cell simulation benchmark
+        run: |
+          python analysis/simulate_temporal_aliasing_diagnostic_v2.py \
+            --replicates 400 \
+            --output /tmp/temporal_aliasing_simulation_benchmark_v2.json
+
+      - name: Validate corrected benchmark targets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("/tmp/temporal_aliasing_simulation_benchmark_v2.json").read_text()
+          )
+          s=p["summary"]
+          assert p["schema"]=="temporal_aliasing_diagnostic.simulation_benchmark.v2"
+          assert s["mcar_mean_abs_bias_vs_latent_probability"] < 0.01
+          assert 0.90 < s["mcar_mean_wilson_coverage_latent_probability"] < 0.99
+          assert s["span_enriched_mean_bias_vs_latent_probability"] > 0
+          assert s["span_depleted_mean_bias_vs_latent_probability"] < 0
+          assert s["total_lower_bound_realized_violations"] == 0
+          assert p["target_definition"]["wilson_coverage_target"].startswith(
+              "analytic generating probability"
+          )
+          print(json.dumps(p["summary"],indent=2,sort_keys=True))
+          PY
+
+      - name: Persist corrected benchmark
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p results validation/live_trap_aliasing_v1
+          cp /tmp/temporal_aliasing_simulation_benchmark_v2.json \
+             results/temporal_aliasing_simulation_benchmark_v2.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("/tmp/temporal_aliasing_simulation_benchmark_v2.json").read_text()
+          )
+          receipt={
+              "schema":"neon.live_trap_aliasing.simulation_correction_receipt.v2",
+              "date":"2026-09-30",
+              "v1_status":"superseded_for_simulation_performance_claims",
+              "v2_schema":p["schema"],
+              "target_definition":p["target_definition"],
+              "summary":p["summary"],
+              "empirical_heldout_result_changed":False,
+              "denominator_audit_changed":False,
+              "geometry_bounds_changed":False,
+          }
+          Path(
+              "validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json"
+          ).write_text(
+              json.dumps(receipt,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8",
+          )
+          PY
+          git add results/temporal_aliasing_simulation_benchmark_v2.json
+          git add validation/live_trap_aliasing_v1/simulation_correction_receipt_v2.json
+          if git diff --cached --quiet; then
+            echo "corrected benchmark unchanged"
+          else
+            git commit -m "Freeze corrected temporal-aliasing simulation benchmark v2"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi
+
+      - name: Upload corrected benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporal-aliasing-simulation-benchmark-v2
+          path: /tmp/temporal_aliasing_simulation_benchmark_v2.json
+          if-no-files-found: error
+          retention-days: 30
