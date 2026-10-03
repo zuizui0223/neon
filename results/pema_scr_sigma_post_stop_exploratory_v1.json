@@ -6,15 +6,44 @@
   "eligible_sessions": 19,
   "eligible_session_ids": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
   "eligible_grids": ["1", "2", "4", "6", "7"],
+  "structure": {
+    "first_class": ["capthist", "list"],
+    "last_class": ["capthist", "list"],
+    "first_session_names": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
+    "last_session_names": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
+    "first_session_count": 19,
+    "last_session_count": 19,
+    "mask_count": 19,
+    "mask_names": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
+    "sessioncov_rows": 19,
+    "sessioncov_rownames": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
+    "sessioncov_grid": ["1", "1", "1", "2", "2", "2", "4", "4", "4", "4", "6", "6", "6", "6", "6", "6", "6", "7", "7"],
+    "sessioncov_bout": ["6", "11", "12", "5", "6", "11", "1", "2", "5", "10", "1", "6", "8", "9", "10", "11", "12", "7", "10"]
+  },
+  "null_structure_check": {
+    "model": "g0 ~ 1; sigma ~ 1",
+    "first": {
+      "ok": false,
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(first_ms, null_model, use_sessioncov = FALSE)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
+    },
+    "last": {
+      "ok": false,
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(last_ms, null_model, use_sessioncov = FALSE)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
+    }
+  },
   "primary": {
     "model": "g0 ~ b + grid + bout; sigma ~ 1",
     "first": {
       "ok": false,
-      "error": "argument is of length zero"
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(first_ms, primary_model)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
     },
     "last": {
       "ok": false,
-      "error": "argument is of length zero"
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(last_ms, primary_model)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
     },
     "contrast": {}
   },
@@ -22,11 +51,13 @@
     "model": "g0 ~ grid + bout; sigma ~ 1",
     "first": {
       "ok": false,
-      "error": "argument is of length zero"
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(first_ms, sensitivity_model)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
     },
     "last": {
       "ok": false,
-      "error": "argument is of length zero"
+      "error": "argument is of length zero",
+      "call_stack": ["fit_one(last_ms, sensitivity_model)", "tryCatch({     fit <- withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE,          detectfn = \"HN\", model = model, sessioncov = if (use_sessioncov)              sessioncov         else NULL, trace = FALSE, ncores = 2), error = function(e) {         stack <<- vapply(sys.calls(), function(x) paste(deparse(x),              collapse = \" \"), character(1))     })     list(ok = TRUE, sigma = extract_sigma(fit), logLik = as.numeric(logLik(fit)),          AIC = as.numeric(AIC(fit))) }, error = function(e) list(ok = FALSE, error = conditionMessage(e),      call_stack = stack))", "tryCatchList(expr, classes, parentenv, handlers)", "tryCatchOne(expr, names, parentenv, handlers[[1L]])", "doTryCatch(return(expr), name, parentenv, handler)", "withCallingHandlers(secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\",      model = model, sessioncov = if (use_sessioncov) sessioncov else NULL,      trace = FALSE, ncores = 2), error = function(e) {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) })", "secr.fit(ch, mask = masks, CL = TRUE, detectfn = \"HN\", model = model,      sessioncov = if (use_sessioncov) sessioncov else NULL, trace = FALSE,      ncores = 2)", ".handleSimpleError(function (e)  {     stack <<- vapply(sys.calls(), function(x) paste(deparse(x),          collapse = \" \"), character(1)) }, \"argument is of length zero\", base::quote(if (notOK) stop(\"'verify' found errors in 'mask' argument\")))", "h(simpleError(msg, call))"]
     },
     "contrast": {}
   },
