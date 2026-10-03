@@ -65,9 +65,10 @@ def audit(rows):
             ),
             "trap_sequence":"->".join(fs),
         })
-    return out
+    all_counts=Counter(k[0] for k in groups)
+    return out,all_counts
 
-def summarize(rows):
+def summarize(rows,all_counts):
     ans={}
     for sp,name in SPECIES.items():
         z=[r for r in rows if r["species"]==sp]
@@ -76,13 +77,17 @@ def summarize(rows):
         anyc=sum(r["any_cross_trap_conflict"] for r in z)
         ret=sum(r["returned_to_first_after_other_trap"] for r in z)
         hidden=[r for r in z if r["any_cross_trap_conflict"] and not r["first_last_changed"]]
+        all_n=int(all_counts.get(sp,0))
         ans[sp]={
             "scientific_name":name,
+            "all_valid_individual_nights":all_n,
             "repeat_nights":n,
+            "repeat_observation_fraction":n/all_n if all_n else None,
             "first_last_change_count":fl,
             "first_last_change_fraction":fl/n,
             "any_cross_trap_conflict_count":anyc,
             "any_cross_trap_conflict_fraction":anyc/n,
+            "all_night_directly_observed_cross_trap_conflict_lower_bound":anyc/all_n if all_n else None,
             "endpoint_false_negative_count":len(hidden),
             "endpoint_false_negative_fraction_all_repeat_nights":len(hidden)/n,
             "fraction_of_cross_trap_conflicts_missed_by_first_last":len(hidden)/anyc if anyc else 0,
@@ -90,12 +95,15 @@ def summarize(rows):
             "capture_count_distribution":dict(sorted(Counter(r["capture_count"] for r in z).items())),
             "unique_trap_count_distribution":dict(sorted(Counter(r["unique_trap_count"] for r in z).items())),
         }
-    allz=rows; n=len(allz); fl=sum(r["first_last_changed"] for r in allz); anyc=sum(r["any_cross_trap_conflict"] for r in allz)
+    allz=rows; n=len(allz); all_n=sum(all_counts.values()); fl=sum(r["first_last_changed"] for r in allz); anyc=sum(r["any_cross_trap_conflict"] for r in allz)
     hidden=[r for r in allz if r["any_cross_trap_conflict"] and not r["first_last_changed"]]
     ans["COMBINED"]={
+        "all_valid_individual_nights":all_n,
         "repeat_nights":n,
+        "repeat_observation_fraction":n/all_n if all_n else None,
         "first_last_change_count":fl,"first_last_change_fraction":fl/n,
         "any_cross_trap_conflict_count":anyc,"any_cross_trap_conflict_fraction":anyc/n,
+        "all_night_directly_observed_cross_trap_conflict_lower_bound":anyc/all_n if all_n else None,
         "endpoint_false_negative_count":len(hidden),
         "endpoint_false_negative_fraction_all_repeat_nights":len(hidden)/n,
         "fraction_of_cross_trap_conflicts_missed_by_first_last":len(hidden)/anyc if anyc else 0,
@@ -108,7 +116,7 @@ def main():
     ap.add_argument("--json",type=Path,required=True)
     ap.add_argument("--csv",type=Path,required=True)
     a=ap.parse_args()
-    rows=audit(download(a.cache)); s=summarize(rows)
+    rows,all_counts=audit(download(a.cache)); s=summarize(rows,all_counts)
     result={
       "schema":"neon.san_jacinto_full_within_night_aliasing.v1",
       "source_sha256":SHA256,
