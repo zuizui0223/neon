@@ -1,5 +1,21 @@
 # SCR sigma downstream programme — active path v1
 
+## 2026-10-03 status update
+
+The downstream question is no longer open-ended.
+
+**Primary scientific result obtained:** the frozen empirical-transition consequence benchmark shows that stationary nightly collapse is approximately unbiased, whereas selecting an observation-conditioned displaced state instead of the canonical state changes fitted sigma by about 15–17% at the central 12.5 m simulation scale. Mirroring PRE versus POST reverses whether FIRST or LAST is larger, so the result is representative-state sensitivity rather than superiority of one rule.
+
+**Numerical QA repair in progress:** two of 1,080 model fits were incorrectly counted as successful despite sigma >300 km and sigma SE = 0. The success rule now requires a finite positive sigma SE and ordered finite CI; generator, seeds and scientific cells are unchanged. The central 12.5 m result is unaffected.
+
+**Only two supporting tasks remain:**
+1. dependence-aware CHECK pilot (`g0 ~ Bk`) to answer whether finer occasions alone are sufficient;
+2. post-stop exploratory PEMA FIRST/LAST fit, whose latest failure occurred only in multi-session sigma extraction after the fits completed.
+
+The MEE integration is specified in `docs/MEE_V0_4_SCR_DOWNSTREAM_INTEGRATION_V1.md`.
+
+No additional downstream biological endpoint or branch is authorized.
+
 Date: 2026-10-01
 
 ## Single active question
