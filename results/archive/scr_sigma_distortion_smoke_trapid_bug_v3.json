@@ -1,0 +1,113 @@
+{
+  "schema": "neon.san_jacinto_scr_sigma_distortion_simulation.result.v1",
+  "mode": "smoke",
+  "seed": 20261003,
+  "package_versions": {
+    "R": "4.6.1",
+    "secr": "5.4.3"
+  },
+  "design": {
+    "trap_spacing_m": 6.25,
+    "nx": 7,
+    "ny": 7,
+    "nights": 5,
+    "checks_per_night": 4,
+    "n_animals": 600,
+    "mask_buffer_m": 100,
+    "replicates_per_cell": 3
+  },
+  "negative_control_estimable": false,
+  "negative_control_pass": false,
+  "fit_error_counts": {
+    "failed to match some capture locations to detector sites": 54
+  },
+  "summary": [
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 0,
+      "release_jitter_sd_m": 0,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.29002255468,
+      "shift_fraction_mean": 0.85318265237,
+      "median_span_m_median": 6.25,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    },
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 0,
+      "release_jitter_sd_m": 1.5,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.33545642417,
+      "shift_fraction_mean": 0.83933843934,
+      "median_span_m_median": 6.25,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    },
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 0,
+      "release_jitter_sd_m": 12.5,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.25692065923,
+      "shift_fraction_mean": 0.96031746032,
+      "median_span_m_median": 13.2377124297,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    },
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 1,
+      "release_jitter_sd_m": 0,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.37893930839,
+      "shift_fraction_mean": 0.71524500907,
+      "median_span_m_median": 6.25,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    },
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 1,
+      "release_jitter_sd_m": 1.5,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.3438702813,
+      "shift_fraction_mean": 0.68778998779,
+      "median_span_m_median": 6.25,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    },
+    {
+      "profile": "PEMA_like",
+      "g0": 0.09,
+      "sigma_true_m": 5,
+      "rho_release_location": 1,
+      "release_jitter_sd_m": 12.5,
+      "n_replicates": 3,
+      "repeat_fraction_mean": 0.2839364594,
+      "shift_fraction_mean": 0.97555555556,
+      "median_span_m_median": 13.9754248594,
+      "first_fit_rate": 0,
+      "last_fit_rate": 0,
+      "check_fit_rate": 0
+    }
+  ],
+  "simulated_sigma_effects_inspected": true,
+  "empirical_sigma_effects_opened": false,
+  "real_data_sigma_gate_remains_stopped": true
+}
