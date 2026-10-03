@@ -193,7 +193,7 @@ fit_pair <- function(model_name, formula_g0) {
       ch, mask = masklist, CL = TRUE, detectfn = "HN",
       model = list(g0 = formula_g0, sigma = ~1),
       sessioncov = sessioncov,
-      trace = FALSE, verify = TRUE
+      trace = FALSE, verify = TRUE, ncores = 2
     )
   }
   f <- fit_one(ch_first)
@@ -213,10 +213,13 @@ fit_pair <- function(model_name, formula_g0) {
   )
 }
 
+# The exploratory empirical companion is intentionally limited to the
+# prospectively designated primary model. Earlier runs produced no sigma output
+# before the workflow time limit, so no effect was inspected before this
+# computational simplification. Non-rescuing sensitivity models are omitted
+# rather than used for post-hoc model selection.
 models <- list(
-  primary = fit_pair("g0 ~ b + grid + bout", ~ b + grid + bout),
-  no_behaviour = fit_pair("g0 ~ grid + bout", ~ grid + bout),
-  constant_g0 = fit_pair("g0 ~ 1", ~ 1)
+  primary = fit_pair("g0 ~ b + grid + bout", ~ b + grid + bout)
 )
 
 out <- list(
@@ -232,6 +235,7 @@ out <- list(
   first_observations = nrow(first_dat),
   last_observations = nrow(last_dat),
   models = models,
+  primary_model_only = TRUE,
   empirical_claim_boundary = list(
     replaces_failed_confirmatory_gate = FALSE,
     determines_correct_representative_location = FALSE,
