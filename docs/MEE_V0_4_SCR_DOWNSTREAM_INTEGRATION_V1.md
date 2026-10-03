@@ -109,6 +109,18 @@ Plot sqrt(1 + A_sigma^2) with the 10% boundary A_sigma = 0.458 and mark the thre
 
 CHECK should be shown as a secondary point/line rather than treated as a gold standard until the dependence-aware CHECK pilot is complete.
 
+## CHECK-Bk model audit
+
+The targeted dependence-aware pilot is structurally matched to the simulated observation process.
+
+In `secr` terminology:
+- `B` is a transient/Markovian response based on detection on the previous occasion;
+- `Bk` is the site-specific transient response.
+
+The pilot generator applies an elevated recapture probability only at the same detector immediately after a capture and resets after a no-capture opportunity / between nights. Therefore `g0 ~ Bk` is the appropriate discrete-time response model for the stated generator, rather than a generic learned `b` or `bk` effect.
+
+This means a successful CHECK-Bk recovery can be interpreted as a genuine answer to the "finer occasions" objection, not as a model-form mismatch.
+
 ## Response to the reviewer objection: "make every check an occasion"
 
 The response should be conditional, not absolute.
