@@ -223,19 +223,47 @@ fit_one <- function(capthist, behaviour = FALSE) {
                 error = conditionMessage(fit)))
   }
 
-  pr <- predict(fit)
-  ridx <- which(rownames(pr) == "sigma")
-  if (length(ridx) != 1L) {
-    ridx <- grep("^sigma", rownames(pr))
+  pr <- predict(fit, realnames = "sigma")
+  frames <- if (is.data.frame(pr) || is.matrix(pr)) {
+    list(as.data.frame(pr))
+  } else if (is.list(pr)) {
+    Filter(function(x) is.data.frame(x) || is.matrix(x), pr)
+  } else {
+    list()
   }
-  sigma_hat <- if (length(ridx) >= 1L) as.numeric(pr[ridx[1], "estimate"]) else NA_real_
+  sigma_rows <- lapply(frames, function(x) {
+    x <- as.data.frame(x)
+    idx <- which(rownames(x) == "sigma")
+    if (!length(idx)) idx <- grep("^sigma", rownames(x))
+    if (!length(idx) || !("estimate" %in% colnames(x))) return(NULL)
+    x[idx[1], , drop = FALSE]
+  })
+  sigma_rows <- Filter(Negate(is.null), sigma_rows)
+  if (!length(sigma_rows)) {
+    sigma_hat <- NA_real_
+    sigma_se <- NA_real_
+  } else {
+    estimates <- vapply(sigma_rows, function(x) as.numeric(x[1, "estimate"]), numeric(1))
+    if (max(estimates) - min(estimates) > 1e-6 * max(1, mean(abs(estimates)))) {
+      stop("sigma unexpectedly differs among sessions")
+    }
+    sigma_hat <- mean(estimates)
+    sigma_se <- if ("SE.estimate" %in% colnames(sigma_rows[[1]])) {
+      as.numeric(sigma_rows[[1]][1, "SE.estimate"])
+    } else {
+      NA_real_
+    }
+  }
   aa <- suppressWarnings(AIC(fit, criterion = "AIC"))
   aic_value <- if ("AIC" %in% colnames(aa)) as.numeric(aa[1, "AIC"]) else NA_real_
+  valid <- is.finite(sigma_hat) && sigma_hat > 0 &&
+    (is.na(sigma_se) || (is.finite(sigma_se) && sigma_se > 0))
   list(
-    ok = is.finite(sigma_hat),
-    sigma = sigma_hat,
+    ok = valid,
+    sigma = if (valid) sigma_hat else NA_real_,
+    sigma_se = sigma_se,
     aic = aic_value,
-    error = if (is.finite(sigma_hat)) "" else "sigma row not found"
+    error = if (valid) "" else "sigma prediction invalid"
   )
 }
 
