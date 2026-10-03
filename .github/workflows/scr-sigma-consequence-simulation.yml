@@ -46,7 +46,7 @@ jobs:
 
       - name: Run frozen SCR sigma consequence simulation
         run: |
-          Rscript analysis/simulate_scr_sigma_consequence_v1.R             --source data/cache/san_jacinto/year_round_trap_data.csv             --nrepl 40             --cores 2             --seed 20261001             --output-json results/scr_sigma_consequence_simulation_v1.json             --output-csv results/scr_sigma_consequence_replicates_v1.csv
+          Rscript analysis/simulate_scr_sigma_consequence_v1.R             --source data/cache/san_jacinto/year_round_trap_data.csv             --nrepl 40             --cores 4             --seed 20261001             --output-json results/scr_sigma_consequence_simulation_v1.json             --output-csv results/scr_sigma_consequence_replicates_v1.csv
 
       - name: Verify result contract
         run: |
