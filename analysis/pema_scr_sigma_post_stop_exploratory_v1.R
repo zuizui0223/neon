@@ -153,7 +153,8 @@ for (i in seq_along(sids)) {
 
 first_ms <- do.call(MS.capthist,first_list)
 last_ms <- do.call(MS.capthist,last_list)
-masks <- lapply(first_list,function(ch) make.mask(traps(ch),buffer=100,spacing=5))
+mask_common <- make.mask(traps(first_list[[1]]),buffer=100,spacing=5)
+masks <- mask_common
 sessioncov <- data.frame(
   grid=factor(vapply(session_meta,function(x)x$grid,character(1))),
   bout=factor(vapply(session_meta,function(x)as.character(x$bout),character(1))),
@@ -250,8 +251,8 @@ result <- list(
     last_session_names=as.character(session(last_ms)),
     first_session_count=length(first_ms),
     last_session_count=length(last_ms),
-    mask_count=length(masks),
-    mask_names=names(masks),
+    mask_class=class(masks),
+    mask_points=nrow(masks),
     sessioncov_rows=nrow(sessioncov),
     sessioncov_rownames=rownames(sessioncov),
     sessioncov_grid=as.character(sessioncov$grid),
