@@ -29,10 +29,7 @@ Primary exploratory model:
 - sigma ~ 1
 - 100 m trap-buffer mask
 
-Non-rescuing sensitivity models:
-
-- g0 ~ grid + bout
-- g0 ~ 1
+The execution is now intentionally limited to this prospectively designated primary model. Earlier workflow attempts were cancelled before any sigma output was written, so no FIRST/LAST effect was inspected before dropping the two non-rescuing sensitivity fits for computational tractability.
 
 The reported comparison is sigma_LAST / sigma_FIRST and its relative change. The previously written 10% threshold is used descriptively only.
 
