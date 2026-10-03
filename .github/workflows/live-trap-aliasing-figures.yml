@@ -5,8 +5,8 @@ on:
     branches:
       - paper/live-trap-aliasing-v1
     paths:
-      - analysis/plot_live_trap_aliasing_figures_v1.py
-      - results/temporal_aliasing_simulation_benchmark_v2.json
+      - analysis/plot_live_trap_aliasing_figures_v2.py
+      - results/scr_sigma_consequence_simulation_v1.json
       - results/san_jacinto_positional_aliasing_result_v1.json
       - validation/live_trap_aliasing_v1/denominator_audit_v1.json
       - .github/workflows/live-trap-aliasing-figures.yml
@@ -30,7 +30,11 @@ jobs:
         run: python -m pip install numpy==2.1.1 matplotlib==3.10.6
       - name: Render figures
         run: |
-          python analysis/plot_live_trap_aliasing_figures_v1.py             --simulation results/temporal_aliasing_simulation_benchmark_v2.json             --validation results/san_jacinto_positional_aliasing_result_v1.json             --denominator validation/live_trap_aliasing_v1/denominator_audit_v1.json             --outdir /tmp/figures
+          python analysis/plot_live_trap_aliasing_figures_v2.py \
+            --consequence results/scr_sigma_consequence_simulation_v1.json \
+            --validation results/san_jacinto_positional_aliasing_result_v1.json \
+            --denominator validation/live_trap_aliasing_v1/denominator_audit_v1.json \
+            --outdir /tmp/figures
       - name: Persist figure files
         run: |
           git config user.name "github-actions[bot]"
@@ -42,12 +46,12 @@ jobs:
           if git diff --cached --quiet; then
             echo "figures unchanged"
           else
-            git commit -m "Render live-trap aliasing manuscript figures"
+            git commit -m "Render live-trap aliasing manuscript figures v2"
             git push origin HEAD:paper/live-trap-aliasing-v1
           fi
       - uses: actions/upload-artifact@v4
         with:
-          name: live-trap-aliasing-figures-v1
+          name: live-trap-aliasing-figures-v2
           path: /tmp/figures/*
           if-no-files-found: error
           retention-days: 30
