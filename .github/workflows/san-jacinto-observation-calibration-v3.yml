@@ -1,0 +1,105 @@
+name: san-jacinto-observation-calibration-v3
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+      - analysis/calibrate_san_jacinto_observation_process_v3.R
+      - .github/workflows/san-jacinto-observation-calibration-v3.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Verify frozen calibration-only contract
+        run: |
+          grep -q "No SCR sigma model is fitted anywhere in this stage"             docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+          grep -q "These bounds cannot be relaxed"             docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+          grep -q "A separate design must be committed"             docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+
+      - name: Run v3 observation calibration
+        run: |
+          Rscript analysis/calibrate_san_jacinto_observation_process_v3.R             --search-reps 12             --validation-reps 50             --output-json /tmp/observation_calibration_v3.json             --output-search-csv /tmp/observation_calibration_search_v3.csv             --output-validation-csv /tmp/observation_calibration_validation_v3.csv
+
+      - name: Validate no downstream fitting occurred
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(Path("/tmp/observation_calibration_v3.json").read_text())
+          assert p["schema"]=="neon.san_jacinto_observation_calibration.v3"
+          assert p["grid"]["candidate_cells"]==204
+          assert p["grid"]["validation_candidates"]==12
+          assert p["claim_boundary"]["scr_models_fit"]==0
+          assert p["claim_boundary"]["empirical_sigma_opened"] is False
+          assert p["claim_boundary"]["downstream_sigma_results_generated"] is False
+          assert p["claim_boundary"]["v1_v2_sigma_results_not_used_for_v3_cell_selection"] is True
+          assert p["decision"]["downstream_cells_frozen_now"] is False
+          assert p["decision"]["value"] in {
+              "authorize_v3_downstream_freeze",
+              "stop_v3_no_observation_process_match",
+          }
+
+          cells=p.get("passing_cells_for_later_freeze", [])
+          if isinstance(cells, dict):
+              cells=[cells]
+          assert len(cells)<=3
+
+          print(json.dumps({
+              "decision":p["decision"],
+              "passing_cells_for_later_freeze":cells,
+              "validation_cells":p["validation_cells"],
+          },indent=2))
+          PY
+
+      - name: Persist calibration result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p validation/san_jacinto_scr_sigma_v1
+          cp /tmp/observation_calibration_v3.json              validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json
+          cp /tmp/observation_calibration_search_v3.csv              validation/san_jacinto_scr_sigma_v1/observation_calibration_search_v3.csv
+          cp /tmp/observation_calibration_validation_v3.csv              validation/san_jacinto_scr_sigma_v1/observation_calibration_validation_v3.csv
+          git add validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json
+          git add validation/san_jacinto_scr_sigma_v1/observation_calibration_search_v3.csv
+          git add validation/san_jacinto_scr_sigma_v1/observation_calibration_validation_v3.csv
+          if git diff --cached --quiet; then
+            echo "v3 calibration unchanged"
+          else
+            git commit -m "Record v3 observation-process calibration"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-observation-calibration-v3
+          path: |
+            /tmp/observation_calibration_v3.json
+            /tmp/observation_calibration_search_v3.csv
+            /tmp/observation_calibration_validation_v3.csv
+          if-no-files-found: error
+          retention-days: 30
