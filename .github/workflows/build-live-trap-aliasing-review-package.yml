@@ -13,7 +13,7 @@ on:
       - requirements-figures.txt
       - examples/repeated_locations_example.csv
       - examples/repeated_locations_example_expected.json
-      - docs/REVIEW_PACKAGE_MANIFEST_V3.md
+      - docs/REVIEW_PACKAGE_MANIFEST_V4.md
       - docs/FIGURE_CAPTIONS_V3.md
       - docs/SUBMISSION_STATEMENTS_V1.md
       - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md
@@ -23,6 +23,7 @@ on:
       - docs/KEY_METHOD_STATEMENTS_V1.md
       - docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md
       - docs/TEMPORAL_ALIASING_GEOMETRY_V1.md
+      - docs/TEMPORAL_EXCHANGEABILITY_REPRESENTATION_STABILITY_V1.md
       - docs/SIMULATION_BENCHMARK_PLAN_V1.md
       - docs/SIMULATION_BENCHMARK_CORRECTION_V2.md
       - figures/**
@@ -84,7 +85,7 @@ jobs:
           cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
 
-          cp docs/REVIEW_PACKAGE_MANIFEST_V3.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/REVIEW_PACKAGE_MANIFEST_V4.md /tmp/live-trap-aliasing-review/docs/
           cp docs/FIGURE_CAPTIONS_V3.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md /tmp/live-trap-aliasing-review/docs/
@@ -94,6 +95,7 @@ jobs:
           cp docs/KEY_METHOD_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/TEMPORAL_ALIASING_GEOMETRY_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/TEMPORAL_EXCHANGEABILITY_REPRESENTATION_STABILITY_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SIMULATION_BENCHMARK_PLAN_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SIMULATION_BENCHMARK_CORRECTION_V2.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md /tmp/live-trap-aliasing-review/docs/
