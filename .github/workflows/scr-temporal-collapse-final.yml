@@ -1,0 +1,81 @@
+name: scr-temporal-collapse-final
+
+on:
+  push:
+    branches: [design/san-jacinto-scr-sigma-impact-v1]
+    paths:
+      - validation/scr_temporal_collapse_final_lock_v1.json
+      - analysis/scr_temporal_collapse_final_v1.R
+      - .github/workflows/scr-temporal-collapse-final.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scr-temporal-collapse-final-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+      - name: Verify frozen final lock
+        run: |
+          Rscript - <<'RS'
+          library(jsonlite)
+          z <- fromJSON("validation/scr_temporal_collapse_final_lock_v1.json",simplifyVector=FALSE)
+          stopifnot(z$state=="frozen_before_downstream_sigma_effects")
+          stopifnot(identical(z$downstream_sigma_effects_inspected,FALSE))
+          stopifnot(identical(z$empirical_sigma_effect_opened,FALSE))
+          stopifnot(identical(z$empirical_two_species_stop_relaxed,FALSE))
+          stopifnot(as.integer(z$monte_carlo_replicates)==200)
+          RS
+      - name: Run frozen downstream sigma simulation
+        run: |
+          Rscript analysis/scr_temporal_collapse_final_v1.R \
+            --lock validation/scr_temporal_collapse_final_lock_v1.json \
+            --seed 20261003 \
+            --output-json /tmp/scr_temporal_collapse_final_v1.json \
+            --output-csv /tmp/scr_temporal_collapse_final_replicates_v1.csv
+      - name: Verify outputs and guardrails
+        run: |
+          Rscript - <<'RS'
+          library(jsonlite)
+          z <- fromJSON("/tmp/scr_temporal_collapse_final_v1.json",simplifyVector=FALSE)
+          stopifnot(as.integer(z$actual_replicates_per_scenario)==200)
+          stopifnot(identical(z$guardrails$empirical_sigma_effect_opened,FALSE))
+          stopifnot(identical(z$guardrails$empirical_two_species_stop_relaxed,FALSE))
+          stopifnot(identical(z$guardrails$generator_parameters_changed_after_lock,FALSE))
+          d <- read.csv("/tmp/scr_temporal_collapse_final_replicates_v1.csv")
+          stopifnot(nrow(d)==400)
+          stopifnot(all(table(d$scenario)==200))
+          RS
+      - name: Persist final simulation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/scr_temporal_collapse_final_v1.json results/
+          cp /tmp/scr_temporal_collapse_final_replicates_v1.csv results/
+          git add results/scr_temporal_collapse_final_v1.json
+          git add results/scr_temporal_collapse_final_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "final results unchanged"
+          else
+            git commit -m "Run frozen calibrated SCR downstream simulation"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
