@@ -1,7 +1,7 @@
 {
   "schema": "neon.san_jacinto_scr_sigma_distortion_simulation.lock.v1",
   "frozen_date": "2026-10-03",
-  "state": "frozen_before_simulated_sigma_effects",
+  "state": "amended_after_estimability_smoke_before_primary_simulated_sigma_effects",
   "empirical_sigma_effects_opened": false,
   "real_data_sigma_gate_remains_stopped": true,
   "geometry": {
@@ -10,21 +10,43 @@
     "spacing_m": 6.25,
     "nights": 5,
     "checks_per_night": 4,
-    "n_animals": 120,
+    "n_animals": 600,
     "buffer_m": 100
   },
   "simulation_grid": {
-    "sigma_true_m": [5.0, 10.0, 15.0],
-    "rho_release_location": [0.0, 0.5, 1.0],
-    "release_jitter_sd_m": [0.0, 1.5, 3.125, 6.25, 12.5],
+    "sigma_true_m": [
+      5,
+      10,
+      15
+    ],
+    "rho_release_location": [
+      0,
+      0.5,
+      1
+    ],
+    "release_jitter_sd_m": [
+      0,
+      1.5,
+      3.125,
+      6.25,
+      12.5
+    ],
     "profiles": {
-      "PEMA_like": {"g0": 0.09},
-      "PEER_like": {"g0": 0.08}
+      "PEMA_like": {
+        "g0": 0.09
+      },
+      "PEER_like": {
+        "g0": 0.08
+      }
     },
     "full_replicates_per_cell": 100
   },
   "fits": {
-    "representations": ["FIRST", "LAST", "CHECK"],
+    "representations": [
+      "FIRST",
+      "LAST",
+      "CHECK"
+    ],
     "package": "secr",
     "detector": "multi",
     "detectfn": "HN",
@@ -45,11 +67,27 @@
       "median_first_last_span_m": 6.25
     }
   },
-  "material_relative_sigma_change_threshold": 0.10,
+  "material_relative_sigma_change_threshold": 0.1,
   "negative_control": {
-    "rho_release_location": 0.0,
-    "release_jitter_sd_m": 0.0,
+    "rho_release_location": 0,
+    "release_jitter_sd_m": 0,
     "require_no_systematic_first_last_distortion": true
   },
-  "simulated_sigma_effects_inspected": false
+  "simulated_sigma_effects_inspected": true,
+  "smoke_v1": {
+    "inspected": true,
+    "purpose": "implementation_and_estimability_only",
+    "downstream_effect_interpretation_authorized": false,
+    "negative_control_first_fit_rate": 0,
+    "negative_control_last_fit_rate": 0,
+    "negative_control_check_fit_rate": 0
+  },
+  "estimability_amendment": {
+    "date": "2026-10-03",
+    "previous_n_animals": 120,
+    "amended_n_animals": 600,
+    "trigger": "negative-control SCR fit failure at N=120",
+    "rule": "increase simulation support only; do not alter sigma, rho, jitter, profiles, or materiality threshold based on effect direction"
+  },
+  "primary_simulated_sigma_effects_inspected": false
 }
