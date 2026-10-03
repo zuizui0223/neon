@@ -29,7 +29,8 @@ if (!is.finite(cores) || cores < 1) stop("cores must be >=1")
 SPACING <- 6.25
 SIGMAS <- c(6.25, 12.5, 25.0)
 G0 <- 0.15
-DENSITY <- 20
+ORIGINAL_DENSITY <- 20
+DENSITY <- 60
 BUFFER <- 100
 NIGHTS <- 3
 CHECKS_PER_NIGHT <- 3
@@ -615,6 +616,8 @@ out <- list(
     nights=NIGHTS,
     g0=G0,
     density_per_ha=DENSITY,
+    original_density_per_ha=ORIGINAL_DENSITY,
+    estimability_repair="density_only_20_to_60_animals_per_ha",
     buffer_m=BUFFER,
     sigma_true_m=SIGMAS,
     fit_model="CL=TRUE; HN; g0~b; sigma~1"
