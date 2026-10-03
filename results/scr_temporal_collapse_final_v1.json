@@ -1,0 +1,150 @@
+{
+  "schema": "neon.scr_temporal_collapse.final.v1",
+  "lock": {
+    "schema": "neon.scr_temporal_collapse.final_lock.v1",
+    "frozen_date": "2026-10-03",
+    "state": "frozen_before_downstream_sigma_effects",
+    "calibration_source": {
+      "path": "results/scr_temporal_collapse_calibration_v1.json",
+      "blob_sha": "704c1785118c6cb334b5a3cbeb1dcad73caf88d3",
+      "selection_rule": "first ranked cell with matches_base_scr_targets=true; ranking excludes all downstream sigma fit outcomes"
+    },
+    "empirical_targets": {
+      "repeat_observation_fraction_combined": 0.38947368421,
+      "repeat_observation_fraction_species_band": [
+        0.35548172757,
+        0.39786710418
+      ],
+      "cross_trap_conflict_fraction_combined": 0.76013513514,
+      "endpoint_change_fraction_combined": 0.71959459459,
+      "conflict_diameter_median_m": 13.9754248594,
+      "conflict_diameter_median_species_band": [
+        12.5,
+        14
+      ]
+    },
+    "generator": {
+      "detector": "multi",
+      "detectfn": "HN",
+      "grid": "7x7",
+      "spacing_m": 6.25,
+      "nights": 3,
+      "checks_per_night": 3,
+      "true_sigma_m": 10.9375,
+      "g0_per_check": 0.06,
+      "density_animals_per_ha": 30,
+      "population_buffer_m": 100,
+      "fit_mask_buffer_m": 75,
+      "same_trap_persistence_rho": 0.20172188317,
+      "persistence_rule": "for a rho fraction of repeat-detected individual-nights, replace all detector identities in that individual-night by one uniformly sampled detector identity already observed in that night; capture counts and occasions are unchanged"
+    },
+    "scenarios": {
+      "exchangeable_static_scr": {
+        "same_trap_persistence_rho": 0
+      },
+      "san_jacinto_calibrated": {
+        "same_trap_persistence_rho": 0.20172188317
+      }
+    },
+    "representations": {
+      "CHECK": "each physical trap check remains a separate multi-detector occasion",
+      "FIRST": "secr::reduce by 3 checks, outputdetector=multi, select=first",
+      "LAST": "secr::reduce by 3 checks, outputdetector=multi, select=last"
+    },
+    "fit": {
+      "conditional_likelihood": true,
+      "detectfn": "HN",
+      "model_g0": "~1",
+      "model_sigma": "~1"
+    },
+    "primary_metric": "per replicate, 0.5*(abs(sigma_FIRST/sigma_CHECK-1)+abs(sigma_LAST/sigma_CHECK-1)); summarize its Monte Carlo mean in the calibrated scenario",
+    "materiality_threshold": 0.1,
+    "secondary_metrics": [
+      "signed mean collapse distortion 0.5*((sigma_FIRST/sigma_CHECK-1)+(sigma_LAST/sigma_CHECK-1))",
+      "max absolute FIRST/LAST deviation from CHECK",
+      "fraction of replicates with either nightly reduction >=10% from CHECK",
+      "LAST/FIRST ratio as rule-selection sensitivity",
+      "CHECK relative error versus generating sigma",
+      "post-persistence repeat fraction, conflict fraction, and conflict diameter"
+    ],
+    "monte_carlo_replicates": 200,
+    "downstream_sigma_effects_inspected": false,
+    "empirical_sigma_effect_opened": false,
+    "empirical_two_species_stop_relaxed": false
+  },
+  "seed": 20261003,
+  "actual_replicates_per_scenario": 200,
+  "summary": {
+    "exchangeable_static_scr": {
+      "rho": 0,
+      "replicates": 200,
+      "all_three_fit_fraction": 1,
+      "pooled_geometry": {
+        "all_captured_nights": 6195,
+        "repeat_nights": 2496,
+        "repeat_observation_fraction": 0.40290556901,
+        "conflict_nights": 2365,
+        "cross_trap_conflict_fraction": 0.94751602564,
+        "conflict_diameter_median_m": 13.9754248594
+      },
+      "sigma": {
+        "mean_check_relerr_true": 0.011006695116,
+        "mean_first_relerr_true": 7.2353432735,
+        "mean_last_relerr_true": 0.013938549391,
+        "mean_first_vs_check": 3.1357848892,
+        "mean_last_vs_check": 0.0028091377674,
+        "mean_rule_neutral_signed": 1.5692970135,
+        "mean_abs_rule_sensitivity": 1.7153710966,
+        "mc_se_mean_abs_rule_sensitivity": 1.5653117432,
+        "primary_distribution_q025": 0.02177306943,
+        "primary_distribution_median": 0.12935763258,
+        "primary_distribution_q975": 0.39853043061,
+        "mean_max_abs_rule_sensitivity": 3.347247672,
+        "fraction_replicates_either_rule_ge_10pct": 0.79,
+        "mean_last_vs_first": 0.030531615145
+      },
+      "materiality": {
+        "threshold": 0.1,
+        "primary_mean_abs_rule_sensitivity_exceeds_threshold": true
+      }
+    },
+    "san_jacinto_calibrated": {
+      "rho": 0.20172188317,
+      "replicates": 200,
+      "all_three_fit_fraction": 1,
+      "pooled_geometry": {
+        "all_captured_nights": 6195,
+        "repeat_nights": 2496,
+        "repeat_observation_fraction": 0.40290556901,
+        "conflict_nights": 1872,
+        "cross_trap_conflict_fraction": 0.75,
+        "conflict_diameter_median_m": 13.9754248594
+      },
+      "sigma": {
+        "mean_check_relerr_true": -0.029174356583,
+        "mean_first_relerr_true": 89.7150341564,
+        "mean_last_relerr_true": 0.064821349572,
+        "mean_first_vs_check": 70.6770549776,
+        "mean_last_vs_check": 0.088306709932,
+        "mean_rule_neutral_signed": 35.3826808438,
+        "mean_abs_rule_sensitivity": 35.4781363894,
+        "mc_se_mean_abs_rule_sensitivity": 35.3271175751,
+        "primary_distribution_q025": 0.020340468585,
+        "primary_distribution_median": 0.12474169358,
+        "primary_distribution_q975": 0.38260379408,
+        "mean_max_abs_rule_sensitivity": 70.8408308323,
+        "fraction_replicates_either_rule_ge_10pct": 0.78,
+        "mean_last_vs_first": 0.028355151531
+      },
+      "materiality": {
+        "threshold": 0.1,
+        "primary_mean_abs_rule_sensitivity_exceeds_threshold": true
+      }
+    }
+  },
+  "guardrails": {
+    "empirical_sigma_effect_opened": false,
+    "empirical_two_species_stop_relaxed": false,
+    "generator_parameters_changed_after_lock": false
+  }
+}
