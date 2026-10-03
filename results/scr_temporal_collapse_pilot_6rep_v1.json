@@ -1,0 +1,178 @@
+{
+  "schema": "neon.scr_temporal_collapse.pilot.v1",
+  "frozen_settings": {
+    "nights": 3,
+    "checks_per_night": [1, 2, 3, 4],
+    "detector": "multi",
+    "grid": "7x7",
+    "spacing_m": 6.25,
+    "true_sigma_m": 12.5,
+    "centre_detection_probability_per_check": 0.15,
+    "density_animals_per_ha": 30,
+    "population_buffer_m": 100,
+    "fit_mask_buffer_m": 75,
+    "likelihood": "conditional",
+    "generating_detection_functions": ["HN", "HHN"],
+    "fitted_detection_function": "matched_to_generator",
+    "handling_displacement": "none"
+  },
+  "empirical_calibration_band": {
+    "repeat_night_material_shift_fraction": [0.69, 0.73],
+    "changed_night_median_distance_m": [12.5, 14]
+  },
+  "summary": [
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 1,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.071058926852,
+        "mean_relerr_first": -0.071058789409,
+        "mean_relerr_last": -0.071058438067,
+        "mean_relerr_count": -0.19130779055,
+        "mean_first_vs_check": 7.4096316582e-08,
+        "mean_last_vs_check": 3.9538007753e-07,
+        "mean_count_vs_check": -0.12063150292,
+        "mean_last_vs_first": 3.2128355533e-07,
+        "mean_repeat_nights": 0
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 2,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.010060209248,
+        "mean_relerr_first": -0.1500592828,
+        "mean_relerr_last": -0.092397902063,
+        "mean_relerr_count": -0.14566815486,
+        "mean_first_vs_check": -0.14128481871,
+        "mean_last_vs_check": -0.081488517461,
+        "mean_count_vs_check": -0.13712414027,
+        "mean_last_vs_first": 0.12378393987,
+        "mean_repeat_nights": 24.8333333333,
+        "mean_material_shift_fraction": 0.94390756303,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 3,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.012364139188,
+        "mean_relerr_first": -0.097331576444,
+        "mean_relerr_last": -0.043517228943,
+        "mean_relerr_count": -0.12734906264,
+        "mean_first_vs_check": -0.081698846073,
+        "mean_last_vs_check": -0.031159420758,
+        "mean_count_vs_check": -0.11583014146,
+        "mean_last_vs_first": 0.069389653406,
+        "mean_repeat_nights": 40.1666666667,
+        "mean_material_shift_fraction": 0.94807396307,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 4,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": 0.035207070503,
+        "mean_relerr_first": -0.067004909088,
+        "mean_relerr_last": -0.13758731599,
+        "mean_relerr_count": -0.064436405902,
+        "mean_first_vs_check": -0.089736504942,
+        "mean_last_vs_check": -0.15036735081,
+        "mean_count_vs_check": -0.093594751086,
+        "mean_last_vs_first": -0.061143328381,
+        "mean_repeat_nights": 40.8333333333,
+        "mean_material_shift_fraction": 0.96123476165,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 1,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.024332783464,
+        "mean_relerr_first": -0.024331664517,
+        "mean_relerr_last": -0.024331916334,
+        "mean_relerr_count": -0.13689924684,
+        "mean_first_vs_check": 1.1193666866e-06,
+        "mean_last_vs_check": 8.8657535147e-07,
+        "mean_count_vs_check": -0.11383316647,
+        "mean_last_vs_first": -2.3279087295e-07,
+        "mean_repeat_nights": 0
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 2,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.014456940763,
+        "mean_relerr_first": -0.10080895415,
+        "mean_relerr_last": -0.061567843545,
+        "mean_relerr_count": -0.12898085323,
+        "mean_first_vs_check": -0.080764571195,
+        "mean_last_vs_check": -0.048642509858,
+        "mean_count_vs_check": -0.11676913716,
+        "mean_last_vs_first": 0.040825187213,
+        "mean_repeat_nights": 24.5,
+        "mean_material_shift_fraction": 0.94382783883,
+        "median_changed_median_m": 15.8265471945
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 3,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": 0.029278507511,
+        "mean_relerr_first": -0.083761417451,
+        "mean_relerr_last": 0.028571701778,
+        "mean_relerr_count": -0.084116378096,
+        "mean_first_vs_check": -0.10670264268,
+        "mean_last_vs_check": 0.0063212385188,
+        "mean_count_vs_check": -0.10856886158,
+        "mean_last_vs_first": 0.15813281989,
+        "mean_repeat_nights": 45.5,
+        "mean_material_shift_fraction": 0.96024204836,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 4,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.014886384787,
+        "mean_relerr_first": -0.14451997872,
+        "mean_relerr_last": -0.14636316161,
+        "mean_relerr_count": -0.10578440542,
+        "mean_first_vs_check": -0.12767244731,
+        "mean_last_vs_check": -0.13604279872,
+        "mean_count_vs_check": -0.091904006524,
+        "mean_last_vs_first": 0.0019826995393,
+        "mean_repeat_nights": 35.5,
+        "mean_material_shift_fraction": 0.93567732213,
+        "median_changed_median_m": 13.9754248594
+      }
+    ]
+  ],
+  "interpretation_guardrails": {
+    "empirical_sigma_effect_opened": false,
+    "empirical_scr_stop_gate_relaxed": false,
+    "pilot_is_final_monte_carlo": false
+  }
+}
