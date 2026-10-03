@@ -90,6 +90,12 @@ simulate_raw <- function(seed, sigma_true, handling_rms) {
         noccasions = 1,
         renumber = FALSE
       )
+      # A valid check may have zero captures.  Some secr versions do not
+      # coerce a zero-animal capthist cleanly with as.data.frame(), so retain
+      # the occasion as a zero-detection check and skip conversion.
+      nch <- dim(ch)[1]
+      if (is.null(nch) || nch == 0) next
+
       d <- as.data.frame(ch, fmt = "trapID")
 
       if (nrow(d) > 0) {
