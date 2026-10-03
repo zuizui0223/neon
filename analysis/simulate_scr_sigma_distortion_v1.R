@@ -26,7 +26,9 @@ output_json <- arg_value("--output-json", "results/scr_sigma_distortion_simulati
 output_csv <- arg_value("--output-csv", "results/scr_sigma_distortion_replicates_v1.csv")
 seed0 <- as.integer(arg_value("--seed", "20261003"))
 
-if (!mode %in% c("smoke", "full")) stop("mode must be smoke or full")
+if (!mode %in% c("smoke", "primary", "full")) stop("mode must be smoke, primary, or full")
+profile_filter <- arg_value("--profile", NULL)
+replicates_override <- arg_value("--replicates", NULL)
 
 SPACING <- 6.25
 NX <- 7
@@ -55,8 +57,20 @@ if (mode == "smoke") {
   RHOS <- c(0.0, 1.0)
   JITTERS <- c(0.0, 1.5, 12.5)
   N_REP <- 3L
+} else if (mode == "primary") {
+  SIGMAS <- c(5.0)
+  if (!is.null(profile_filter)) {
+    if (!profile_filter %in% PROFILES$profile) stop("unknown profile filter")
+    PROFILES <- PROFILES[PROFILES$profile == profile_filter, , drop = FALSE]
+  }
+  N_REP <- if (is.null(replicates_override)) 20L else as.integer(replicates_override)
+  if (!is.finite(N_REP) || N_REP < 2L) stop("primary replicates must be >=2")
 } else {
-  N_REP <- 100L
+  if (!is.null(profile_filter)) {
+    if (!profile_filter %in% PROFILES$profile) stop("unknown profile filter")
+    PROFILES <- PROFILES[PROFILES$profile == profile_filter, , drop = FALSE]
+  }
+  N_REP <- if (is.null(replicates_override)) 100L else as.integer(replicates_override)
 }
 
 setNumThreads(2)
@@ -486,7 +500,7 @@ control_pass <- isTRUE(control_estimable) && all(
   abs(control$last_first_ratio_median - 1) < 0.10
 )
 
-if (mode == "full" && !control_pass) {
+if (mode %in% c("primary", "full") && !control_pass) {
   stop("negative-control gate failed: systematic FIRST/LAST distortion")
 }
 
