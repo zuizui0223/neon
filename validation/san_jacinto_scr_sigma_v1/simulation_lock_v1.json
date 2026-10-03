@@ -89,5 +89,34 @@
     "trigger": "negative-control SCR fit failure at N=120",
     "rule": "increase simulation support only; do not alter sigma, rho, jitter, profiles, or materiality threshold based on effect direction"
   },
-  "primary_simulated_sigma_effects_inspected": false
+  "primary_simulated_sigma_effects_inspected": false,
+  "primary_phase1": {
+    "frozen_date": "2026-10-03",
+    "status": "frozen_after_smoke_v4_implementation_validation_before_primary_phase1_results",
+    "rationale": "run every pre-existing rho x jitter cell at the pre-piloted sigma_true=5 m for both empirical detection profiles; no mechanism cell is selected by smoke effect magnitude",
+    "sigma_true_m": [
+      5
+    ],
+    "rho_release_location": [
+      0,
+      0.5,
+      1
+    ],
+    "release_jitter_sd_m": [
+      0,
+      1.5,
+      3.125,
+      6.25,
+      12.5
+    ],
+    "profiles": [
+      "PEMA_like",
+      "PEER_like"
+    ],
+    "monte_carlo_replicates_per_cell": 20,
+    "required_negative_control_first_fit_rate_min": 0.8,
+    "required_negative_control_last_fit_rate_min": 0.8,
+    "required_negative_control_abs_median_last_first_ratio_minus_1_max_exclusive": 0.1
+  },
+  "primary_phase1_results_inspected": false
 }
