@@ -28,12 +28,12 @@ CHECK is the information-preserving reference representation. FIRST and LAST are
 
 ## Phase 1: aggregation only
 
-Phase 1 deliberately includes no post-release handling displacement. This isolates temporal aggregation itself.
+Phase 1 deliberately includes no post-handling behavioural displacement. This isolates temporal aggregation itself. The San Jacinto protocol used three checks per night, released animals at the point of capture during each check, and trapped for three consecutive nights per monthly bout. The 1--4 check axis therefore treats three checks/night as the empirical centre and adjacent values as a generality sensitivity.
 
 Data are generated with the R package `secr` on a 7 x 7 multi-catch detector grid with 6.25 m spacing, matching the San Jacinto geometry.
 
 Frozen pilot settings:
-- nights = 5;
+- nights = 3;
 - checks per night = 1, 2, 3, 4;
 - true sigma = 12.5 m;
 - centre detection probability = 0.15 per check;
