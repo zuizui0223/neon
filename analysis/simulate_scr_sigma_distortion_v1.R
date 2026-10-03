@@ -33,7 +33,7 @@ NX <- 7
 NY <- 7
 NIGHTS <- 5
 CHECKS <- 4
-N_ANIMALS <- 120
+N_ANIMALS <- 600
 MASK_BUFFER <- 100
 
 PROFILES <- data.frame(
@@ -218,6 +218,7 @@ fit_sigma <- function(ch, sigma_true) {
       sigma_ucl = ucl,
       rel_error = (est - sigma_true) / sigma_true,
       covers_true = lcl <= sigma_true && sigma_true <= ucl,
+      fit_error = NA_character_,
       stringsAsFactors = FALSE
     )
   }, error = function(e) {
@@ -228,6 +229,7 @@ fit_sigma <- function(ch, sigma_true) {
       sigma_ucl = NA_real_,
       rel_error = NA_real_,
       covers_true = NA,
+      fit_error = conditionMessage(e),
       stringsAsFactors = FALSE
     )
   })
@@ -302,6 +304,7 @@ one_replicate <- function(profile, g0, sigma_true, rho, jitter_sd, rep_id, seed)
         sigma_ucl = NA_real_,
         rel_error = NA_real_,
         covers_true = NA,
+        fit_error = conditionMessage(e),
         stringsAsFactors = FALSE
       )
     })
@@ -465,9 +468,13 @@ control <- summary_table[
   , drop = FALSE
 ]
 
-control_pass <- if (nrow(control) == 0) FALSE else all(
-  abs(control$last_first_ratio_median - 1) < 0.10,
-  na.rm = TRUE
+control_estimable <- if (nrow(control) == 0) FALSE else all(
+  control$first_fit_rate >= 0.80 &
+  control$last_fit_rate >= 0.80 &
+  is.finite(control$last_first_ratio_median)
+)
+control_pass <- isTRUE(control_estimable) && all(
+  abs(control$last_first_ratio_median - 1) < 0.10
 )
 
 if (mode == "full" && !control_pass) {
@@ -495,6 +502,7 @@ result <- list(
     mask_buffer_m = MASK_BUFFER,
     replicates_per_cell = N_REP
   ),
+  negative_control_estimable = control_estimable,
   negative_control_pass = control_pass,
   summary = summary_table,
   simulated_sigma_effects_inspected = TRUE,
