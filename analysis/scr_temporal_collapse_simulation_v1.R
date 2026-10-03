@@ -19,7 +19,7 @@ replicates <- as.integer(arg_value("--replicates", "6"))
 seed0 <- as.integer(arg_value("--seed", "20261003"))
 
 spacing_m <- 6.25
-nights <- 5L
+nights <- 3L
 true_sigma <- 12.5
 centre_p <- 0.15
 density <- 30
