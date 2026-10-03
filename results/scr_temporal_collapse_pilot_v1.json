@@ -1,0 +1,178 @@
+{
+  "schema": "neon.scr_temporal_collapse.pilot.v1",
+  "frozen_settings": {
+    "nights": 3,
+    "checks_per_night": [1, 2, 3, 4],
+    "detector": "multi",
+    "grid": "7x7",
+    "spacing_m": 6.25,
+    "true_sigma_m": 12.5,
+    "centre_detection_probability_per_check": 0.15,
+    "density_animals_per_ha": 30,
+    "population_buffer_m": 100,
+    "fit_mask_buffer_m": 75,
+    "likelihood": "conditional",
+    "generating_detection_functions": ["HN", "HHN"],
+    "fitted_detection_function": "matched_to_generator",
+    "handling_displacement": "none"
+  },
+  "empirical_calibration_band": {
+    "repeat_night_material_shift_fraction": [0.69, 0.73],
+    "changed_night_median_distance_m": [12.5, 14]
+  },
+  "summary": [
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 1,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.071058976875,
+        "mean_relerr_first": -0.071058969341,
+        "mean_relerr_last": -0.071058547425,
+        "mean_relerr_count": -0.19130761878,
+        "mean_first_vs_check": 7.7857749137e-08,
+        "mean_last_vs_check": 4.1606785062e-07,
+        "mean_count_vs_check": -0.12063111889,
+        "mean_last_vs_first": 3.3821027662e-07,
+        "mean_repeat_nights": 0
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 2,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.010059419201,
+        "mean_relerr_first": -0.15005917189,
+        "mean_relerr_last": -0.092398075881,
+        "mean_relerr_count": -0.14566846895,
+        "mean_first_vs_check": -0.1412852865,
+        "mean_last_vs_check": -0.081489506573,
+        "mean_count_vs_check": -0.13712512958,
+        "mean_last_vs_first": 0.12378370824,
+        "mean_repeat_nights": 24.8333333333,
+        "mean_material_shift_fraction": 0.94390756303,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 3,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.01236385655,
+        "mean_relerr_first": -0.097331675126,
+        "mean_relerr_last": -0.043516313696,
+        "mean_relerr_count": -0.12734897892,
+        "mean_first_vs_check": -0.081699280299,
+        "mean_last_vs_check": -0.031158821551,
+        "mean_count_vs_check": -0.11583031671,
+        "mean_last_vs_first": 0.069390533589,
+        "mean_repeat_nights": 40.1666666667,
+        "mean_material_shift_fraction": 0.94807396307,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HN",
+        "checks_per_night": 4,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": 0.03520666067,
+        "mean_relerr_first": -0.067005230624,
+        "mean_relerr_last": -0.13758840928,
+        "mean_relerr_count": -0.06443629812,
+        "mean_first_vs_check": -0.089736487872,
+        "mean_last_vs_check": -0.15036809932,
+        "mean_count_vs_check": -0.093594367784,
+        "mean_last_vs_first": -0.061144164224,
+        "mean_repeat_nights": 40.8333333333,
+        "mean_material_shift_fraction": 0.96123476165,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 1,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.024330489685,
+        "mean_relerr_first": -0.024330847402,
+        "mean_relerr_last": -0.024331571768,
+        "mean_relerr_count": -0.13689918816,
+        "mean_first_vs_check": -3.6504842025e-07,
+        "mean_last_vs_check": -9.9885188729e-07,
+        "mean_count_vs_check": -0.11383505302,
+        "mean_last_vs_first": -6.3380358598e-07,
+        "mean_repeat_nights": 0
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 2,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.014457271322,
+        "mean_relerr_first": -0.10080921451,
+        "mean_relerr_last": -0.061567461191,
+        "mean_relerr_count": -0.1289806762,
+        "mean_first_vs_check": -0.080764555764,
+        "mean_last_vs_check": -0.048641907303,
+        "mean_count_vs_check": -0.11676869097,
+        "mean_last_vs_first": 0.040825891327,
+        "mean_repeat_nights": 24.5,
+        "mean_material_shift_fraction": 0.94382783883,
+        "median_changed_median_m": 15.8265471945
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 3,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": 0.029278327609,
+        "mean_relerr_first": -0.083762040171,
+        "mean_relerr_last": 0.02857169534,
+        "mean_relerr_count": -0.084116645897,
+        "mean_first_vs_check": -0.10670310335,
+        "mean_last_vs_check": 0.0063214051952,
+        "mean_count_vs_check": -0.10856895509,
+        "mean_last_vs_first": 0.15813323016,
+        "mean_repeat_nights": 45.5,
+        "mean_material_shift_fraction": 0.96024204836,
+        "median_changed_median_m": 13.9754248594
+      }
+    ],
+    [
+      {
+        "detectfn": "HHN",
+        "checks_per_night": 4,
+        "replicates": 6,
+        "all_four_fit_fraction": 1,
+        "mean_relerr_check": -0.014886613781,
+        "mean_relerr_first": -0.14452003623,
+        "mean_relerr_last": -0.14636288704,
+        "mean_relerr_count": -0.10578455241,
+        "mean_first_vs_check": -0.12767221372,
+        "mean_last_vs_check": -0.13604230077,
+        "mean_count_vs_check": -0.091903930908,
+        "mean_last_vs_first": 0.0019830876921,
+        "mean_repeat_nights": 35.5,
+        "mean_material_shift_fraction": 0.93567732213,
+        "median_changed_median_m": 13.9754248594
+      }
+    ]
+  ],
+  "interpretation_guardrails": {
+    "empirical_sigma_effect_opened": false,
+    "empirical_scr_stop_gate_relaxed": false,
+    "pilot_is_final_monte_carlo": false
+  }
+}
