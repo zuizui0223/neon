@@ -1,0 +1,223 @@
+name: scr-sigma-distortion-primary-phase1
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - .github/workflows/scr-sigma-distortion-primary-phase1.yml
+  workflow_dispatch:
+
+concurrency:
+  group: scr-sigma-distortion-primary-phase1-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        profile: [PEMA_like, PEER_like]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::secr
+            any::jsonlite
+          needs: check
+
+      - name: Verify primary phase 1 lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("validation/san_jacinto_scr_sigma_v1/simulation_lock_v1.json").read_text())
+          q=p["primary_phase1"]
+          assert q["status"]=="frozen_after_smoke_v4_implementation_validation_before_primary_phase1_results"
+          assert q["sigma_true_m"]==[5.0]
+          assert q["rho_release_location"]==[0.0,0.5,1.0]
+          assert q["release_jitter_sd_m"]==[0.0,1.5,3.125,6.25,12.5]
+          assert q["monte_carlo_replicates_per_cell"]==20
+          assert p["empirical_sigma_effects_opened"] is False
+          assert p["real_data_sigma_gate_remains_stopped"] is True
+          assert p["primary_phase1_results_inspected"] is False
+          PY
+
+      - name: Run primary phase 1 profile
+        run: |
+          Rscript analysis/simulate_scr_sigma_distortion_v1.R             --mode primary             --profile "${{ matrix.profile }}"             --replicates 20             --output-json "/tmp/scr_sigma_primary_${{ matrix.profile }}.json"             --output-csv "/tmp/scr_sigma_primary_${{ matrix.profile }}.csv"
+
+      - name: Verify profile result
+        run: |
+          PROFILE="${{ matrix.profile }}" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          profile=os.environ["PROFILE"]
+          p=json.loads(Path(f"/tmp/scr_sigma_primary_{profile}.json").read_text())
+          assert p["mode"]=="primary"
+          assert p["negative_control_estimable"] is True
+          assert p["negative_control_pass"] is True
+          assert p["empirical_sigma_effects_opened"] is False
+          assert p["real_data_sigma_gate_remains_stopped"] is True
+          assert len(p["summary"])==15
+          assert {x["profile"] for x in p["summary"]}=={profile}
+          assert {x["sigma_true_m"] for x in p["summary"]}=={5}
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-primary-${{ matrix.profile }}
+          path: |
+            /tmp/scr_sigma_primary_${{ matrix.profile }}.json
+            /tmp/scr_sigma_primary_${{ matrix.profile }}.csv
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate:
+    needs: simulate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: scr-sigma-primary-*
+          path: /tmp/primary
+          merge-multiple: true
+
+      - name: Aggregate locked phase 1 results
+        run: |
+          python - <<'PY'
+          import csv, glob, json
+          from pathlib import Path
+
+          jsons=sorted(glob.glob("/tmp/primary/*.json"))
+          csvs=sorted(glob.glob("/tmp/primary/*.csv"))
+          assert len(jsons)==2, jsons
+          assert len(csvs)==2, csvs
+
+          payloads=[json.loads(Path(p).read_text()) for p in jsons]
+          assert all(p["negative_control_estimable"] for p in payloads)
+          assert all(p["negative_control_pass"] for p in payloads)
+          summaries=[]
+          errors={}
+          for p in payloads:
+              summaries.extend(p["summary"])
+              for k,v in p.get("fit_error_counts",{}).items():
+                  errors[k]=errors.get(k,0)+int(v)
+
+          summaries=sorted(
+              summaries,
+              key=lambda x:(x["profile"],x["rho_release_location"],x["release_jitter_sd_m"])
+          )
+          assert len(summaries)==30
+
+          empirical={
+              "PEMA_like":{
+                  "repeat_fraction":0.3978671041837572,
+                  "shift_fraction":0.7257731958762886,
+                  "median_span_m":8.838834764831844,
+              },
+              "PEER_like":{
+                  "repeat_fraction":0.3554817275747508,
+                  "shift_fraction":0.6915887850467289,
+                  "median_span_m":6.25,
+              },
+          }
+
+          for row in summaries:
+              e=empirical[row["profile"]]
+              row["calibration_abs_error_repeat"]=abs(row["repeat_fraction_mean"]-e["repeat_fraction"])
+              row["calibration_abs_error_shift"]=abs(row["shift_fraction_mean"]-e["shift_fraction"])
+              row["calibration_abs_error_span_trap_units"]=abs(row["median_span_m_median"]-e["median_span_m"])/6.25
+              row["calibration_score"]=(
+                  row["calibration_abs_error_repeat"]+
+                  row["calibration_abs_error_shift"]+
+                  row["calibration_abs_error_span_trap_units"]
+              )
+
+          best={}
+          for profile in empirical:
+              rows=[x for x in summaries if x["profile"]==profile]
+              best[profile]=min(rows,key=lambda x:x["calibration_score"])
+
+          result={
+              "schema":"neon.san_jacinto_scr_sigma_distortion.primary_phase1.v1",
+              "status":"primary_phase1_complete",
+              "profiles":["PEMA_like","PEER_like"],
+              "sigma_true_m":5.0,
+              "replicates_per_cell":20,
+              "cells_per_profile":15,
+              "negative_controls_passed":True,
+              "fit_error_counts":errors,
+              "empirical_calibration_targets":empirical,
+              "best_observation_process_match_by_profile":best,
+              "summary":summaries,
+              "empirical_sigma_effects_opened":False,
+              "real_data_sigma_gate_remains_stopped":True,
+          }
+
+          out=Path("results/scr_sigma_distortion_primary_phase1_v1.json")
+          out.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n")
+
+          rows=[]
+          fieldnames=None
+          for p in csvs:
+              with open(p,newline="") as fh:
+                  rr=list(csv.DictReader(fh))
+                  if rr and fieldnames is None:
+                      fieldnames=list(rr[0].keys())
+                  rows.extend(rr)
+          csvout=Path("results/scr_sigma_distortion_primary_phase1_replicates_v1.csv")
+          with csvout.open("w",newline="") as fh:
+              w=csv.DictWriter(fh,fieldnames=fieldnames)
+              w.writeheader()
+              w.writerows(rows)
+          print(json.dumps({
+              "best_matches":best,
+              "n_summary_cells":len(summaries),
+              "n_replicate_rows":len(rows)
+          },indent=2))
+          PY
+
+      - name: Persist primary phase 1
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          git add results/scr_sigma_distortion_primary_phase1_v1.json
+          git add results/scr_sigma_distortion_primary_phase1_replicates_v1.csv
+          if git diff --cached --quiet; then
+            echo "primary phase 1 unchanged"
+          else
+            git commit -m "Run primary SCR sigma distortion phase 1"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-distortion-primary-phase1-v1
+          path: |
+            results/scr_sigma_distortion_primary_phase1_v1.json
+            results/scr_sigma_distortion_primary_phase1_replicates_v1.csv
+          if-no-files-found: error
+          retention-days: 30
