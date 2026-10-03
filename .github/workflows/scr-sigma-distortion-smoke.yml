@@ -54,14 +54,14 @@ jobs:
       - name: Run frozen smoke simulation
         run: |
           mkdir -p results
-          Rscript analysis/simulate_scr_sigma_distortion_v1.R             --mode smoke             --output-json /tmp/scr_sigma_distortion_smoke_v2.json             --output-csv /tmp/scr_sigma_distortion_smoke_replicates_v2.csv
+          Rscript analysis/simulate_scr_sigma_distortion_v1.R             --mode smoke             --output-json /tmp/scr_sigma_distortion_smoke_v3.json             --output-csv /tmp/scr_sigma_distortion_smoke_replicates_v3.csv
 
       - name: Validate smoke result boundary
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=json.loads(Path("/tmp/scr_sigma_distortion_smoke_v1.json").read_text())
+          p=json.loads(Path("/tmp/scr_sigma_distortion_smoke_v3.json").read_text())
           assert p["mode"]=="smoke"
           assert p["empirical_sigma_effects_opened"] is False
           assert p["real_data_sigma_gate_remains_stopped"] is True
@@ -77,10 +77,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
           mkdir -p results
-          cp /tmp/scr_sigma_distortion_smoke_v1.json              results/scr_sigma_distortion_smoke_v2.json
-          cp /tmp/scr_sigma_distortion_smoke_replicates_v1.csv              results/scr_sigma_distortion_smoke_replicates_v2.csv
-          git add results/scr_sigma_distortion_smoke_v1.json
-          git add results/scr_sigma_distortion_smoke_replicates_v1.csv
+          cp /tmp/scr_sigma_distortion_smoke_v3.json              results/scr_sigma_distortion_smoke_v3.json
+          cp /tmp/scr_sigma_distortion_smoke_replicates_v3.csv              results/scr_sigma_distortion_smoke_replicates_v3.csv
+          git add results/scr_sigma_distortion_smoke_v3.json
+          git add results/scr_sigma_distortion_smoke_replicates_v3.csv
           if git diff --cached --quiet; then
             echo "smoke result unchanged"
           else
@@ -91,9 +91,9 @@ jobs:
       - name: Upload smoke artifact
         uses: actions/upload-artifact@v4
         with:
-          name: scr-sigma-distortion-smoke-v2
+          name: scr-sigma-distortion-smoke-v3
           path: |
-            /tmp/scr_sigma_distortion_smoke_v1.json
-            /tmp/scr_sigma_distortion_smoke_replicates_v1.csv
+            /tmp/scr_sigma_distortion_smoke_v3.json
+            /tmp/scr_sigma_distortion_smoke_replicates_v3.csv
           if-no-files-found: error
           retention-days: 30
