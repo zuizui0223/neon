@@ -190,8 +190,7 @@ fit_one <- function(ch,model) {
       model=model,
       sessioncov=sessioncov,
       trace=FALSE,
-      ncores=2,
-      details=list(autoini="all")
+      ncores=2
     )
     list(
       ok=TRUE,
