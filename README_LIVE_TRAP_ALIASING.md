@@ -57,9 +57,11 @@ A prospectively locked held-out validation in two Cricetidae species showed one-
 
 All eligible validation grids passed the pre-specified spatial-replication criterion.
 
-## Simulation
+## Downstream SCR consequence
 
-In corrected simulation v2, non-informative repeat observation was essentially unbiased for the analytic generating material-shift probability and mean Wilson coverage was near nominal; the most extreme ultra-rare-event cell showed finite-sample undercoverage. Span-dependent repeat observation produced directional bias. The all-occasion directly observed fraction remained a deterministic lower bound on the realized all-occasion fraction in every simulated replicate.
+The main downstream benchmark uses the San Jacinto trap geometry and the held-out empirical transition kernel. In stationary negative controls, CHECK, FIRST and LAST representations recover the same generating SCR spatial scale. Once a nominal night is allowed to contain an empirical-scale spatial-state transition, FIRST and LAST can yield materially different fitted sigma values, and reversing the state order reverses the direction of the difference. CHECK retains all detections but does not automatically recover the baseline spatial scale when a static-centre model is fitted to a mixture of within-night states.
+
+The earlier 72-cell simulation of repeat-observation conditioning is retained as a supplementary diagnostic-estimator benchmark.
 
 ## License
 
@@ -67,4 +69,4 @@ MIT.
 
 ## Review manuscript
 
-See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md`.
+See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_4.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md`. The MEE pre-submission enquiry is currently on HOLD pending final consistency review.
