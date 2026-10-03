@@ -106,3 +106,21 @@ Advance to the final simulation grid if:
 3. increasing checks per night produces interpretable changes without widespread fit failure.
 
 No empirical sigma estimate is opened at any stage.
+
+
+## Primary estimand clarification after the pilot
+
+Under the phase-1 generator, checks within a night are exchangeable: detection parameters do not vary with check order and there is no post-capture behavioural effect. Consequently FIRST and LAST are exchangeable reduction rules in expectation. A nonzero Monte Carlo mean FIRST-minus-LAST difference is therefore not a target signal; with sufficient replication it should approach zero.
+
+The primary downstream estimands are instead paired losses relative to the check-level reference:
+
+- `(sigma_FIRST - sigma_CHECK) / sigma_CHECK`;
+- `(sigma_LAST - sigma_CHECK) / sigma_CHECK`;
+- the average of the two reduction biases when a rule-neutral summary is needed;
+- the fraction of replicates in which a nightly reduction differs from CHECK by at least 10%.
+
+The FIRST-minus-LAST contrast remains useful as:
+1. a Monte Carlo symmetry check in the no-handling simulation; and
+2. an empirical sensitivity contrast in San Jacinto, where check order, time of night and capture/handling may break exchangeability.
+
+This distinction prevents stochastic FIRST/LAST separation in a small pilot from being mistaken for the methodological effect.
