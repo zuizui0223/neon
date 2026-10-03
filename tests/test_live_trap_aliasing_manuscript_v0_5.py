@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 MANUSCRIPT=ROOT/"MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md"
-PEMA=ROOT/"results"/"san_jacinto_pema_scr_sigma_post_stop_receipt_v1.json"
+PEMA=ROOT/"results"/"san_jacinto_pema_scr_sigma_post_stop_result_v1.json"
 CONSEQUENCE=ROOT/"results"/"scr_sigma_consequence_simulation_v1.json"
 EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
