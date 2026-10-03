@@ -1,0 +1,72 @@
+{
+  "schema": "neon.scr_temporal_collapse.final_lock.v1",
+  "frozen_date": "2026-10-03",
+  "state": "frozen_before_downstream_sigma_effects",
+  "calibration_source": {
+    "path": "results/scr_temporal_collapse_calibration_v1.json",
+    "blob_sha": "704c1785118c6cb334b5a3cbeb1dcad73caf88d3",
+    "selection_rule": "first ranked cell with matches_base_scr_targets=true; ranking excludes all downstream sigma fit outcomes"
+  },
+  "empirical_targets": {
+    "repeat_observation_fraction_combined": 0.38947368421,
+    "repeat_observation_fraction_species_band": [
+      0.35548172757,
+      0.39786710418
+    ],
+    "cross_trap_conflict_fraction_combined": 0.76013513514,
+    "endpoint_change_fraction_combined": 0.71959459459,
+    "conflict_diameter_median_m": 13.9754248594,
+    "conflict_diameter_median_species_band": [
+      12.5,
+      14
+    ]
+  },
+  "generator": {
+    "detector": "multi",
+    "detectfn": "HN",
+    "grid": "7x7",
+    "spacing_m": 6.25,
+    "nights": 3,
+    "checks_per_night": 3,
+    "true_sigma_m": 10.9375,
+    "g0_per_check": 0.06,
+    "density_animals_per_ha": 30,
+    "population_buffer_m": 100,
+    "fit_mask_buffer_m": 75,
+    "same_trap_persistence_rho": 0.20172188317,
+    "persistence_rule": "for a rho fraction of repeat-detected individual-nights, replace all detector identities in that individual-night by one uniformly sampled detector identity already observed in that night; capture counts and occasions are unchanged"
+  },
+  "scenarios": {
+    "exchangeable_static_scr": {
+      "same_trap_persistence_rho": 0
+    },
+    "san_jacinto_calibrated": {
+      "same_trap_persistence_rho": 0.20172188317
+    }
+  },
+  "representations": {
+    "CHECK": "each physical trap check remains a separate multi-detector occasion",
+    "FIRST": "secr::reduce by 3 checks, outputdetector=multi, select=first",
+    "LAST": "secr::reduce by 3 checks, outputdetector=multi, select=last"
+  },
+  "fit": {
+    "conditional_likelihood": true,
+    "detectfn": "HN",
+    "model_g0": "~1",
+    "model_sigma": "~1"
+  },
+  "primary_metric": "per replicate, 0.5*(abs(sigma_FIRST/sigma_CHECK-1)+abs(sigma_LAST/sigma_CHECK-1)); summarize its Monte Carlo mean in the calibrated scenario",
+  "materiality_threshold": 0.1,
+  "secondary_metrics": [
+    "signed mean collapse distortion 0.5*((sigma_FIRST/sigma_CHECK-1)+(sigma_LAST/sigma_CHECK-1))",
+    "max absolute FIRST/LAST deviation from CHECK",
+    "fraction of replicates with either nightly reduction >=10% from CHECK",
+    "LAST/FIRST ratio as rule-selection sensitivity",
+    "CHECK relative error versus generating sigma",
+    "post-persistence repeat fraction, conflict fraction, and conflict diameter"
+  ],
+  "monte_carlo_replicates": 200,
+  "downstream_sigma_effects_inspected": false,
+  "empirical_sigma_effect_opened": false,
+  "empirical_two_species_stop_relaxed": false
+}
