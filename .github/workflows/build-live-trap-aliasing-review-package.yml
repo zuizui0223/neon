@@ -13,12 +13,12 @@ on:
       - requirements-figures.txt
       - examples/repeated_locations_example.csv
       - examples/repeated_locations_example_expected.json
-      - docs/REVIEW_PACKAGE_MANIFEST_V1.md
+      - docs/REVIEW_PACKAGE_MANIFEST_V2.md
       - docs/FIGURE_CAPTIONS_V3.md
       - docs/SUBMISSION_STATEMENTS_V1.md
       - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md
-      - docs/MEE_PRESUBMISSION_ENQUIRY_READY_V3.md
-      - docs/MEE_SUBMISSION_READINESS_V3.md
+      - docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md
+      - docs/MEE_SUBMISSION_READINESS_V4.md
       - docs/APPLICABILITY_MATRIX_V1.md
       - docs/KEY_METHOD_STATEMENTS_V1.md
       - docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md
@@ -83,12 +83,12 @@ jobs:
           cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
 
-          cp docs/REVIEW_PACKAGE_MANIFEST_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/REVIEW_PACKAGE_MANIFEST_V2.md /tmp/live-trap-aliasing-review/docs/
           cp docs/FIGURE_CAPTIONS_V3.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md /tmp/live-trap-aliasing-review/docs/
-          cp docs/MEE_PRESUBMISSION_ENQUIRY_READY_V3.md /tmp/live-trap-aliasing-review/docs/
-          cp docs/MEE_SUBMISSION_READINESS_V3.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/MEE_SUBMISSION_READINESS_V4.md /tmp/live-trap-aliasing-review/docs/
           cp docs/APPLICABILITY_MATRIX_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/KEY_METHOD_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/TEMPORAL_ALIASING_DIAGNOSTIC_USAGE_V1.md /tmp/live-trap-aliasing-review/docs/
