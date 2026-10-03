@@ -4,6 +4,21 @@ Date: 2026-10-03
 
 Status: scientific integration note. Pre-submission enquiry remains on HOLD until the PEMA exploratory extraction repair and the dependence-aware CHECK pilot finish.
 
+## 2026 literature correction: exact-time SCR now exists
+
+Baer, Borchers & Distiller (2026; arXiv:2607.28455) now provide a continuous-time counting-process likelihood for multi-catch traps when exact capture times are known, including release/reset through the at-risk process and extensions for post-capture behavioural response.
+
+Accordingly, v0.4 must not imply that analysts lack a time-resolved solution.
+
+The San Jacinto protocol is different in one crucial respect: traps were checked three times per night and the recorded times are check times, so actual trap-entry times are interval censored between reset/opening and discovery. Baer et al. explicitly identify capture times known only within an occasion as future interval-censoring work.
+
+The manuscript niche is therefore:
+- not a replacement SCR likelihood;
+- not a claim that every-check discrete occasions are the only alternative;
+- a scale-aware **triage diagnostic for interval-censored repeated-check locations**, used to decide when ordinary aggregation is defensible and when sensitivity analysis or time/history-aware modelling is warranted.
+
+See `docs/MEE_NOVELTY_BOUNDARY_BAER_2026_V1.md`.
+
 ## New central question
 
 The paper should no longer ask merely whether repeated within-occasion positions differ.
