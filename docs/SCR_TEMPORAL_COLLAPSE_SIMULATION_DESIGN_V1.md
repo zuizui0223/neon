@@ -124,3 +124,22 @@ The FIRST-minus-LAST contrast remains useful as:
 2. an empirical sensitivity contrast in San Jacinto, where check order, time of night and capture/handling may break exchangeability.
 
 This distinction prevents stochastic FIRST/LAST separation in a small pilot from being mistaken for the methodological effect.
+
+
+## Calibration revision after full-history audit
+
+The first calibration grid showed that an ordinary static SCR generator could not simultaneously reproduce the San Jacinto endpoint-change fraction and the observed changed-night distance scale. That mismatch is retained rather than hidden.
+
+A full-history audit then showed that first-to-last span was not the correct conflict target for pooled `multi` occasions: 450/592 repeat nights (76.0%) visited more than one trap, whereas 426/592 (72.0%) had different first and last traps. Twenty-four A→B→A-type nights were false negatives for the endpoint statistic.
+
+The revised effect-blind calibration separates three empirical features:
+
+1. repeat-observation frequency among captured individual-nights: 592/1520 = 0.3895;
+2. positional diameter among cross-trap conflict nights: combined median 13.975 m (species medians 12.5 and 13.975 m);
+3. cross-trap conflict frequency among repeat nights: 450/592 = 0.7601.
+
+The base HN SCR grid is ranked only on (1) and (2), which identify encounter frequency and spatial scale. The remaining excess conflict predicted by an exchangeable static SCR generator is summarized as a required **same-trap persistence** mixture:
+
+`rho = 1 - p_empirical_conflict / p_base_conflict`.
+
+This parameter is a calibration device, not a claim that a particular behavioural or handling mechanism caused same-trap recurrence. In the final simulation, a fraction rho of repeat-detected individual-nights are converted to same-trap repeat histories while preserving capture/check counts. This allows the generated observation process to match the empirical conflict frequency without forcing sigma downward and destroying the observed conflict-distance scale.
