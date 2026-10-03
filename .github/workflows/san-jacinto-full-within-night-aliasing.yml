@@ -1,0 +1,49 @@
+name: san-jacinto-full-within-night-aliasing
+
+on:
+  push:
+    branches: [design/san-jacinto-scr-sigma-impact-v1]
+    paths:
+      - analysis/san_jacinto_full_within_night_aliasing_v1.py
+      - .github/workflows/san-jacinto-full-within-night-aliasing.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-full-night-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit full within-night trap history
+        run: |
+          python analysis/san_jacinto_full_within_night_aliasing_v1.py \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --json /tmp/san_jacinto_full_within_night_aliasing_v1.json \
+            --csv /tmp/san_jacinto_full_within_night_aliasing_nights_v1.csv
+      - name: Persist audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p results
+          cp /tmp/san_jacinto_full_within_night_aliasing_v1.json results/
+          cp /tmp/san_jacinto_full_within_night_aliasing_nights_v1.csv results/
+          git add results/san_jacinto_full_within_night_aliasing_*
+          if git diff --cached --quiet; then
+            echo unchanged
+          else
+            git commit -m "Audit full within-night locational conflicts"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
