@@ -173,17 +173,83 @@ sessioncov <- data.frame(
 rownames(sessioncov) <- session(ch_first)
 stopifnot(nrow(sessioncov) == length(session(ch_first)))
 
+prediction_frames <- function(x) {
+  out <- list()
+  walk <- function(y, path = "root") {
+    if (is.data.frame(y) || is.matrix(y)) {
+      out[[length(out) + 1L]] <<- list(path = path, frame = as.data.frame(y))
+      return(invisible(NULL))
+    }
+    if (is.list(y)) {
+      nm <- names(y)
+      for (i in seq_along(y)) {
+        lab <- if (!is.null(nm) && nzchar(nm[i])) nm[i] else as.character(i)
+        walk(y[[i]], paste0(path, "/", lab))
+      }
+    }
+    invisible(NULL)
+  }
+  walk(x)
+  out
+}
+
 extract_sigma <- function(fit) {
   pr <- predict(fit)
-  idx <- which(rownames(pr) == "sigma")
-  if (length(idx) != 1L) idx <- grep("^sigma", rownames(pr))
-  if (length(idx) < 1L) stop("sigma prediction row not found")
-  r <- pr[idx[1], , drop = FALSE]
+  frames <- prediction_frames(pr)
+  hits <- list()
+
+  for (item in frames) {
+    x <- item$frame
+    rn <- rownames(x)
+    if (is.null(rn)) next
+    idx <- which(rn == "sigma")
+    if (!length(idx)) idx <- grep("^sigma($|[.[:space:]])", rn)
+    if (!length(idx)) next
+
+    for (j in idx) {
+      r <- x[j, , drop = FALSE]
+      if (!("estimate" %in% colnames(r))) next
+      hits[[length(hits) + 1L]] <- list(
+        path = item$path,
+        estimate = as.numeric(r[1, "estimate"]),
+        SE = if ("SE.estimate" %in% colnames(r)) as.numeric(r[1, "SE.estimate"]) else NA_real_,
+        lcl = if ("lcl" %in% colnames(r)) as.numeric(r[1, "lcl"]) else NA_real_,
+        ucl = if ("ucl" %in% colnames(r)) as.numeric(r[1, "ucl"]) else NA_real_
+      )
+    }
+  }
+
+  if (!length(hits)) {
+    structure_summary <- vapply(
+      frames,
+      function(item) paste0(
+        item$path, ": rows=", paste(rownames(item$frame), collapse = "|"),
+        "; cols=", paste(colnames(item$frame), collapse = "|")
+      ),
+      character(1)
+    )
+    stop(
+      "sigma prediction row not found; prediction structure: ",
+      paste(structure_summary, collapse = " || ")
+    )
+  }
+
+  est <- vapply(hits, function(x) x$estimate, numeric(1))
+  if (any(!is.finite(est))) stop("non-finite sigma prediction")
+  tol <- 1e-6 * max(1, mean(abs(est)))
+  if (max(est) - min(est) > tol) {
+    stop("sigma unexpectedly varies among multisession prediction components: ",
+         paste(signif(est, 8), collapse = ", "))
+  }
+
+  first <- hits[[1]]
   list(
-    estimate = as.numeric(r[1, "estimate"]),
-    SE = if ("SE.estimate" %in% colnames(r)) as.numeric(r[1, "SE.estimate"]) else NA_real_,
-    lcl = if ("lcl" %in% colnames(r)) as.numeric(r[1, "lcl"]) else NA_real_,
-    ucl = if ("ucl" %in% colnames(r)) as.numeric(r[1, "ucl"]) else NA_real_
+    estimate = mean(est),
+    SE = first$SE,
+    lcl = first$lcl,
+    ucl = first$ucl,
+    prediction_components_with_sigma = length(hits),
+    prediction_paths = vapply(hits, function(x) x$path, character(1))
   )
 }
 
