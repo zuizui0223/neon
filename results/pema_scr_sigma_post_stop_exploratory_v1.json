@@ -1,0 +1,38 @@
+{
+  "schema": "neon.pema_scr_sigma.post_stop_exploratory.v1",
+  "status": "post_stop_exploratory_only",
+  "binding_confirmatory_programme_decision": "stop_scr_sigma_sensitivity_not_estimable",
+  "source_sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
+  "eligible_sessions": 19,
+  "eligible_session_ids": ["g1_b6", "g1_b11", "g1_b12", "g2_b5", "g2_b6", "g2_b11", "g4_b1", "g4_b2", "g4_b5", "g4_b10", "g6_b1", "g6_b6", "g6_b8", "g6_b9", "g6_b10", "g6_b11", "g6_b12", "g7_b7", "g7_b10"],
+  "eligible_grids": ["1", "2", "4", "6", "7"],
+  "primary": {
+    "model": "g0 ~ b + grid + bout; sigma ~ 1",
+    "first": {
+      "ok": false,
+      "error": "argument is of length zero"
+    },
+    "last": {
+      "ok": false,
+      "error": "argument is of length zero"
+    },
+    "contrast": {}
+  },
+  "sensitivity_without_b": {
+    "model": "g0 ~ grid + bout; sigma ~ 1",
+    "first": {
+      "ok": false,
+      "error": "argument is of length zero"
+    },
+    "last": {
+      "ok": false,
+      "error": "argument is of length zero"
+    },
+    "contrast": {}
+  },
+  "guardrails": {
+    "peER_fitted": false,
+    "original_two_species_stop_relaxed": false,
+    "result_confirmatory": false
+  }
+}
