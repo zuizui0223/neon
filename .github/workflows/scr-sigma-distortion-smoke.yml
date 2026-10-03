@@ -11,6 +11,10 @@ on:
       - .github/workflows/scr-sigma-distortion-smoke.yml
   workflow_dispatch:
 
+concurrency:
+  group: scr-sigma-distortion-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
