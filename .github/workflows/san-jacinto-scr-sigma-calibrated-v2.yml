@@ -1,0 +1,105 @@
+name: san-jacinto-scr-sigma-calibrated-simulation-v2
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SAN_JACINTO_SCR_SIGMA_CALIBRATED_SIMULATION_DESIGN_V2.md
+      - analysis/simulate_san_jacinto_scr_sigma_calibrated_v2.R
+      - .github/workflows/san-jacinto-scr-sigma-calibrated-v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Verify frozen v2 calibration design
+        run: |
+          grep -q "before any v2 downstream sigma results are opened"             docs/SAN_JACINTO_SCR_SIGMA_CALIBRATED_SIMULATION_DESIGN_V2.md
+          grep -q "No SCR model is fitted in Stage A"             docs/SAN_JACINTO_SCR_SIGMA_CALIBRATED_SIMULATION_DESIGN_V2.md
+          grep -q "three cells with the smallest finite S"             docs/SAN_JACINTO_SCR_SIGMA_CALIBRATED_SIMULATION_DESIGN_V2.md
+
+      - name: Run calibrated downstream simulation
+        run: |
+          Rscript analysis/simulate_san_jacinto_scr_sigma_calibrated_v2.R             --calibration-reps 12             --effect-reps 20             --output-json /tmp/calibrated_simulation_result_v2.json             --output-calibration-csv /tmp/calibration_cells_v2.csv             --output-replicates-csv /tmp/calibrated_simulation_replicates_v2.csv
+
+      - name: Validate v2 result contract
+        run: |
+          python - <<'PY'
+          import csv, json, math
+          from pathlib import Path
+
+          p=json.loads(Path("/tmp/calibrated_simulation_result_v2.json").read_text())
+          assert p["schema"]=="neon.san_jacinto_scr_sigma_downstream_simulation.v2"
+          assert p["claim_boundary"]["empirical_sigma_opened"] is False
+          assert p["claim_boundary"]["empirical_two_species_gate_remains_stopped"] is True
+          assert p["claim_boundary"]["calibration_used_downstream_sigma_outcomes"] is False
+          assert p["claim_boundary"]["all_three_selected_cells_reported"] is True
+          assert len(p["calibration_cells"])==108
+          assert len(p["selected_calibration_cells"])==3
+          assert len(p["downstream_cells"])==3
+
+          rows=list(csv.DictReader(open("/tmp/calibrated_simulation_replicates_v2.csv")))
+          assert len(rows)==60
+
+          scores=[x["calibration_score"] for x in p["selected_calibration_cells"]]
+          assert scores==sorted(scores)
+
+          for cell in p["downstream_cells"]:
+              rates=[cell["check_fit_rate"],cell["first_fit_rate"],cell["last_fit_rate"]]
+              assert any(x is not None and math.isfinite(x) and x>0 for x in rates), cell
+
+          print(json.dumps({
+              "selected":p["selected_calibration_cells"],
+              "downstream":p["downstream_cells"],
+          },indent=2))
+          PY
+
+      - name: Persist v2 results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          mkdir -p validation/san_jacinto_scr_sigma_v1
+          cp /tmp/calibrated_simulation_result_v2.json              validation/san_jacinto_scr_sigma_v1/calibrated_simulation_result_v2.json
+          cp /tmp/calibration_cells_v2.csv              validation/san_jacinto_scr_sigma_v1/calibration_cells_v2.csv
+          cp /tmp/calibrated_simulation_replicates_v2.csv              validation/san_jacinto_scr_sigma_v1/calibrated_simulation_replicates_v2.csv
+          git add validation/san_jacinto_scr_sigma_v1/calibrated_simulation_result_v2.json
+          git add validation/san_jacinto_scr_sigma_v1/calibration_cells_v2.csv
+          git add validation/san_jacinto_scr_sigma_v1/calibrated_simulation_replicates_v2.csv
+          if git diff --cached --quiet; then
+            echo "v2 results unchanged"
+          else
+            git commit -m "Record calibrated SCR sigma simulation v2"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-scr-sigma-calibrated-v2
+          path: |
+            /tmp/calibrated_simulation_result_v2.json
+            /tmp/calibration_cells_v2.csv
+            /tmp/calibrated_simulation_replicates_v2.csv
+          if-no-files-found: error
+          retention-days: 30
