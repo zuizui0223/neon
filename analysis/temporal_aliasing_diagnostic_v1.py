@@ -151,6 +151,68 @@ def summarize_spans(
     }
 
 
+def observed_transition_energy_scale(
+    spans: Iterable[float],
+    total_occasions: int,
+) -> float:
+    """Conservative per-axis second-moment scale of exposed transitions.
+
+    Singly observed occasions contribute to the denominator but have no
+    directly observed first-to-last displacement, so their observed
+    contribution is zero. This is an observation-process lower-bound summary,
+    not an assertion that their latent displacement was zero.
+    """
+    xs=[float(x) for x in spans]
+    n=int(total_occasions)
+    if n<=0 or len(xs)>n:
+        raise ValueError("total_occasions must be positive and >= number of exposed spans")
+    if any((not math.isfinite(x) or x<0) for x in xs):
+        raise ValueError("spans must be finite and nonnegative")
+    return math.sqrt(sum(x*x for x in xs)/(2.0*n))
+
+
+def state_mixing_sensitivity(
+    spans: Iterable[float],
+    total_occasions: int,
+    sigma_ref: float | None = None,
+) -> dict:
+    """Second-moment benchmark linking observed transitions to SCR sigma.
+
+    Under a zero-mean approximately isotropic within-occasion state transition,
+    a single stationary half-normal spatial scale has the dense-detector
+    benchmark sigma_eff/sigma ~= sqrt(1 + A_sigma^2), where
+    A_sigma = observed_transition_energy_scale / sigma_ref.
+
+    This is a scale diagnostic, not a correction and not a claim that the
+    reference sigma is the true empirical sigma.
+    """
+    xs=[float(x) for x in spans]
+    scale=observed_transition_energy_scale(xs,total_occasions)
+    out={
+        "all_occasion_count":int(total_occasions),
+        "exposed_repeat_occasion_count":len(xs),
+        "observed_per_axis_transition_scale":scale,
+        "sigma_ref":None,
+        "state_mixing_ratio_A_sigma":None,
+        "second_moment_predicted_sigma_ratio":None,
+        "second_moment_predicted_relative_change":None,
+        "ten_percent_materiality_A_sigma":math.sqrt(1.10**2-1.0),
+    }
+    if sigma_ref is not None:
+        sigma=float(sigma_ref)
+        if not math.isfinite(sigma) or sigma<=0:
+            raise ValueError("sigma_ref must be finite and positive")
+        A=scale/sigma
+        ratio=math.sqrt(1.0+A*A)
+        out.update({
+            "sigma_ref":sigma,
+            "state_mixing_ratio_A_sigma":A,
+            "second_moment_predicted_sigma_ratio":ratio,
+            "second_moment_predicted_relative_change":ratio-1.0,
+        })
+    return out
+
+
 def movement_sensitivity_bound(span_t: float, span_u: float) -> float:
     a=float(span_t); b=float(span_u)
     if not math.isfinite(a) or not math.isfinite(b) or a<0 or b<0:
@@ -185,6 +247,7 @@ def main() -> int:
     parser.add_argument("--time-col",required=True)
     parser.add_argument("--coordinate-col",action="append",dest="coordinate_cols",required=True)
     parser.add_argument("--material-scale",type=float,required=True)
+    parser.add_argument("--sigma-ref",type=float,default=None)
     parser.add_argument("--output",type=Path,required=True)
     args=parser.parse_args()
 
@@ -205,6 +268,11 @@ def main() -> int:
             spans,
             material_scale=args.material_scale,
         ),
+        "state_mixing_sensitivity":state_mixing_sensitivity(
+            [float(x["span"]) for x in spans],
+            qc["individual_nights"],
+            args.sigma_ref,
+        ),
         "bounds":{
             "movement":"|d(F_t,F_u)-d(L_t,L_u)| <= span_t + span_u",
             "mpd":"|MPD(F)-MPD(L)| <= 2*mean(span_i)",
@@ -212,7 +280,10 @@ def main() -> int:
         },
         "interpretation_boundary":(
             "Observed first-last spans are protocol-conditioned positional uncertainty; "
-            "they are not unrestricted movement paths or home-range estimates."
+            "they are not unrestricted movement paths or home-range estimates. "
+            "The state-mixing calculation is a second-moment sensitivity benchmark "
+            "under an approximately zero-mean isotropic transition, not an empirical "
+            "bias correction or an estimate of latent movement on singly observed occasions."
         ),
     }
     args.output.parent.mkdir(parents=True,exist_ok=True)
