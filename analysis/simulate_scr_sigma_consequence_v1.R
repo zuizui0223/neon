@@ -371,14 +371,41 @@ fit_sigma <- function(ch, sigma_true) {
   se <- as.numeric(z$SE.estimate[1])
   lcl <- as.numeric(z$lcl[1])
   ucl <- as.numeric(z$ucl[1])
-  ok <- is.finite(est) && est > 0 && is.finite(lcl) && is.finite(ucl)
+
+  # Numerical-validity repair added after a QA audit found two pathological
+  # fits with enormous sigma estimates but an impossible reported SE of zero.
+  # The scientific generator, cells, seeds and effect thresholds are unchanged.
+  # A fitted sigma is counted as successful only when both the point estimate
+  # and its Hessian-based uncertainty are finite and the sigma SE is positive.
+  fit_code <- if (!is.null(fit$fit$code)) {
+    as.integer(fit$fit$code)
+  } else if (!is.null(fit$fit$convergence)) {
+    as.integer(fit$fit$convergence)
+  } else {
+    NA_integer_
+  }
+  fit_code_ok <- if (is.na(fit_code)) NA else fit_code <= 2L
+  ok <- is.finite(est) && est > 0 &&
+    is.finite(se) && se > 0 &&
+    is.finite(lcl) && is.finite(ucl) &&
+    ucl > lcl
+  issue <- if (ok) "" else paste(
+    c(
+      if (!is.finite(est) || est <= 0) "invalid_sigma" else NULL,
+      if (!is.finite(se) || se <= 0) "invalid_sigma_se" else NULL,
+      if (!is.finite(lcl) || !is.finite(ucl) || ucl <= lcl) "invalid_sigma_ci" else NULL
+    ),
+    collapse = ";"
+  )
   data.frame(
     success=ok,
     sigma_hat=if (ok) est else NA_real_,
     sigma_se=if (ok) se else NA_real_,
     lcl=if (ok) lcl else NA_real_,
     ucl=if (ok) ucl else NA_real_,
-    error=if (ok) "" else "non-finite prediction",
+    optimizer_code=fit_code,
+    optimizer_code_ok=fit_code_ok,
+    error=issue,
     stringsAsFactors=FALSE
   )
 }
@@ -620,7 +647,8 @@ out <- list(
     estimability_repair="density_only_20_to_60_animals_per_ha",
     buffer_m=BUFFER,
     sigma_true_m=SIGMAS,
-    fit_model="CL=TRUE; HN; g0~b; sigma~1"
+    fit_model="CL=TRUE; HN; g0~b; sigma~1",
+    numerical_success_rule="finite positive sigma; finite positive sigma SE; finite ordered CI"
   ),
   empirical_anchor=list(
     source_sha256="ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
@@ -634,7 +662,8 @@ out <- list(
   diagnostic_checks=list(
     stationary_max_abs_median_relative_bias=stationary_max_abs_median_bias,
     stationary_null_within_10pct=stationary_max_abs_median_bias < 0.10,
-    empirical_real_data_sigma_opened=FALSE
+    empirical_real_data_sigma_opened=FALSE,
+    numerical_validity_repair="positive sigma SE and ordered finite CI required; generator and seeds unchanged"
   )
 )
 
