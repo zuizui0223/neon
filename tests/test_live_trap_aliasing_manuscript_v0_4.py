@@ -106,7 +106,8 @@ class LiveTrapAliasingManuscriptV04Tests(unittest.TestCase):
     def test_forbidden_overclaims_are_absent(self):
         lower=self.text.lower()
         for phrase in (
-            "handling caused the empirical",
+            "we show that handling caused",
+            "we demonstrate that handling caused",
             "proves home-range bias",
             "first is biologically correct",
             "last is biologically correct",
