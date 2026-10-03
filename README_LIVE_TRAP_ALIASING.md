@@ -59,7 +59,7 @@ All eligible validation grids passed the pre-specified spatial-replication crite
 
 ## Downstream SCR consequence
 
-The main downstream benchmark uses the San Jacinto trap geometry and the held-out empirical transition kernel. In stationary negative controls, CHECK, FIRST and LAST representations recover the same generating SCR spatial scale. Once a nominal night is allowed to contain an empirical-scale spatial-state transition, FIRST and LAST can yield materially different fitted sigma values, and reversing the state order reverses the direction of the difference. CHECK retains all detections but does not automatically recover the baseline spatial scale when a static-centre model is fitted to a mixture of within-night states.
+The main downstream benchmark uses the San Jacinto trap geometry and the held-out empirical transition kernel. In stationary negative controls, CHECK, FIRST and LAST representations recover the same generating SCR spatial scale. Once a nominal night is allowed to contain an empirical-scale spatial-state transition, FIRST and LAST can yield materially different fitted sigma values, and reversing the state order reverses the direction of the difference. CHECK retains all detections but does not automatically recover the baseline spatial scale in the empirically calibrated stress process, which contains both alternative within-night spatial states and encounter dependence created by repeat observations conditional on a captured night.
 
 The earlier 72-cell simulation of repeat-observation conditioning is retained as a supplementary diagnostic-estimator benchmark.
 
