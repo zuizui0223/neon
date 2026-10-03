@@ -5,8 +5,8 @@ on:
     branches:
       - paper/live-trap-aliasing-v1
     paths:
-      - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md
-      - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md
+      - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_4.md
+      - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md
       - README_LIVE_TRAP_ALIASING.md
       - LICENSE
       - requirements-aliasing.txt
@@ -14,7 +14,7 @@ on:
       - examples/repeated_locations_example.csv
       - examples/repeated_locations_example_expected.json
       - docs/REVIEW_PACKAGE_MANIFEST_V1.md
-      - docs/FIGURE_CAPTIONS_V2.md
+      - docs/FIGURE_CAPTIONS_V3.md
       - docs/SUBMISSION_STATEMENTS_V1.md
       - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md
       - docs/MEE_PRESUBMISSION_ENQUIRY_READY_V3.md
@@ -32,7 +32,13 @@ on:
       - analysis/san_jacinto_positional_aliasing_v1.py
       - analysis/live_trap_aliasing_denominator_audit_v1.py
       - analysis/audit_live_trap_aliasing_individual_cluster_v1.py
-      - analysis/plot_live_trap_aliasing_figures_v1.py
+      - analysis/plot_live_trap_aliasing_figures_v2.py
+      - analysis/simulate_scr_sigma_consequence_v1.R
+      - docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md
+      - docs/SCR_SIGMA_EMPIRICAL_SCALE_BENCHMARK_V1.md
+      - docs/SCR_SIGMA_MIXTURE_THEORY_V1.md
+      - results/scr_sigma_consequence_simulation_v1.json
+      - results/scr_sigma_consequence_replicates_v1.csv
       - analysis/audit_live_trap_night_label_semantics_v1.py
       - tests/test_temporal_aliasing_diagnostic.py
       - tests/test_temporal_aliasing_example.py
@@ -41,7 +47,7 @@ on:
       - tests/test_san_jacinto_positional_aliasing.py
       - tests/test_live_trap_aliasing_denominator_audit.py
       - tests/test_live_trap_aliasing_individual_cluster_v1.py
-      - tests/test_live_trap_aliasing_manuscript_v0_3.py
+      - tests/test_live_trap_aliasing_manuscript_v0_4.py
       - tests/test_live_trap_night_label_semantics_v1.py
       - results/san_jacinto_positional_aliasing_result_v1.json
       - results/temporal_aliasing_simulation_benchmark_v2.json
@@ -72,13 +78,13 @@ jobs:
           rm -rf /tmp/live-trap-aliasing-review
           mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,figures}
 
-          cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_3.md /tmp/live-trap-aliasing-review/
-          cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_2.md /tmp/live-trap-aliasing-review/
+          cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_4.md /tmp/live-trap-aliasing-review/
+          cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md /tmp/live-trap-aliasing-review/
           cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
 
           cp docs/REVIEW_PACKAGE_MANIFEST_V1.md /tmp/live-trap-aliasing-review/docs/
-          cp docs/FIGURE_CAPTIONS_V2.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/FIGURE_CAPTIONS_V3.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V2.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_PRESUBMISSION_ENQUIRY_READY_V3.md /tmp/live-trap-aliasing-review/docs/
@@ -89,6 +95,9 @@ jobs:
           cp docs/TEMPORAL_ALIASING_GEOMETRY_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SIMULATION_BENCHMARK_PLAN_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SIMULATION_BENCHMARK_CORRECTION_V2.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_EMPIRICAL_SCALE_BENCHMARK_V1.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/SCR_SIGMA_MIXTURE_THEORY_V1.md /tmp/live-trap-aliasing-review/docs/
 
           cp analysis/temporal_aliasing_diagnostic_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/temporal_aliasing_bounds_v1.py /tmp/live-trap-aliasing-review/analysis/
@@ -96,7 +105,8 @@ jobs:
           cp analysis/san_jacinto_positional_aliasing_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/live_trap_aliasing_denominator_audit_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/audit_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/analysis/
-          cp analysis/plot_live_trap_aliasing_figures_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/plot_live_trap_aliasing_figures_v2.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/simulate_scr_sigma_consequence_v1.R /tmp/live-trap-aliasing-review/analysis/
           cp analysis/audit_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/analysis/
 
           cp tests/test_temporal_aliasing_diagnostic.py /tmp/live-trap-aliasing-review/tests/
@@ -106,12 +116,14 @@ jobs:
           cp tests/test_san_jacinto_positional_aliasing.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_denominator_audit.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/tests/
-          cp tests/test_live_trap_aliasing_manuscript_v0_3.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_manuscript_v0_4.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/tests/
 
           cp examples/repeated_locations_example.csv examples/repeated_locations_example_expected.json /tmp/live-trap-aliasing-review/examples/
           cp results/san_jacinto_positional_aliasing_result_v1.json /tmp/live-trap-aliasing-review/results/
           cp results/temporal_aliasing_simulation_benchmark_v2.json /tmp/live-trap-aliasing-review/results/
+          cp results/scr_sigma_consequence_simulation_v1.json /tmp/live-trap-aliasing-review/results/
+          cp results/scr_sigma_consequence_replicates_v1.csv /tmp/live-trap-aliasing-review/results/
 
           cp validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json \
              /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
@@ -127,7 +139,7 @@ jobs:
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
           printf '%s\n' \
-            'live-trap-aliasing-review-package-v2' \
+            'live-trap-aliasing-review-package-v3' \
             'Repository commit and workflow provenance are intentionally omitted from the double-anonymous reviewer package.' \
             > /tmp/live-trap-aliasing-review/REVIEW_PACKAGE_VERSION.txt
 
@@ -169,7 +181,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: live-trap-aliasing-review-package-v2
+          name: live-trap-aliasing-review-package-v3
           path: /tmp/live-trap-aliasing-review
           if-no-files-found: error
           retention-days: 30
