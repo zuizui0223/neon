@@ -96,6 +96,22 @@ def _taxon(row: dict[str, str], taxon_field: str | None, sci_field: str | None) 
     return ""
 
 
+def _genus_from_scientific_name(name: str) -> str:
+    """Return a conservative genus label from a published taxon name.
+
+    Composite/cryptic names that begin with one full genus name retain that
+    genus. Empty or non-binomial labels remain unresolved rather than being
+    guessed from taxonID.
+    """
+    text = _clean(name)
+    if not text:
+        return ""
+    first = text.replace("×", " ").split()[0].strip("()[]{};,/")
+    if not first or first[0].islower():
+        return ""
+    return first
+
+
 def audit(perplotnight: Path, pertrapnight: Path) -> dict:
     plot_rows, plot_fields = _read_csv(perplotnight)
     trap_rows, trap_fields = _read_csv(pertrapnight)
@@ -147,6 +163,8 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "trap_nights": set(),
         "trap_coordinates": set(),
         "sampling_types": set(),
+        "scientific_names": set(),
+        "genera": set(),
         "grid_completion_values": set(),
         "site_ids": set(),
     })
@@ -158,6 +176,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "capture_nightuids": set(),
         "coordinate_bearing_capture_rows": 0,
         "individual_rows": defaultdict(list),
+        "scientific_names": set(),
     })
 
     missing_night_join = 0
@@ -205,6 +224,9 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             continue
 
         g = capture_groups[(taxon, plot, event)]
+        sci_name = _clean(row.get(t_sci)) if t_sci else ""
+        if sci_name:
+            g["scientific_names"].add(sci_name)
         g["capture_rows"] += 1
         g["capture_nightuids"].add(n)
         if coord:
@@ -237,8 +259,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             if len(nights) >= 2:
                 repeat_night += 1
 
+        scientific_names = sorted(g["scientific_names"])
+        genera = sorted({
+            genus
+            for genus in (_genus_from_scientific_name(x) for x in scientific_names)
+            if genus
+        })
+
         sessions.append({
             "taxon": taxon,
+            "taxon_id_character_count": len(taxon),
+            "scientific_names": scientific_names,
+            "genus_labels": genera,
             "plot_id": plot,
             "event_id": event,
             "site_ids": sorted(e["site_ids"]),
@@ -276,6 +308,8 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         z["plots"].add(s["plot_id"])
         z["sites"].update(s["site_ids"])
         z["sampling_types"].update(s["sampling_types"])
+        z["scientific_names"].update(s["scientific_names"])
+        z["genera"].update(s["genus_labels"])
         z["sessions_with_any_repeat_capture"] += int(s["n_repeat_capture_tagged_individuals"] > 0)
         z["sessions_with_any_repeat_coordinate_support"] += int(
             s["n_repeat_coordinate_supported_tagged_individuals"] > 0
@@ -297,6 +331,10 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_plots": len(z["plots"]),
             "n_sites": len(z["sites"]),
             "sampling_types": sorted(z["sampling_types"]),
+            "scientific_names": sorted(z["scientific_names"]),
+            "genus_labels": sorted(z["genera"]),
+            "taxon_id_character_count": len(taxon),
+            "is_eight_character_taxon_id": len(taxon) == 8,
             "n_sessions_with_any_repeat_capture": z["sessions_with_any_repeat_capture"],
             "n_sessions_with_any_repeat_coordinate_support": z[
                 "sessions_with_any_repeat_coordinate_support"
@@ -319,6 +357,11 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             >= minimum_individuals
         ]
         taxa_set = {s["taxon"] for s in eligible_sessions}
+        genus_set = {
+            genus
+            for s in eligible_sessions
+            for genus in s["genus_labels"]
+        }
         plots_set = {s["plot_id"] for s in eligible_sessions}
         sites_set = {
             site
@@ -328,15 +371,22 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         }
         taxon_sites = defaultdict(set)
         taxon_sessions = Counter()
+        genus_sites = defaultdict(set)
+        genus_sessions = Counter()
         for s in eligible_sessions:
             taxon_sessions[s["taxon"]] += 1
+            for genus in s["genus_labels"]:
+                genus_sessions[genus] += 1
             for site in s["site_ids"]:
                 if site:
                     taxon_sites[s["taxon"]].add(site)
+                    for genus in s["genus_labels"]:
+                        genus_sites[genus].add(site)
         support_frontier.append({
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
             "n_eligible_species_session_records": len(eligible_sessions),
             "n_taxa": len(taxa_set),
+            "n_resolved_genera": len(genus_set),
             "n_plots": len(plots_set),
             "n_sites": len(sites_set),
             "n_taxa_with_at_least_3_sessions": sum(
@@ -348,6 +398,10 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_taxa_with_at_least_3_sessions_and_2_sites": sum(
                 taxon_sessions[t] >= 3 and len(taxon_sites[t]) >= 2
                 for t in taxa_set
+            ),
+            "n_genera_with_at_least_3_sessions_and_2_sites": sum(
+                genus_sessions[g] >= 3 and len(genus_sites[g]) >= 2
+                for g in genus_set
             ),
         })
 
