@@ -1,0 +1,45 @@
+name: san-jacinto-grid-cluster-robustness
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/audit_san_jacinto_grid_cluster_robustness_v1.py
+      - tests/test_san_jacinto_grid_cluster_robustness_v1.py
+      - .github/workflows/san-jacinto-grid-cluster-robustness.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify grid-cluster audit
+        run: python -m unittest tests.test_san_jacinto_grid_cluster_robustness_v1 -v
+      - name: Run exact grid-level sign-flip audit
+        run: |
+          python analysis/audit_san_jacinto_grid_cluster_robustness_v1.py \
+            --footprint results/san_jacinto_individual_footprint_assortativity_v1.json \
+            --persistence results/san_jacinto_stage5_temporal_persistence_v1.json \
+            --output /tmp/san_jacinto_grid_cluster_robustness_v1.json
+      - name: Persist audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_grid_cluster_robustness_v1.json results/san_jacinto_grid_cluster_robustness_v1.json
+          git add results/san_jacinto_grid_cluster_robustness_v1.json
+          if git diff --cached --quiet; then echo unchanged; else
+            git commit -m "Add grid-cluster robustness for spatial footprints"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
