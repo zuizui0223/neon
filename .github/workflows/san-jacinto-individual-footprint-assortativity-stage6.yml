@@ -1,0 +1,61 @@
+name: san-jacinto-individual-footprint-assortativity-stage6
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/test_san_jacinto_individual_footprint_assortativity_v1.py
+      - tests/test_san_jacinto_individual_footprint_assortativity_v1.py
+      - .github/workflows/san-jacinto-individual-footprint-assortativity-stage6.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-individual-footprint-assortativity-stage6-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stage6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install analysis dependency
+        run: python -m pip install numpy
+
+      - name: Verify frozen individual-footprint test
+        run: python -m unittest tests.test_san_jacinto_individual_footprint_assortativity_v1 -v
+
+      - name: Run frozen footprint assortativity test
+        run: |
+          python analysis/test_san_jacinto_individual_footprint_assortativity_v1.py \
+            --cache /tmp/year_round_trap_data.csv \
+            --stage4-result results/san_jacinto_public_data_scale_decomposition_v1.json \
+            --output /tmp/san_jacinto_individual_footprint_assortativity_v1.json \
+            --permutations 10000 \
+            --seed 2026100505
+
+      - name: Persist result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_individual_footprint_assortativity_v1.json \
+             results/san_jacinto_individual_footprint_assortativity_v1.json
+          git add results/san_jacinto_individual_footprint_assortativity_v1.json
+          if git diff --cached --quiet; then
+            echo "footprint assortativity unchanged"
+          else
+            git commit -m "Record individual footprint assortativity test"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
