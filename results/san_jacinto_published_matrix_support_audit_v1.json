@@ -1,0 +1,3078 @@
+{
+  "checks": {
+    "all_32_have_at_least_3_species": false,
+    "pema_present_all_32": true
+  },
+  "focal_raw_rows": {
+    "CHFA": 1725,
+    "DKR": 1204,
+    "LAPM": 985,
+    "PEER": 446,
+    "PEMA": 1917,
+    "SKR": 2694
+  },
+  "focal_valid_date_rows": {
+    "CHFA": 1725,
+    "DKR": 1204,
+    "LAPM": 985,
+    "PEER": 446,
+    "PEMA": 1917,
+    "SKR": 2694
+  },
+  "grid_seasons": [
+    {
+      "grid": "1",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 92,
+        "DKR": 137,
+        "LAPM": 20,
+        "PEER": 20,
+        "PEMA": 11
+      },
+      "season": "fall",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "1",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 74,
+        "DKR": 190,
+        "PEER": 28,
+        "PEMA": 54
+      },
+      "season": "winter",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "1",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 46,
+        "DKR": 220,
+        "LAPM": 20,
+        "PEER": 17,
+        "PEMA": 84
+      },
+      "season": "spring",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "1",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 75,
+        "DKR": 181,
+        "LAPM": 51,
+        "PEER": 89,
+        "PEMA": 144
+      },
+      "season": "summer",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "2",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 175,
+        "DKR": 83,
+        "LAPM": 45,
+        "PEER": 84,
+        "PEMA": 44
+      },
+      "season": "fall",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "2",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 101,
+        "DKR": 152,
+        "PEER": 35,
+        "PEMA": 130
+      },
+      "season": "winter",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "2",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 100,
+        "DKR": 65,
+        "PEER": 3,
+        "PEMA": 67
+      },
+      "season": "spring",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "2",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 149,
+        "DKR": 33,
+        "LAPM": 35,
+        "PEER": 58,
+        "PEMA": 78
+      },
+      "season": "summer",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ]
+    },
+    {
+      "grid": "3",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 22,
+        "PEMA": 29,
+        "SKR": 150
+      },
+      "season": "fall",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "3",
+      "pema_present": true,
+      "row_counts": {
+        "PEMA": 15,
+        "SKR": 224
+      },
+      "season": "winter",
+      "species_count": 2,
+      "species_with_valid_spatial_rows": [
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "3",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 15,
+        "PEMA": 23,
+        "SKR": 181
+      },
+      "season": "spring",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "3",
+      "pema_present": true,
+      "row_counts": {
+        "DKR": 1,
+        "LAPM": 118,
+        "PEMA": 29,
+        "SKR": 307
+      },
+      "season": "summer",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "4",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 53,
+        "DKR": 25,
+        "LAPM": 20,
+        "PEMA": 111,
+        "SKR": 63
+      },
+      "season": "fall",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "4",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 42,
+        "DKR": 61,
+        "PEER": 2,
+        "PEMA": 123,
+        "SKR": 197
+      },
+      "season": "winter",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "4",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 78,
+        "DKR": 46,
+        "LAPM": 4,
+        "PEMA": 60,
+        "SKR": 98
+      },
+      "season": "spring",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "4",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 92,
+        "DKR": 10,
+        "LAPM": 47,
+        "PEMA": 79,
+        "SKR": 174
+      },
+      "season": "summer",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "5",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 149,
+        "PEMA": 18,
+        "SKR": 241
+      },
+      "season": "fall",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "5",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 43,
+        "PEMA": 27,
+        "SKR": 263
+      },
+      "season": "winter",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "5",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 34,
+        "PEMA": 17,
+        "SKR": 139
+      },
+      "season": "spring",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "5",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 177,
+        "PEMA": 9,
+        "SKR": 75
+      },
+      "season": "summer",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "6",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 203,
+        "LAPM": 10,
+        "PEER": 37,
+        "PEMA": 52,
+        "SKR": 66
+      },
+      "season": "fall",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "6",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 188,
+        "PEER": 35,
+        "PEMA": 71,
+        "SKR": 143
+      },
+      "season": "winter",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "6",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 114,
+        "LAPM": 6,
+        "PEMA": 102,
+        "SKR": 38
+      },
+      "season": "spring",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "6",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 142,
+        "LAPM": 92,
+        "PEER": 37,
+        "PEMA": 170,
+        "SKR": 77
+      },
+      "season": "summer",
+      "species_count": 5,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "7",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 20,
+        "PEMA": 36,
+        "SKR": 7
+      },
+      "season": "fall",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "7",
+      "pema_present": true,
+      "row_counts": {
+        "PEMA": 17,
+        "SKR": 54
+      },
+      "season": "winter",
+      "species_count": 2,
+      "species_with_valid_spatial_rows": [
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "7",
+      "pema_present": true,
+      "row_counts": {
+        "CHFA": 1,
+        "LAPM": 5,
+        "PEMA": 63,
+        "SKR": 49
+      },
+      "season": "spring",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "7",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 23,
+        "PEER": 1,
+        "PEMA": 92,
+        "SKR": 29
+      },
+      "season": "summer",
+      "species_count": 4,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "8",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 3,
+        "PEMA": 69,
+        "SKR": 28
+      },
+      "season": "fall",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "8",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 6,
+        "PEMA": 20,
+        "SKR": 35
+      },
+      "season": "winter",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "8",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 1,
+        "PEMA": 42,
+        "SKR": 47
+      },
+      "season": "spring",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    },
+    {
+      "grid": "8",
+      "pema_present": true,
+      "row_counts": {
+        "LAPM": 19,
+        "PEMA": 31,
+        "SKR": 9
+      },
+      "season": "summer",
+      "species_count": 3,
+      "species_with_valid_spatial_rows": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ]
+    }
+  ],
+  "invalid_focal_date_strings": {},
+  "raw_rows": 8981,
+  "schema": "neon.san_jacinto_published_matrix_support_audit.v1",
+  "status": "support_only_no_cscore_or_null_outcome",
+  "target_grid3_grid7_winter_records": [
+    {
+      "date": "11/6/15",
+      "flag": "A2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "B2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "B3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "B5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "C1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "3:19"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:08"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "F3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:19"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "F5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:19"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "G6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "G6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "G7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:29"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "D6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:22"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E2",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "11:54"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:55"
+    },
+    {
+      "date": "11/6/15",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:54"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "B2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:51"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:51"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:51"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:51"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "3:51"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "F3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "F4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "F5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:40"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": false,
+      "species": "SKR",
+      "time": "12:41"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "A5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:50"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "A6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "10:39"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "B6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "4:50"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "D6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:37"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:39"
+    },
+    {
+      "date": "11/7/15",
+      "flag": "G6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "1:37"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "B1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "E5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:00"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "11/8/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:49"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:23"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:09"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:55"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "D7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:23"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:09"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:55"
+    },
+    {
+      "date": "11/10/15",
+      "flag": "G3",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "8:23"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "C2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "C4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "C5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "C5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:22"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:50"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:58"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "G7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:08"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:08"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:52"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:57"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "10:08"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "B1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "2:57"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "D6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:57"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "10:08"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "12:15"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:57"
+    },
+    {
+      "date": "12/6/15",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:52"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:01"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:34"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:55"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:51"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "B7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:34"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "D7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:34"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "D7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:55"
+    },
+    {
+      "date": "12/7/15",
+      "flag": "F7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:01"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "A1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:48"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "A6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "A6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "B1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "B2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "B3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "B5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:48"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "B5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "C5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:48"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:48"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "F1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:48"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:16"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:25"
+    },
+    {
+      "date": "12/8/15",
+      "flag": "G6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:38"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "B1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "D4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "D5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "D5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:10"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:10"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:05"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:50"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "G7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:33"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:07"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "B7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:41"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C3",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:23"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:07"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "C7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:23"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:23"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:07"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "E6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:41"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "F5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:40"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "G3",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "11:40"
+    },
+    {
+      "date": "12/9/15",
+      "flag": "G7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:07"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "B1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "B7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "C3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "C4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "E1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:49"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:50"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:56"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "C7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:17"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "D6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:17"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "E5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:17"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "10:22"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "F1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "2:17"
+    },
+    {
+      "date": "1/12/16",
+      "flag": "G2",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "2:17"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:59"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:59"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:59"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "B1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:59"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "C4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "C5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "C7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "E1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:40"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "G3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:04"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "A7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:22"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "B7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "7:54"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "C1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "2:22"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "D7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:48"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "F6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "11:48"
+    },
+    {
+      "date": "1/13/16",
+      "flag": "G2",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "2:22"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "A1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "A3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:34"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "A5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:10"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "A7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:34"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B3",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:10"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "C1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "C1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:10"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "D5",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:37"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "D6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:34"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "D7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:10"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:34"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:10"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F4",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:37"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:37"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "4:24"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F7",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G1",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:37"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "8:37"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G2",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G6",
+      "grid": "3",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "12:15"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:57"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:22"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "B7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "5:57"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "D6",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:47"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "9:47"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E5",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:22"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "E7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "SKR",
+      "time": "1:22"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "F1",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "1:22"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G2",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "9:47"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G2",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "5:57"
+    },
+    {
+      "date": "1/14/16",
+      "flag": "G7",
+      "grid": "7",
+      "has_unique_id": true,
+      "species": "PEMA",
+      "time": "1:22"
+    }
+  ]
+}
