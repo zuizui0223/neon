@@ -1,0 +1,47 @@
+name: neon-footprint-assortativity-stage1
+on:
+  push:
+    branches: [ecology/neon-footprint-validation-v1]
+    paths:
+      - docs/NEON_INDEPENDENT_FOOTPRINT_VALIDATION_V1.md
+      - analysis/test_neon_footprint_assortativity_v1.py
+      - tests/test_neon_footprint_assortativity_v1.py
+      - .github/workflows/neon-footprint-assortativity-stage1.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: neon-footprint-assortativity-stage1-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  stage1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/neon-footprint-validation-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - name: Verify frozen Stage-1 logic
+        run: python -m unittest tests.test_neon_footprint_assortativity_v1 -v
+      - name: Run independent footprint replication
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/test_neon_footprint_assortativity_v1.py \
+            --output /tmp/neon_footprint_assortativity_v1.json \
+            --permutations 10000 --seed 2026100511
+      - name: Persist Stage-1 result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/neon-footprint-validation-v1
+          cp /tmp/neon_footprint_assortativity_v1.json results/neon_footprint_assortativity_v1.json
+          git add results/neon_footprint_assortativity_v1.json
+          if git diff --cached --quiet; then echo unchanged; else
+            git commit -m "Record NEON footprint assortativity replication"
+            git push origin HEAD:ecology/neon-footprint-validation-v1
+          fi
