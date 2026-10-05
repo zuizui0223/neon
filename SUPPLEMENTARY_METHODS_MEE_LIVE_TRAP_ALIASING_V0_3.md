@@ -64,51 +64,71 @@ For a standardized MPD score $z=(MPD-\mu_n)/\sigma_n$, when FIRST and LAST use t
 
 The implementation is verified by equality cases and random Euclidean tests.
 
-## S1.3 Exchangeability and time-reversal non-identifiability
+## S1.3 Time-reversal symmetry and span non-identifiability
 
-Let an occasion contain ordered detector outcomes (Y=(Y_1,ldots,Y_K)), where zero denotes no detection. Let (F(Y)) and (L(Y)) be the first and last non-zero detector states on occasions with at least one detection, and let (R(Y)=(Y_K,ldots,Y_1)) denote time reversal.
+Let an occasion contain ordered detector outcomes
 
-If the check-level observation process is temporally exchangeable conditional on the latent spatial state, then
+\[
+Y=(Y_1,\ldots,Y_K),
+\]
 
-[
-Y overset{d}= R(Y).
-]
+where zero denotes no detection. Let \(F(Y)\) and \(L(Y)\) be the first and last non-zero detector states, and let
 
-Because time reversal exchanges the two representative rules,
+\[
+R(Y)=(Y_K,\ldots,Y_1)
+\]
 
-[
-F{R(Y)}=L(Y), qquad L{R(Y)}=F(Y),
-]
+denote time reversal.
+
+The minimal symmetry condition needed for FIRST/LAST equivalence is
+
+\[
+Y\overset{d}=R(Y)
+\]
+
+conditional on the latent state and observation design relevant to the downstream model. Full temporal exchangeability is sufficient but stronger than necessary. Independent identically distributed checks around a fixed activity centre are one special case; a stationary reversible process may also satisfy the reversal condition despite serial dependence.
+
+Because reversal exchanges the representative rules,
+
+\[
+F\{R(Y)\}=L(Y),\qquad L\{R(Y)\}=F(Y),
+\]
 
 and therefore
 
-[
-F(Y)overset{d}=L(Y)
-]
+\[
+F(Y)\overset{d}=L(Y).
+\]
 
-conditional on the occasion being observed. This does not require realized FIRST and LAST locations to be equal.
+For a full dataset \(\mathcal Y\), if the joint law is invariant under reversing every within-occasion sequence, then any downstream scalar functional satisfies
 
-The same transformation gives a stronger limitation for span-only diagnostics. For any symmetric span statistic based only on (d{F(Y),L(Y)}),
+\[
+T_F(\mathcal Y)\overset{d}=T_L(\mathcal Y).
+\]
 
-[
-S{R(Y)}=S(Y).
-]
+The directed contrast
 
-By contrast, for any directed representation contrast
+\[
+D(\mathcal Y)=T_L(\mathcal Y)-T_F(\mathcal Y)
+\]
 
-[
-D(Y)=T{L(Y)}-T{F(Y)},
-]
+obeys
 
-time reversal gives
+\[
+D(R\mathcal Y)=-D(\mathcal Y),
+\]
 
-[
-D{R(Y)}=-D(Y).
-]
+so under reversal symmetry \(D\overset d=-D\). Its distribution is symmetric about zero, and its expectation is zero when the expectation exists.
 
-Hence two observation processes related only by reversal can have identical distributions of all FIRST-to-LAST span summaries while having opposite directed FIRST-versus-LAST effects. No statistic that uses only unordered within-occasion spans can identify the sign of a downstream representation effect without an additional assumption about temporal ordering or state dynamics.
+The same transformation gives the identification limit for span-only diagnostics. Because
 
-This is an identification result, not a claim that real trapping checks are exchangeable. Its practical role is to separate the first-stage positional-non-uniqueness screen from the second-stage downstream stability analysis.
+\[
+d\{F(RY),L(RY)\}=d\{F(Y),L(Y)\},
+\]
+
+any statistic using only unordered within-occasion spans is invariant to time reversal, whereas a directed FIRST-versus-LAST contrast changes sign. Two processes related only by reversal can therefore have identical span distributions and opposite directed downstream effects.
+
+No span-only statistic can identify the sign of a representation effect without an additional assumption about temporal ordering or state dynamics. This is why the positional-non-uniqueness screen and downstream stability analysis are separate stages.
 
 ## S1.4 A second aggregation mechanism: detection-kernel closure
 
@@ -368,6 +388,40 @@ PEER:
 
 The bootstrap used 20,000 replicates and seed 20260930. This post-result sensitivity does not replace or alter the prospectively frozen Wilson/grid replication criterion.
 
+## S8.1 Post-result time-reversal symmetry audit
+
+A second non-rescuing audit asked whether changed repeat nights contained a detectable arrow of time.
+
+For each changed night, the directed first-to-last displacement vector \(v\) was paired with its reverse \(-v\) within trapping grid. We formed grid × unsigned-vector strata and used the statistic
+
+\[
+Q=\sum_s\frac{(n_{s,+}-n_{s,-})^2}{n_{s,+}+n_{s,-}}.
+\]
+
+To preserve dependence among repeated nights from the same marked animal, the randomization unit was grid × individual: in each of 500,000 Monte Carlo permutations, all changed nights from a cluster had their temporal direction reversed together with probability one half.
+
+PEMA:
+- changed nights: 352;
+- changed grid-specific individual clusters: 143;
+- grid × unsigned-vector strata: 150;
+- cluster sign-flip \(p=0.1932\);
+- mean directed vector: (0.000, -0.071) m;
+- directed-vector magnitude: 0.071 m;
+- RMS changed-night displacement: 17.08 m;
+- mean-vector / RMS ratio: 0.0042.
+
+PEER:
+- changed nights: 74;
+- changed clusters: 27;
+- strata: 40;
+- cluster sign-flip \(p=0.7348\);
+- mean directed vector: (-1.605, 0.507) m;
+- directed-vector magnitude: 1.68 m;
+- RMS changed-night displacement: 16.26 m;
+- mean-vector / RMS ratio: 0.1035.
+
+These are exploratory consistency diagnostics. Failure to reject does not prove time-reversal symmetry, especially with sparse vector strata. The very small PEMA mean directed vector is nevertheless consistent with the empirical finding that large first-to-last displacement magnitude did not translate into a material FIRST/LAST sigma contrast.
+
 ## S9. Empirically anchored SCR downstream-consequence benchmark
 
 ### S9.1 Empirical observation-process kernel
@@ -492,7 +546,7 @@ Empirical validation:
 - `tests/test_san_jacinto_positional_aliasing.py`
 - `results/san_jacinto_positional_aliasing_result_v1.json`
 - `results/temporal_aliasing_simulation_benchmark_v2.json`
-- `validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json`
+- `validation/live_trap_aliasing_v1/individual_cluster_sensitivity_v1.json`\n- `analysis/audit_time_reversal_symmetry_v1.py`\n- `results/time_reversal_symmetry_audit_v1.json`
 
 SCR downstream consequence:
 - `analysis/simulate_scr_sigma_consequence_v1.R`
