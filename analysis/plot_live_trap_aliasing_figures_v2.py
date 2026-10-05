@@ -125,6 +125,13 @@ def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
     )
     axes[2].axhline(vals[0]*0.9,linewidth=1,linestyle="--")
     axes[2].axhline(vals[0]*1.1,linewidth=1,linestyle="--")
+    anchor=consequence["empirical_anchor"]["species"]["PEMA"]
+    q=float(anchor["changed_repeat_nights"])/float(anchor["all_valid_captured_nights"])
+    rms=float(anchor["changed_rms_distance_m"])
+    additive_ratio=float(np.sqrt(1 + q*rms*rms/(2*vals[0]*vals[0])))
+    additive_sigma=vals[0]*additive_ratio
+    axes[2].axhline(additive_sigma,linewidth=1.4,linestyle=":")
+    axes[2].set_ylim(min(lows)*0.95,max(max(highs),additive_sigma)*1.06)
     axes[2].set_xticks(x,["FIRST","LAST"])
     axes[2].set_ylabel("Estimated σ (m)")
     axes[2].set_title("C. PEMA post-stop stability")
@@ -135,6 +142,14 @@ def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
         ha="center",
         va="top",
         fontsize=8,
+    )
+    axes[2].text(
+        1.04,
+        additive_sigma,
+        f"independent-additive benchmark\n≈ +{100*(additive_ratio-1):.1f}%",
+        ha="left",
+        va="center",
+        fontsize=7.5,
     )
 
     fig.tight_layout()
