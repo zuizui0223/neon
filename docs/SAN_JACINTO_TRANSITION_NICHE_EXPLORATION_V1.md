@@ -1,6 +1,6 @@
 # San Jacinto transition-niche ecology exploration v2
 
-**Status:** Stage 0 complete; Stage 1 frozen before transition direction / distance outcomes are opened  
+**Status:** Stage 0 complete; Stage 1 v3 frozen before transition direction / distance outcomes are opened  
 **Parent MEE commit:** `265b338521da52d8379f851ca6383dde96e7812c`  
 **Ecology branch:** `ecology/san-jacinto-transition-niche-v1`
 
@@ -54,13 +54,19 @@ The analysis unit is grid × season.
 
 ### Unit eligibility
 
-Within each grid × season, a species is included only if it contributes at least **5 repeat-capture individual-nights**. A grid-season is eligible if at least **3 focal species** meet that requirement.
+Within each grid × season, a species is included only if it contributes at least **5 repeat-capture individual-nights**; all valid singleton nights from that same eligible species are then retained as fixed background in its C-score occupancy. A grid-season is eligible if at least **3 focal species** meet the repeat-night requirement.
 
 No eligibility rule uses observed movement distance, direction or the resulting segregation statistic.
 
 ### Spatial segregation statistic
 
-For each eligible grid-season, construct a species × trap presence/absence matrix using one representative endpoint per repeat-capture individual-night.
+For each eligible grid-season, construct a species × trap presence/absence matrix from **all valid captured individual-nights** of the eligible species, so that the estimand remains aligned with the published grid-season spatial-partitioning analysis.
+
+- A singly captured individual-night contributes its one observed trap and is identical in FIRST, LAST and every randomization.
+- A repeat-capture individual-night contributes its FIRST trap in the FIRST representation, its LAST trap in the observed LAST representation, and a randomized distance-matched destination in each null replicate.
+- Nights with more than two captures are still represented by their earliest and latest valid traps; intermediate checks are not opened as an alternative endpoint in Stage 1.
+
+Thus the null changes only the direction assigned to observed repeat-night displacement while leaving the full background of singly observed animal-nights fixed.
 
 For species pair A,B, use the published checkerboard C-score
 
@@ -116,6 +122,10 @@ The route is considered supported only if:
 - the one-sided Monte Carlo (p<0.05).
 
 Otherwise the ecological route stops at Stage 1. A null result will not trigger a search over alternative movement metrics.
+
+### Design correction made before outcome opening
+
+Stage 1 v2 initially defined C-score only on repeat-capture nights. Before any transition distance, direction, null C-score or observed movement effect was computed, this was corrected to retain singleton nights as fixed background. The correction aligns the new endpoint with the published grid-season species × trap spatial-partitioning estimand and prevents the ecological claim from being restricted to the repeat-observed subset. The randomization still acts only on repeat-night movement directions.
 
 ### Secondary quantities fixed in advance
 
