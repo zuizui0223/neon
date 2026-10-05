@@ -118,6 +118,14 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         self.assertIn("10.22%",self.text)
         self.assertIn("non-zero-shift cells are not promoted",lower)
 
+    def test_zero_shift_replication_validates_generator_without_rescuing_nonzero_cells(self):
+        for token in ("5.55%","0.9968","1.0031","0.9992"):
+            self.assertIn(token,self.text)
+        lower=self.text.lower()
+        self.assertIn("zero-shift-only",lower)
+        self.assertIn("non-zero-shift cells are not promoted",lower)
+        self.assertIn("10.22%",self.text)
+
     def test_forbidden_overclaims_are_absent(self):
         lower=self.text.lower()
         for phrase in (
