@@ -8,7 +8,7 @@
 
 ## Working title
 
-**Species-specific spatial footprints reassemble niche partitioning across individual turnover in a rodent guild**
+**Species-specific spatial footprints reassemble niche partitioning across disjoint individual sets in a rodent guild**
 
 Short alternative:
 
@@ -21,6 +21,8 @@ Short alternative:
 The paper is biological. Temporal aggregation and observation-process issues are supporting design considerations, not the subject.
 
 ## Central answer
+
+**Terminology boundary.** Here, identity turnover means analytical exclusion of all marked individuals shared between compared windows. The remaining observed identity sets are disjoint; this does not establish literal demographic replacement, mortality or recruitment in the underlying population.
 
 The San Jacinto segregation pattern is not detectable as a rule acting at every within-night movement step and is lost when each individual is reduced to one seasonal point. It is retained by recurring multi-location use across nights, is shared preferentially among conspecific individuals, persists through a season, survives complete replacement of individuals within strongly segregated regimes, and is reassembled across adjacent seasons by disjoint sets of individuals.
 
@@ -219,7 +221,7 @@ The distinctive contribution is the **within-system scale-falsification sequence
 
 The resulting general proposition is narrower and stronger than “scale matters”:
 
-> **Community spatial structure can be encoded in a distributed species-level pattern of repeated space use that is neither reducible to instantaneous movement rules nor to fixed individual centres, and that can be rebuilt after individual turnover.**
+> **Community spatial structure can be encoded in a distributed species-level pattern of repeated space use that is neither reducible to instantaneous movement rules nor to fixed individual centres, and that can be rebuilt by non-overlapping sets of observed individuals.**
 
 This is an empirical localization of where ecological information resides.
 
@@ -343,7 +345,7 @@ Individual-footprint Jaccard:
 
 Show unit-level standardized effects and exact footprint-size-stratified null.
 
-### Figure 5 — Persistence weakens but survives complete individual turnover
+### Figure 5 — Persistence weakens but survives removal of all shared individuals
 
 For the eight reference units:
 - Stage-5 EARLY/LATE persistence Z
@@ -371,7 +373,7 @@ If six figures are too many, merge Figures 5 and 6 into a two-panel “persisten
 
 **Background.** Spatial niche partitioning is commonly inferred from accumulated locations, but the community pattern could arise from short-term avoidance, stable placement of individuals, or repeated use of distributed spatial domains.
 
-**Approach.** We decomposed a previously documented spatial-segregation pattern in a six-species granivorous rodent guild across nested temporal and organizational scales, using predeclared null models and explicit tests of complete individual turnover.
+**Approach.** We decomposed a previously documented spatial-segregation pattern in a six-species granivorous rodent guild across nested temporal and organizational scales, using predeclared null models and explicit tests with all shared marked individuals removed between time windows.
 
 **Results.** Within-night movement direction did not preserve more segregation than distance-matched alternative directions, and reducing each individual to one seasonal point produced no detectable species-associated segregation. In contrast, one location per individual-night retained 7/8 reference community-segregation signals. Conspecific multi-night footprints were more similar than equally broad heterospecific footprints (T = 2.315, p = 0.00010), and species-specific trap use persisted from early to late season (T = 4.091, p = 0.00020). Persistence remained after removing all individuals shared between seasonal halves (T = 1.037, p = 0.00160). Across adjacent seasons, after removing all individuals shared between seasons and requiring at least two exclusive individuals per species in each season, species-specific trap recurrence remained positive in 9/10 tests (global Z = 1.775, p = 0.00010) and in 5/6 physical grids (exact sign-flip p = 0.046875).
 
