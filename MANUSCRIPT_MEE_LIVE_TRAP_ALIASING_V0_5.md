@@ -335,6 +335,8 @@ a relative change of -3.27%. This did not cross the existing 10% contextual mate
 
 The empirical result therefore separates the two questions motivating the framework: within-night position was frequently non-unique, but the pooled PEMA SCR spatial scale was comparatively stable to whether the first or last nightly capture location was retained.
 
+The same data also reject a tempting quantitative interpretation of the raw span distribution. Among all valid PEMA individual-nights, directly observed material FIRST-to-LAST transitions occurred on 352/1,219 nights, and the RMS length of those material transitions was 17.08 m. If those vectors were treated as independent, zero-mean additive displacements applied after the FIRST state, the continuous second-moment benchmark using the FIRST estimate (sigma = 8.8515 m) would predict sigma_LAST / sigma_FIRST ≈ 1.240, or about +24.0%. The observed ratio was instead 0.967 (-3.3%). This model-dependent discrepancy is inconsistent with interpreting the observed FIRST-to-LAST vectors as an independent additive transition kernel for PEMA and reinforces that positional-span magnitude is not an empirical correction for SCR sigma.
+
 ## 3.3 Exchangeability null and ordered-state failure mode
 
 The SCR simulations reproduced the distinction predicted by the exchangeability argument.
