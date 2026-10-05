@@ -74,6 +74,10 @@ on:
       - .github/workflows/build-live-trap-aliasing-review-package.yml
   workflow_dispatch:
 
+concurrency:
+  group: live-trap-aliasing-review-package-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   package:
     runs-on: ubuntu-latest
