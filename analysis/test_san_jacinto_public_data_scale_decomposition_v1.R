@@ -3,6 +3,7 @@
 suppressPackageStartupMessages({
   library(EcoSimR)
   library(jsonlite)
+  library(digest)
 })
 
 args <- commandArgs(trailingOnly=TRUE)
@@ -67,8 +68,7 @@ seasonal_anchor <- function(flags) {
   cand[order(ss,-freq,cand)[1]]
 }
 sha256sum <- function(path) {
-  x<-system2("sha256sum",path,stdout=TRUE)
-  sub(" .*","",x[1])
+  digest::digest(file=path, algo="sha256", serialize=FALSE)
 }
 download_source <- function() {
   dir.create(dirname(CACHE),recursive=TRUE,showWarnings=FALSE)
