@@ -1,0 +1,57 @@
+name: neon-spatial-template-external-feasibility
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - docs/NEON_SPATIAL_TEMPLATE_EXTERNAL_FEASIBILITY_V1.md
+      - analysis/audit_neon_spatial_template_external_feasibility_v1.py
+      - tests/test_neon_spatial_template_external_feasibility_v1.py
+      - .github/workflows/neon-spatial-template-external-feasibility.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: neon-spatial-template-external-feasibility-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  feasibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify support-only logic
+        run: python -m unittest tests.test_neon_spatial_template_external_feasibility_v1 -v
+
+      - name: Run RELEASE-2026 support inventory
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/audit_neon_spatial_template_external_feasibility_v1.py \
+            --output /tmp/neon_spatial_template_external_feasibility_v1.json
+
+      - name: Persist support-only inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/neon_spatial_template_external_feasibility_v1.json \
+             results/neon_spatial_template_external_feasibility_v1.json
+          git add results/neon_spatial_template_external_feasibility_v1.json
+          if git diff --cached --quiet; then
+            echo "support inventory unchanged"
+          else
+            git commit -m "Record NEON spatial-template external feasibility"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
