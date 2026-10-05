@@ -6,7 +6,7 @@ Date: 2026-10-05
 
 Ecological observations are often collected more frequently than the temporal occasion used in downstream spatial analysis. When one marked individual occupies several detector locations within a nominal occasion, collapsing the record to one position creates **positional non-uniqueness**. We show that this is not itself a bias estimate. The key second question is whether the downstream estimand is stable to defensible temporal representations.
 
-The manuscript combines a scale-aware positional-aliasing screen with a representation-stability analysis. The theoretical boundary is time-reversal symmetry: if the within-occasion observation law is unchanged when check order is reversed, FIRST and LAST are distributionally equivalent even when their realized locations differ. Full temporal exchangeability is sufficient but not necessary.
+The manuscript combines a scale-aware positional-aliasing screen with a representation-stability analysis. A transparent process-level sufficient condition is time-reversal symmetry: if the within-occasion observation law is unchanged when check order is reversed, FIRST and LAST are distributionally equivalent even when their realized locations differ. Full temporal exchangeability is sufficient but not necessary.
 
 ## Central claim
 
