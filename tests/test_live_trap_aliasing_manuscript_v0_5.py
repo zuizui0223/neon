@@ -13,7 +13,7 @@ CONSEQUENCE=ROOT/"results"/"scr_sigma_consequence_simulation_v1.json"
 EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
 HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
-REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
+REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"\nCALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
 
 
 class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
@@ -25,7 +25,7 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         cls.emp=json.loads(EMPIRICAL.read_text())
         cls.den=json.loads(DENOM.read_text())
         cls.home=json.loads(HOME.read_text())
-        cls.reversal=json.loads(REVERSAL.read_text())
+        cls.reversal=json.loads(REVERSAL.read_text())\n        cls.calib=json.loads(CALIB.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.5",self.text)
@@ -112,6 +112,20 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         for token in ("p=0.193","p=0.735","0.071 m","17.08-m RMS"):
             self.assertIn(token,self.text)
         self.assertIn("cannot prove time-reversal symmetry",self.text)
+
+    def test_observation_process_calibration_stop_is_preserved(self):
+        self.assertEqual(self.calib["grid"]["candidate_cells"],204)
+        self.assertEqual(self.calib["grid"]["validation_candidates"],12)
+        self.assertEqual(self.calib["decision"]["passing_validation_cells"],0)
+        self.assertEqual(
+            self.calib["decision"]["value"],
+            "stop_v3_no_observation_process_match",
+        )
+        self.assertEqual(self.calib["claim_boundary"]["scr_models_fit"],0)
+        self.assertFalse(self.calib["claim_boundary"]["empirical_sigma_opened"])
+        self.assertIn("204 candidate cells",self.text)
+        self.assertIn("Zero of 12 passed",self.text)
+        self.assertIn("stop_v3_no_observation_process_match",self.text)
 
     def test_denominator_and_mcp_stops_are_preserved(self):
         self.assertAlmostEqual(
