@@ -98,6 +98,16 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertNotIn("n_repeat_location_tagged_individuals", s)
             self.assertNotIn("n_distinct_capture_coordinates", s)
 
+            frontier = out["support"]["repeat_support_frontier"]
+            by_min = {
+                row["minimum_repeat_coordinate_supported_individuals"]: row
+                for row in frontier
+            }
+            self.assertEqual(
+                by_min[2]["n_eligible_species_session_records"], 0
+            )
+            self.assertEqual(by_min[2]["n_taxa"], 0)
+
             support_text = json.dumps(out["support"]).lower()
             for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect", "distance"):
                 self.assertNotIn(forbidden, support_text)
