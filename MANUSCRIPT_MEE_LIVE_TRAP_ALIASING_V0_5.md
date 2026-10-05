@@ -405,9 +405,11 @@ The time-reversal result makes this mechanism especially transparent. PRE and PO
 
 The natural scale of the risk is the size and frequency of ordered state changes relative to the downstream spatial kernel. The existing second-moment approximation remains useful as a stress-test scale, but it should be interpreted as a model-dependent consequence benchmark rather than as a correction for the San Jacinto data.
 
+We also attempted to calibrate a simple release-centred transient-state mechanism directly to the empirical observation process before fitting any downstream sigma. From 204 candidate cells, the 12 closest were re-simulated on independent validation seeds and required to match repeat frequency, material-shift frequency, median all-repeat span and median changed-night span simultaneously. Zero of 12 passed all four criteria, yielding the frozen decision `stop_v3_no_observation_process_match`. This negative result is important: the ordered-state simulation demonstrates a failure mode, but the available San Jacinto summaries do not support interpreting that simple transient-state generator as the empirical mechanism.
+
 ## 4.4 Why “use every trap check as an occasion” is sometimes right and sometimes incomplete
 
-When the check-level process is approximately exchangeable around a static activity centre, retaining every check is the cleanest way to avoid discarding detections, provided effort and detector use are represented correctly. In that setting coarsening mainly loses information.
+When the check-level process is approximately symmetric under time reversal around a static activity centre, retaining every check is the cleanest way to avoid discarding detections, provided effort and detector use are represented correctly. In that setting coarsening mainly loses information.
 
 The answer changes when detections are temporally dependent because the latent spatial state itself evolves. Treating every check as an occasion retains the observations but does not make a static-centre SCR model correct. Continuous-time SECR already addresses information loss and subjective occasion definition (Borchers et al. 2014), and recent continuous-time SCR work explicitly models movement between detections when conditional independence around one activity centre is inadequate (Panchaud et al. 2026). Our contribution is therefore not a replacement for those models. It is a pre-analysis diagnostic for deciding whether a coarse representation appears benign, whether a simple representation-sensitivity analysis is sufficient, or whether a dynamic model is warranted.
 
@@ -422,6 +424,8 @@ This sampling limitation is conceptually separate from representation stability.
 Two prospectively planned downstream routes stopped for insufficient support. The MCP analysis failed its individual-level gate, and the two-species empirical SCR sigma programme failed because PEER had only two eligible sessions. We retain those stops. The PEMA-only sigma comparison is useful precisely because it is labelled as post-stop exploratory rather than presented as rescued confirmation.
 
 The sequential robustness route illustrates the same principle. Its first 24-replicate negative-control gate failed narrowly, exceeding the pre-specified 10% tolerance by 0.22 percentage points. An independently seeded zero-shift-only replication with 96 replicates per sigma subsequently passed the same gate (maximum absolute median bias 5.55%; paired LAST/FIRST ratios within 0.32% of one), showing that the original null excursion was not stable Monte Carlo behaviour. We nevertheless do not retroactively promote the already-opened non-zero-shift cells from the failed-gate run. Preserving both facts separates validation of the generator from post hoc rescue of a favourable effect.
+
+The observation-process calibration adds a complementary stop. None of the 12 independently validated candidates selected from a 204-cell search reproduced all four empirical targets, and no SCR sigma model was fitted in that calibration. We retain this failure rather than widening tolerances after seeing the result. It prevents the state-transition stress test from being relabelled as an empirically matched handling model.
 
 ## 4.7 Generality and recommended workflow
 
