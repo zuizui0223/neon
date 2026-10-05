@@ -1,0 +1,583 @@
+{
+  "claim_boundary": {
+    "capture_response_excluded": false,
+    "competition_causally_identified": false,
+    "complete_natural_trajectories_observed": false,
+    "habitat_mechanism_tested": false,
+    "interpretation_if_supported": "For moves of the same length from the same starting locations, observed capture-to-recapture directions preserve more interspecific spatial segregation than feasible random directions.",
+    "species_pair_decomposition_opened": false
+  },
+  "design": {
+    "focal_species": [
+      "CHFA",
+      "DKR",
+      "LAPM",
+      "PEER",
+      "PEMA",
+      "SKR"
+    ],
+    "min_repeat_nights_per_species_grid_season": 5,
+    "min_species_per_grid_season": 3,
+    "null": "same FIRST origin and exact squared grid displacement; random feasible direction",
+    "null_sd_definition": "population SD across Monte Carlo replicates",
+    "randomizations": 10000,
+    "season_definition": {
+      "fall": [
+        8,
+        9,
+        10
+      ],
+      "spring": [
+        2,
+        3,
+        4
+      ],
+      "summer": [
+        5,
+        6,
+        7
+      ],
+      "winter": [
+        11,
+        12,
+        1
+      ]
+    },
+    "seed": 2026100501,
+    "singleton_nights": "fixed in FIRST, LAST and every null replicate"
+  },
+  "frozen_design": "docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md",
+  "grid_seasons": [
+    {
+      "captured_individual_nights_all": 105,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM"
+      ],
+      "eligible_species_count": 3,
+      "first_c_score": 71.0,
+      "grid": "1",
+      "null_expected_last_minus_first": 40.56193333333333,
+      "null_mean_c_score": 111.56193333333333,
+      "null_sd_c_score": 17.472052853883223,
+      "observed_last_c_score": 89.33333333333333,
+      "observed_last_minus_first": 18.33333333333333,
+      "repeat_nights_by_species": {
+        "CHFA": 28,
+        "DKR": 41,
+        "LAPM": 7
+      },
+      "repeat_nights_randomized": 76,
+      "repeat_nights_with_multiple_feasible_directions": 54,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.7105263157894737,
+      "season": "fall",
+      "z_observed_vs_direction_null": -1.272237451769133
+    },
+    {
+      "captured_individual_nights_all": 192,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 99.0,
+      "grid": "1",
+      "null_expected_last_minus_first": -24.02413,
+      "null_mean_c_score": 74.97587,
+      "null_sd_c_score": 11.142366478585238,
+      "observed_last_c_score": 88.1,
+      "observed_last_minus_first": -10.900000000000006,
+      "repeat_nights_by_species": {
+        "CHFA": 15,
+        "DKR": 76,
+        "LAPM": 5,
+        "PEER": 5,
+        "PEMA": 26
+      },
+      "repeat_nights_randomized": 127,
+      "repeat_nights_with_multiple_feasible_directions": 107,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.84251968503937,
+      "season": "spring",
+      "z_observed_vs_direction_null": 1.1778584042468492
+    },
+    {
+      "captured_individual_nights_all": 296,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 115.3,
+      "grid": "1",
+      "null_expected_last_minus_first": -7.287840000000003,
+      "null_mean_c_score": 108.01216,
+      "null_sd_c_score": 11.520931218195862,
+      "observed_last_c_score": 109.4,
+      "observed_last_minus_first": -5.8999999999999915,
+      "repeat_nights_by_species": {
+        "CHFA": 26,
+        "DKR": 61,
+        "LAPM": 16,
+        "PEER": 21,
+        "PEMA": 44
+      },
+      "repeat_nights_randomized": 168,
+      "repeat_nights_with_multiple_feasible_directions": 134,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.7976190476190477,
+      "season": "summer",
+      "z_observed_vs_direction_null": 0.12046248464777679
+    },
+    {
+      "captured_individual_nights_all": 146,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 111.0,
+      "grid": "1",
+      "null_expected_last_minus_first": 0.7807499999999976,
+      "null_mean_c_score": 111.78075,
+      "null_sd_c_score": 14.62327022985207,
+      "observed_last_c_score": 121.83333333333333,
+      "observed_last_minus_first": 10.833333333333329,
+      "repeat_nights_by_species": {
+        "CHFA": 22,
+        "DKR": 61,
+        "PEER": 7,
+        "PEMA": 13
+      },
+      "repeat_nights_randomized": 103,
+      "repeat_nights_with_multiple_feasible_directions": 90,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.8737864077669902,
+      "season": "winter",
+      "z_observed_vs_direction_null": 0.687437431937208
+    },
+    {
+      "captured_individual_nights_all": 212,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 104.9,
+      "grid": "2",
+      "null_expected_last_minus_first": 17.14999999999999,
+      "null_mean_c_score": 122.05,
+      "null_sd_c_score": 10.003067929390463,
+      "observed_last_c_score": 126.9,
+      "observed_last_minus_first": 22.0,
+      "repeat_nights_by_species": {
+        "CHFA": 55,
+        "DKR": 27,
+        "LAPM": 13,
+        "PEER": 25,
+        "PEMA": 7
+      },
+      "repeat_nights_randomized": 127,
+      "repeat_nights_with_multiple_feasible_directions": 83,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.6535433070866141,
+      "season": "fall",
+      "z_observed_vs_direction_null": 0.48485125105968796
+    },
+    {
+      "captured_individual_nights_all": 120,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEMA"
+      ],
+      "eligible_species_count": 3,
+      "first_c_score": 175.33333333333334,
+      "grid": "2",
+      "null_expected_last_minus_first": 13.176566666666645,
+      "null_mean_c_score": 188.5099,
+      "null_sd_c_score": 19.84075356406606,
+      "observed_last_c_score": 183.66666666666666,
+      "observed_last_minus_first": 8.333333333333314,
+      "repeat_nights_by_species": {
+        "CHFA": 36,
+        "DKR": 21,
+        "PEMA": 17
+      },
+      "repeat_nights_randomized": 74,
+      "repeat_nights_with_multiple_feasible_directions": 60,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.8108108108108109,
+      "season": "spring",
+      "z_observed_vs_direction_null": -0.2441053117107909
+    },
+    {
+      "captured_individual_nights_all": 204,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 100.7,
+      "grid": "2",
+      "null_expected_last_minus_first": 18.28524,
+      "null_mean_c_score": 118.98524,
+      "null_sd_c_score": 9.951841947217611,
+      "observed_last_c_score": 117.5,
+      "observed_last_minus_first": 16.799999999999997,
+      "repeat_nights_by_species": {
+        "CHFA": 49,
+        "DKR": 9,
+        "LAPM": 11,
+        "PEER": 12,
+        "PEMA": 19
+      },
+      "repeat_nights_randomized": 100,
+      "repeat_nights_with_multiple_feasible_directions": 61,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.61,
+      "season": "summer",
+      "z_observed_vs_direction_null": -0.14924272389748472
+    },
+    {
+      "captured_individual_nights_all": 175,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 105.33333333333333,
+      "grid": "2",
+      "null_expected_last_minus_first": 3.8370333333333377,
+      "null_mean_c_score": 109.17036666666667,
+      "null_sd_c_score": 15.866506920729451,
+      "observed_last_c_score": 86.16666666666667,
+      "observed_last_minus_first": -19.166666666666657,
+      "repeat_nights_by_species": {
+        "CHFA": 28,
+        "DKR": 49,
+        "PEER": 12,
+        "PEMA": 39
+      },
+      "repeat_nights_randomized": 128,
+      "repeat_nights_with_multiple_feasible_directions": 107,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.8359375,
+      "season": "winter",
+      "z_observed_vs_direction_null": -1.4498276221053963
+    },
+    {
+      "captured_individual_nights_all": 220,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "first_c_score": 45.0,
+      "grid": "3",
+      "null_expected_last_minus_first": 28.753866666666667,
+      "null_mean_c_score": 73.75386666666667,
+      "null_sd_c_score": 17.23190505183787,
+      "observed_last_c_score": 109.33333333333333,
+      "observed_last_minus_first": 64.33333333333333,
+      "repeat_nights_by_species": {
+        "LAPM": 38,
+        "PEMA": 8,
+        "SKR": 103
+      },
+      "repeat_nights_randomized": 149,
+      "repeat_nights_with_multiple_feasible_directions": 88,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.5906040268456376,
+      "season": "summer",
+      "z_observed_vs_direction_null": 2.0647436577461833
+    },
+    {
+      "captured_individual_nights_all": 165,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 102.3,
+      "grid": "4",
+      "null_expected_last_minus_first": 12.660849999999996,
+      "null_mean_c_score": 114.96085,
+      "null_sd_c_score": 9.765946358520509,
+      "observed_last_c_score": 105.9,
+      "observed_last_minus_first": 3.6000000000000085,
+      "repeat_nights_by_species": {
+        "CHFA": 15,
+        "DKR": 7,
+        "LAPM": 5,
+        "PEMA": 23,
+        "SKR": 22
+      },
+      "repeat_nights_randomized": 72,
+      "repeat_nights_with_multiple_feasible_directions": 49,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.6805555555555556,
+      "season": "fall",
+      "z_observed_vs_direction_null": -0.9278005087642792
+    },
+    {
+      "captured_individual_nights_all": 150,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 101.33333333333333,
+      "grid": "4",
+      "null_expected_last_minus_first": 28.63066666666667,
+      "null_mean_c_score": 129.964,
+      "null_sd_c_score": 13.436529958785242,
+      "observed_last_c_score": 120.66666666666667,
+      "observed_last_minus_first": 19.333333333333343,
+      "repeat_nights_by_species": {
+        "CHFA": 27,
+        "DKR": 16,
+        "PEMA": 12,
+        "SKR": 34
+      },
+      "repeat_nights_randomized": 89,
+      "repeat_nights_with_multiple_feasible_directions": 65,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.7303370786516854,
+      "season": "spring",
+      "z_observed_vs_direction_null": -0.6919445245053338
+    },
+    {
+      "captured_individual_nights_all": 205,
+      "eligible_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 162.83333333333334,
+      "grid": "4",
+      "null_expected_last_minus_first": 3.014566666666667,
+      "null_mean_c_score": 165.8479,
+      "null_sd_c_score": 13.43301008837723,
+      "observed_last_c_score": 160.33333333333334,
+      "observed_last_minus_first": -2.5,
+      "repeat_nights_by_species": {
+        "CHFA": 32,
+        "LAPM": 11,
+        "PEMA": 19,
+        "SKR": 60
+      },
+      "repeat_nights_randomized": 122,
+      "repeat_nights_with_multiple_feasible_directions": 73,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.5983606557377049,
+      "season": "summer",
+      "z_observed_vs_direction_null": -0.4105235260292172
+    },
+    {
+      "captured_individual_nights_all": 184,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 144.16666666666666,
+      "grid": "4",
+      "null_expected_last_minus_first": -0.0053666666666458696,
+      "null_mean_c_score": 144.1613,
+      "null_sd_c_score": 14.104603231214979,
+      "observed_last_c_score": 162.83333333333334,
+      "observed_last_minus_first": 18.666666666666686,
+      "repeat_nights_by_species": {
+        "CHFA": 13,
+        "DKR": 20,
+        "PEMA": 37,
+        "SKR": 62
+      },
+      "repeat_nights_randomized": 132,
+      "repeat_nights_with_multiple_feasible_directions": 106,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.803030303030303,
+      "season": "winter",
+      "z_observed_vs_direction_null": 1.3238254935105263
+    },
+    {
+      "captured_individual_nights_all": 175,
+      "eligible_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 155.33333333333334,
+      "grid": "6",
+      "null_expected_last_minus_first": 13.400599999999997,
+      "null_mean_c_score": 168.73393333333334,
+      "null_sd_c_score": 14.123747050662976,
+      "observed_last_c_score": 146.33333333333334,
+      "observed_last_minus_first": -9.0,
+      "repeat_nights_by_species": {
+        "CHFA": 65,
+        "PEER": 8,
+        "PEMA": 9,
+        "SKR": 23
+      },
+      "repeat_nights_randomized": 105,
+      "repeat_nights_with_multiple_feasible_directions": 70,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.6666666666666666,
+      "season": "fall",
+      "z_observed_vs_direction_null": -1.5860238731016145
+    },
+    {
+      "captured_individual_nights_all": 135,
+      "eligible_species": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "first_c_score": 141.66666666666666,
+      "grid": "6",
+      "null_expected_last_minus_first": 4.00296666666668,
+      "null_mean_c_score": 145.66963333333334,
+      "null_sd_c_score": 17.80495380751598,
+      "observed_last_c_score": 146.0,
+      "observed_last_minus_first": 4.333333333333343,
+      "repeat_nights_by_species": {
+        "CHFA": 39,
+        "PEMA": 25,
+        "SKR": 11
+      },
+      "repeat_nights_randomized": 75,
+      "repeat_nights_with_multiple_feasible_directions": 46,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.6133333333333333,
+      "season": "spring",
+      "z_observed_vs_direction_null": 0.018554761233202734
+    },
+    {
+      "captured_individual_nights_all": 297,
+      "eligible_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 5,
+      "first_c_score": 122.0,
+      "grid": "6",
+      "null_expected_last_minus_first": 3.2284800000000047,
+      "null_mean_c_score": 125.22848,
+      "null_sd_c_score": 9.709889334570194,
+      "observed_last_c_score": 129.3,
+      "observed_last_minus_first": 7.300000000000011,
+      "repeat_nights_by_species": {
+        "CHFA": 45,
+        "LAPM": 23,
+        "PEER": 6,
+        "PEMA": 52,
+        "SKR": 25
+      },
+      "repeat_nights_randomized": 151,
+      "repeat_nights_with_multiple_feasible_directions": 99,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.6556291390728477,
+      "season": "summer",
+      "z_observed_vs_direction_null": 0.4193168284116424
+    },
+    {
+      "captured_individual_nights_all": 188,
+      "eligible_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "first_c_score": 145.83333333333334,
+      "grid": "6",
+      "null_expected_last_minus_first": 18.994399999999985,
+      "null_mean_c_score": 164.82773333333333,
+      "null_sd_c_score": 11.511747467309693,
+      "observed_last_c_score": 144.33333333333334,
+      "observed_last_minus_first": -1.5,
+      "repeat_nights_by_species": {
+        "CHFA": 56,
+        "PEER": 8,
+        "PEMA": 21,
+        "SKR": 42
+      },
+      "repeat_nights_randomized": 127,
+      "repeat_nights_with_multiple_feasible_directions": 98,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.7716535433070866,
+      "season": "winter",
+      "z_observed_vs_direction_null": -1.7803031258458928
+    },
+    {
+      "captured_individual_nights_all": 92,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "first_c_score": 90.66666666666667,
+      "grid": "7",
+      "null_expected_last_minus_first": 7.919299999999993,
+      "null_mean_c_score": 98.58596666666666,
+      "null_sd_c_score": 12.018187548646612,
+      "observed_last_c_score": 82.66666666666667,
+      "observed_last_minus_first": -8.0,
+      "repeat_nights_by_species": {
+        "LAPM": 7,
+        "PEMA": 26,
+        "SKR": 10
+      },
+      "repeat_nights_randomized": 43,
+      "repeat_nights_with_multiple_feasible_directions": 25,
+      "repeat_nights_with_multiple_feasible_directions_fraction": 0.5813953488372093,
+      "season": "summer",
+      "z_observed_vs_direction_null": -1.3246007299821754
+    }
+  ],
+  "primary": {
+    "alpha": 0.05,
+    "decision": "stop_no_directional_maintenance_support",
+    "global_mean_standardized_c_score_excess": -0.19664217138434675,
+    "null_global_mean": 7.837836079487883e-18,
+    "null_global_sd": 0.23573550803194995,
+    "one_sided_monte_carlo_p_upper": 0.8000199980002,
+    "required_direction": "positive",
+    "required_informative_grid_seasons": 4
+  },
+  "schema": "neon.san_jacinto_movement_direction_partitioning.v1",
+  "source": {
+    "figshare_doi": "10.6084/m9.figshare.18295520.v1",
+    "file_id": 33058799,
+    "sha256_verified": true
+  },
+  "status": "stage1_frozen_test_complete",
+  "support": {
+    "eligible_grid_seasons": 18,
+    "eligible_repeat_nights_multiple_feasible_directions": 1415,
+    "eligible_repeat_nights_multiple_feasible_directions_fraction": 0.7190040650406504,
+    "eligible_repeat_nights_randomized": 1968,
+    "informative_grid_seasons_nonzero_null_sd": 18,
+    "valid_focal_individual_nights": 4550
+  }
+}
