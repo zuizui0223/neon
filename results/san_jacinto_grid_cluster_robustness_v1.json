@@ -1,0 +1,47 @@
+{
+  "claim_boundary": {
+    "assumption": "The exact sign-flip audit treats the grid-level null contrast as sign-symmetric around zero; it is a conservative cluster-level robustness diagnostic rather than the primary permutation test.",
+    "can_rescue_failed_route": false,
+    "confirmatory": false,
+    "new_ecological_endpoint_opened": false,
+    "species_pair_decomposition_opened": false
+  },
+  "footprint_assortativity": {
+    "exact_one_sided_p_upper": 0.015625,
+    "grid_means": {
+      "1": 1.7757362775976882,
+      "2": 1.5286612124453687,
+      "3": -0.6447758746618902,
+      "4": 4.541930156124732,
+      "5": 1.0520137100074838,
+      "6": 4.2547756556693805,
+      "7": 0.6560577428874999
+    },
+    "negative_grid_clusters": 1,
+    "observed_mean_grid_cluster_statistic": 1.880628411438609,
+    "positive_grid_clusters": 6,
+    "sign_patterns": 128,
+    "zero_grid_clusters": 0
+  },
+  "method": "Within each analysis, average standardized unit effects within physical grid, then enumerate all 2^G joint sign flips of the G grid-level means. Upper-tail p is the exact fraction of sign patterns with mean at least the observed mean.",
+  "purpose": "Check whether positive temporal-persistence and individual-footprint signals survive equal weighting at the physical-grid level rather than treating repeated seasons as independent replicates.",
+  "schema": "neon.san_jacinto_grid_cluster_robustness.v1",
+  "status": "post_result_non_rescuing_cluster_robustness",
+  "temporal_persistence": {
+    "exact_one_sided_p_upper": 0.015625,
+    "grid_means": {
+      "1": 2.3178857946524998,
+      "2": 2.1870041547,
+      "3": -0.29726917405,
+      "4": 4.08470149415,
+      "5": 1.64906191297,
+      "6": 4.348247594,
+      "7": 0.49177398508
+    },
+    "negative_grid_clusters": 1,
+    "observed_mean_grid_cluster_statistic": 2.111629394500357,
+    "positive_grid_clusters": 6,
+    "sign_patterns": 128,
+    "zero_grid_clusters": 0
+  }
+}
