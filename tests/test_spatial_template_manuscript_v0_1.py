@@ -71,11 +71,17 @@ class TestSpatialTemplateManuscriptV01(unittest.TestCase):
 
     def test_identity_turnover_is_central_question(self):
         self.assertIn(
-            "Does spatial niche partitioning persist when the individuals that generated it are replaced?",
+            "Does spatial niche partitioning recur when the same marked individuals are excluded from successive time windows?",
             self.text,
         )
         self.assertIn("persist above individual identity", self.text.lower())
-        self.assertIn("replacement individuals", self.text.lower())
+        self.assertIn("disjoint individual sets", self.text.lower())
+
+    def test_identity_turnover_boundary_is_explicit(self):
+        low = self.text.lower()
+        self.assertIn("identity turnover", low)
+        self.assertIn("disjoint sets of observed identities", low)
+        self.assertIn("does **not** establish literal demographic replacement", low)
 
     def test_public_source_boundary_is_explicit(self):
         low = self.text.lower()
