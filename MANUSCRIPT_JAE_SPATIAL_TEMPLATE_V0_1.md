@@ -1,4 +1,4 @@
-# Spatial niche partitioning is reassembled after individual turnover in a rodent guild
+# Spatial niche partitioning recurs across disjoint individual sets in a rodent guild
 
 **Target:** Journal of Animal Ecology — Research Article  
 **Version:** v0.1 biological-first draft  
@@ -6,7 +6,7 @@
 
 ## Abstract
 
-1. Spatial niche partitioning can arise from short-term movement away from competitors, persistent placement of the same individuals, or repeated reconstruction of species-specific space use by replacement individuals. We asked at what temporal and organizational scale a known rodent-community segregation pattern is encoded, and whether it persists above individual identity.
+1. Spatial niche partitioning can arise from short-term movement away from competitors, persistent placement of the same individuals, or repeated reconstruction of species-specific space use by different sets of individuals. We asked at what temporal and organizational scale a known rodent-community segregation pattern is encoded, and whether it persists above individual identity.
 
 2. We reanalysed year-round capture–mark–recapture data from a six-species granivorous rodent guild in southern California. Sequential tests, frozen before their focal outcomes were opened, evaluated distance-matched within-night movement direction, one seasonal point per individual, repeated multi-night footprints, and species × trap recurrence after removing individuals shared between time windows.
 
@@ -14,17 +14,17 @@
 
 4. Recurrence remained after removing every individual shared between seasonal halves (7/8 reference units positive; T = 1.037, p = 0.0016). Across adjacent seasons, after removing all individuals shared between seasons, disjoint sets of individuals reassembled species × trap associations in 9 of 10 frozen transitions across six grids (T = 1.775, p < 0.0001; five of six grid means positive; exact grid-level sign-flip p = 0.0469).
 
-5. Fine-scale spatial partitioning was therefore carried by recurrent species-specific multi-night footprints rather than by each movement step or a single point-like individual centre. Individual fidelity amplified the pattern, but replacement conspecifics rebuilt the same species-associated relationship with place. Spatially stable communities can retain structure even when the individuals expressing it change.
+5. Fine-scale spatial partitioning was therefore carried by recurrent species-specific multi-night footprints rather than by each movement step or a single point-like individual centre. Individual fidelity amplified the pattern, but different conspecifics rebuilt the same species-associated relationship with place. Spatially stable communities can retain structure even when the individuals expressing it change.
 
 ## Keywords
 
-community ecology; individual turnover; movement ecology; niche partitioning; rodents; site fidelity; space use; spatial niche
+community ecology; individual identity; movement ecology; niche partitioning; rodents; site fidelity; space use; spatial niche
 
 # 1. Introduction
 
 A map of species occurrences is a snapshot of both ecological structure and the individuals that happened to generate it. When species repeatedly occupy different parts of the same landscape, the pattern is commonly interpreted as spatial niche partitioning. Such partitioning can reduce encounter rates or resource overlap among competitors and has long been central to coexistence theory. Yet a persistent spatial pattern does not identify the biological level at which that persistence resides.
 
-This ambiguity is especially important for mobile animals. A stable community map could be generated in at least three qualitatively different ways. First, animals could continually make short-term movement decisions that maintain separation from heterospecifics. Second, the same individuals could remain faithful to different sites or activity centres, so that individual persistence automatically creates apparent species persistence. Third, species could repeatedly occupy similar parts of the landscape even as individual membership changes. In the third case, the community pattern is not carried by particular animals. It is reconstructed by replacement individuals.
+This ambiguity is especially important for mobile animals. A stable community map could be generated in at least three qualitatively different ways. First, animals could continually make short-term movement decisions that maintain separation from heterospecifics. Second, the same individuals could remain faithful to different sites or activity centres, so that individual persistence automatically creates apparent species persistence. Third, species could repeatedly occupy similar parts of the landscape even as individual membership changes. In the third case, the community pattern is not carried by particular animals. It is reconstructed by different individuals of the same species.
 
 Movement ecology and community ecology provide strong reasons to distinguish these alternatives. Individual movement decisions generate space-use distributions, and those distributions can scale to population and community patterns (Schlägel et al. 2020). Small-scale, station-keeping movement has therefore been proposed as an underdeveloped route through which movement can affect coexistence (Péron 2024). At the same time, studies of individual spatial specialization show that conspecifics need not use space similarly. Behavioural type, habitat preference and individual experience can all produce substantial among-individual heterogeneity in home ranges, movement and interaction neighbourhoods, including in small mammals (Schirmer et al. 2019, 2020; Stiegler et al. 2026). Population-level spatial stability can consequently coexist with changing individual spatial specialization across seasons (Li et al. 2023).
 
@@ -36,9 +36,9 @@ The capture protocol retained unusually fine within-night information: traps on 
 
 We asked one overarching question:
 
-> **Does spatial niche partitioning persist when the individuals that generated it are replaced?**
+> **Does spatial niche partitioning recur when the same marked individuals are excluded from successive time windows?**
 
-We approached this by sequentially removing possible carriers of the spatial pattern. We first tested whether observed within-night movement directions preferentially maintained community segregation after controlling exactly for movement distance. They did not. We then asked whether one point-like seasonal location per individual was sufficient to preserve the published spatial pattern. It was not. We next tested whether the relevant structure instead resided in repeated multi-location footprints across nights, whether those footprints were shared among conspecific individuals, and whether their species-specific spatial organization persisted through time. Finally, we removed all marked individuals shared between time windows and asked whether replacement conspecifics reconstructed the same species × trap associations within and across seasons.
+We approached this by sequentially removing possible carriers of the spatial pattern. We first tested whether observed within-night movement directions preferentially maintained community segregation after controlling exactly for movement distance. They did not. We then asked whether one point-like seasonal location per individual was sufficient to preserve the published spatial pattern. It was not. We next tested whether the relevant structure instead resided in repeated multi-location footprints across nights, whether those footprints were shared among conspecific individuals, and whether their species-specific spatial organization persisted through time. Finally, we removed all marked individuals shared between time windows and asked whether non-overlapping conspecific sets reconstructed the same species × trap associations within and across seasons.
 
 Our central prediction was that if spatial partitioning is only an accumulation of individual site fidelity, removing all shared individuals should eliminate species-specific spatial recurrence. Conversely, recurrence among disjoint sets of individuals would indicate a higher-order species–place relationship: a spatial template that persists above individual identity. We use “template” descriptively for a repeatable species × location association; it does not imply cognitive memory, social transmission or a particular causal substrate.
 
@@ -77,8 +77,8 @@ The hierarchy was:
 2. one point-like seasonal individual location;
 3. repeated multi-night individual footprint;
 4. within-season species × trap recurrence;
-5. recurrence after complete within-season individual turnover;
-6. recurrence across seasons after complete cross-season individual turnover.
+5. recurrence after excluding all individuals shared between seasonal halves;
+6. recurrence across seasons after excluding all individuals shared between adjacent seasons.
 
 The individual footprint was based exclusively on NIGHT-FIRST records—the earliest valid trap location for each individual on each calendar night—to prevent later same-night recapture positions from carrying the main ecological result.
 
@@ -143,7 +143,7 @@ EARLY remained fixed. LATE was randomized using fixed-fixed curveball swaps pres
 
 The frozen persistence claim required at least six informative reference units, at least six positive standardized effects, and a positive global mean standardized recurrence with one-sided Monte Carlo p < 0.05.
 
-## 2.7 Does recurrence survive complete within-season individual turnover?
+## 2.7 Does recurrence survive exclusion of all individuals shared between seasonal halves?
 
 The previous test could be driven by the same site-faithful animals being present in both temporal halves. Before measuring recurrence, we therefore identified every species × individual identity occurring in both EARLY and LATE and removed that individual from **both** halves.
 
@@ -168,6 +168,10 @@ The recurrence statistic again counted matched species × trap incidences betwee
 The unit-level claim required at least 8 of 10 informative units, at least 7 of 10 positive effects, a positive mean standardized recurrence and p < 0.05.
 
 Because multiple season pairs could arise from one physical grid, we additionally averaged standardized effects within grid and enumerated all \(2^6=64\) sign flips of the six grid means. The cross-season claim required at least five positive grid means and an exact one-sided sign-flip p < 0.05.
+
+### Identity-turnover terminology
+
+Here, **identity turnover** is an analytical contrast: all marked individuals observed in both compared time windows are removed from both before recurrence is measured. The remaining matrices therefore contain disjoint sets of observed identities. This does **not** establish literal demographic replacement, mortality, recruitment or complete turnover of the underlying population, because an animal not captured in one window may still have been present.
 
 ## 2.9 Scope and non-independence
 
@@ -251,7 +255,7 @@ with one-sided Monte Carlo \(p=0.00160\).
 
 The effect was substantially weaker than the corresponding recurrence before identity removal (4.091), showing that individual site fidelity was an important amplifier of spatial persistence. However, the positive post-turnover result demonstrated that fidelity of the same individuals was not sufficient to explain the species-level spatial pattern.
 
-## 3.6 Replacement individuals reassembled species-specific space use across seasons
+## 3.6 Disjoint individual sets reassembled species-specific space use across seasons
 
 The most stringent test compared adjacent seasons after deleting every marked individual shared by the two seasons.
 
@@ -291,7 +295,7 @@ The central result is simple: the fine-scale spatial organization of this rodent
 
 This persistence was not inferred from a single static comparison. It emerged after sequentially removing plausible carriers of the pattern. Within-night movement direction did not maintain segregation. One point-like seasonal location per individual did not reproduce it. Repeated multi-night footprints did. Those footprints were more similar among conspecific individuals, recurred through the season, and remained species-specific after all individuals shared between temporal windows were deleted. Across adjacent seasons, different individuals reconstructed the same species × trap associations.
 
-These results distinguish **identity-carried stability** from **template-reassembled stability**. Identity-carried stability arises when persistent individuals repeatedly use the same places. Template-reassembled stability arises when replacement individuals of the same species occupy similar spatial domains. Both occurred here. Removing shared individuals weakened the recurrence signal substantially, showing that individual fidelity matters. But it did not erase the pattern.
+These results distinguish **identity-carried stability** from **template-reassembled stability**. Identity-carried stability arises when persistent individuals repeatedly use the same places. Template-reassembled stability arises when non-overlapping sets of observed individuals of the same species occupy similar spatial domains. Both occurred here. Removing shared individuals weakened the recurrence signal substantially, showing that individual fidelity matters. But it did not erase the pattern.
 
 The community map was therefore more persistent than its membership.
 
@@ -353,7 +357,7 @@ That distinction should matter wherever ecologists infer mechanism from repeated
 
 The original San Jacinto work emphasized the conservation challenge of maintaining a community in which smaller subordinate rodents coexist with larger competitors. The turnover result sharpens that problem.
 
-If species-specific spatial organization were carried only by the same resident individuals, then loss of those individuals would be expected to erase much of the pattern. Instead, replacement individuals can reconstruct the spatial template. This suggests that the underlying landscape features or interaction regime that repeatedly generates spatial roles may be as important as the currently occupying animals.
+If species-specific spatial organization were carried only by the same resident individuals, then loss of those individuals would be expected to erase much of the pattern. Instead, different individuals can reconstruct the spatial template. This suggests that the underlying landscape features or interaction regime that repeatedly generates spatial roles may be as important as the currently occupying animals.
 
 For restoration and reintroduction, “occupied location” and “regenerating spatial niche” are therefore not necessarily the same thing. Protecting the environmental conditions that allow replacement animals to find the appropriate recurring-use domain may be essential for rebuilding the community after turnover.
 
@@ -375,7 +379,7 @@ Finally, Stage 8 showed that turnover recurrence should not be generalized indis
 
 Spatial niche partitioning in this mobile rodent guild was not maintained by continual within-night directional avoidance and could not be compressed to one seasonal point per animal. It resided in recurrent, species-specific multi-night footprints.
 
-Individual fidelity strengthened those footprints, but did not create them completely. When all individuals shared between time windows were removed, new conspecifics still reassembled the same fine-scale species × place associations within seasons and across adjacent seasons.
+Individual fidelity strengthened those footprints, but did not create them completely. When all individuals shared between time windows were removed, non-overlapping sets of conspecifics still reassembled the same fine-scale species × place associations within seasons and across adjacent seasons.
 
 The result changes the unit of stability. A stable community need not be a stable set of individuals. Spatial niche structure can be a higher-order ecological property that is reconstructed as individuals turn over.
 
@@ -452,4 +456,4 @@ B. Within-season complete-turnover standardized recurrence by reference unit.
 C. Cross-season standardized recurrence for the 10 frozen adjacent-season units.  
 D. Six physical-grid means with exact sign-flip result.
 
-Purpose: deliver the main biological result: species-specific spatial structure is reassembled after individual turnover.
+Purpose: deliver the main biological result: species-specific spatial structure recurs across disjoint individual sets.
