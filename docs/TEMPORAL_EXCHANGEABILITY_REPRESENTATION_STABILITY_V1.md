@@ -26,7 +26,7 @@ Let
 R(Y)=(Y_K,\ldots,Y_1)
 \]
 
-denote within-occasion time reversal. A transparent sufficient condition for FIRST/LAST representation equivalence is
+denote within-occasion time reversal. The logically weakest representation-level requirement is equality of the induced FIRST and LAST marginals. A transparent process-level sufficient condition that guarantees this equality is
 
 \[
 Y\overset{d}=R(Y)
