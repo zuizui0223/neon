@@ -169,5 +169,43 @@
     "status": "structural_support_audit_only_until_effect_blind_same-session_repeat-capture gate is known",
     "role_if_structurally_eligible": "possible independent discovery/triangulation system; ecological effects require a separate frozen contract",
     "role_if_not_structurally_eligible": "close Portal route without redefining session scale or pooling across incompatible temporal units"
+  },
+  "mechanical_support_selection": {
+    "status": "frozen_before_RELEASE2026_effect_blind_support_result",
+    "scenarios": [
+      "7x7 fixed detector grid with latent centres across full grid",
+      "7x7 fixed detector grid with latent centres restricted to central 5x5"
+    ],
+    "detector_spacing_m": 10,
+    "detector_kernel_sigma_m": 12.5,
+    "captures_per_repeat_supported_individual": "discrete uniform 2..4 in synthetic audit",
+    "candidate_minimum_repeat_supported_individuals": [
+      3,
+      5,
+      8,
+      10,
+      15,
+      20
+    ],
+    "acceptance_criteria": {
+      "max_abs_mean_bias_fraction_of_target": 0.05,
+      "max_fraction_debiased_b_nonpositive": 0.01,
+      "max_median_absolute_relative_error": 0.25,
+      "max_q90_absolute_relative_error": 0.5
+    },
+    "selection_rule": "choose the smallest candidate m passing all criteria in every prespecified scenario; if none pass, STOP",
+    "implementation": "analysis/simulate_multiscale_density_metric_support_v1.py",
+    "relationship_to_real_support": "the selected synthetic minimum is intersected with the RELEASE-2026 effect-blind support frontier; it is never lowered because real-data support is sparse"
+  },
+  "taxonomy_integrity": {
+    "primary_unit": "NEON published taxonID concept; do not force cryptic composite taxon IDs to species",
+    "official_metadata_to_audit": [
+      "scientificName",
+      "identificationQualifier",
+      "taxonRank",
+      "consistency of taxonID across repeated captures of the same tagID within eventID"
+    ],
+    "replication_preference": "future generality should span multiple resolved genera, not merely multiple taxon concepts within Peromyscus",
+    "selection_boundary": "taxonomy rules must be frozen from metadata/support only before W, B, or density effects are opened"
   }
 }
