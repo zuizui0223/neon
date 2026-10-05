@@ -8,9 +8,11 @@ on:
       - "analysis/audit_multiscale_density_estimability_v1.py"
       - "analysis/run_multiscale_density_estimability_release2026_v1.py"
       - "analysis/validate_multiscale_density_metrics_v1.py"
+      - "analysis/simulate_multiscale_density_metric_support_v1.py"
       - "tests/test_multiscale_density_estimability_v1.py"
       - "tests/test_multiscale_density_metric_mechanics_v1.py"
       - "tests/test_multiscale_density_release2026_runner_v1.py"
+      - "tests/test_multiscale_density_metric_support_simulation_v1.py"
       - "validation/multiscale_density_accommodation_v1/**"
       - ".github/workflows/multiscale-density-estimability.yml"
   workflow_dispatch:
@@ -41,7 +43,12 @@ jobs:
             tests.test_multiscale_density_estimability_v1 \
             tests.test_multiscale_density_metric_mechanics_v1 \
             tests.test_multiscale_density_release2026_runner_v1 \
+            tests.test_multiscale_density_metric_support_simulation_v1 \
             -v
+
+      - name: Run synthetic metric-support audit
+        run: |
+          python -m analysis.simulate_multiscale_density_metric_support_v1
 
       - name: Require NEON token
         run: |
@@ -58,6 +65,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: multiscale-density-estimability-release2026-v1
-          path: build/multiscale_density_estimability_release2026_v1.json
+          path: |
+            build/multiscale_density_estimability_release2026_v1.json
+            build/multiscale_density_metric_support_v1.json
           if-no-files-found: error
           retention-days: 30
