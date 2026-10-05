@@ -294,6 +294,49 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             ],
         })
 
+    # Effect-blind support frontier for prospectively choosing a minimum
+    # repeat-supported individual count. No coordinate identities or distances
+    # enter this table.
+    support_frontier = []
+    for minimum_individuals in (2, 3, 5, 8, 10, 15, 20):
+        eligible_sessions = [
+            s for s in sessions
+            if s["n_repeat_coordinate_supported_tagged_individuals"]
+            >= minimum_individuals
+        ]
+        taxa_set = {s["taxon"] for s in eligible_sessions}
+        plots_set = {s["plot_id"] for s in eligible_sessions}
+        sites_set = {
+            site
+            for s in eligible_sessions
+            for site in s["site_ids"]
+            if site
+        }
+        taxon_sites = defaultdict(set)
+        taxon_sessions = Counter()
+        for s in eligible_sessions:
+            taxon_sessions[s["taxon"]] += 1
+            for site in s["site_ids"]:
+                if site:
+                    taxon_sites[s["taxon"]].add(site)
+        support_frontier.append({
+            "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
+            "n_eligible_species_session_records": len(eligible_sessions),
+            "n_taxa": len(taxa_set),
+            "n_plots": len(plots_set),
+            "n_sites": len(sites_set),
+            "n_taxa_with_at_least_3_sessions": sum(
+                n >= 3 for n in taxon_sessions.values()
+            ),
+            "n_taxa_with_at_least_2_sites": sum(
+                len(v) >= 2 for v in taxon_sites.values()
+            ),
+            "n_taxa_with_at_least_3_sessions_and_2_sites": sum(
+                taxon_sessions[t] >= 3 and len(taxon_sites[t]) >= 2
+                for t in taxa_set
+            ),
+        })
+
     result = {
         "schema": "neon.multiscale_density_accommodation.estimability_audit.v1",
         "status": "effect_blind_structural_support_only",
@@ -335,6 +378,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_taxa_with_capture_sessions": len(species_summary),
             "sessions": sessions,
             "taxa": species_summary,
+            "repeat_support_frontier": support_frontier,
         },
         "boundary": {
             "effect_values_opened": False,
