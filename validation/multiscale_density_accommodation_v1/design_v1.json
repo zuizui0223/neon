@@ -121,7 +121,10 @@
     "leave-one-night-out influence",
     "mammalGridSamplingType sensitivity",
     "Peromyscus cryptic-identification sensitivity",
-    "grid-edge/truncation audit"
+    "grid-edge/truncation audit",
+    "audit repeated-location support versus session abundance",
+    "fixed-footprint mechanical null across varying sampled individual count",
+    "same prospectively defined individual-support rule for primary W/B comparison"
   ],
   "replication_requirement": {
     "taxonomic": true,
@@ -134,5 +137,24 @@
     "stop if within-individual metric is dominated by sparse recapture support",
     "stop if effort or taxonomy semantics cannot be frozen prospectively",
     "do not rescue future failure with post-hoc taxa, thresholds, metrics, habitat moderators, or incompatible sampling designs"
-  ]
+  ],
+  "mechanical_metric_preference": {
+    "status": "frozen_before_effect_blind_structural_audit",
+    "individual_candidate": {
+      "name": "equal-individual half mean pairwise squared within-individual distance",
+      "formula": "W_i = [2*C(k_i,2)]^-1 * sum_{j<l} ||x_ij-x_il||^2; W = equal-individual mean(W_i)",
+      "minimum_support": "k_i >= 2 valid captures; singleton within-individual spread is unresolved, not zero",
+      "property": "equals trace of unbiased sample covariance of observed locations"
+    },
+    "population_candidate": {
+      "name": "half mean pairwise squared distance among individual session centres",
+      "formula": "B = [2*C(m,2)]^-1 * sum_{i<r} ||c_i-c_r||^2",
+      "property": "equals trace of unbiased sample covariance of individual centres",
+      "mechanical_null": "under iid draws from an unchanged centre distribution, E[B] is invariant to sampled individual count m"
+    },
+    "common_scale": "W and B are squared-distance variance quantities; matched transformations are required for slope comparison",
+    "centroid_uncertainty": "must be handled prospectively by support rule, frozen de-noising sensitivity, or model-based abandonment of coordinate route before any density slopes are opened",
+    "primary_abundance_boundary": "N describes the session population, not the number of individuals eligible for W",
+    "validation_code": "analysis/validate_multiscale_density_metrics_v1.py"
+  }
 }
