@@ -967,3 +967,64 @@ A positive Stage-7 result supports:
 That would locate spatial memory above individual identity, consistent with a persistent species/community-level spatial template.
 
 It would not identify whether the template is caused by habitat, burrow/refuge distributions, resources, territoriality, social processes, competition or another persistent grid-scale constraint.
+
+
+---
+
+# Stage 8 — broader turnover generalization audit
+
+**Status:** post-result, non-rescuing generalization audit frozen after the positive Stage-7 reference test and before broader post-turnover overlap outcomes are opened.
+
+Stage 7 is the primary turnover test. Stage 8 does not replace it.
+
+## Fixed broader universe
+
+Start from the 22 grid-seasons already admitted to the frozen Stage-5 temporal-persistence analysis.
+
+Apply **exactly** the Stage-7 temporal split, NIGHT-FIRST representation, bridge-individual removal and species eligibility rule.
+
+The support-only audit, opened without spatial-overlap outcomes, found:
+
+- 18/22 grid-seasons remain eligible after complete individual turnover;
+- those 18 units span 6 physical grids;
+- all 8 Stage-7 reference units remain included.
+
+The 18 supported units are fixed from the support artifact and will not be changed after outcomes are opened.
+
+## Statistical test
+
+For every supported unit use the same Stage-7 matched species × trap recurrence statistic and the same LATE fixed-fixed curveball null.
+
+Use 10,000 null replicates, 500 burn-in swaps and deterministic seed family beginning at **2026100508**.
+
+This audit has two levels.
+
+### Unit-level/global robustness
+
+The broader signal is considered coherent if:
+
+- at least **12 of 18** units have non-zero null SD;
+- at least **12 of 18** have positive standardized persistence;
+- equally weighted global mean standardized persistence is positive;
+- joint-replicate one-sided Monte Carlo (p<0.05).
+
+### Physical-grid robustness
+
+Average standardized persistence across seasons within each physical grid, giving six grid-level means.
+
+As a conservative post-result diagnostic, enumerate all (2^6=64) sign flips of the six grid means.
+
+Grid-level robustness requires:
+
+- at least **5 of 6** grid means are positive; and
+- exact upper-tail sign-flip (p<0.05).
+
+Because this sign-flip audit is post-result and assumes a sign-symmetric grid-level null, it is robustness evidence only.
+
+## Interpretation
+
+If both levels pass, the Stage-7 conclusion is not confined to the three grids that generated the original segregation-reference set:
+
+> **species-specific spatial recurrence after complete individual turnover is detectable across the broader public-data community, although it remains strongest where community segregation itself is strongest.**
+
+No alternative turnover rule, species threshold, spatial statistic, species-pair decomposition or habitat surrogate will be tried.
