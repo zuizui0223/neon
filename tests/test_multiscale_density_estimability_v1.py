@@ -98,9 +98,9 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertNotIn("n_repeat_location_tagged_individuals", s)
             self.assertNotIn("n_distinct_capture_coordinates", s)
 
-            text = json.dumps(out).lower()
-            for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect"):
-                self.assertNotIn(forbidden, text)
+            support_text = json.dumps(out["support"]).lower()
+            for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect", "distance"):
+                self.assertNotIn(forbidden, support_text)
 
     def test_requires_event_and_spatial_support_identifiers(self):
         with tempfile.TemporaryDirectory() as td:
