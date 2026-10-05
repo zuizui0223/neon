@@ -319,7 +319,7 @@ Instead, conspecific individuals in the present study had more similar multi-nig
 
 This does not imply that conspecifics are interchangeable. The attenuation after bridge-individual removal shows the opposite: persistent individuals contribute substantial additional structure. A better interpretation is hierarchical. Individual animals have their own spatial histories within a broader species-associated domain. Species-level structure is therefore neither merely the average of identical individuals nor merely the persistence of particular individuals.
 
-The distinction resembles a general problem recognized in animal social systems, where network or group structure can persist despite demographic turnover (Shizuka & Johnson 2020). Recent work on sparrow social communities similarly shows that higher-order organization can remain recognizable as membership changes. The analogy is conceptual rather than mechanistic: the rodent result concerns species–place associations, not social connections. But both systems illustrate that stability of ecological organization need not require stability of the entities carrying it at any one time.
+The distinction belongs to a broader literature in which aggregate ecological organization can remain stable while individual identities change. Individual-based temporal beta-diversity explicitly separates compositional stability from within-species individual turnover (Nakadai 2020), and animal social-network studies likewise ask how higher-order structure persists despite changing membership (Shizuka & Johnson 2020). Persistence above identity is therefore not, by itself, the novelty here. The distinctive result is spatial and cross-scale: an independently documented multispecies checkerboard is weak or absent in movement direction and one-point centres, recovered by distributed multi-night footprints, and recurs as a species × place mapping after all shared marked identities are excluded.
 
 ## 4.4 What rebuilds the spatial template?
 
@@ -333,11 +333,11 @@ Competition also remains plausible but cannot be inferred directly from the pres
 
 The relevant mechanism may therefore act before or above the movement step.
 
-## 4.5 A general principle: ecological spatial structure can persist above identity
+## 4.5 A spatial species–place relationship can recur across identity sets
 
 The broadest inference supported by these data is:
 
-> **Ecological spatial structure can persist above individual identity.**
+> **Fine-scale species–place structure can recur without repeated observations of the same marked individuals.**
 
 This principle is not equivalent to population-level site fidelity, which can itself be estimated from capture–recapture data at the population level (Tschopp et al. 2018). Site fidelity asks whether individuals or a population repeatedly use a location. Here the critical operation was different: every marked individual observed in both compared windows was excluded from both, and we then asked whether the association between **species identity and fine-scale location** still recurred among disjoint observed identity sets.
 
@@ -406,6 +406,8 @@ Chock, R. Y., Shier, D. M. & Grether, G. F. (2018). Body size, not phylogenetic 
 Chock, R. Y., Shier, D. M. & Grether, G. F. (2022). Niche partitioning in an assemblage of granivorous rodents, and the challenge of community-level conservation. *Oecologia*, 198, 553–565. https://doi.org/10.1007/s00442-021-05104-5
 
 Li, et al. (2023). Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology*. https://doi.org/10.1186/s40462-023-00394-1
+
+Nakadai, R. (2020). Degrees of compositional shift in tree communities vary along a gradient of temperature change rates over one decade: Application of an individual-based temporal beta-diversity concept. *Ecology and Evolution*, 10, 13613–13623. https://doi.org/10.1002/ece3.6579
 
 Péron, G. (2024). Movement-based coexistence does not always require a functional trade-off. *Ecological Modelling*, 487, 110549. https://doi.org/10.1016/j.ecolmodel.2023.110549
 
