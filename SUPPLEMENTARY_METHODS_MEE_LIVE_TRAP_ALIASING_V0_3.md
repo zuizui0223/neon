@@ -110,6 +110,55 @@ Hence two observation processes related only by reversal can have identical dist
 
 This is an identification result, not a claim that real trapping checks are exchangeable. Its practical role is to separate the first-stage positional-non-uniqueness screen from the second-stage downstream stability analysis.
 
+## S1.4 A second aggregation mechanism: detection-kernel closure
+
+The time-reversal result concerns selection among alternative observed locations. A separate problem arises even when the latent spatial state is fixed and repeated checks are conditionally independent: the detection function itself may or may not be closed under pooling repeated exposure.
+
+Write
+
+[
+h(d;sigma)=exp{-d^2/(2sigma^2)}.
+]
+
+For a probability half-normal detector with one-check detection probability
+
+[
+p(d)=g_0 h(d;sigma),
+]
+
+pooling (K) independent checks into an at-least-one-detection event gives
+
+[
+p_K(d)=1-{1-g_0h(d;sigma)}^K.
+]
+
+For (K>1) and (0<g_0<1), this is not another probability half-normal curve with the same (sigma). Let (f(x)=1-(1-g_0x)^K). Because (f) is concave and (f(0)=0),
+
+[
+rac{f{h(d;sigma)}}{f(1)}ge h(d;sigma)
+]
+
+for (0le hle1). Thus the normalized aggregated detection curve is broader than the one-check half-normal curve; repeated exposure changes radial shape as well as the intercept.
+
+For a hazard half-normal detector,
+
+[
+lambda(d)=lambda_0 h(d;sigma),qquad
+p(d)=1-exp{-lambda(d)}.
+]
+
+Pooling (K) independent checks adds hazards,
+
+[
+p_K(d)
+=
+1-exp{-Klambda_0 h(d;sigma)},
+]
+
+which is exactly hazard half-normal with intercept (Klambda_0) and unchanged (sigma).
+
+This closure distinction applies to repeated exposure at a fixed detector and fixed latent spatial state. It does not resolve the separate multi-detector location-selection problem: pooling several physical-trap checks can still leave competing detector locations that require FIRST, LAST or another conflict rule. The paper therefore treats **exposure closure** and **temporal state/representation equivalence** as distinct conditions for safe temporal aggregation.
+
 ## S2. Generic diagnostic algorithm
 
 Input observations require:
