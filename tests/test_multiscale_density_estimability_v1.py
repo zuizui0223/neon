@@ -112,6 +112,33 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect", "distance"):
                 self.assertNotIn(forbidden, support_text)
 
+    def test_no_capture_status_is_not_treated_as_capture(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plot = root / "p.csv"
+            trap = root / "t.csv"
+            plot.write_text(
+                "nightuid,eventID,plotID,siteID\n"
+                "n1,E1,P1,SITE\n"
+                "n2,E1,P1,SITE\n",
+                encoding="utf-8",
+            )
+            trap.write_text(
+                "nightuid,plotID,trapCoordinate,trapStatus,tagID,taxonID,scientificName\n"
+                "n1,P1,A1,1 - no capture,,,\n"
+                "n2,P1,A1,1 - no capture,,,\n"
+                "n1,P1,A2,5 - capture,i1,TX1,Species one\n"
+                "n2,P1,A2,5 - capture,i1,TX1,Species one\n",
+                encoding="utf-8",
+            )
+            out = audit(plot, trap)
+            self.assertEqual(
+                out["data_quality"]["capture_rows_without_taxon"], 0
+            )
+            self.assertEqual(
+                out["support"]["sessions"][0]["n_capture_rows"], 2
+            )
+
     def test_requires_event_and_spatial_support_identifiers(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
