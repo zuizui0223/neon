@@ -97,32 +97,28 @@ stopifnot(
 # ---------- capthist helpers ----------
 
 capthist_records <- function(ch) {
-  z <- as.data.frame(ch, fmt = "trapID")
-  if (nrow(z) == 0L) {
+  ids <- as.character(animalID(ch, names = TRUE))
+  if (!length(ids)) {
     return(data.frame(
       session = character(), id = character(), occasion = integer(),
       trap = integer(), stringsAsFactors = FALSE
     ))
   }
-  if (ncol(z) < 4L) stop("unexpected capthist data-frame format")
-  z <- z[, 1:4, drop = FALSE]
-  names(z) <- c("session", "id", "occasion", "trap")
-  z$id <- as.character(z$id)
-  z$occasion <- as.integer(z$occasion)
-
-  trap_names <- rownames(as.data.frame(traps(ch)))
-  if (is.numeric(z$trap)) {
-    z$trap <- as.integer(z$trap)
-  } else {
-    trap_chr <- as.character(z$trap)
-    trap_int <- suppressWarnings(as.integer(trap_chr))
-    if (anyNA(trap_int)) {
-      trap_int <- match(trap_chr, trap_names)
-    }
-    z$trap <- trap_int
+  occ <- as.integer(occasion(ch))
+  det <- as.integer(trap(ch, names = FALSE))
+  if (!(length(ids) == length(occ) && length(ids) == length(det))) {
+    stop("capthist event vectors have inconsistent lengths")
   }
-  if (anyNA(z$trap)) stop("could not map exported trap IDs to detector indices")
-  z
+  if (anyNA(det) || any(det < 1L) || any(det > nrow(traps(ch)))) {
+    stop("invalid detector indices extracted from capthist")
+  }
+  data.frame(
+    session = rep.int("1", length(ids)),
+    id = ids,
+    occasion = occ,
+    trap = det,
+    stringsAsFactors = FALSE
+  )
 }
 
 records_to_capthist <- function(z, trp, noccasions) {
