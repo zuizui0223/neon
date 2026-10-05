@@ -102,8 +102,9 @@
       "active trap-night counts",
       "unique individual counts",
       "repeat-captured individual counts",
+      "coordinate-bearing capture counts",
+      "individual counts with at least two coordinate-bearing captures",
       "capture-event counts",
-      "distinct-coordinate counts",
       "sessions per species/site/year"
     ],
     "forbidden_before_gate_freeze": [
@@ -112,7 +113,8 @@
       "W or B values",
       "density slopes",
       "habitat effects",
-      "species effect ranking by outcome"
+      "species effect ranking by outcome",
+      "distinct observed location-change status used for eligibility"
     ]
   },
   "required_controls": [
@@ -123,7 +125,7 @@
     "mammalGridSamplingType sensitivity",
     "Peromyscus cryptic-identification sensitivity",
     "grid-edge/truncation audit",
-    "audit repeated-location support versus session abundance",
+    "audit repeat-capture support versus session abundance without conditioning on observed displacement",
     "fixed-footprint mechanical null across varying sampled individual count",
     "same prospectively defined individual-support rule for primary W/B comparison",
     "pre-effect audit of repeat-supported fraction across abundance/support classes without opening spatial distances",
@@ -146,7 +148,7 @@
     "individual_candidate": {
       "name": "equal-individual half mean pairwise squared within-individual distance",
       "formula": "W_i = [2*C(k_i,2)]^-1 * sum_{j<l} ||x_ij-x_il||^2; W = equal-individual mean(W_i)",
-      "minimum_support": "k_i >= 2 valid captures; singleton within-individual spread is unresolved, not zero",
+      "minimum_support": "k_i >= 2 valid coordinate-bearing captures; support does not require distinct coordinates or observed movement; singleton within-individual spread is unresolved, not zero",
       "property": "equals trace of unbiased sample covariance of observed locations"
     },
     "population_candidate": {
@@ -155,11 +157,17 @@
       "property": "equals trace of unbiased sample covariance of individual centres",
       "mechanical_null": "under iid draws from an unchanged centre distribution, E[B] is invariant to sampled individual count m",
       "centroid_noise_correction": "B_debiased = B_observed - mean_i(W_i / k_i) under iid repeated-location measurement benchmark",
-      "primary_support_cohort": "same repeat-supported individuals contributing to W"
+      "primary_support_cohort": "exactly the same repeat-captured, coordinate-supported individuals contributing to W; an all-individual B is sensitivity only"
     },
     "common_scale": "W and B are squared-distance variance quantities; matched transformations are required for slope comparison",
     "centroid_uncertainty": "primary mechanical plan is to report raw B and prespecified B_debiased = B_observed - mean(W_i/k_i); if synthetic/grid audits show the correction is invalid under the observation process, abandon coordinate decomposition before ecological slopes are opened",
     "primary_abundance_boundary": "N describes the session population, not the number of individuals eligible for W",
     "validation_code": "analysis/validate_multiscale_density_metrics_v1.py"
+  },
+  "external_discovery_candidate": {
+    "dataset": "Portal Project rodent captures at pinned source commit 72d7ff8568052763bf6899dc462e285684cf20f6",
+    "status": "structural_support_audit_only_until_effect_blind_same-session_repeat-capture gate is known",
+    "role_if_structurally_eligible": "possible independent discovery/triangulation system; ecological effects require a separate frozen contract",
+    "role_if_not_structurally_eligible": "close Portal route without redefining session scale or pooling across incompatible temporal units"
   }
 }
