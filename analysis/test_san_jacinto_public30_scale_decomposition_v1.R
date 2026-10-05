@@ -3,6 +3,7 @@
 suppressPackageStartupMessages({
   library(EcoSimR)
   library(jsonlite)
+  library(digest)
 })
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -75,8 +76,7 @@ seasonal_anchor <- function(flags) {
 }
 
 sha256sum <- function(path) {
-  out <- system2("sha256sum", path, stdout=TRUE)
-  sub(" .*", "", out[1])
+  digest::digest(file=path, algo="sha256", serialize=FALSE)
 }
 
 download_source <- function() {
@@ -242,8 +242,14 @@ count_class <- function(res, cls) {
 
 analyzable_count <- function(res) sum(vapply(res, function(x) isTRUE(x$analyzable), logical(1)))
 
-sig_set <- function(res) vapply(res, function(x) if (isTRUE(x$analyzable) && identical(x$classification,"segregated")) x$id else NA_character_, character(1))
-sig_set <- function(res) na.omit(sig_set(res))
+sig_set <- function(res) {
+  vals <- vapply(
+    res,
+    function(x) if (isTRUE(x$analyzable) && identical(x$classification,"segregated")) x$id else NA_character_,
+    character(1)
+  )
+  as.character(na.omit(vals))
+}
 
 ses_named <- function(res) {
   vals <- vapply(res, function(x) {
@@ -386,7 +392,7 @@ if (reference_pass) {
 
 dir.create(dirname(OUT), recursive=TRUE, showWarnings=FALSE)
 writeLines(toJSON(result, pretty=TRUE, auto_unbox=TRUE, digits=10, na="null"), OUT)
-cat(toJSON(result$reproduction, pretty=TRUE, auto_unbox=TRUE), "\n")
+cat(toJSON(result$reference_gate, pretty=TRUE, auto_unbox=TRUE), "\n")
 if (!is.null(result$scale_decomposition)) {
   cat(toJSON(result$scale_decomposition, pretty=TRUE, auto_unbox=TRUE), "\n")
 }
