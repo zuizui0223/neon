@@ -90,7 +90,7 @@ This fraction is an observational lower bound on the latent all-occasion materia
 
 Let one ecological occasion contain ordered check-level detector outcomes \(Y_1,\ldots,Y_K\), with zero denoting no detection. FIRST is the detector on the earliest non-zero check and LAST the detector on the latest non-zero check.
 
-The minimal symmetry condition is not full exchangeability. Let \(R(Y_1,\ldots,Y_K)=(Y_K,\ldots,Y_1)\). If, conditional on the latent spatial state and observation design used by the downstream model,
+A transparent process-level sufficient condition, weaker than full exchangeability, is time-reversal symmetry. Let \(R(Y_1,\ldots,Y_K)=(Y_K,\ldots,Y_1)\). If, conditional on the latent spatial state and observation design used by the downstream model,
 
 \[
 Y\overset{d}=R(Y),
