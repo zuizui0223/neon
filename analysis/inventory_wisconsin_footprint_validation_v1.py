@@ -82,14 +82,15 @@ def discover_files() -> tuple[dict, list[dict]]:
 
 
 def file_download_url(f: dict) -> str:
+    # Dryad's HAL API may expose an authenticated API download link even for
+    # public datasets. Public browser downloads use file_stream by file id.
+    fid = f.get("id")
+    if fid is not None:
+        return f"https://datadryad.org/stash/downloads/file_stream/{fid}"
     u = href(f, ("stash:download", "download"))
     if u:
         return absolute(u)
-    # fallback commonly exposed by Dryad
-    fid = f.get("id")
-    if fid is None:
-        raise RuntimeError(f"file lacks download link and id: {f}")
-    return f"https://datadryad.org/stash/downloads/file_stream/{fid}"
+    raise RuntimeError(f"file lacks public download id/link: {f}")
 
 
 def clean(x: object) -> str:
