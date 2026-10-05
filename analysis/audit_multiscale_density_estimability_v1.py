@@ -30,6 +30,8 @@ ALIASES = {
     "tag_id": ("tagID", "tagId", "individualID", "individualId"),
     "taxon_id": ("taxonID", "taxonId"),
     "scientific_name": ("scientificName", "scientific_name"),
+    "identification_qualifier": ("identificationQualifier", "identification_qualifier"),
+    "taxon_rank": ("taxonRank", "taxon_rank"),
     "site_id": ("siteID", "siteId"),
 }
 
@@ -131,6 +133,10 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
     t_tag = _resolve_field(trap_fields, "tag_id", required=False)
     t_taxon = _resolve_field(trap_fields, "taxon_id", required=False)
     t_sci = _resolve_field(trap_fields, "scientific_name", required=False)
+    t_ident_qual = _resolve_field(
+        trap_fields, "identification_qualifier", required=False
+    )
+    t_rank = _resolve_field(trap_fields, "taxon_rank", required=False)
 
     if t_taxon is None and t_sci is None:
         raise ValueError("mam_pertrapnight must contain taxonID or scientificName")
@@ -175,12 +181,16 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "coordinate_bearing_capture_rows": 0,
         "individual_rows": defaultdict(list),
         "scientific_names": set(),
+        "taxon_ranks": set(),
+        "identification_qualifiers": Counter(),
     })
 
     missing_night_join = 0
     missing_event = 0
     capture_missing_taxon = 0
     tagged_noncapture_status_rows = 0
+    capture_rows_with_identification_qualifier = 0
+    event_tag_taxa = defaultdict(set)
 
     for idx, row in enumerate(trap_rows):
         n = _clean(row.get(t_night))
@@ -225,12 +235,20 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         sci_name = _clean(row.get(t_sci)) if t_sci else ""
         if sci_name:
             g["scientific_names"].add(sci_name)
+        taxon_rank = _clean(row.get(t_rank)) if t_rank else ""
+        if taxon_rank:
+            g["taxon_ranks"].add(taxon_rank)
+        ident_qual = _clean(row.get(t_ident_qual)) if t_ident_qual else ""
+        if ident_qual:
+            capture_rows_with_identification_qualifier += 1
+            g["identification_qualifiers"][ident_qual] += 1
         g["capture_rows"] += 1
         g["capture_nightuids"].add(n)
         if coord:
             g["coordinate_bearing_capture_rows"] += 1
         tag = _clean(row.get(t_tag)) if t_tag else ""
         if tag:
+            event_tag_taxa[(plot, event, tag)].add(taxon)
             g["tagged_capture_rows"] += 1
             # Store support only, not coordinate identity or displacement.
             g["individual_rows"][tag].append((n, bool(coord)))
@@ -269,6 +287,13 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "taxon_id_character_count": len(taxon),
             "scientific_names": scientific_names,
             "genus_labels": genera,
+            "taxon_ranks": sorted(g["taxon_ranks"]),
+            "identification_qualifier_counts": dict(
+                sorted(g["identification_qualifiers"].items())
+            ),
+            "n_capture_rows_with_identification_qualifier": int(
+                sum(g["identification_qualifiers"].values())
+            ),
             "plot_id": plot,
             "event_id": event,
             "site_ids": sorted(e["site_ids"]),
@@ -296,6 +321,9 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "sampling_types": set(),
         "scientific_names": set(),
         "genera": set(),
+        "taxon_ranks": set(),
+        "identification_qualifiers": Counter(),
+        "sessions_with_any_identification_qualifier": 0,
         "sessions_with_any_repeat_capture": 0,
         "sessions_with_any_repeat_coordinate_support": 0,
         "sessions_with_any_multi_night_individual": 0,
@@ -310,6 +338,13 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         z["sampling_types"].update(s["sampling_types"])
         z["scientific_names"].update(s["scientific_names"])
         z["genera"].update(s["genus_labels"])
+        z["taxon_ranks"].update(s["taxon_ranks"])
+        z["identification_qualifiers"].update(
+            s["identification_qualifier_counts"]
+        )
+        z["sessions_with_any_identification_qualifier"] += int(
+            s["n_capture_rows_with_identification_qualifier"] > 0
+        )
         z["sessions_with_any_repeat_capture"] += int(s["n_repeat_capture_tagged_individuals"] > 0)
         z["sessions_with_any_repeat_coordinate_support"] += int(
             s["n_repeat_coordinate_supported_tagged_individuals"] > 0
@@ -333,6 +368,13 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "sampling_types": sorted(z["sampling_types"]),
             "scientific_names": sorted(z["scientific_names"]),
             "genus_labels": sorted(z["genera"]),
+            "taxon_ranks": sorted(z["taxon_ranks"]),
+            "identification_qualifier_counts": dict(
+                sorted(z["identification_qualifiers"].items())
+            ),
+            "sessions_with_any_identification_qualifier": z[
+                "sessions_with_any_identification_qualifier"
+            ],
             "taxon_id_character_count": len(taxon),
             "is_eight_character_taxon_id": len(taxon) == 8,
             "n_sessions_with_any_repeat_capture": z["sessions_with_any_repeat_capture"],
@@ -432,6 +474,8 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
                 "tag_id": t_tag,
                 "taxon_id": t_taxon,
                 "scientific_name": t_sci,
+                "identification_qualifier": t_ident_qual,
+                "taxon_rank": t_rank,
             },
         },
         "data_quality": {
@@ -441,6 +485,12 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "pertrapnight_rows_without_event_id_after_join": missing_event,
             "capture_rows_without_taxon": capture_missing_taxon,
             "tagged_rows_with_noncapture_status": tagged_noncapture_status_rows,
+            "capture_rows_with_identification_qualifier": (
+                capture_rows_with_identification_qualifier
+            ),
+            "event_tag_ids_with_multiple_taxon_ids": sum(
+                len(v) > 1 for v in event_tag_taxa.values()
+            ),
         },
         "support": {
             "n_species_session_records": len(sessions),
