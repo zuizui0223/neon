@@ -80,13 +80,13 @@ R(Y)=(Y_K,\ldots,Y_1)
 
 denote time reversal.
 
-The minimal symmetry condition needed for FIRST/LAST equivalence is
+A transparent process-level sufficient condition for FIRST/LAST equivalence is
 
 \[
 Y\overset{d}=R(Y)
 \]
 
-conditional on the latent state and observation design relevant to the downstream model. Full temporal exchangeability is sufficient but stronger than necessary. Independent identically distributed checks around a fixed activity centre are one special case; a stationary reversible process may also satisfy the reversal condition despite serial dependence.
+conditional on the latent state and observation design relevant to the downstream model. Full temporal exchangeability is also sufficient, but is stronger than the reversal condition. Reversal symmetry itself is not logically necessary: FIRST and LAST can have equal marginals under some non-reversible processes. Independent identically distributed checks around a fixed activity centre are one special case; a stationary reversible process may also satisfy the reversal condition despite serial dependence.
 
 Because reversal exchanges the representative rules,
 
