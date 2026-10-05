@@ -264,15 +264,17 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         repeat_night = 0
         coordinate_supported_individuals = 0
         for records in tag_records.values():
-            if len(records) >= 2:
+            capture_nights_for_individual = {n for n, _ in records if n}
+            coordinate_nights_for_individual = {
+                n for n, has_coord in records if n and has_coord
+            }
+            if len(capture_nights_for_individual) >= 2:
                 repeat_capture += 1
-            n_with_coord = sum(int(has_coord) for _, has_coord in records)
-            if n_with_coord >= 1:
+            if coordinate_nights_for_individual:
                 coordinate_supported_individuals += 1
-            if n_with_coord >= 2:
+            if len(coordinate_nights_for_individual) >= 2:
                 repeat_coordinate_supported += 1
-            nights = {n for n, _ in records if n}
-            if len(nights) >= 2:
+            if len(capture_nights_for_individual) >= 2:
                 repeat_night += 1
 
         scientific_names = sorted(g["scientific_names"])
