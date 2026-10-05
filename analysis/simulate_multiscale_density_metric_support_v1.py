@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Synthetic support audit for multiscale density-accommodation metrics.
 
-No biological data are read. The simulation uses a fixed 7x7 detector grid,
-fixed Gaussian detector kernel, and an unchanged latent centre distribution.
+No biological data are read. The simulation uses the standard NEON 10x10 detector grid at 10 m spacing,
+a fixed Gaussian detector kernel, and an unchanged latent centre distribution.
 It asks how repeat-supported individual count affects the finite-sample
 stability of the raw and centroid-debiased between-centre variance metrics.
 """
@@ -25,7 +25,7 @@ from analysis.validate_multiscale_density_metrics_v1 import (
 
 def detector_grid(spacing: float = 10.0) -> np.ndarray:
     return np.asarray(
-        [(i * spacing, j * spacing) for i in range(7) for j in range(7)],
+        [(i * spacing, j * spacing) for i in range(10) for j in range(10)],
         dtype=float,
     )
 
@@ -170,15 +170,15 @@ def run(
     detectors = detector_grid()
     full_pool = detectors.copy()
     central_pool = np.asarray(
-        [(i * 10.0, j * 10.0) for i in range(1, 6) for j in range(1, 6)],
+        [(i * 10.0, j * 10.0) for i in range(1, 9) for j in range(1, 9)],
         dtype=float,
     )
 
     rng = np.random.default_rng(seed)
     cells = []
     for scenario, pool in (
-        ("full_grid_latent_centres", full_pool),
-        ("central_5x5_latent_centres", central_pool),
+        ("full_10x10_latent_centres", full_pool),
+        ("central_8x8_latent_centres", central_pool),
     ):
         for n_individuals in (3, 5, 8, 10, 15, 20):
             vals = [
@@ -208,7 +208,7 @@ def run(
         "status": "synthetic_mechanical_support_only",
         "seed": seed,
         "replicates_per_cell": replicates,
-        "detector_grid": "7x7, 10 m spacing",
+        "detector_grid": "standard NEON 10x10, 10 m spacing",
         "detector_kernel_sigma_m": sigma,
         "captures_per_individual": "discrete uniform 2..4",
         "cells": cells,
