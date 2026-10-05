@@ -1,0 +1,198 @@
+{
+  "schema": "neon.stage3_grid_season_roster_audit.v1",
+  "targets": {
+    "3|winter": {
+      "date_parse_fail_by_species": {},
+      "dates_by_species": {
+        "PEMA": [
+          "1/12/16",
+          "1/13/16",
+          "1/14/16",
+          "11/6/15",
+          "11/7/15",
+          "11/8/15",
+          "12/6/15",
+          "12/8/15",
+          "12/9/15"
+        ],
+        "SKR": [
+          "1/12/16",
+          "1/13/16",
+          "1/14/16",
+          "11/6/15",
+          "11/7/15",
+          "11/8/15",
+          "12/6/15",
+          "12/8/15",
+          "12/9/15"
+        ]
+      },
+      "distinct_valid_flags_by_species": {
+        "PEMA": [
+          "A2",
+          "A3",
+          "A5",
+          "B1",
+          "B2",
+          "B6",
+          "C4",
+          "C5",
+          "D1",
+          "E3",
+          "F2",
+          "G6"
+        ],
+        "SKR": [
+          "A1",
+          "A2",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "B1",
+          "B2",
+          "B3",
+          "B5",
+          "B6",
+          "B7",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C7",
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6",
+          "D7",
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "G1",
+          "G2",
+          "G3",
+          "G6",
+          "G7"
+        ]
+      },
+      "focal_species_with_raw_rows": [
+        "PEMA",
+        "SKR"
+      ],
+      "focal_species_with_valid_trap_rows": [
+        "PEMA",
+        "SKR"
+      ],
+      "invalid_trap_rows_by_species": {},
+      "raw_rows_by_species": {
+        "PEMA": 15,
+        "SKR": 224
+      },
+      "valid_canonical_trap_rows_by_species": {
+        "PEMA": 15,
+        "SKR": 224
+      }
+    },
+    "7|winter": {
+      "date_parse_fail_by_species": {},
+      "dates_by_species": {
+        "PEMA": [
+          "1/12/16",
+          "1/13/16",
+          "1/14/16",
+          "11/10/15",
+          "11/6/15",
+          "11/7/15",
+          "12/6/15",
+          "12/9/15"
+        ],
+        "REME": [
+          "11/6/15",
+          "12/7/15"
+        ],
+        "SKR": [
+          "1/12/16",
+          "1/13/16",
+          "1/14/16",
+          "11/10/15",
+          "11/6/15",
+          "11/7/15",
+          "12/6/15",
+          "12/7/15",
+          "12/9/15"
+        ]
+      },
+      "distinct_valid_flags_by_species": {
+        "PEMA": [
+          "A6",
+          "B1",
+          "B6",
+          "E2",
+          "E5",
+          "E6",
+          "F1",
+          "G2",
+          "G3",
+          "G6",
+          "G7"
+        ],
+        "REME": [
+          "F1",
+          "F2"
+        ],
+        "SKR": [
+          "A5",
+          "A6",
+          "A7",
+          "B1",
+          "B7",
+          "C1",
+          "C3",
+          "C6",
+          "C7",
+          "D6",
+          "D7",
+          "E5",
+          "E6",
+          "E7",
+          "F5",
+          "F6",
+          "F7",
+          "G7"
+        ]
+      },
+      "focal_species_with_raw_rows": [
+        "PEMA",
+        "SKR"
+      ],
+      "focal_species_with_valid_trap_rows": [
+        "PEMA",
+        "SKR"
+      ],
+      "invalid_trap_rows_by_species": {},
+      "raw_rows_by_species": {
+        "PEMA": 17,
+        "REME": 2,
+        "SKR": 54
+      },
+      "valid_canonical_trap_rows_by_species": {
+        "PEMA": 17,
+        "REME": 2,
+        "SKR": 54
+      }
+    }
+  }
+}
