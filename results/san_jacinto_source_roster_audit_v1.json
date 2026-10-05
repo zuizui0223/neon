@@ -1,0 +1,941 @@
+{
+  "capture_rows": 8981,
+  "grid_season_roster": [
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 92,
+        "DKR": 137,
+        "LAPM": 20,
+        "PEER": 20,
+        "PEMA": 11
+      },
+      "distinct_nonempty_flags": 47,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "1|fall"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 74,
+        "DKR": 190,
+        "PEER": 28,
+        "PEMA": 54
+      },
+      "distinct_nonempty_flags": 49,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "1|winter"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 46,
+        "DKR": 220,
+        "LAPM": 20,
+        "PEER": 17,
+        "PEMA": 84
+      },
+      "distinct_nonempty_flags": 47,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "1|spring"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 75,
+        "DKR": 181,
+        "LAPM": 51,
+        "PEER": 89,
+        "PEMA": 144
+      },
+      "distinct_nonempty_flags": 49,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "1|summer"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 175,
+        "DKR": 83,
+        "LAPM": 45,
+        "PEER": 84,
+        "PEMA": 44
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "2|fall"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 101,
+        "DKR": 152,
+        "PEER": 35,
+        "PEMA": 130
+      },
+      "distinct_nonempty_flags": 49,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "2|winter"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 100,
+        "DKR": 65,
+        "PEER": 3,
+        "PEMA": 67
+      },
+      "distinct_nonempty_flags": 47,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "2|spring"
+    },
+    {
+      "all_species_count": 7,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "P",
+        "PEER",
+        "PEMA",
+        "REME"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 149,
+        "DKR": 33,
+        "LAPM": 35,
+        "P": 1,
+        "PEER": 58,
+        "PEMA": 78,
+        "REME": 2
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "id": "2|summer"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 22,
+        "PEMA": 29,
+        "SKR": 150
+      },
+      "distinct_nonempty_flags": 43,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "3|fall"
+    },
+    {
+      "all_species_count": 2,
+      "all_species_present": [
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "PEMA": 15,
+        "SKR": 224
+      },
+      "distinct_nonempty_flags": 44,
+      "focal_species_count": 2,
+      "focal_species_present": [
+        "PEMA",
+        "SKR"
+      ],
+      "id": "3|winter"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 15,
+        "PEMA": 23,
+        "SKR": 181
+      },
+      "distinct_nonempty_flags": 41,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "3|spring"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "DKR": 1,
+        "LAPM": 118,
+        "PEMA": 29,
+        "SKR": 307
+      },
+      "distinct_nonempty_flags": 49,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "3|summer"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 53,
+        "DKR": 25,
+        "LAPM": 20,
+        "PEMA": 111,
+        "SKR": 63
+      },
+      "distinct_nonempty_flags": 49,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "4|fall"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 42,
+        "DKR": 61,
+        "PEER": 2,
+        "PEMA": 123,
+        "SKR": 197
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "4|winter"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 78,
+        "DKR": 46,
+        "LAPM": 4,
+        "PEMA": 60,
+        "SKR": 98
+      },
+      "distinct_nonempty_flags": 44,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "4|spring"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 92,
+        "DKR": 10,
+        "LAPM": 47,
+        "PEMA": 79,
+        "SKR": 174
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "4|summer"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "REME",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 149,
+        "PEMA": 18,
+        "REME": 1,
+        "SKR": 241
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "5|fall"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 43,
+        "PEMA": 27,
+        "SKR": 263
+      },
+      "distinct_nonempty_flags": 47,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "5|winter"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 34,
+        "PEMA": 17,
+        "SKR": 139
+      },
+      "distinct_nonempty_flags": 42,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "5|spring"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 177,
+        "PEMA": 9,
+        "SKR": 75
+      },
+      "distinct_nonempty_flags": 46,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "5|summer"
+    },
+    {
+      "all_species_count": 6,
+      "all_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "REME",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 203,
+        "LAPM": 10,
+        "PEER": 37,
+        "PEMA": 52,
+        "REME": 2,
+        "SKR": 66
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "6|fall"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 188,
+        "PEER": 35,
+        "PEMA": 71,
+        "SKR": 143
+      },
+      "distinct_nonempty_flags": 47,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "6|winter"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 114,
+        "LAPM": 6,
+        "PEMA": 102,
+        "SKR": 38
+      },
+      "distinct_nonempty_flags": 46,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "6|spring"
+    },
+    {
+      "all_species_count": 5,
+      "all_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 142,
+        "LAPM": 92,
+        "PEER": 37,
+        "PEMA": 170,
+        "SKR": 77
+      },
+      "distinct_nonempty_flags": 48,
+      "focal_species_count": 5,
+      "focal_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "6|summer"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "REME",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 20,
+        "PEMA": 36,
+        "REME": 2,
+        "SKR": 7
+      },
+      "distinct_nonempty_flags": 29,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "7|fall"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "PEMA",
+        "REME",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "PEMA": 17,
+        "REME": 2,
+        "SKR": 54
+      },
+      "distinct_nonempty_flags": 25,
+      "focal_species_count": 2,
+      "focal_species_present": [
+        "PEMA",
+        "SKR"
+      ],
+      "id": "7|winter"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "CHFA": 1,
+        "LAPM": 5,
+        "PEMA": 63,
+        "SKR": 49
+      },
+      "distinct_nonempty_flags": 38,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "7|spring"
+    },
+    {
+      "all_species_count": 4,
+      "all_species_present": [
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 23,
+        "PEER": 1,
+        "PEMA": 92,
+        "SKR": 29
+      },
+      "distinct_nonempty_flags": 37,
+      "focal_species_count": 4,
+      "focal_species_present": [
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "7|summer"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 3,
+        "PEMA": 69,
+        "SKR": 28
+      },
+      "distinct_nonempty_flags": 27,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "8|fall"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 6,
+        "PEMA": 20,
+        "SKR": 35
+      },
+      "distinct_nonempty_flags": 28,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "8|winter"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 1,
+        "PEMA": 42,
+        "SKR": 47
+      },
+      "distinct_nonempty_flags": 32,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "8|spring"
+    },
+    {
+      "all_species_count": 3,
+      "all_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "capture_rows_by_species": {
+        "LAPM": 19,
+        "PEMA": 31,
+        "SKR": 9
+      },
+      "distinct_nonempty_flags": 25,
+      "focal_species_count": 3,
+      "focal_species_present": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "id": "8|summer"
+    }
+  ],
+  "history_value_counts_by_species": {
+    "CHFA": {
+      "": 31,
+      "NID": 92,
+      "NTB": 199,
+      "R": 1402,
+      "r": 1
+    },
+    "DKR": {
+      "": 13,
+      "NID": 50,
+      "NTB": 156,
+      "R": 985
+    },
+    "LAPM": {
+      "": 16,
+      "NID": 109,
+      "NTB": 145,
+      "R": 715
+    },
+    "P": {
+      "NID": 1
+    },
+    "PEER": {
+      "": 4,
+      "NID": 75,
+      "NTB": 73,
+      "R": 294
+    },
+    "PEMA": {
+      "": 31,
+      "NID": 292,
+      "NTB": 338,
+      "NTBF": 1,
+      "NTP": 1,
+      "R": 1254
+    },
+    "REME": {
+      "NID": 8,
+      "R": 1
+    },
+    "SKR": {
+      "": 38,
+      "NID": 136,
+      "NTB": 342,
+      "NTM": 1,
+      "NYB": 1,
+      "R": 2176
+    }
+  },
+  "metadata_workbook": {
+    "Sheet1": [
+      [
+        "Species"
+      ],
+      [
+        "CHFA",
+        "Chaetodipus fallax",
+        "San Diego pocket mouse"
+      ],
+      [
+        "DKR",
+        "Dipodomys simulans",
+        "Dulzura kangaroo rat"
+      ],
+      [
+        "SKR",
+        "Dipodomys stephensi",
+        "Stephens' kangaroo rat"
+      ],
+      [
+        "LAPM",
+        "Perognathus longimembris brevinasus",
+        "Los Angeles pocket mouse"
+      ],
+      [
+        "PEMA",
+        "Peromyscus maniculatus",
+        "Deer mouse"
+      ],
+      [
+        "PEER",
+        "Peromyscus eremicus",
+        "Cactus mouse"
+      ],
+      [
+        "REME",
+        "Reithrodontomys megalotis",
+        "Western harvest mouse"
+      ],
+      [
+        "History"
+      ],
+      [
+        "NID",
+        "New ID"
+      ],
+      [
+        "NTB",
+        "New This Bout"
+      ],
+      [
+        "R",
+        "Recapture"
+      ],
+      [
+        "Repro"
+      ],
+      [
+        "PS",
+        "partially scrotal"
+      ],
+      [
+        "S",
+        "scrotal"
+      ],
+      [
+        "NNV",
+        "no nipples visible"
+      ],
+      [
+        "VN",
+        "visible nipples"
+      ],
+      [
+        "P",
+        "pregnant"
+      ],
+      [
+        "R",
+        "nipples are red"
+      ],
+      [
+        "Ext",
+        "nipples are extended"
+      ],
+      [
+        "Lact",
+        "lactating"
+      ],
+      [
+        "JV",
+        "juvenile/non-reproductive"
+      ]
+    ]
+  },
+  "schema": "neon.san_jacinto_source_roster_audit.v1",
+  "species_row_counts": {
+    "CHFA": 1725,
+    "DKR": 1204,
+    "LAPM": 985,
+    "P": 1,
+    "PEER": 446,
+    "PEMA": 1917,
+    "REME": 9,
+    "SKR": 2694
+  },
+  "status": "source_semantics_only_no_new_ecological_endpoint",
+  "unique_id_values_by_species": {
+    "CHFA": 104,
+    "DKR": 72,
+    "LAPM": 127,
+    "P": 1,
+    "PEER": 85,
+    "PEMA": 339,
+    "REME": 8,
+    "SKR": 182
+  }
+}
