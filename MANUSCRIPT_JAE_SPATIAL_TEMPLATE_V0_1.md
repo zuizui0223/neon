@@ -327,7 +327,7 @@ The present analyses localize the structure but do not identify its causal subst
 
 A strong clue is that the footprint–community association is much stronger among physical grids than among seasons within a grid. Across seven grids with matched analyses, mean individual-footprint assortativity and mean community segregation were strongly correlated (descriptive \(r=0.923\)), whereas the within-grid seasonal correlation was much weaker (\(r=0.271\)). This points toward persistent local context rather than a rapidly changing seasonal process.
 
-Habitat structure is an obvious candidate. The original study found species-specific resource selection using vegetation and soil variables. Replacement animals encountering the same habitat mosaic could therefore reconstruct similar species × place relationships without inheriting them from previous individuals. Stable refuge or burrow distributions, spatial resource structure, territorial constraints and long-term competitive sorting are other possibilities.
+Habitat structure is an obvious candidate, but it is not a new result of this study. Chock et al. (2022) already showed species-specific selection on vegetation and soil axes, using all captures and recaptures in individual-level resource-selection models with individual ID and grid as random effects. That analysis was restricted to May–July 2016. It therefore establishes a strong prior expectation that different individuals of a species can respond similarly to a persistent habitat mosaic. What it did not test was whether the **community-level species × trap segregation signal** is localized to a particular temporal representation, whether it recurs after all shared marked identities are removed, or whether such recurrence extends across adjacent seasons beyond the summer resource-selection window. Those are the distinctions tested here. Stable refuge or burrow distributions, spatial resource structure, territorial constraints and long-term competitive sorting remain alternative substrates.
 
 Competition also remains plausible but cannot be inferred directly from the present tests. Experimental work in this system showed size-structured interspecific dominance and heterospecific avoidance (Chock et al. 2018). Yet our within-night direction test found no evidence that observed short-term moves continually enforce the field checkerboard. Competition could instead operate at slower decisions such as settlement, refuge selection or repeated foraging-domain placement.
 
@@ -339,9 +339,9 @@ The broadest inference supported by these data is:
 
 > **Ecological spatial structure can persist above individual identity.**
 
-This principle is not equivalent to population-level site fidelity. Site fidelity usually asks whether an individual or a population returns to a location. Here the critical operation was to remove every returning individual shared by two time windows and ask whether the association between **species identity and fine-scale location** still recurred.
+This principle is not equivalent to population-level site fidelity, which can itself be estimated from capture–recapture data at the population level (Tschopp et al. 2018). Site fidelity asks whether individuals or a population repeatedly use a location. Here the critical operation was different: every marked individual observed in both compared windows was excluded from both, and we then asked whether the association between **species identity and fine-scale location** still recurred among disjoint observed identity sets.
 
-Likewise, this is not “collective memory” in a cognitive sense. The template may be regenerated independently by each new animal responding to the same habitat and competitive landscape.
+Likewise, this is not “collective memory” in a cognitive sense. The template may be regenerated independently by different animals responding to the same habitat and competitive landscape.
 
 A spatial niche can therefore be viewed not only as an area occupied by a population, but as a repeatable mapping
 
@@ -359,7 +359,7 @@ The original San Jacinto work emphasized the conservation challenge of maintaini
 
 If species-specific spatial organization were carried only by the same resident individuals, then loss of those individuals would be expected to erase much of the pattern. Instead, different individuals can reconstruct the spatial template. This suggests that the underlying landscape features or interaction regime that repeatedly generates spatial roles may be as important as the currently occupying animals.
 
-For restoration and reintroduction, “occupied location” and “regenerating spatial niche” are therefore not necessarily the same thing. Protecting the environmental conditions that allow replacement animals to find the appropriate recurring-use domain may be essential for rebuilding the community after turnover.
+For restoration and reintroduction, “occupied location” and “regenerating spatial niche” are therefore not necessarily the same thing. Protecting the environmental conditions that repeatedly generate appropriate recurring-use domains may therefore matter as much as protecting the locations occupied by the currently observed individuals.
 
 This remains a hypothesis about management mechanism, not a demonstrated intervention effect.
 
@@ -381,7 +381,7 @@ Spatial niche partitioning in this mobile rodent guild was not maintained by con
 
 Individual fidelity strengthened those footprints, but did not create them completely. When all individuals shared between time windows were removed, non-overlapping sets of conspecifics still reassembled the same fine-scale species × place associations within seasons and across adjacent seasons.
 
-The result changes the unit of stability. A stable community need not be a stable set of individuals. Spatial niche structure can be a higher-order ecological property that is reconstructed as individuals turn over.
+The result changes the unit of stability. A stable community pattern need not depend on repeatedly observing the same individuals. Spatial niche structure can be a higher-order species–place relationship that recurs across disjoint observed identity sets.
 
 # Acknowledgements
 
@@ -408,6 +408,8 @@ Chock, R. Y., Shier, D. M. & Grether, G. F. (2022). Niche partitioning in an ass
 Li, et al. (2023). Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology*. https://doi.org/10.1186/s40462-023-00394-1
 
 Péron, G. (2024). Movement-based coexistence does not always require a functional trade-off. *Ecological Modelling*, 487, 110549. https://doi.org/10.1016/j.ecolmodel.2023.110549
+
+Tschopp, A., Ferrari, M. A., Crespo, E. A. & Coscarella, M. A. (2018). Development of a site fidelity index based on population capture-recapture data. *PeerJ*, 6, e4782. https://doi.org/10.7717/peerj.4782
 
 Schirmer, A., Herde, A., Eccard, J. A. & Dammhahn, M. (2019). Individuals in space: personality-dependent space use, movement and microhabitat use facilitate individual spatial niche specialization. *Oecologia*, 189, 647–660. https://doi.org/10.1007/s00442-019-04365-5
 
