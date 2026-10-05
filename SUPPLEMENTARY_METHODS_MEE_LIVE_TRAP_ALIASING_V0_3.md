@@ -64,6 +64,52 @@ For a standardized MPD score $z=(MPD-\mu_n)/\sigma_n$, when FIRST and LAST use t
 
 The implementation is verified by equality cases and random Euclidean tests.
 
+## S1.3 Exchangeability and time-reversal non-identifiability
+
+Let an occasion contain ordered detector outcomes (Y=(Y_1,ldots,Y_K)), where zero denotes no detection. Let (F(Y)) and (L(Y)) be the first and last non-zero detector states on occasions with at least one detection, and let (R(Y)=(Y_K,ldots,Y_1)) denote time reversal.
+
+If the check-level observation process is temporally exchangeable conditional on the latent spatial state, then
+
+[
+Y overset{d}= R(Y).
+]
+
+Because time reversal exchanges the two representative rules,
+
+[
+F{R(Y)}=L(Y), qquad L{R(Y)}=F(Y),
+]
+
+and therefore
+
+[
+F(Y)overset{d}=L(Y)
+]
+
+conditional on the occasion being observed. This does not require realized FIRST and LAST locations to be equal.
+
+The same transformation gives a stronger limitation for span-only diagnostics. For any symmetric span statistic based only on (d{F(Y),L(Y)}),
+
+[
+S{R(Y)}=S(Y).
+]
+
+By contrast, for any directed representation contrast
+
+[
+D(Y)=T{L(Y)}-T{F(Y)},
+]
+
+time reversal gives
+
+[
+D{R(Y)}=-D(Y).
+]
+
+Hence two observation processes related only by reversal can have identical distributions of all FIRST-to-LAST span summaries while having opposite directed FIRST-versus-LAST effects. No statistic that uses only unordered within-occasion spans can identify the sign of a downstream representation effect without an additional assumption about temporal ordering or state dynamics.
+
+This is an identification result, not a claim that real trapping checks are exchangeable. Its practical role is to separate the first-stage positional-non-uniqueness screen from the second-stage downstream stability analysis.
+
 ## S2. Generic diagnostic algorithm
 
 Input observations require:
