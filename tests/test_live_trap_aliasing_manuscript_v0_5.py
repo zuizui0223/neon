@@ -13,7 +13,8 @@ CONSEQUENCE=ROOT/"results"/"scr_sigma_consequence_simulation_v1.json"
 EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
 HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
-REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"\nCALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
+REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
+CALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
 
 
 class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
@@ -25,7 +26,8 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         cls.emp=json.loads(EMPIRICAL.read_text())
         cls.den=json.loads(DENOM.read_text())
         cls.home=json.loads(HOME.read_text())
-        cls.reversal=json.loads(REVERSAL.read_text())\n        cls.calib=json.loads(CALIB.read_text())
+        cls.reversal=json.loads(REVERSAL.read_text())
+        cls.calib=json.loads(CALIB.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.5",self.text)
