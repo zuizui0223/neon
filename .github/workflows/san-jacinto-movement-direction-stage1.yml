@@ -25,3 +25,4 @@ jobs:
           echo "Result: stop_no_directional_maintenance_support."
           echo "Do not rerun or reopen species-pair/alternative movement metrics as rescue analyses."
 # closed workflow refresh: 2026-10-05
+# queue refresh after Stage-4 collector fix
