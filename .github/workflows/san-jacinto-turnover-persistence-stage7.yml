@@ -1,0 +1,55 @@
+name: san-jacinto-turnover-persistence-stage7
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md
+      - analysis/test_san_jacinto_turnover_persistence_v1.R
+      - .github/workflows/san-jacinto-turnover-persistence-stage7.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-turnover-persistence-stage7-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stage7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - name: Install dependencies and EcoSimR
+        run: |
+          Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org")'
+          git clone --depth 1 https://github.com/GotelliLab/EcoSimR.git /tmp/EcoSimR
+          R CMD INSTALL /tmp/EcoSimR
+      - name: Verify Stage-7 helper
+        run: Rscript analysis/test_san_jacinto_turnover_persistence_v1.R --self-test
+      - name: Run frozen turnover persistence test
+        run: |
+          Rscript analysis/test_san_jacinto_turnover_persistence_v1.R \
+            --cache /tmp/year_round_trap_data.csv \
+            --stage5 results/san_jacinto_stage5_temporal_persistence_v1.json \
+            --output /tmp/san_jacinto_turnover_persistence_v1.json \
+            --nreps 10000 --burn 500 --seed 2026100507
+      - name: Persist Stage-7 result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_turnover_persistence_v1.json results/san_jacinto_turnover_persistence_v1.json
+          git add results/san_jacinto_turnover_persistence_v1.json
+          if git diff --cached --quiet; then echo unchanged; else
+            git commit -m "Record persistence across individual turnover"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
