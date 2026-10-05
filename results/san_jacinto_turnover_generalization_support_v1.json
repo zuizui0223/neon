@@ -1,0 +1,1388 @@
+{
+  "claim_boundary": {
+    "effect_direction_opened": false,
+    "null_opened": false,
+    "overlap_opened": false
+  },
+  "schema": "neon.san_jacinto_turnover_generalization_support.v1",
+  "source_universe": "22 units already eligible in frozen Stage5 temporal-persistence analysis",
+  "status": "support_only_no_post_turnover_overlap_opened",
+  "summary": {
+    "bridge_individuals_removed_total": 438,
+    "reference_turnover_eligible_units": 8,
+    "source_units": 22,
+    "turnover_eligible_physical_grids": 6,
+    "turnover_eligible_units": 18
+  },
+  "units": [
+    {
+      "bridge_individuals_removed": 16,
+      "discarded_middle": "2015-09-19",
+      "early_nights": 4,
+      "early_only_individuals": 19,
+      "eligible_species": [
+        "DKR",
+        "PEMA"
+      ],
+      "eligible_species_count": 2,
+      "grid": "1",
+      "id": "1|fall",
+      "late_nights": 4,
+      "late_only_individuals": 3,
+      "season": "fall",
+      "species_support": [
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 9,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 8,
+          "early_only_records": 13,
+          "late_only_individuals": 2,
+          "late_only_records": 4,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 1,
+          "late_only_records": 2,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 14,
+      "discarded_middle": "2015-12-07",
+      "early_nights": 4,
+      "early_only_individuals": 5,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 4,
+      "grid": "1",
+      "id": "1|winter",
+      "late_nights": 4,
+      "late_only_individuals": 21,
+      "season": "winter",
+      "species_support": [
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 2,
+          "late_only_individuals": 3,
+          "late_only_records": 3,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 4,
+          "late_only_individuals": 6,
+          "late_only_records": 15,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 4,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 4,
+          "late_only_individuals": 10,
+          "late_only_records": 18,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 24,
+      "discarded_middle": "2016-03-02",
+      "early_nights": 4,
+      "early_only_individuals": 12,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "grid": "1",
+      "id": "1|spring",
+      "late_nights": 4,
+      "late_only_individuals": 11,
+      "season": "spring",
+      "species_support": [
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 2,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 9,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 2,
+          "late_only_individuals": 1,
+          "late_only_records": 3,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 2,
+          "late_only_records": 2,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 8,
+          "late_only_individuals": 4,
+          "late_only_records": 7,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 31,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 19,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "grid": "1",
+      "id": "1|summer",
+      "late_nights": 4,
+      "late_only_individuals": 30,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 2,
+          "late_only_individuals": 3,
+          "late_only_records": 3,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 4,
+          "late_only_individuals": 7,
+          "late_only_records": 12,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 8,
+          "late_only_individuals": 2,
+          "late_only_records": 6,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 7,
+          "late_only_individuals": 11,
+          "late_only_records": 17,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 5,
+          "early_only_records": 7,
+          "late_only_individuals": 7,
+          "late_only_records": 16,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 22,
+      "discarded_middle": null,
+      "early_nights": 5,
+      "early_only_individuals": 18,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 5,
+      "grid": "2",
+      "id": "2|fall",
+      "late_nights": 5,
+      "late_only_individuals": 11,
+      "season": "fall",
+      "species_support": [
+        {
+          "early_only_individuals": 5,
+          "early_only_records": 13,
+          "late_only_individuals": 3,
+          "late_only_records": 4,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 8,
+          "late_only_individuals": 3,
+          "late_only_records": 4,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 10,
+          "late_only_individuals": 1,
+          "late_only_records": 4,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 4,
+          "late_only_individuals": 1,
+          "late_only_records": 3,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 10,
+          "late_only_individuals": 3,
+          "late_only_records": 3,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "discarded_middle": "2015-12-07",
+      "early_nights": 4,
+      "early_only_individuals": 5,
+      "eligible_species": [
+        "DKR"
+      ],
+      "eligible_species_count": 1,
+      "grid": "2",
+      "id": "2|winter",
+      "late_nights": 4,
+      "late_only_individuals": 16,
+      "season": "winter",
+      "species_support": [
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 7,
+          "late_only_records": 16,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 9,
+          "late_only_records": 19,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 12,
+      "discarded_middle": "2016-03-02",
+      "early_nights": 4,
+      "early_only_individuals": 21,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "eligible_species_count": 4,
+      "grid": "2",
+      "id": "2|spring",
+      "late_nights": 4,
+      "late_only_individuals": 10,
+      "season": "spring",
+      "species_support": [
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 10,
+          "late_only_individuals": 4,
+          "late_only_records": 7,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 7,
+          "early_only_records": 16,
+          "late_only_individuals": 1,
+          "late_only_records": 2,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 7,
+          "early_only_records": 11,
+          "late_only_individuals": 4,
+          "late_only_records": 10,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 25,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 12,
+      "eligible_species": [
+        "CHFA",
+        "DKR",
+        "PEMA"
+      ],
+      "eligible_species_count": 3,
+      "grid": "2",
+      "id": "2|summer",
+      "late_nights": 4,
+      "late_only_individuals": 29,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 11,
+          "late_only_individuals": 8,
+          "late_only_records": 12,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 2,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 2,
+          "late_only_records": 2,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 11,
+          "late_only_records": 24,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 5,
+          "late_only_individuals": 7,
+          "late_only_records": 9,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 26,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 9,
+      "eligible_species": [
+        "LAPM",
+        "SKR"
+      ],
+      "eligible_species_count": 2,
+      "grid": "3",
+      "id": "3|summer",
+      "late_nights": 4,
+      "late_only_individuals": 12,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 6,
+          "late_only_individuals": 3,
+          "late_only_records": 4,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 6,
+          "late_only_individuals": 9,
+          "late_only_records": 22,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 19,
+      "discarded_middle": null,
+      "early_nights": 5,
+      "early_only_individuals": 13,
+      "eligible_species": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "4",
+      "id": "4|fall",
+      "late_nights": 5,
+      "late_only_individuals": 20,
+      "season": "fall",
+      "species_support": [
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 5,
+          "early_only_records": 13,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 12,
+          "late_only_individuals": 13,
+          "late_only_records": 19,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 4,
+          "late_only_individuals": 4,
+          "late_only_records": 5,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 24,
+      "discarded_middle": "2015-12-08",
+      "early_nights": 4,
+      "early_only_individuals": 8,
+      "eligible_species": [
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "4",
+      "id": "4|winter",
+      "late_nights": 4,
+      "late_only_individuals": 17,
+      "season": "winter",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 2,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 6,
+          "late_only_individuals": 11,
+          "late_only_records": 11,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 6,
+          "late_only_individuals": 4,
+          "late_only_records": 11,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 17,
+      "discarded_middle": null,
+      "early_nights": 4,
+      "early_only_individuals": 12,
+      "eligible_species": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "4",
+      "id": "4|spring",
+      "late_nights": 4,
+      "late_only_individuals": 24,
+      "season": "spring",
+      "species_support": [
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 6,
+          "late_only_records": 13,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 3,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 4,
+          "late_only_records": 4,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 5,
+          "early_only_records": 10,
+          "late_only_individuals": 11,
+          "late_only_records": 19,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 7,
+          "late_only_individuals": 3,
+          "late_only_records": 5,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 23,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 11,
+      "eligible_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA"
+      ],
+      "eligible_species_count": 3,
+      "grid": "4",
+      "id": "4|summer",
+      "late_nights": 4,
+      "late_only_individuals": 18,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 3,
+          "early_only_records": 7,
+          "late_only_individuals": 4,
+          "late_only_records": 8,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 5,
+          "late_only_records": 6,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 11,
+          "late_only_individuals": 2,
+          "late_only_records": 3,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 7,
+          "late_only_records": 16,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "discarded_middle": null,
+      "early_nights": 5,
+      "early_only_individuals": 26,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "5",
+      "id": "5|fall",
+      "late_nights": 5,
+      "late_only_individuals": 12,
+      "season": "fall",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 9,
+          "early_only_records": 17,
+          "late_only_individuals": 3,
+          "late_only_records": 5,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 7,
+          "late_only_individuals": 3,
+          "late_only_records": 3,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 13,
+          "early_only_records": 33,
+          "late_only_individuals": 6,
+          "late_only_records": 17,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 16,
+      "discarded_middle": "2015-12-08",
+      "early_nights": 4,
+      "early_only_individuals": 5,
+      "eligible_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 2,
+      "grid": "5",
+      "id": "5|winter",
+      "late_nights": 4,
+      "late_only_individuals": 7,
+      "season": "winter",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 5,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 2,
+          "late_only_individuals": 5,
+          "late_only_records": 6,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 2,
+          "late_only_records": 6,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 9,
+      "discarded_middle": "2016-03-02",
+      "early_nights": 4,
+      "early_only_individuals": 13,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "5",
+      "id": "5|spring",
+      "late_nights": 4,
+      "late_only_individuals": 17,
+      "season": "spring",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 2,
+          "late_only_individuals": 12,
+          "late_only_records": 20,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 10,
+          "early_only_records": 13,
+          "late_only_individuals": 2,
+          "late_only_records": 2,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 3,
+          "late_only_records": 6,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 19,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 16,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "5",
+      "id": "5|summer",
+      "late_nights": 4,
+      "late_only_individuals": 18,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 10,
+          "early_only_records": 24,
+          "late_only_individuals": 10,
+          "late_only_records": 19,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 4,
+          "late_only_individuals": 2,
+          "late_only_records": 4,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 5,
+          "late_only_individuals": 6,
+          "late_only_records": 8,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "discarded_middle": null,
+      "early_nights": 5,
+      "early_only_individuals": 22,
+      "eligible_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "grid": "6",
+      "id": "6|fall",
+      "late_nights": 5,
+      "late_only_individuals": 13,
+      "season": "fall",
+      "species_support": [
+        {
+          "early_only_individuals": 5,
+          "early_only_records": 10,
+          "late_only_individuals": 6,
+          "late_only_records": 19,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 14,
+          "late_only_individuals": 3,
+          "late_only_records": 4,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 8,
+          "early_only_records": 15,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 5,
+          "late_only_individuals": 3,
+          "late_only_records": 5,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "discarded_middle": "2015-12-08",
+      "early_nights": 4,
+      "early_only_individuals": 12,
+      "eligible_species": [
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "6",
+      "id": "6|winter",
+      "late_nights": 4,
+      "late_only_individuals": 19,
+      "season": "winter",
+      "species_support": [
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 6,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 6,
+          "late_only_individuals": 3,
+          "late_only_records": 4,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 7,
+          "early_only_records": 16,
+          "late_only_individuals": 12,
+          "late_only_records": 18,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 4,
+          "late_only_records": 6,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 17,
+      "discarded_middle": null,
+      "early_nights": 4,
+      "early_only_individuals": 6,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "6",
+      "id": "6|spring",
+      "late_nights": 4,
+      "late_only_individuals": 28,
+      "season": "spring",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 8,
+          "late_only_records": 13,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 1,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 7,
+          "late_only_individuals": 17,
+          "late_only_records": 29,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 1,
+          "early_only_records": 3,
+          "late_only_individuals": 2,
+          "late_only_records": 4,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    },
+    {
+      "bridge_individuals_removed": 34,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 20,
+      "eligible_species": [
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 4,
+      "grid": "6",
+      "id": "6|summer",
+      "late_nights": 4,
+      "late_only_individuals": 23,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 6,
+          "late_only_records": 13,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 4,
+          "late_only_individuals": 5,
+          "late_only_records": 7,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 8,
+          "early_only_records": 10,
+          "late_only_individuals": 5,
+          "late_only_records": 6,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 6,
+          "early_only_records": 12,
+          "late_only_individuals": 5,
+          "late_only_records": 9,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 4,
+          "early_only_records": 7,
+          "late_only_individuals": 2,
+          "late_only_records": 5,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": true
+    },
+    {
+      "bridge_individuals_removed": 10,
+      "discarded_middle": "2016-06-03",
+      "early_nights": 4,
+      "early_only_individuals": 13,
+      "eligible_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "eligible_species_count": 3,
+      "grid": "7",
+      "id": "7|summer",
+      "late_nights": 4,
+      "late_only_individuals": 7,
+      "season": "summer",
+      "species_support": [
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "CHFA"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 0,
+          "late_only_records": 0,
+          "species": "DKR"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 3,
+          "late_only_records": 6,
+          "species": "LAPM"
+        },
+        {
+          "early_only_individuals": 0,
+          "early_only_records": 0,
+          "late_only_individuals": 1,
+          "late_only_records": 1,
+          "species": "PEER"
+        },
+        {
+          "early_only_individuals": 9,
+          "early_only_records": 15,
+          "late_only_individuals": 1,
+          "late_only_records": 2,
+          "species": "PEMA"
+        },
+        {
+          "early_only_individuals": 2,
+          "early_only_records": 3,
+          "late_only_individuals": 2,
+          "late_only_records": 4,
+          "species": "SKR"
+        }
+      ],
+      "stage4_reference": false
+    }
+  ]
+}
