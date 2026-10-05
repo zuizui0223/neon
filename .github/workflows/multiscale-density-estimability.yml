@@ -1,0 +1,54 @@
+name: multiscale-density-estimability
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_multiscale_density_estimability_v1.py"
+      - "analysis/run_multiscale_density_estimability_release2026_v1.py"
+      - "analysis/validate_multiscale_density_metrics_v1.py"
+      - "tests/test_multiscale_density_estimability_v1.py"
+      - "tests/test_multiscale_density_metric_mechanics_v1.py"
+      - "validation/multiscale_density_accommodation_v1/**"
+      - ".github/workflows/multiscale-density-estimability.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify effect-blind audit and metric mechanics
+        run: |
+          python -m unittest             tests.test_multiscale_density_estimability_v1             tests.test_multiscale_density_metric_mechanics_v1 -v
+
+      - name: Require NEON token
+        run: |
+          test -n "$NEON_API_TOKEN" || {
+            echo "NEON_API_TOKEN is not configured" >&2
+            exit 1
+          }
+
+      - name: Run RELEASE-2026 structural audit
+        run: |
+          python analysis/run_multiscale_density_estimability_release2026_v1.py
+
+      - name: Upload structural support receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-estimability-release2026-v1
+          path: build/multiscale_density_estimability_release2026_v1.json
+          if-no-files-found: error
+          retention-days: 30
