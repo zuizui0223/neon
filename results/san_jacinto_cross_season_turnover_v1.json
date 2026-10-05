@@ -1,0 +1,343 @@
+{
+  "schema": "neon.san_jacinto_cross_season_turnover.v1",
+  "status": "stage9_frozen_test_complete",
+  "frozen_design": "docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md",
+  "support_artifact": "results/san_jacinto_cross_season_turnover_support_v1.json",
+  "source": {
+    "figshare_doi": "10.6084/m9.figshare.18295520.v1",
+    "file_id": 33058799,
+    "sha256_verified": true
+  },
+  "software": {
+    "R": "R version 4.6.1 (2026-06-24)",
+    "EcoSimR": "0.1.0",
+    "n_replicates": 10000,
+    "burn_in": 500
+  },
+  "design": {
+    "representation": "NIGHT-FIRST",
+    "season_pairs": ["fall->winter", "winter->spring", "spring->summer"],
+    "bridge_rule": "remove from both seasons every species x individual observed in both seasons",
+    "species_eligibility": ">=2 distinct season-A-exclusive and >=2 distinct season-B-exclusive individuals",
+    "unit_eligibility": ">=3 eligible focal species",
+    "frozen_units": ["1|fall->winter", "1|winter->spring", "1|spring->summer", "2|spring->summer", "4|spring->summer", "5|spring->summer", "6|fall->winter", "6|winter->spring", "6|spring->summer", "7|spring->summer"],
+    "statistic": "matched species x trap recurrence across adjacent seasons with disjoint individuals",
+    "null": "season A fixed; season B fixed-fixed curveball preserving season-B species occupancies and trap richness"
+  },
+  "primary": {
+    "frozen_units": 10,
+    "informative_nonzero_null_sd": 10,
+    "positive_z_units": 9,
+    "global_mean_standardized_cross_season_recurrence": 1.7746955004,
+    "null_global_mean": 9.1595576067e-17,
+    "null_global_sd": 0.31607392966,
+    "one_sided_monte_carlo_p_upper": 9.9990001e-05,
+    "unit_level_criterion_pass": true,
+    "physical_grids": 6,
+    "grid_mean_z": {
+      "1": 1.571933222,
+      "2": 2.868300306,
+      "4": 3.4996902364,
+      "5": -0.46365991115,
+      "6": 2.2445381881,
+      "7": 0.39321014236
+    },
+    "positive_grid_means": 5,
+    "exact_grid_signflip_p_upper": 0.046875,
+    "exact_grid_signflip_patterns": 64,
+    "physical_grid_criterion_pass": true,
+    "decision": "support_cross_season_species_template_reassembly"
+  },
+  "units": [
+    {
+      "id": "1|fall->winter",
+      "grid": "1",
+      "season_a": "fall",
+      "season_b": "winter",
+      "species": ["CHFA", "DKR", "PEER", "PEMA"],
+      "species_count": 4,
+      "bridge_individuals_removed": 11,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 8,
+        "DKR": 12,
+        "PEER": 3,
+        "PEMA": 2
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 4,
+        "DKR": 9,
+        "PEER": 3,
+        "PEMA": 13
+      },
+      "season_a_records": 69,
+      "season_b_records": 78,
+      "observed_matched_species_trap_overlap": 17,
+      "null_mean": 16.5225,
+      "null_sd": 1.7891377396,
+      "z": 0.26688833924,
+      "p_upper": 0.50764923508,
+      "seed": 2026100510
+    },
+    {
+      "id": "1|winter->spring",
+      "grid": "1",
+      "season_a": "winter",
+      "season_b": "spring",
+      "species": ["CHFA", "DKR", "PEER", "PEMA"],
+      "species_count": 4,
+      "bridge_individuals_removed": 19,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 4,
+        "DKR": 5,
+        "PEER": 2,
+        "PEMA": 10
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 2,
+        "DKR": 9,
+        "PEER": 2,
+        "PEMA": 11
+      },
+      "season_a_records": 57,
+      "season_b_records": 81,
+      "observed_matched_species_trap_overlap": 15,
+      "null_mean": 13.1174,
+      "null_sd": 1.7022065065,
+      "z": 1.1059762684,
+      "p_upper": 0.2095790421,
+      "seed": 2026100511
+    },
+    {
+      "id": "1|spring->summer",
+      "grid": "1",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["CHFA", "DKR", "LAPM", "PEER", "PEMA"],
+      "species_count": 5,
+      "bridge_individuals_removed": 20,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 4,
+        "DKR": 9,
+        "LAPM": 2,
+        "PEER": 2,
+        "PEMA": 11
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 10,
+        "DKR": 11,
+        "LAPM": 5,
+        "PEER": 19,
+        "PEMA": 18
+      },
+      "season_a_records": 101,
+      "season_b_records": 191,
+      "observed_matched_species_trap_overlap": 35,
+      "null_mean": 26.7096,
+      "null_sd": 2.4799763846,
+      "z": 3.3429350583,
+      "p_upper": 0.000799920008,
+      "seed": 2026100512
+    },
+    {
+      "id": "2|spring->summer",
+      "grid": "2",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["CHFA", "DKR", "PEMA"],
+      "species_count": 3,
+      "bridge_individuals_removed": 12,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 10,
+        "DKR": 9,
+        "PEMA": 11
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 19,
+        "DKR": 4,
+        "PEMA": 15
+      },
+      "season_a_records": 89,
+      "season_b_records": 97,
+      "observed_matched_species_trap_overlap": 26,
+      "null_mean": 20.1452,
+      "null_sd": 2.0412088608,
+      "z": 2.868300306,
+      "p_upper": 0.003799620038,
+      "seed": 2026100513
+    },
+    {
+      "id": "4|spring->summer",
+      "grid": "4",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["CHFA", "LAPM", "PEMA", "SKR"],
+      "species_count": 4,
+      "bridge_individuals_removed": 11,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 7,
+        "LAPM": 4,
+        "PEMA": 18,
+        "SKR": 8
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 7,
+        "LAPM": 11,
+        "PEMA": 12,
+        "SKR": 11
+      },
+      "season_a_records": 89,
+      "season_b_records": 159,
+      "observed_matched_species_trap_overlap": 33,
+      "null_mean": 23.9784,
+      "null_sd": 2.5778281478,
+      "z": 3.4996902364,
+      "p_upper": 0.000499950005,
+      "seed": 2026100514
+    },
+    {
+      "id": "5|spring->summer",
+      "grid": "5",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["LAPM", "PEMA", "SKR"],
+      "species_count": 3,
+      "bridge_individuals_removed": 9,
+      "season_a_exclusive_individuals_by_species": {
+        "LAPM": 10,
+        "PEMA": 11,
+        "SKR": 12
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "LAPM": 29,
+        "PEMA": 3,
+        "SKR": 13
+      },
+      "season_a_records": 85,
+      "season_b_records": 123,
+      "observed_matched_species_trap_overlap": 17,
+      "null_mean": 17.7712,
+      "null_sd": 1.6632880727,
+      "z": -0.46365991115,
+      "p_upper": 0.77892210779,
+      "seed": 2026100515
+    },
+    {
+      "id": "6|fall->winter",
+      "grid": "6",
+      "season_a": "fall",
+      "season_b": "winter",
+      "species": ["PEER", "PEMA", "SKR"],
+      "species_count": 3,
+      "bridge_individuals_removed": 20,
+      "season_a_exclusive_individuals_by_species": {
+        "PEER": 8,
+        "PEMA": 13,
+        "SKR": 4
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "PEER": 5,
+        "PEMA": 19,
+        "SKR": 7
+      },
+      "season_a_records": 74,
+      "season_b_records": 73,
+      "observed_matched_species_trap_overlap": 19,
+      "null_mean": 14.3917,
+      "null_sd": 1.9946601156,
+      "z": 2.3103184166,
+      "p_upper": 0.021497850215,
+      "seed": 2026100516
+    },
+    {
+      "id": "6|winter->spring",
+      "grid": "6",
+      "season_a": "winter",
+      "season_b": "spring",
+      "species": ["CHFA", "PEMA", "SKR"],
+      "species_count": 3,
+      "bridge_individuals_removed": 16,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 4,
+        "PEMA": 13,
+        "SKR": 9
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 8,
+        "PEMA": 21,
+        "SKR": 3
+      },
+      "season_a_records": 78,
+      "season_b_records": 62,
+      "observed_matched_species_trap_overlap": 12,
+      "null_mean": 9.5083,
+      "null_sd": 1.6970619057,
+      "z": 1.4682434339,
+      "p_upper": 0.1199880012,
+      "seed": 2026100517
+    },
+    {
+      "id": "6|spring->summer",
+      "grid": "6",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["CHFA", "LAPM", "PEMA", "SKR"],
+      "species_count": 4,
+      "bridge_individuals_removed": 16,
+      "season_a_exclusive_individuals_by_species": {
+        "CHFA": 8,
+        "LAPM": 3,
+        "PEMA": 21,
+        "SKR": 3
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "CHFA": 9,
+        "LAPM": 18,
+        "PEMA": 18,
+        "SKR": 7
+      },
+      "season_a_records": 87,
+      "season_b_records": 171,
+      "observed_matched_species_trap_overlap": 28,
+      "null_mean": 21.1166,
+      "null_sd": 2.3293662303,
+      "z": 2.9550527137,
+      "p_upper": 0.00299970003,
+      "seed": 2026100518
+    },
+    {
+      "id": "7|spring->summer",
+      "grid": "7",
+      "season_a": "spring",
+      "season_b": "summer",
+      "species": ["LAPM", "PEMA", "SKR"],
+      "species_count": 3,
+      "bridge_individuals_removed": 5,
+      "season_a_exclusive_individuals_by_species": {
+        "LAPM": 2,
+        "PEMA": 17,
+        "SKR": 6
+      },
+      "season_b_exclusive_individuals_by_species": {
+        "LAPM": 5,
+        "PEMA": 16,
+        "SKR": 4
+      },
+      "season_a_records": 48,
+      "season_b_records": 65,
+      "observed_matched_species_trap_overlap": 11,
+      "null_mean": 10.4071,
+      "null_sd": 1.5078451345,
+      "z": 0.39321014236,
+      "p_upper": 0.46495350465,
+      "seed": 2026100519
+    }
+  ],
+  "claim_boundary": {
+    "habitat_mechanism_identified": false,
+    "competition_causally_identified": false,
+    "nonadjacent_seasons_opened": false,
+    "species_pair_decomposition_opened": false,
+    "one_individual_threshold_used": false,
+    "alternative_overlap_metric_opened": false
+  }
+}
