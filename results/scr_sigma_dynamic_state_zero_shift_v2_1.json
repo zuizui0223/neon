@@ -1,0 +1,161 @@
+{
+  "schema": "neon.scr_sigma_dynamic_state_zero_shift_diagnostic.v2_1",
+  "generated_at_utc": "2026-10-05 01:55:25 UTC",
+  "seed": 20261005,
+  "nrepl_per_sigma": 96,
+  "secr_version": "5.4.3",
+  "design": {
+    "trap_grid": "7x7",
+    "spacing_m": 6.25,
+    "nights": 3,
+    "checks_per_night": 3,
+    "g0": 0.15,
+    "density_per_ha": 60,
+    "buffer_m": 100,
+    "sigma_true_m": [6.25, 12.5, 25],
+    "shift_multiplier": 0,
+    "generator": "sequential independent static SCR checks with no state shift",
+    "fit_model": "CL=TRUE; HN; g0~b; sigma~1"
+  },
+  "summaries": [
+    {
+      "sigma_true": 6.25,
+      "method": "CHECK",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 6.1967,
+      "mean_sigma_hat": 6.2321,
+      "median_relative_bias": -0.0085,
+      "mean_relative_bias": -0.0029,
+      "coverage95": 0.9479
+    },
+    {
+      "sigma_true": 6.25,
+      "method": "FIRST",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 6.3341,
+      "mean_sigma_hat": 6.4062,
+      "median_relative_bias": 0.0134,
+      "mean_relative_bias": 0.025,
+      "coverage95": 0.9583
+    },
+    {
+      "sigma_true": 6.25,
+      "method": "LAST",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 6.3106,
+      "mean_sigma_hat": 6.3614,
+      "median_relative_bias": 0.0097,
+      "mean_relative_bias": 0.0178,
+      "coverage95": 0.9167
+    },
+    {
+      "sigma_true": 12.5,
+      "method": "CHECK",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 12.6964,
+      "mean_sigma_hat": 12.7282,
+      "median_relative_bias": 0.0157,
+      "mean_relative_bias": 0.0183,
+      "coverage95": 0.9688
+    },
+    {
+      "sigma_true": 12.5,
+      "method": "FIRST",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 13.1939,
+      "mean_sigma_hat": 13.2993,
+      "median_relative_bias": 0.0555,
+      "mean_relative_bias": 0.0639,
+      "coverage95": 0.9375
+    },
+    {
+      "sigma_true": 12.5,
+      "method": "LAST",
+      "n": 96,
+      "n_success": 95,
+      "failure_fraction": 0.0104,
+      "median_sigma_hat": 13.1872,
+      "mean_sigma_hat": 13.1761,
+      "median_relative_bias": 0.055,
+      "mean_relative_bias": 0.0541,
+      "coverage95": 0.9474
+    },
+    {
+      "sigma_true": 25,
+      "method": "CHECK",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 24.5754,
+      "mean_sigma_hat": 25.0777,
+      "median_relative_bias": -0.017,
+      "mean_relative_bias": 0.0031,
+      "coverage95": 0.9167
+    },
+    {
+      "sigma_true": 25,
+      "method": "FIRST",
+      "n": 96,
+      "n_success": 96,
+      "failure_fraction": 0,
+      "median_sigma_hat": 25.2525,
+      "mean_sigma_hat": 25.745,
+      "median_relative_bias": 0.0101,
+      "mean_relative_bias": 0.0298,
+      "coverage95": 0.9062
+    },
+    {
+      "sigma_true": 25,
+      "method": "LAST",
+      "n": 96,
+      "n_success": 94,
+      "failure_fraction": 0.0208,
+      "median_sigma_hat": 25.2682,
+      "mean_sigma_hat": 25.3654,
+      "median_relative_bias": 0.0107,
+      "mean_relative_bias": 0.0146,
+      "coverage95": 0.883
+    }
+  ],
+  "paired_contrasts": [
+    {
+      "sigma_true": 6.25,
+      "n_paired": 96,
+      "median_last_first_ratio": 0.9968,
+      "median_check_first_ratio": 0.9699,
+      "median_check_last_ratio": 0.9925
+    },
+    {
+      "sigma_true": 12.5,
+      "n_paired": 95,
+      "median_last_first_ratio": 1.0031,
+      "median_check_first_ratio": 0.9546,
+      "median_check_last_ratio": 0.967
+    },
+    {
+      "sigma_true": 25,
+      "n_paired": 94,
+      "median_last_first_ratio": 0.9992,
+      "median_check_first_ratio": 0.9822,
+      "median_check_last_ratio": 0.9867
+    }
+  ],
+  "diagnostic_checks": {
+    "frozen_bias_threshold": 0.1,
+    "max_abs_median_relative_bias": 0.0555,
+    "zero_shift_gate_passed": true,
+    "max_abs_median_last_first_ratio_deviation": 0.0032,
+    "nonzero_shift_cells_run": false,
+    "empirical_real_data_sigma_opened": false
+  }
+}
