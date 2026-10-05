@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   stage4:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
           use-public-rspm: true
       - name: Install dependencies and EcoSimR
         run: |
-          Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("jsonlite","digest"), repos="https://cloud.r-project.org")'
           git clone --depth 1 https://github.com/GotelliLab/EcoSimR.git /tmp/EcoSimR
           R CMD INSTALL /tmp/EcoSimR
       - name: Verify helper logic
