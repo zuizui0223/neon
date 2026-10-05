@@ -150,7 +150,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "tagged_capture_rows": 0,
         "untagged_capture_rows": 0,
         "capture_nightuids": set(),
-        "capture_coordinates": set(),
+        "coordinate_bearing_capture_rows": 0,
         "individual_rows": defaultdict(list),
     })
 
@@ -194,11 +194,12 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         g["capture_rows"] += 1
         g["capture_nightuids"].add(n)
         if coord:
-            g["capture_coordinates"].add(coord)
+            g["coordinate_bearing_capture_rows"] += 1
         tag = _clean(row.get(t_tag)) if t_tag else ""
         if tag:
             g["tagged_capture_rows"] += 1
-            g["individual_rows"][tag].append((n, coord))
+            # Store support only, not coordinate identity or displacement.
+            g["individual_rows"][tag].append((n, bool(coord)))
         else:
             g["untagged_capture_rows"] += 1
 
@@ -207,15 +208,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         e = effort[(plot, event)]
         tag_records = g["individual_rows"]
         repeat_capture = 0
-        repeat_location = 0
+        repeat_coordinate_supported = 0
         repeat_night = 0
+        coordinate_supported_individuals = 0
         for records in tag_records.values():
             if len(records) >= 2:
                 repeat_capture += 1
-            coords = {c for _, c in records if c}
+            n_with_coord = sum(int(has_coord) for _, has_coord in records)
+            if n_with_coord >= 1:
+                coordinate_supported_individuals += 1
+            if n_with_coord >= 2:
+                repeat_coordinate_supported += 1
             nights = {n for n, _ in records if n}
-            if len(records) >= 2 and len(coords) >= 2:
-                repeat_location += 1
             if len(nights) >= 2:
                 repeat_night += 1
 
@@ -230,14 +234,15 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_trap_nights_observed": len(e["trap_nights"]),
             "n_distinct_trap_coordinates_in_effort": len(e["trap_coordinates"]),
             "n_capture_rows": int(g["capture_rows"]),
+            "n_coordinate_bearing_capture_rows": int(g["coordinate_bearing_capture_rows"]),
             "n_tagged_capture_rows": int(g["tagged_capture_rows"]),
             "n_untagged_capture_rows": int(g["untagged_capture_rows"]),
             "n_unique_tagged_individuals": len(tag_records),
+            "n_coordinate_supported_tagged_individuals": coordinate_supported_individuals,
             "n_repeat_capture_tagged_individuals": repeat_capture,
-            "n_repeat_location_tagged_individuals": repeat_location,
+            "n_repeat_coordinate_supported_tagged_individuals": repeat_coordinate_supported,
             "n_multi_night_tagged_individuals": repeat_night,
             "n_capture_nights": len(g["capture_nightuids"]),
-            "n_distinct_capture_coordinates": len(g["capture_coordinates"]),
         })
 
     species = defaultdict(lambda: {
@@ -246,10 +251,10 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "sites": set(),
         "sampling_types": set(),
         "sessions_with_any_repeat_capture": 0,
-        "sessions_with_any_repeat_location": 0,
+        "sessions_with_any_repeat_coordinate_support": 0,
         "sessions_with_any_multi_night_individual": 0,
         "max_unique_tagged_individuals": 0,
-        "max_repeat_location_individuals": 0,
+        "max_repeat_coordinate_supported_individuals": 0,
     })
     for s in sessions:
         z = species[s["taxon"]]
@@ -258,13 +263,16 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         z["sites"].update(s["site_ids"])
         z["sampling_types"].update(s["sampling_types"])
         z["sessions_with_any_repeat_capture"] += int(s["n_repeat_capture_tagged_individuals"] > 0)
-        z["sessions_with_any_repeat_location"] += int(s["n_repeat_location_tagged_individuals"] > 0)
+        z["sessions_with_any_repeat_coordinate_support"] += int(
+            s["n_repeat_coordinate_supported_tagged_individuals"] > 0
+        )
         z["sessions_with_any_multi_night_individual"] += int(s["n_multi_night_tagged_individuals"] > 0)
         z["max_unique_tagged_individuals"] = max(
             z["max_unique_tagged_individuals"], s["n_unique_tagged_individuals"]
         )
-        z["max_repeat_location_individuals"] = max(
-            z["max_repeat_location_individuals"], s["n_repeat_location_tagged_individuals"]
+        z["max_repeat_coordinate_supported_individuals"] = max(
+            z["max_repeat_coordinate_supported_individuals"],
+            s["n_repeat_coordinate_supported_tagged_individuals"],
         )
 
     species_summary = []
@@ -276,10 +284,14 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_sites": len(z["sites"]),
             "sampling_types": sorted(z["sampling_types"]),
             "n_sessions_with_any_repeat_capture": z["sessions_with_any_repeat_capture"],
-            "n_sessions_with_any_repeat_location": z["sessions_with_any_repeat_location"],
+            "n_sessions_with_any_repeat_coordinate_support": z[
+                "sessions_with_any_repeat_coordinate_support"
+            ],
             "n_sessions_with_any_multi_night_individual": z["sessions_with_any_multi_night_individual"],
             "max_unique_tagged_individuals_in_session": z["max_unique_tagged_individuals"],
-            "max_repeat_location_individuals_in_session": z["max_repeat_location_individuals"],
+            "max_repeat_coordinate_supported_individuals_in_session": z[
+                "max_repeat_coordinate_supported_individuals"
+            ],
         })
 
     result = {
