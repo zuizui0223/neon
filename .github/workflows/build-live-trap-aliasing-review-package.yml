@@ -14,7 +14,7 @@ on:
       - examples/repeated_locations_example.csv
       - examples/repeated_locations_example_expected.json
       - docs/REVIEW_PACKAGE_MANIFEST_V4.md
-      - docs/FIGURE_CAPTIONS_V3.md
+      - docs/FIGURE_CAPTIONS_V4.md
       - docs/SUBMISSION_STATEMENTS_V1.md
       - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md
       - docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md
@@ -41,6 +41,10 @@ on:
       - results/scr_sigma_consequence_simulation_v1.json
       - results/scr_sigma_consequence_replicates_v1.csv
       - results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json
+      - analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R
+      - docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md
+      - results/scr_sigma_dynamic_state_zero_shift_v2_1.json
+      - results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
       - analysis/audit_live_trap_night_label_semantics_v1.py
       - tests/test_temporal_aliasing_diagnostic.py
       - tests/test_temporal_aliasing_example.py
@@ -86,7 +90,7 @@ jobs:
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
 
           cp docs/REVIEW_PACKAGE_MANIFEST_V4.md /tmp/live-trap-aliasing-review/docs/
-          cp docs/FIGURE_CAPTIONS_V3.md /tmp/live-trap-aliasing-review/docs/
+          cp docs/FIGURE_CAPTIONS_V4.md /tmp/live-trap-aliasing-review/docs/
           cp docs/SUBMISSION_STATEMENTS_V1.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md /tmp/live-trap-aliasing-review/docs/
           cp docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md /tmp/live-trap-aliasing-review/docs/
@@ -128,6 +132,10 @@ jobs:
           cp results/scr_sigma_consequence_simulation_v1.json /tmp/live-trap-aliasing-review/results/
           cp results/scr_sigma_consequence_replicates_v1.csv /tmp/live-trap-aliasing-review/results/
           cp results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json /tmp/live-trap-aliasing-review/results/
+          cp analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R /tmp/live-trap-aliasing-review/analysis/
+          cp docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md /tmp/live-trap-aliasing-review/docs/
+          cp results/scr_sigma_dynamic_state_zero_shift_v2_1.json /tmp/live-trap-aliasing-review/results/
+          cp results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv /tmp/live-trap-aliasing-review/results/
 
           cp validation/san_jacinto_positional_aliasing_v1/effect_lock_v1.json \
              /tmp/live-trap-aliasing-review/validation/san_jacinto_positional_aliasing_v1/
