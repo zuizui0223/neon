@@ -248,8 +248,14 @@ run_rep <- function(df,repr,offset,unit_ids) {
 }
 
 count_class <- function(x,cls) sum(vapply(x,function(z)isTRUE(z$analyzable)&&identical(z$classification,cls),logical(1)))
-sig_ids <- function(x) vapply(x,function(z) if(isTRUE(z$analyzable)&&identical(z$classification,"segregated")) z$id else NA_character_,character(1))
-sig_ids <- function(x) as.character(na.omit(sig_ids(x)))
+sig_ids <- function(x) {
+  vals <- vapply(
+    x,
+    function(z) if(isTRUE(z$analyzable) && identical(z$classification,"segregated")) z$id else NA_character_,
+    character(1)
+  )
+  as.character(na.omit(vals))
+}
 ses_named <- function(x) {
   v<-vapply(x,function(z) if(!isTRUE(z$analyzable)||is.null(z$ses)) NA_real_ else as.numeric(z$ses),numeric(1))
   setNames(v,vapply(x,function(z)z$id,character(1)))
