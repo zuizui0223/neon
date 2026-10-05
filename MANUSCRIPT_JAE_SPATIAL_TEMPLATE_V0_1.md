@@ -243,7 +243,7 @@ Thus the multi-night result was not explained simply by NIGHT-FIRST containing m
 
 ## 3.5 Individual fidelity amplified but did not create spatial persistence
 
-Across the eight reference units, 188 individuals appeared in both EARLY and LATE and were therefore removed from both halves before the complete-turnover test.
+Across the eight reference units, 188 individuals appeared in both EARLY and LATE and were therefore removed from both halves before the shared-identity-exclusion test.
 
 Even with no marked individual shared between the two matrices, seven of eight units retained positive standardized species × trap recurrence. The global mean standardized effect was
 
@@ -253,7 +253,7 @@ T=1.0374,
 
 with one-sided Monte Carlo \(p=0.00160\).
 
-The effect was substantially weaker than the corresponding recurrence before identity removal (4.091), showing that individual site fidelity was an important amplifier of spatial persistence. However, the positive post-turnover result demonstrated that fidelity of the same individuals was not sufficient to explain the species-level spatial pattern.
+The effect was substantially weaker than the corresponding recurrence before identity removal (4.091), showing that individual site fidelity was an important amplifier of spatial persistence. However, the positive post-exclusion result demonstrated that fidelity of the same individuals was not sufficient to explain the species-level spatial pattern.
 
 ## 3.6 Disjoint individual sets reassembled species-specific space use across seasons
 
@@ -281,11 +281,11 @@ Because every individual shared between paired seasons had been removed from bot
 
 ## 3.7 Scope limit: broader turnover generalization was suggestive but not established
 
-A separately frozen post-result generalization audit applied the within-season complete-turnover test to 18 supported grid-seasons across six physical grids.
+A separately frozen post-result generalization audit applied the within-season shared-identity-exclusion test to 18 supported grid-seasons across six physical grids.
 
 Thirteen of 18 units were positive, with global mean standardized recurrence 0.752 and joint Monte Carlo \(p=0.00080\). However, although five of six grid means were positive, the exact six-grid sign-flip test was \(p=0.125\), failing the predeclared grid-level robustness criterion.
 
-We therefore do not generalize the within-season complete-turnover effect to the entire assemblage. The primary identity-turnover inference remains strongest for the fixed segregated regimes and the independent adjacent-season test.
+We therefore do not generalize the within-season shared-identity-exclusion effect to the entire assemblage. The primary identity-independent recurrence inference remains strongest for the fixed segregated regimes and the independent adjacent-season test.
 
 # 4. Discussion
 
@@ -355,7 +355,7 @@ That distinction should matter wherever ecologists infer mechanism from repeated
 
 ## 4.6 Implications for conservation and reintroduction
 
-The original San Jacinto work emphasized the conservation challenge of maintaining a community in which smaller subordinate rodents coexist with larger competitors. The turnover result sharpens that problem.
+The original San Jacinto work emphasized the conservation challenge of maintaining a community in which smaller subordinate rodents coexist with larger competitors. The shared-identity-exclusion result sharpens that problem.
 
 If species-specific spatial organization were carried only by the same resident individuals, then loss of those individuals would be expected to erase much of the pattern. Instead, different individuals can reconstruct the spatial template. This suggests that the underlying landscape features or interaction regime that repeatedly generates spatial roles may be as important as the currently occupying animals.
 
@@ -454,7 +454,7 @@ Purpose: connect individual space use to persistent community structure.
 ## Figure 4. Same spatial structure, different animals
 
 A. Schematic of bridge-individual removal.  
-B. Within-season complete-turnover standardized recurrence by reference unit.  
+B. Within-season shared-identity-exclusion standardized recurrence by reference unit.  
 C. Cross-season standardized recurrence for the 10 frozen adjacent-season units.  
 D. Six physical-grid means with exact sign-flip result.
 
