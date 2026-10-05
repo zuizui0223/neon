@@ -108,6 +108,59 @@ def summarize(values: list[dict[str, float]]) -> dict:
     }
 
 
+MECHANICAL_ACCEPTANCE = {
+    "max_abs_mean_bias_fraction_of_target": 0.05,
+    "max_fraction_debiased_b_nonpositive": 0.01,
+    "max_median_absolute_relative_error": 0.25,
+    "max_q90_absolute_relative_error": 0.50,
+}
+
+
+def cell_passes_mechanical_gate(cell: dict) -> bool:
+    target = abs(float(cell["mean_target_b"]))
+    if target <= 0:
+        return False
+    return (
+        abs(float(cell["mean_debiased_bias"])) / target
+        <= MECHANICAL_ACCEPTANCE["max_abs_mean_bias_fraction_of_target"]
+        and float(cell["fraction_debiased_b_nonpositive"])
+        <= MECHANICAL_ACCEPTANCE["max_fraction_debiased_b_nonpositive"]
+        and float(cell["median_absolute_relative_error_debiased"])
+        <= MECHANICAL_ACCEPTANCE["max_median_absolute_relative_error"]
+        and float(cell["q90_absolute_relative_error_debiased"])
+        <= MECHANICAL_ACCEPTANCE["max_q90_absolute_relative_error"]
+    )
+
+
+def choose_minimum_support(cells: list[dict]) -> dict:
+    by_n: dict[int, list[dict]] = {}
+    for cell in cells:
+        by_n.setdefault(int(cell["n_repeat_supported_individuals"]), []).append(cell)
+    candidates = sorted(by_n)
+    decisions = []
+    selected = None
+    for n in candidates:
+        rows = by_n[n]
+        passed = len(rows) >= 2 and all(cell_passes_mechanical_gate(x) for x in rows)
+        decisions.append({
+            "n_repeat_supported_individuals": n,
+            "scenario_count": len(rows),
+            "all_scenarios_pass": passed,
+        })
+        if passed and selected is None:
+            selected = n
+    return {
+        "acceptance_criteria": MECHANICAL_ACCEPTANCE,
+        "candidate_minima": candidates,
+        "per_minimum_decision": decisions,
+        "selected_minimum_repeat_supported_individuals": selected,
+        "rule": (
+            "choose the smallest candidate m passing every mechanical criterion "
+            "in every prespecified latent-centre scenario; if none pass, STOP"
+        ),
+    }
+
+
 def run(
     *,
     replicates: int = 2000,
@@ -148,6 +201,8 @@ def run(
                 }
             )
 
+    support_decision = choose_minimum_support(cells)
+
     return {
         "schema": "neon.multiscale_density.metric_support_simulation.v1",
         "status": "synthetic_mechanical_support_only",
@@ -157,6 +212,7 @@ def run(
         "detector_kernel_sigma_m": sigma,
         "captures_per_individual": "discrete uniform 2..4",
         "cells": cells,
+        "mechanical_support_decision": support_decision,
         "boundary": {
             "biological_data_read": False,
             "density_effects_estimated": False,
