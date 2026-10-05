@@ -152,8 +152,51 @@ build_matrix <- function(df,grid,seas) {
   m
 }
 
+community_c_score <- function(mat) {
+  pairs <- combn(seq_len(nrow(mat)), 2)
+  vals <- apply(pairs, 2, function(ii) {
+    a <- mat[ii[1],]
+    b <- mat[ii[2],]
+    ra <- sum(a)
+    rb <- sum(b)
+    shared <- sum(a == 1 & b == 1)
+    (ra - shared) * (rb - shared)
+  })
+  mean(vals)
+}
+
+has_fixed_fixed_switch <- function(mat) {
+  if (nrow(mat) < 2 || ncol(mat) < 2) return(FALSE)
+  for (i in seq_len(nrow(mat)-1L)) {
+    for (j in (i+1L):nrow(mat)) {
+      a_only <- any(mat[i,] == 1 & mat[j,] == 0)
+      b_only <- any(mat[i,] == 0 & mat[j,] == 1)
+      if (a_only && b_only) return(TRUE)
+    }
+  }
+  FALSE
+}
+
 run_one <- function(mat,seed) {
   if (nrow(mat)<3) stop("Stage 4 fixed universe requires >=3 species per ALL unit")
+
+  # A binary matrix with no switchable 2x2 checkerboard has a unique
+  # realization under its fixed row and column margins (Ferrers/threshold
+  # case). SIM9 therefore has a point-mass null distribution. Current
+  # EcoSimR's recursive trade search can overflow on this exact edge case,
+  # so return the mathematically equivalent degenerate fixed-fixed null.
+  if (!has_fixed_fixed_switch(mat)) {
+    obs <- community_c_score(mat)
+    return(list(
+      observed_c_score=obs,null_mean=obs,null_sd=0,
+      ses=NULL,null_q025=obs,null_q975=obs,classification="null",
+      row_totals=as.list(setNames(as.integer(rowSums(mat)),rownames(mat))),
+      occupied_trap_columns=ncol(mat),
+      column_richness_total=sum(colSums(mat)),seed=seed,
+      degenerate_fixed_fixed_exact=TRUE
+    ))
+  }
+
   set.seed(seed)
   mod<-EcoSimR::cooc_null_model(
     as.data.frame(mat),algo="sim9",metric="c_score",
@@ -196,6 +239,7 @@ run_rep <- function(df,repr,offset,unit_ids) {
     }
     sidx<-match(seas,SEASONS)
     seed<-BASE_SEED+offset*1000L+as.integer(g)*10L+sidx
+    message(sprintf("%s %s: species=%d traps=%d switchable=%s",repr,unit_ids[i],nrow(m),ncol(m),has_fixed_fixed_switch(m)))
     rr<-run_one(m,seed)
     out[[i]]<-c(list(id=unit_ids[i],grid=g,season=seas,analyzable=TRUE,
                      species=rownames(m),species_count=nrow(m)),rr)
