@@ -1085,3 +1085,130 @@ This is a software edge case, not an undefined ecological null. For exactly two 
 Accordingly, for exactly two species Stage 3 uses the **exact degenerate fixed–fixed distribution**: null mean = observed C-score, null SD = 0, both null quantiles = observed C-score, classification = null. No random draw is needed or informative.
 
 Matrices with three or more species continue to use EcoSimR `sim9` with the already frozen settings. This compatibility rule was added after the package error and before any NIGHT-FIRST or ANCHOR outcome was generated. It does not change the reproduction target of 32 analyzable units, 8 segregated and 0 aggregated.
+
+
+---
+
+# Stage 9 — cross-season reassembly after complete individual turnover
+
+**Status:** support-only audit completed; primary cross-season overlap test frozen before any Stage-9 spatial-overlap outcome is opened.
+
+## Biological question
+
+Stages 5 and 7 established that species-specific multi-night spatial structure persists within a season, including after all individuals shared between the early and late seasonal halves are removed.
+
+Stage 9 asks a stronger question:
+
+> **Does the same species-specific spatial template reappear after both the season and the individuals have changed?**
+
+A positive result would separate the template from short-term movement direction, a single point centre, and persistence of the same marked individuals.
+
+## Representation and season pairs
+
+Use NIGHT-FIRST records only.
+
+Within each physical grid compare the three adjacent seasonal transitions:
+
+- fall -> winter;
+- winter -> spring;
+- spring -> summer.
+
+For every grid x season-pair, remove from **both seasons** every species x individual ID observed in both members of the pair.
+
+The two seasonal matrices therefore contain disjoint individual identities by construction.
+
+## Frozen support rule
+
+The support-only audit was completed without calculating any cross-season trap-overlap statistic.
+
+A species is eligible within a grid x season-pair only if, after bridge-individual removal, it retains at least:
+
+- **2 distinct individuals in season A**, and
+- **2 distinct individuals in season B**.
+
+A grid x season-pair is eligible if at least **3 focal species** meet that rule.
+
+This yields the following fixed support:
+
+- **10** eligible grid x adjacent-season pairs;
+- **6** physical grids;
+- **290** bridge individuals removed across all 24 candidate pairs before support was evaluated.
+
+No weaker one-individual threshold will be used after outcomes are opened.
+
+## Primary recurrence statistic
+
+For every eligible unit, build season-A and season-B species x trap presence/absence matrices from the disjoint-individual NIGHT-FIRST records of the eligible species.
+
+Use the same matched species x trap recurrence statistic as Stage 7:
+
+[
+P_u=sum_{s,j} I(A_{sj}=1 land B_{sj}=1).
+]
+
+This statistic asks whether each species returns to the same trap locations in the next season more often than expected from the later-season occupancy margins.
+
+## Fixed-fixed null
+
+Hold the season-A matrix fixed.
+
+Randomize the season-B matrix with the EcoSimR curveball / SIM9 fixed-fixed algorithm, preserving:
+
+- each species' number of occupied season-B traps;
+- each trap's season-B species richness.
+
+Use **10,000** null replicates after **500** burn-in swaps with deterministic seed family beginning at **2026100509**.
+
+For informative unit (u),
+
+[
+Z_u=(P_u-mu_u)/sigma_u.
+]
+
+Use the same joint-replicate construction as Stages 7-8 for a global equally weighted mean standardized statistic.
+
+## Frozen unit-level criterion
+
+Cross-season recurrence must first satisfy all of:
+
+- at least **8 of 10** units with non-zero null SD;
+- at least **7 of 10** units with (Z_u>0);
+- global mean (Z>0);
+- one-sided joint Monte Carlo (p<0.05).
+
+## Frozen physical-grid criterion
+
+To avoid treating multiple seasonal transitions within one grid as independent replicates:
+
+1. average (Z_u) across eligible season-pairs within each physical grid;
+2. enumerate all sign flips of the **6** grid means.
+
+Physical-grid robustness requires:
+
+- at least **5 of 6** grid means positive; and
+- exact one-sided sign-flip (p<0.05).
+
+The Stage-9 ecological claim is supported only if both the unit-level and physical-grid criteria pass.
+
+If the unit-level criterion passes but the grid-level criterion fails, the result is recorded as non-independent evidence and the cross-season generalization claim stops.
+
+## Fixed secondary summaries
+
+Report descriptively:
+
+- observed and null matched overlap by unit;
+- unit (Z_u) and Monte Carlo p-values;
+- grid-mean (Z);
+- bridge individuals removed by unit;
+- eligible species and exclusive-individual counts;
+- comparison with Stage-7 within-season turnover (Z) only as descriptive scale context.
+
+No species-pair decomposition, non-adjacent season comparison, relaxed individual threshold, alternative overlap metric or habitat surrogate will be opened after seeing Stage 9.
+
+## Interpretation boundary
+
+A fully positive result would support:
+
+> **Species-specific spatial use is reassembled across adjacent seasons by different individuals, implying a persistent spatial template above individual identity and within-season behavioural continuity.**
+
+It would still not identify whether the template is generated by habitat structure, burrow/refuge distributions, resources, territoriality, interspecific competition or another persistent spatial constraint.
