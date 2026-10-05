@@ -365,3 +365,100 @@ A NIGHT-FIRST result that retains the published segregation while ANCHOR does no
 > **Community spatial partitioning is carried by recurring multi-night space-use footprints rather than by a single point-like individual anchor or by later within-night recapture directions.**
 
 A failure of NIGHT-FIRST retention would instead show that later within-night capture locations materially contribute to the published co-occurrence pattern, without identifying whether that contribution is natural movement or handling-related observation process.
+
+
+---
+
+# Stage 3 outcome — published 32-unit reproduction stopped by source mismatch
+
+The public Figshare capture file was independently audited after the 32-unit reproduction gate failed.
+
+The audit found:
+
+- all focal date strings parse successfully;
+- deer mouse (PEMA) is present in all 32 grid-seasons, consistent with the paper;
+- 30 grid-seasons contain at least 3 focal species;
+- **grid 3 winter** contains only PEMA and SKR in the public capture file;
+- **grid 7 winter** contains only PEMA and SKR in the public capture file.
+
+This conflicts with the published Methods statement that all 32 spatial matrices contained 3–6 species. The first correct public-data reconstruction on the 30 supported units recovered **8 segregated and 0 aggregated** grid-seasons, matching the published headline count of segregated units but not the stated denominator.
+
+The frozen Stage-3 exact reproduction gate therefore remains failed. Reduced temporal representations are not interpreted under Stage 3.
+
+---
+
+# Stage 4 — public-data-supported temporal scale decomposition
+
+**Status:** adaptive route frozen after the Stage-3 source audit and before NIGHT-FIRST or ANCHOR SIM9 outcomes are opened.
+
+## Why this route is separate
+
+Stage 4 does not redefine the failed 32-unit reproduction. Its inferential universe is explicitly the subset of grid-seasons for which the deposited public capture data support the published matrix requirement of at least 3 focal species.
+
+This subset was determined from species-support counts only, without inspecting any NIGHT-FIRST or ANCHOR C-score or SIM9 result.
+
+## Fixed eligible universe
+
+Include the **30 grid-seasons** with at least 3 focal species in the ALL-capture public-data matrix.
+
+Exclude only:
+
+- grid 3 winter;
+- grid 7 winter.
+
+No other unit may be removed.
+
+## ALL reference gate
+
+Using the corrected public-data ALL representation and EcoSimR SIM9 exactly as in Stage 3:
+
+- all 30 eligible units must be analyzable;
+- exactly **8** must be above their 97.5th percentile null bound;
+- **0** must be below the 2.5th percentile.
+
+This reference result has already been observed during Stage-3 debugging and is therefore a **reconstruction/sanity condition, not a new hypothesis test**.
+
+The eight ALL-segregated grid-seasons define the fixed reference set (S_{ALL,30}).
+
+## Unopened primary comparison
+
+Only after the ALL reference gate passes, run the same EcoSimR SIM9 null on:
+
+1. **NIGHT-FIRST** — earliest valid trap per individual per calendar night;
+2. **ANCHOR** — one Stage-2 seasonal medoid of NIGHT-FIRST traps per individual.
+
+These reduced-representation SIM9 outcomes have not been opened in any prior successful route.
+
+Use 5,000 randomizations, burn-in 500, and deterministic seed family beginning at **2026100504**.
+
+## Frozen temporal-scale classification
+
+For each reduced representation, retention is the fraction of the eight ALL-reference segregated units that remain above that representation's own SIM9 97.5th percentile.
+
+Classification:
+
+- **point-anchor sufficient**: ANCHOR retains at least 6/8;
+- **between-night footprint**: NIGHT-FIRST retains at least 6/8 but ANCHOR retains fewer than 6/8;
+- **within-night records materially contribute**: NIGHT-FIRST retains fewer than 6/8.
+
+No alternative threshold or unit subset will be tried.
+
+## Fixed secondary summaries
+
+Report descriptively:
+
+- total number of segregated / aggregated / null units under each representation;
+- exact identities of retained and lost ALL-reference units;
+- mean and median SES under each representation;
+- Pearson SES correlations ALL vs NIGHT-FIRST and ALL vs ANCHOR;
+- row totals and occupied trap counts by representation.
+
+No species-pair decomposition is opened.
+
+## Ecological interpretation
+
+- **Point-anchor sufficient** would mean that one point-like seasonal location per individual carries most of the community segregation.
+- **Between-night footprint** would mean that recurring use of multiple locations across nights carries the segregation, while a single point-like individual anchor does not.
+- **Within-night records materially contribute** would mean that later positions within nights are required to reproduce most of the published segregation signal.
+
+The last outcome would not distinguish natural movement from capture/release response; it would instead show that the published ecological pattern is partly tied to within-night observation scale.
