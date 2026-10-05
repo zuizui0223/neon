@@ -47,16 +47,74 @@ def truthy_remove(x: object) -> bool:
     return s in {"1", "1.0", "true", "t", "yes", "y"}
 
 
-def fetch_dataset_zip() -> bytes:
+def _fetch(url: str) -> bytes:
     req = urllib.request.Request(
-        DATASET_ZIP_URL,
-        headers={"User-Agent": "neon-wisconsin-footprint-feasibility/1.0"},
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (compatible; neon-wisconsin-footprint-feasibility/1.0)",
+            "Accept": "*/*",
+        },
     )
     with urllib.request.urlopen(req, timeout=180) as response:
         return response.read()
 
 
+def fetch_capture_source() -> tuple[bytes, dict]:
+    # Preferred public archive endpoint.
+    try:
+        raw_zip = _fetch(DATASET_ZIP_URL)
+        with zipfile.ZipFile(io.BytesIO(raw_zip)) as zf:
+            names = zf.namelist()
+            matches = [n for n in names if Path(n).name == CAPTURE_NAME]
+            if len(matches) == 1:
+                capture = zf.read(matches[0])
+                return capture, {
+                    "retrieval": "dryad_v2_dataset_zip",
+                    "dataset_zip_sha256": hashlib.sha256(raw_zip).hexdigest(),
+                    "archive_file_names": names,
+                }
+    except Exception:
+        pass
+
+    # Dryad's anonymous API policy can change. The public dataset landing page
+    # still exposes download file-stream identifiers; discover those without
+    # using any biological response value.
+    page_url = "https://datadryad.org/dataset/doi%3A10.5061/dryad.zpc866thw"
+    html = _fetch(page_url).decode("utf-8", errors="replace")
+    ids = sorted(set(re.findall(r"(?:stash/)?downloads/file_stream/(\\d+)", html)))
+    if not ids:
+        # Some page builds embed file metadata as JSON rather than hrefs.
+        ids = sorted(set(re.findall(r'file_stream\\/(\\d+)', html)))
+    if not ids:
+        raise RuntimeError("could not discover Dryad public file-stream ids")
+
+    tried = []
+    for file_id in ids:
+        for base in (
+            "https://datadryad.org/stash/downloads/file_stream/",
+            "https://datadryad.org/downloads/file_stream/",
+        ):
+            url = base + file_id
+            try:
+                raw = _fetch(url)
+            except Exception as exc:
+                tried.append({"file_id": file_id, "url": url, "error": type(exc).__name__})
+                continue
+            head = raw[:4096].decode("utf-8-sig", errors="replace")
+            if "SeasonNumber" in head and "Capture Date" in head and "Recap Date 1" in head:
+                return raw, {
+                    "retrieval": "dryad_public_file_stream_discovery",
+                    "file_stream_id": file_id,
+                    "landing_page": page_url,
+                    "discovered_file_stream_ids": ids,
+                }
+            tried.append({"file_id": file_id, "url": url, "not_capture_csv": True})
+    raise RuntimeError(f"CaptureMaster.csv not found among public file streams: {tried}")
+
+
 def extract_capture_csv(raw_zip: bytes) -> tuple[bytes, list[str]]:
+    # Kept for backwards-compatible unit use; main retrieval now returns the
+    # capture bytes directly.
     with zipfile.ZipFile(io.BytesIO(raw_zip)) as zf:
         names = zf.namelist()
         matches = [n for n in names if Path(n).name == CAPTURE_NAME]
@@ -276,18 +334,17 @@ def main() -> int:
     ap.add_argument("--cache-zip", type=Path)
     args = ap.parse_args()
 
-    raw_zip = fetch_dataset_zip()
+    capture_raw, retrieval = fetch_capture_source()
     if args.cache_zip is not None:
+        # Historical argument name retained; cache the retrieved capture file.
         args.cache_zip.parent.mkdir(parents=True, exist_ok=True)
-        args.cache_zip.write_bytes(raw_zip)
+        args.cache_zip.write_bytes(capture_raw)
 
-    capture_raw, names = extract_capture_csv(raw_zip)
     rows = list(csv.DictReader(capture_raw.decode("utf-8-sig").splitlines()))
     columns = list(rows[0].keys()) if rows else []
     result = inventory(rows, columns)
-    result["source"]["dataset_zip_sha256"] = hashlib.sha256(raw_zip).hexdigest()
+    result["source"].update(retrieval)
     result["source"]["capture_csv_sha256"] = hashlib.sha256(capture_raw).hexdigest()
-    result["source"]["archive_file_names"] = names
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
