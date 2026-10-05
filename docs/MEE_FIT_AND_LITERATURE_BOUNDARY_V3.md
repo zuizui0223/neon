@@ -48,6 +48,18 @@ That is exactly why the manuscript now tests temporal representation rather than
 Reference:
 Romairone J, Jiménez J, Luque-Larena JJ, Mougeot F. 2018. Spatial capture-recapture design and modelling for the study of small mammals. *PLoS ONE* 13:e0198766. DOI 10.1371/journal.pone.0198766.
 
+## Closest prior aggregation result: Milleret et al. (2018)
+
+Milleret et al. (2018, *Methods in Ecology and Evolution* 9:1896–1907, DOI 10.1111/2041-210X.13030) showed that spatial aggregation of SCR detections can reduce precision and bias detection-function parameters, and that the cost depends strongly on the observation model. Their partially aggregated binary formulation was designed to retain more information than a simple Bernoulli reduction.
+
+That paper is directly relevant and must be cited. It also sharpens the present boundary:
+
+- Milleret et al. aggregate **detector space** into coarser spatial units;
+- Borchers et al. (2014) address loss from **temporal occasion aggregation** when exact event times are available;
+- the present manuscript separates two additional components of repeated-check live trapping: **repeated-exposure closure of the detection kernel** and **selection among conflicting within-occasion detector states**.
+
+The present novelty must therefore not be phrased as "aggregation can bias SCR" or "observation model matters under aggregation." The narrower contribution is the decomposition of temporal aggregation into exposure closure versus location/state selection, plus the two-stage distinction between positional non-uniqueness and downstream estimand stability.
+
 ## Why finer occasions solve only one of two problems
 
 The v0.4 benchmark separates two issues.
