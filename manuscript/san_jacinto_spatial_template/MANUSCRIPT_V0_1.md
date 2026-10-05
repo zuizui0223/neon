@@ -399,7 +399,7 @@ This study is a secondary analysis of previously published data. Field ethics, t
 
 # References — working core
 
-Chock, R. Y., Shier, D. M. & Grether, G. F. (2018). [Direct dominance/avoidance study in the San Jacinto rodent assemblage]. *Animal Behaviour*, 137, 197–204. doi:10.1016/j.anbehav.2018.01.015.
+Chock, R. Y., Shier, D. M. & Grether, G. F. (2018). Body size, not phylogenetic relationship or residency, drives interspecific dominance in a little pocket mouse community. *Animal Behaviour*, 137, 197–204. doi:10.1016/j.anbehav.2018.01.015.
 
 Chock, R. Y., Shier, D. M. & Grether, G. F. (2022). Niche partitioning in an assemblage of granivorous rodents, and the challenge of community-level conservation. *Oecologia*, 198, 553–565. doi:10.1007/s00442-021-05104-5.
 
