@@ -308,10 +308,12 @@ result <- list(
     metric="c_score"
   ),
   support=rep$counts,
-  reproduction=list(
-    expected=list(grid_seasons=32, segregated=8, aggregated=0),
+  reference_gate=list(
+    status="reconstruction_sanity_condition_not_new_hypothesis_test",
+    excluded_public_source_mismatch_units=c("3|winter","7|winter"),
+    expected=list(grid_seasons=30, segregated=8, aggregated=0),
     observed=list(analyzable=all_n, segregated=all_seg, aggregated=all_agg),
-    passed=repro_pass
+    passed=reference_pass
   ),
   all_capture=all_res,
   claim_boundary=list(
@@ -322,8 +324,8 @@ result <- list(
   )
 )
 
-if (repro_pass) {
-  message("Stage 3B: same SIM9 null on NIGHT-FIRST and ANCHOR representations")
+if (reference_pass) {
+  message("Stage 4B: open NIGHT-FIRST and ANCHOR SIM9 outcomes on the fixed public-data 30")
   first_res <- run_representation(rep$night_first, "night_first", 1L)
   anchor_res <- run_representation(rep$anchor, "anchor", 2L)
 
@@ -346,7 +348,7 @@ if (repro_pass) {
 
   result$night_first <- first_res
   result$anchor <- anchor_res
-    reduced_support_pass <- identical(analyzable_count(first_res),30L) && identical(analyzable_count(anchor_res),30L)
+  reduced_support_pass <- identical(analyzable_count(first_res),30L) && identical(analyzable_count(anchor_res),30L)
   if (!reduced_support_pass) {
     result$status <- "stop_reduced_representation_support_loss"
   }
