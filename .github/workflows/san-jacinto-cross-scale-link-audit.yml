@@ -31,7 +31,7 @@ jobs:
         run: |
           python analysis/audit_san_jacinto_cross_scale_link_v1.py \
             --footprint results/san_jacinto_individual_footprint_assortativity_v1.json \
-            --stage4 results/san_jacinto_public_data_scale_decomposition_v1.json \
+            --stage4 results/san_jacinto_public30_scale_decomposition_v1.json \
             --output /tmp/san_jacinto_cross_scale_link_audit_v1.json
       - name: Persist audit
         run: |
