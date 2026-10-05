@@ -12,7 +12,8 @@ PEMA=ROOT/"results"/"san_jacinto_pema_scr_sigma_post_stop_result_v1.json"
 CONSEQUENCE=ROOT/"results"/"scr_sigma_consequence_simulation_v1.json"
 EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
-HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"\nREVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
+HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
+REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
 
 
 class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
@@ -23,12 +24,14 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         cls.consequence=json.loads(CONSEQUENCE.read_text())
         cls.emp=json.loads(EMPIRICAL.read_text())
         cls.den=json.loads(DENOM.read_text())
-        cls.home=json.loads(HOME.read_text())\n        cls.reversal=json.loads(REVERSAL.read_text())
+        cls.home=json.loads(HOME.read_text())
+        cls.reversal=json.loads(REVERSAL.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.5",self.text)
         self.assertIn("Positional aliasing is a warning condition, not a bias estimate",self.text)
-        self.assertIn("Time-reversal symmetry and span non-identifiability",self.text)\n        self.assertIn("full temporal exchangeability is sufficient but not necessary",self.text.lower())
+        self.assertIn("Time-reversal symmetry and span non-identifiability",self.text)
+        self.assertIn("full temporal exchangeability is sufficient but not necessary",self.text.lower())
         words=re.findall(r"\b\w+[\w'–-]*\b",self.text)
         self.assertGreaterEqual(len(words),4000)
         self.assertLessEqual(len(words),8500)
@@ -147,7 +150,9 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
             "first is biologically correct",
             "last is biologically correct",
             "all live-trapping studies are affected",
-            "aliasing necessarily biases",\n            "we prove time-reversal symmetry",\n            "proves time-reversal symmetry",
+            "aliasing necessarily biases",
+            "we prove time-reversal symmetry",
+            "proves time-reversal symmetry",
         ):
             self.assertNotIn(phrase,lower)
 
