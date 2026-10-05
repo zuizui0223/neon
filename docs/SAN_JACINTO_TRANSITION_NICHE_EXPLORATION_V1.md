@@ -642,3 +642,29 @@ A positive result would support:
 Combined with Stage 1 and Stage 4, that would support an ecological hierarchy in which community segregation is encoded in persistent species-specific space-use domains rather than in the direction of each within-night move or in a single point centre.
 
 It would not identify whether those domains are produced by habitat, burrows, resource distributions, territoriality or competition.
+
+
+---
+
+# Stage 5 result — persistent species-specific footprint supported
+
+The frozen primary test passed all three criteria:
+
+- informative reference units: **8/8** (required ≥6);
+- reference units with positive (Z_u): **8/8** (required ≥6);
+- global (T_{obs}=4.0908870811>0);
+- one-sided Monte Carlo (p=0.000199960008<0.05).
+
+Decision:
+
+`support_persistent_species_specific_multi_night_footprints`.
+
+Across the 22 broader support units, reported descriptively only, 20 had positive (Z), with mean (Z=2.6610) and median (Z=2.6365).
+
+Thus the Stage-4 between-night-footprint result is not merely an accumulation-of-points statement. In every fixed segregated reference unit, the same species reused the same trap locations from the early to late half of the season more strongly than expected when LATE species occupancies and LATE trap species-richness were held fixed.
+
+The current biological conclusion is:
+
+> **Spatial niche partitioning in this rodent guild is associated with persistent species-specific multi-night space-use footprints, while neither within-night movement direction nor a single seasonal point per individual carries the community segregation signal.**
+
+Mechanism remains unresolved: the public data cannot distinguish habitat selection, burrow/refuge placement, resources, territoriality or longer-term competitive sorting.
