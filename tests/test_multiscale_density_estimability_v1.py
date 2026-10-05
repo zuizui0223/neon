@@ -95,6 +95,8 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertEqual(s["n_repeat_coordinate_supported_tagged_individuals"], 1)
             self.assertEqual(s["n_multi_night_tagged_individuals"], 1)
             self.assertEqual(s["n_coordinate_supported_tagged_individuals"], 2)
+            self.assertEqual(s["scientific_names"], ["Species one"])
+            self.assertEqual(s["genus_labels"], ["Species"])
             self.assertNotIn("n_repeat_location_tagged_individuals", s)
             self.assertNotIn("n_distinct_capture_coordinates", s)
 
@@ -107,6 +109,7 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
                 by_min[2]["n_eligible_species_session_records"], 0
             )
             self.assertEqual(by_min[2]["n_taxa"], 0)
+            self.assertEqual(by_min[2]["n_resolved_genera"], 0)
 
             support_text = json.dumps(out["support"]).lower()
             for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect", "distance"):
