@@ -1068,3 +1068,20 @@ Decision:
 `broader_turnover_generalization_not_supported`.
 
 Stage 7 remains the primary turnover result. Stage 8 prevents generalizing that result beyond the fixed segregated regimes on the present number of independent physical grids.
+
+
+## Stage 3 implementation note — two-species exact fixed-fixed case
+
+Before any NIGHT-FIRST or ANCHOR Stage-3 result was opened, the ALL reproduction reached the two low-richness winter units and exposed a current EcoSimR implementation failure: `sim9` terminates with an R recursion-depth error on the two-species matrix.
+
+This is a software edge case, not an undefined ecological null. For exactly two species under a fixed–fixed null:
+
+- both row sums are fixed;
+- every column sum is fixed;
+- the number of columns with column sum 2 is therefore fixed;
+- that number is exactly the shared-site count (S);
+- hence (C=(R_1-S)(R_2-S)) is constant across every admissible fixed–fixed matrix.
+
+Accordingly, for exactly two species Stage 3 uses the **exact degenerate fixed–fixed distribution**: null mean = observed C-score, null SD = 0, both null quantiles = observed C-score, classification = null. No random draw is needed or informative.
+
+Matrices with three or more species continue to use EcoSimR `sim9` with the already frozen settings. This compatibility rule was added after the package error and before any NIGHT-FIRST or ANCHOR outcome was generated. It does not change the reproduction target of 32 analyzable units, 8 segregated and 0 aggregated.
