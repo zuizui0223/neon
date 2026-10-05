@@ -8,11 +8,11 @@
 
 1. Ecological observations are often aggregated to occasions such as nights, days or visits before spatial analysis. When the same marked individual is observed at multiple locations within one occasion, reducing those records to one spatial state can hide genuine positional variation. We call this **temporal positional aliasing**. The unresolved methodological question is not simply whether aliasing occurs, but whether it changes the downstream quantity an ecologist would report.
 
-2. We introduce a two-stage framework. A scale-aware screen first quantifies first-to-last positional span relative to a prechosen material spatial scale. We then distinguish this positional non-uniqueness from **representation instability**: sensitivity of a downstream estimator to defensible temporal representations. Under a temporally exchangeable static observation process, FIRST and LAST detector states are distributionally equivalent even when realized locations differ. Time reversal leaves all span-only diagnostics unchanged while reversing any directed FIRST-versus-LAST contrast, so span magnitude alone cannot identify the direction of downstream change.
+2. We introduce a two-stage framework. A scale-aware screen first quantifies first-to-last positional span relative to a prechosen material spatial scale. We then distinguish this positional non-uniqueness from **representation instability**: sensitivity of a downstream estimator to defensible temporal representations. Under a time-reversal-symmetric observation process, FIRST and LAST detector states are distributionally equivalent even when realized locations differ; full temporal exchangeability is sufficient but not necessary. Time reversal leaves all span-only diagnostics unchanged while reversing any directed FIRST-versus-LAST contrast, so span magnitude alone cannot identify the direction of downstream change.
 
 3. In a prospectively locked validation, shifts of at least one 6.25-m trap spacing occurred on 72.6% of 485 repeat-capture nights for *Peromyscus maniculatus* and 69.2% of 107 nights for *P. eremicus*, with replication across every eligible grid. Yet a pre-designated post-stop exploratory SCR analysis of the 19 estimable PEMA sessions gave sigma = 8.85 m under FIRST and 8.56 m under LAST (LAST/FIRST = 0.967; -3.3%), below a pre-existing 10% contextual materiality threshold. Consistently, stationary SCR simulations showed no systematic FIRST-versus-LAST separation. When the same simulation was given an ordered within-night state transition drawn from the empirical displacement kernel, temporal exchangeability was broken and FIRST/LAST sigma diverged; reversing transition order reversed the direction of the effect.
 
-4. Frequent positional aliasing is therefore a warning condition, not a bias estimate. Large within-occasion spatial variation can coexist with a stable downstream parameter when observations remain exchangeable around a common spatial kernel. Systematic inferential divergence requires additional temporal structure. The proposed workflow separates these questions explicitly: screen for positional non-uniqueness, then test the stability of the intended downstream estimand before deciding whether coarser aggregation is defensible or finer temporal/state modelling is required.
+4. Frequent positional aliasing is therefore a warning condition, not a bias estimate. Large within-occasion spatial variation can coexist with a stable downstream parameter when the observation process is approximately symmetric under time reversal. Systematic directional divergence requires temporal asymmetry—an arrow of time in the observation or state process—rather than positional variation alone. The proposed workflow separates these questions explicitly: screen for positional non-uniqueness, then test the stability of the intended downstream estimand before deciding whether coarser aggregation is defensible or finer temporal/state modelling is required.
 
 ## Data/Code for peer review
 
@@ -38,9 +38,9 @@ A useful diagnostic should satisfy four requirements. First, it should be expres
 
 Here we develop such a framework (Figure 1). For individual $i$ in occasion $t$, we define the first-to-last observed positional span $\delta_{it}=d(F_{it},L_{it})$. We compare this span with a user-defined **material spatial scale** (s), which may be trap spacing, detector resolution, positional error, habitat-patch width or another scale below which positional differences are operationally negligible for the planned analysis.
 
-We make three linked contributions. First, we provide a generic diagnostic that summarizes the frequency and magnitude of material positional spans, including repeat-observation-conditioned estimates and a conservative all-occasion directly observed lower bound. Second, we show that this screen has a precise inferential limit. If check-level observations are temporally exchangeable conditional on the latent spatial state, reversing within-occasion time exchanges FIRST and LAST but leaves the distribution unchanged. More generally, time reversal leaves every span-only aliasing summary unchanged while reversing a directed FIRST-versus-LAST estimator contrast. Positional span can therefore flag potential sensitivity but cannot, by itself, identify the direction or existence of downstream bias. Third, we turn this limit into a practical two-stage workflow by pairing the aliasing screen with a representation-stability test of a downstream SCR spatial scale.
+We make three linked contributions. First, we provide a generic diagnostic that summarizes the frequency and magnitude of material positional spans, including repeat-observation-conditioned estimates and a conservative all-occasion directly observed lower bound. Second, we show that this screen has a precise inferential limit. If the check-level observation process is invariant in distribution under within-occasion time reversal, reversing time exchanges FIRST and LAST but leaves the data law unchanged. Full temporal exchangeability is one sufficient special case, but reversible serial dependence is also allowed. More generally, time reversal leaves every span-only aliasing summary unchanged while reversing a directed FIRST-versus-LAST estimator contrast. Positional span can therefore flag potential sensitivity but cannot, by itself, identify the direction or existence of downstream bias. Third, we turn this limit into a practical two-stage workflow by pairing the aliasing screen with a representation-stability test of a downstream SCR spatial scale.
 
-The empirical and simulation components deliberately separate these stages. We first ask whether positional non-uniqueness replicates across two held-out Cricetidae and trapping grids. We then examine whether it actually changes pooled SCR sigma where estimation is possible, using a clearly labelled post-stop PEMA analysis that cannot rescue the failed two-species confirmatory gate. Finally, generative simulations distinguish an exchangeable static observation process from an ordered within-occasion state-transition process. The stationary case provides the null under which FIRST and LAST are distributionally equivalent; the ordered-transition case shows the additional temporal structure required for representation instability.
+The empirical and simulation components deliberately separate these stages. We first ask whether positional non-uniqueness replicates across two held-out Cricetidae and trapping grids. We then examine whether it actually changes pooled SCR sigma where estimation is possible, using a clearly labelled post-stop PEMA analysis that cannot rescue the failed two-species confirmatory gate. Finally, generative simulations distinguish an exchangeable static observation process from an ordered within-occasion state-transition process. The stationary case provides a time-reversal-symmetric null under which FIRST and LAST are distributionally equivalent; the ordered-transition case introduces an arrow of time and shows the additional temporal structure required for directional representation instability.
 
 Our aim is not to identify whether FIRST or LAST is biologically “correct”, nor to infer that handling caused the empirical within-night shifts. Instead, the framework asks two separate questions: does a nominal occasion contain materially different observed positions, and does the intended downstream estimand materially change under a defensible representation of those positions? A “yes” to the first question does not imply a “yes” to the second.
 
@@ -86,23 +86,23 @@ The diagnostic also reports the number $N$ of all valid individual-occasions and
 
 This fraction is an observational lower bound on the latent all-occasion material-shift fraction. A singly observed occasion cannot reveal a first-to-last change; treating such occasions as unresolved rather than as zero-shift ensures that the numerator contains only events directly exposed by repeated observation.
 
-## 2.2 Temporal exchangeability and time-reversal limitation
+## 2.2 Time-reversal symmetry and span non-identifiability
 
 Let one ecological occasion contain ordered check-level detector outcomes \(Y_1,\ldots,Y_K\), with zero denoting no detection. FIRST is the detector on the earliest non-zero check and LAST the detector on the latest non-zero check.
 
-If, conditional on the latent spatial state used by the downstream model, the check-level outcomes are temporally exchangeable, then
+The minimal symmetry condition is not full exchangeability. Let \(R(Y_1,\ldots,Y_K)=(Y_K,\ldots,Y_1)\). If, conditional on the latent spatial state and observation design used by the downstream model,
 
 \[
-(Y_1,\ldots,Y_K)\overset{d}=(Y_K,\ldots,Y_1).
+Y\overset{d}=R(Y),
 \]
 
-Time reversal exchanges FIRST and LAST while leaving the conditioning event of at least one detection unchanged. Therefore
+then time reversal exchanges FIRST and LAST while leaving the conditioning event of at least one detection unchanged. Therefore
 
 \[
 \mathrm{FIRST}\overset{d}=\mathrm{LAST}.
 \]
 
-Independent, identically distributed checks around a fixed activity centre are a sufficient special case. FIRST and LAST can differ in any realized finite dataset, including by several detector spacings, but neither rule has a directional population-level advantage under this exchangeability null.
+Independent, identically distributed checks around a fixed activity centre are a sufficient special case, but not the only one: a stationary reversible process may be serially dependent and still satisfy the same reversal condition. FIRST and LAST can differ in any realized finite dataset, including by several detector spacings, but neither rule has a directional population-level advantage under a reversal-symmetric null.
 
 The same argument exposes a limit of any span-only diagnostic. Reversing within-occasion time changes \((F_t,L_t)\) to \((L_t,F_t)\), but
 
@@ -301,7 +301,19 @@ The frozen confirmatory rule treated repeat-capture individual-nights as the bin
 
 Within each species, identity was defined as grid × individual ID. We reported the number and size distribution of individual clusters, an equal-individual mean of individual-specific material-shift fractions, deterministic leave-one-individual fractions, and a grid-stratified cluster bootstrap. The bootstrap resampled individual clusters with replacement within each grid, retained all repeat nights from a sampled cluster, used 20,000 replicates and a fixed seed (20260930), and reported percentile 95% intervals. This audit was not part of the frozen confirmatory decision and could not rescue a failed primary result.
 
-## 2.11 AI-assisted development and verification
+## 2.11 Post-result time-reversal symmetry audit
+
+To ask whether the empirical first-to-last transitions contained a detectable arrow of time, we conducted a post-result, non-rescuing symmetry audit using the already-opened repeat-capture nights. For every changed night, the directed detector displacement vector \(v\) was paired with its reverse \(-v\) within trapping grid. We formed grid × unsigned-vector strata and calculated
+
+\[
+Q=\sum_s \frac{(n_{s,+}-n_{s,-})^2}{n_{s,+}+n_{s,-}},
+\]
+
+where \(n_{s,+}\) and \(n_{s,-}\) are the forward and reverse counts in stratum \(s\).
+
+Because the same animal could contribute multiple nights, the randomization unit was grid × individual. In each of 500,000 Monte Carlo permutations, all changed nights from a sampled cluster had their temporal direction reversed together with probability one half. We report the upper-tail randomization probability, the mean directed displacement vector, and its magnitude relative to the RMS changed-night displacement. This exploratory audit cannot prove time-reversal symmetry and cannot rescue or replace any frozen empirical gate.
+
+## 2.12 AI-assisted development and verification
 
 OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026) was used interactively to assist with drafting and refactoring Python analysis, test and workflow code; checking mathematical and statistical logic; identifying potential failure modes; supporting literature discovery; and drafting and editing manuscript text. AI output was not treated as empirical evidence, an independent author or a substitute for source verification. Analysis decisions and claim boundaries were preserved in version-controlled design locks and frozen result receipts, and computational outputs were checked with deterministic unit tests, continuous-integration workflows, source checksums, simulation benchmarks and manuscript-value invariants. The authors retain responsibility for the scientific content, code, source attribution, interpretation and conclusions. Source files substantially drafted or refactored with AI assistance are annotated accordingly.
 
@@ -337,9 +349,11 @@ The empirical result therefore separates the two questions motivating the framew
 
 The same data also reject a tempting quantitative interpretation of the raw span distribution. Among all valid PEMA individual-nights, directly observed material FIRST-to-LAST transitions occurred on 352/1,219 nights, and the RMS length of those material transitions was 17.08 m. If those vectors were treated as independent, zero-mean additive displacements applied after the FIRST state, the continuous second-moment benchmark using the FIRST estimate (sigma = 8.8515 m) would predict sigma_LAST / sigma_FIRST ≈ 1.240, or about +24.0%. The observed ratio was instead 0.967 (-3.3%). This model-dependent discrepancy is inconsistent with interpreting the observed FIRST-to-LAST vectors as an independent additive transition kernel for PEMA and reinforces that positional-span magnitude is not an empirical correction for SCR sigma.
 
-## 3.3 Exchangeability null and ordered-state failure mode
+The post-result reversal audit found no clear grid-stratified directional asymmetry. For PEMA, the cluster sign-flip randomization gave \(p=0.193\); the mean directed first-to-last vector had magnitude only 0.071 m compared with a 17.08-m RMS changed-night displacement (0.4%). For PEER, the corresponding values were \(p=0.735\), 1.68 m and 16.26 m (10.3%). These are consistency diagnostics rather than evidence that the process is exactly reversible, but the near-zero PEMA flux is concordant with its stable FIRST/LAST sigma estimate.
 
-The SCR simulations reproduced the distinction predicted by the exchangeability argument.
+## 3.3 Reversal-symmetry null and ordered-state failure mode
+
+The SCR simulations reproduced the distinction predicted by the time-reversal argument.
 
 When all within-night checks sampled one stationary SCR state, FIRST and LAST did not separate systematically. Across generating \(\sigma=6.25\), 12.5 and 25 m, median LAST/FIRST sigma ratios were 1.007, 0.966 and 1.025, and the maximum absolute median relative bias across the three temporal representations was 3.95%.
 
@@ -377,15 +391,15 @@ The held-out validation establishes a simple but important empirical fact: one l
 
 This distinction changes the interpretation of the diagnostic. The first-stage screen identifies positional non-uniqueness at the scale relevant to the analysis. It does not estimate downstream bias and should not be presented as if it did.
 
-## 4.2 Temporal exchangeability explains the stable case
+## 4.2 Time-reversal symmetry explains the stable case
 
-The exchangeability null gives an exact reason why large realized FIRST-to-LAST distances can coexist with estimator stability. If repeated checks sample the same conditional detector distribution around a static spatial state, reversing check order does not change the joint distribution. FIRST and LAST are then distributionally equivalent even though they may be different traps in a particular night.
+Time-reversal symmetry gives the exact reason why large realized FIRST-to-LAST distances can coexist with estimator stability. If the within-occasion data law is unchanged when check order is reversed, FIRST and LAST are distributionally equivalent even though they may be different traps in a particular night. Full exchangeability is sufficient but not necessary: reversible serial dependence can satisfy the same condition.
 
-The stationary SCR simulations behaved accordingly, and the exploratory PEMA result is compatible with this regime. We do not claim that PEMA detections are exactly independent or that handling has no effect. Rather, there is no empirical FIRST-versus-LAST sigma signal here that requires a systematic ordered state change to explain it.
+The stationary SCR simulations behaved accordingly, and the exploratory PEMA result is compatible with this regime. The post-result reversal audit adds a direct descriptive check: PEMA had a 17.08-m RMS changed-night displacement but only a 0.071-m mean directed vector, with no clear grid-stratified reversal asymmetry. We do not claim that PEMA detections are independent, exactly reversible, or unaffected by handling. Rather, the data contain little evidence of a persistent temporal direction that would force a systematic FIRST-versus-LAST sigma difference.
 
-## 4.3 Ordered within-occasion state change breaks representation equivalence
+## 4.3 An arrow of time breaks directional representation equivalence
 
-The failure mode is not aggregation by itself but temporal structure that makes later observations sample a different state distribution. In the ordered-transition simulations, the empirical displacement kernel was large relative to the generating spatial scale, and FIRST and LAST selected different mixtures of baseline and transitioned states.
+The failure mode is not aggregation by itself but temporal asymmetry that makes later observations sample a different state distribution. In the ordered-transition simulations, the empirical displacement kernel was large relative to the generating spatial scale, and FIRST and LAST selected different mixtures of baseline and transitioned states.
 
 The time-reversal result makes this mechanism especially transparent. PRE and POST simulations retained the same span distribution, material-shift frequency and displacement magnitudes. Only temporal ordering changed, yet the FIRST/LAST sigma contrast reversed direction. Therefore neither the sign nor the existence of a downstream representation effect can be inferred from span summaries alone.
 
@@ -417,7 +431,7 @@ A practical workflow follows directly from the results:
 
 1. define the ecological occasion and material spatial scale before inspecting the effect;
 2. quantify within-occasion positional non-uniqueness, keeping repeat-conditioned estimates separate from all-occasion lower bounds;
-3. ask whether the check-level observation process is plausibly exchangeable around the downstream model's latent state;
+3. ask whether the check-level observation process is plausibly symmetric under time reversal at the scale relevant to the downstream model;
 4. if positional aliasing is material, re-run the intended downstream analysis under defensible temporal representations;
 5. treat stable downstream estimates as evidence that the coarsening choice is not practically important for that estimand, and unstable estimates as a trigger for finer temporal or state modelling.
 
@@ -437,7 +451,7 @@ This study is a secondary analysis of previously collected public data and invol
 
 **Figure 1. Temporal positional aliasing and deterministic sensitivity bounds.** A single ecological occasion can contain more than one valid observed spatial state for the same marked individual. For occasions $t$ and $u$, $F$ and $L$ denote first and last observed positions and $\delta$ the within-occasion positional span. The difference between FIRST→FIRST and LAST→LAST inter-occasion movement estimates is bounded by $\delta_t+\delta_u$; population MPD sensitivity is bounded by twice mean within-occasion span.
 
-**Figure 2. Positional non-uniqueness and downstream representation stability are distinct.** A: stationary negative controls show median relative sigma bias for CHECK, FIRST and LAST encodings at generating sigma values of 6.25, 12.5 and 25 m; dashed lines denote ±10%. B: paired LAST/FIRST sigma ratios after injecting the empirical transition kernel in mirrored POST and PRE orientations. The solid line at one denotes rule invariance and dashed lines at 0.9 and 1.1 denote the pre-specified 10% sensitivity band; each cell used 40 Monte Carlo replicates. C: post-stop exploratory PEMA FIRST and LAST sigma estimates with marginal 95% confidence intervals. Dashed lines show ±10% around FIRST; the dotted line shows the independent-additive second-moment benchmark (approximately +24.0%) implied by the directly observed material-transition frequency and RMS length. The observed LAST/FIRST ratio was instead 0.967 (-3.3%), underscoring that raw span magnitude is not a sigma correction.
+**Figure 2. Positional non-uniqueness and downstream representation stability are distinct.** A: stationary time-reversal-symmetric negative controls show median relative sigma bias for CHECK, FIRST and LAST encodings at generating sigma values of 6.25, 12.5 and 25 m; dashed lines denote ±10%. B: paired LAST/FIRST sigma ratios after injecting the empirical transition kernel in mirrored POST and PRE orientations. The solid line at one denotes rule invariance and dashed lines at 0.9 and 1.1 denote the pre-specified 10% sensitivity band; each cell used 40 Monte Carlo replicates. C: post-stop exploratory PEMA FIRST and LAST sigma estimates with marginal 95% confidence intervals. Dashed lines show ±10% around FIRST; the dotted line shows the independent-additive second-moment benchmark (approximately +24.0%) implied by the directly observed material-transition frequency and RMS length. The observed LAST/FIRST ratio was instead 0.967 (-3.3%), underscoring that raw span magnitude is not a sigma correction.
 
 **Figure 3. Prospectively held-out positional-aliasing validation.** Species-level material-shift fractions and 95% Wilson intervals for PEMA and PEER; small points show eligible trapping-grid fractions. The vertical dashed line is the frozen 25% materiality threshold.
 
