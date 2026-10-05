@@ -1,0 +1,51 @@
+name: wisconsin-footprint-validation-stage0
+
+on:
+  push:
+    branches:
+      - ecology/wisconsin-footprint-validation-v1
+    paths:
+      - docs/WISCONSIN_INDEPENDENT_FOOTPRINT_VALIDATION_V1.md
+      - analysis/inventory_wisconsin_footprint_validation_v1.py
+      - tests/test_wisconsin_footprint_validation_inventory_v1.py
+      - .github/workflows/wisconsin-footprint-validation-stage0.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wisconsin-footprint-validation-stage0-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/wisconsin-footprint-validation-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test Stage-0 reconstruction
+        run: python -m unittest tests.test_wisconsin_footprint_validation_inventory_v1 -v
+      - name: Run Dryad feasibility inventory
+        run: |
+          python analysis/inventory_wisconsin_footprint_validation_v1.py \
+            --output /tmp/wisconsin_footprint_validation_inventory_v1.json
+      - name: Persist Stage-0 inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/wisconsin-footprint-validation-v1
+          cp /tmp/wisconsin_footprint_validation_inventory_v1.json \
+             results/wisconsin_footprint_validation_inventory_v1.json
+          git add results/wisconsin_footprint_validation_inventory_v1.json
+          if git diff --cached --quiet; then
+            echo "inventory unchanged"
+          else
+            git commit -m "Record Wisconsin footprint validation inventory"
+            git push origin HEAD:ecology/wisconsin-footprint-validation-v1
+          fi
