@@ -123,11 +123,19 @@ capthist_records <- function(ch) {
 
 records_to_capthist <- function(z, trp, noccasions) {
   if (nrow(z) == 0L) stop("cannot construct capthist from zero detections")
+  trap_index <- as.integer(z$trap)
+  trap_ids <- rownames(as.data.frame(trp))
+  if (length(trap_ids) != nrow(trp)) {
+    stop("unexpected trap ID vector length")
+  }
+  if (anyNA(trap_index) || any(trap_index < 1L) || any(trap_index > length(trap_ids))) {
+    stop("invalid detector index while reconstructing capthist")
+  }
   captures <- data.frame(
     session = 1,
     id = z$id,
     occasion = as.integer(z$occasion),
-    trap = as.integer(z$trap),
+    trap = trap_ids[trap_index],
     stringsAsFactors = FALSE
   )
   make.capthist(
