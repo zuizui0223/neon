@@ -508,6 +508,25 @@ To determine whether the null failure itself was reproducible, we then ran an in
 
 Thus the original 10.22% null excursion was not reproduced at higher Monte Carlo replication, and the sequential static generator itself satisfies the frozen null criterion in the independent diagnostic. This does not retroactively authorize the already-opened non-zero-shift cells from the failed-gate run; they remain non-promoted.
 
+### S9.3.2 Observation-process calibration stop
+
+A separate v3 calibration asked whether a simple release-centred transient-state generator could reproduce the empirical observation process closely enough to justify a quantitative San Jacinto downstream simulation.
+
+The calibration stage fitted **no SCR sigma model**. It searched 204 parameter cells varying baseline sigma, detection intercept, transient-state RMS displacement and response probability. Search-stage results were used only to select the 12 closest cells. Those 12 cells were then re-simulated on an independent seed range for 50 replicates each.
+
+A validation cell had to satisfy all four frozen criteria simultaneously:
+
+1. repeat-capture fraction in [0.3265, 0.4265];
+2. material-shift fraction among repeat nights in [0.65868, 0.75868];
+3. median all-repeat first-to-last distance in [6.25, 8.84] m;
+4. median changed-night first-to-last distance in [12.5, 14.0] m.
+
+No validation cell passed all four criteria. The frozen decision was
+
+`stop_v3_no_observation_process_match`.
+
+The claim boundary is therefore stricter than the generative stress test: an ordered transient state can make temporal representations diverge, but this simple release-centred mechanism did not reproduce the San Jacinto observation summaries well enough to be promoted as an empirical mechanism or quantitative calibration.
+
 ### S9.4 Claim boundary
 
 The benchmark supports the conditional methodological statement that temporal representation can change fitted SCR spatial scale when a nominal occasion contains multiple observation-conditioned spatial states. It does not show:
@@ -547,7 +566,7 @@ SCR downstream consequence:
 - `results/scr_sigma_consequence_simulation_v1.json`
 - `results/scr_sigma_consequence_replicates_v1.csv`
 - `results/scr_sigma_dynamic_state_zero_shift_v2_1.json`
-- `analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R`
+- `analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R`\n- `analysis/calibrate_san_jacinto_observation_process_v3.R`\n- `docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md`\n- `validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json`
 
 Review-package workflows verify these files independently of unrelated NEON project analyses.
 
