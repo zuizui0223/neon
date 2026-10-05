@@ -1,0 +1,50 @@
+name: san-jacinto-cross-season-turnover-support
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/audit_san_jacinto_cross_season_turnover_support_v1.py
+      - tests/test_san_jacinto_cross_season_turnover_support_v1.py
+      - .github/workflows/san-jacinto-cross-season-turnover-support.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-cross-season-turnover-support-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test support audit
+        run: python -m unittest tests.test_san_jacinto_cross_season_turnover_support_v1 -v
+      - name: Audit support without spatial outcomes
+        run: |
+          python analysis/audit_san_jacinto_cross_season_turnover_support_v1.py \
+            --output /tmp/san_jacinto_cross_season_turnover_support_v1.json
+      - name: Persist support artifact
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_cross_season_turnover_support_v1.json \
+             results/san_jacinto_cross_season_turnover_support_v1.json
+          git add results/san_jacinto_cross_season_turnover_support_v1.json
+          if git diff --cached --quiet; then
+            echo "support unchanged"
+          else
+            git commit -m "Record cross-season turnover support"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
