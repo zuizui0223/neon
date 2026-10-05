@@ -1,0 +1,1102 @@
+{
+  "claim_boundary": {
+    "fixed_fixed_null_opened": false,
+    "persistence_statistic_opened": false,
+    "stage4_classification_retested": false,
+    "trap_overlap_opened": false
+  },
+  "excluded_public_source_mismatch_units": [
+    "3|winter",
+    "7|winter"
+  ],
+  "schema": "neon.san_jacinto_stage5_persistence_support.v1",
+  "split_rule": "chronological unique calendar nights within grid-season; if odd, discard the single middle night",
+  "stage4_reference_ids": [
+    "1|summer",
+    "4|fall",
+    "4|spring",
+    "4|summer",
+    "4|winter",
+    "6|fall",
+    "6|summer",
+    "6|winter"
+  ],
+  "status": "support_only_no_spatial_overlap_outcomes_opened",
+  "summary": {
+    "public30_units": 30,
+    "reference_units_with_ge3_common_species": 8,
+    "reference_units_with_ge3_common_species_ge2_records_each_half": 8,
+    "units_with_ge3_common_species": 24,
+    "units_with_ge3_common_species_ge2_records_each_half": 22,
+    "units_with_ge4_nights": 30
+  },
+  "units": [
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2015-09-19",
+      "early_nightly_first_records": 67,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|fall",
+      "late_nightly_first_records": 47,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2015-12-07",
+      "early_nightly_first_records": 51,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|winter",
+      "late_nightly_first_records": 80,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "winter",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2016-03-02",
+      "early_nightly_first_records": 80,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|spring",
+      "late_nightly_first_records": 86,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 115,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|summer",
+      "late_nightly_first_records": 140,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "summer",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 124,
+      "early_nights": 5,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|fall",
+      "late_nightly_first_records": 88,
+      "late_nights": 5,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2015-12-07",
+      "early_nightly_first_records": 67,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|winter",
+      "late_nightly_first_records": 89,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "winter",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2016-03-02",
+      "early_nightly_first_records": 63,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|spring",
+      "late_nightly_first_records": 45,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 67,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|summer",
+      "late_nightly_first_records": 106,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "season": "summer",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2015-09-18",
+      "early_nightly_first_records": 57,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|fall",
+      "late_nightly_first_records": 43,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 2,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-03-02",
+      "early_nightly_first_records": 43,
+      "early_nights": 4,
+      "early_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|spring",
+      "late_nightly_first_records": 45,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 93,
+      "early_nights": 4,
+      "early_species": [
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|summer",
+      "late_nightly_first_records": 96,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "summer",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 79,
+      "early_nights": 5,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|fall",
+      "late_nightly_first_records": 86,
+      "late_nights": 5,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2015-12-08",
+      "early_nightly_first_records": 73,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|winter",
+      "late_nightly_first_records": 87,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "winter",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 72,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|spring",
+      "late_nightly_first_records": 82,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 8
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 87,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|summer",
+      "late_nightly_first_records": 97,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "summer",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 121,
+      "early_nights": 5,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|fall",
+      "late_nightly_first_records": 90,
+      "late_nights": 5,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2015-12-08",
+      "early_nightly_first_records": 58,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|winter",
+      "late_nightly_first_records": 55,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "winter",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-03-02",
+      "early_nightly_first_records": 48,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|spring",
+      "late_nightly_first_records": 45,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 73,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|summer",
+      "late_nightly_first_records": 73,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "summer",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 88,
+      "early_nights": 5,
+      "early_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|fall",
+      "late_nightly_first_records": 91,
+      "late_nights": 5,
+      "late_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2015-12-08",
+      "early_nightly_first_records": 88,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|winter",
+      "late_nightly_first_records": 81,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "winter",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 4,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 53,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|spring",
+      "late_nightly_first_records": 88,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 8
+    },
+    {
+      "common_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 5,
+      "common_species_with_ge2_records_each_half": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 127,
+      "early_nights": 4,
+      "early_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|summer",
+      "late_nightly_first_records": 131,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "summer",
+      "stage4_reference": true,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 24,
+      "early_nights": 5,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "7",
+      "id": "7|fall",
+      "late_nightly_first_records": 20,
+      "late_nights": 5,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 2,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 35,
+      "early_nights": 4,
+      "early_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "7",
+      "id": "7|spring",
+      "late_nightly_first_records": 35,
+      "late_nights": 4,
+      "late_species": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 8
+    },
+    {
+      "common_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 3,
+      "common_species_with_ge2_records_each_half": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 48,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "7",
+      "id": "7|summer",
+      "late_nightly_first_records": 37,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "summer",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 2,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 22,
+      "early_nights": 5,
+      "early_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|fall",
+      "late_nightly_first_records": 32,
+      "late_nights": 5,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "fall",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 10
+    },
+    {
+      "common_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 2,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": "2015-12-07",
+      "early_nightly_first_records": 17,
+      "early_nights": 4,
+      "early_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|winter",
+      "late_nightly_first_records": 17,
+      "late_nights": 4,
+      "late_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "season": "winter",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    },
+    {
+      "common_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_count": 2,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA",
+        "SKR"
+      ],
+      "discarded_middle_night": null,
+      "early_nightly_first_records": 22,
+      "early_nights": 4,
+      "early_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|spring",
+      "late_nightly_first_records": 21,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "season": "spring",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 8
+    },
+    {
+      "common_species": [
+        "PEMA"
+      ],
+      "common_species_count": 1,
+      "common_species_with_ge2_records_each_half": [
+        "PEMA"
+      ],
+      "discarded_middle_night": "2016-06-03",
+      "early_nightly_first_records": 10,
+      "early_nights": 4,
+      "early_species": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|summer",
+      "late_nightly_first_records": 20,
+      "late_nights": 4,
+      "late_species": [
+        "LAPM",
+        "PEMA"
+      ],
+      "season": "summer",
+      "stage4_reference": false,
+      "unique_calendar_nights_total": 9
+    }
+  ]
+}
