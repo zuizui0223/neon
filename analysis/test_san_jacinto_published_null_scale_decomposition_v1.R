@@ -88,36 +88,56 @@ download_source <- function() {
 }
 
 prepare_representations <- function(raw) {
-  rows <- list()
-  k <- 0L
+  # The published ALL-capture spatial matrix needs only species, grid, date
+  # (to assign season), and trap flag. It must NOT condition on individual ID
+  # or check time; those fields are required only for NIGHT-FIRST / ANCHOR.
+  all_rows <- list()
+  ordered_rows <- list()
+  ka <- 0L
+  ko <- 0L
+
   for (i in seq_len(nrow(raw))) {
     sp <- toupper(trimws(as.character(raw$species[i])))
     grid <- trimws(as.character(raw$grid[i]))
     uid <- trimws(as.character(raw$unique_ID[i]))
     date_s <- trimws(as.character(raw$date[i]))
     flag <- toupper(trimws(as.character(raw$flag[i])))
-    tt <- parse_time(raw$time[i])
     dd <- parse_date(date_s)
-    if (!(sp %in% FOCAL) || !nzchar(grid) || !nzchar(uid) || !nzchar(date_s) ||
-        !(flag %in% FLAGS) || !is.finite(tt) || is.na(dd)) next
+
+    if (!(sp %in% FOCAL) || !nzchar(grid) || !nzchar(date_s) ||
+        !(flag %in% FLAGS) || is.na(dd)) next
+
     m <- as.integer(format(dd, "%m"))
-    k <- k + 1L
-    rows[[k]] <- data.frame(
+    seas <- season_from_month(m)
+
+    ka <- ka + 1L
+    all_rows[[ka]] <- data.frame(
+      row_index=i, species=sp, grid=grid, date=date_s,
+      season=seas, flag=flag, stringsAsFactors=FALSE
+    )
+
+    tt <- parse_time(raw$time[i])
+    if (!nzchar(uid) || !is.finite(tt)) next
+
+    ko <- ko + 1L
+    ordered_rows[[ko]] <- data.frame(
       row_index=i, species=sp, grid=grid, uid=uid, date=date_s,
-      season=season_from_month(m), flag=flag, time=tt,
-      stringsAsFactors=FALSE
+      season=seas, flag=flag, time=tt, stringsAsFactors=FALSE
     )
   }
-  all <- do.call(rbind, rows)
-  if (is.null(all) || !nrow(all)) stop("no valid focal rows")
 
-  night_key <- paste(all$species, all$grid, all$uid, all$date, sep="|")
-  spl <- split(seq_len(nrow(all)), night_key)
+  all <- do.call(rbind, all_rows)
+  ordered <- do.call(rbind, ordered_rows)
+  if (is.null(all) || !nrow(all)) stop("no valid focal spatial rows")
+  if (is.null(ordered) || !nrow(ordered)) stop("no valid focal ordered rows")
+
+  night_key <- paste(ordered$species, ordered$grid, ordered$uid, ordered$date, sep="|")
+  spl <- split(seq_len(nrow(ordered)), night_key)
   first_idx <- vapply(spl, function(ii) {
-    zz <- all[ii,,drop=FALSE]
+    zz <- ordered[ii,,drop=FALSE]
     ii[order(zz$time, zz$row_index)[1]]
   }, integer(1))
-  night_first <- all[first_idx,,drop=FALSE]
+  night_first <- ordered[first_idx,,drop=FALSE]
   rownames(night_first) <- NULL
 
   ind_key <- paste(night_first$species, night_first$grid, night_first$season, night_first$uid, sep="|")
@@ -140,7 +160,8 @@ prepare_representations <- function(raw) {
     night_first=night_first[,c("species","grid","season","flag")],
     anchor=anchor[,c("species","grid","season","flag")],
     counts=list(
-      valid_capture_rows=nrow(all),
+      valid_spatial_capture_rows=nrow(all),
+      valid_ordered_capture_rows=nrow(ordered),
       nightly_first_rows=nrow(night_first),
       individual_anchors=nrow(anchor),
       multi_night_individuals=sum(anchor$nights >= 2)
