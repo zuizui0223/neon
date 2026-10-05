@@ -163,8 +163,6 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "trap_nights": set(),
         "trap_coordinates": set(),
         "sampling_types": set(),
-        "scientific_names": set(),
-        "genera": set(),
         "grid_completion_values": set(),
         "site_ids": set(),
     })
@@ -296,6 +294,8 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "plots": set(),
         "sites": set(),
         "sampling_types": set(),
+        "scientific_names": set(),
+        "genera": set(),
         "sessions_with_any_repeat_capture": 0,
         "sessions_with_any_repeat_coordinate_support": 0,
         "sessions_with_any_multi_night_individual": 0,
