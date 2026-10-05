@@ -92,9 +92,11 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertEqual(s["n_trapping_nights"], 3)
             self.assertEqual(s["n_unique_tagged_individuals"], 2)
             self.assertEqual(s["n_repeat_capture_tagged_individuals"], 1)
-            self.assertEqual(s["n_repeat_location_tagged_individuals"], 1)
+            self.assertEqual(s["n_repeat_coordinate_supported_tagged_individuals"], 1)
             self.assertEqual(s["n_multi_night_tagged_individuals"], 1)
-            self.assertEqual(s["n_distinct_capture_coordinates"], 3)
+            self.assertEqual(s["n_coordinate_supported_tagged_individuals"], 2)
+            self.assertNotIn("n_repeat_location_tagged_individuals", s)
+            self.assertNotIn("n_distinct_capture_coordinates", s)
 
             text = json.dumps(out).lower()
             for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect"):
