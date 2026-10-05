@@ -1,0 +1,24 @@
+name: san-jacinto-low-richness-audit
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/audit_san_jacinto_low_richness_units_v1.py
+      - .github/workflows/san-jacinto-low-richness-audit.yml
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit low-richness winter units
+        run: python analysis/audit_san_jacinto_low_richness_units_v1.py
