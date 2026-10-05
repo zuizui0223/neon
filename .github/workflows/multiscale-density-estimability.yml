@@ -37,8 +37,11 @@ jobs:
 
       - name: Verify effect-blind audit and metric mechanics
         run: |
-          python -m unittest             tests.test_multiscale_density_estimability_v1             tests.test_multiscale_density_metric_mechanics_v1 \\
-            tests.test_multiscale_density_release2026_runner_v1 -v
+          python -m unittest \
+            tests.test_multiscale_density_estimability_v1 \
+            tests.test_multiscale_density_metric_mechanics_v1 \
+            tests.test_multiscale_density_release2026_runner_v1 \
+            -v
 
       - name: Require NEON token
         run: |
