@@ -98,6 +98,15 @@ Mean SES likewise declined across the temporal reductions:
 
 The important evidence is not the decline in mean SES by itself, because each representation has different fixed row/column margins. The primary evidence is the pre-declared retention classification under the same fixed-fixed null family.
 
+
+## Stage-4 unresolved alternative: sampling depth versus temporal persistence
+
+Stage 4 localizes the published signal to a representation that retains multiple NIGHT-FIRST locations across nights and shows that one point per individual is insufficient. By itself, however, this does **not** prove that the repeated-use footprint is temporally persistent. A reviewer could reasonably argue that NIGHT-FIRST succeeds simply because it contains more spatial observations / occupied traps than a one-point representation.
+
+The next ecological test therefore does not search for another segregation metric. It asks whether the species-specific spatial map itself recurs through time: do the same species reuse the same trap locations in the early and late halves of a season more than expected under a fixed-fixed late-season null?
+
+A positive answer would upgrade “multi-night representation carries the signal” to “species-specific multi-night footprints persist through the season.” A null answer would force the weaker, sampling-depth interpretation.
+
 ## Biological interpretation
 
 The result rejects two simple pictures of spatial niche partitioning.
