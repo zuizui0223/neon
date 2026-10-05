@@ -1,0 +1,88 @@
+name: scr-sigma-dynamic-state-zero-shift-v2-1
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-scr-sigma-impact-v1
+    paths:
+      - docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md
+      - analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R
+      - .github/workflows/scr-sigma-dynamic-state-zero-shift-v2-1.yml
+  workflow_dispatch:
+
+concurrency:
+  group: scr-sigma-dynamic-state-zero-shift-v2-1-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      R_LIBS_USER: ${{ github.workspace }}/.R/library
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-scr-sigma-impact-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Run independent zero-shift replication
+        run: |
+          Rscript analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R \
+            --nrepl 96 \
+            --cores 4 \
+            --seed 20261005 \
+            --output-json results/scr_sigma_dynamic_state_zero_shift_v2_1.json \
+            --output-csv results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
+
+      - name: Verify and record frozen null gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("results/scr_sigma_dynamic_state_zero_shift_v2_1.json").read_text())
+          assert p["schema"]=="neon.scr_sigma_dynamic_state_zero_shift_diagnostic.v2_1"
+          assert p["nrepl_per_sigma"]==96
+          assert p["diagnostic_checks"]["frozen_bias_threshold"]==0.10
+          assert p["diagnostic_checks"]["nonzero_shift_cells_run"] is False
+          assert p["diagnostic_checks"]["empirical_real_data_sigma_opened"] is False
+          assert len(p["summaries"])==9
+          assert {x["method"] for x in p["summaries"]}=={"CHECK","FIRST","LAST"}
+          assert {float(x["sigma_true"]) for x in p["summaries"]}=={6.25,12.5,25.0}
+          print(json.dumps(p["diagnostic_checks"],indent=2,sort_keys=True))
+          PY
+
+      - name: Upload diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scr-sigma-dynamic-state-zero-shift-v2-1
+          path: |
+            results/scr_sigma_dynamic_state_zero_shift_v2_1.json
+            results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
+          if-no-files-found: error
+
+      - name: Persist diagnostic result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-scr-sigma-impact-v1
+          git add results/scr_sigma_dynamic_state_zero_shift_v2_1.json
+          git add results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
+          if git diff --cached --quiet; then
+            echo "results unchanged"
+          else
+            git commit -m "Record zero-shift SCR diagnostic v2.1"
+            git push origin HEAD:design/san-jacinto-scr-sigma-impact-v1
+          fi
