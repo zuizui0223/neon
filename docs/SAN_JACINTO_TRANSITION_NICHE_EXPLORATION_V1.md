@@ -255,3 +255,113 @@ If positive, Stage 2 would support:
 Together with a null Stage 1, that pattern would be consistent with spatial niche partitioning arising primarily at a slower individual-placement / space-use-anchor scale rather than being re-created by directional avoidance at each within-night move.
 
 It would **not** identify whether anchor placement is caused by habitat selection, burrow placement, territoriality, past or current competition, or capture-related processes.
+
+
+---
+
+# Stage 2 result — stopped
+
+The frozen seasonal-anchor test had ample support:
+
+- 1,334 individual anchor proxies;
+- 928 individuals observed on at least two nights;
+- 30 eligible grid-seasons;
+- 30/30 units with non-zero permutation-null variance.
+
+The global anchor statistic was
+
+[
+T_{anchor}=-0.0120,
+]
+
+with one-sided Monte Carlo (p=0.5315).
+
+Decision:
+
+`stop_no_species_specific_seasonal_anchoring_support`.
+
+This rejects the specific label-shuffle hypothesis that species identity is associated with one point-like seasonal anchor more strongly than expected after conditioning on the observed anchor-location cloud and species individual counts. It does not overturn the published fixed-fixed SIM9 result because the two null hypotheses differ.
+
+---
+
+# Stage 3 — frozen published-null scale decomposition
+
+**Status:** frozen after Stage 2 stopped and before any Stage-3 SIM9 result is calculated.
+
+## Rationale
+
+The published spatial-partitioning result used EcoSimR SIM9, not the individual-label permutation used in Stage 2. SIM9 preserves both species trap-occupancy totals and trap species-richness totals.
+
+Stage 3 therefore first attempts a direct reproduction of the published null analysis, then changes only the temporal representation while keeping the same SIM9 null model.
+
+## Representations
+
+For every one of the published 8 grids × 4 seasons:
+
+1. **ALL** — species × trap presence/absence using every valid capture record, including recaptures. This is the published representation.
+2. **NIGHT-FIRST** — species × trap presence/absence using only the earliest valid capture of each individual on each calendar night. Later within-night recaptures are excluded, but repeated use across nights and individuals is retained.
+3. **ANCHOR** — species × trap presence/absence using one seasonal spatial-anchor proxy per individual, defined exactly as in frozen Stage 2 from NIGHT-FIRST locations.
+
+The focal six species are CHFA, DKR, LAPM, PEER, PEMA and SKR. In each representation, include every focal species present in that grid-season. Empty trap columns are removed before EcoSimR because the package requires non-empty columns.
+
+## Null model
+
+For each representation × grid-season matrix:
+
+- EcoSimR `cooc_null_model`;
+- algorithm = `"sim9"`;
+- metric = `"c_score"`;
+- 5,000 null replicates, matching the published study;
+- burn-in = 500;
+- deterministic seed family beginning at **2026100503**, with a unique fixed seed by representation and grid-season.
+
+SIM9 is the fixed–fixed curveball implementation documented by EcoSimR and preserves row and column totals.
+
+For each matrix report observed C-score, null mean, null SD, SES, lower and upper two-tailed 95% null quantiles, and whether the observed value is above, within, or below that interval.
+
+## Reproduction gate
+
+The **ALL** representation is opened first.
+
+The scale-decomposition route is authorized only if ALL reproduces the published headline result:
+
+- all **32** grid-seasons analyzable;
+- **8** grid-seasons above the two-tailed 95% null interval (segregated);
+- **0** below it (aggregated).
+
+If this exact gate fails, Stage 3 stops and NIGHT-FIRST / ANCHOR results are not interpreted as a reproduction of the published partitioning signal.
+
+## Scale classification if reproduction passes
+
+Let (S_{ALL}) be the set of the 8 reproduced segregated grid-seasons.
+
+For NIGHT-FIRST and ANCHOR, define retention as the fraction of (S_{ALL}) that remains above its own representation-specific SIM9 97.5th percentile.
+
+The ecological scale is classified prospectively as:
+
+- **point-anchor sufficient**: ANCHOR retains at least 75% of (S_{ALL});
+- **between-night footprint**: NIGHT-FIRST retains at least 75% of (S_{ALL}) but ANCHOR retains less than 75%;
+- **within-night records materially contribute**: NIGHT-FIRST retains less than 75% of (S_{ALL}).
+
+The 75% rule corresponds to retaining at least 6 of the 8 published segregated grid-seasons.
+
+This is a mutually exclusive classification; no alternative threshold will be tried.
+
+## Secondary fixed summaries
+
+Report:
+
+- mean and median SES for each representation across all 32 grid-seasons;
+- Pearson correlation of SES between ALL and NIGHT-FIRST and between ALL and ANCHOR;
+- counts of newly significant units outside (S_{ALL}), descriptively only;
+- per-unit changes in row totals and occupied trap columns across representations.
+
+No species-pair decomposition is opened in Stage 3.
+
+## Interpretation boundary
+
+A NIGHT-FIRST result that retains the published segregation while ANCHOR does not would support a specific temporal-scale statement:
+
+> **Community spatial partitioning is carried by recurring multi-night space-use footprints rather than by a single point-like individual anchor or by later within-night recapture directions.**
+
+A failure of NIGHT-FIRST retention would instead show that later within-night capture locations materially contribute to the published co-occurrence pattern, without identifying whether that contribution is natural movement or handling-related observation process.
