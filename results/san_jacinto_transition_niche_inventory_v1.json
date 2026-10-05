@@ -1,0 +1,166 @@
+{
+  "article_doi": "10.6084/m9.figshare.18295520.v1",
+  "article_id": 18295520,
+  "article_title": "Rodent survey data 2015 2016",
+  "article_version": 1,
+  "capture_file": {
+    "columns": [
+      "VIE",
+      "date",
+      "flag",
+      "grid",
+      "history",
+      "left_tag",
+      "repro",
+      "right_tag",
+      "sex",
+      "species",
+      "time",
+      "time_bin",
+      "unique_ID",
+      "weight_g"
+    ],
+    "id": 33058799,
+    "possible_environment_columns": [],
+    "required_capture_columns_missing": [],
+    "row_count": 8981,
+    "sha256_verified": true,
+    "species": {
+      "CHFA": {
+        "consecutive_within_night_transition_count": 963,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 224,
+        "may_july_2016_repeat_capture_nights": 152,
+        "repeat_capture_nights": 551,
+        "rows": 1725,
+        "unique_individuals_with_id": 124,
+        "valid_spatiotemporal_rows": 1692
+      },
+      "DKR": {
+        "consecutive_within_night_transition_count": 658,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 110,
+        "may_july_2016_repeat_capture_nights": 71,
+        "repeat_capture_nights": 389,
+        "rows": 1204,
+        "unique_individuals_with_id": 76,
+        "valid_spatiotemporal_rows": 1191
+      },
+      "LAPM": {
+        "consecutive_within_night_transition_count": 384,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 219,
+        "may_july_2016_repeat_capture_nights": 157,
+        "repeat_capture_nights": 259,
+        "rows": 985,
+        "unique_individuals_with_id": 152,
+        "valid_spatiotemporal_rows": 968
+      },
+      "P": {
+        "consecutive_within_night_transition_count": 0,
+        "date_max": "2016-07-06",
+        "date_min": "2016-07-06",
+        "may_july_2016_consecutive_transition_count": 0,
+        "may_july_2016_repeat_capture_nights": 0,
+        "repeat_capture_nights": 0,
+        "rows": 1,
+        "unique_individuals_with_id": 1,
+        "valid_spatiotemporal_rows": 1
+      },
+      "PEER": {
+        "consecutive_within_night_transition_count": 132,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 45,
+        "may_july_2016_repeat_capture_nights": 39,
+        "repeat_capture_nights": 107,
+        "rows": 446,
+        "unique_individuals_with_id": 89,
+        "valid_spatiotemporal_rows": 433
+      },
+      "PEMA": {
+        "consecutive_within_night_transition_count": 664,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 233,
+        "may_july_2016_repeat_capture_nights": 177,
+        "repeat_capture_nights": 485,
+        "rows": 1917,
+        "unique_individuals_with_id": 372,
+        "valid_spatiotemporal_rows": 1883
+      },
+      "REME": {
+        "consecutive_within_night_transition_count": 0,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-10",
+        "may_july_2016_consecutive_transition_count": 0,
+        "may_july_2016_repeat_capture_nights": 0,
+        "repeat_capture_nights": 0,
+        "rows": 9,
+        "unique_individuals_with_id": 8,
+        "valid_spatiotemporal_rows": 9
+      },
+      "SKR": {
+        "consecutive_within_night_transition_count": 1474,
+        "date_max": "2016-07-07",
+        "date_min": "2015-08-09",
+        "may_july_2016_consecutive_transition_count": 353,
+        "may_july_2016_repeat_capture_nights": 224,
+        "repeat_capture_nights": 858,
+        "rows": 2694,
+        "unique_individuals_with_id": 196,
+        "valid_spatiotemporal_rows": 2658
+      }
+    }
+  },
+  "file_count": 2,
+  "files": [
+    {
+      "computed_md5": "574b531622c95219553bca8f263ddec3",
+      "csv_header": [
+        "date",
+        "time_bin",
+        "time",
+        "grid",
+        "flag",
+        "species",
+        "left_tag",
+        "right_tag",
+        "VIE",
+        "unique_ID",
+        "history",
+        "sex",
+        "repro",
+        "weight_g"
+      ],
+      "download_url": "https://ndownloader.figshare.com/files/33058799",
+      "id": 33058799,
+      "is_link_only": false,
+      "name": "year round trap data.csv",
+      "size": 462472,
+      "supplied_md5": "574b531622c95219553bca8f263ddec3"
+    },
+    {
+      "computed_md5": "4463647615a2b1776ab267d90d3e0672",
+      "download_url": "https://ndownloader.figshare.com/files/33060218",
+      "id": 33060218,
+      "is_link_only": false,
+      "name": "Metadata.xlsx",
+      "size": 9544,
+      "supplied_md5": "4463647615a2b1776ab267d90d3e0672"
+    }
+  ],
+  "possible_environment_files": [],
+  "schema": "neon.san_jacinto_transition_niche_inventory.v1",
+  "stage0_claim_boundary": {
+    "community_cscore_transition_effect_opened": false,
+    "habitat_transition_differences_opened": false,
+    "species_transition_kernels_opened": false,
+    "transition_directions_opened": false,
+    "transition_distances_opened": false
+  },
+  "status": "stage0_feasibility_only_no_transition_outcomes_opened"
+}
