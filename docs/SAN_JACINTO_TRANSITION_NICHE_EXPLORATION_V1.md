@@ -151,3 +151,107 @@ It would not show that competition itself causes the direction choice, that hand
 The ecological principle being tested is therefore:
 
 > **Spatial partitioning in a mobile guild can be maintained by where movements are directed, not by suppression of movement magnitude.**
+
+
+---
+
+# Stage 2 — adaptive but prospectively frozen scale-localization test
+
+**Status:** opened only after the frozen Stage-1 movement-direction test stopped. No Stage-2 anchor outcome has been calculated at the time of this freeze.
+
+## Why Stage 2 is a distinct question
+
+Stage 1 rejected the hypothesis that within-night movement **direction**, conditional on exact movement length and origin, continually maintains community-level spatial segregation.
+
+Stage 2 therefore asks a different ecological question:
+
+> **Is species segregation already encoded in where individuals are seasonally anchored in space, before later within-night movements are considered?**
+
+This is a scale-localization test, not a rescue of Stage 1.
+
+## Individual spatial-anchor proxy
+
+Within each grid × season, for every focal individual:
+
+1. group valid captures by calendar night;
+2. retain only the **earliest valid trap of each night**, thereby excluding all later within-night recapture positions used in Stage 1;
+3. among the retained nightly-FIRST traps, choose the observed trap that minimizes the sum of squared 7 × 7 grid distances to all retained nightly-FIRST traps;
+4. break medoid ties by greatest observed frequency among nightly-FIRST traps and then lexicographically.
+
+Every individual therefore contributes exactly one seasonal anchor proxy. Individuals captured on only one night contribute that one trap; no minimum recapture count is imposed because the null conditions on the complete observed set of individual anchor proxies.
+
+## Grid-season inclusion
+
+Use the same published seasons (fall Aug–Oct, winter Nov–Jan, spring Feb–Apr, summer May–Jul).
+
+Within each grid-season, include every focal species represented by at least one individual anchor proxy. A unit is eligible if at least **3 focal species** are represented.
+
+This rule is fixed without inspecting anchor C-scores or species spatial locations.
+
+## Primary statistic
+
+For each eligible grid-season, build a species × trap presence/absence matrix from the one-anchor-per-individual representation and calculate the same mean pairwise checkerboard C-score used in Stage 1 and the published community analysis.
+
+## Species-label null
+
+Within each grid-season:
+
+- keep the exact multiset of individual anchor locations fixed;
+- keep the exact number of individuals assigned to each species fixed;
+- randomly permute species labels among individual anchors.
+
+This null destroys species-specific anchor placement while preserving spatial sampling footprint, grid geometry, number of observed individuals, and the observed clustering of anchor locations irrespective of species.
+
+Use **10,000** permutations with seed **2026100502**.
+
+For unit (u), let (C_u^{obs}) be the observed anchor C-score and let (mu_u,sigma_u) be its permutation-null mean and SD. Define
+
+[
+Z_u=(C_u^{obs}-mu_u)/sigma_u.
+]
+
+Units with (sigma_u=0) are reported but excluded from standardized aggregation.
+
+The global statistic is
+
+[
+T_{anchor}=operatorname{mean}_u Z_u.
+]
+
+For permutation (b), compute the corresponding global mean standardized statistic (T_b). The one-sided Monte Carlo p-value is
+
+[
+(1+#{T_bge T_{anchor}})/(B+1).
+]
+
+## Frozen decision
+
+Stage 2 supports species-specific spatial anchoring only if:
+
+- at least **8** grid-seasons have non-zero null variance;
+- (T_{anchor}>0); and
+- one-sided Monte Carlo (p<0.05).
+
+Otherwise the scale-localization route stops.
+
+## Fixed secondary summaries
+
+Report without separate confirmatory claims:
+
+- number of eligible and informative grid-seasons;
+- number of individual anchor proxies overall and by species;
+- observed anchor C-score, null mean and (Z_u) by grid-season;
+- the same grid-season C-score computed from all capture locations as descriptive context;
+- correlation across eligible grid-seasons between anchor-only and all-capture C-scores.
+
+No species-pair decomposition, alternative anchor definitions, habitat surrogates, or threshold search will be opened after seeing the Stage-2 result.
+
+## Interpretation boundary
+
+If positive, Stage 2 would support:
+
+> **Species identity is non-randomly associated with the seasonal spatial locations around which individuals are observed, even after later within-night recaptures are removed.**
+
+Together with a null Stage 1, that pattern would be consistent with spatial niche partitioning arising primarily at a slower individual-placement / space-use-anchor scale rather than being re-created by directional avoidance at each within-night move.
+
+It would **not** identify whether anchor placement is caused by habitat selection, burrow placement, territoriality, past or current competition, or capture-related processes.
