@@ -1,0 +1,77 @@
+{
+  "between_grid": {
+    "exact_one_sided_p_upper": 0.000992063492063492,
+    "grid_means": [
+      {
+        "grid": "1",
+        "mean_community_ses": 0.39334395287999996,
+        "mean_footprint_z": 1.7757362775976882,
+        "n_seasons": 4
+      },
+      {
+        "grid": "2",
+        "mean_community_ses": 0.0803505706325,
+        "mean_footprint_z": 1.5286612124453687,
+        "n_seasons": 4
+      },
+      {
+        "grid": "3",
+        "mean_community_ses": -0.744470245,
+        "mean_footprint_z": -0.6447758746618902,
+        "n_seasons": 2
+      },
+      {
+        "grid": "4",
+        "mean_community_ses": 6.915144939525,
+        "mean_footprint_z": 4.541930156124732,
+        "n_seasons": 4
+      },
+      {
+        "grid": "5",
+        "mean_community_ses": 0.5089401677606666,
+        "mean_footprint_z": 1.0520137100074838,
+        "n_seasons": 3
+      },
+      {
+        "grid": "6",
+        "mean_community_ses": 3.925941831625,
+        "mean_footprint_z": 4.2547756556693805,
+        "n_seasons": 4
+      },
+      {
+        "grid": "7",
+        "mean_community_ses": -0.46630869526,
+        "mean_footprint_z": 0.6560577428874999,
+        "n_seasons": 1
+      }
+    ],
+    "permutations": 5040,
+    "r": 0.9225914550449852
+  },
+  "claim_boundary": {
+    "causal": false,
+    "confirmatory": false,
+    "new_threshold_search": false,
+    "species_pair_decomposition_opened": false
+  },
+  "interpretation_boundary": "A strong between-grid link can arise from persistent habitat, species composition, competitor presence, or other grid-scale context. This audit does not identify the causal driver and does not convert the already-opened descriptive correlation into a confirmatory endpoint.",
+  "matched_grid_seasons": 22,
+  "overall": {
+    "r": 0.69425481417086
+  },
+  "reference_contrast": {
+    "difference": 3.16160295955231,
+    "mean_footprint_z_nonreference": 1.165188029750744,
+    "mean_footprint_z_reference": 4.326790989303054,
+    "nonreference_units_n": 14,
+    "reference_units_n": 8
+  },
+  "schema": "neon.san_jacinto_cross_scale_link_audit.v1",
+  "status": "post_result_exploratory_non_rescuing",
+  "within_grid_seasonal": {
+    "monte_carlo_one_sided_p_upper": 0.20665396673016634,
+    "permutations": 200000,
+    "r": 0.27119945276605023,
+    "seed": 2026100506
+  }
+}
