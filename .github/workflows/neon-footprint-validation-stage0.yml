@@ -1,0 +1,45 @@
+name: neon-footprint-validation-stage0
+on:
+  push:
+    branches: [ecology/neon-footprint-validation-v1]
+    paths:
+      - docs/NEON_INDEPENDENT_FOOTPRINT_VALIDATION_V1.md
+      - analysis/inventory_neon_footprint_validation_v1.py
+      - tests/test_neon_footprint_validation_inventory_v1.py
+      - .github/workflows/neon-footprint-validation-stage0.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: neon-footprint-validation-stage0-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/neon-footprint-validation-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test support parser
+        run: python -m unittest tests.test_neon_footprint_validation_inventory_v1 -v
+      - name: Run fixed-site support audit
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/inventory_neon_footprint_validation_v1.py \
+            --output /tmp/neon_footprint_validation_inventory_v1.json
+      - name: Persist support audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/neon-footprint-validation-v1
+          cp /tmp/neon_footprint_validation_inventory_v1.json results/neon_footprint_validation_inventory_v1.json
+          git add results/neon_footprint_validation_inventory_v1.json
+          if git diff --cached --quiet; then echo unchanged; else
+            git commit -m "Record NEON footprint validation support audit"
+            git push origin HEAD:ecology/neon-footprint-validation-v1
+          fi
