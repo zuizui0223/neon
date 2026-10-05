@@ -1,0 +1,138 @@
+{
+  "schema": "neon.multiscale_density_accommodation.design.v1",
+  "date": "2026-10-05",
+  "state": "question_frozen_before_new_release2026_spatial_effect_extraction",
+  "programme": "multiscale_density_accommodation_v1",
+  "paper_lane": "mammal_ecology_separate_from_live_trap_aliasing_pr21",
+  "scientific_question": "When local small-mammal abundance rises, is crowding accommodated primarily by contraction of individual space use, expansion of the population footprint, or a cross-scale combination of both?",
+  "literature_boundary": {
+    "already_established": [
+      "individual home-range size commonly decreases with density",
+      "NEON Peromyscus home-range area decreases with density",
+      "habitat, latitude and density interact to influence Peromyscus home-range area",
+      "within- versus between-individual variation in space use is an established conceptual decomposition"
+    ],
+    "candidate_contribution": "jointly estimate abundance responses at individual and population spatial scales within the same standardized small-mammal sampling sessions",
+    "key_reference": "O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Oecologia 207:98. doi:10.1007/s00442-025-05731-2"
+  },
+  "release_2026": {
+    "status": "response_consumed_development_data",
+    "confirmatory_reuse_forbidden": true,
+    "allowed": [
+      "schema audit",
+      "effect-blind structural estimability",
+      "mechanical metric validation",
+      "model development",
+      "taxonomy sensitivity development",
+      "explicitly exploratory ecological estimates"
+    ]
+  },
+  "future_confirmation": {
+    "response": "first NEON small-mammal observations not contained in RELEASE-2026",
+    "freeze_before_access": [
+      "eligible sampling types",
+      "species and taxonomy rule",
+      "abundance metric",
+      "individual-scale spatial metric",
+      "population-footprint metric",
+      "effort model",
+      "support thresholds",
+      "model formula",
+      "primary cross-scale contrast",
+      "stop rules"
+    ]
+  },
+  "primary_unit": "species x plotID x sampling session/eventID",
+  "hierarchy": [
+    "site",
+    "plotID",
+    "year",
+    "eventID",
+    "nightuid",
+    "trapCoordinate",
+    "resolved individualID",
+    "capture event"
+  ],
+  "sampling_boundary": {
+    "primary_cross_scale_pool": "multi-night sessions where both individual-scale and population-footprint metrics are estimable",
+    "one_night_sessions": "population-footprint development only unless a future frozen model establishes comparability",
+    "denominator": "active trap-night"
+  },
+  "candidate_individual_scale_metrics": [
+    "successive recapture displacement",
+    "within-individual squared radial spread around session centroid",
+    "session-level SCR/SECR spatial scale where estimable"
+  ],
+  "candidate_population_footprint_metrics": [
+    "effort-conditioned mean pairwise distance among individual session centres",
+    "effort-conditioned variance of individual session centres",
+    "effective occupied-trap number standardized by an effort/N-preserving null"
+  ],
+  "mechanical_rejection_rule": "reject any footprint metric that is a deterministic or near-deterministic function of abundance, occupied-trap count, nominal grid size, or grid identity",
+  "primary_hypothesis": {
+    "name": "cross_scale_density_accommodation",
+    "individual_slope": "beta_W = abundance response of individual-scale spatial extent",
+    "population_slope": "beta_B = abundance response of population-footprint spatial extent",
+    "contrast": "Delta_beta = beta_B - beta_W",
+    "prediction": "Delta_beta > 0",
+    "strong_form": "beta_W < 0 and beta_B >= 0",
+    "interpretation": "additional individuals are accommodated more by spatial packing/compression at the individual scale than by proportional expansion of the population footprint"
+  },
+  "abundance_candidates": [
+    "resolved unique individuals / MNKA-like session count",
+    "effort-standardized capture rate",
+    "closed or spatial capture-recapture density where estimable"
+  ],
+  "effect_blind_next_gate": {
+    "allowed_fields": [
+      "site",
+      "plotID",
+      "year",
+      "eventID",
+      "nightuid",
+      "mammalGridSamplingType",
+      "gridCompletion",
+      "trap availability/status",
+      "resolved individual identifier",
+      "taxon identifier",
+      "capture coordinate identifier"
+    ],
+    "allowed_summaries": [
+      "active trap-night counts",
+      "unique individual counts",
+      "repeat-captured individual counts",
+      "capture-event counts",
+      "distinct-coordinate counts",
+      "sessions per species/site/year"
+    ],
+    "forbidden_before_gate_freeze": [
+      "within-individual distances",
+      "between-individual distances",
+      "W or B values",
+      "density slopes",
+      "habitat effects",
+      "species effect ranking by outcome"
+    ]
+  },
+  "required_controls": [
+    "active trap-night effort",
+    "per-individual capture-frequency-preserving spatial null",
+    "leave-one-individual-out influence",
+    "leave-one-night-out influence",
+    "mammalGridSamplingType sensitivity",
+    "Peromyscus cryptic-identification sensitivity",
+    "grid-edge/truncation audit"
+  ],
+  "replication_requirement": {
+    "taxonomic": true,
+    "geographic": true,
+    "exact_minimums": "freeze after effect-blind RELEASE-2026 structural audit and copy unchanged to future-response contract"
+  },
+  "stop_rules": [
+    "stop if both spatial scales are not jointly estimable across replicated species and sites",
+    "stop if footprint metric is mechanically driven by abundance",
+    "stop if within-individual metric is dominated by sparse recapture support",
+    "stop if effort or taxonomy semantics cannot be frozen prospectively",
+    "do not rescue future failure with post-hoc taxa, thresholds, metrics, habitat moderators, or incompatible sampling designs"
+  ]
+}
