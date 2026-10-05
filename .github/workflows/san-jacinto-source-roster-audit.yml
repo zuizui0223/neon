@@ -1,0 +1,47 @@
+name: san-jacinto-source-roster-audit
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/audit_san_jacinto_source_roster_v1.py
+      - .github/workflows/san-jacinto-source-roster-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-source-roster-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl
+      - name: Audit source roster and metadata
+        run: |
+          python analysis/audit_san_jacinto_source_roster_v1.py \
+            --output /tmp/san_jacinto_source_roster_audit_v1.json
+      - name: Persist audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_source_roster_audit_v1.json results/san_jacinto_source_roster_audit_v1.json
+          git add results/san_jacinto_source_roster_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "audit unchanged"
+          else
+            git commit -m "Record San Jacinto source roster audit"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
