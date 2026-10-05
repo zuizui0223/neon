@@ -1028,3 +1028,43 @@ If both levels pass, the Stage-7 conclusion is not confined to the three grids t
 > **species-specific spatial recurrence after complete individual turnover is detectable across the broader public-data community, although it remains strongest where community segregation itself is strongest.**
 
 No alternative turnover rule, species threshold, spatial statistic, species-pair decomposition or habitat surrogate will be tried.
+
+
+---
+
+# Stage 7 result
+
+The frozen complete-individual-turnover test passed:
+
+- bridge individuals removed across the eight reference units: **188**;
+- informative units: **8/8**;
+- positive standardized persistence: **7/8**;
+- global mean standardized turnover persistence: **1.0374**;
+- one-sided Monte Carlo **p = 0.00159984**.
+
+Decision:
+
+`support_species_level_spatial_template_beyond_individual_identity`.
+
+The post-turnover signal was markedly weaker than the original Stage-5 temporal-persistence signal, so the result supports a layered interpretation: repeated use by the same individuals is important, but does not fully account for species-specific seasonal spatial recurrence.
+
+# Stage 8 result
+
+The broader support audit found 18 eligible grid-seasons across six physical grids.
+
+The frozen broader audit gave:
+
+- informative units: **18/18**;
+- positive units: **13/18**;
+- global mean standardized persistence: **0.7522**;
+- joint Monte Carlo **p = 0.00079992**;
+- positive physical-grid means: **5/6**;
+- exact six-grid sign-flip **p = 0.125**.
+
+The unit-level robustness criterion passed, but the predeclared physical-grid criterion failed.
+
+Decision:
+
+`broader_turnover_generalization_not_supported`.
+
+Stage 7 remains the primary turnover result. Stage 8 prevents generalizing that result beyond the fixed segregated regimes on the present number of independent physical grids.
