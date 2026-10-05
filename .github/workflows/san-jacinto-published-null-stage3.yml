@@ -25,3 +25,4 @@ jobs:
           echo "The deposited public data contain only two focal species in grid 3 winter and grid 7 winter,"
           echo "whereas the publication reports 3-6 species in each of 32 matrices."
           echo "Use the separately frozen public-data Stage 4 route; do not reinterpret Stage 3."
+# closed workflow refresh: 2026-10-05
