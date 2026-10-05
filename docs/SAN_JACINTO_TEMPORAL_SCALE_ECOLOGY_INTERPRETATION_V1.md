@@ -1,8 +1,8 @@
 # San Jacinto temporal-scale ecology interpretation v1
 
-**Status:** Stage 4 primary classification complete  
+**Status:** Stage 5A/5B ecological localization complete  
 **Branch:** `ecology/san-jacinto-transition-niche-v1`  
-**Primary result:** `results/san_jacinto_public_data_scale_decomposition_v1.json`  
+**Primary results:** `results/san_jacinto_public_data_scale_decomposition_v1.json`; `results/san_jacinto_stage5_temporal_persistence_v1.json`; `results/san_jacinto_individual_footprint_assortativity_v1.json`  
 **Frozen design:** `docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md`
 
 ## One-sentence result
@@ -142,6 +142,34 @@ The strongest current ecological synthesis is therefore:
 
 The word “persistent” refers to community-level species × trap reuse across seasonal halves. It does not imply that every individual has a stable telemetry-defined home range.
 
+
+## Stage 5B — the community signal is also visible among individuals
+
+A separate, independently frozen analysis asked whether the recurring footprint is merely a matrix-level property or whether **different individuals of the same species actually use more similar multi-night footprints than individuals of different species**.
+
+For every individual observed on at least two nights, the footprint was the set of distinct NIGHT-FIRST traps used during a grid-season. The test compared pairwise Jaccard similarity among conspecific versus heterospecific individuals.
+
+Crucially, the null shuffled species labels **only among individuals with exactly the same number of distinct traps in their footprints**. This controls the obvious alternative that the pattern merely reflects species differences in footprint breadth or sampling depth.
+
+Results:
+
+- multi-night individuals before unit filtering: **928**;
+- eligible/informative grid-seasons: **22/22**;
+- global standardized assortativity: **T = 2.3149**;
+- one-sided Monte Carlo **p = 0.00009999**;
+- positive raw conspecific-minus-heterospecific difference: **20/22** units;
+- mean conspecific Jaccard: **0.05760**;
+- mean heterospecific Jaccard: **0.03446**;
+- unit-level assortativity (Z) vs Stage-4 NIGHT-FIRST community SES: **r = 0.6943**.
+
+This is an important strengthening of the Stage-4/5A interpretation. The recurring spatial footprint is not only temporally persistent at the aggregated species × trap level; it is **assortative among different individuals of the same species**, even after exact control for footprint size.
+
+Accordingly, the stronger but still defensible synthesis is:
+
+> **Species-specific community segregation emerges from persistent, overlapping domains of repeated space use shared among conspecific individuals, rather than from continual directional avoidance or one static centre per individual.**
+
+This remains an association, not a causal identification of habitat selection or competition.
+
 ## Biological interpretation
 
 The result rejects two simple pictures of spatial niche partitioning.
@@ -176,7 +204,7 @@ Hierarchical habitat selection, movement-mediated coexistence, home-range format
 
 The more distinctive principle suggested by this analysis is:
 
-> **A community pattern can reside in the spatial footprint of repeated behavior even when it is absent from both moment-to-moment directional decisions and point summaries of individuals.**
+> **A community pattern can be encoded in persistent, species-specific spatial footprints shared across repeated behavior and across individuals, even when it is absent from moment-to-moment directional decisions and point summaries.**
 
 This identifies a middle organizational scale:
 
@@ -253,9 +281,10 @@ This result is materially stronger biologically than the temporal-aliasing metho
 On the current evidence:
 
 - it is more than a generic observation-process result;
-- it gives a falsifiable temporal-scale mechanism statement;
+- it gives a falsifiable temporal-scale localization and two independent persistence/assortativity tests;
+- the individual-footprint result controls exactly for footprint size, substantially weakening a simple sampling-depth explanation;
 - it is not yet a causal coexistence mechanism because habitat and competition are not separated;
-- it is strongest as a reanalysis showing that a known spatial partitioning pattern is encoded in repeated multi-night use rather than within-night direction or point centres.
+- it is strongest as a reanalysis showing that a known spatial partitioning pattern is encoded in persistent species-specific multi-night use shared among conspecific individuals rather than within-night direction or point centres.
 
 A high-impact ecology claim would require an independent system or the missing trap-level habitat data to show *why* the multi-night footprints differ among species.
 
