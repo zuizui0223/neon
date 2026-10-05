@@ -142,6 +142,38 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
                 out["support"]["sessions"][0]["n_capture_rows"], 2
             )
 
+    def test_taxonomy_qc_is_structural_and_detects_within_bout_conflict(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plot = root / "p.csv"
+            trap = root / "t.csv"
+            plot.write_text(
+                "nightuid,eventID,plotID,siteID\n"
+                "n1,E1,P1,SITE\n"
+                "n2,E1,P1,SITE\n",
+                encoding="utf-8",
+            )
+            trap.write_text(
+                "nightuid,plotID,trapCoordinate,trapStatus,tagID,taxonID,"
+                "scientificName,identificationQualifier,taxonRank\n"
+                "n1,P1,A1,5 - capture,i1,PEMA,Peromyscus maniculatus,,species\n"
+                "n2,P1,A2,5 - capture,i1,PESO,Peromyscus sonoriensis,cf.,species\n",
+                encoding="utf-8",
+            )
+            out = audit(plot, trap)
+            self.assertEqual(
+                out["data_quality"]["event_tag_ids_with_multiple_taxon_ids"], 1
+            )
+            self.assertEqual(
+                out["data_quality"]["capture_rows_with_identification_qualifier"], 1
+            )
+            taxa = {row["taxon"]: row for row in out["support"]["taxa"]}
+            self.assertEqual(taxa["PEMA"]["genus_labels"], ["Peromyscus"])
+            self.assertEqual(taxa["PESO"]["genus_labels"], ["Peromyscus"])
+            self.assertEqual(
+                taxa["PESO"]["identification_qualifier_counts"], {"cf.": 1}
+            )
+
     def test_requires_event_and_spatial_support_identifiers(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
