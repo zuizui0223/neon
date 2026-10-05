@@ -28,6 +28,14 @@ Therefore this programme must also avoid claiming novelty for the general idea t
 
 A broader home-range review likewise emphasizes that density can be viewed as emerging from the joint geometry of individual ranges and their overlap rather than as an external driver that can be interpreted independently of spatial organization. This is precisely why the present design separates **within-individual spatial variance** from **dispersion of individual centres**.
 
+### Density-dependent spatial connectedness is already a general result
+
+Albery et al. (2025, *Nature Ecology & Evolution*, doi:10.1038/s41559-025-02843-z) synthesized 36 spatial/social behavioural datasets across more than 58,000 animals and 30 species. They found positive density–network-centrality relationships in most systems, with stronger density effects in spatial than social networks and frequent nonlinear saturation.
+
+Therefore this programme must **not** claim novelty for the broad proposition that higher animal density increases spatial connectedness or encounter opportunity.
+
+That result makes the remaining question more mechanistic in scale but still ecological: **which component of spatial variance changes as density rises?** Higher spatial connectedness can emerge because individuals contract their own ranges, because individual centres pack more tightly, because both occur, or because more individuals occupy an unchanged footprint. The present design distinguishes these possibilities directly.
+
 ### Cross-scale and within/between-individual space use
 
 The distinction between within-individual and between-individual spatial variation is also established in movement and individual-specialization ecology. Spatial niche studies have explicitly partitioned individual and population space use, and SCR literature jointly treats individual movement scale and population density.
@@ -44,7 +52,7 @@ The key object is the *difference between density responses at two nested spatia
 
 The mechanically preferred coordinate formulation uses pairwise U-statistics on the same squared-distance scale: one for within-individual positional variance and one for among-centre variance. The between-individual statistic is constructed so that, under iid sampling from an unchanged centre distribution, its expectation does not rise merely because more individuals are sampled.
 
-Existing work establishes density-dependent home-range size, overlap, and the conceptual distinction between individual and population ranges. The candidate contribution is the **replicated joint response of those two variance scales to abundance within matched sessions**, with taxonomic and geographic replication.
+Existing work establishes density-dependent home-range size, overlap, density-dependent spatial connectedness, and the conceptual distinction between individual and population ranges. The candidate contribution is the **replicated joint response of within-individual and among-centre spatial variance to abundance within matched sessions**, with taxonomic and geographic replication. This identifies the scale at which density is accommodated rather than re-demonstrating that density changes space use or connectedness.
 
 ## Why the gap matters
 
@@ -91,3 +99,5 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 - Efford MG, Dawson DK, Jhala YV, Qureshi Q. 2016. Density-dependent home-range size revealed by spatially explicit capture-recapture. *Ecography*. doi:10.1111/ecog.01511.
 - Bogdziewicz M et al. 2016. Negative effects of density on space use of small mammals differ with the phase of the masting-induced population cycle. *Ecology and Evolution*. doi:10.1002/ece3.2513.
 - O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Uncovering multiple influences on space use by deer mice using large ecological networks. *Oecologia* 207:98. doi:10.1007/s00442-025-05731-2.
+
+- Albery GF et al. 2025. Density-dependent network structuring within and across wild animal systems. *Nature Ecology & Evolution* 9:2002–2013. doi:10.1038/s41559-025-02843-z.
