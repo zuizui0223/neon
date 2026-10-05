@@ -269,6 +269,89 @@ Candidate contribution:
 
 The novelty is the **cross-scale density response**, not the variance identity or the existence of density dependence.
 
+## Frozen ecological decision map
+
+The paper-level interpretation is determined by the **joint sign structure** of the two preregistered abundance responses, not by selecting whichever single slope is significant.
+
+### A. Cross-scale accommodation supported
+
+If
+
+\[
+\Delta_\beta = \beta_B-\beta_W > 0
+\]
+
+with the frozen taxonomic and geographic replication requirements satisfied, then higher abundance is accommodated disproportionately at the individual scale relative to the population-footprint scale.
+
+The strongest biological form is
+
+\[
+\beta_W<0,\qquad \beta_B\ge0.
+\]
+
+Allowed interpretation:
+
+> **As local abundance rises, individuals compress their own spatial use more strongly than the population footprint contracts; crowding is absorbed by within-population packing rather than by proportional loss of population space.**
+
+This is the focal hypothesis.
+
+### B. Scale-conserved density response
+
+If
+
+\[
+\Delta_\beta \approx 0
+\]
+
+within the preregistered uncertainty criterion, density dependence is approximately conserved across the two measured spatial scales.
+
+Allowed interpretation:
+
+> Individual-scale contraction is accompanied by a comparable population-footprint response; the data do not support redistribution of density dependence across scales.
+
+This falsifies the focal cross-scale accommodation hypothesis.
+
+### C. Whole-population spatial compression
+
+If both slopes are negative and
+
+\[
+\beta_B < \beta_W,
+\]
+
+population centres contract at least as strongly as individual space use.
+
+Allowed interpretation:
+
+> Increasing local abundance coincides with spatial compression at both levels, opposite to the packing-first prediction.
+
+This is a biologically informative falsification, not a rescue target.
+
+### D. Population expansion dominates
+
+If (\beta_B>0) while (\beta_W\ge0), higher abundance is accommodated primarily by expansion of the population footprint rather than individual compression.
+
+This is also a prespecified alternative outcome and must not be renamed “packing”.
+
+### E. Taxonomic or geographic replication fails
+
+Even if the pooled (\Delta_\beta) is positive, no general cross-scale claim is allowed if the frozen taxonomic or geographic replication gate fails.
+
+No species-specific, site-specific or habitat-specific subgroup may rescue the general claim.
+
+## Why this is an ecological question rather than a variance identity
+
+The total spatial variance of capture locations can be decomposed algebraically into within- and between-individual components, but the hypothesis does **not** follow from that identity.
+
+The empirical claim concerns how the two separately estimated components respond to a third variable, abundance, across repeated species × grid × session observations. The algebra imposes no requirement that (\beta_W<\beta_B), nor any required sign for either slope.
+
+The mechanical validation therefore has two jobs:
+
+1. remove finite-sample dependence of (B) on the number of observed individuals;
+2. quantify observation-support and grid-edge effects that could otherwise create a spurious cross-scale contrast.
+
+Only after those checks is (\Delta_\beta) interpretable as an ecological density-response contrast.
+
 ## Stop rules
 
 Do not advance the future confirmatory programme if RELEASE-2026 development shows that:
