@@ -68,6 +68,53 @@ def trace_population_denominator_variance(points: Sequence[Point]) -> float:
     )
 
 
+def within_individual_variance(captures: Sequence[Point]) -> float:
+    """Trace of the unbiased within-individual covariance."""
+    return half_mean_pairwise_squared(captures)
+
+
+def centroid(captures: Sequence[Point]) -> Point:
+    if not captures:
+        raise ValueError("captures must not be empty")
+    d = len(captures[0])
+    if d == 0 or any(len(p) != d for p in captures):
+        raise ValueError("captures must have a common positive dimension")
+    n = len(captures)
+    return tuple(sum(p[q] for p in captures) / n for q in range(d))
+
+
+def observed_between_variance(individual_captures: Sequence[Sequence[Point]]) -> float:
+    """Between-individual variance of estimated session centroids."""
+    if len(individual_captures) < 2:
+        raise ValueError("at least two individuals are required")
+    return half_mean_pairwise_squared([centroid(x) for x in individual_captures])
+
+
+def centroid_noise_correction(individual_captures: Sequence[Sequence[Point]]) -> float:
+    """Mean W_i/k_i centroid-uncertainty contribution.
+
+    For iid captures around individual-specific centres with finite second
+    moments, W_i is unbiased for the within-individual covariance trace and
+    the sample-centroid error contributes E[W_i]/k_i in expectation.
+    """
+    if len(individual_captures) < 2:
+        raise ValueError("at least two individuals are required")
+    vals = []
+    for captures in individual_captures:
+        if len(captures) < 2:
+            raise ValueError("each primary individual requires at least two captures")
+        vals.append(within_individual_variance(captures) / len(captures))
+    return sum(vals) / len(vals)
+
+
+def debiased_between_variance(individual_captures: Sequence[Sequence[Point]]) -> float:
+    """Observed between-centroid variance minus mean centroid-noise contribution."""
+    return (
+        observed_between_variance(individual_captures)
+        - centroid_noise_correction(individual_captures)
+    )
+
+
 def iid_pair_target(support: Sequence[Point]) -> float:
     """E[||X-X'||^2]/2 for iid draws from a finite uniform support."""
     if not support:
@@ -124,16 +171,49 @@ def mechanical_receipt() -> dict:
                 "raw_minus_target": raw - target,
             }
         )
+    # Exact finite-state check of centroid-noise decomposition.
+    # Two true centres are separated by 20 m; each individual is observed twice
+    # with symmetric ±5 m x-error. Enumerating all observation combinations
+    # allows an exact expectation check without biological data.
+    true_centres: list[Point] = [(0.0, 0.0), (20.0, 0.0)]
+    error_support: list[Point] = [(-5.0, 0.0), (5.0, 0.0)]
+    true_between = half_mean_pairwise_squared(true_centres)
+    obs_vals = []
+    corr_vals = []
+    deb_vals = []
+    for e in itertools.product(range(len(error_support)), repeat=4):
+        captures = []
+        for i, mu in enumerate(true_centres):
+            a = error_support[e[2 * i]]
+            b = error_support[e[2 * i + 1]]
+            captures.append([
+                (mu[0] + a[0], mu[1] + a[1]),
+                (mu[0] + b[0], mu[1] + b[1]),
+            ])
+        obs_vals.append(observed_between_variance(captures))
+        corr_vals.append(centroid_noise_correction(captures))
+        deb_vals.append(debiased_between_variance(captures))
+
+    centroid_check = {
+        "true_between_variance": true_between,
+        "expected_observed_between_variance": sum(obs_vals) / len(obs_vals),
+        "expected_centroid_noise_correction": sum(corr_vals) / len(corr_vals),
+        "expected_debiased_between_variance": sum(deb_vals) / len(deb_vals),
+    }
+
     return {
         "schema": "neon.multiscale_density.metric_mechanics.v1",
         "status": "synthetic_mechanical_check_only",
         "support_points": support,
         "iid_target": target,
         "sample_size_checks": rows,
+        "centroid_noise_check": centroid_check,
         "conclusion": (
             "half mean pairwise squared distance is an unbiased sample-variance "
             "U-statistic whose expectation is invariant to sample size under an "
-            "unchanged iid centre distribution; denominator-n variance is not"
+            "unchanged iid centre distribution; denominator-n variance is not. "
+            "Subtracting mean W_i/k_i exactly removes centroid-noise inflation "
+            "in the iid repeated-location benchmark."
         ),
         "biological_effect_values_opened": False,
     }
