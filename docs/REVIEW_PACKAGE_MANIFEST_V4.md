@@ -6,7 +6,7 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md
 - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md
 - README_LIVE_TRAP_ALIASING.md
-- docs/FIGURE_CAPTIONS_V3.md
+- docs/FIGURE_CAPTIONS_V4.md
 - docs/SUBMISSION_STATEMENTS_V1.md
 - docs/MEE_FIT_AND_LITERATURE_BOUNDARY_V3.md
 - docs/MEE_PRESUBMISSION_ENQUIRY_HOLD_V4.md
@@ -37,8 +37,12 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - results/scr_sigma_consequence_simulation_v1.json
 - results/scr_sigma_consequence_replicates_v1.csv
 - results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json
+- analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R
+- docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md
+- results/scr_sigma_dynamic_state_zero_shift_v2_1.json
+- results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
 
-The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme.
+The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
 
 ## Prospectively held-out positional non-uniqueness validation
 - analysis/san_jacinto_positional_aliasing_v1.py
