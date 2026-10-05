@@ -1,0 +1,2099 @@
+{
+  "claim_boundary": {
+    "cross_season_overlap_opened": false,
+    "effect_direction_opened": false,
+    "eligibility_threshold_selected_from_outcome": false,
+    "fixed_fixed_null_opened": false
+  },
+  "removal_rule": "remove from BOTH seasons every species x individual ID observed in both seasons before any spatial-overlap statistic",
+  "representation": "NIGHT_FIRST",
+  "schema": "neon.san_jacinto_cross_season_turnover_support.v1",
+  "season_pairs": [
+    "fall->winter",
+    "winter->spring",
+    "spring->summer"
+  ],
+  "status": "support_only_complete_cross_season_individual_turnover_no_spatial_overlap_opened",
+  "summary": {
+    "bridge_individuals_removed_total": 290,
+    "candidate_grid_season_pairs": 24,
+    "eligible_physical_grids_ge1_rule": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "eligible_physical_grids_ge2_rule": [
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "pairs_with_ge3_common_species_ge1_individual_each": 19,
+    "pairs_with_ge3_common_species_ge2_individuals_each": 10,
+    "physical_grids_with_ge1_eligible_pair_ge1_rule": 8,
+    "physical_grids_with_ge1_eligible_pair_ge2_rule": 6
+  },
+  "units": [
+    {
+      "bridge_individuals_removed": 11,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 28,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 29,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 8,
+          "season_a_records": 23,
+          "season_a_traps": 17,
+          "season_b_individuals": 4,
+          "season_b_records": 6,
+          "season_b_traps": 5,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 5,
+          "season_a_individuals": 12,
+          "season_a_records": 37,
+          "season_a_traps": 21,
+          "season_b_individuals": 9,
+          "season_b_records": 37,
+          "season_b_traps": 22,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 3,
+          "season_a_records": 8,
+          "season_a_traps": 7,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 2,
+          "season_a_individuals": 3,
+          "season_a_records": 4,
+          "season_a_traps": 4,
+          "season_b_individuals": 3,
+          "season_b_records": 8,
+          "season_b_traps": 8,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 2,
+          "season_a_records": 5,
+          "season_a_traps": 5,
+          "season_b_individuals": 13,
+          "season_b_records": 27,
+          "season_b_traps": 18,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 19,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 21,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 29,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 4,
+          "season_a_records": 13,
+          "season_a_traps": 10,
+          "season_b_individuals": 2,
+          "season_b_records": 5,
+          "season_b_traps": 4,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 9,
+          "season_a_individuals": 5,
+          "season_a_records": 15,
+          "season_a_traps": 8,
+          "season_b_individuals": 9,
+          "season_b_records": 45,
+          "season_b_traps": 25,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 5,
+          "season_b_records": 13,
+          "season_b_traps": 10,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 2,
+          "season_a_records": 7,
+          "season_a_traps": 7,
+          "season_b_individuals": 2,
+          "season_b_records": 3,
+          "season_b_traps": 3,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 10,
+          "season_a_records": 22,
+          "season_a_traps": 15,
+          "season_b_individuals": 11,
+          "season_b_records": 28,
+          "season_b_traps": 19,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "LAPM",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "1",
+      "id": "1|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 28,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 63,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 4,
+          "season_a_records": 20,
+          "season_a_traps": 11,
+          "season_b_individuals": 10,
+          "season_b_records": 40,
+          "season_b_traps": 26,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 9,
+          "season_a_individuals": 9,
+          "season_a_records": 45,
+          "season_a_traps": 25,
+          "season_b_individuals": 11,
+          "season_b_records": 34,
+          "season_b_traps": 21,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 2,
+          "season_a_records": 3,
+          "season_a_traps": 3,
+          "season_b_individuals": 5,
+          "season_b_records": 15,
+          "season_b_traps": 10,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 2,
+          "season_a_records": 2,
+          "season_a_traps": 2,
+          "season_b_individuals": 19,
+          "season_b_records": 42,
+          "season_b_traps": 23,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 11,
+          "season_a_records": 31,
+          "season_a_traps": 16,
+          "season_b_individuals": 18,
+          "season_b_records": 60,
+          "season_b_traps": 28,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 18,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "DKR",
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 33,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 24,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 9,
+          "season_a_records": 30,
+          "season_a_traps": 19,
+          "season_b_individuals": 1,
+          "season_b_records": 2,
+          "season_b_traps": 1,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 5,
+          "season_a_records": 11,
+          "season_a_traps": 9,
+          "season_b_individuals": 8,
+          "season_b_records": 24,
+          "season_b_traps": 17,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 6,
+          "season_a_records": 21,
+          "season_a_traps": 14,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 6,
+          "season_a_records": 22,
+          "season_a_traps": 15,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 7,
+          "season_a_records": 15,
+          "season_a_traps": 12,
+          "season_b_individuals": 14,
+          "season_b_records": 51,
+          "season_b_traps": 28,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 23,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 19,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 20,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 9,
+          "season_b_records": 18,
+          "season_b_traps": 13,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 9,
+          "season_a_individuals": 3,
+          "season_a_records": 14,
+          "season_a_traps": 12,
+          "season_b_individuals": 1,
+          "season_b_records": 2,
+          "season_b_traps": 2,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 4,
+          "season_a_records": 12,
+          "season_a_traps": 9,
+          "season_b_individuals": 1,
+          "season_b_records": 2,
+          "season_b_traps": 2,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 7,
+          "season_a_individuals": 11,
+          "season_a_records": 40,
+          "season_a_traps": 25,
+          "season_b_individuals": 9,
+          "season_b_records": 22,
+          "season_b_traps": 15,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 12,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "DKR",
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "PEER",
+        "PEMA"
+      ],
+      "grid": "2",
+      "id": "2|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 31,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 58,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 5,
+          "season_a_individuals": 10,
+          "season_a_records": 28,
+          "season_a_traps": 18,
+          "season_b_individuals": 19,
+          "season_b_records": 59,
+          "season_b_traps": 28,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 9,
+          "season_a_records": 32,
+          "season_a_traps": 16,
+          "season_b_individuals": 4,
+          "season_b_records": 8,
+          "season_b_traps": 6,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 5,
+          "season_b_records": 18,
+          "season_b_traps": 11,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 1,
+          "season_a_records": 2,
+          "season_a_traps": 2,
+          "season_b_individuals": 15,
+          "season_b_records": 43,
+          "season_b_traps": 24,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 5,
+          "season_a_individuals": 11,
+          "season_a_records": 29,
+          "season_a_traps": 20,
+          "season_b_individuals": 15,
+          "season_b_records": 30,
+          "season_b_traps": 25,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 13,
+      "common_species_ge1_individual_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 17,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 9,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 5,
+          "season_a_records": 12,
+          "season_a_traps": 10,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 2,
+          "season_a_individuals": 6,
+          "season_a_records": 13,
+          "season_a_traps": 10,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 11,
+          "season_a_individuals": 6,
+          "season_a_records": 19,
+          "season_a_traps": 11,
+          "season_b_individuals": 8,
+          "season_b_records": 16,
+          "season_b_traps": 11,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 8,
+      "common_species_ge1_individual_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 14,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 16,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 5,
+          "season_b_records": 10,
+          "season_b_traps": 6,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 3,
+          "season_a_records": 10,
+          "season_a_traps": 8,
+          "season_b_individuals": 6,
+          "season_b_records": 14,
+          "season_b_traps": 11,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 8,
+          "season_a_individuals": 11,
+          "season_a_records": 39,
+          "season_a_traps": 20,
+          "season_b_individuals": 5,
+          "season_b_records": 19,
+          "season_b_traps": 10,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 12,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "3",
+      "id": "3|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 12,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 37,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 11,
+          "season_b_records": 34,
+          "season_b_traps": 22,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 5,
+          "season_a_records": 8,
+          "season_a_traps": 7,
+          "season_b_individuals": 2,
+          "season_b_records": 11,
+          "season_b_traps": 9,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 7,
+          "season_a_individuals": 6,
+          "season_a_records": 36,
+          "season_a_traps": 19,
+          "season_b_individuals": 23,
+          "season_b_records": 101,
+          "season_b_traps": 38,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 13,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 39,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 37,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 6,
+          "season_a_records": 23,
+          "season_a_traps": 7,
+          "season_b_individuals": 1,
+          "season_b_records": 5,
+          "season_b_traps": 4,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 1,
+          "season_a_records": 5,
+          "season_a_traps": 4,
+          "season_b_individuals": 2,
+          "season_b_records": 6,
+          "season_b_traps": 4,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 5,
+          "season_a_records": 13,
+          "season_a_traps": 8,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 1,
+          "season_b_records": 2,
+          "season_b_traps": 2,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 21,
+          "season_a_records": 54,
+          "season_a_traps": 31,
+          "season_b_individuals": 19,
+          "season_b_records": 41,
+          "season_b_traps": 22,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 6,
+          "season_a_records": 22,
+          "season_a_traps": 11,
+          "season_b_individuals": 14,
+          "season_b_records": 59,
+          "season_b_traps": 25,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "common_species_ge1_individual_each": [
+        "DKR",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 30,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 33,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 2,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 8,
+          "season_b_records": 20,
+          "season_b_traps": 10,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 2,
+          "season_b_records": 2,
+          "season_b_traps": 2,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 4,
+          "season_b_records": 4,
+          "season_b_traps": 3,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 1,
+          "season_a_records": 2,
+          "season_a_traps": 2,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 8,
+          "season_a_individuals": 17,
+          "season_a_records": 46,
+          "season_a_traps": 24,
+          "season_b_individuals": 13,
+          "season_b_records": 28,
+          "season_b_traps": 20,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 11,
+          "season_a_records": 48,
+          "season_a_traps": 23,
+          "season_b_individuals": 6,
+          "season_b_records": 12,
+          "season_b_traps": 8,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 11,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "4",
+      "id": "4|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 42,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 41,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 7,
+          "season_a_records": 22,
+          "season_a_traps": 9,
+          "season_b_individuals": 7,
+          "season_b_records": 30,
+          "season_b_traps": 9,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 5,
+          "season_a_records": 17,
+          "season_a_traps": 9,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 4,
+          "season_a_records": 4,
+          "season_a_traps": 3,
+          "season_b_individuals": 11,
+          "season_b_records": 33,
+          "season_b_traps": 18,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 18,
+          "season_a_records": 37,
+          "season_a_traps": 24,
+          "season_b_individuals": 12,
+          "season_b_records": 45,
+          "season_b_traps": 27,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 8,
+          "season_a_records": 26,
+          "season_a_traps": 14,
+          "season_b_individuals": 11,
+          "season_b_records": 51,
+          "season_b_traps": 23,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 13,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 45,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 16,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 20,
+          "season_a_records": 66,
+          "season_a_traps": 30,
+          "season_b_individuals": 1,
+          "season_b_records": 3,
+          "season_b_traps": 1,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 6,
+          "season_a_records": 9,
+          "season_a_traps": 8,
+          "season_b_individuals": 8,
+          "season_b_records": 20,
+          "season_b_traps": 11,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 9,
+          "season_a_individuals": 19,
+          "season_a_records": 55,
+          "season_a_traps": 21,
+          "season_b_individuals": 7,
+          "season_b_records": 29,
+          "season_b_traps": 18,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 15,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 14,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 27,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 1,
+          "season_a_records": 3,
+          "season_a_traps": 1,
+          "season_b_individuals": 14,
+          "season_b_records": 22,
+          "season_b_traps": 15,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 6,
+          "season_a_records": 13,
+          "season_a_traps": 8,
+          "season_b_individuals": 9,
+          "season_b_records": 11,
+          "season_b_traps": 10,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 9,
+          "season_a_individuals": 7,
+          "season_a_records": 28,
+          "season_a_traps": 13,
+          "season_b_individuals": 4,
+          "season_b_records": 13,
+          "season_b_traps": 7,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 9,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "5",
+      "id": "5|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 33,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 45,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 7,
+          "season_a_individuals": 10,
+          "season_a_records": 18,
+          "season_a_traps": 12,
+          "season_b_individuals": 29,
+          "season_b_records": 90,
+          "season_b_traps": 38,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 11,
+          "season_a_records": 15,
+          "season_a_traps": 13,
+          "season_b_individuals": 3,
+          "season_b_records": 6,
+          "season_b_traps": 4,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 12,
+          "season_a_records": 52,
+          "season_a_traps": 24,
+          "season_b_individuals": 13,
+          "season_b_records": 27,
+          "season_b_traps": 15,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 20,
+      "common_species_ge1_individual_each": [
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEER",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 35,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 31,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 10,
+          "season_a_individuals": 8,
+          "season_a_records": 18,
+          "season_a_traps": 13,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 2,
+          "season_a_records": 4,
+          "season_a_traps": 4,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 8,
+          "season_a_records": 18,
+          "season_a_traps": 12,
+          "season_b_individuals": 5,
+          "season_b_records": 12,
+          "season_b_traps": 7,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 13,
+          "season_a_records": 37,
+          "season_a_traps": 21,
+          "season_b_individuals": 19,
+          "season_b_records": 42,
+          "season_b_traps": 21,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 5,
+          "season_a_individuals": 4,
+          "season_a_records": 19,
+          "season_a_traps": 11,
+          "season_b_individuals": 7,
+          "season_b_records": 19,
+          "season_b_traps": 10,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 16,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 35,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 35,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 4,
+          "season_a_records": 16,
+          "season_a_traps": 8,
+          "season_b_individuals": 8,
+          "season_b_records": 15,
+          "season_b_traps": 8,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 3,
+          "season_b_records": 6,
+          "season_b_traps": 6,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 9,
+          "season_a_records": 26,
+          "season_a_traps": 12,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 7,
+          "season_a_individuals": 13,
+          "season_a_records": 24,
+          "season_a_traps": 15,
+          "season_b_individuals": 21,
+          "season_b_records": 37,
+          "season_b_traps": 19,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 9,
+          "season_a_records": 38,
+          "season_a_traps": 15,
+          "season_b_individuals": 3,
+          "season_b_records": 10,
+          "season_b_traps": 6,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 16,
+      "common_species_ge1_individual_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "CHFA",
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "6",
+      "id": "6|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 35,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 68,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 6,
+          "season_a_individuals": 8,
+          "season_a_records": 21,
+          "season_a_traps": 13,
+          "season_b_individuals": 9,
+          "season_b_records": 32,
+          "season_b_traps": 14,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 3,
+          "season_a_records": 6,
+          "season_a_traps": 6,
+          "season_b_individuals": 18,
+          "season_b_records": 58,
+          "season_b_traps": 25,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 16,
+          "season_b_records": 26,
+          "season_b_traps": 13,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 7,
+          "season_a_individuals": 21,
+          "season_a_records": 46,
+          "season_a_traps": 23,
+          "season_b_individuals": 18,
+          "season_b_records": 60,
+          "season_b_traps": 29,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 3,
+          "season_a_records": 14,
+          "season_a_traps": 6,
+          "season_b_individuals": 7,
+          "season_b_records": 21,
+          "season_b_traps": 10,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 1,
+      "common_species_ge1_individual_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA"
+      ],
+      "grid": "7",
+      "id": "7|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 16,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 16,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 2,
+          "season_a_records": 10,
+          "season_a_traps": 4,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 13,
+          "season_a_records": 29,
+          "season_a_traps": 20,
+          "season_b_individuals": 10,
+          "season_b_records": 15,
+          "season_b_traps": 10,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 6,
+          "season_b_records": 16,
+          "season_b_traps": 10,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 7,
+      "common_species_ge1_individual_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "7",
+      "id": "7|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 10,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 24,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 3,
+          "season_b_records": 5,
+          "season_b_traps": 3,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 4,
+          "season_a_individuals": 6,
+          "season_a_records": 9,
+          "season_a_traps": 7,
+          "season_b_individuals": 16,
+          "season_b_records": 27,
+          "season_b_traps": 22,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 4,
+          "season_a_records": 6,
+          "season_a_traps": 5,
+          "season_b_individuals": 4,
+          "season_b_records": 6,
+          "season_b_traps": 5,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 5,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "7",
+      "id": "7|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 26,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 26,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 2,
+          "season_a_records": 3,
+          "season_a_traps": 2,
+          "season_b_individuals": 5,
+          "season_b_records": 13,
+          "season_b_traps": 9,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 17,
+          "season_a_records": 32,
+          "season_a_traps": 21,
+          "season_b_individuals": 16,
+          "season_b_records": 45,
+          "season_b_traps": 22,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 6,
+          "season_a_records": 13,
+          "season_a_traps": 8,
+          "season_b_individuals": 4,
+          "season_b_records": 7,
+          "season_b_traps": 5,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 3,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|fall->winter",
+      "season_a": "fall",
+      "season_a_exclusive_individuals": 20,
+      "season_b": "winter",
+      "season_b_exclusive_individuals": 10,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 1,
+          "season_a_records": 2,
+          "season_a_traps": 2,
+          "season_b_individuals": 1,
+          "season_b_records": 3,
+          "season_b_traps": 2,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 2,
+          "season_a_individuals": 16,
+          "season_a_records": 33,
+          "season_a_traps": 20,
+          "season_b_individuals": 6,
+          "season_b_records": 11,
+          "season_b_traps": 6,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 3,
+          "season_a_records": 10,
+          "season_a_traps": 6,
+          "season_b_individuals": 3,
+          "season_b_records": 9,
+          "season_b_traps": 7,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 4,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA",
+        "SKR"
+      ],
+      "grid": "8",
+      "id": "8|winter->spring",
+      "season_a": "winter",
+      "season_a_exclusive_individuals": 9,
+      "season_b": "spring",
+      "season_b_exclusive_individuals": 11,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 1,
+          "season_a_records": 3,
+          "season_a_traps": 2,
+          "season_b_individuals": 1,
+          "season_b_records": 1,
+          "season_b_traps": 1,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 3,
+          "season_a_individuals": 5,
+          "season_a_records": 10,
+          "season_a_traps": 6,
+          "season_b_individuals": 7,
+          "season_b_records": 12,
+          "season_b_traps": 9,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 3,
+          "season_a_records": 9,
+          "season_a_traps": 7,
+          "season_b_individuals": 3,
+          "season_b_records": 14,
+          "season_b_traps": 12,
+          "species": "SKR"
+        }
+      ]
+    },
+    {
+      "bridge_individuals_removed": 1,
+      "common_species_ge1_individual_each": [
+        "LAPM",
+        "PEMA"
+      ],
+      "common_species_ge2_individuals_each": [
+        "PEMA"
+      ],
+      "common_species_ge2_records_each": [
+        "PEMA"
+      ],
+      "grid": "8",
+      "id": "8|spring->summer",
+      "season_a": "spring",
+      "season_a_exclusive_individuals": 14,
+      "season_b": "summer",
+      "season_b_exclusive_individuals": 14,
+      "species_support": [
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "CHFA"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "DKR"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 1,
+          "season_a_records": 1,
+          "season_a_traps": 1,
+          "season_b_individuals": 6,
+          "season_b_records": 11,
+          "season_b_traps": 7,
+          "species": "LAPM"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 0,
+          "season_a_records": 0,
+          "season_a_traps": 0,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "PEER"
+        },
+        {
+          "bridge_individuals_removed": 0,
+          "season_a_individuals": 10,
+          "season_a_records": 22,
+          "season_a_traps": 13,
+          "season_b_individuals": 8,
+          "season_b_records": 20,
+          "season_b_traps": 17,
+          "species": "PEMA"
+        },
+        {
+          "bridge_individuals_removed": 1,
+          "season_a_individuals": 3,
+          "season_a_records": 12,
+          "season_a_traps": 10,
+          "season_b_individuals": 0,
+          "season_b_records": 0,
+          "season_b_traps": 0,
+          "species": "SKR"
+        }
+      ]
+    }
+  ]
+}
