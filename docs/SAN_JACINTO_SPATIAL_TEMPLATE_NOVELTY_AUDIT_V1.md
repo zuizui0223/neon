@@ -10,7 +10,7 @@ The ecology branch now supports a standalone biological paper, but its novelty i
 
 The strongest defensible novelty is:
 
-> **A multispecies spatial-partitioning pattern is reassembled by replacement individuals: the same species × place association recurs after the individuals carrying it are removed, even though short-term movement direction does not maintain the pattern and one point-like individual centre is insufficient to recover it.**
+> **A multispecies spatial-partitioning pattern recurs across disjoint sets of observed individuals: the same species × place association remains after all marked individuals shared between time windows are removed, even though short-term movement direction does not maintain the pattern and one point-like individual centre is insufficient to recover it.**
 
 This is an empirical **identity-turnover decomposition of spatial niche partitioning**.
 
@@ -21,6 +21,10 @@ The result links three levels that are usually studied separately:
 3. community-level species × place structure.
 
 The key evidence is that information is weak or absent at level 1, strong at level 2, and persists at level 3 even after identity turnover.
+
+## Terminology boundary
+
+The Stage 7 and Stage 9 designs create **disjoint observed identity sets** by removing every marked individual seen in both compared windows. They do not demonstrate literal demographic replacement, mortality, recruitment or complete population turnover, because individuals not captured in one window may still have been present. The preferred terms are therefore **identity-independent recurrence**, **disjoint individual sets**, and **reassembly after shared-identity exclusion**. “Replacement individuals” should be avoided unless explicitly defined as this analytical contrast.
 
 ## What is already established
 
@@ -92,7 +96,7 @@ The safest wording is therefore not “first demonstration of spatial-template p
 
 and, for the result:
 
-> **Species-specific fine-scale spatial structure can be reassembled by replacement individuals across seasons.**
+> **Species-specific fine-scale spatial structure can be reassembled across disjoint observed individual sets between seasons.**
 
 ## Evidence hierarchy
 
@@ -150,7 +154,7 @@ After removing **188** individuals appearing in both EARLY and LATE from both ha
 
 The attenuation from Stage 5A (4.09 -> 1.04) is itself biologically useful: individual fidelity amplifies the spatial pattern, but does not fully create it.
 
-### Stage 9 — cross-season reassembly by replacement individuals
+### Stage 9 — cross-season reassembly across disjoint observed individual sets
 
 For adjacent seasons, every individual appearing in both seasons was removed from both matrices before spatial recurrence was measured.
 
@@ -178,7 +182,7 @@ For this system, the more specific version is:
 The important distinction is between two superficially similar forms of stability:
 
 - **identity-carried stability:** the same individuals repeatedly use the same places;
-- **template-reassembled stability:** replacement individuals of the same species reconstruct a similar species × place pattern.
+- **template-reassembled stability:** non-overlapping sets of observed individuals of the same species reconstruct a similar species × place pattern.
 
 The data support both layers, but Stage 7 and Stage 9 show that the second remains after removing the first.
 
@@ -239,7 +243,7 @@ NIGHT-FIRST removes later same-night recaptures, but it is still capture–recap
 
 ### Mechanism remains open
 
-The data do not identify why replacement conspecifics rebuild the same spatial pattern. Plausible alternatives include:
+The data do not identify why different conspecifics rebuild the same spatial pattern. Plausible alternatives include:
 
 - persistent microhabitat selection;
 - burrow/refuge distributions;
@@ -332,22 +336,22 @@ Do **not** make the question “what temporal scale matters?”
 
 Use one biological question:
 
-> **Does spatial niche partitioning persist when the individuals that generated it are replaced?**
+> **Does spatial niche partitioning recur when the same marked individuals are excluded from successive time windows?**
 
 The answer is:
 
-> **Yes. Individual fidelity amplifies the pattern, but replacement conspecifics reassemble species-specific spatial use within and across seasons.**
+> **Yes. Individual fidelity amplifies the pattern, but non-overlapping conspecific sets reassemble species-specific spatial use within and across seasons.**
 
 The short-term movement and point-anchor results become falsified alternative mechanisms, not the topic of the paper.
 
 ## Candidate title
 
-**Spatial niche partitioning is reassembled after individual turnover in a rodent guild**
+**Spatial niche partitioning recurs across disjoint individual sets in a rodent guild**
 
 Alternatives:
 
 - **Species-level spatial niches persist beyond individual identity**
-- **Replacement individuals rebuild spatial niche partitioning across seasons**
+- **Disjoint individual sets rebuild spatial niche partitioning across seasons**
 - **A community spatial template persists beyond the individuals that occupy it**
 
 The first is the safest combination of biological specificity and conceptual reach.
