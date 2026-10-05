@@ -1,0 +1,58 @@
+name: san-jacinto-seasonal-anchor-stage2
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md
+      - analysis/test_san_jacinto_seasonal_anchor_partitioning_v1.py
+      - tests/test_san_jacinto_seasonal_anchor_partitioning_v1.py
+      - .github/workflows/san-jacinto-seasonal-anchor-stage2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-seasonal-anchor-stage2-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stage2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen Stage-2 implementation
+        run: python -m unittest tests.test_san_jacinto_seasonal_anchor_partitioning_v1 -v
+
+      - name: Run seasonal-anchor scale-localization test
+        run: |
+          python analysis/test_san_jacinto_seasonal_anchor_partitioning_v1.py \
+            --cache /tmp/year_round_trap_data.csv \
+            --output /tmp/san_jacinto_seasonal_anchor_partitioning_v1.json \
+            --randomizations 10000 \
+            --seed 2026100502
+
+      - name: Persist Stage-2 result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_seasonal_anchor_partitioning_v1.json \
+             results/san_jacinto_seasonal_anchor_partitioning_v1.json
+          git add results/san_jacinto_seasonal_anchor_partitioning_v1.json
+          if git diff --cached --quiet; then
+            echo "Stage-2 result unchanged"
+          else
+            git commit -m "Record seasonal-anchor scale localization test"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
