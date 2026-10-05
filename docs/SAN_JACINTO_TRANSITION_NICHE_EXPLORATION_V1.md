@@ -526,7 +526,179 @@ See `docs/SAN_JACINTO_TEMPORAL_SCALE_ECOLOGY_INTERPRETATION_V1.md` for the full 
 
 ---
 
-# Stage 5 — individual multi-night footprint assortativity
+# Stage 5A — frozen temporal persistence test
+
+**Status:** support audit complete; primary outcome unopened at this freeze.
+
+## Why Stage 5 is needed
+
+Stage 4 showed that the public-data spatial-segregation signal survives when later same-night recaptures are removed, but disappears when each individual is collapsed to one seasonal point.
+
+That result localizes information to the multi-night representation, but it leaves an important alternative explanation:
+
+> NIGHT-FIRST may succeed simply because it contains more spatial observations than a one-point representation.
+
+Stage 5A therefore asks whether the species-specific NIGHT-FIRST spatial map is **temporally persistent** within a season.
+
+A positive result is required before describing the Stage-4 footprint as a persistent ecological structure rather than merely a deeper sample.
+
+## Support-only audit
+
+Before any trap overlap or persistence statistic was opened, the 30-unit public-data universe was split by unique calendar nights within each grid-season:
+
+- sort unique dates chronologically;
+- for an even number of dates, assign the first half to EARLY and second half to LATE;
+- for an odd number, discard the single middle date and assign equal numbers of dates to EARLY and LATE.
+
+All 30 units had at least four unique sampling nights.
+
+For the fixed eight Stage-4 ALL-segregated reference units:
+
+- **8/8** have at least three focal species present in both halves;
+- **8/8** have at least three common focal species with at least two NIGHT-FIRST records in each half.
+
+No persistence outcome was inspected in this support audit.
+
+## Primary universe
+
+Primary inference is restricted to the eight Stage-4 reference units fixed before Stage 5:
+
+- grid 1 summer;
+- grid 4 fall, winter, spring and summer;
+- grid 6 fall, winter and summer.
+
+Within each unit, retain focal species that:
+
+1. occur in both EARLY and LATE; and
+2. contribute at least two NIGHT-FIRST records in each half.
+
+At least three such species are required. The support audit established that all eight reference units satisfy this rule.
+
+## Spatial persistence statistic
+
+For each unit construct binary species × trap matrices:
+
+- (E): EARLY NIGHT-FIRST trap use;
+- (L): LATE NIGHT-FIRST trap use.
+
+Restrict columns to traps used by at least one retained species in LATE. EARLY use at traps that are absent from the entire LATE community cannot contribute to repeated use and is therefore irrelevant to the matched overlap statistic.
+
+Define the observed matched species-trap persistence as
+
+[
+P_{obs}=\sum_s\sum_j E_{sj}L_{sj},
+]
+
+the total number of species × trap incidences that recur in both halves for the **same species**.
+
+## Fixed-fixed late-season null
+
+EARLY matrix (E) remains fixed.
+
+Randomize the LATE matrix with EcoSimR's SIM9 curveball step while preserving exactly:
+
+- every retained species' LATE trap-occupancy total (row sums);
+- every LATE trap's species-richness total (column sums).
+
+Use:
+
+- burn-in = **500** curveball steps;
+- null replicates = **5,000**;
+- deterministic seed family beginning at **2026100505**, unique by reference unit.
+
+For each randomized LATE matrix (L_b), calculate
+
+[
+P_b=\sum_s\sum_j E_{sj}L_{b,sj}.
+]
+
+For unit (u),
+
+[
+Z_u=(P_{obs,u}-\mu_{u})/\sigma_u,
+]
+
+where (mu_u) and (sigma_u) are the null mean and SD. Units with zero null SD are reported but excluded from standardized aggregation.
+
+## Global primary test
+
+Define
+
+[
+T_{obs}=\operatorname{mean}_u Z_u.
+]
+
+For each synchronized null replicate (b),
+
+[
+T_b=\operatorname{mean}_u (P_{b,u}-\mu_u)/\sigma_u.
+]
+
+The one-sided Monte Carlo p-value is
+
+[
+p=(1+\#\{T_b\ge T_{obs}\})/(5000+1).
+]
+
+Stage 5A supports **persistent species-specific multi-night footprints** only if all three pre-declared conditions hold:
+
+1. at least **6 of 8** reference units have non-zero null SD;
+2. at least **6 of 8** reference units have (Z_u>0);
+3. (T_{obs}>0) and one-sided Monte Carlo (p<0.05).
+
+Otherwise the persistence claim stops.
+
+## Secondary generality analysis
+
+The same frozen statistic may be reported descriptively for the broader public-data units having at least three common species with at least two NIGHT-FIRST records per species in each half. The support audit identified **22** such units.
+
+This broader set is not allowed to rescue the eight-reference-unit primary test.
+
+Report descriptively:
+
+- number of positive-(Z) units;
+- mean and median (Z);
+- reference vs non-reference distributions;
+- early/late row totals and late column totals.
+
+No species-pair decomposition is opened.
+
+## Interpretation boundary
+
+A positive Stage-5A primary result would support:
+
+> **In the grid-seasons where community segregation is strongest, species-specific trap-use footprints recur from the early to the late half of the season beyond what is expected from species occupancy and trap richness alone.**
+
+Combined with Stage 1 and Stage 4, that would justify the stronger biological statement that spatial segregation is associated with **persistent species-specific multi-night space-use footprints**, rather than continual within-night directional avoidance.
+
+It would still not identify whether persistence is caused by microhabitat selection, burrow placement, resources, territoriality or competition.
+
+
+---
+
+# Stage 5A result — seasonal persistence supported
+
+The frozen temporal-persistence primary test passed all pre-declared criteria:
+
+- informative Stage-4 reference units: **8/8**;
+- reference units with positive standardized persistence: **8/8**;
+- global mean standardized persistence: **T = 4.0908870811**;
+- one-sided Monte Carlo **p = 0.000199960008**.
+
+Decision:
+
+`support_persistent_species_specific_multi_night_footprints`.
+
+Across the broader 22-unit support set, reported descriptively only, **20/22** units had positive (Z), with mean (Z=2.6610) and median (Z=2.6365).
+
+Thus the Stage-4 NIGHT-FIRST result is not merely a deeper spatial sample. In every fixed segregated reference unit, the same species reused the same trap locations from the early to late half of the season more strongly than expected after preserving LATE species trap-occupancy totals and LATE trap species richness.
+
+This establishes persistence at the **community species × trap** level. It does not by itself show that different conspecific individuals share similar footprints; Stage 5B tests that separate individual-level bridge.
+
+
+---
+
+# Stage 5B — individual multi-night footprint assortativity
 
 **Status:** frozen after the Stage-4 between-night-footprint classification and before any Stage-5 overlap outcome is calculated.
 
@@ -534,7 +706,7 @@ See `docs/SAN_JACINTO_TEMPORAL_SCALE_ECOLOGY_INTERPRETATION_V1.md` for the full 
 
 Stage 4 localized the published community segregation signal to recurring multi-location use across nights: NIGHT-FIRST retained 7/8 reference segregation signals, whereas a single seasonal point per individual retained 0/8.
 
-Stage 5 asks whether that matrix-level result is visible at the individual ecological level:
+Stage 5B asks whether that matrix-level result is visible at the individual ecological level:
 
 > **Do individuals of the same species repeatedly use more similar multi-night spatial footprints than individuals of different species?**
 
@@ -556,7 +728,7 @@ No later same-night capture enters the footprint.
 
 Start from the fixed Stage-4 public-data universe of 30 grid-seasons.
 
-Within a grid-season, a species is eligible only if at least **3 individuals** have multi-night footprints. A grid-season enters Stage 5 if at least **3 focal species** are eligible.
+Within a grid-season, a species is eligible only if at least **3 individuals** have multi-night footprints. A grid-season enters Stage 5B if at least **3 focal species** are eligible.
 
 These support rules are fixed without inspecting footprint overlap.
 
@@ -619,7 +791,7 @@ Support for species-specific recurring-use domains requires:
 - (T_{footprint}>0); and
 - one-sided Monte Carlo (p<0.05).
 
-Otherwise Stage 5 stops. No alternative overlap metric, footprint-size binning, minimum-night rule or species-pair decomposition will be opened after seeing the result.
+Otherwise Stage 5B stops. No alternative overlap metric, footprint-size binning, minimum-night rule or species-pair decomposition will be opened after seeing the result.
 
 ## Fixed secondary summaries
 
@@ -646,25 +818,44 @@ It would not identify whether those domains are produced by habitat, burrows, re
 
 ---
 
-# Stage 5 result — persistent species-specific footprint supported
+---
 
-The frozen primary test passed all three criteria:
+# Stage 5B result — individual species-specific footprints supported
 
-- informative reference units: **8/8** (required ≥6);
-- reference units with positive (Z_u): **8/8** (required ≥6);
-- global (T_{obs}=4.0908870811>0);
-- one-sided Monte Carlo (p=0.000199960008<0.05).
+The independently frozen individual-level test also passed.
 
-Decision:
+Support:
 
-`support_persistent_species_specific_multi_night_footprints`.
+- **928** individuals were observed on at least two nights before unit filtering;
+- all six focal species contributed multi-night individuals;
+- **22** grid-seasons met the pre-declared species/individual support rule;
+- **22/22** had non-zero permutation-null variance.
 
-Across the 22 broader support units, reported descriptively only, 20 had positive (Z), with mean (Z=2.6610) and median (Z=2.6365).
+Primary result:
 
-Thus the Stage-4 between-night-footprint result is not merely an accumulation-of-points statement. In every fixed segregated reference unit, the same species reused the same trap locations from the early to late half of the season more strongly than expected when LATE species occupancies and LATE trap species-richness were held fixed.
+- global mean standardized footprint assortativity: **T = 2.3148618332**;
+- one-sided Monte Carlo **p = 0.000099990001**;
+- decision: `support_species_specific_multinight_footprints`.
 
-The current biological conclusion is:
+The null permuted species labels only among individuals having the **exact same number of distinct traps** in their footprint. Therefore this result is not explained by one species merely having larger or more intensively sampled footprints.
 
-> **Spatial niche partitioning in this rodent guild is associated with persistent species-specific multi-night space-use footprints, while neither within-night movement direction nor a single seasonal point per individual carries the community segregation signal.**
+Across the 22 eligible units:
 
-Mechanism remains unresolved: the public data cannot distinguish habitat selection, burrow/refuge placement, resources, territoriality or longer-term competitive sorting.
+- **20/22** had a positive raw conspecific-minus-heterospecific Jaccard difference;
+- mean conspecific footprint Jaccard = **0.05760**;
+- mean heterospecific footprint Jaccard = **0.03446**;
+- mean raw difference = **0.02313**;
+- unit-level footprint-assortativity (Z) correlated with Stage-4 NIGHT-FIRST SIM9 SES at **r = 0.6943**.
+
+The individual-level result therefore supplies the missing bridge beneath the community matrix:
+
+> **Different individuals of the same species repeatedly use more similar multi-night spatial footprints than equally broad footprints assigned across species.**
+
+Together, Stages 5A and 5B show that the between-night signal is both temporally persistent at the species × trap level and organized among individuals by species identity.
+
+The current ecological conclusion is:
+
+> **Spatial niche partitioning in this rodent guild is encoded in persistent, species-specific multi-night space-use footprints, while neither within-night movement direction nor a single seasonal point per individual carries the community segregation signal.**
+
+Mechanism remains unresolved: habitat selection, burrow/refuge placement, resource distributions, territoriality and longer-term competitive sorting remain viable causes. No species-pair decomposition or alternative overlap metric is opened.
+
