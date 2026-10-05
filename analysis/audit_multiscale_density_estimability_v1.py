@@ -73,11 +73,17 @@ def _resolve_field(fields: Iterable[str], logical: str, required: bool = True) -
 
 
 def _capture_row(row: dict[str, str], trap_status_field: str | None, tag_field: str | None) -> bool:
-    if tag_field and _clean(row.get(tag_field)):
-        return True
+    """Prospectively identify capture rows from NEON trapStatus semantics.
+
+    When trapStatus is available it is authoritative: positive capture labels
+    contain "capture" but explicit "no capture" labels must be excluded.
+    tagID is used only as a fallback when trapStatus is unavailable.
+    """
     if trap_status_field:
-        return "capture" in _clean(row.get(trap_status_field)).lower()
-    return False
+        status = _clean(row.get(trap_status_field)).lower()
+        if status:
+            return "capture" in status and "no capture" not in status
+    return bool(tag_field and _clean(row.get(tag_field)))
 
 
 def _taxon(row: dict[str, str], taxon_field: str | None, sci_field: str | None) -> str:
@@ -157,6 +163,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
     missing_night_join = 0
     missing_event = 0
     capture_missing_taxon = 0
+    tagged_noncapture_status_rows = 0
 
     for idx, row in enumerate(trap_rows):
         n = _clean(row.get(t_night))
@@ -182,6 +189,13 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             e["grid_completion_values"].add(meta["grid_completion"])
         if meta["site_id"]:
             e["site_ids"].add(meta["site_id"])
+
+        if t_tag and _clean(row.get(t_tag)) and t_status:
+            status_text = _clean(row.get(t_status)).lower()
+            if status_text and (
+                "capture" not in status_text or "no capture" in status_text
+            ):
+                tagged_noncapture_status_rows += 1
 
         if not _capture_row(row, t_status, t_tag):
             continue
@@ -372,6 +386,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "pertrapnight_rows_without_plotnight_join": missing_night_join,
             "pertrapnight_rows_without_event_id_after_join": missing_event,
             "capture_rows_without_taxon": capture_missing_taxon,
+            "tagged_rows_with_noncapture_status": tagged_noncapture_status_rows,
         },
         "support": {
             "n_species_session_records": len(sessions),
