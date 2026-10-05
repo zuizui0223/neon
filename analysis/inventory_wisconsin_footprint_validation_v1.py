@@ -86,7 +86,7 @@ def file_download_url(f: dict) -> str:
     # public datasets. Public browser downloads use file_stream by file id.
     fid = f.get("id")
     if fid is not None:
-        return f"https://datadryad.org/stash/downloads/file_stream/{fid}"
+        return f"https://datadryad.org/api/v2/files/{fid}/download"
     u = href(f, ("stash:download", "download"))
     if u:
         return absolute(u)
