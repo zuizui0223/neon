@@ -302,3 +302,100 @@ Do not claim that:
 - or species-pair post hoc searches identify the driver.
 
 No species-pair decomposition is opened by this result.
+
+
+---
+
+## Stage 7–8 update: spatial memory survives individual turnover, but broad-grid generalization remains unresolved
+
+A final turnover analysis asked whether the EARLY→LATE species × trap persistence could be explained entirely by the **same individuals** remaining site-faithful through the season.
+
+Before opening spatial overlap, a support-only audit removed every species × individual identity observed in both seasonal halves. Across the eight fixed Stage-4 reference grid-seasons, **188 bridge individuals** were removed. All eight units still retained at least three focal species represented by at least one EARLY-only and one LATE-only individual.
+
+The frozen Stage-7 test then rebuilt the EARLY and LATE species × trap matrices from **mutually disjoint individual sets** and applied the same fixed-fixed LATE null used for temporal persistence.
+
+Results:
+
+- informative reference units: **8/8**;
+- positive standardized turnover persistence: **7/8**;
+- global mean standardized persistence: **T = 1.0374**;
+- one-sided Monte Carlo **p = 0.00160**;
+- decision: `support_species_level_spatial_template_beyond_individual_identity`.
+
+The effect was substantially weaker than the original Stage-5 persistence signal (**T = 4.0909**), and individual-unit standardized effects were generally attenuated after bridge removal. The defensible biological interpretation is therefore **layered**, not all-or-none:
+
+> **individual site fidelity strongly amplifies seasonal spatial persistence, but it does not fully create it; a weaker species-associated spatial template remains when the individuals themselves turn over.**
+
+This is the strongest evidence in the current public data that the spatial pattern is not merely an artefact of repeatedly recapturing the same site-faithful animals.
+
+### Broader generalization audit
+
+Because the eight segregation-reference units come from only three physical grids, Stage 8 prospectively extended the identical turnover rule to the previously established 22-unit temporal-persistence universe.
+
+The outcome-blind support audit found 18 eligible grid-seasons spanning six physical grids.
+
+At the grid-season level the broader pattern remained positive:
+
+- informative units: **18/18**;
+- positive standardized effects: **13/18**;
+- global mean **Z = 0.7522**;
+- joint Monte Carlo **p = 0.00080**.
+
+However, the predeclared physical-grid robustness criterion did **not** pass:
+
+- positive grid means: **5/6**;
+- grid means: 0.771 (grid 1), 0.611 (grid 2), 1.208 (grid 4), 0.379 (grid 5), 1.158 (grid 6), −1.206 (grid 7);
+- exact six-grid sign-flip **p = 0.125**.
+
+The frozen Stage-8 decision is therefore:
+
+`broader_turnover_generalization_not_supported`.
+
+The correct claim is not that a species-level template has been demonstrated generally across the whole assemblage. It is:
+
+> **Within the strongly segregated spatial regimes, species-specific space use persists beyond individual identity; the broader public-data set is suggestive in the same direction but lacks sufficient independent grid-level support for generalization.**
+
+### Revised ecological synthesis
+
+Taken together, the evidence now separates four spatial organizations:
+
+1. **within-night movement direction** — does not maintain the checkerboard pattern;
+2. **one point-like seasonal individual centre** — does not retain the pattern;
+3. **multi-night individual footprint** — strongly species-assortative and linked to community segregation;
+4. **species × trap template across individual turnover** — weaker but still detectable in the fixed segregated reference regimes.
+
+The most defensible current model is therefore:
+
+> **Spatial niche partitioning is a layered spatial regime: persistent environmental or community context generates species-associated recurring-use domains, while individual site fidelity amplifies those domains through repeated use.**
+
+The public data cannot identify what generates the species-associated template. Habitat heterogeneity is an especially plausible candidate because the original study documented species-specific resource selection, but the deposited Figshare record lacks the trap-level vegetation and soil variables required for a direct mechanistic test.
+
+### Literature boundary after the turnover result
+
+Individual spatial memory, site fidelity and emergent space-use patterns are well established, and individual-level memory can itself generate spatial segregation in theoretical and empirical movement systems. Recent work also shows that habitat and memory can have comparable explanatory power for animal space use. The present contribution should therefore **not** be framed as discovering spatial memory.
+
+The narrower contribution is the empirical decomposition:
+
+> **a known community segregation pattern is weak at the movement-step scale, lost under one-point individual summaries, strong in recurring individual footprints, and partly retained after complete individual turnover.**
+
+That turnover contrast distinguishes individual spatial memory from a persistent species-associated spatial template in a way that the generic movement-to-home-range literature does not by itself provide.
+
+Relevant additional boundaries include:
+
+- Aarts et al. (2021), *The American Naturalist* 198, doi:10.1086/715014 — individual-level memory can generate spatial segregation among neighboring central-place foragers.
+- Potts & Börger (2023), *Journal of Animal Ecology* — formal scaling from movement decisions to emergent space-use distributions.
+- Verzuh et al. (2025), *Ecology Letters*, doi:10.1111/ele.70233 — direct comparison of habitat and memory as drivers of animal space use.
+
+### Final claim boundary for the ecology branch
+
+Do not claim that:
+
+- the residual turnover signal is cognitive or social “memory” of the species;
+- habitat filtering has been causally identified;
+- competition creates the species-level template;
+- individual fidelity is unimportant;
+- the turnover result generalizes across all physical grids;
+- grid 7 falsifies the mechanism in general;
+- or Stage 8 rescues or upgrades the Stage-7 primary inference.
+
+No further alternative movement metric, turnover definition, species-pair decomposition or threshold search is justified with the present public data.
