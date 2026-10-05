@@ -1,0 +1,51 @@
+{
+  "schema": "neon.live_trap_time_reversal_symmetry_audit.v1",
+  "status": "post_result_exploratory_non_rescuing",
+  "spatial_unit": "trap-grid coordinates; 6.25 m spacing",
+  "test": {
+    "null": "within each species, grid, and unordered relative displacement vector, first-to-last direction is symmetric under time reversal",
+    "statistic": "sum over grid x unsigned-vector strata of (n_forward-n_reverse)^2/(n_forward+n_reverse)",
+    "randomization": "one independent sign flip per grid x individual cluster, applied jointly to all changed repeat nights from that cluster",
+    "p_value": "upper-tail Monte Carlo randomization p-value"
+  },
+  "species": {
+    "PEMA": {
+      "repeat_capture_nights": 485,
+      "changed_nights": 352,
+      "changed_grid_individual_clusters": 143,
+      "grid_vector_strata": 150,
+      "mean_directed_dx_m": 0.0,
+      "mean_directed_dy_m": -0.07102272727272728,
+      "mean_directed_vector_magnitude_m": 0.07102272727272728,
+      "changed_night_rms_distance_m": 17.077384866062964,
+      "mean_vector_to_rms_ratio": 0.004158876070882914,
+      "grid_stratified_directional_chi_statistic": 158.55079365079365,
+      "cluster_signflip_permutations": 500000,
+      "cluster_signflip_seed": 20261005,
+      "cluster_signflip_p_upper": 0.19323361353277294,
+      "interpretation": "no_evidence_against_grid_stratified_time_reversal_symmetry"
+    },
+    "PEER": {
+      "repeat_capture_nights": 107,
+      "changed_nights": 74,
+      "changed_grid_individual_clusters": 27,
+      "grid_vector_strata": 40,
+      "mean_directed_dx_m": -1.6047297297297296,
+      "mean_directed_dy_m": 0.5067567567567568,
+      "mean_directed_vector_magnitude_m": 1.6828428078691955,
+      "changed_night_rms_distance_m": 16.262339389904284,
+      "mean_vector_to_rms_ratio": 0.10348097942869831,
+      "grid_stratified_directional_chi_statistic": 37.33333333333333,
+      "cluster_signflip_permutations": 500000,
+      "cluster_signflip_seed": 20261006,
+      "cluster_signflip_p_upper": 0.7347925304149392,
+      "interpretation": "no_evidence_against_grid_stratified_time_reversal_symmetry"
+    }
+  },
+  "claim_boundary": {
+    "proves_time_reversal_symmetry": false,
+    "confirmatory": false,
+    "can_rescue_or_replace_frozen_gates": false,
+    "interpretation": "Failure to reject is consistency evidence only; sparse vector strata, finite sample size, and grid-coordinate conventions limit power."
+  }
+}
