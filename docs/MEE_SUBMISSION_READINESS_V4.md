@@ -25,7 +25,7 @@ Date: 2026-10-05
 
 ## Time-reversal theory and audit
 
-- [x] Minimal stability condition is stated as time-reversal symmetry, not full temporal exchangeability.
+- [x] Time-reversal symmetry is stated as a transparent process-level sufficient condition for FIRST/LAST stability, weaker than full temporal exchangeability but not logically necessary.
 - [x] Full exchangeability is treated as a sufficient special case; reversible serial dependence is allowed.
 - [x] Span-only statistics are invariant to reversal while directed FIRST/LAST contrasts are antisymmetric.
 - [x] Post-result grid-stratified, individual-cluster sign-flip audit is labelled exploratory and non-rescuing.
@@ -76,7 +76,7 @@ Date: 2026-10-05
 
 ## Current decision
 
-**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, identifies time-reversal symmetry as the minimal directional-stability condition, and demonstrates by mirrored simulation how an arrow of time can break that stability. The empirical PEMA result and reversal audit support the stable side of the framework, while the v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
+**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, uses time-reversal symmetry as an interpretable sufficient condition for directional stability, and demonstrates by mirrored simulation how an arrow of time can break that stability. The empirical PEMA result and reversal audit support the stable side of the framework, while the v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
 
 **Pre-submission status:** **HOLD until the current-head review package/CI is green and the remaining author/archive metadata are completed.** No further same-data biological-effect search is justified.
 
