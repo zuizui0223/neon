@@ -7,7 +7,7 @@
 
 ## One-sentence result
 
-> **The published spatial segregation signal is carried by repeated multi-night space-use footprints, not by directional avoidance within nights and not by one point-like seasonal location per individual.**
+> **The published spatial segregation signal is carried by persistent species-specific multi-night space-use footprints, not by directional avoidance within nights and not by one point-like seasonal location per individual.**
 
 This is a temporal-scale localization result.
 
@@ -106,6 +106,41 @@ Stage 4 localizes the published signal to a representation that retains multiple
 The next ecological test therefore does not search for another segregation metric. It asks whether the species-specific spatial map itself recurs through time: do the same species reuse the same trap locations in the early and late halves of a season more than expected under a fixed-fixed late-season null?
 
 A positive answer would upgrade “multi-night representation carries the signal” to “species-specific multi-night footprints persist through the season.” A null answer would force the weaker, sampling-depth interpretation.
+
+
+## Stage 5 result — the multi-night footprint is temporally persistent
+
+The frozen persistence test passed all pre-declared criteria.
+
+Primary inference used only the eight Stage-4 reference grid-seasons. EARLY and LATE halves contained equal numbers of calendar sampling nights (discarding one middle night when needed), and the LATE species × trap matrix was randomized with the same fixed-fixed curveball logic while preserving each species' LATE trap occupancy and each trap's LATE species richness.
+
+Results:
+
+- informative reference units: **8/8**;
+- positive standardized persistence: **8/8**;
+- global mean standardized persistence: **T = 4.0909**;
+- one-sided Monte Carlo **p = 0.00019996**.
+
+The observed same-species EARLY→LATE trap overlap exceeded the fixed-fixed expectation in every reference grid-season.
+
+The broader 22-unit support set was descriptive only, but showed the same direction in **20/22** units:
+
+- mean (Z = 2.661);
+- median (Z = 2.637);
+- reference mean (Z = 4.091);
+- non-reference mean (Z = 1.844).
+
+The frozen Stage-5 decision is:
+
+`support_persistent_species_specific_multi_night_footprints`.
+
+This closes the main sampling-depth objection to the Stage-4 interpretation. NIGHT-FIRST does not merely accumulate more spatial points: in the segregated grid-seasons, the **identity of the species using a given trap is reproducible from the early to the late half of the season beyond expectations from species occupancy and trap richness alone**.
+
+The strongest current ecological synthesis is therefore:
+
+> **Community spatial segregation is encoded in persistent species-specific multi-night space-use footprints, not in continual within-night directional avoidance and not in one point-like seasonal location per individual.**
+
+The word “persistent” refers to community-level species × trap reuse across seasonal halves. It does not imply that every individual has a stable telemetry-defined home range.
 
 ## Biological interpretation
 
