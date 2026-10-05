@@ -83,6 +83,13 @@ class TestSpatialTemplateManuscriptV01(unittest.TestCase):
         self.assertIn("disjoint sets of observed identities", low)
         self.assertIn("does **not** establish literal demographic replacement", low)
 
+    def test_parent_resource_selection_is_not_claimed_as_new(self):
+        low = self.text.lower()
+        self.assertIn("habitat structure is an obvious candidate, but it is not a new result of this study", low)
+        self.assertIn("restricted to may–july 2016", low)
+        self.assertIn("community-level species × trap segregation signal", low)
+        self.assertIn("tschopp et al. 2018", low)
+
     def test_public_source_boundary_is_explicit(self):
         low = self.text.lower()
         self.assertIn("grid 3 winter", low)
