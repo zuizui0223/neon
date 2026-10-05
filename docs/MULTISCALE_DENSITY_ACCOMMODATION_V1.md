@@ -162,7 +162,7 @@ B =
 
 This equals the trace of the unbiased sample covariance of the individual centres. Under iid sampling from an unchanged centre distribution, its expectation is independent of the number of sampled individuals (m). That removes the finite-(N) rise built into a variance computed with denominator (m), and is preferable to occupied-trap count as the primary footprint candidate.
 
-The primary within-versus-between comparison should use a common, prospectively defined individual-support rule. An all-individual footprint may be retained only as a frozen sensitivity if its different observation support is explicitly handled.
+The primary within-versus-between comparison uses the **same repeat-captured individual cohort** for both W and B. Thus B is calculated from the session centres of exactly the individuals contributing to W. An all-individual footprint, including singly captured animals, may be retained only as a frozen sensitivity because it has a different observation-support process.
 
 A secondary candidate is effective occupied-trap number / entropy standardized against a null preserving:
 
@@ -251,7 +251,8 @@ Exact minimum counts will be frozen after the response-blind RELEASE-2026 struct
 - stratify or control mammalGridSamplingType;
 - cryptic *Peromyscus* sensitivity using identificationQualifier / identification history;
 - edge/grid truncation audit, including a fixed-footprint null in which individual centres are sampled from an unchanged grid-scale distribution across varying N;
-- audit of repeated-location support versus session abundance so that W estimability is not mistaken for a density response;
+- audit of repeated-capture support versus session abundance so that W estimability is not mistaken for a density response;
+- observed multi-coordinate or movement status must not enter primary eligibility;
 - no pooling of one-night and three-night sessions if their estimands are not comparable.
 
 ## Literature boundary
