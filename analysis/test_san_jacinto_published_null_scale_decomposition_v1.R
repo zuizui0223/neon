@@ -284,8 +284,14 @@ count_class <- function(res, cls) {
 
 analyzable_count <- function(res) sum(vapply(res, function(x) isTRUE(x$analyzable), logical(1)))
 
-sig_set <- function(res) vapply(res, function(x) if (isTRUE(x$analyzable) && identical(x$classification,"segregated")) x$id else NA_character_, character(1))
-sig_set <- function(res) na.omit(sig_set(res))
+sig_set <- function(res) {
+  ids <- vapply(
+    res,
+    function(x) if (isTRUE(x$analyzable) && identical(x$classification,"segregated")) x$id else NA_character_,
+    character(1)
+  )
+  unname(ids[!is.na(ids)])
+}
 
 ses_named <- function(res) {
   vals <- vapply(res, function(x) {
