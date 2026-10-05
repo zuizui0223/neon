@@ -60,7 +60,7 @@ The narrower contribution here is different:
 
 - observed **within-occasion positional multiplicity** is screened directly;
 - positional non-uniqueness is separated from **downstream estimand instability**;
-- time-reversal symmetry is identified as the minimal directional-stability condition for FIRST/LAST representation;
+- time-reversal symmetry is used as an interpretable process-level sufficient condition for FIRST/LAST stability, weaker than full exchangeability;
 - mirrored ordered-state simulations show how an arrow of time breaks that condition;
 - an empirical PEMA comparison shows that large positional aliasing can coexist with sigma stability.
 
@@ -76,11 +76,11 @@ is generally not obtained merely by changing the intercept of a one-check probab
 
 This is a useful observation-model caution, but it is **not** evidence that current `secr` mishandles pooled effort. `secr` represents numeric usage as effort on the hazard scale, and `reduce.capthist` sums usage across pooled occasions. Accordingly, the manuscript treats effort preservation and location/state representation as separate issues.
 
-## Minimal stability condition: time-reversal symmetry
+## Process-level sufficient condition: time-reversal symmetry
 
-Full temporal exchangeability is sufficient but stronger than necessary.
+Full temporal exchangeability is also sufficient but stronger than reversal symmetry. Reversal symmetry is not logically necessary for equal FIRST/LAST marginals.
 
-Let one occasion contain ordered detector outcomes (Y=(Y_1,ldots,Y_K)), and let (R(Y)) denote reversal. The minimal directional condition is
+Let one occasion contain ordered detector outcomes (Y=(Y_1,ldots,Y_K)), and let (R(Y)) denote reversal. A transparent directional sufficient condition is
 
 \[
 Y\overset d=R(Y)
@@ -204,7 +204,7 @@ Avoid:
 
 Prefer:
 
-> **The manuscript separates positional non-uniqueness from estimand instability and identifies time-reversal symmetry as the directional boundary between stable FIRST/LAST representation and ordered-state failure modes. It provides a scale-aware screen, a direct downstream stability test, and an empirical example in which substantial within-occasion positional variation coexists with a stable SCR spatial scale.**
+> **The manuscript separates positional non-uniqueness from estimand instability and uses time-reversal symmetry as a tractable diagnostic boundary between stable FIRST/LAST representation and ordered-state failure modes. It provides a scale-aware screen, a direct downstream stability test, and an empirical example in which substantial within-occasion positional variation coexists with a stable SCR spatial scale.**
 
 The deterministic bounds are practical sensitivity translations rather than new mathematics.
 
