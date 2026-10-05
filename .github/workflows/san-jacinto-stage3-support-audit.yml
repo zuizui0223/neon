@@ -1,0 +1,43 @@
+name: san-jacinto-stage3-support-audit
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - analysis/audit_san_jacinto_published_matrix_support_v1.py
+      - .github/workflows/san-jacinto-stage3-support-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit source matrix support only
+        run: |
+          python analysis/audit_san_jacinto_published_matrix_support_v1.py \
+            --output /tmp/san_jacinto_published_matrix_support_audit_v1.json
+      - name: Persist support audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_published_matrix_support_audit_v1.json \
+             results/san_jacinto_published_matrix_support_audit_v1.json
+          git add results/san_jacinto_published_matrix_support_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "audit unchanged"
+          else
+            git commit -m "Audit published matrix source support"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
