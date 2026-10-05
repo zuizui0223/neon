@@ -1,0 +1,55 @@
+name: wisconsin-footprint-stage6a-feasibility
+
+on:
+  push:
+    branches:
+      - ecology/wisconsin-footprint-replication-v1
+    paths:
+      - docs/WISCONSIN_FOOTPRINT_REPLICATION_V1.md
+      - analysis/inventory_wisconsin_footprint_replication_v1.py
+      - tests/test_wisconsin_footprint_replication_v1.py
+      - .github/workflows/wisconsin-footprint-stage6a-feasibility.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wisconsin-footprint-stage6a-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  feasibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/wisconsin-footprint-replication-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify support-only inventory
+        run: python -m unittest tests.test_wisconsin_footprint_replication_v1 -v
+
+      - name: Run Dryad feasibility audit
+        run: |
+          python analysis/inventory_wisconsin_footprint_replication_v1.py \
+            --cache-zip /tmp/wisconsin_dryad.zip \
+            --output /tmp/wisconsin_footprint_feasibility_v1.json
+
+      - name: Persist support-only result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/wisconsin-footprint-replication-v1
+          cp /tmp/wisconsin_footprint_feasibility_v1.json \
+             results/wisconsin_footprint_feasibility_v1.json
+          git add results/wisconsin_footprint_feasibility_v1.json
+          if git diff --cached --quiet; then
+            echo "feasibility unchanged"
+          else
+            git commit -m "Record Wisconsin footprint feasibility"
+            git push origin HEAD:ecology/wisconsin-footprint-replication-v1
+          fi
