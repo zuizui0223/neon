@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import unittest
 from pathlib import Path
@@ -47,6 +48,17 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
             self.assertIn(token,self.text)
         self.assertIn("post-stop exploratory",self.text.lower())
         self.assertIn("remained stopped",self.text.lower())
+
+    def test_empirical_shift_energy_is_not_an_additive_sigma_correction(self):
+        p=self.pema["primary_model"]
+        q=self.den["species"]["PEMA"]["observed_one_spacing_aliasing_lower_bound_fraction_all_nights"]
+        rms=float(self.consequence["empirical_anchor"]["species"]["PEMA"]["changed_rms_distance_m"])
+        sigma=float(p["first"]["sigma_m"])
+        predicted_ratio=math.sqrt(1 + q*rms*rms/(2*sigma*sigma))
+        self.assertAlmostEqual(predicted_ratio,1.23993,places=4)
+        self.assertIn("1.240",self.text)
+        self.assertIn("+24.0%",self.text)
+        self.assertIn("observed ratio was instead 0.967",self.text)
 
     def test_heldout_aliasing_remains_confirmatory(self):
         self.assertEqual(self.emp["species"]["PEMA"]["repeat_capture_nights"],485)
