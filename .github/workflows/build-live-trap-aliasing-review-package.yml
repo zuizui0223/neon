@@ -33,6 +33,8 @@ on:
       - analysis/san_jacinto_positional_aliasing_v1.py
       - analysis/live_trap_aliasing_denominator_audit_v1.py
       - analysis/audit_live_trap_aliasing_individual_cluster_v1.py
+      - analysis/audit_time_reversal_symmetry_v1.py
+      - results/time_reversal_symmetry_audit_v1.json
       - analysis/plot_live_trap_aliasing_figures_v2.py
       - analysis/simulate_scr_sigma_consequence_v1.R
       - docs/SCR_SIGMA_CONSEQUENCE_SIMULATION_DESIGN_V1.md
@@ -45,6 +47,9 @@ on:
       - docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md
       - results/scr_sigma_dynamic_state_zero_shift_v2_1.json
       - results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
+      - analysis/calibrate_san_jacinto_observation_process_v3.R
+      - docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+      - validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json
       - analysis/audit_live_trap_night_label_semantics_v1.py
       - tests/test_temporal_aliasing_diagnostic.py
       - tests/test_temporal_aliasing_example.py
@@ -82,7 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf /tmp/live-trap-aliasing-review
-          mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,figures}
+          mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,validation/san_jacinto_scr_sigma_v1,figures}
 
           cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md /tmp/live-trap-aliasing-review/
           cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md /tmp/live-trap-aliasing-review/
@@ -112,9 +117,12 @@ jobs:
           cp analysis/san_jacinto_positional_aliasing_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/live_trap_aliasing_denominator_audit_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/audit_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/audit_time_reversal_symmetry_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/plot_live_trap_aliasing_figures_v2.py /tmp/live-trap-aliasing-review/analysis/
           cp analysis/simulate_scr_sigma_consequence_v1.R /tmp/live-trap-aliasing-review/analysis/
           cp analysis/audit_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/calibrate_san_jacinto_observation_process_v3.R /tmp/live-trap-aliasing-review/analysis/
+          cp docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md /tmp/live-trap-aliasing-review/docs/
 
           cp tests/test_temporal_aliasing_diagnostic.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_temporal_aliasing_example.py /tmp/live-trap-aliasing-review/tests/
@@ -132,6 +140,7 @@ jobs:
           cp results/scr_sigma_consequence_simulation_v1.json /tmp/live-trap-aliasing-review/results/
           cp results/scr_sigma_consequence_replicates_v1.csv /tmp/live-trap-aliasing-review/results/
           cp results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json /tmp/live-trap-aliasing-review/results/
+          cp results/time_reversal_symmetry_audit_v1.json /tmp/live-trap-aliasing-review/results/
           cp analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R /tmp/live-trap-aliasing-review/analysis/
           cp docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md /tmp/live-trap-aliasing-review/docs/
           cp results/scr_sigma_dynamic_state_zero_shift_v2_1.json /tmp/live-trap-aliasing-review/results/
@@ -147,6 +156,7 @@ jobs:
           cp validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/downstream_home_range_support_summary_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
           cp validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json /tmp/live-trap-aliasing-review/validation/live_trap_aliasing_v1/
+          cp validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json /tmp/live-trap-aliasing-review/validation/san_jacinto_scr_sigma_v1/
 
           cp figures/figure*.png figures/figure*.pdf /tmp/live-trap-aliasing-review/figures/
 
