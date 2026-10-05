@@ -38,29 +38,29 @@ A population can contain more animals even while individuals use less space. Tha
 
 Let:
 
-- (W) denote an individual-scale spatial-use metric;
-- (B) denote a between-individual / population-footprint metric;
+- (W) denote individual-scale spatial variance;
+- (B) denote between-individual spatial variance in individual session centres;
 - (N) denote local abundance or density.
 
-The central prediction is a cross-scale inequality:
+The central prediction is the cross-scale inequality
 
-[
-eta_W < eta_B,
-]
+\[
+\beta_W < \beta_B,
+\]
 
-where (eta_W) and (eta_B) are the abundance responses of individual-scale and population-footprint spatial extent on comparable standardized/log scales.
+where (\beta_W) and (\beta_B) are abundance responses measured on the same variance scale and, where supported, the same log-response scale.
 
-The strongest pattern would be:
+The strongest pattern would be
 
-[
-eta_W < 0,qquad eta_B ge 0,
-]
+\[
+\beta_W < 0, \qquad \beta_B \ge 0,
+\]
 
-meaning that individuals contract their space use as abundance rises while the population footprint is maintained or expands.
+meaning that individuals contract their own spatial use as abundance rises while the dispersion of individual centres is maintained or expands.
 
 This is **density accommodation by packing**.
 
-The programme does not require that exact sign combination. The confirmatory target is the cross-scale contrast, not a post-hoc choice of whichever component is significant.
+The programme does not require that exact sign combination. The confirmatory target is the preregistered cross-scale contrast, not a post-hoc choice of whichever component is significant.
 
 ## Ecological interpretation
 
@@ -132,93 +132,106 @@ Active trap-nights, not nominal grid size, form the observation denominator.
 
 ## Candidate individual-scale metrics for development
 
-No final metric is selected here from an observed ecological effect.
+No final metric is selected from an observed ecological effect.
 
-Candidate family:
+The mechanically preferred coordinate-based candidate uses a pairwise U-statistic. For individual (i) with (k_i\ge2) valid capture locations (x_{ij}),
 
-1. mean / median successive recapture displacement among resolved individuals;
-2. within-individual squared radial spread around the individual's session centroid;
-3. session-level SCR/SECR spatial scale where the support gate is met.
+\[
+W_i =
+\frac{1}{2\binom{k_i}{2}}
+\sum_{j<\ell}\|x_{ij}-x_{i\ell}\|^2.
+\]
 
-The final candidate must pass an effect-blind support audit and simulation/mechanical validation before future confirmation.
+This is exactly the trace of the unbiased sample covariance of that individual's observed locations. The session-level (W) is the equal-individual mean of (W_i), so individuals with many recaptures do not automatically receive more weight.
+
+A session-level SCR/SECR spatial scale remains an alternative only where the effect-blind support gate shows adequate spatial recaptures.
+
+Singly captured individuals are **unresolved for (W)**, not zero movement. The structural audit must therefore quantify how much of each species × grid × session is represented by repeated-location individuals before this route can advance.
 
 ## Candidate population-footprint metrics for development
 
 The footprint metric must not increase mechanically merely because (N) increases.
 
-Candidate family:
+The mechanically preferred coordinate-based candidate is the half mean pairwise squared distance among (m\ge2) per-individual session centres (c_i):
 
-1. effort-conditioned mean pairwise distance among per-individual session centres;
-2. effort-conditioned spatial variance of individual centres;
-3. effective occupied-trap number / entropy standardized against a null preserving:
-   - active trap set,
-   - trap-night effort,
-   - number of unique individuals,
-   - per-individual capture frequency where relevant.
+\[
+B =
+\frac{1}{2\binom{m}{2}}
+\sum_{i<r}\|c_i-c_r\|^2.
+\]
 
-A metric that is a deterministic or near-deterministic function of (N), occupied-trap count or grid identity is rejected.
+This equals the trace of the unbiased sample covariance of the individual centres. Under iid sampling from an unchanged centre distribution, its expectation is independent of the number of sampled individuals (m). That removes the finite-(N) rise built into a variance computed with denominator (m), and is preferable to occupied-trap count as the primary footprint candidate.
 
-## Exact decomposition route
+The primary within-versus-between comparison should use a common, prospectively defined individual-support rule. An all-individual footprint may be retained only as a frozen sensitivity if its different observation support is explicitly handled.
 
-Where support permits, use capture coordinates (x_{ij}) for individual (i), capture (j).
+A secondary candidate is effective occupied-trap number / entropy standardized against a null preserving:
 
-For individual (i):
+- active trap set;
+- trap-night effort;
+- number of unique individuals;
+- per-individual capture frequency where relevant.
 
-[
-c_i = operatorname{mean}_j(x_{ij}).
-]
+Any footprint metric that is a deterministic or near-deterministic function of (N), occupied-trap count, nominal grid size or grid identity is rejected.
 
-Define equal-individual-weight within-individual spread:
+## Variance-scale interpretation and centroid uncertainty
 
-[
-W = operatorname{mean}_ileft[operatorname{mean}_j |x_{ij}-c_i|^2ight],
-]
+The U-statistic definitions place (W) and (B) on the same units of squared distance and give them a direct variance interpretation.
 
-and between-individual spread:
+For each eligible individual,
 
-[
-B = operatorname{mean}_i|c_i-ar c|^2.
-]
+\[
+c_i = \operatorname{mean}_j(x_{ij}).
+\]
 
-This gives an interpretable within-versus-between spatial decomposition on the trapping grid. Because singly captured individuals have unresolved within-individual spread, this route requires an explicit recapture-support rule and sensitivity analysis rather than silently treating singletons as zero movement.
+The observed centre (c_i) is itself estimated from finitely many captures. Under an idealized independent-error model, centroid uncertainty contributes approximately (W_i/k_i) to the variance of the estimated centre. A pre-effect mechanical study must therefore choose **before any density slope is opened** between:
+
+1. a support rule under which centroid noise is negligible enough for the raw (B) statistic;
+2. a prespecified de-noised sensitivity based on the centroid-uncertainty contribution; or
+3. abandoning the coordinate-decomposition route in favour of a model-based spatial scale.
+
+No centroid correction may be selected after inspecting (\beta_W), (\beta_B) or (\Delta_\beta).
+
+This route is a scale decomposition, not a claim that trap captures reconstruct complete movement paths.
 
 ## Abundance candidates
 
 Development may compare:
 
-- minimum number known alive / resolved unique individuals per session;
+- resolved unique individuals per complete species × grid × session;
 - effort-standardized capture rate;
 - closed/SCR density where estimable.
 
-The final abundance variable must be frozen before future response access.
+The primary (N) must describe the session population rather than the number of individuals eligible for (W). Repeated-location support is an observation/support quantity and must not be substituted for abundance.
+
+The final abundance variable, any offset/effort term and the handling of zero-valued spatial metrics must be frozen before future response access.
 
 ## Primary model concept
 
-Within eligible species:
+For the mechanically validated final metrics, estimate the abundance response at both scales with matched species/site/year structure. A schematic form is
 
-[
-log W_{gst} = alpha_s + eta_W log N_{gst} + u_{site} + u_{year} + epsilon,
-]
+\[
+g(W_{gst}) = \alpha_s + \beta_W g_N(N_{gst}) + u_{site} + u_{year} + \epsilon,
+\]
 
-[
-log B_{gst} = gamma_s + eta_B log N_{gst} + v_{site} + v_{year} + eta,
-]
+\[
+g(B_{gst}) = \gamma_s + \beta_B g_N(N_{gst}) + v_{site} + v_{year} + \eta,
+\]
 
-or the analogous model for the mechanically validated final metrics.
+where the transformations (g) and (g_N) are frozen before confirmation. If both metrics are positive and log-transformed, (\beta_W) and (\beta_B) are directly comparable elasticities.
 
-The primary ecological contrast is:
+The primary ecological contrast is
 
-[
-Delta_eta = eta_B-eta_W.
-]
+\[
+\Delta_\beta = \beta_B-\beta_W.
+\]
 
 Primary prediction:
 
-[
-Delta_eta > 0.
-]
+\[
+\Delta_\beta > 0.
+\]
 
-The analysis should retain species-level effects rather than allow one abundant taxon to define the result.
+The analysis must retain species-level effects rather than allow one abundant taxon to define the result.
 
 ## Replication requirement
 
@@ -237,7 +250,8 @@ Exact minimum counts will be frozen after the response-blind RELEASE-2026 struct
 - leave-one-night-out audit for multi-night sessions;
 - stratify or control mammalGridSamplingType;
 - cryptic *Peromyscus* sensitivity using identificationQualifier / identification history;
-- edge/grid truncation audit;
+- edge/grid truncation audit, including a fixed-footprint null in which individual centres are sampled from an unchanged grid-scale distribution across varying N;
+- audit of repeated-location support versus session abundance so that W estimability is not mistaken for a density response;
 - no pooling of one-night and three-night sessions if their estimands are not comparable.
 
 ## Literature boundary
