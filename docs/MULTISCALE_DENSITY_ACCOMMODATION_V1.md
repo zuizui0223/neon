@@ -183,13 +183,27 @@ For each eligible individual,
 c_i = \operatorname{mean}_j(x_{ij}).
 \]
 
-The observed centre (c_i) is itself estimated from finitely many captures. Under an idealized independent-error model, centroid uncertainty contributes approximately (W_i/k_i) to the variance of the estimated centre. A pre-effect mechanical study must therefore choose **before any density slope is opened** between:
+The observed centre (c_i) is itself estimated from finitely many captures. Under an iid repeated-location benchmark with finite second moments, centroid uncertainty has an exact expectation-level correction. If individual (i) has (k_i) captures and (W_i) is the unbiased within-individual covariance-trace estimator above, then the noise contribution of the estimated centroids to the between-centre statistic is
 
-1. a support rule under which centroid noise is negligible enough for the raw (B) statistic;
-2. a prespecified de-noised sensitivity based on the centroid-uncertainty contribution; or
-3. abandoning the coordinate-decomposition route in favour of a model-based spatial scale.
+\[
+C = \frac{1}{m}\sum_i \frac{W_i}{k_i}.
+\]
 
-No centroid correction may be selected after inspecting (\beta_W), (\beta_B) or (\Delta_\beta).
+Therefore define the prespecified de-biased sensitivity
+
+\[
+B_{\mathrm{debiased}} = B_{\mathrm{observed}} - C.
+\]
+
+In the iid benchmark, (E[B_{\mathrm{debiased}}]) equals the variance of the latent individual centres. The repository contains an exact finite-state enumeration test of this identity.
+
+This correction is a **mechanical benchmark, not an assumption that live-trap locations are iid**. Before any density slope is opened, a trap-grid simulation must determine whether raw (B) and (B_{\mathrm{debiased}}) retain acceptable behaviour under discrete detectors, edge truncation and heterogeneous capture counts. The future confirmatory contract must then either:
+
+1. choose one prospectively justified primary (B) estimator and freeze the other as sensitivity;
+2. require the ecological direction to be robust to both; or
+3. abandon the coordinate-decomposition route in favour of a model-based spatial scale.
+
+No choice among these routes may depend on observed (\beta_W), (\beta_B) or (\Delta_\beta).
 
 This route is a scale decomposition, not a claim that trap captures reconstruct complete movement paths.
 
@@ -261,7 +275,10 @@ Already established:
 
 - individual home ranges often contract with density;
 - *Peromyscus* home-range size in NEON decreases with density;
+- density and SCR movement scale can be structurally linked through home-range overlap;
+- high-density small-mammal phases can combine smaller ranges with greater overlap;
 - animal space use can be partitioned into within- and between-individual components;
+- animal spatial-network connectedness generally increases with density across many taxa;
 - multi-scale responses can differ.
 
 Candidate contribution:
