@@ -1,0 +1,58 @@
+name: san-jacinto-public30-scale-stage4
+
+on:
+  push:
+    branches:
+      - ecology/san-jacinto-transition-niche-v1
+    paths:
+      - docs/SAN_JACINTO_TRANSITION_NICHE_EXPLORATION_V1.md
+      - analysis/test_san_jacinto_public30_scale_decomposition_v1.R
+      - .github/workflows/san-jacinto-public30-scale-stage4.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: san-jacinto-public30-scale-stage4-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stage4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecology/san-jacinto-transition-niche-v1
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - name: Install dependencies and EcoSimR source
+        run: |
+          Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org")'
+          git clone --depth 1 https://github.com/GotelliLab/EcoSimR.git /tmp/EcoSimR
+          R CMD INSTALL /tmp/EcoSimR
+      - name: Verify Stage-4 helper logic
+        run: Rscript analysis/test_san_jacinto_public30_scale_decomposition_v1.R --self-test
+      - name: Run fixed public-data 30-unit temporal scale decomposition
+        run: |
+          Rscript analysis/test_san_jacinto_public30_scale_decomposition_v1.R \
+            --cache /tmp/year_round_trap_data.csv \
+            --output /tmp/san_jacinto_public30_scale_decomposition_v1.json \
+            --nreps 5000 \
+            --seed 2026100504
+      - name: Persist Stage-4 result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ecology/san-jacinto-transition-niche-v1
+          cp /tmp/san_jacinto_public30_scale_decomposition_v1.json \
+             results/san_jacinto_public30_scale_decomposition_v1.json
+          git add results/san_jacinto_public30_scale_decomposition_v1.json
+          if git diff --cached --quiet; then
+            echo "Stage-4 result unchanged"
+          else
+            git commit -m "Record public-data temporal scale decomposition"
+            git push origin HEAD:ecology/san-jacinto-transition-niche-v1
+          fi
