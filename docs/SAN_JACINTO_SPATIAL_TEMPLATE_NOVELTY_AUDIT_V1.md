@@ -74,6 +74,16 @@ Likewise, collective or population-level site fidelity has been studied in sever
 
 Consequently the manuscript should not claim that persistence above individual identity is unprecedented as a general systems phenomenon.
 
+## Parent-study resource-selection boundary
+
+Chock et al. (2022) already established species-specific selection on vegetation and soil axes. Their resource-selection analysis used all captures including recaptures, included individual ID and grid as random effects, and was restricted to **May–July 2016**. Therefore the present paper must not claim that species-specific habitat use, or similarity of place use among conspecifics, is newly discovered.
+
+The new question is at a different level: whether the independently documented **community-level species × trap segregation pattern** can be localized to a temporal representation and whether species × place recurrence remains after every marked identity shared between compared windows is excluded. The adjacent-season analysis also extends beyond the summer-only resource-selection window.
+
+Persistent habitat filtering is consequently a strong candidate explanation for the identity-independent recurrence, not a novelty claim. Because the trap-level vegetation and soil values are not deposited with the public capture file, that mechanism cannot be closed here.
+
+Population-level site fidelity is likewise established and can be estimated directly from capture–recapture data (Tschopp et al. 2018, *PeerJ* 6:e4782, doi:10.7717/peerj.4782). The distinctive contrast here is species × place recurrence among disjoint observed identity sets, not population return to a location.
+
 ## What appears distinctive in the present study
 
 The literature search did not identify a close prior animal-community study that performs the full combination below:
