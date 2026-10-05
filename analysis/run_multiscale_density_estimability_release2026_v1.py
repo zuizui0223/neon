@@ -228,6 +228,10 @@ def _read_trap_rows(raw: bytes, candidate_nights: set[str]) -> list[dict[str, st
     tag = _pick(fields, ("tagID", "tagId", "individualID", "individualId"), False)
     taxon = _pick(fields, ("taxonID", "taxonId"), False)
     sci = _pick(fields, ("scientificName", "scientific_name"), False)
+    ident_qual = _pick(
+        fields, ("identificationQualifier", "identification_qualifier"), False
+    )
+    taxon_rank = _pick(fields, ("taxonRank", "taxon_rank"), False)
     if taxon is None and sci is None:
         raise RuntimeError("pertrapnight file has neither taxonID nor scientificName")
 
@@ -245,6 +249,12 @@ def _read_trap_rows(raw: bytes, candidate_nights: set[str]) -> list[dict[str, st
                 "tagID": str(row.get(tag, "")).strip() if tag else "",
                 "taxonID": str(row.get(taxon, "")).strip() if taxon else "",
                 "scientificName": str(row.get(sci, "")).strip() if sci else "",
+                "identificationQualifier": (
+                    str(row.get(ident_qual, "")).strip() if ident_qual else ""
+                ),
+                "taxonRank": (
+                    str(row.get(taxon_rank, "")).strip() if taxon_rank else ""
+                ),
             }
         )
     return out
@@ -354,6 +364,8 @@ def run() -> dict:
                 "tagID",
                 "taxonID",
                 "scientificName",
+                "identificationQualifier",
+                "taxonRank",
             ],
         )
         result = audit(plot_csv, trap_csv)
