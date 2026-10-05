@@ -1,3 +1,5 @@
+> **SUPERSEDED DRAFT — do not use for submission.** The active, claim-bounded manuscript is `/MANUSCRIPT_JAE_SPATIAL_TEMPLATE_V0_1.md`. This historical draft predates the disjoint-observed-identity terminology correction.
+
 # Species-specific spatial footprints reassemble niche partitioning across individual turnover in a rodent guild
 
 **Target:** Journal of Animal Ecology  
