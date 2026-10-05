@@ -15,8 +15,9 @@ from pathlib import Path
 
 DOI = "10.5061/dryad.zpc866thw"
 DATASET_ZIP_URL = (
-    "https://datadryad.org/stash/downloads/dataset_doi?"
-    + urllib.parse.urlencode({"doi": DOI})
+    "https://datadryad.org/api/v2/datasets/"
+    + urllib.parse.quote("doi:" + DOI, safe="")
+    + "/download"
 )
 CAPTURE_NAME = "CaptureMaster.csv"
 MIN_MULTI_NIGHT_INDIVIDUALS_PER_SPECIES = 3
