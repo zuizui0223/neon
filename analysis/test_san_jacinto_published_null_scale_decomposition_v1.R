@@ -172,14 +172,17 @@ prepare_representations <- function(raw) {
 build_matrix <- function(df, grid, season) {
   z <- df[df$grid == grid & df$season == season,,drop=FALSE]
   species <- FOCAL[FOCAL %in% unique(z$species)]
-  if (length(species) < 3) return(NULL)
+  # C-score is defined for two species (one species pair). The published
+  # 8-grid x 4-season analysis includes low-richness winter units, so Stage 3
+  # must not inherit the >=3-species eligibility rule used only in Stage 2.
+  if (length(species) < 2) return(NULL)
   mat <- matrix(0L, nrow=length(species), ncol=length(FLAGS),
                 dimnames=list(species, FLAGS))
   if (nrow(z)) {
     for (i in seq_len(nrow(z))) mat[z$species[i], z$flag[i]] <- 1L
   }
   mat <- mat[rowSums(mat)>0, colSums(mat)>0, drop=FALSE]
-  if (nrow(mat) < 3 || ncol(mat) < 1) return(NULL)
+  if (nrow(mat) < 2 || ncol(mat) < 1) return(NULL)
   mat
 }
 
