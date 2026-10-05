@@ -447,6 +447,22 @@ At $\sigma=6.25$ m, POST median relative biases were -0.6% for FIRST and +38.8% 
 
 CHECK retained all injected detections but did not consistently recover baseline sigma under the empirical-transition stress process. Because repeat checks are generated conditional on a captured night, this deviation cannot be decomposed uniquely into a state-mixture component and a within-night encounter-dependence component. It is used only to show that finer occasions are not automatically sufficient when the observation process departs from a stationary, conditionally independent check-level model.
 
+### S9.3.1 Sequential-check null robustness diagnostic
+
+A separate robustness generator simulated each physical check directly through `secr::sim.capthist` around a persistent within-night state centre. Before any state-shift result could be interpreted, a frozen zero-shift gate required the maximum absolute median sigma bias across CHECK, FIRST and LAST to be below 10%.
+
+In the first 24-replicate run, the gate failed narrowly: the maximum absolute median bias was 10.22%. The non-zero-shift cells from that run were therefore not promoted.
+
+To determine whether the null failure itself was reproducible, we then ran an independent diagnostic restricted to the zero-shift condition only, using seed 20261005 and 96 replicates per generating sigma. No non-zero-shift cell was re-run or used in this diagnostic. The second run gave:
+
+- maximum absolute median relative bias: **5.55%**;
+- LAST/FIRST = **0.9968** at generating sigma 6.25 m;
+- LAST/FIRST = **1.0031** at 12.5 m;
+- LAST/FIRST = **0.9992** at 25 m;
+- maximum absolute LAST/FIRST deviation from one: **0.32%**.
+
+Thus the original 10.22% null excursion was not reproduced at higher Monte Carlo replication, and the sequential static generator itself satisfies the frozen null criterion in the independent diagnostic. This does not retroactively authorize the already-opened non-zero-shift cells from the failed-gate run; they remain non-promoted.
+
 ### S9.4 Claim boundary
 
 The benchmark supports the conditional methodological statement that temporal representation can change fitted SCR spatial scale when a nominal occasion contains multiple observation-conditioned spatial states. It does not show:
@@ -485,6 +501,8 @@ SCR downstream consequence:
 - `docs/SCR_SIGMA_MIXTURE_THEORY_V1.md`
 - `results/scr_sigma_consequence_simulation_v1.json`
 - `results/scr_sigma_consequence_replicates_v1.csv`
+- `results/scr_sigma_dynamic_state_zero_shift_v2_1.json`
+- `analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R`
 
 Review-package workflows verify these files independently of unrelated NEON project analyses.
 
