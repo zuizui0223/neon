@@ -44,6 +44,19 @@ This package is intentionally narrower than the parent NEON repository. It conta
 
 The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
 
+## Post-result temporal-direction audit
+- analysis/audit_time_reversal_symmetry_v1.py
+- results/time_reversal_symmetry_audit_v1.json
+
+This audit is exploratory and non-rescuing. It tests grid-stratified first-to-last directional imbalance with grid × individual cluster sign flips; failure to reject is consistency evidence, not proof of time-reversal symmetry.
+
+## Observation-process calibration stop
+- analysis/calibrate_san_jacinto_observation_process_v3.R
+- docs/SAN_JACINTO_OBSERVATION_CALIBRATION_V3.md
+- validation/san_jacinto_scr_sigma_v1/observation_calibration_v3.json
+
+The v3 calibration fitted no downstream SCR model. Zero of 12 independently validated candidates from a 204-cell observation-only search reproduced all four empirical targets, so the simple release-centred transient-state model was stopped rather than promoted as a San Jacinto mechanism.
+
 ## Prospectively held-out positional non-uniqueness validation
 - analysis/san_jacinto_positional_aliasing_v1.py
 - tests/test_san_jacinto_positional_aliasing.py
@@ -94,4 +107,4 @@ The PEMA SCR result is explicitly post-stop exploratory evidence. It does not re
 - repository-specific workflow/run/commit provenance that could compromise double-anonymous review;
 - the provenance-rich PEMA workflow receipt;
 - calibrated-SCR v2 outputs that did not reproduce the empirical observation-process targets closely enough to support an “empirically matched” claim;
-- non-zero-shift outputs from the sequential dynamic-state benchmark because its pre-specified negative-control gate failed.
+- non-zero-shift outputs from the sequential dynamic-state benchmark: the original 24-replicate null gate failed narrowly, and although an independent 96-replicate null-only diagnostic later passed, the already-opened non-zero cells are not retroactively promoted.
