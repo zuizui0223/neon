@@ -14,7 +14,7 @@ def pearson(x,y):
 
 def matched_rows(footprint, stage4):
     ses={x["id"]:x.get("ses") for x in stage4["night_first"] if x.get("analyzable") and isinstance(x.get("ses"),(int,float))}
-    ref=set(stage4["scale_decomposition"]["all_segregated_ids"])
+    ref=set(stage4["primary"]["all_reference_segregated_ids"])
     out=[]
     for x in footprint["grid_seasons"]:
         z=x.get("z_observed")
