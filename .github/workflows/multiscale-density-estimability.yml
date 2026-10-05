@@ -53,14 +53,39 @@ jobs:
         run: |
           python -m analysis.simulate_multiscale_density_metric_support_v1
 
-      - name: Require NEON token
+      - name: Resolve NEON data-access state
+        id: neon_access
+        shell: bash
         run: |
-          test -n "$NEON_API_TOKEN" || {
-            echo "NEON_API_TOKEN is not configured" >&2
-            exit 1
+          if [ -n "$NEON_API_TOKEN" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            mkdir -p build
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          receipt = {
+              "schema": "neon.multiscale_density_accommodation.estimability_block.v1",
+              "status": "BLOCKED_BEFORE_RELEASE2026_DATA_ACCESS",
+              "reason": "NEON_API_TOKEN is not configured in the GitHub Actions environment",
+              "biological_response_bytes_opened": 0,
+              "spatial_distances_calculated": False,
+              "density_effects_calculated": False,
+              "next_action": (
+                  "configure the repository Actions secret NEON_API_TOKEN and "
+                  "rerun this unchanged workflow"
+              ),
           }
+          Path("build/multiscale_density_estimability_release2026_v1.json").write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+          fi
 
       - name: Run RELEASE-2026 structural audit
+        if: steps.neon_access.outputs.available == 'true'
         run: |
           python -m analysis.run_multiscale_density_estimability_release2026_v1
 
