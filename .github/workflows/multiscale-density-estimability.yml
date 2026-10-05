@@ -37,6 +37,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install mechanical-audit dependency
+        run: python -m pip install numpy==2.1.1
+
       - name: Verify effect-blind audit and metric mechanics
         run: |
           python -m unittest \
