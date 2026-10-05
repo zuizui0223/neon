@@ -10,10 +10,12 @@
       "individual home-range size commonly decreases with density",
       "NEON Peromyscus home-range area decreases with density",
       "habitat, latitude and density interact to influence Peromyscus home-range area",
-      "within- versus between-individual variation in space use is an established conceptual decomposition"
+      "within- versus between-individual variation in space use is an established conceptual decomposition",
+      "higher density commonly increases spatial network connectedness across animal systems"
     ],
-    "candidate_contribution": "jointly estimate abundance responses at individual and population spatial scales within the same standardized small-mammal sampling sessions",
-    "key_reference": "O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Oecologia 207:98. doi:10.1007/s00442-025-05731-2"
+    "candidate_contribution": "identify how abundance responses are partitioned between within-individual spatial variance and dispersion of individual centres within matched standardized small-mammal sessions",
+    "key_reference": "O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Oecologia 207:98. doi:10.1007/s00442-025-05731-2",
+    "key_additional_reference": "Albery GF et al. 2025. Nature Ecology & Evolution 9:2002-2013. doi:10.1038/s41559-025-02843-z"
   },
   "release_2026": {
     "status": "response_consumed_development_data",
@@ -59,14 +61,13 @@
     "denominator": "active trap-night"
   },
   "candidate_individual_scale_metrics": [
-    "successive recapture displacement",
-    "within-individual squared radial spread around session centroid",
-    "session-level SCR/SECR spatial scale where estimable"
+    "primary coordinate candidate: equal-individual half mean pairwise squared distance among repeated locations (unbiased within-individual covariance-trace U-statistic)",
+    "alternative only if structurally estimable: session-level SCR/SECR spatial scale"
   ],
   "candidate_population_footprint_metrics": [
-    "effort-conditioned mean pairwise distance among individual session centres",
-    "effort-conditioned variance of individual session centres",
-    "effective occupied-trap number standardized by an effort/N-preserving null"
+    "primary coordinate candidate: half mean pairwise squared distance among matched repeat-supported individual session centres",
+    "primary mechanical sensitivity: subtract mean(W_i/k_i) centroid-noise contribution before abundance effects are opened",
+    "secondary only if prevalidated: effective occupied-trap number standardized by an effort/N/capture-frequency-preserving null"
   ],
   "mechanical_rejection_rule": "reject any footprint metric that is a deterministic or near-deterministic function of abundance, occupied-trap count, nominal grid size, or grid identity",
   "primary_hypothesis": {
@@ -124,7 +125,9 @@
     "grid-edge/truncation audit",
     "audit repeated-location support versus session abundance",
     "fixed-footprint mechanical null across varying sampled individual count",
-    "same prospectively defined individual-support rule for primary W/B comparison"
+    "same prospectively defined individual-support rule for primary W/B comparison",
+    "pre-effect audit of repeat-supported fraction across abundance/support classes without opening spatial distances",
+    "raw-B versus prespecified centroid-debiased-B sensitivity"
   ],
   "replication_requirement": {
     "taxonomic": true,
@@ -150,10 +153,12 @@
       "name": "half mean pairwise squared distance among individual session centres",
       "formula": "B = [2*C(m,2)]^-1 * sum_{i<r} ||c_i-c_r||^2",
       "property": "equals trace of unbiased sample covariance of individual centres",
-      "mechanical_null": "under iid draws from an unchanged centre distribution, E[B] is invariant to sampled individual count m"
+      "mechanical_null": "under iid draws from an unchanged centre distribution, E[B] is invariant to sampled individual count m",
+      "centroid_noise_correction": "B_debiased = B_observed - mean_i(W_i / k_i) under iid repeated-location measurement benchmark",
+      "primary_support_cohort": "same repeat-supported individuals contributing to W"
     },
     "common_scale": "W and B are squared-distance variance quantities; matched transformations are required for slope comparison",
-    "centroid_uncertainty": "must be handled prospectively by support rule, frozen de-noising sensitivity, or model-based abandonment of coordinate route before any density slopes are opened",
+    "centroid_uncertainty": "primary mechanical plan is to report raw B and prespecified B_debiased = B_observed - mean(W_i/k_i); if synthetic/grid audits show the correction is invalid under the observation process, abandon coordinate decomposition before ecological slopes are opened",
     "primary_abundance_boundary": "N describes the session population, not the number of individuals eligible for W",
     "validation_code": "analysis/validate_multiscale_density_metrics_v1.py"
   }
