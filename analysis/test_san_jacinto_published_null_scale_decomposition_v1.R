@@ -224,6 +224,7 @@ run_representation <- function(df, repr_name, repr_offset) {
       idx <- idx + 1L
       mat <- build_matrix(df, g, seas)
       id <- paste(g, seas, sep="|")
+      message(sprintf("SIM9 unit representation=%s id=%s", repr_name, id))
       if (is.null(mat)) {
         out[[idx]] <- list(id=id, grid=g, season=seas, analyzable=FALSE)
       } else {
