@@ -142,6 +142,30 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
                 out["support"]["sessions"][0]["n_capture_rows"], 2
             )
 
+    def test_duplicate_rows_within_one_night_do_not_create_repeat_support(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plot = root / "p.csv"
+            trap = root / "t.csv"
+            plot.write_text(
+                "nightuid,eventID,plotID,siteID\n"
+                "n1,E1,P1,SITE\n"
+                "n2,E1,P1,SITE\n",
+                encoding="utf-8",
+            )
+            trap.write_text(
+                "nightuid,plotID,trapCoordinate,trapStatus,tagID,taxonID,scientificName\n"
+                "n1,P1,A1,5 - capture,i1,TX1,Species one\n"
+                "n1,P1,A1,5 - capture,i1,TX1,Species one\n",
+                encoding="utf-8",
+            )
+            out = audit(plot, trap)
+            s = out["support"]["sessions"][0]
+            self.assertEqual(s["n_repeat_capture_tagged_individuals"], 0)
+            self.assertEqual(
+                s["n_repeat_coordinate_supported_tagged_individuals"], 0
+            )
+
     def test_taxonomy_qc_is_structural_and_detects_within_bout_conflict(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
