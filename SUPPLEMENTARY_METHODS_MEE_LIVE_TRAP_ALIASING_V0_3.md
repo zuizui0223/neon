@@ -130,55 +130,46 @@ any statistic using only unordered within-occasion spans is invariant to time re
 
 No span-only statistic can identify the sign of a representation effect without an additional assumption about temporal ordering or state dynamics. This is why the positional-non-uniqueness screen and downstream stability analysis are separate stages.
 
-## S1.4 A second aggregation mechanism: detection-kernel closure
+## S1.4 Repeated exposure, detection-kernel closure and detector effort
 
-The time-reversal result concerns selection among alternative observed locations. A separate problem arises even when the latent spatial state is fixed and repeated checks are conditionally independent: the detection function itself may or may not be closed under pooling repeated exposure.
+The time-reversal result concerns which observed detector location is retained when several valid locations occur within one nominal occasion. A separate algebraic issue arises when repeated exposures are pooled into an at-least-one-detection event.
 
 Write
 
-[
-h(d;sigma)=exp{-d^2/(2sigma^2)}.
-]
+\[
+h(d;\sigma)=\exp\{-d^2/(2\sigma^2)\}.
+\]
 
-For a probability half-normal detector with one-check detection probability
+For a one-check probability half-normal detector,
 
-[
-p(d)=g_0 h(d;sigma),
-]
+\[
+p(d)=g_0 h(d;\sigma).
+\]
 
-pooling (K) independent checks into an at-least-one-detection event gives
+If \(K\) independent checks at the same detector are reduced to a binary at-least-one-detection event, then
 
-[
-p_K(d)=1-{1-g_0h(d;sigma)}^K.
-]
+\[
+p_K(d)=1-\{1-g_0h(d;\sigma)\}^K.
+\]
 
-For (K>1) and (0<g_0<1), this is not another probability half-normal curve with the same (sigma). Let (f(x)=1-(1-g_0x)^K). Because (f) is concave and (f(0)=0),
+For \(K>1\) and \(0<g_0<1\), this pooled curve is not obtained merely by replacing \(g_0\) with another probability-half-normal intercept while leaving the rest of the one-check formulation implicit. By contrast, for a hazard half-normal representation,
 
-[
-rac{f{h(d;sigma)}}{f(1)}ge h(d;sigma)
-]
+\[
+\lambda(d)=\lambda_0h(d;\sigma),\qquad
+p(d)=1-\exp\{-\lambda(d)\},
+\]
 
-for (0le hle1). Thus the normalized aggregated detection curve is broader than the one-check half-normal curve; repeated exposure changes radial shape as well as the intercept.
+independent exposure adds hazards, giving
 
-For a hazard half-normal detector,
+\[
+p_K(d)=1-\exp\{-K\lambda_0h(d;\sigma)\}.
+\]
 
-[
-lambda(d)=lambda_0 h(d;sigma),qquad
-p(d)=1-exp{-lambda(d)}.
-]
+This algebraic distinction should **not** be read as a claim that the current `secr` implementation mishandles pooled effort. In `secr`, numeric detector `usage` is interpreted as effort and is incorporated as a known linear coefficient on the hazard scale (Efford et al. 2013); when occasions are pooled by `reduce.capthist`, detector usage is summed across the contributing occasions. Thus an analysis that preserves pooled usage does not need to pretend that \(K\) physical checks were a single unit-effort Bernoulli exposure.
 
-Pooling (K) independent checks adds hazards,
+The practical implication for this paper is narrower. Exposure accounting and location/state representation are different problems. Correctly summed usage can preserve the amount of detector effort, but it cannot resolve a `multi`-detector conflict when the same animal occupies different detector locations within the pooled occasion, and it cannot make a static-state SCR model correct if the latent spatial state itself changes through time. The FIRST/LAST and time-reversal results concern these latter problems.
 
-[
-p_K(d)
-=
-1-exp{-Klambda_0 h(d;sigma)},
-]
-
-which is exactly hazard half-normal with intercept (Klambda_0) and unchanged (sigma).
-
-This closure distinction applies to repeated exposure at a fixed detector and fixed latent spatial state. It does not resolve the separate multi-detector location-selection problem: pooling several physical-trap checks can still leave competing detector locations that require FIRST, LAST or another conflict rule. The paper therefore treats **exposure closure** and **temporal state/representation equivalence** as distinct conditions for safe temporal aggregation.
-
+Outside `secr`, or whenever repeated exposure is pooled while the corresponding effort information is discarded, the non-closure of a probability-scale detection curve can itself change the effective observation model. We therefore retain the algebra as a caution about effort-preserving aggregation, not as an additional claim that probability half-normal SCR is intrinsically unsafe to aggregate.
 ## S2. Generic diagnostic algorithm
 
 Input observations require:
