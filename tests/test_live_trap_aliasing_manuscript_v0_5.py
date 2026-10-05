@@ -12,7 +12,7 @@ PEMA=ROOT/"results"/"san_jacinto_pema_scr_sigma_post_stop_result_v1.json"
 CONSEQUENCE=ROOT/"results"/"scr_sigma_consequence_simulation_v1.json"
 EMPIRICAL=ROOT/"results"/"san_jacinto_positional_aliasing_result_v1.json"
 DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
-HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
+HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"\nREVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
 
 
 class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
@@ -23,12 +23,12 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         cls.consequence=json.loads(CONSEQUENCE.read_text())
         cls.emp=json.loads(EMPIRICAL.read_text())
         cls.den=json.loads(DENOM.read_text())
-        cls.home=json.loads(HOME.read_text())
+        cls.home=json.loads(HOME.read_text())\n        cls.reversal=json.loads(REVERSAL.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.5",self.text)
         self.assertIn("Positional aliasing is a warning condition, not a bias estimate",self.text)
-        self.assertIn("Temporal exchangeability and time-reversal limitation",self.text)
+        self.assertIn("Time-reversal symmetry and span non-identifiability",self.text)\n        self.assertIn("full temporal exchangeability is sufficient but not necessary",self.text.lower())
         words=re.findall(r"\b\w+[\w'–-]*\b",self.text)
         self.assertGreaterEqual(len(words),4000)
         self.assertLessEqual(len(words),8500)
@@ -98,6 +98,18 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         for token in ("1.347","1.154","1.124","0.766","0.856","0.894"):
             self.assertIn(token,self.text)
 
+    def test_post_result_time_reversal_audit_is_consistency_only(self):
+        self.assertEqual(self.reversal["status"],"post_result_exploratory_non_rescuing")
+        pe=self.reversal["species"]["PEMA"]
+        er=self.reversal["species"]["PEER"]
+        self.assertAlmostEqual(pe["cluster_signflip_p_upper"],0.1932336135,places=6)
+        self.assertAlmostEqual(er["cluster_signflip_p_upper"],0.7347925304,places=6)
+        self.assertLess(pe["mean_vector_to_rms_ratio"],0.005)
+        self.assertAlmostEqual(pe["mean_directed_vector_magnitude_m"],0.0710227273,places=6)
+        for token in ("p=0.193","p=0.735","0.071 m","17.08-m RMS"):
+            self.assertIn(token,self.text)
+        self.assertIn("cannot prove time-reversal symmetry",self.text)
+
     def test_denominator_and_mcp_stops_are_preserved(self):
         self.assertAlmostEqual(
             self.den["species"]["PEMA"]["observed_one_spacing_aliasing_lower_bound_fraction_all_nights"],
@@ -135,7 +147,7 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
             "first is biologically correct",
             "last is biologically correct",
             "all live-trapping studies are affected",
-            "aliasing necessarily biases",
+            "aliasing necessarily biases",\n            "we prove time-reversal symmetry",\n            "proves time-reversal symmetry",
         ):
             self.assertNotIn(phrase,lower)
 
