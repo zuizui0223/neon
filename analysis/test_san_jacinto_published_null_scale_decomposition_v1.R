@@ -186,7 +186,45 @@ build_matrix <- function(df, grid, season) {
   mat
 }
 
+c_score_matrix <- function(mat) {
+  vals <- c()
+  if (nrow(mat) < 2) stop("C-score requires at least two species")
+  kk <- 0L
+  for (i in seq_len(nrow(mat)-1L)) {
+    for (j in (i+1L):nrow(mat)) {
+      ri <- sum(mat[i,])
+      rj <- sum(mat[j,])
+      shared <- sum(mat[i,] > 0 & mat[j,] > 0)
+      kk <- kk + 1L
+      vals[kk] <- (ri-shared)*(rj-shared)
+    }
+  }
+  mean(vals)
+}
+
 run_one <- function(mat, seed) {
+  # Exact boundary of the same fixed-fixed null: with two species, fixed row
+  # and column totals fix the shared-column count and hence the C-score.
+  # EcoSimR 0.1.0 recurses indefinitely on this degenerate case, so evaluate
+  # it analytically rather than changing the null model.
+  if (nrow(mat) == 2L) {
+    obs <- c_score_matrix(mat)
+    return(list(
+      observed_c_score=obs,
+      null_mean=obs,
+      null_sd=0,
+      ses=NULL,
+      null_q025=obs,
+      null_q975=obs,
+      classification="null",
+      row_totals=as.list(setNames(as.integer(rowSums(mat)), rownames(mat))),
+      occupied_trap_columns=ncol(mat),
+      column_richness_total=sum(colSums(mat)),
+      seed=seed,
+      fixed_fixed_boundary="two_species_c_score_invariant"
+    ))
+  }
+
   set.seed(seed)
   model <- EcoSimR::cooc_null_model(
     as.data.frame(mat),
