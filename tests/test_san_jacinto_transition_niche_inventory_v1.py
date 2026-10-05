@@ -6,11 +6,11 @@ from analysis.inventory_san_jacinto_transition_niche_v1 import summarize_capture
 class TestTransitionNicheInventory(unittest.TestCase):
     def test_counts_without_opening_transition_outcomes(self):
         rows = [
-            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"20:00","flag":"A1"},
-            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"22:00","flag":"A2"},
-            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"01:00","flag":"A3"},
-            {"species":"B","unique_ID":"2","grid":"g","date":"08/01/2016","time":"20:00","flag":"B1"},
-            {"species":"B","unique_ID":"2","grid":"g","date":"08/01/2016","time":"22:00","flag":"B1"},
+            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"8:00","flag":"A1"},
+            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"10:00","flag":"A2"},
+            {"species":"A","unique_ID":"1","grid":"g","date":"06/01/2016","time":"1:00","flag":"A3"},
+            {"species":"B","unique_ID":"2","grid":"g","date":"08/01/2016","time":"8:00","flag":"B1"},
+            {"species":"B","unique_ID":"2","grid":"g","date":"08/01/2016","time":"10:00","flag":"B1"},
         ]
         out = summarize_capture_rows(rows)
         self.assertEqual(out["required_capture_columns_missing"], [])
