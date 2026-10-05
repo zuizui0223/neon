@@ -1,146 +1,215 @@
-# MEE fit and focused literature boundary — v3
+# MEE fit and focused literature boundary — v4
 
-Date: 2026-10-03
+Date: 2026-10-05
 
-Status: current literature/implementation boundary for manuscript v0.4.
+Status: current literature/implementation boundary for manuscript v0.5.
 
 ## What the current `secr` interface actually permits
 
-The current `secr` documentation distinguishes multi-catch traps (`multi`) from non-exclusive proximity/count detectors. True traps create competing capture risks because capture at one trap precludes simultaneous capture at another until the animal is released. Capture histories are organized by animal, sampling occasion and detector.
-
-For an output detector of type `multi`, `reduce.capthist` explicitly recognizes a locational ambiguity when old occasions are pooled and the same animal was detected at more than one detector in the resulting occasion. The current documented conflict rule is
+Current `secr` documentation distinguishes exclusive trap detectors such as `multi` from non-exclusive proximity/count detectors. When old occasions are pooled and a `multi` capture history contains conflicting detector locations for the same animal, `reduce.capthist` explicitly resolves that locational ambiguity with
 
 `select = c("last", "first", "random")`.
 
-Detector usage is summed across the contributing occasions when occasions are pooled.
+Usage data are pooled as well: detector usage is summed across the contributing occasions. Numeric `usage` is interpreted as effort and enters the detection process as a known linear coefficient on the hazard scale (Efford et al. 2013).
 
-This is important for the manuscript because FIRST and LAST are not artificial data manipulations invented for this paper. They are explicit conflict-resolution options in the current package interface when multiple old occasions are reduced to one `multi`-trap occasion.
+This matters for two reasons.
 
-Sources checked 2026-10-03:
-- current CRAN `secr::reduce.capthist` documentation;
-- `secr` 5.4 overview / current CRAN vignette;
-- current `secr` package documentation index.
+1. FIRST and LAST are not artificial manipulations invented for this manuscript; they are explicit conflict-resolution options in the current package interface.
+2. The paper should not imply that `secr` loses repeated detector effort merely because occasions are pooled. Correctly retained usage carries that effort forward. The unresolved issue is which detector state represents an animal when several locations conflict, and whether the latent spatial state itself changes within the pooled occasion.
 
-## The obvious reviewer objection: why not make each trap check an occasion?
+Sources rechecked 2026-10-05:
+- current CRAN/R documentation for `secr::reduce.capthist`;
+- current `secr::usage` documentation;
+- current `secr.fit` documentation and vignettes.
 
-That is a valid representation and must be acknowledged directly.
+## The reviewer objection: why not use each trap check as an occasion?
 
-In the San Jacinto protocol, traps were checked three times within each night and animals were released at the point of capture during each check. Thus the raw protocol naturally permits a CHECK representation with three SCR occasions per night. The original study reports eight 7×7 grids, 6.25-m spacing, three nightly checks and release at the point of capture.
+That is a valid representation and the manuscript acknowledges it directly.
 
-The manuscript therefore no longer argues that nightly collapse is the only possible SCR encoding. It compares:
+The San Jacinto protocol checked traps three times within each night and released animals at the point of capture. The same raw record can therefore be represented as:
 
-- **CHECK** — retain the physical trap checks as occasions;
-- **FIRST** — pool the three checks to one night and retain the first detector when pooling creates a `multi`-detector conflict;
-- **LAST** — the analogous last-detector resolution.
+- **CHECK** — retain each physical check as an SCR occasion;
+- **FIRST** — pool checks to one night and retain the first detector when a `multi` conflict occurs;
+- **LAST** — pool checks to one night and retain the last detector.
 
-The methodological question is consequently not “must these data be collapsed?” It is:
+The manuscript's question is not whether the data *must* be collapsed. It is:
 
-> **When do plausible temporal representations of the same raw repeated-check record estimate the same spatial scale, and when do they cease to be estimand-equivalent?**
+> **When do defensible temporal representations of the same repeated-location record remain estimand-equivalent, and when do they cease to be so?**
 
-## Existing small-mammal precedent still matters
+When the latent state is effectively stable and the check-level observation law is symmetric under time reversal, FIRST and LAST are distributionally equivalent. Retaining every check is then the natural way to preserve information.
 
-Romairone et al. (2018) used live-trapped common voles in an SCR study in which traps were checked twice per day, while the model used eight capture occasions per trapping session corresponding to trapping days. Animals were released where captured.
+If the within-occasion state or observation process acquires an arrow of time, retaining all checks avoids record loss but does not make a static-state SCR model automatically correct. This is a state-model issue rather than a simple bookkeeping issue.
 
-This establishes that a coarser ecological occasion than the physical trap-check interval has precedent in small-mammal SCR. It does not prove that nightly/daily pooling is always optimal, and it does not determine how repeated within-occasion detector conflicts should be resolved.
+## Existing small-mammal precedent
 
-That is exactly why the manuscript now tests temporal representation rather than presenting nightly pooling as a uniquely standard solution.
+Romairone et al. (2018) analysed live-trapped common voles with trapping days as SCR capture occasions even though traps were checked twice per day and animals were released where captured. This establishes direct precedent for an ecological occasion coarser than the physical check interval.
 
-Reference:
-Romairone J, Jiménez J, Luque-Larena JJ, Mougeot F. 2018. Spatial capture-recapture design and modelling for the study of small mammals. *PLoS ONE* 13:e0198766. DOI 10.1371/journal.pone.0198766.
+The precedent does not show that coarse occasions are universally optimal; it shows that the manuscript is addressing a real analytical decision rather than a contrived data transformation.
 
-## Closest prior aggregation result: Milleret et al. (2018)
+## Closest prior aggregation work
 
-Milleret et al. (2018, *Methods in Ecology and Evolution* 9:1896–1907, DOI 10.1111/2041-210X.13030) showed that spatial aggregation of SCR detections can reduce precision and bias detection-function parameters, and that the cost depends strongly on the observation model. Their partially aggregated binary formulation was designed to retain more information than a simple Bernoulli reduction.
+### Borchers et al. (2014)
 
-That paper is directly relevant and must be cited. It also sharpens the present boundary:
+Continuous-time SECR addresses loss and subjectivity created by discretizing exact detection times into occasions. This is the broader temporal-aggregation literature and must remain explicit.
 
-- Milleret et al. aggregate **detector space** into coarser spatial units;
-- Borchers et al. (2014) address loss from **temporal occasion aggregation** when exact event times are available;
-- the present manuscript separates two additional components of repeated-check live trapping: **repeated-exposure closure of the detection kernel** and **selection among conflicting within-occasion detector states**.
+### Milleret et al. (2018)
 
-The present novelty must therefore not be phrased as "aggregation can bias SCR" or "observation model matters under aggregation." The narrower contribution is the decomposition of temporal aggregation into exposure closure versus location/state selection, plus the two-stage distinction between positional non-uniqueness and downstream estimand stability.
+Milleret et al. showed that **spatial** aggregation of SCR detections can affect precision and bias detection-function parameters, with consequences that depend on the observation model. The present manuscript must therefore avoid claims such as “aggregation can bias SCR” or “observation model matters under aggregation” as novel.
 
-## Why finer occasions solve only one of two problems
+The narrower contribution here is different:
 
-The v0.4 benchmark separates two issues.
+- observed **within-occasion positional multiplicity** is screened directly;
+- positional non-uniqueness is separated from **downstream estimand instability**;
+- time-reversal symmetry is identified as the minimal directional-stability condition for FIRST/LAST representation;
+- mirrored ordered-state simulations show how an arrow of time breaks that condition;
+- an empirical PEMA comparison shows that large positional aliasing can coexist with sigma stability.
 
-### 1. Information loss
+## Repeated exposure and detector effort
 
-If all physical checks sample the same stationary SCR state, pooling checks to FIRST or LAST discards observations but should not systematically create two different sigma estimands.
+For independent repeated exposures at one fixed detector, the binary at-least-one probability
 
-The stationary negative controls support this: CHECK, FIRST and LAST all remain near the generating sigma and FIRST/LAST ratios remain near one.
+\[
+p_K(d)=1-\{1-p(d)\}^K
+\]
 
-### 2. State-mixture mismatch
+is generally not obtained merely by changing the intercept of a one-check probability-scale half-normal curve. Hazard-scale exposure is algebraically additive.
 
-If the within-night observation process changes which spatial state is sampled, CHECK retains the observations but a static-centre SCR model is then fitted to more than one spatial state. In the empirical-transition stress test, repeated checks are also generated conditional on a captured night to reproduce the observed repeat frequency, so the CHECK representation contains within-night encounter dependence as well as spatial-state mixing.
+This is a useful observation-model caution, but it is **not** evidence that current `secr` mishandles pooled effort. `secr` represents numeric usage as effort on the hazard scale, and `reduce.capthist` sums usage across pooled occasions. Accordingly, the manuscript treats effort preservation and location/state representation as separate issues.
 
-CHECK therefore does not consistently recover the baseline generating sigma even though no detections are discarded. This deviation is not decomposed into a unique “state-mixing bias”: it reflects deliberate misspecification of the stress process relative to a stationary independent-check SCR model. FIRST and LAST also differ because they preferentially select different spatial states, and mirroring whether the transitioned state is PRE or POST reverses their direction.
+## Minimal stability condition: time-reversal symmetry
 
-Thus:
+Full temporal exchangeability is sufficient but stronger than necessary.
 
-> **Finer occasions are a remedy for record loss, not automatically for an observation process that changes state or dependence structure within the nominal occasion.**
+Let one occasion contain ordered detector outcomes (Y=(Y_1,ldots,Y_K)), and let (R(Y)) denote reversal. The minimal directional condition is
 
-This is the direct response to the strongest foreseeable SCR reviewer objection.
+\[
+Y\overset d=R(Y)
+\]
 
-## Handling/release is a limitation and a reason for the state-based framing
+conditional on the latent state and observation design relevant to the downstream model.
 
-The San Jacinto protocol released animals at the point of capture during each trap check. Therefore every capture after the first within a night occurs after at least one capture/handling/release event.
+Reversal exchanges FIRST and LAST, so under this condition
 
-The empirical FIRST-to-LAST vector must not be described as:
+\[
+F(Y)\overset d=L(Y).
+\]
+
+Serial dependence is not excluded: a reversible stationary process can satisfy the same condition without independent checks.
+
+This reframes the stable case as absence of a detectable arrow of time, not absence of movement.
+
+## Empirical stable side
+
+The prospectively held-out observation-process result is strong:
+
+- PEMA: 72.6% of 485 repeat nights shifted at least one trap spacing;
+- PEER: 69.2% of 107 repeat nights did so;
+- all eligible validation grids passed.
+
+Yet the post-stop exploratory PEMA SCR comparison was stable:
+
+- FIRST sigma = 8.8515 m;
+- LAST sigma = 8.5625 m;
+- LAST/FIRST = 0.9673;
+- relative change = -3.27%.
+
+A naive independent-additive interpretation of the observed PEMA transition energy would predict approximately +24.0% inflation instead. The contrast is central: positional-span magnitude is not a direct sigma correction.
+
+The post-result reversal audit is concordant with the stable interpretation:
+
+- PEMA cluster sign-flip p = 0.193; mean directed vector = 0.071 m versus RMS 17.08 m;
+- PEER p = 0.735; mean directed vector = 1.68 m versus RMS 16.26 m.
+
+These are exploratory consistency diagnostics, not proof of reversibility.
+
+## Simulated failure mode
+
+The primary consequence benchmark contains a stationary control and mirrored ordered-state transition.
+
+Stationary median LAST/FIRST ratios:
+- 1.007;
+- 0.966;
+- 1.025.
+
+POST ordered-transition ratios:
+- 1.347;
+- 1.154;
+- 1.124.
+
+Mirrored PRE ratios:
+- 0.766;
+- 0.856;
+- 0.894.
+
+PRE and POST preserve the same displacement magnitudes but reverse temporal ordering and the sign/direction of the FIRST/LAST effect. This is the cleanest evidence that a span-only diagnostic cannot identify a directed downstream consequence.
+
+## Sequential robustness and its boundary
+
+A sequential generator in which every physical check was generated directly through `secr` was used as a robustness lane.
+
+Its initial 24-replicate null run narrowly failed the pre-specified <10% implementation gate (10.22%). A separately frozen, independently seeded zero-shift-only replication with 96 replicates per sigma passed the unchanged gate: maximum absolute median bias was 5.55%, and median LAST/FIRST ratios were 0.9968, 1.0031 and 0.9992.
+
+The non-zero cells had already been opened before this larger null diagnostic, so they are not retroactively promoted as confirmatory evidence. Their role remains descriptive mechanism checking.
+
+## Mechanistic calibration stop
+
+A stricter observation-only v3 calibration searched 204 simple release-centred transient-state parameter cells and independently validated the 12 closest candidates against four San Jacinto targets:
+
+- repeat-capture fraction;
+- material-shift fraction among repeat nights;
+- median all-repeat first-to-last distance;
+- median changed-night distance.
+
+Zero of 12 validation candidates passed all four criteria. No downstream sigma model was fitted in this calibration.
+
+Binding interpretation:
+
+> The paper may use ordered state change as a controlled failure mode, but it must not call that simple generator an empirically matched handling mechanism for San Jacinto.
+
+## Handling/release boundary
+
+Every later capture within a San Jacinto night occurs after at least one capture/handling/release event, so handling is a plausible contributor. It is not identifiable from these data as the cause.
+
+The empirical first-to-last vector must not be described as:
 - an undisturbed movement trajectory;
 - home-range displacement;
-- free-ranging path length;
-- evidence that handling caused movement.
+- natural path length;
+- proof of handling-induced movement.
 
-Handling is one possible contributor. Natural within-night movement, trap attraction/avoidance and stochastic recapture at another nearby detector may also contribute.
+Natural movement, trap attraction/avoidance, heterogeneous activity and stochastic recapture can all contribute.
 
-For that reason, the v0.4 simulation uses the empirical vectors as an **observation-process transition kernel**. PRE and POST orientations are mirrored. The result asks what happens if an observation protocol samples alternative states at the empirically observed spatial scale; it does not assign a biological cause to those states.
+## Continuous-time and dynamic models define the upper boundary
 
-## Continuous-time and behavioural models define the upper boundary
-
-Continuous-time SECR and models with explicit behavioural/state structure remain more complete solutions when exact event timing or observation-induced state changes are central to inference.
+Continuous-time SECR and explicit movement/state models remain more complete solutions when exact event timing, serial dependence or observation-conditioned state change is central.
 
 The manuscript must not claim:
 - temporal aggregation is newly recognized;
-- finer temporal modelling is unnecessary;
+- the proposed diagnostic replaces continuous-time/state-aware models;
 - static SCR is universally invalid for repeated-check trapping;
-- the proposed diagnostic substitutes for a process model.
+- finer occasions are always sufficient or always insufficient;
+- FIRST or LAST is universally preferable.
 
-The proposed diagnostic occupies an earlier and lighter decision point:
+The proposed workflow occupies an earlier decision point:
 
-1. determine whether repeat observations expose materially different spatial states;
-2. scale that transition relative to the downstream spatial parameter;
-3. test whether defensible temporal encodings are estimand-stable;
-4. escalate to finer-time or state-aware modelling if they are not.
+1. screen whether within-occasion positional non-uniqueness is material;
+2. ask whether the observation/state process is plausibly time-reversal symmetric;
+3. test the intended downstream estimator under defensible temporal representations;
+4. escalate to finer-time or state-aware modelling when the estimand is unstable.
 
-## Empirical and simulated claim boundary
+## Defensible novelty wording
 
-Empirically supported:
-- PEMA and PEER often had different observed detector states within a night among repeat-observed nights;
-- directly observed material shifts occur on at least 28.9% and 24.6% of all valid individual-nights;
-- these are observation-process facts, not latent movement probabilities.
+Avoid:
 
-Simulation-supported:
-- stationary CHECK/FIRST/LAST encodings are approximately sigma-equivalent under the tested design;
-- empirical-scale state mixing can make FIRST, LAST and CHECK target materially different spatial scales under a static-centre SCR model;
-- reversing state order reverses FIRST/LAST direction.
+> Aggregation can bias SCR.
 
-Not supported:
-- an empirical two-species SCR sigma effect;
-- an empirical home-range effect;
-- handling as the cause of the empirical transition;
-- a universal best temporal representation.
+Prefer:
 
-## Novelty wording for v0.4
+> **The manuscript separates positional non-uniqueness from estimand instability and identifies time-reversal symmetry as the directional boundary between stable FIRST/LAST representation and ordered-state failure modes. It provides a scale-aware screen, a direct downstream stability test, and an empirical example in which substantial within-occasion positional variation coexists with a stable SCR spatial scale.**
 
-Avoid the broad claim that no prior work has addressed temporal aggregation. The defensible contribution is more specific:
-
-> **The paper provides a lightweight, scale-aware diagnostic for observed within-occasion positional multiplicity and connects it to an explicit downstream estimand-stability test. The key methodological distinction is between information lost by aggregation and spatial-state mixtures that make plausible temporal representations non-equivalent.**
-
-The deterministic bounds are practical translations, not novel mathematics. The downstream SCR result is the main methodological consequence, while the 72-cell Wilson/bias benchmark remains supplementary.
+The deterministic bounds are practical sensitivity translations rather than new mathematics.
 
 ## Current MEE position
 
-The scientific issue that made v0.3 too thin has been addressed: the paper now shows a direct downstream parameter consequence under known truth, with a stationary negative control and mirrored state ordering.
+The weakness that made v0.3 too thin has been resolved without needing a positive empirical bias result. The stronger contribution is that the paper explains **why a large raw aliasing signal may or may not matter downstream**, and identifies the extra temporal structure required for directional instability.
 
-The pre-submission enquiry should remain on HOLD only for final consistency, author metadata and archival packaging. No further same-data biological-effect search is required.
+Pre-submission remains on HOLD only until the current-head review package/CI is green and author/archive metadata are complete. No additional same-data biological-effect search is justified.
