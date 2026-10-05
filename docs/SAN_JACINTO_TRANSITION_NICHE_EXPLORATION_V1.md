@@ -859,3 +859,111 @@ The current ecological conclusion is:
 
 Mechanism remains unresolved: habitat selection, burrow/refuge placement, resource distributions, territoriality and longer-term competitive sorting remain viable causes. No species-pair decomposition or alternative overlap metric is opened.
 
+
+
+---
+
+# Stage 7 — persistence across complete individual turnover
+
+**Status:** support audit completed; primary test frozen before any post-turnover trap-overlap outcome is opened.
+
+## Biological question
+
+Stage 5 showed that the same species reuse the same trap locations from the early to late half of a season, and the individual-footprint test showed that conspecific individuals use more similar multi-night footprints than heterospecific individuals. Those results leave one biologically important ambiguity:
+
+> **Is the seasonal spatial memory carried only by the same site-faithful individuals, or does a species-specific spatial template persist when the individuals themselves turn over?**
+
+Stage 7 removes every individual observed in both seasonal halves before measuring persistence.
+
+## Fixed universe and temporal split
+
+Use only the eight fixed Stage-4 segregated reference grid-seasons:
+
+- 1|summer
+- 4|fall, 4|winter, 4|spring, 4|summer
+- 6|fall, 6|winter, 6|summer
+
+Use NIGHT-FIRST records only and exactly the same chronological EARLY/LATE split as the frozen Stage-5 temporal-persistence analysis. If a grid-season has an odd number of unique sampling nights, discard the single middle night.
+
+## Complete individual-turnover rule
+
+Within each reference grid-season, define a bridge individual as a species × individual ID observed at least once in both EARLY and LATE.
+
+Remove every bridge individual from **both halves**, including all of its NIGHT-FIRST records.
+
+The remaining EARLY and LATE data therefore contain disjoint individual identities by construction.
+
+## Species eligibility after turnover
+
+A focal species enters a grid-season if, after bridge removal, it retains:
+
+- at least **1 distinct EARLY-only individual**, and
+- at least **1 distinct LATE-only individual**.
+
+The support-only audit was opened before any post-turnover spatial-overlap outcome. All 8/8 reference units retain at least three such species.
+
+No stricter individual-count threshold will be tried after outcomes are opened.
+
+## Primary statistic and fixed-fixed null
+
+For each reference unit, build EARLY and LATE species × trap presence/absence matrices from the disjoint-individual NIGHT-FIRST records of the eligible species.
+
+Use the same matched species × trap persistence statistic as Stage 5:
+
+[
+P_u = sum_{s,j} I(E_{sj}=1 land L_{sj}=1).
+]
+
+Hold EARLY fixed. Randomize the LATE matrix using the EcoSimR curveball / SIM9 fixed-fixed algorithm, preserving:
+
+- each species' LATE number of occupied traps;
+- each trap's LATE species richness.
+
+Use **10,000** null replicates after **500** burn-in swaps, with deterministic seed family beginning at **2026100507**.
+
+For informative unit (u),
+
+[
+Z_u=(P_u-mu_u)/sigma_u.
+]
+
+The global statistic is the equally weighted mean across informative reference units,
+
+[
+T_{turnover}=operatorname{mean}(Z_u).
+]
+
+Use joint replicate index across units to obtain the global null and a one-sided Monte Carlo upper-tail p-value with plus-one correction.
+
+## Frozen decision
+
+Support for a species-level spatial template beyond individual site fidelity requires all of:
+
+- at least **6 of 8** reference units with non-zero null SD;
+- at least **6 of 8** reference units with (Z_u>0);
+- (T_{turnover}>0);
+- global one-sided Monte Carlo (p<0.05).
+
+Otherwise Stage 7 stops and the conservative conclusion is that the observed seasonal persistence cannot be separated from persistence of the same individuals.
+
+## Fixed secondary summaries
+
+Report descriptively:
+
+- bridge individuals removed by unit and species;
+- EARLY-only and LATE-only individual counts by species;
+- observed and null matched species × trap overlap;
+- (Z_u) and unit p-values;
+- ratio of post-turnover (Z_u) to the original Stage-5 persistence (Z_u) where both are finite.
+
+No species-pair decomposition, alternative turnover definition, relaxed species threshold, alternative overlap metric or habitat surrogate will be opened after seeing the result.
+
+## Interpretation boundary
+
+A positive Stage-7 result supports:
+
+> **Species-specific spatial use recurs across seasonal halves even when no individual contributes observations to both halves.**
+
+That would locate spatial memory above individual identity, consistent with a persistent species/community-level spatial template.
+
+It would not identify whether the template is caused by habitat, burrow/refuge distributions, resources, territoriality, social processes, competition or another persistent grid-scale constraint.
