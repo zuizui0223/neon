@@ -98,6 +98,10 @@ The output must report:
 
 The zero-shift family must have maximum absolute median sigma bias <10% before non-zero shift cells are interpreted.
 
+## Execution / interpretation gate
+
+The robustness run is accepted for interpretation only if the zero-shift negative control passes the pre-specified <10% maximum absolute median sigma-bias criterion. Realized repeat-capture and changed-night fractions in non-zero cells are reported as calibration diagnostics and are not tuned after seeing fitted sigma effects. The v1 consequence benchmark remains the primary result unless v2 reveals a substantive qualitative contradiction.
+
 ## Claim boundary
 
 The benchmark may support a conditional statement about a capture-triggered state-change process.
