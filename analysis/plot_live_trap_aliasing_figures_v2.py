@@ -50,6 +50,7 @@ def figure1(outdir: Path) -> None:
 
 
 def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
+    # The ordered-state stress-test wording is intentional: v3 did not validate a San Jacinto mechanism.
     summaries=consequence["summaries"]
     paired=consequence["paired_contrasts"]
     sigmas=sorted({float(r["sigma_true"]) for r in summaries})
