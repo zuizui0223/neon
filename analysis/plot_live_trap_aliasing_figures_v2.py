@@ -102,7 +102,7 @@ def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
     axes[1].set_ylim(0.68,1.42)
     axes[1].set_xlabel("Generating σ (m)")
     axes[1].set_ylabel("Median σ_LAST / σ_FIRST")
-    axes[1].set_title("B. Empirical transition kernel")
+    axes[1].set_title("B. Ordered state-transition stress test")
     axes[1].legend(frameon=False,fontsize=8)
 
     pm=pema["primary_model"]
