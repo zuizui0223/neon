@@ -144,10 +144,10 @@ def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
         fontsize=8,
     )
     axes[2].text(
-        1.04,
+        0.98,
         additive_sigma,
         f"independent-additive benchmark\n≈ +{100*(additive_ratio-1):.1f}%",
-        ha="left",
+        ha="right",
         va="center",
         fontsize=7.5,
     )
