@@ -114,6 +114,19 @@ def _genus_from_scientific_name(name: str) -> str:
     return first
 
 
+def _sampling_protocol_class(values: list[str]) -> str:
+    labels = {v.strip().lower() for v in values if v.strip()}
+    if any("pathogen" in v for v in labels):
+        return "pathogen"
+    if any("diversity" in v for v in labels):
+        return "diversity"
+    if any("recapture" in v for v in labels):
+        return "legacy_recapture"
+    if labels:
+        return "other"
+    return "unknown"
+
+
 def _geometry_class(site_ids: list[str]) -> str:
     sites = {s.strip().upper() for s in site_ids if s.strip()}
     if not sites:
@@ -295,6 +308,14 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
 
         site_ids = sorted(e["site_ids"])
         geometry_class = _geometry_class(site_ids)
+        sampling_types = sorted(e["sampling_types"])
+        sampling_protocol_class = _sampling_protocol_class(sampling_types)
+        n_trapping_nights = len(e["nightuids"])
+        primary_standardized_protocol = (
+            geometry_class == "standard_10x10"
+            and sampling_protocol_class == "pathogen"
+            and n_trapping_nights >= 3
+        )
 
         sessions.append({
             "taxon": taxon,
@@ -313,9 +334,11 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "site_ids": site_ids,
             "geometry_class": geometry_class,
             "primary_standard_geometry": geometry_class == "standard_10x10",
-            "sampling_types": sorted(e["sampling_types"]),
+            "sampling_types": sampling_types,
+            "sampling_protocol_class": sampling_protocol_class,
             "grid_completion_values": sorted(e["grid_completion_values"]),
-            "n_trapping_nights": len(e["nightuids"]),
+            "n_trapping_nights": n_trapping_nights,
+            "primary_standardized_protocol": primary_standardized_protocol,
             "n_trap_nights_observed": len(e["trap_nights"]),
             "n_distinct_trap_coordinates_in_effort": len(e["trap_coordinates"]),
             "n_capture_rows": int(g["capture_rows"]),
@@ -420,12 +443,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         primary_sessions = [
             s for s in eligible_sessions if s["primary_standard_geometry"]
         ]
+        standardized_primary_sessions = [
+            s for s in eligible_sessions if s["primary_standardized_protocol"]
+        ]
         srer_sessions = [
             s for s in eligible_sessions
             if s["geometry_class"] == "srer_7x7_exception"
         ]
         taxa_set = {s["taxon"] for s in eligible_sessions}
         primary_taxa_set = {s["taxon"] for s in primary_sessions}
+        standardized_primary_taxa_set = {
+            s["taxon"] for s in standardized_primary_sessions
+        }
         genus_set = {
             genus
             for s in eligible_sessions
@@ -434,6 +463,11 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         primary_genus_set = {
             genus
             for s in primary_sessions
+            for genus in s["genus_labels"]
+        }
+        standardized_primary_genus_set = {
+            genus
+            for s in standardized_primary_sessions
             for genus in s["genus_labels"]
         }
         plots_set = {s["plot_id"] for s in eligible_sessions}
@@ -472,11 +506,20 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
             "n_eligible_species_session_records": len(eligible_sessions),
             "n_primary_standard_geometry_species_session_records": len(primary_sessions),
+            "n_primary_standard_10x10_pathogen_3night_species_session_records": len(
+                standardized_primary_sessions
+            ),
             "n_srer_7x7_species_session_records": len(srer_sessions),
             "n_taxa": len(taxa_set),
             "n_primary_standard_geometry_taxa": len(primary_taxa_set),
+            "n_primary_standard_10x10_pathogen_3night_taxa": len(
+                standardized_primary_taxa_set
+            ),
             "n_resolved_genera": len(genus_set),
             "n_primary_standard_geometry_genera": len(primary_genus_set),
+            "n_primary_standard_10x10_pathogen_3night_genera": len(
+                standardized_primary_genus_set
+            ),
             "n_plots": len(plots_set),
             "n_sites": len(sites_set),
             "n_taxa_with_at_least_3_sessions": sum(
