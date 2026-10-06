@@ -69,7 +69,7 @@
     "claim_ceiling": "this falsifies one simple observation-process explanation but is not a complete single-catch detection model and does not establish causal density effects"
   },
   "primary_guard_boundary": {
-    "preregistered_6_of_8_generality_failure_remains": false,
+    "preregistered_6_of_8_generality_failure_remains": true,
     "correction": "the generality guard remains FAILED; this null result does not alter it",
     "genera_may_not_be_dropped": true,
     "future_confirmation_still_required": true
