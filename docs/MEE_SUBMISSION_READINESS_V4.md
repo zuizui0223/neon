@@ -16,9 +16,9 @@ Date: 2026-10-06
 ## Representation-stability results
 
 - [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%).
-- [x] Matched 19-session stationary-SCR displacement reference addresses the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0979–10.4448 m.
-- [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8761–0.9468, supporting short-term positional persistence/serial dependence rather than excess displacement.
-- [x] Post-result second-moment decomposition is receipted: same-trap fraction = 30.3% versus primary-null median 8.3% (95% 5.3–12.4%); changed-night RMS = 15.45 m versus primary-null median 14.30 m (95% 13.39–15.40 m). Same-trap excess occurs in 6/6 supported cells and changed-night RMS exceeds the 97.5th percentile in 5/6.
+- [x] Matched 19-session stationary-SCR displacement reference addresses the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0102–10.3629 m.
+- [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8807–0.9495, supporting short-term positional persistence/serial dependence rather than excess displacement.
+- [x] Post-result second-moment decomposition is receipted: same-trap fraction = 30.3% versus primary-null median 8.3% (95% 5.0–11.9%); changed-night RMS = 15.45 m versus primary-null median 14.30 m (95% 13.43–15.30 m). Same-trap excess occurs in 9/9 sensitivity cells; changed-night RMS exceeds the 97.5th percentile in 5/9, with upper-tail fractions 0–0.104.
 - [x] The empirical PEMA result is contrasted with an independent-additive second-moment prediction of approximately +24.0%, showing that raw span magnitude is not a sigma correction.
 - [x] Stationary SCR controls show FIRST/LAST equivalence: median ratios 1.007, 0.966 and 1.025.
 - [x] Mirrored ordered-state simulations reverse the FIRST/LAST direction while preserving displacement magnitudes.
@@ -67,7 +67,7 @@ Date: 2026-10-06
 - [x] Figure captions v4 match the current figure set.
 - [x] Generic and manuscript invariant tests include the additive benchmark and time-reversal audit.
 - [x] Review-package builder includes the time-reversal audit, v3 calibration stop, and matched PEMA stationary-displacement diagnostic.
-- [ ] Final review-package workflow at the current head must complete successfully after the latest synchronization.
+- [ ] Dedicated live-trap-aliasing review-package workflow at the current head must complete successfully.
 - [ ] Create final versioned archival release / persistent repository identifier.
 
 ## Author / submission metadata
@@ -83,6 +83,6 @@ Date: 2026-10-06
 
 **Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, uses time-reversal symmetry as an interpretable sufficient condition for directional stability, and demonstrates by mirrored simulation how an arrow of time can break that stability. The matched-session stationary reference further shows that the empirical PEMA displacement magnitude itself does not require an ordered post-capture state shift, while the much lower changed-trap fraction reveals short-term persistence that the independent-check null misses. The v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
 
-**Pre-submission status:** **HOLD until the current-head review package/CI is green and the remaining author/archive metadata are completed.** No further same-data biological-effect search is justified.
+**Pre-submission status:** **HOLD until the current-head dedicated live-trap-aliasing review-package workflow is green and the remaining author/archive metadata are completed.** No further same-data biological-effect search is justified.
 
 **Analysis policy:** do not open a new downstream endpoint or relax a failed gate. Preserve the MCP and two-species SCR stops. Treat the PEMA fit, reversal audit and sequential diagnostics according to their explicit exploratory/robustness labels.
