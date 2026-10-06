@@ -124,9 +124,10 @@ The primary ecological unit is **species × grid × sampling session**.
 
 Individual-scale spatial variance requires repeated locations. Therefore the primary observation process is frozen more narrowly:
 
-- **primary:** standard 10×10 pathogen-grid sessions with at least three trapping nights;
-- **legacy recapture sessions:** development/sensitivity only, not pooled into the future primary confirmation;
-- **diversity grids:** one-night bouts are not eligible for primary W/B inference;
+- **primary:** RELEASE-2026 records from 2015-04 onward with standard 10×10 geometry and **exactly three distinct trapping nights for the same plot × eventID**;
+- in the basic package used by the audit, `mammalGridSamplingType` is not populated, so primary eligibility does not depend on that absent field;
+- under the post-2015 NEON design, the exact three-night plot-event structure operationalizes the pathogen-grid protocol, whereas diversity grids are one-night bouts;
+- plot-events with four or more nights are protocol/QC exceptions and are excluded from the primary denominator;
 - **SRER:** separate 7×7 geometry, not pooled into the standard-grid primary;
 - future confirmation must use sessions where both scales are estimable under the same frozen support rule and the prospectively accepted `gridCompletion` status is satisfied.
 
@@ -284,7 +285,7 @@ Exact minimum counts will be frozen after the response-blind RELEASE-2026 struct
 - separate mechanical calibration for the SRER 7×7 exception; it cannot lower the primary standard-grid support threshold;
 - audit of repeated-capture support versus session abundance so that W estimability is not mistaken for a density response;
 - observed multi-coordinate or movement status must not enter primary eligibility;
-- no pooling of one-night diversity, legacy recapture and three-night pathogen designs in the primary inference;
+- no pooling of one-night, two-night or four-plus-night plot-events into the exact three-night primary inference;
 - primary sessions must satisfy the prospectively frozen RELEASE-2026 `gridCompletion` completeness semantics.
 
 ## Literature boundary
