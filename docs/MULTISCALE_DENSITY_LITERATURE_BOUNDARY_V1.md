@@ -101,6 +101,36 @@ It does, however, provide a relevant mechanistic context for a future confirmato
 
 Because the present RELEASE-2026 development result was already opened before any trait-moderator contract, **territoriality, sociality, body size and habitat traits are not permitted as post-hoc moderators of the current primary result**. They may only motivate a separately frozen future-response test.
 
+### Density-dependent within/between decomposition itself is not unique to space use
+
+A 2025 little-owl vocal study explicitly decomposed density-associated individuality into lower within-individual variation and/or higher between-individual variation. More broadly, behavioural reaction-norm and niche-variation literatures routinely distinguish within- and among-individual components of density responses.
+
+Therefore this programme must not claim that it is the first to ask whether a density effect arises from within- versus between-individual variation.
+
+### Territory compression is also established terminology
+
+Territory shrinkage, reduced nearest-neighbour distances, and "territorial compression" at increasing density are established in territorial ecology. Density-dependent territory-size plasticity has also been demonstrated directly.
+
+Therefore the negative-B development mode must not be sold as the discovery of territorial compression itself.
+
+### Updated candidate contribution
+
+The strongest defensible contribution is integrative:
+
+> **Place short-term within-individual positional variance and among-individual-centre variance on one common geometric scale, and show that density dependence can be allocated differently between those two spatial degrees of freedom across mammal lineages.**
+
+Under this framing:
+
+- classical home-range contraction is primarily a within-individual spatial response;
+- changing centre spacing / population footprint is an among-centre spatial response;
+- overlap is a mixed consequence of both;
+- territorial compression is one possible negative-B outcome;
+- niche-variation theory supplies the broader within/between decomposition logic.
+
+The development result then suggests that there is no single universal allocation rule: some genera show W down / B up, while others show W down / B down.
+
+This is a proposed unifying view of existing spatial phenomena plus a new multi-genus empirical heterogeneity result, not a claim that any one component phenomenon is unprecedented.
+
 ## Remaining gap
 
 The candidate gap is narrower:
@@ -171,3 +201,6 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 - Jiang T et al. 2023. Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology* 11:30. doi:10.1186/s40462-023-00394-1.
 
 - Santini L, Jacucci G, Tucker MA. 2026. Relationship between home range and population density in mammals: the role of sociality, territoriality and habitat dimensionality. *Ecography* e07936. doi:10.1002/ecog.07936.
+
+- Zsebők S et al. 2025. Social environment affects vocal individuality in a non-learning species. *Scientific Reports*. Density-associated individuality was decomposed into within- and between-individual variation.
+- Webber QMR et al. 2023. Density-dependent plasticity in territoriality revealed using social network analysis. *Journal of Animal Ecology*. Territory size and intrusion rates decreased with population density in red squirrels.
