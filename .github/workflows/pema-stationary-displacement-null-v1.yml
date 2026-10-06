@@ -58,6 +58,9 @@ jobs:
           assert p["design"]["state_process"].startswith("fixed activity centre")
           assert len(p["cells"])==9
           assert p["observed"]["n"]>=20
+          assert p["conclusion"]["all_cells_successful"] is True
+          assert p["conclusion"]["observed_exceeds_all_stationary_975"] is False
+          assert p["conclusion"]["observed_changed_below_all_stationary_025"] is True
           print(json.dumps({"observed":p["observed"],"primary":p["primary_cell"],"conclusion":p["conclusion"]},indent=2))
           PY
 
