@@ -493,8 +493,6 @@ Borchers DL, Distiller G, Foster RJ, Harmsen BJ, Milazzo L. 2014. Continuous-tim
 
 Chock RY, Shier DM, Grether GF. 2022. Niche partitioning in an assemblage of granivorous rodents, and the challenge of community-level conservation. *Oecologia* 198:553–565. https://doi.org/10.1007/s00442-021-05104-5.
 
-Drickamer LC, Springer LM. 1998. Methodological aspects of the interval trapping method with comments on nocturnal activity patterns in house mice living in outdoor enclosures. *Behavioural Processes* 43:171–181. https://doi.org/10.1016/S0376-6357(98)00012-6.
-
 Efford MG, Borchers DL, Mowat G. 2013. Varying effort in capture–recapture studies. *Methods in Ecology and Evolution* 4:629–636. https://doi.org/10.1111/2041-210X.12049.
 
 Efford MG, Boulanger J. 2019. Fast evaluation of study designs for spatially explicit capture–recapture. *Methods in Ecology and Evolution* 10:1529–1535. https://doi.org/10.1111/2041-210X.13239.
