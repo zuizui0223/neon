@@ -223,7 +223,7 @@ def run(
                         latent_pool=pool,
                         sigma=sigma,
                         min_captures=2,
-                        max_captures=4,
+                        max_captures=3,
                     )
                     for _ in range(replicates)
                 ]
