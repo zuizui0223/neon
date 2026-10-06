@@ -24,7 +24,10 @@ def synthetic_rows():
                 # Repeated month/year patterns leave within-series abundance variation.
                 month = 1 + (t // 2)
                 year = 2020 + (t % 2)
-                mnka = 2 + t + si
+                # Non-additive within-series pattern so MNKA is not perfectly
+                # explained by the frozen site-month + year nuisance terms.
+                mnka_pattern = (2, 6, 3, 8, 7, 4)
+                mnka = mnka_pattern[t] + si
                 series_offset = 100.0 * si + 10.0 * gi
                 calendar = 7.0 * month + 3.0 * (year - 2020)
                 W = series_offset + calendar - 2.0 * mnka
