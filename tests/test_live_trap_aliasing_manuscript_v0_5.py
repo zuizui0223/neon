@@ -15,6 +15,7 @@ DENOM=ROOT/"validation"/"live_trap_aliasing_v1"/"denominator_audit_v1.json"
 HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_summary_v1.json"
 REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
 CALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
+STATIONARY=ROOT/"results"/"pema_stationary_displacement_null_v1.json"
 
 
 class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
@@ -28,6 +29,7 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         cls.home=json.loads(HOME.read_text())
         cls.reversal=json.loads(REVERSAL.read_text())
         cls.calib=json.loads(CALIB.read_text())
+        cls.stationary=json.loads(STATIONARY.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.5",self.text)
@@ -114,6 +116,22 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         for token in ("p=0.193","p=0.735","0.071 m","17.08-m RMS"):
             self.assertIn(token,self.text)
         self.assertIn("cannot prove time-reversal symmetry",self.text)
+
+    def test_pema_stationary_displacement_reference_closes_state_shift_gap(self):
+        p=self.stationary
+        self.assertEqual(p["schema"],"neon.pema_stationary_displacement_null.v1")
+        self.assertEqual(p["empirical_scope"]["eligible_sessions"],19)
+        self.assertEqual(p["observed"]["n"],218)
+        self.assertAlmostEqual(p["observed"]["axis_rms_m"],9.1231,places=4)
+        self.assertAlmostEqual(p["observed"]["changed_fraction"],0.6972,places=4)
+        self.assertTrue(p["conclusion"]["all_cells_successful"])
+        self.assertFalse(p["conclusion"]["observed_exceeds_all_stationary_975"])
+        self.assertTrue(p["conclusion"]["observed_changed_below_all_stationary_025"])
+        primary=p["primary_cell"][0] if isinstance(p["primary_cell"],list) else p["primary_cell"]
+        self.assertLess(p["observed"]["axis_rms_m"],primary["axis_q975"])
+        self.assertLess(p["observed"]["changed_fraction"],primary["changed_q025"])
+        for token in ("9.1231","0.6972","short-term positional persistence"):
+            self.assertIn(token,self.text)
 
     def test_observation_process_calibration_stop_is_preserved(self):
         self.assertEqual(self.calib["grid"]["candidate_cells"],204)
