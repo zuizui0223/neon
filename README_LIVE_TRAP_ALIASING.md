@@ -75,4 +75,4 @@ MIT.
 
 ## Review manuscript
 
-See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_6.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md`. The stationary-SCR displacement diagnostic now closes the main state-shift alternative: empirical PEMA displacement magnitude is stationary-compatible, while same-trap recurrence is substantially stronger than under independent stationary checks. The MEE pre-submission enquiry is pending only final CI/package consistency.
+See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_6.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md`. The stationary-SCR displacement diagnostic now addresses the main state-shift alternative: empirical PEMA displacement magnitude is stationary-compatible, so an ordered post-capture state shift is not required to explain its scale, while same-trap recurrence is substantially stronger than under independent stationary checks. The MEE pre-submission enquiry is pending only final CI/package consistency.
