@@ -1,7 +1,7 @@
 # Diagnosing when temporal aggregation changes spatial scale inference in repeated-location ecological data
 
 **Target:** Methods in Ecology and Evolution — Research Article  
-**Version:** v0.5  
+**Version:** v0.6  
 **Status:** stationary-displacement closure revision; pre-submission enquiry remains on hold pending final consistency review
 
 ## Abstract
