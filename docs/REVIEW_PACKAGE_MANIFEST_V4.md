@@ -1,9 +1,9 @@
 # Live-trap aliasing review package manifest v4
 
-This package is intentionally narrower than the parent NEON repository. It contains the v0.5 manuscript lane, which separates two questions that earlier versions conflated: whether repeated observations reveal materially different positions within one nominal occasion, and whether that positional non-uniqueness materially changes a downstream estimand.
+This package is intentionally narrower than the parent NEON repository. It contains the v0.6 manuscript lane, which separates three questions that earlier versions conflated: whether repeated observations reveal materially different positions within one nominal occasion, whether the within-occasion process is serially persistent or directionally asymmetric, and whether that structure materially changes a downstream estimand.
 
 ## Manuscript
-- MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md
+- MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_6.md
 - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md
 - README_LIVE_TRAP_ALIASING.md
 - docs/FIGURE_CAPTIONS_V4.md
@@ -37,12 +37,16 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - results/scr_sigma_consequence_simulation_v1.json
 - results/scr_sigma_consequence_replicates_v1.csv
 - results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json
+- analysis/pema_stationary_displacement_null_v1.R
+- results/pema_stationary_displacement_null_v1.json
+- results/pema_stationary_displacement_null_replicates_v1.csv
+- validation/pema_stationary_displacement_null_v1/eligible_pema_sessions.csv
 - analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R
 - docs/SCR_SIGMA_DYNAMIC_STATE_ZERO_SHIFT_DIAGNOSTIC_V2_1.md
 - results/scr_sigma_dynamic_state_zero_shift_v2_1.json
 - results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
 
-The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
+The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The matched 19-session stationary-displacement diagnostic asks only whether the empirical first-to-last displacement magnitude exceeds a fixed-centre stationary SCR reference; it finds stationary-compatible RMS magnitude but substantially stronger same-trap persistence than under independent checks. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
 
 ## Post-result temporal-direction audit
 - analysis/audit_time_reversal_symmetry_v1.py
@@ -90,7 +94,7 @@ The v3 calibration fitted no downstream SCR model. Zero of 12 independently vali
 - tests/test_live_trap_aliasing_denominator_audit.py
 - tests/test_live_trap_aliasing_individual_cluster_v1.py
 - tests/test_live_trap_night_label_semantics_v1.py
-- tests/test_live_trap_aliasing_manuscript_v0_5.py
+- tests/test_live_trap_aliasing_manuscript_v0_6.py
 
 ## Environment / license
 - LICENSE
