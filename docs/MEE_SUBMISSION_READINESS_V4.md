@@ -60,7 +60,7 @@ Date: 2026-10-06
 
 - [x] Manuscript v0.6 uses the positional-non-uniqueness → serial-persistence/time-reversal → estimand-stability structure.
 - [x] Supplement v0.3 contains the estimator benchmark, time-reversal theorem, closure note, SCR consequence benchmark and post-result symmetry audit.
-- [x] Figure 2 is a three-panel stability figure: stationary null, mirrored state-transition failure mode, exploratory PEMA stability plus additive benchmark.
+- [x] Figure 2 is a four-panel stability figure: stationary null, mirrored state-transition failure mode, exploratory PEMA stability plus additive benchmark, and the matched-session stationary displacement check.
 - [x] Figure captions v4 match the current figure set.
 - [x] Generic and manuscript invariant tests include the additive benchmark and time-reversal audit.
 - [x] Review-package builder includes the time-reversal audit, v3 calibration stop, and matched PEMA stationary-displacement diagnostic.
