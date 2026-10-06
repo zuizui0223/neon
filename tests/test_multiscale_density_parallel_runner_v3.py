@@ -25,13 +25,13 @@ class MultiscaleDensityParallelRunnerTests(unittest.TestCase):
             out = _download_many(rows, "token", max_workers=3)
         self.assertEqual(out, [b"a", b"b", b"c"])
 
-    def test_candidate_rule_remains_pathogen_three_night(self):
+    def test_candidate_rule_is_exact_three_night(self):
         rows = [
             {
                 "nightuid": n,
                 "eventID": "E1",
                 "plotID": "P1",
-                "mammalGridSamplingType": "pathogen",
+                "mammalGridSamplingType": "",
                 "_site": "ABBY",
                 "_month": "2025-06",
             }
