@@ -114,6 +114,15 @@ def _genus_from_scientific_name(name: str) -> str:
     return first
 
 
+def _geometry_class(site_ids: list[str]) -> str:
+    sites = {s.strip().upper() for s in site_ids if s.strip()}
+    if not sites:
+        return "unknown"
+    if "SRER" in sites:
+        return "srer_7x7_exception"
+    return "standard_10x10"
+
+
 def audit(perplotnight: Path, pertrapnight: Path) -> dict:
     plot_rows, plot_fields = _read_csv(perplotnight)
     trap_rows, trap_fields = _read_csv(pertrapnight)
@@ -284,6 +293,9 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             if genus
         })
 
+        site_ids = sorted(e["site_ids"])
+        geometry_class = _geometry_class(site_ids)
+
         sessions.append({
             "taxon": taxon,
             "taxon_id_character_count": len(taxon),
@@ -298,7 +310,9 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             ),
             "plot_id": plot,
             "event_id": event,
-            "site_ids": sorted(e["site_ids"]),
+            "site_ids": site_ids,
+            "geometry_class": geometry_class,
+            "primary_standard_geometry": geometry_class == "standard_10x10",
             "sampling_types": sorted(e["sampling_types"]),
             "grid_completion_values": sorted(e["grid_completion_values"]),
             "n_trapping_nights": len(e["nightuids"]),
@@ -321,6 +335,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "plots": set(),
         "sites": set(),
         "sampling_types": set(),
+        "geometry_classes": set(),
         "scientific_names": set(),
         "genera": set(),
         "taxon_ranks": set(),
@@ -338,6 +353,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         z["plots"].add(s["plot_id"])
         z["sites"].update(s["site_ids"])
         z["sampling_types"].update(s["sampling_types"])
+        z["geometry_classes"].add(s["geometry_class"])
         z["scientific_names"].update(s["scientific_names"])
         z["genera"].update(s["genus_labels"])
         z["taxon_ranks"].update(s["taxon_ranks"])
@@ -368,6 +384,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_plots": len(z["plots"]),
             "n_sites": len(z["sites"]),
             "sampling_types": sorted(z["sampling_types"]),
+            "geometry_classes": sorted(z["geometry_classes"]),
             "scientific_names": sorted(z["scientific_names"]),
             "genus_labels": sorted(z["genera"]),
             "taxon_ranks": sorted(z["taxon_ranks"]),
@@ -400,10 +417,23 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             if s["n_repeat_coordinate_supported_tagged_individuals"]
             >= minimum_individuals
         ]
+        primary_sessions = [
+            s for s in eligible_sessions if s["primary_standard_geometry"]
+        ]
+        srer_sessions = [
+            s for s in eligible_sessions
+            if s["geometry_class"] == "srer_7x7_exception"
+        ]
         taxa_set = {s["taxon"] for s in eligible_sessions}
+        primary_taxa_set = {s["taxon"] for s in primary_sessions}
         genus_set = {
             genus
             for s in eligible_sessions
+            for genus in s["genus_labels"]
+        }
+        primary_genus_set = {
+            genus
+            for s in primary_sessions
             for genus in s["genus_labels"]
         }
         plots_set = {s["plot_id"] for s in eligible_sessions}
@@ -417,6 +447,10 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         taxon_sessions = Counter()
         genus_sites = defaultdict(set)
         genus_sessions = Counter()
+        primary_taxon_sites = defaultdict(set)
+        primary_taxon_sessions = Counter()
+        primary_genus_sites = defaultdict(set)
+        primary_genus_sessions = Counter()
         for s in eligible_sessions:
             taxon_sessions[s["taxon"]] += 1
             for genus in s["genus_labels"]:
@@ -426,11 +460,21 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
                     taxon_sites[s["taxon"]].add(site)
                     for genus in s["genus_labels"]:
                         genus_sites[genus].add(site)
+                    if s["primary_standard_geometry"]:
+                        primary_taxon_sessions[s["taxon"]] += 1
+                        primary_taxon_sites[s["taxon"]].add(site)
+                        for genus in s["genus_labels"]:
+                            primary_genus_sessions[genus] += 1
+                            primary_genus_sites[genus].add(site)
         support_frontier.append({
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
             "n_eligible_species_session_records": len(eligible_sessions),
+            "n_primary_standard_geometry_species_session_records": len(primary_sessions),
+            "n_srer_7x7_species_session_records": len(srer_sessions),
             "n_taxa": len(taxa_set),
+            "n_primary_standard_geometry_taxa": len(primary_taxa_set),
             "n_resolved_genera": len(genus_set),
+            "n_primary_standard_geometry_genera": len(primary_genus_set),
             "n_plots": len(plots_set),
             "n_sites": len(sites_set),
             "n_taxa_with_at_least_3_sessions": sum(
@@ -446,6 +490,16 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_genera_with_at_least_3_sessions_and_2_sites": sum(
                 genus_sessions[g] >= 3 and len(genus_sites[g]) >= 2
                 for g in genus_set
+            ),
+            "n_primary_taxa_with_at_least_3_sessions_and_2_sites": sum(
+                primary_taxon_sessions[t] >= 3
+                and len(primary_taxon_sites[t]) >= 2
+                for t in primary_taxa_set
+            ),
+            "n_primary_genera_with_at_least_3_sessions_and_2_sites": sum(
+                primary_genus_sessions[g] >= 3
+                and len(primary_genus_sites[g]) >= 2
+                for g in primary_genus_set
             ),
         })
 
