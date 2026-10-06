@@ -325,10 +325,12 @@ def run() -> dict:
                 "reason": "genus_mnka_missing",
             })
             continue
+        event_meta = by_event.get((site, s["plot_id"], s["event_id"]), {})
         paired.append({
             "site": site,
             "plot_id": s["plot_id"],
             "event_id": s["event_id"],
+            "event_date": str(event_meta.get("date", "")),
             "taxon": s["taxon"],
             "genus": genus,
             "mnka": int(mnka),
@@ -408,6 +410,7 @@ def run() -> dict:
             "unpaired_count": len(unpaired),
             "unpaired_examples": unpaired[:20],
         },
+        "paired_sessions": paired,
         "mnka_variation": {
             "taxon_plot_series_total": len(series_rows),
             "series_with_at_least_3_response_sessions": len(at_least3),
