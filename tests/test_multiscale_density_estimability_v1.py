@@ -99,6 +99,8 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertEqual(s["genus_labels"], ["Species"])
             self.assertEqual(s["geometry_class"], "standard_10x10")
             self.assertTrue(s["primary_standard_geometry"])
+            self.assertEqual(s["sampling_protocol_class"], "pathogen")
+            self.assertTrue(s["primary_standardized_protocol"])
             self.assertNotIn("n_repeat_location_tagged_individuals", s)
             self.assertNotIn("n_distinct_capture_coordinates", s)
 
@@ -169,6 +171,7 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             s = out["support"]["sessions"][0]
             self.assertEqual(s["geometry_class"], "srer_7x7_exception")
             self.assertFalse(s["primary_standard_geometry"])
+            self.assertFalse(s["primary_standardized_protocol"])
 
     def test_duplicate_rows_within_one_night_do_not_create_repeat_support(self):
         with tempfile.TemporaryDirectory() as td:
