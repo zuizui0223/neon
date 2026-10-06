@@ -190,6 +190,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "nightuids": set(),
         "trap_nights": set(),
         "trap_coordinates": set(),
+        "capture_trap_nights_all": set(),
         "sampling_types": set(),
         "grid_completion_values": set(),
         "site_ids": set(),
@@ -201,18 +202,39 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         "untagged_capture_rows": 0,
         "capture_nightuids": set(),
         "coordinate_bearing_capture_rows": 0,
+        "capture_trap_nights": set(),
+        "conflicted_tagged_capture_rows": 0,
+        "conflicted_tag_ids": set(),
         "individual_rows": defaultdict(list),
         "scientific_names": set(),
         "taxon_ranks": set(),
         "identification_qualifiers": Counter(),
     })
 
+    event_tag_taxa = defaultdict(set)
+    for row in trap_rows:
+        n = _clean(row.get(t_night))
+        meta = night_meta.get(n)
+        if meta is None:
+            continue
+        event = meta["event_id"]
+        plot = meta["plot_id"] or _clean(row.get(t_plot))
+        if not event or not _capture_row(row, t_status, t_tag):
+            continue
+        taxon = _taxon(row, t_taxon, t_sci)
+        tag = _clean(row.get(t_tag)) if t_tag else ""
+        if taxon and tag:
+            event_tag_taxa[(plot, event, tag)].add(taxon)
+
+    conflicted_event_tags = {
+        key for key, taxa in event_tag_taxa.items() if len(taxa) > 1
+    }
+
     missing_night_join = 0
     missing_event = 0
     capture_missing_taxon = 0
     tagged_noncapture_status_rows = 0
     capture_rows_with_identification_qualifier = 0
-    event_tag_taxa = defaultdict(set)
 
     for idx, row in enumerate(trap_rows):
         n = _clean(row.get(t_night))
@@ -248,6 +270,8 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
 
         if not _capture_row(row, t_status, t_tag):
             continue
+        if coord:
+            e["capture_trap_nights_all"].add((n, coord))
         taxon = _taxon(row, t_taxon, t_sci)
         if not taxon:
             capture_missing_taxon += 1
@@ -268,12 +292,16 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         g["capture_nightuids"].add(n)
         if coord:
             g["coordinate_bearing_capture_rows"] += 1
+            g["capture_trap_nights"].add((n, coord))
         tag = _clean(row.get(t_tag)) if t_tag else ""
         if tag:
-            event_tag_taxa[(plot, event, tag)].add(taxon)
             g["tagged_capture_rows"] += 1
-            # Store support only, not coordinate identity or displacement.
-            g["individual_rows"][tag].append((n, bool(coord)))
+            if (plot, event, tag) in conflicted_event_tags:
+                g["conflicted_tagged_capture_rows"] += 1
+                g["conflicted_tag_ids"].add(tag)
+            else:
+                # Store support only, not coordinate identity or displacement.
+                g["individual_rows"][tag].append((n, bool(coord)))
         else:
             g["untagged_capture_rows"] += 1
 
@@ -323,6 +351,12 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             )
             and exact_three_night_structure
         )
+        grid_completion_values = sorted(e["grid_completion_values"])
+        primary_complete_session = (
+            primary_standardized_protocol
+            and grid_completion_values
+            == ["setting complete, processing complete"]
+        )
 
         sessions.append({
             "taxon": taxon,
@@ -343,10 +377,11 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "primary_standard_geometry": geometry_class == "standard_10x10",
             "sampling_types": sampling_types,
             "sampling_protocol_class": sampling_protocol_class,
-            "grid_completion_values": sorted(e["grid_completion_values"]),
+            "grid_completion_values": grid_completion_values,
             "n_trapping_nights": n_trapping_nights,
             "exact_three_night_structure": exact_three_night_structure,
             "primary_standardized_protocol": primary_standardized_protocol,
+            "primary_complete_session": primary_complete_session,
             "protocol_identification_basis": (
                 "declared_pathogen"
                 if sampling_protocol_class == "pathogen"
@@ -361,7 +396,19 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "n_distinct_trap_coordinates_in_effort": len(e["trap_coordinates"]),
             "n_capture_rows": int(g["capture_rows"]),
             "n_coordinate_bearing_capture_rows": int(g["coordinate_bearing_capture_rows"]),
+            "n_all_capture_trap_nights": len(e["capture_trap_nights_all"]),
+            "all_capture_trap_night_fraction_of_observed": (
+                len(e["capture_trap_nights_all"]) / len(e["trap_nights"])
+                if e["trap_nights"] else None
+            ),
+            "n_taxon_capture_trap_nights": len(g["capture_trap_nights"]),
+            "taxon_capture_trap_night_fraction_of_observed": (
+                len(g["capture_trap_nights"]) / len(e["trap_nights"])
+                if e["trap_nights"] else None
+            ),
             "n_tagged_capture_rows": int(g["tagged_capture_rows"]),
+            "n_conflicted_tagged_capture_rows": int(g["conflicted_tagged_capture_rows"]),
+            "n_conflicted_tag_ids": len(g["conflicted_tag_ids"]),
             "n_untagged_capture_rows": int(g["untagged_capture_rows"]),
             "n_unique_tagged_individuals": len(tag_records),
             "n_coordinate_supported_tagged_individuals": coordinate_supported_individuals,
@@ -462,7 +509,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             s for s in eligible_sessions if s["primary_standard_geometry"]
         ]
         standardized_primary_sessions = [
-            s for s in eligible_sessions if s["primary_standardized_protocol"]
+            s for s in eligible_sessions if s["primary_complete_session"]
         ]
         srer_sessions = [
             s for s in eligible_sessions
@@ -524,18 +571,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
             "n_eligible_species_session_records": len(eligible_sessions),
             "n_primary_standard_geometry_species_session_records": len(primary_sessions),
-            "n_primary_standard_10x10_exact_3night_species_session_records": len(
+            "n_primary_complete_standard_10x10_exact_3night_species_session_records": len(
                 standardized_primary_sessions
             ),
             "n_srer_7x7_species_session_records": len(srer_sessions),
             "n_taxa": len(taxa_set),
             "n_primary_standard_geometry_taxa": len(primary_taxa_set),
-            "n_primary_standard_10x10_exact_3night_taxa": len(
+            "n_primary_complete_standard_10x10_exact_3night_taxa": len(
                 standardized_primary_taxa_set
             ),
             "n_resolved_genera": len(genus_set),
             "n_primary_standard_geometry_genera": len(primary_genus_set),
-            "n_primary_standard_10x10_exact_3night_genera": len(
+            "n_primary_complete_standard_10x10_exact_3night_genera": len(
                 standardized_primary_genus_set
             ),
             "n_plots": len(plots_set),
@@ -607,9 +654,7 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "capture_rows_with_identification_qualifier": (
                 capture_rows_with_identification_qualifier
             ),
-            "event_tag_ids_with_multiple_taxon_ids": sum(
-                len(v) > 1 for v in event_tag_taxa.values()
-            ),
+            "event_tag_ids_with_multiple_taxon_ids": len(conflicted_event_tags),
         },
         "support": {
             "n_species_session_records": len(sessions),
