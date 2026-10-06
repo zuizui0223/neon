@@ -1,10 +1,10 @@
-# MEE pre-submission enquiry — HOLD draft v5
+# MEE pre-submission enquiry — HOLD draft v6
 
-Date: 2026-10-05
+Date: 2026-10-06
 
 **Status: HOLD — do not send yet.**
 
-This draft is updated to manuscript v0.5. The scientific reason for the original hold—absence of a demonstrated downstream consequence—has been resolved in a more informative form. The manuscript now distinguishes frequent positional non-uniqueness from downstream estimand instability and identifies temporal asymmetry as the condition that can make a representative-location rule directional.
+This draft is updated to manuscript v0.6. The scientific reason for the original hold—absence of a demonstrated downstream consequence—has been resolved in a more informative form. The manuscript now distinguishes frequent positional non-uniqueness from downstream estimand instability and identifies temporal asymmetry as the condition that can make a representative-location rule directional.
 
 The enquiry should remain unsent until the current-head manuscript/review-package CI is green, author metadata are complete, and the archival release is prepared.
 
@@ -23,7 +23,7 @@ We make three linked contributions.
 
 First, we introduce a lightweight scale-aware screen for within-occasion positional non-uniqueness. It quantifies first-to-last span relative to a prechosen material spatial scale, keeps repeat-conditioned estimates separate from conservative all-occasion lower bounds, and provides deterministic FIRST-versus-LAST sensitivity bounds for selected spatial summaries. We also formalize an identification limit: if the within-occasion observation law is symmetric under time reversal, FIRST and LAST are distributionally equivalent even when their realized locations differ. Full temporal exchangeability is sufficient but not necessary; span magnitude alone cannot identify the sign of a downstream FIRST/LAST effect.
 
-Second, we validate positional non-uniqueness prospectively in two held-out Cricetidae species from a public repeated-check live-trapping programme. Shifts of at least one 6.25-m trap spacing occurred on 72.6% of 485 repeat-capture nights for *Peromyscus maniculatus* and 69.2% of 107 nights for *P. eremicus*, with every eligible validation grid exceeding the pre-specified threshold. Yet a clearly labelled post-stop exploratory SCR analysis of 19 estimable PEMA sessions was stable: sigma was 8.85 m under FIRST and 8.56 m under LAST (LAST/FIRST = 0.967; -3.3%). A post-result cluster sign-flip audit likewise found no clear grid-stratified first-to-last directional asymmetry (PEMA p = 0.193; PEER p = 0.735).
+Second, we validate positional non-uniqueness prospectively in two held-out Cricetidae species from a public repeated-check live-trapping programme. Shifts of at least one 6.25-m trap spacing occurred on 72.6% of 485 repeat-capture nights for *Peromyscus maniculatus* and 69.2% of 107 nights for *P. eremicus*, with every eligible validation grid exceeding the pre-specified threshold. Yet a clearly labelled post-stop exploratory SCR analysis of 19 estimable PEMA sessions was stable: sigma was 8.85 m under FIRST and 8.56 m under LAST (LAST/FIRST = 0.967; -3.3%). In those same 19 sessions, the observed per-axis first-to-last RMS displacement was 9.12 m and lay within the fixed-centre stationary-SCR reference (primary 95% interval 9.10–10.44 m), while the changed-trap fraction was much lower than the independent-check reference (69.7% versus 87.6–94.7%). A post-result cluster sign-flip audit likewise found no clear grid-stratified first-to-last directional asymmetry (PEMA p = 0.193; PEER p = 0.735).
 
 Third, we identify the failure mode with controlled SCR simulation. Under a stationary time-reversal-symmetric generator, FIRST and LAST remained equivalent. We then imposed the same within-night displacement magnitudes as an ordered state transition. With the baseline state first and transitioned state last, median LAST/FIRST sigma ratios were 1.35, 1.15 and 1.12 across three generating spatial scales; reversing the order produced 0.77, 0.86 and 0.89. The span distribution is unchanged by this reversal, but the downstream direction changes. Thus the consequential ingredient is an arrow of time in the observation/state process, not positional variation alone.
 
@@ -43,7 +43,7 @@ All of the following should be true before sending:
 
 - current-head frozen-paper checks pass;
 - current-head anonymous review-package build passes;
-- manuscript v0.5, Supplement v0.3 and Figure Captions v4 remain synchronized;
+- manuscript v0.6, Supplement v0.3 and Figure Captions v4 remain synchronized;
 - final author list and affiliations are supplied outside the double-anonymous manuscript;
 - author-contribution, funding and conflict-of-interest statements are complete;
 - versioned archival release / persistent repository identifier is prepared;
