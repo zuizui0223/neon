@@ -1,0 +1,43 @@
+{
+  "schema": "neon.multiscale_density.structural_gate_contract.v1",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_RELEASE2026_REPEAT_SUPPORT_RESULT",
+  "programme": "multiscale_density_accommodation_v1",
+  "primary_support_definition": {
+    "era_start": "2015-04",
+    "geometry": "standard NEON 10x10 only; SRER excluded from primary",
+    "bout_key": "site x plotID x eventID",
+    "temporal_rule": "exactly 3 distinct nightuid values",
+    "mechanical_minimum_repeat_supported_individuals": 5,
+    "repeat_support_definition": "tagged individual with coordinate-bearing captures on at least 2 distinct trapping nights within the same exact-3-night plot-event"
+  },
+  "go_requires_all": {
+    "minimum_eligible_taxon_plot_event_records": 30,
+    "minimum_taxon_concepts": 4,
+    "minimum_resolved_genera": 2,
+    "minimum_sites": 6,
+    "replicated_genera_rule": {
+      "minimum_genera": 2,
+      "per_genus_minimum_eligible_session_records": 10,
+      "per_genus_minimum_sites": 2
+    }
+  },
+  "rationale": {
+    "session_total": "30 gives a minimum hierarchical development pool rather than a handful of isolated bouts",
+    "taxonomic": "four taxon concepts and two genera prevent a Peromyscus-only or single-lineage generality claim",
+    "geographic": "six sites prevent one or two local populations from defining the result",
+    "repeated_genus_support": "each of two genera must independently span repeated sessions and more than one site"
+  },
+  "decision_rules": {
+    "if_all_pass": "GO to pre-effect metric/model-development stage; W/B effects remain exploratory on RELEASE-2026 and cannot be relabelled confirmatory",
+    "if_any_fail": "STOP the coordinate-decomposition route without lowering m, pooling one-night/4+-night bouts, adding SRER under the standard calibration, or widening the temporal session",
+    "permitted_post_stop": "a separately preregistered model-based route may be considered only as a new estimand/design, not as rescue of this gate"
+  },
+  "effect_boundary": {
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_opened": false,
+    "density_effects_opened": false,
+    "habitat_moderators_opened": false
+  }
+}
