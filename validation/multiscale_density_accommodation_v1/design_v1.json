@@ -56,7 +56,7 @@
     "capture event"
   ],
   "sampling_boundary": {
-    "primary_cross_scale_pool": "multi-night sessions where both individual-scale and population-footprint metrics are estimable",
+    "primary_cross_scale_pool": "standard 10x10 pathogen-grid sessions with at least three trapping nights, both W and B structurally estimable, and RELEASE-2026 gridCompletion semantics prospectively satisfied",
     "one_night_sessions": "population-footprint development only unless a future frozen model establishes comparability",
     "denominator": "active trap-night",
     "primary_geometry": {
@@ -67,7 +67,10 @@
       "exception": "SRER uses 7x7 and is excluded from the primary standard-geometry contrast; it may be analyzed only under separately calibrated secondary geometry",
       "coordinate_system": "nominal trapCoordinate lattice, not historical geographic latitude/longitude",
       "rationale": "avoids conflating ecological spatial variance with historical geolocation/Named Location corrections; within-session geometry is defined by the sampling design"
-    }
+    },
+    "legacy_recapture_sessions": "structural/development sensitivity only; not pooled into the primary future confirmation",
+    "diversity_one_night_sessions": "not eligible for primary W/B cross-scale inference",
+    "grid_completion_rule": "primary future confirmation requires prospectively accepted gridCompletion status; exact published value labels are frozen from metadata before W/B effects are opened"
   },
   "candidate_individual_scale_metrics": [
     "primary coordinate candidate: equal-individual half mean pairwise squared distance among repeated locations (unbiased within-individual covariance-trace U-statistic)",
