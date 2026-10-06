@@ -63,10 +63,16 @@ The main downstream benchmark uses the San Jacinto trap geometry and the held-ou
 
 The earlier 72-cell simulation of repeat-observation conditioning is retained as a supplementary diagnostic-estimator benchmark.
 
+## Empirical stationary-displacement check
+
+A post-result diagnostic now asks whether the PEMA first-to-last displacement scale itself requires an ordered within-night state shift. In the same 19 frozen PEMA sessions used for the exploratory SCR fit, the observed per-axis RMS displacement was 9.12 m and did not exceed the fixed-centre stationary-SCR reference. By contrast, the observed changed-trap fraction was substantially lower than the independent-check stationary reference.
+
+The current interpretation is therefore not that PEMA moved farther than a static SCR kernel predicts. The data instead combine a stationary-compatible displacement scale with excess same-trap persistence and little detectable directional flux. This pattern is compatible with reversible serial dependence and explains why frequent positional aliasing need not produce a material FIRST-versus-LAST sigma difference.
+
 ## License
 
 MIT.
 
 ## Review manuscript
 
-See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_4.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md`. The MEE pre-submission enquiry is currently on HOLD pending final consistency review.
+See `MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md` and `SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md`. The MEE pre-submission enquiry is currently on HOLD pending the repaired low-g0 stationary-null run and final consistency review.
