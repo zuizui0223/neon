@@ -326,6 +326,13 @@ def run() -> dict:
             })
             continue
         event_meta = by_event.get((site, s["plot_id"], s["event_id"]), {})
+        repeat_supported = int(
+            s["n_repeat_coordinate_supported_tagged_individuals"]
+        )
+        unique_tagged = int(s["n_unique_tagged_individuals"])
+        coordinate_supported = int(
+            s["n_coordinate_supported_tagged_individuals"]
+        )
         paired.append({
             "site": site,
             "plot_id": s["plot_id"],
@@ -334,8 +341,15 @@ def run() -> dict:
             "taxon": s["taxon"],
             "genus": genus,
             "mnka": int(mnka),
-            "repeat_supported_individuals": int(
-                s["n_repeat_coordinate_supported_tagged_individuals"]
+            "unique_tagged_individuals": unique_tagged,
+            "coordinate_supported_individuals": coordinate_supported,
+            "repeat_supported_individuals": repeat_supported,
+            "repeat_supported_fraction": (
+                repeat_supported / unique_tagged
+                if unique_tagged > 0 else None
+            ),
+            "all_capture_trap_night_fraction": float(
+                s["all_capture_trap_night_fraction_of_observed"]
             ),
         })
 
