@@ -20,7 +20,7 @@ An anonymized, self-contained review package containing the generic diagnostic, 
 
 ## Keywords
 
-observation process; spatial ecology; temporal aggregation; capture–recapture; live trapping; positional uncertainty; repeated observations; sensitivity analysis; spatial scale; Peromyscus
+capture–recapture; observation process; repeated observations; spatial ecology; spatial scale; temporal aggregation; time-reversal symmetry; within-occasion variation
 
 # 1. Introduction
 

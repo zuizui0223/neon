@@ -44,6 +44,10 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         abstract=self.text.split("## Abstract",1)[1].split("## Data/Code for peer review",1)[0]
         abstract_words=re.findall(r"\b\w+[\w'–-]*\b",abstract)
         self.assertLessEqual(len(abstract_words),350)
+        keywords=self.text.split("## Keywords",1)[1].split("# 1. Introduction",1)[0].strip()
+        keyword_items=[x.strip() for x in keywords.split(";") if x.strip()]
+        self.assertLessEqual(len(keyword_items),8)
+        self.assertEqual(keyword_items,sorted(keyword_items,key=str.casefold))
 
     def test_pema_post_stop_receipt_matches_manuscript(self):
         p=self.pema["primary_model"]
