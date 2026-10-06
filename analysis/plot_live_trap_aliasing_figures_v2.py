@@ -49,14 +49,15 @@ def figure1(outdir: Path) -> None:
     save(fig,outdir/"figure1_observation_process")
 
 
-def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
+def figure2(consequence: dict, pema: dict, stationary: dict, outdir: Path) -> None:
     # The ordered-state stress-test wording is intentional: v3 did not validate a San Jacinto mechanism.
     summaries=consequence["summaries"]
     paired=consequence["paired_contrasts"]
     sigmas=sorted({float(r["sigma_true"]) for r in summaries})
     methods=["CHECK","FIRST","LAST"]
 
-    fig,axes=plt.subplots(1,3,figsize=(13.6,4.2))
+    fig,axes=plt.subplots(2,2,figsize=(10.8,8.0))
+    axes=axes.ravel()
 
     for method in methods:
         rows=[
@@ -153,6 +154,53 @@ def figure2(consequence: dict, pema: dict, outdir: Path) -> None:
         fontsize=7.5,
     )
 
+    primary=stationary["primary_cell"]
+    if isinstance(primary,list):
+        primary=primary[0]
+    obs=stationary["observed"]
+    metric_rows=[
+        (
+            "Per-axis RMS",
+            float(obs["axis_rms_m"]),
+            float(primary["axis_q025"]),
+            float(primary["axis_median"]),
+            float(primary["axis_q975"]),
+        ),
+        (
+            "Changed-trap fraction",
+            float(obs["changed_fraction"]),
+            float(primary["changed_q025"]),
+            float(primary["changed_median"]),
+            float(primary["changed_q975"]),
+        ),
+    ]
+    yy=np.arange(len(metric_rows))
+    for y,(label,observed,q025,median,q975) in enumerate(metric_rows):
+        lo=q025/median
+        hi=q975/median
+        axes[3].plot([lo,hi],[y,y],linewidth=2)
+        axes[3].scatter(1,y,marker="|",s=90)
+        axes[3].scatter(observed/median,y,s=50)
+    axes[3].axvline(1,linewidth=1,linestyle="--")
+    axes[3].set_yticks(yy,[r[0] for r in metric_rows])
+    axes[3].invert_yaxis()
+    axes[3].set_xlabel("Observed / stationary-null median")
+    axes[3].set_title("D. PEMA stationary displacement check")
+    axes[3].text(
+        float(obs["axis_rms_m"])/float(primary["axis_median"]),
+        -0.18,
+        f'{float(obs["axis_rms_m"]):.2f} m',
+        ha="center",
+        fontsize=8,
+    )
+    axes[3].text(
+        float(obs["changed_fraction"])/float(primary["changed_median"]),
+        0.82,
+        f'{100*float(obs["changed_fraction"]):.1f}%',
+        ha="center",
+        fontsize=8,
+    )
+
     fig.tight_layout()
     save(fig,outdir/"figure2_simulation_benchmark")
 
@@ -230,6 +278,7 @@ def main() -> int:
     parser.add_argument("--validation",type=Path,required=True)
     parser.add_argument("--pema",type=Path,required=True)
     parser.add_argument("--denominator",type=Path,required=True)
+    parser.add_argument("--stationary",type=Path,required=True)
     parser.add_argument("--outdir",type=Path,required=True)
     args=parser.parse_args()
 
@@ -237,9 +286,10 @@ def main() -> int:
     result=json.loads(args.validation.read_text())
     pema=json.loads(args.pema.read_text())
     denom=json.loads(args.denominator.read_text())
+    stationary=json.loads(args.stationary.read_text())
 
     figure1(args.outdir)
-    figure2(consequence,pema,args.outdir)
+    figure2(consequence,pema,stationary,args.outdir)
     figure3(result,args.outdir)
     figure4(result,denom,args.outdir)
     return 0
