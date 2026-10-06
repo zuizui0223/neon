@@ -56,7 +56,7 @@
     "capture event"
   ],
   "sampling_boundary": {
-    "primary_cross_scale_pool": "standard 10x10 pathogen-grid sessions with at least three trapping nights, both W and B structurally estimable, and RELEASE-2026 gridCompletion semantics prospectively satisfied",
+    "primary_cross_scale_pool": "RELEASE-2026 records from 2015-04 onward, standard 10x10 geometry, and exactly three distinct nightuid values for the same site x plotID x eventID; this operationalizes the post-2015 pathogen-grid three-night protocol in the basic package",
     "one_night_sessions": "population-footprint development only unless a future frozen model establishes comparability",
     "denominator": "active trap-night",
     "primary_geometry": {
@@ -69,8 +69,10 @@
       "rationale": "avoids conflating ecological spatial variance with historical geolocation/Named Location corrections; within-session geometry is defined by the sampling design"
     },
     "legacy_recapture_sessions": "structural/development sensitivity only; not pooled into the primary future confirmation",
-    "diversity_one_night_sessions": "not eligible for primary W/B cross-scale inference",
-    "grid_completion_rule": "primary future confirmation requires prospectively accepted gridCompletion status; exact published value labels are frozen from metadata before W/B effects are opened"
+    "diversity_one_night_sessions": "identified structurally as one-night plot-events and not eligible for primary W/B inference",
+    "grid_completion_rule": "gridCompletion is audited where available; absence cannot be silently treated as complete, and any final completeness rule is frozen before spatial effects are opened",
+    "mammalGridSamplingType_basic_package": "not available/populated in the RELEASE-2026 basic-package perplotnight files used by the audit; do not require this field for primary eligibility",
+    "protocol_exception": "plot-events with 4+ nights are excluded from the primary denominator and retained only as protocol/QC exceptions"
   },
   "candidate_individual_scale_metrics": [
     "primary coordinate candidate: equal-individual half mean pairwise squared distance among repeated locations (unbiased within-individual covariance-trace U-statistic)",
