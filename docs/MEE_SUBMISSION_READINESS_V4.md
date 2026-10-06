@@ -59,6 +59,8 @@ Date: 2026-10-06
 
 ## Manuscript / figures / reproducibility
 
+- [x] Main manuscript is within the current MEE Research Article length guidance: approximately 7,782 words including references/figure captions by repository word-like count.
+- [x] Numbered abstract is approximately 298 words, below the journal's 350-word target.
 - [x] Manuscript v0.6 uses the positional-non-uniqueness → serial-persistence/time-reversal → estimand-stability structure.
 - [x] Supplement v0.3 contains the estimator benchmark, time-reversal theorem, closure note, SCR consequence benchmark and post-result symmetry audit.
 - [x] Figure 2 is a four-panel stability figure: stationary null, mirrored state-transition failure mode, exploratory PEMA stability plus additive benchmark, and the matched-session stationary displacement check.
