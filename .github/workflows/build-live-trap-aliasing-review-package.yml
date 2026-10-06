@@ -5,7 +5,7 @@ on:
     branches:
       - paper/live-trap-aliasing-v1
     paths:
-      - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md
+      - MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_6.md
       - SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md
       - README_LIVE_TRAP_ALIASING.md
       - LICENSE
@@ -58,7 +58,7 @@ on:
       - tests/test_san_jacinto_positional_aliasing.py
       - tests/test_live_trap_aliasing_denominator_audit.py
       - tests/test_live_trap_aliasing_individual_cluster_v1.py
-      - tests/test_live_trap_aliasing_manuscript_v0_5.py
+      - tests/test_live_trap_aliasing_manuscript_v0_6.py
       - tests/test_live_trap_night_label_semantics_v1.py
       - results/san_jacinto_positional_aliasing_result_v1.json
       - results/temporal_aliasing_simulation_benchmark_v2.json
@@ -93,7 +93,7 @@ jobs:
           rm -rf /tmp/live-trap-aliasing-review
           mkdir -p /tmp/live-trap-aliasing-review/{docs,analysis,tests,examples,results,validation/san_jacinto_positional_aliasing_v1,validation/live_trap_aliasing_v1,validation/san_jacinto_scr_sigma_v1,figures}
 
-          cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_5.md /tmp/live-trap-aliasing-review/
+          cp MANUSCRIPT_MEE_LIVE_TRAP_ALIASING_V0_6.md /tmp/live-trap-aliasing-review/
           cp SUPPLEMENTARY_METHODS_MEE_LIVE_TRAP_ALIASING_V0_3.md /tmp/live-trap-aliasing-review/
           cp README_LIVE_TRAP_ALIASING.md /tmp/live-trap-aliasing-review/
           cp LICENSE requirements-aliasing.txt requirements-figures.txt /tmp/live-trap-aliasing-review/
@@ -135,7 +135,7 @@ jobs:
           cp tests/test_san_jacinto_positional_aliasing.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_denominator_audit.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_aliasing_individual_cluster_v1.py /tmp/live-trap-aliasing-review/tests/
-          cp tests/test_live_trap_aliasing_manuscript_v0_5.py /tmp/live-trap-aliasing-review/tests/
+          cp tests/test_live_trap_aliasing_manuscript_v0_6.py /tmp/live-trap-aliasing-review/tests/
           cp tests/test_live_trap_night_label_semantics_v1.py /tmp/live-trap-aliasing-review/tests/
 
           cp examples/repeated_locations_example.csv examples/repeated_locations_example_expected.json /tmp/live-trap-aliasing-review/examples/
@@ -194,7 +194,7 @@ jobs:
             tests.test_live_trap_aliasing_denominator_audit \
             tests.test_live_trap_aliasing_individual_cluster_v1 \
             tests.test_live_trap_night_label_semantics_v1 \
-            tests.test_live_trap_aliasing_manuscript_v0_5 -v
+            tests.test_live_trap_aliasing_manuscript_v0_6 -v
 
       - name: Remove transient Python bytecode
         run: |
