@@ -16,6 +16,7 @@ HOME=ROOT/"validation"/"live_trap_aliasing_v1"/"downstream_home_range_support_su
 REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
 CALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
 STATIONARY=ROOT/"results"/"pema_stationary_displacement_null_v1.json"
+MIXTURE=ROOT/"results"/"pema_stationary_transition_mixture_decomposition_v1.json"
 
 
 class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
@@ -30,6 +31,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         cls.reversal=json.loads(REVERSAL.read_text())
         cls.calib=json.loads(CALIB.read_text())
         cls.stationary=json.loads(STATIONARY.read_text())
+        cls.mixture=json.loads(MIXTURE.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.6",self.text)
@@ -147,6 +149,26 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         null_changed_rms=primary["radial_median"]/math.sqrt(primary["changed_median"])
         self.assertAlmostEqual(obs_changed_rms,15.45,places=2)
         self.assertAlmostEqual(null_changed_rms,14.30,places=2)
+
+    def test_stationary_transition_mixture_decomposition_is_receipted(self):
+        p=self.mixture
+        self.assertEqual(
+            p["schema"],
+            "neon.pema_stationary_transition_mixture_decomposition.v1",
+        )
+        self.assertFalse(p["claim_boundary"]["preregistered_endpoint"])
+        self.assertFalse(p["claim_boundary"]["causal_mechanism_identified"])
+        self.assertAlmostEqual(p["observed"]["same_trap_fraction"],0.3028,places=4)
+        self.assertAlmostEqual(p["observed"]["changed_night_rms_m"],15.4519,places=4)
+        self.assertAlmostEqual(p["primary"]["null_same_trap_median"],0.08257,places=4)
+        self.assertAlmostEqual(p["primary"]["null_changed_rms_median"],14.30286,places=4)
+        self.assertAlmostEqual(p["primary"]["changed_rms_upper_tail_fraction"],0.016,places=3)
+        self.assertEqual(p["robustness"]["supported_cell_count"],6)
+        self.assertEqual(p["robustness"]["same_trap_above_q975_cells"],6)
+        self.assertEqual(p["robustness"]["changed_rms_above_q975_cells"],5)
+        for token in ("30.3%","15.45 m","14.30 m","five of six supported"):
+            self.assertIn(token,self.text)
+        self.assertIn("post-result algebraic decomposition",self.text.lower())
 
     def test_observation_process_calibration_stop_is_preserved(self):
         self.assertEqual(self.calib["grid"]["candidate_cells"],204)
