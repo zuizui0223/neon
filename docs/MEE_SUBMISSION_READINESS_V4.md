@@ -18,6 +18,7 @@ Date: 2026-10-06
 - [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%).
 - [x] Matched 19-session stationary-SCR displacement reference addresses the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0979–10.4448 m.
 - [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8761–0.9468, supporting short-term positional persistence/serial dependence rather than excess displacement.
+- [x] Post-result second-moment decomposition is receipted: same-trap fraction = 30.3% versus primary-null median 8.3% (95% 5.5–12.4%); changed-night RMS = 15.45 m versus primary-null median 14.30 m (95% 13.42–15.36 m). Same-trap excess occurs in 6/6 supported cells and changed-night RMS exceeds the 97.5th percentile in 5/6.
 - [x] The empirical PEMA result is contrasted with an independent-additive second-moment prediction of approximately +24.0%, showing that raw span magnitude is not a sigma correction.
 - [x] Stationary SCR controls show FIRST/LAST equivalence: median ratios 1.007, 0.966 and 1.025.
 - [x] Mirrored ordered-state simulations reverse the FIRST/LAST direction while preserving displacement magnitudes.
