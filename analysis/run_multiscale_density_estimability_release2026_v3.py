@@ -9,7 +9,7 @@ effect sizes.
 Download strategy:
 1. obtain the RELEASE-2026 site universe for DP1.10072.001;
 2. query only the post-design-change era (2015-04 onward);
-3. download mam_perplotnight files first and identify pathogen events with >=3 nights;
+3. download mam_perplotnight files first and identify exact three-night plot-events;
 4. download mam_pertrapnight only for site-months containing those standardized events;
 5. normalize the minimal structural fields and call the frozen support audit.
 """
@@ -214,29 +214,29 @@ def _read_plot_rows(
 
 
 def _candidate_nights(plot_rows: list[dict[str, str]]) -> tuple[set[str], set[tuple[str, str]]]:
-    """Return only standardized pathogen events with >=3 trapping nights.
+    """Return exact three-night plot-events in the post-2015 design era.
 
-    The 2015 design change retained three nights on pathogen grids while
-    reducing diversity grids to one night. Legacy recapture bouts and other
-    multi-night designs are intentionally excluded from the primary structural
-    audit rather than mixed into the denominator.
+    RELEASE-2026 basic-package files do not expose mammalGridSamplingType in
+    mam_perplotnight, despite eventID being correctly backfilled. Under the
+    post-2015 NEON design, diversity grids are one-night bouts and pathogen
+    grids are three-night bouts. We therefore identify the primary structural
+    pool by the protocol-defining quantity itself: exactly three distinct
+    nightuid values for the same site x plotID x eventID.
+
+    Four-or-more-night events are retained outside the primary denominator as
+    protocol/QC exceptions rather than silently folded into the three-night
+    primary.
     """
     nights_by_event: dict[tuple[str, str, str], set[str]] = defaultdict(set)
     rows_by_event: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
-    protocol_by_event: dict[tuple[str, str, str], set[str]] = defaultdict(set)
     for row in plot_rows:
         key = (row["_site"], row["plotID"], row["eventID"])
         nights_by_event[key].add(row["nightuid"])
         rows_by_event[key].append(row)
-        sampling = str(row.get("mammalGridSamplingType", "")).strip().lower()
-        if sampling:
-            protocol_by_event[key].add(sampling)
 
     eligible_events = {
-        key
-        for key, nights in nights_by_event.items()
-        if len(nights) >= 3
-        and any("pathogen" in label for label in protocol_by_event[key])
+        key for key, nights in nights_by_event.items()
+        if len(nights) == 3
     }
     nights: set[str] = set()
     site_months: set[tuple[str, str]] = set()
@@ -425,7 +425,7 @@ def run() -> dict:
         {
             "ecological_effects_opened": False,
             "coordinate_distances_computed": False,
-            "only_multi_night_structural_support_opened": True,
+            "only_exact_three_night_structural_support_opened": True,
         }
     )
     return result
