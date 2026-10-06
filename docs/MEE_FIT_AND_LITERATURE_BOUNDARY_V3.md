@@ -52,6 +52,10 @@ The precedent does not show that coarse occasions are universally optimal; it sh
 
 Continuous-time SECR addresses loss and subjectivity created by discretizing exact detection times into occasions. This is the broader temporal-aggregation literature and must remain explicit.
 
+### Stevenson et al. (2022)
+
+Stevenson, Fewster & Sharma showed that movement can induce residual spatial correlation among detections even after conditioning on the latent activity centre, violating the standard conditional-independence structure and causing predictable bias. This directly bounds the present novelty: the manuscript must not claim that movement-driven dependence in SCR is newly recognized. Its narrower contribution is to separate such dependence from *directional* temporal asymmetry and to test whether alternative temporal representations remain estimand-equivalent.
+
 ### Milleret et al. (2018)
 
 Milleret et al. showed that **spatial** aggregation of SCR detections can affect precision and bias detection-function parameters, with consequences that depend on the observation model. The present manuscript must therefore avoid claims such as “aggregation can bias SCR” or “observation model matters under aggregation” as novel.
