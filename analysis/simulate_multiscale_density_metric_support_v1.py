@@ -23,9 +23,9 @@ from analysis.validate_multiscale_density_metrics_v1 import (
 )
 
 
-def detector_grid(spacing: float = 10.0) -> np.ndarray:
+def detector_grid(n_rows: int, n_cols: int, spacing: float = 10.0) -> np.ndarray:
     return np.asarray(
-        [(i * spacing, j * spacing) for i in range(10) for j in range(10)],
+        [(i * spacing, j * spacing) for i in range(n_rows) for j in range(n_cols)],
         dtype=float,
     )
 
@@ -167,52 +167,99 @@ def run(
     seed: int = 20261005,
     sigma: float = 12.5,
 ) -> dict:
-    detectors = detector_grid()
-    full_pool = detectors.copy()
-    central_pool = np.asarray(
-        [(i * 10.0, j * 10.0) for i in range(1, 9) for j in range(1, 9)],
-        dtype=float,
-    )
-
     rng = np.random.default_rng(seed)
     cells = []
-    for scenario, pool in (
-        ("full_10x10_latent_centres", full_pool),
-        ("central_8x8_latent_centres", central_pool),
-    ):
-        for n_individuals in (3, 5, 8, 10, 15, 20):
-            vals = [
-                one_session(
-                    rng,
-                    n_individuals=n_individuals,
-                    detectors=detectors,
-                    latent_pool=pool,
-                    sigma=sigma,
-                    min_captures=2,
-                    max_captures=4,
-                )
-                for _ in range(replicates)
-            ]
-            cells.append(
-                {
-                    "scenario": scenario,
-                    "n_repeat_supported_individuals": n_individuals,
-                    **summarize(vals),
-                }
-            )
 
-    support_decision = choose_minimum_support(cells)
+    geometry_specs = [
+        {
+            "geometry": "standard_10x10",
+            "primary_geometry": True,
+            "detectors": detector_grid(10, 10),
+            "latent_pools": [
+                ("full_10x10_latent_centres", detector_grid(10, 10)),
+                (
+                    "central_8x8_latent_centres",
+                    np.asarray(
+                        [
+                            (i * 10.0, j * 10.0)
+                            for i in range(1, 9)
+                            for j in range(1, 9)
+                        ],
+                        dtype=float,
+                    ),
+                ),
+            ],
+        },
+        {
+            "geometry": "srer_7x7_exception",
+            "primary_geometry": False,
+            "detectors": detector_grid(7, 7),
+            "latent_pools": [
+                ("full_7x7_latent_centres", detector_grid(7, 7)),
+                (
+                    "central_5x5_latent_centres",
+                    np.asarray(
+                        [
+                            (i * 10.0, j * 10.0)
+                            for i in range(1, 6)
+                            for j in range(1, 6)
+                        ],
+                        dtype=float,
+                    ),
+                ),
+            ],
+        },
+    ]
+
+    for spec in geometry_specs:
+        detectors = spec["detectors"]
+        for scenario, pool in spec["latent_pools"]:
+            for n_individuals in (3, 5, 8, 10, 15, 20):
+                vals = [
+                    one_session(
+                        rng,
+                        n_individuals=n_individuals,
+                        detectors=detectors,
+                        latent_pool=pool,
+                        sigma=sigma,
+                        min_captures=2,
+                        max_captures=4,
+                    )
+                    for _ in range(replicates)
+                ]
+                cells.append(
+                    {
+                        "geometry": spec["geometry"],
+                        "primary_geometry": spec["primary_geometry"],
+                        "scenario": scenario,
+                        "n_repeat_supported_individuals": n_individuals,
+                        **summarize(vals),
+                    }
+                )
+
+    primary_cells = [x for x in cells if x["primary_geometry"]]
+    support_decision = choose_minimum_support(primary_cells)
+    srer_support_decision = choose_minimum_support(
+        [x for x in cells if x["geometry"] == "srer_7x7_exception"]
+    )
 
     return {
         "schema": "neon.multiscale_density.metric_support_simulation.v1",
         "status": "synthetic_mechanical_support_only",
         "seed": seed,
         "replicates_per_cell": replicates,
-        "detector_grid": "standard NEON 10x10, 10 m spacing",
+        "primary_detector_grid": "standard NEON 10x10, 10 m spacing (90 x 90 m)",
+        "secondary_exception_grid": "SRER 7x7, 10 m spacing",
+        "geometry_policy": (
+            "primary threshold is selected from standard 10x10 scenarios only; "
+            "SRER is retained as a separately calibrated geometry and may not "
+            "define or lower the standard-grid support threshold"
+        ),
         "detector_kernel_sigma_m": sigma,
         "captures_per_individual": "discrete uniform 2..4",
         "cells": cells,
         "mechanical_support_decision": support_decision,
+        "srer_mechanical_support_decision": srer_support_decision,
         "boundary": {
             "biological_data_read": False,
             "density_effects_estimated": False,
