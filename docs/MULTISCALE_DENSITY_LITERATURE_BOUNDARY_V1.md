@@ -91,6 +91,16 @@ The narrower candidate contribution is:
 
 This makes the programme a spatial-variance test related to the Niche Variation Hypothesis, not the first test of the Niche Variation Hypothesis and not the first study of spatial individual specialization.
 
+### Cross-species mammal work already predicts that spacing rules can modify density–range relationships
+
+Santini, Jacucci & Tucker (2026, *Ecography*, doi:10.1002/ecog.07936) compared home-range and population-density scaling across 319 mammal species and showed that inferred home-range overlap differs with territoriality, group size and habitat dimensionality. Territorial species had lower overlap and a shallower relationship between home-range size and overlap.
+
+This means that any genus-level heterogeneity discovered in the present programme cannot be presented as the first evidence that mammal spacing systems modify density–space relationships.
+
+It does, however, provide a relevant mechanistic context for a future confirmatory hypothesis: different lineages may absorb increasing local abundance through different combinations of within-individual compression and among-centre compression.
+
+Because the present RELEASE-2026 development result was already opened before any trait-moderator contract, **territoriality, sociality, body size and habitat traits are not permitted as post-hoc moderators of the current primary result**. They may only motivate a separately frozen future-response test.
+
 ## Remaining gap
 
 The candidate gap is narrower:
@@ -159,3 +169,5 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 
 - Svanbäck R, Bolnick DI. 2007. Intraspecific competition drives increased resource use diversity within a natural population. *Proceedings of the Royal Society B* 274:839–844.
 - Jiang T et al. 2023. Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology* 11:30. doi:10.1186/s40462-023-00394-1.
+
+- Santini L, Jacucci G, Tucker MA. 2026. Relationship between home range and population density in mammals: the role of sociality, territoriality and habitat dimensionality. *Ecography* e07936. doi:10.1002/ecog.07936.
