@@ -56,6 +56,23 @@ The distinction between within-individual and between-individual spatial variati
 
 Therefore the variance decomposition itself is not novel.
 
+### Density-dependent habitat specialization is already established
+
+Webber et al. (2024, *Nature Communications*, doi:10.1038/s41467-024-48657-8) showed density-dependent habitat specialization in caribou and explicitly framed the result against the Ideal Free Distribution and Niche Variation Hypothesis. Individuals generally became habitat specialists at higher population density.
+
+Therefore this programme must **not** claim novelty for:
+
+- density-dependent spatial or habitat specialization in general;
+- testing the Niche Variation Hypothesis with animal space-use data;
+- the proposition that individuals can alter resource/habitat specialization as density changes.
+
+The remaining distinction is geometric rather than compositional. Habitat-specialization indices quantify how an individual's *composition of habitat use* differs from the population. The present programme asks whether the **spatial variance itself** responds at different hierarchical levels:
+
+1. within-individual positional variance (W);
+2. among-individual-centre variance (B).
+
+The candidate novelty is the density response of those two spatial-variance components, estimated on the same squared-distance scale and compared directly within standardized sampling bouts.
+
 ## Remaining gap
 
 The candidate gap is narrower:
@@ -119,3 +136,5 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 - Madan R et al. 2015. Effects of population density on corticosterone levels of prairie voles in the field. *General and Comparative Endocrinology*; associated spatial analyses reported smaller home ranges and more overlapping neighbours at high density.
 - Schradin C et al. 2015. Manipulation of population density and food availability affects home range sizes of African striped mouse females. *Animal Behaviour* 99:53–60.
 - Bogdziewicz M et al. 2016. Negative effects of density on space use of small mammals differ with the phase of the masting-induced population cycle. *Ecology and Evolution* 6:8423–8433. doi:10.1002/ece3.2513.
+
+- Webber QMR et al. 2024. The adaptive value of density-dependent habitat specialization and social network centrality. *Nature Communications* 15:4423. doi:10.1038/s41467-024-48657-8.
