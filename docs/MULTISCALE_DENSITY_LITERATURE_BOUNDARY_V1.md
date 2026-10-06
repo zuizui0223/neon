@@ -36,6 +36,20 @@ Therefore this programme must **not** claim novelty for the broad proposition th
 
 That result makes the remaining question more mechanistic in scale but still ecological: **which component of spatial variance changes as density rises?** Higher spatial connectedness can emerge because individuals contract their own ranges, because individual centres pack more tightly, because both occur, or because more individuals occupy an unchanged footprint. The present design distinguishes these possibilities directly.
 
+### Home-range size and overlap have already been studied jointly
+
+Small-mammal density experiments and field studies have already examined both individual home-range size and pairwise overlap. Examples include prairie voles, where higher density was associated with smaller home ranges and more overlapping neighbours, African striped mice, where density manipulation altered home-range size but overlap responses were not simply parallel, and yellow-necked mice, where high-density phases combined smaller ranges with greater inferred overlap.
+
+Therefore this programme must not claim novelty for asking whether density changes **both** range size and overlap.
+
+The key limitation of overlap as an endpoint is that it conflates two spatial components. Overlap can change because:
+
+1. individuals alter the spatial variance of their own movement/use distribution;
+2. individual activity centres move closer together or farther apart;
+3. both occur simultaneously.
+
+The present programme targets those two components separately as within-individual variance (W) and among-centre variance (B). Its candidate contribution is therefore a decomposition of the density response, not another overlap analysis.
+
 ### Cross-scale and within/between-individual space use
 
 The distinction between within-individual and between-individual spatial variation is also established in movement and individual-specialization ecology. Spatial niche studies have explicitly partitioned individual and population space use, and SCR literature jointly treats individual movement scale and population density.
@@ -101,3 +115,7 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 - O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Uncovering multiple influences on space use by deer mice using large ecological networks. *Oecologia* 207:98. doi:10.1007/s00442-025-05731-2.
 
 - Albery GF et al. 2025. Density-dependent network structuring within and across wild animal systems. *Nature Ecology & Evolution* 9:2002–2013. doi:10.1038/s41559-025-02843-z.
+
+- Madan R et al. 2015. Effects of population density on corticosterone levels of prairie voles in the field. *General and Comparative Endocrinology*; associated spatial analyses reported smaller home ranges and more overlapping neighbours at high density.
+- Schradin C et al. 2015. Manipulation of population density and food availability affects home range sizes of African striped mouse females. *Animal Behaviour* 99:53–60.
+- Bogdziewicz M et al. 2016. Negative effects of density on space use of small mammals differ with the phase of the masting-induced population cycle. *Ecology and Evolution* 6:8423–8433. doi:10.1002/ece3.2513.
