@@ -40,7 +40,10 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         self.assertIn("full temporal exchangeability is sufficient but not necessary",self.text.lower())
         words=re.findall(r"\b\w+[\w'–-]*\b",self.text)
         self.assertGreaterEqual(len(words),4000)
-        self.assertLessEqual(len(words),8500)
+        self.assertLessEqual(len(words),8000)
+        abstract=self.text.split("## Abstract",1)[1].split("## Data/Code for peer review",1)[0]
+        abstract_words=re.findall(r"\b\w+[\w'–-]*\b",abstract)
+        self.assertLessEqual(len(abstract_words),350)
 
     def test_pema_post_stop_receipt_matches_manuscript(self):
         p=self.pema["primary_model"]
