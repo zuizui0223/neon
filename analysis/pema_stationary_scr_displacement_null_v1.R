@@ -18,11 +18,11 @@ out_csv <- arg_value("--output-csv", "results/pema_stationary_scr_displacement_n
 bootstrap_csv <- arg_value("--bootstrap-csv", "results/pema_stationary_scr_displacement_null_bootstrap_v1.csv")
 base_seed <- as.integer(arg_value("--seed", "20261006"))
 target_repeat <- as.integer(arg_value("--target-repeat", "2500"))
-nboot <- as.integer(arg_value("--nboot", "2000"))
+nboot <- as.integer(arg_value("--nboot", "2000"))\ncores <- as.integer(arg_value("--cores", "4"))
 
 if (is.null(source_path) || !file.exists(source_path)) stop("--source must exist")
 if (!is.finite(target_repeat) || target_repeat < 485) stop("target-repeat must be >=485")
-if (!is.finite(nboot) || nboot < 200) stop("nboot must be >=200")
+if (!is.finite(nboot) || nboot < 200) stop("nboot must be >=200")\nif (!is.finite(cores) || cores < 1) stop("cores must be >=1")
 
 SPACING <- 6.25
 BUFFER <- 100
@@ -212,10 +212,14 @@ run_cell <- function(sigma, g0, cell_seed) {
 }
 
 grid <- expand.grid(sigma_m=SIGMAS,g0=G0S,KEEP.OUT.ATTRS=FALSE,stringsAsFactors=FALSE)
-pieces <- vector("list",nrow(grid))
-for (i in seq_len(nrow(grid))) {
+run_index <- function(i) {
   message("cell ",i,"/",nrow(grid)," sigma=",grid$sigma_m[i]," g0=",grid$g0[i])
-  pieces[[i]] <- run_cell(grid$sigma_m[i],grid$g0[i],base_seed+i*10000019L)
+  run_cell(grid$sigma_m[i],grid$g0[i],base_seed+i*10000019L)
+}
+if (.Platform$OS.type=="unix" && cores>1) {
+  pieces <- parallel::mclapply(seq_len(nrow(grid)),run_index,mc.cores=cores,mc.preschedule=FALSE)
+} else {
+  pieces <- lapply(seq_len(nrow(grid)),run_index)
 }
 
 cells <- do.call(rbind,lapply(pieces,`[[`,"cell"))
