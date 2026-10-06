@@ -58,7 +58,16 @@
   "sampling_boundary": {
     "primary_cross_scale_pool": "multi-night sessions where both individual-scale and population-footprint metrics are estimable",
     "one_night_sessions": "population-footprint development only unless a future frozen model establishes comparability",
-    "denominator": "active trap-night"
+    "denominator": "active trap-night",
+    "primary_geometry": {
+      "grid": "standard NEON 10x10 trapCoordinate lattice",
+      "trap_spacing_m": 10,
+      "footprint_m": "90 x 90",
+      "primary_sites": "all structurally eligible standard-grid sites",
+      "exception": "SRER uses 7x7 and is excluded from the primary standard-geometry contrast; it may be analyzed only under separately calibrated secondary geometry",
+      "coordinate_system": "nominal trapCoordinate lattice, not historical geographic latitude/longitude",
+      "rationale": "avoids conflating ecological spatial variance with historical geolocation/Named Location corrections; within-session geometry is defined by the sampling design"
+    }
   },
   "candidate_individual_scale_metrics": [
     "primary coordinate candidate: equal-individual half mean pairwise squared distance among repeated locations (unbiased within-individual covariance-trace U-statistic)",
@@ -129,7 +138,9 @@
     "fixed-footprint mechanical null across varying sampled individual count",
     "same prospectively defined individual-support rule for primary W/B comparison",
     "pre-effect audit of repeat-supported fraction across abundance/support classes without opening spatial distances",
-    "raw-B versus prespecified centroid-debiased-B sensitivity"
+    "raw-B versus prespecified centroid-debiased-B sensitivity",
+    "standard 10x10 and SRER 7x7 geometries must not be pooled without separate calibration",
+    "primary coordinate system uses nominal trapCoordinate lattice; geographic-coordinate sensitivity is secondary and requires current geoNEON/locations metadata"
   ],
   "replication_requirement": {
     "taxonomic": true,
@@ -173,8 +184,8 @@
   "mechanical_support_selection": {
     "status": "frozen_before_RELEASE2026_effect_blind_support_result",
     "scenarios": [
-      "7x7 fixed detector grid with latent centres across full grid",
-      "7x7 fixed detector grid with latent centres restricted to central 5x5"
+      "standard NEON 10x10 fixed detector grid with latent centres across full 10x10",
+      "standard NEON 10x10 fixed detector grid with latent centres restricted to central 8x8"
     ],
     "detector_spacing_m": 10,
     "detector_kernel_sigma_m": 12.5,
@@ -195,7 +206,13 @@
     },
     "selection_rule": "choose the smallest candidate m passing all criteria in every prespecified scenario; if none pass, STOP",
     "implementation": "analysis/simulate_multiscale_density_metric_support_v1.py",
-    "relationship_to_real_support": "the selected synthetic minimum is intersected with the RELEASE-2026 effect-blind support frontier; it is never lowered because real-data support is sparse"
+    "relationship_to_real_support": "select the synthetic minimum from standard 10x10 scenarios only, then intersect it with the RELEASE-2026 effect-blind standard-grid support frontier; never lower it because real-data support is sparse",
+    "primary_geometry": "standard_10x10",
+    "secondary_geometry": {
+      "site": "SRER",
+      "geometry": "7x7 fixed detector grid, 10 m spacing",
+      "rule": "calibrate separately; SRER may not define or lower the primary standard-grid support threshold"
+    }
   },
   "taxonomy_integrity": {
     "primary_unit": "NEON published taxonID concept; do not force cryptic composite taxon IDs to species",
