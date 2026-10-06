@@ -455,16 +455,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             taxon_sessions[s["taxon"]] += 1
             for genus in s["genus_labels"]:
                 genus_sessions[genus] += 1
+            if s["primary_standard_geometry"]:
+                primary_taxon_sessions[s["taxon"]] += 1
+                for genus in s["genus_labels"]:
+                    primary_genus_sessions[genus] += 1
             for site in s["site_ids"]:
                 if site:
                     taxon_sites[s["taxon"]].add(site)
                     for genus in s["genus_labels"]:
                         genus_sites[genus].add(site)
                     if s["primary_standard_geometry"]:
-                        primary_taxon_sessions[s["taxon"]] += 1
                         primary_taxon_sites[s["taxon"]].add(site)
                         for genus in s["genus_labels"]:
-                            primary_genus_sessions[genus] += 1
                             primary_genus_sites[genus].add(site)
         support_frontier.append({
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
