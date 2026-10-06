@@ -73,6 +73,24 @@ The remaining distinction is geometric rather than compositional. Habitat-specia
 
 The candidate novelty is the density response of those two spatial-variance components, estimated on the same squared-distance scale and compared directly within standardized sampling bouts.
 
+### The niche-variation logic is older than the spatial test
+
+The broader logic of partitioning a population niche into within- and between-individual components is not new. In trophic ecology, the Niche Variation Hypothesis and related competition-diversification models predict that increasing intraspecific competition can change individual niche breadth, among-individual differentiation, or both. Svanbäck & Bolnick (2007) experimentally showed density-driven diversification of resource use in sticklebacks, and subsequent reviews/syntheses established strong but context-dependent density effects on individual niche variation.
+
+The same decomposition has begun to enter movement ecology. For example, Jiang et al. (2023, *Movement Ecology*) showed in one bat population that seasonal changes in individual spatial niche breadth and spatial individual specialization can trade off while population spatial niche breadth remains relatively stable.
+
+Therefore this programme must also avoid claiming novelty for:
+
+- the general within- versus between-individual niche decomposition;
+- competition/density as a driver of individual niche variation;
+- the idea that individual and population spatial niches can change differently.
+
+The narrower candidate contribution is:
+
+> **a replicated density-response test of geometric spatial variance itself, separating short-term within-individual positional variance from among-individual-centre variance on a common metric scale across many small-mammal populations.**
+
+This makes the programme a spatial-variance test related to the Niche Variation Hypothesis, not the first test of the Niche Variation Hypothesis and not the first study of spatial individual specialization.
+
 ## Remaining gap
 
 The candidate gap is narrower:
@@ -138,3 +156,6 @@ The two papers may share data infrastructure, but neither is evidence for the ot
 - Bogdziewicz M et al. 2016. Negative effects of density on space use of small mammals differ with the phase of the masting-induced population cycle. *Ecology and Evolution* 6:8423–8433. doi:10.1002/ece3.2513.
 
 - Webber QMR et al. 2024. The adaptive value of density-dependent habitat specialization and social network centrality. *Nature Communications* 15:4423. doi:10.1038/s41467-024-48657-8.
+
+- Svanbäck R, Bolnick DI. 2007. Intraspecific competition drives increased resource use diversity within a natural population. *Proceedings of the Royal Society B* 274:839–844.
+- Jiang T et al. 2023. Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology* 11:30. doi:10.1186/s40462-023-00394-1.
