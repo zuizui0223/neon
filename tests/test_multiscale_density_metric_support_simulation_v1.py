@@ -15,7 +15,15 @@ class MultiscaleDensityMetricSupportSimulationTests(unittest.TestCase):
         self.assertEqual(a, b)
         self.assertFalse(a["boundary"]["biological_data_read"])
         self.assertFalse(a["boundary"]["density_effects_estimated"])
-        self.assertEqual(len(a["cells"]), 12)
+        self.assertEqual(len(a["cells"]), 24)
+        primary = [x for x in a["cells"] if x["primary_geometry"]]
+        srer = [x for x in a["cells"] if x["geometry"] == "srer_7x7_exception"]
+        self.assertEqual(len(primary), 12)
+        self.assertEqual(len(srer), 12)
+        self.assertEqual(
+            a["mechanical_support_decision"]["candidate_minima"],
+            [3, 5, 8, 10, 15, 20],
+        )
 
     def test_support_rule_chooses_first_all_scenario_pass(self):
         def row(n, q90):
