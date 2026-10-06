@@ -137,7 +137,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         primary=p["primary_cell"][0] if isinstance(p["primary_cell"],list) else p["primary_cell"]
         self.assertLess(p["observed"]["axis_rms_m"],primary["axis_q975"])
         self.assertLess(p["observed"]["changed_fraction"],primary["changed_q025"])
-        for token in ("9.1231","0.6972","short-term positional persistence"):
+        for token in ("9.1231","0.6972","serial dependence"):
             self.assertIn(token,self.text)
 
 
@@ -166,14 +166,14 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         self.assertAlmostEqual(p["primary"]["null_same_trap_median"],0.08257,places=4)
         self.assertAlmostEqual(p["primary"]["null_changed_rms_median"],14.30286,places=4)
         self.assertEqual(p["quantile_definition"],"R quantile type=8 equivalent")
-        self.assertAlmostEqual(p["primary"]["null_same_trap_q025"],0.05317,places=4)
-        self.assertAlmostEqual(p["primary"]["null_changed_rms_q025"],13.39203,places=4)
-        self.assertAlmostEqual(p["primary"]["null_changed_rms_q975"],15.39657,places=4)
-        self.assertAlmostEqual(p["primary"]["changed_rms_upper_tail_fraction"],0.016,places=3)
-        self.assertEqual(p["robustness"]["supported_cell_count"],6)
-        self.assertEqual(p["robustness"]["same_trap_above_q975_cells"],6)
+        self.assertAlmostEqual(p["primary"]["null_same_trap_q025"],0.05046,places=4)
+        self.assertAlmostEqual(p["primary"]["null_changed_rms_q025"],13.43010,places=4)
+        self.assertAlmostEqual(p["primary"]["null_changed_rms_q975"],15.29559,places=4)
+        self.assertAlmostEqual(p["primary"]["changed_rms_upper_tail_fraction"],0.008,places=3)
+        self.assertEqual(p["robustness"]["supported_cell_count"],9)
+        self.assertEqual(p["robustness"]["same_trap_above_q975_cells"],9)
         self.assertEqual(p["robustness"]["changed_rms_above_q975_cells"],5)
-        for token in ("30.3%","15.45 m","14.30 m","five of six supported"):
+        for token in ("30.3%","15.45 m","14.30 m","five of nine"):
             self.assertIn(token,self.text)
         self.assertIn("post-result algebraic decomposition",self.text.lower())
 

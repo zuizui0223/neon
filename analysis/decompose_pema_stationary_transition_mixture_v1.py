@@ -100,6 +100,7 @@ def main() -> int:
         "status": "post_result_algebraic_decomposition_of_frozen_stationary_reference",
         "empirical_scope": stationary["empirical_scope"],
         "identity": "E[R^2] = P(R>0) * E[R^2 | R>0] because same-trap repeat nights have R=0 on the fixed lattice",
+        "quantile_definition": "R quantile type=8 equivalent",
         "observed": {
             "changed_fraction": obs_changed,
             "same_trap_fraction": obs_same,
@@ -131,9 +132,11 @@ def main() -> int:
             "preregistered_endpoint": False,
             "interpretation": (
                 "The empirical sequence redistributes second-moment mass toward more "
-                "zero-displacement repeats and, conditional on changing traps, longer "
-                "displacements than the independent-check stationary reference. This is "
-                "a post-result decomposition, not a causal movement model."
+                "zero-displacement repeats and, conditional on changing traps, somewhat "
+                "longer displacements than the independent-check stationary reference. "
+                "The same-trap excess is robust across the sensitivity grid, whereas the "
+                "changed-night tail contrast is sensitivity-dependent. This is a post-result "
+                "decomposition, not a causal movement model."
             ),
         },
     }
