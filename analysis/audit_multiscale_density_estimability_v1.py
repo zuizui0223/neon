@@ -311,10 +311,17 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
         sampling_types = sorted(e["sampling_types"])
         sampling_protocol_class = _sampling_protocol_class(sampling_types)
         n_trapping_nights = len(e["nightuids"])
+        exact_three_night_structure = n_trapping_nights == 3
         primary_standardized_protocol = (
             geometry_class == "standard_10x10"
-            and sampling_protocol_class == "pathogen"
-            and n_trapping_nights >= 3
+            and (
+                sampling_protocol_class == "pathogen"
+                or (
+                    sampling_protocol_class == "unknown"
+                    and exact_three_night_structure
+                )
+            )
+            and exact_three_night_structure
         )
 
         sessions.append({
@@ -338,7 +345,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "sampling_protocol_class": sampling_protocol_class,
             "grid_completion_values": sorted(e["grid_completion_values"]),
             "n_trapping_nights": n_trapping_nights,
+            "exact_three_night_structure": exact_three_night_structure,
             "primary_standardized_protocol": primary_standardized_protocol,
+            "protocol_identification_basis": (
+                "declared_pathogen"
+                if sampling_protocol_class == "pathogen"
+                else (
+                    "exact_three_night_structure_with_type_unavailable"
+                    if sampling_protocol_class == "unknown"
+                    and exact_three_night_structure
+                    else "not_primary"
+                )
+            ),
             "n_trap_nights_observed": len(e["trap_nights"]),
             "n_distinct_trap_coordinates_in_effort": len(e["trap_coordinates"]),
             "n_capture_rows": int(g["capture_rows"]),
@@ -506,18 +524,18 @@ def audit(perplotnight: Path, pertrapnight: Path) -> dict:
             "minimum_repeat_coordinate_supported_individuals": minimum_individuals,
             "n_eligible_species_session_records": len(eligible_sessions),
             "n_primary_standard_geometry_species_session_records": len(primary_sessions),
-            "n_primary_standard_10x10_pathogen_3night_species_session_records": len(
+            "n_primary_standard_10x10_exact_3night_species_session_records": len(
                 standardized_primary_sessions
             ),
             "n_srer_7x7_species_session_records": len(srer_sessions),
             "n_taxa": len(taxa_set),
             "n_primary_standard_geometry_taxa": len(primary_taxa_set),
-            "n_primary_standard_10x10_pathogen_3night_taxa": len(
+            "n_primary_standard_10x10_exact_3night_taxa": len(
                 standardized_primary_taxa_set
             ),
             "n_resolved_genera": len(genus_set),
             "n_primary_standard_geometry_genera": len(primary_genus_set),
-            "n_primary_standard_10x10_pathogen_3night_genera": len(
+            "n_primary_standard_10x10_exact_3night_genera": len(
                 standardized_primary_genus_set
             ),
             "n_plots": len(plots_set),
