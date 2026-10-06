@@ -230,10 +230,10 @@ out <- list(
   cells=summ,
   primary_cell=primary,
   conclusion=list(
-    observed_exceeds_primary_stationary_975=bool(primary$observed_axis_exceeds_q975[1]),
-    observed_axis_within_primary_95=bool(primary$observed_axis_within_95[1]),
-    observed_exceeds_any_stationary_975=bool(any(summ$observed_axis_exceeds_q975)),
-    observed_exceeds_all_stationary_975=bool(all(summ$observed_axis_exceeds_q975)),
+    observed_exceeds_primary_stationary_975=as.logical(primary$observed_axis_exceeds_q975[1]),
+    observed_axis_within_primary_95=as.logical(primary$observed_axis_within_95[1]),
+    observed_exceeds_any_stationary_975=as.logical(any(summ$observed_axis_exceeds_q975)),
+    observed_exceeds_all_stationary_975=as.logical(all(summ$observed_axis_exceeds_q975)),
     interpretation="Tests whether empirical first-to-last displacement is unusually large relative to a fixed-centre stationary SCR observation process; it does not prove time-reversal symmetry or identify handling effects."
   ),
   package_versions=list(R=as.character(getRversion()),secr=as.character(packageVersion("secr")),jsonlite=as.character(packageVersion("jsonlite")))
