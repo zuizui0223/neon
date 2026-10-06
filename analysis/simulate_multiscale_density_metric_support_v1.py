@@ -256,7 +256,7 @@ def run(
             "define or lower the standard-grid support threshold"
         ),
         "detector_kernel_sigma_m": sigma,
-        "captures_per_individual": "discrete uniform 2..4",
+        "captures_per_individual": "discrete uniform 2..3, matching repeat support available within a three-night pathogen event",
         "cells": cells,
         "mechanical_support_decision": support_decision,
         "srer_mechanical_support_decision": srer_support_decision,
