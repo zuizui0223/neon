@@ -97,6 +97,8 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertEqual(s["n_coordinate_supported_tagged_individuals"], 2)
             self.assertEqual(s["scientific_names"], ["Species one"])
             self.assertEqual(s["genus_labels"], ["Species"])
+            self.assertEqual(s["geometry_class"], "standard_10x10")
+            self.assertTrue(s["primary_standard_geometry"])
             self.assertNotIn("n_repeat_location_tagged_individuals", s)
             self.assertNotIn("n_distinct_capture_coordinates", s)
 
@@ -110,6 +112,10 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             )
             self.assertEqual(by_min[2]["n_taxa"], 0)
             self.assertEqual(by_min[2]["n_resolved_genera"], 0)
+            self.assertEqual(
+                by_min[2]["n_primary_standard_geometry_species_session_records"], 0
+            )
+            self.assertEqual(by_min[2]["n_srer_7x7_species_session_records"], 0)
 
             support_text = json.dumps(out["support"]).lower()
             for forbidden in ("beta_w", "beta_b", "delta_beta", "habitat_effect", "distance"):
@@ -141,6 +147,28 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
             self.assertEqual(
                 out["support"]["sessions"][0]["n_capture_rows"], 2
             )
+
+    def test_srer_is_separate_secondary_geometry(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plot = root / "p.csv"
+            trap = root / "t.csv"
+            plot.write_text(
+                "nightuid,eventID,plotID,siteID\n"
+                "n1,E1,P1,SRER\n"
+                "n2,E1,P1,SRER\n",
+                encoding="utf-8",
+            )
+            trap.write_text(
+                "nightuid,plotID,trapCoordinate,trapStatus,tagID,taxonID,scientificName\n"
+                "n1,P1,A1,5 - capture,i1,TX1,Species one\n"
+                "n2,P1,A2,5 - capture,i1,TX1,Species one\n",
+                encoding="utf-8",
+            )
+            out = audit(plot, trap)
+            s = out["support"]["sessions"][0]
+            self.assertEqual(s["geometry_class"], "srer_7x7_exception")
+            self.assertFalse(s["primary_standard_geometry"])
 
     def test_duplicate_rows_within_one_night_do_not_create_repeat_support(self):
         with tempfile.TemporaryDirectory() as td:
