@@ -6,7 +6,7 @@ Diagnosing when temporal aggregation changes spatial scale inference in repeated
 
 ## Running title
 
-Temporal positional aliasing in ecological data
+Temporal aliasing in ecological data
 
 ## Authors
 
