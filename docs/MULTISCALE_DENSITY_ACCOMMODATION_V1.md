@@ -160,6 +160,8 @@ This is exactly the trace of the unbiased sample covariance of that individual's
 
 A session-level SCR/SECR spatial scale remains an alternative only where the effect-blind support gate shows adequate spatial recaptures.
 
+Because the primary pathogen event has three trapping nights, the synthetic support calibration permits exactly 2–3 distinct-night observations per repeat-supported individual. It does not borrow a fourth observation that the primary sampling design cannot provide.
+
 Singly captured individuals are **unresolved for (W)**, not zero movement. The structural audit must therefore quantify how much of each species × grid × session is represented by repeated-location individuals before this route can advance.
 
 ## Candidate population-footprint metrics for development
