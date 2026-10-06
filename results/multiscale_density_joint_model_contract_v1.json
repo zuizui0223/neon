@@ -1,0 +1,107 @@
+{
+  "schema": "neon.multiscale_density.joint_model_contract.v1",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_FIRST_W_B_X_MNKA_JOIN",
+  "programme": "multiscale_density_accommodation_v1",
+  "inferential_status": "RELEASE-2026 exploratory/development ecological estimate only; future NEON observations remain the confirmatory response",
+  "prerequisite_results": [
+    "results/multiscale_density_target_structural_go_v1.json",
+    "results/multiscale_density_observation_process_contract_v3.json",
+    "results/multiscale_density_metric_contract_v1.json",
+    "results/multiscale_density_mnka_variation_decision_v1.json"
+  ],
+  "primary_universe": {
+    "target_taxonomy": "taxonProtocolCategory == target, published taxon concepts retained",
+    "geometry": "standard 10x10 only",
+    "bout": "complete exact-3-night site x plotID x eventID",
+    "saturation": "all-small-mammal capture trap-night fraction <= 0.30",
+    "metric": "successfully scored under multiscale_density_metric_contract_v1",
+    "temporal_replication": "taxon x plot series with >=3 scored sessions and >=2 distinct genus-MNKA values",
+    "replicated_genera": [
+      "Chaetodipus",
+      "Dipodomys",
+      "Microtus",
+      "Myodes",
+      "Napaeozapus",
+      "Onychomys",
+      "Peromyscus",
+      "Sigmodon"
+    ],
+    "no_new_response_based_filtering": true
+  },
+  "variables": {
+    "W": "session equal-individual mean within-individual variance, m^2",
+    "B": "session centroid-debiased among-individual-centre variance, m^2",
+    "D": "B - W, m^2",
+    "N": "genus-level event MNKA"
+  },
+  "primary_estimand": {
+    "name": "delta_beta",
+    "definition": "coefficient of genus MNKA in D = B - W",
+    "interpretation": "change in between-minus-within spatial variance, in m^2, per one additional known-alive congener",
+    "prediction": "delta_beta > 0",
+    "strong_form": "beta_W < 0 and beta_B >= 0"
+  },
+  "adjustment": {
+    "fixed_effects": [
+      "taxon concept x plotID series",
+      "site x calendar month",
+      "calendar year"
+    ],
+    "rationale": [
+      "series fixed effects isolate temporal within-population covariation",
+      "site x month effects absorb site-specific seasonality",
+      "year effects absorb network-wide annual shifts"
+    ],
+    "transformations": "identity scale only; do not log W or B after seeing effects because B_debiased may be signed",
+    "outliers": "no response-value trimming or winsorization"
+  },
+  "weighting": {
+    "primary": "inverse number of included sessions within genus, rescaled so each frozen replicated genus has equal total weight",
+    "rationale": "prevent Peromyscus from dominating the generality claim by sample size alone",
+    "sensitivity": "unweighted session-level fit"
+  },
+  "estimation": {
+    "method": "weighted fixed-effects least squares using Frisch-Waugh-Lovell residualization",
+    "primary_response": "D",
+    "secondary_responses": [
+      "W",
+      "B"
+    ],
+    "robust_uncertainty": "two-way cluster sandwich sensitivity by genus and site; coefficient sign and leave-one-genus-out stability are mandatory even if small-cluster CI is imprecise",
+    "genus_specific_check": "within each frozen genus, fit the same response on MNKA with taxon x plot fixed effects; calendar adjustment is retained where estimable"
+  },
+  "generality_guard": {
+    "required_for_development_support": [
+      "primary genus-balanced delta_beta > 0",
+      "delta_beta remains > 0 in every leave-one-genus-out primary fit",
+      "at least 6 of 8 frozen genus-specific delta_beta estimates are > 0"
+    ],
+    "strong_form_requires": [
+      "genus-balanced beta_W < 0",
+      "genus-balanced beta_B >= 0"
+    ],
+    "if_guard_fails": "report the pattern as taxon/genus heterogeneous; do not rescue with habitat, body size, trophic group, or post-hoc subsets"
+  },
+  "sensitivities": [
+    "unweighted session-level fixed-effects model",
+    "replace B_debiased with B_observed",
+    "drop site x month adjustment but retain series and year effects",
+    "leave-one-site-out sign stability of delta_beta",
+    "leave-one-genus-out sign stability of delta_beta"
+  ],
+  "forbidden_before_development_result": [
+    "habitat moderators",
+    "body-size moderators",
+    "latitude interactions",
+    "species-specific threshold tuning",
+    "raising saturation cutoff",
+    "changing m below 5",
+    "alternative abundance predictor selected by result",
+    "alternative spatial metric selected by result"
+  ],
+  "future_confirmation": {
+    "response": "first NEON small-mammal observations not contained in RELEASE-2026",
+    "rule": "copy the final model and all inclusion/guard rules unchanged after development validation"
+  }
+}
