@@ -2,7 +2,7 @@
 
 ## Title
 
-Diagnosing temporal positional aliasing in repeated-location ecological data
+Diagnosing when temporal aggregation changes spatial scale inference in repeated-location ecological data
 
 ## Running title
 
@@ -32,11 +32,11 @@ Research Article
 
 ## Keywords
 
-observation process; spatial ecology; temporal aggregation; capture–recapture; repeated observations; positional uncertainty; sensitivity analysis; spatial scale
+capture–recapture; observation process; repeated observations; spatial ecology; spatial scale; temporal aggregation; time-reversal symmetry; within-occasion variation
 
 ## Word count
 
-Current manuscript v0.3 is approximately 4,900 words before final author/funding/conflict statements.
+Current manuscript v0.6 is approximately 7,867 words including references and figure captions by the repository word-count check; keep the final submission within the MEE 7,000–8,000-word Research Article guidance.
 
 ## Data availability
 
@@ -74,4 +74,4 @@ To be completed by the authors.
 
 ## AI-assisted tools disclosure
 
-The main manuscript contains the required Methods disclosure naming OpenAI ChatGPT (GPT-5.6 Sol; accessed September 2026), describing its role in code/text development, and stating that AI output was not treated as evidence or authorship. The final title-page Author Contributions statement must name the responsible corresponding or senior author as specified above.
+The main manuscript contains the required Methods disclosure naming OpenAI ChatGPT (GPT-5.6 Sol; accessed September–October 2026), describing its role in code/text development, and stating that AI output was not treated as evidence or authorship. The final title-page Author Contributions statement must name the responsible corresponding or senior author as specified above.
