@@ -224,6 +224,8 @@ No choice among these routes may depend on observed (\beta_W), (\beta_B) or (\De
 
 This route is a scale decomposition, not a claim that trap captures reconstruct complete movement paths.
 
+Accordingly, the primary (W) estimand is described as **short-term within-session space-use variance**, not as a home-range estimate. Three-night live-trap recaptures can contain capture/handling and detection-process effects; those limitations remain part of the ecological interpretation even if the cross-scale density contrast is replicated.
+
 ## Abundance candidates
 
 Development may compare:
