@@ -126,28 +126,44 @@ records_from_ch <- function(ch,check) {
 
 simulate_one <- function(sigma,g0,seed,target_n) {
   set.seed(seed)
-  pop <- sim.popn(D=DENSITY,core=core,buffer=BUFFER,model2D="poisson",Ndist="poisson",seed=seed)
-  pieces <- vector("list",CHECKS)
-  for (cc in seq_len(CHECKS)) {
-    ch <- sim.capthist(
-      tr,popn=pop,detectfn="HN",detectpar=list(g0=g0,sigma=sigma),
-      noccasions=1,renumber=FALSE,seed=seed+cc*1009L
+  pooled <- list()
+  total_repeat <- 0L
+  population_block <- 0L
+
+  while (total_repeat < target_n) {
+    population_block <- population_block + 1L
+    if (population_block > 20L) stop("failed to accumulate matched repeat support")
+
+    block_seed <- seed + population_block * 100003L
+    pop <- sim.popn(
+      D=DENSITY,core=core,buffer=BUFFER,model2D="poisson",
+      Ndist="poisson",seed=block_seed
     )
-    pieces[[cc]] <- records_from_ch(ch,cc)
+    pieces <- vector("list",CHECKS)
+    for (cc in seq_len(CHECKS)) {
+      ch <- sim.capthist(
+        tr,popn=pop,detectfn="HN",detectpar=list(g0=g0,sigma=sigma),
+        noccasions=1,renumber=FALSE,seed=block_seed+cc*1009L
+      )
+      pieces[[cc]] <- records_from_ch(ch,cc)
+    }
+    rec <- do.call(rbind,pieces)
+    if (!nrow(rec)) next
+    gs <- split(rec,paste0(rec$ID))
+    rows <- lapply(gs,function(z){
+      z <- z[order(z$check),,drop=FALSE]
+      if (nrow(z)<2) return(NULL)
+      a <- trxy[z$trap[1],]; b <- trxy[z$trap[nrow(z)],]
+      data.frame(dx=b["x"]-a["x"],dy=b["y"]-a["y"])
+    })
+    rows <- rows[!vapply(rows,is.null,logical(1))]
+    if (!length(rows)) next
+    rr <- do.call(rbind,rows)
+    pooled[[length(pooled)+1L]] <- rr
+    total_repeat <- total_repeat + nrow(rr)
   }
-  rec <- do.call(rbind,pieces)
-  if (!nrow(rec)) return(NULL)
-  gs <- split(rec,paste0(rec$ID))
-  rows <- lapply(gs,function(z){
-    z <- z[order(z$check),,drop=FALSE]
-    if (nrow(z)<2) return(NULL)
-    a <- trxy[z$trap[1],]; b <- trxy[z$trap[nrow(z)],]
-    data.frame(dx=b["x"]-a["x"],dy=b["y"]-a["y"])
-  })
-  rows <- rows[!vapply(rows,is.null,logical(1))]
-  if (!length(rows)) return(NULL)
-  rr <- do.call(rbind,rows)
-  if (nrow(rr)<target_n) return(NULL)
+
+  rr <- do.call(rbind,pooled)
   rr <- rr[sample.int(nrow(rr),target_n,replace=FALSE),,drop=FALSE]
   m <- metric(rr)
   data.frame(
@@ -155,7 +171,8 @@ simulate_one <- function(sigma,g0,seed,target_n) {
     radial_rms_m=m$radial_rms_m,
     median_distance_m=m$median_distance_m,
     changed_fraction=m$changed_fraction,
-    fraction_ge_2_spacings=m$fraction_ge_2_spacings
+    fraction_ge_2_spacings=m$fraction_ge_2_spacings,
+    populations_used=population_block
   )
 }
 
@@ -170,7 +187,8 @@ run_task <- function(i) {
   ans <- simulate_one(z$sigma,z$g0,z$seed,observed$n)
   if (is.null(ans)) {
     return(data.frame(sigma=z$sigma,g0=z$g0,replicate=z$replicate,success=FALSE,
-      axis_rms_m=NA,radial_rms_m=NA,median_distance_m=NA,changed_fraction=NA,fraction_ge_2_spacings=NA))
+      axis_rms_m=NA,radial_rms_m=NA,median_distance_m=NA,changed_fraction=NA,
+      fraction_ge_2_spacings=NA,populations_used=NA_integer_))
   }
   cbind(data.frame(sigma=z$sigma,g0=z$g0,replicate=z$replicate,success=TRUE),ans)
 }
@@ -190,10 +208,15 @@ summarize_cell <- function(z) {
     radial_q025=r[1],radial_median=r[2],radial_q975=r[3],
     changed_q025=cfr[1],changed_median=cfr[2],changed_q975=cfr[3],
     axis_upper_tail_p=mean(ok$axis_rms_m>=observed$axis_rms_m),
+    axis_lower_tail_p=mean(ok$axis_rms_m<=observed$axis_rms_m),
     changed_upper_tail_p=mean(ok$changed_fraction>=observed$changed_fraction),
+    changed_lower_tail_p=mean(ok$changed_fraction<=observed$changed_fraction),
     observed_axis_within_95=(observed$axis_rms_m>=a[1] && observed$axis_rms_m<=a[3]),
     observed_axis_exceeds_q975=(observed$axis_rms_m>a[3]),
-    observed_changed_exceeds_q975=(observed$changed_fraction>cfr[3])
+    observed_axis_below_q025=(observed$axis_rms_m<a[1]),
+    observed_changed_exceeds_q975=(observed$changed_fraction>cfr[3]),
+    observed_changed_below_q025=(observed$changed_fraction<cfr[1]),
+    median_populations_used=median(ok$populations_used)
   )
 }
 key <- interaction(res$sigma,res$g0,drop=TRUE,lex.order=TRUE)
@@ -234,7 +257,9 @@ out <- list(
     observed_axis_within_primary_95=as.logical(primary$observed_axis_within_95[1]),
     observed_exceeds_any_stationary_975=as.logical(any(summ$observed_axis_exceeds_q975)),
     observed_exceeds_all_stationary_975=as.logical(all(summ$observed_axis_exceeds_q975)),
-    interpretation="Tests whether empirical first-to-last displacement is unusually large relative to a fixed-centre stationary SCR observation process; it does not prove time-reversal symmetry or identify handling effects."
+    observed_changed_below_all_stationary_025=as.logical(all(summ$observed_changed_below_q025)),
+    all_cells_successful=as.logical(all(summ$n_success==summ$n)),
+    interpretation="Empirical displacement magnitude does not exceed the fixed-centre stationary SCR reference, while the empirical changed-trap fraction is lower than the independent-check stationary reference; this is consistent with short-term positional persistence or reversible serial dependence, not an ordered handling-induced state shift."
   ),
   package_versions=list(R=as.character(getRversion()),secr=as.character(packageVersion("secr")),jsonlite=as.character(packageVersion("jsonlite")))
 )
