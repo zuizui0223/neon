@@ -122,11 +122,13 @@ The primary ecological unit is **species × grid × sampling session**.
 
 ## Sampling design boundary
 
-Individual-scale movement inference requires repeated locations. Therefore:
+Individual-scale spatial variance requires repeated locations. Therefore the primary observation process is frozen more narrowly:
 
-- three-night pathogen/recapture-compatible sessions are the primary development pool;
-- one-night diversity grids can contribute to population-footprint development only if their effort semantics are compatible, but cannot independently identify within-session individual spatial use;
-- primary confirmatory cross-scale inference must use sessions where both scales are estimable under the same frozen rule.
+- **primary:** standard 10×10 pathogen-grid sessions with at least three trapping nights;
+- **legacy recapture sessions:** development/sensitivity only, not pooled into the future primary confirmation;
+- **diversity grids:** one-night bouts are not eligible for primary W/B inference;
+- **SRER:** separate 7×7 geometry, not pooled into the standard-grid primary;
+- future confirmation must use sessions where both scales are estimable under the same frozen support rule and the prospectively accepted `gridCompletion` status is satisfied.
 
 Active trap-nights, not nominal grid size, form the observation denominator.
 
@@ -280,7 +282,8 @@ Exact minimum counts will be frozen after the response-blind RELEASE-2026 struct
 - separate mechanical calibration for the SRER 7×7 exception; it cannot lower the primary standard-grid support threshold;
 - audit of repeated-capture support versus session abundance so that W estimability is not mistaken for a density response;
 - observed multi-coordinate or movement status must not enter primary eligibility;
-- no pooling of one-night and three-night sessions if their estimands are not comparable.
+- no pooling of one-night diversity, legacy recapture and three-night pathogen designs in the primary inference;
+- primary sessions must satisfy the prospectively frozen RELEASE-2026 `gridCompletion` completeness semantics.
 
 ## Literature boundary
 
