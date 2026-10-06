@@ -130,6 +130,18 @@ Individual-scale movement inference requires repeated locations. Therefore:
 
 Active trap-nights, not nominal grid size, form the observation denominator.
 
+### Frozen spatial geometry boundary
+
+The primary coordinate system is the **nominal NEON trap lattice encoded by `trapCoordinate`**.
+
+- Standard NEON mammal grids: 10 × 10 traps at 10 m spacing, spanning 90 × 90 m.
+- SRER is a protocol exception with a 7 × 7 grid and is excluded from the primary standard-geometry contrast.
+- SRER may enter only as a separately calibrated secondary geometry.
+- Historical latitude/longitude or Named Location coordinates are not used to define the primary within-grid distances.
+
+This choice is prospective and design-based. It avoids allowing historical geolocation corrections or shifted Named Locations to create apparent ecological changes in within-grid variance. A geographic-coordinate sensitivity may be added only with current geoNEON/locations metadata and cannot replace the nominal-grid primary result.
+
+
 ## Candidate individual-scale metrics for development
 
 No final metric is selected from an observed ecological effect.
@@ -264,7 +276,8 @@ Exact minimum counts will be frozen after the response-blind RELEASE-2026 struct
 - leave-one-night-out audit for multi-night sessions;
 - stratify or control mammalGridSamplingType;
 - cryptic *Peromyscus* sensitivity using identificationQualifier / identification history;
-- edge/grid truncation audit, including a fixed-footprint null in which individual centres are sampled from an unchanged grid-scale distribution across varying N;
+- edge/grid truncation audit on the standard 10×10 geometry, including a fixed-footprint null in which individual centres are sampled from an unchanged grid-scale distribution across varying N;
+- separate mechanical calibration for the SRER 7×7 exception; it cannot lower the primary standard-grid support threshold;
 - audit of repeated-capture support versus session abundance so that W estimability is not mistaken for a density response;
 - observed multi-coordinate or movement status must not enter primary eligibility;
 - no pooling of one-night and three-night sessions if their estimands are not comparable.
@@ -398,7 +411,7 @@ Run an **effect-blind structural estimability audit** on RELEASE-2026 using only
 - active trap-night effort;
 - counts of unique individuals;
 - counts of repeated individuals;
-- number of distinct capture coordinates;
+- counts of coordinate-bearing capture nights per individual;
 - site/year/session coverage.
 
 Do not calculate (W), (B), density slopes or habitat effects until that support audit is frozen.
