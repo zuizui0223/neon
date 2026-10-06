@@ -162,7 +162,7 @@ run_cell <- function(sigma, g0, cell_seed) {
   }
   pooled <- pooled[seq_len(target_repeat),,drop=FALSE]
   null_summary <- summarize_vectors(pooled$dx,pooled$dy)
-  repeat_fraction <- target_repeat / captured_total
+  repeat_fraction <- repeat_total / captured_total
 
   set.seed(cell_seed + 9000001L)
   boot <- matrix(NA_real_, nrow=nboot, ncol=length(emp_summary))
@@ -197,7 +197,7 @@ run_cell <- function(sigma, g0, cell_seed) {
     cell=data.frame(
       sigma_m=sigma,g0=g0,simulated_nights=nights,
       captured_animal_nights=captured_total,
-      repeat_animal_nights=target_repeat,
+      repeat_animal_nights_simulated=repeat_total,\n      repeat_animal_nights_retained=target_repeat,
       repeat_fraction=repeat_fraction,
       null_changed_fraction=unname(null_summary["changed_fraction"]),
       null_vector_rms_m=unname(null_summary["vector_rms_m"]),
