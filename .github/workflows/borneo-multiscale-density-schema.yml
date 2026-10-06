@@ -1,0 +1,32 @@
+name: borneo-multiscale-density-schema
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/diagnose_borneo_multiscale_density_schema_v1.py"
+      - ".github/workflows/borneo-multiscale-density-schema.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run effect-blind Borneo schema diagnostic
+        run: python -m analysis.diagnose_borneo_multiscale_density_schema_v1
+      - name: Upload Borneo schema receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: borneo-multiscale-density-schema-v1
+          path: build/borneo_multiscale_density_schema_v1.json
+          if-no-files-found: error
+          retention-days: 30
