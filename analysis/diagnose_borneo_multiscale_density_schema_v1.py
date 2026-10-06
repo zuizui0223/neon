@@ -9,8 +9,10 @@ slopes, or ecological effect directions.
 from __future__ import annotations
 
 import csv
+import http.cookiejar
 import io
 import json
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -23,6 +25,19 @@ OUT = ROOT / "build" / "borneo_multiscale_density_schema_v1.json"
 DOI = "10.5061/dryad.4th3p35"
 API = "https://datadryad.org/api/v2"
 USER_AGENT = "neon-borneo-multiscale-density-schema/1.0"
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/141.0 Safari/537.36"
+)
+LANDING = "https://datadryad.org/dataset/doi:10.5061/dryad.4th3p35"
+# Public landing-page file_stream IDs, verified from the published Dryad page.
+LEGACY_FILE_STREAM_IDS = {
+    "Chapman_capturehistories.csv": 34176,
+    "README_for_Chapman_capturehistories.txt": 34177,
+    "Chapman_traplocations.csv": 34178,
+    "README_for_Chapman_traplocations.txt": 34179,
+}
 WANTED = {
     "Chapman_capturehistories.csv",
     "Chapman_traplocations.csv",
@@ -106,11 +121,60 @@ def _file_rows(version: dict) -> list[dict]:
     return rows
 
 
-def _download_file(row: dict) -> bytes:
+def _download_public_file_stream(name: str) -> bytes:
+    file_id = LEGACY_FILE_STREAM_IDS.get(name)
+    if file_id is None:
+        raise RuntimeError(f"no public file_stream fallback for {name}")
+
+    jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(
+        urllib.request.HTTPCookieProcessor(jar)
+    )
+    landing_req = urllib.request.Request(
+        LANDING,
+        headers={
+            "User-Agent": BROWSER_USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml",
+        },
+    )
+    with opener.open(landing_req, timeout=120) as response:
+        response.read(4096)
+
+    errors = []
+    for url in (
+        f"https://datadryad.org/downloads/file_stream/{file_id}",
+        f"https://datadryad.org/stash/downloads/file_stream/{file_id}",
+    ):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": BROWSER_USER_AGENT,
+                "Accept": "*/*",
+                "Referer": LANDING,
+            },
+        )
+        try:
+            with opener.open(req, timeout=180) as response:
+                raw = response.read()
+            if raw:
+                return raw
+        except urllib.error.HTTPError as exc:
+            errors.append(f"{url} -> HTTP {exc.code}")
+    raise RuntimeError(
+        f"public file_stream fallback failed for {name}: {errors}"
+    )
+
+
+def _download_file(row: dict) -> tuple[bytes, str]:
+    name = str(row.get("path", ""))
     href = _href(row.get("_links", {}).get("stash:download"))
-    if not href:
-        raise RuntimeError(f"Dryad file lacks download link: {row.get('path')}")
-    return _download(_abs(href))
+    if href:
+        try:
+            return _download(_abs(href)), "dryad_rest_api"
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (401, 403):
+                raise
+    return _download_public_file_stream(name), "public_landing_file_stream"
 
 
 def _csv_diagnostic(raw: bytes) -> dict:
@@ -151,9 +215,10 @@ def run() -> dict:
     downloaded = {}
     for name in sorted(WANTED):
         row = available[name]
-        raw = _download_file(row)
+        raw, download_route = _download_file(row)
         if name.lower().endswith(".csv"):
             downloaded[name] = {
+                "download_route": download_route,
                 "size_bytes_downloaded": len(raw),
                 "declared_size": row.get("size"),
                 "digest": row.get("digest"),
@@ -163,6 +228,7 @@ def run() -> dict:
         else:
             text = raw.decode("utf-8-sig", errors="replace")
             downloaded[name] = {
+                "download_route": download_route,
                 "size_bytes_downloaded": len(raw),
                 "declared_size": row.get("size"),
                 "text": text,
