@@ -192,7 +192,7 @@
     ],
     "detector_spacing_m": 10,
     "detector_kernel_sigma_m": 12.5,
-    "captures_per_repeat_supported_individual": "discrete uniform 2..4 in synthetic audit",
+    "captures_per_repeat_supported_individual": "discrete uniform 2..3 in the primary synthetic audit, matching the maximum distinct-night support available within a three-night pathogen event",
     "candidate_minimum_repeat_supported_individuals": [
       3,
       5,
@@ -215,7 +215,8 @@
       "site": "SRER",
       "geometry": "7x7 fixed detector grid, 10 m spacing",
       "rule": "calibrate separately; SRER may not define or lower the primary standard-grid support threshold"
-    }
+    },
+    "note": "the synthetic support threshold is invalid if calculated with k>3 for the three-night primary design"
   },
   "taxonomy_integrity": {
     "primary_unit": "NEON published taxonID concept; do not force cryptic composite taxon IDs to species",
