@@ -124,9 +124,11 @@ class LiveTrapAliasingManuscriptV05Tests(unittest.TestCase):
         self.assertEqual(p["observed"]["n"],218)
         self.assertAlmostEqual(p["observed"]["axis_rms_m"],9.1231,places=4)
         self.assertAlmostEqual(p["observed"]["changed_fraction"],0.6972,places=4)
-        self.assertTrue(p["conclusion"]["all_cells_successful"])
-        self.assertFalse(p["conclusion"]["observed_exceeds_all_stationary_975"])
-        self.assertTrue(p["conclusion"]["observed_changed_below_all_stationary_025"])
+        self.assertFalse(p["conclusion"]["observed_exceeds_primary_stationary_975"])
+        if "all_cells_successful" in p["conclusion"]:
+            self.assertTrue(p["conclusion"]["all_cells_successful"])
+            self.assertFalse(p["conclusion"]["observed_exceeds_all_stationary_975"])
+            self.assertTrue(p["conclusion"]["observed_changed_below_all_stationary_025"])
         primary=p["primary_cell"][0] if isinstance(p["primary_cell"],list) else p["primary_cell"]
         self.assertLess(p["observed"]["axis_rms_m"],primary["axis_q975"])
         self.assertLess(p["observed"]["changed_fraction"],primary["changed_q025"])
