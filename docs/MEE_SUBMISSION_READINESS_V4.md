@@ -16,7 +16,7 @@ Date: 2026-10-06
 ## Representation-stability results
 
 - [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%).
-- [x] Matched 19-session stationary-SCR displacement reference closes the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0979–10.4448 m.
+- [x] Matched 19-session stationary-SCR displacement reference addresses the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0979–10.4448 m.
 - [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8761–0.9468, supporting short-term positional persistence/serial dependence rather than excess displacement.
 - [x] The empirical PEMA result is contrasted with an independent-additive second-moment prediction of approximately +24.0%, showing that raw span magnitude is not a sigma correction.
 - [x] Stationary SCR controls show FIRST/LAST equivalence: median ratios 1.007, 0.966 and 1.025.
