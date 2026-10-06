@@ -93,6 +93,16 @@ jobs:
         with:
           ref: ${{ github.sha }}
 
+      - name: Verify transition-mixture receipt is reproducible
+        run: |
+          python analysis/decompose_pema_stationary_transition_mixture_v1.py \
+            --stationary-json results/pema_stationary_displacement_null_v1.json \
+            --replicates-csv results/pema_stationary_displacement_null_replicates_v1.csv \
+            --output-json /tmp/pema_stationary_transition_mixture_decomposition_v1.json
+          diff -u \
+            results/pema_stationary_transition_mixture_decomposition_v1.json \
+            /tmp/pema_stationary_transition_mixture_decomposition_v1.json
+
       - name: Build clean review directory
         run: |
           set -euo pipefail
