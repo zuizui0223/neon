@@ -7,16 +7,20 @@ import math
 from pathlib import Path
 
 
-def quantile_linear(values: list[float], p: float) -> float:
+def quantile_type8(values: list[float], p: float) -> float:
+    """Match R quantile(type=8), used by the parent stationary-null analysis."""
     if not values:
         raise ValueError("empty quantile input")
     x = sorted(values)
-    pos = (len(x) - 1) * p
-    lo = math.floor(pos)
-    hi = math.ceil(pos)
-    if lo == hi:
-        return x[lo]
-    return x[lo] + (x[hi] - x[lo]) * (pos - lo)
+    n = len(x)
+    h = (n + 1.0 / 3.0) * p + 1.0 / 3.0
+    if h <= 1:
+        return x[0]
+    if h >= n:
+        return x[-1]
+    j = math.floor(h)
+    gamma = h - j
+    return (1.0 - gamma) * x[j - 1] + gamma * x[j]
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -61,12 +65,12 @@ def main() -> int:
         ]
         same = [1.0 - float(r["changed_fraction"]) for r in cell_rows]
 
-        q025 = quantile_linear(changed_rms, 0.025)
-        q50 = quantile_linear(changed_rms, 0.5)
-        q975 = quantile_linear(changed_rms, 0.975)
-        s025 = quantile_linear(same, 0.025)
-        s50 = quantile_linear(same, 0.5)
-        s975 = quantile_linear(same, 0.975)
+        q025 = quantile_type8(changed_rms, 0.025)
+        q50 = quantile_type8(changed_rms, 0.5)
+        q975 = quantile_type8(changed_rms, 0.975)
+        s025 = quantile_type8(same, 0.025)
+        s50 = quantile_type8(same, 0.5)
+        s975 = quantile_type8(same, 0.975)
 
         supported.append({
             "sigma": sigma,
