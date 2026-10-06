@@ -12,31 +12,31 @@ class MultiscaleDensityStandardizedEraRunnerTests(unittest.TestCase):
     def test_primary_era_begins_after_2015_design_change(self):
         self.assertEqual(START, "2015-04")
 
-    def test_only_three_night_pathogen_events_are_candidates(self):
+    def test_exact_three_night_plot_events_are_candidates(self):
         rows = []
         for night in ("p1", "p2", "p3"):
             rows.append({
                 "nightuid": night,
-                "eventID": "EP",
+                "eventID": "E3",
                 "plotID": "P1",
-                "mammalGridSamplingType": "pathogen",
+                "mammalGridSamplingType": "",
                 "_site": "ABBY",
                 "_month": "2025-06",
             })
-        for night in ("r1", "r2", "r3"):
+        for night in ("x1", "x2", "x3", "x4"):
             rows.append({
                 "nightuid": night,
-                "eventID": "ER",
+                "eventID": "E4",
                 "plotID": "P2",
-                "mammalGridSamplingType": "recapture",
+                "mammalGridSamplingType": "",
                 "_site": "ABBY",
                 "_month": "2025-06",
             })
         rows.append({
             "nightuid": "d1",
-            "eventID": "ED",
+            "eventID": "E1",
             "plotID": "P3",
-            "mammalGridSamplingType": "diversity",
+            "mammalGridSamplingType": "",
             "_site": "ABBY",
             "_month": "2025-06",
         })
@@ -45,7 +45,7 @@ class MultiscaleDensityStandardizedEraRunnerTests(unittest.TestCase):
                 "nightuid": night,
                 "eventID": "E2",
                 "plotID": "P4",
-                "mammalGridSamplingType": "pathogen",
+                "mammalGridSamplingType": "",
                 "_site": "ABBY",
                 "_month": "2025-07",
             })
@@ -53,6 +53,7 @@ class MultiscaleDensityStandardizedEraRunnerTests(unittest.TestCase):
         nights, site_months = _candidate_nights(rows)
         self.assertEqual(nights, {"p1", "p2", "p3"})
         self.assertEqual(site_months, {("ABBY", "2025-06")})
+
 
 
 if __name__ == "__main__":
