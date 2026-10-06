@@ -112,6 +112,19 @@ def run() -> dict:
             "site_month": f"{m['site']}|{month}",
             "series_id": f"{m['taxon']}|{m['site']}|{m['plot_id']}",
             "mnka": int(n["mnka"]),
+            "unique_tagged_individuals": int(n["unique_tagged_individuals"]),
+            "coordinate_supported_individuals": int(
+                n["coordinate_supported_individuals"]
+            ),
+            "repeat_supported_individuals_structural": int(
+                n["repeat_supported_individuals"]
+            ),
+            "repeat_supported_fraction": float(
+                n["repeat_supported_fraction"]
+            ),
+            "all_capture_trap_night_fraction": float(
+                n["all_capture_trap_night_fraction"]
+            ),
             "W_m2": float(m["W_m2"]),
             "B_observed_m2": float(m["B_observed_m2"]),
             "B_debiased_m2": float(m["B_debiased_m2"]),
