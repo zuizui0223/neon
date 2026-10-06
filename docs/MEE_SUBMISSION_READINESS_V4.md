@@ -1,6 +1,6 @@
-# MEE submission-readiness checklist — live-trap aliasing v5
+# MEE submission-readiness checklist — live-trap aliasing v6
 
-Date: 2026-10-05
+Date: 2026-10-06
 
 ## Scientific core
 
@@ -16,6 +16,8 @@ Date: 2026-10-05
 ## Representation-stability results
 
 - [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%).
+- [x] Matched 19-session stationary-SCR displacement reference closes the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0979–10.4448 m.
+- [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8761–0.9468, supporting short-term positional persistence/serial dependence rather than excess displacement.
 - [x] The empirical PEMA result is contrasted with an independent-additive second-moment prediction of approximately +24.0%, showing that raw span magnitude is not a sigma correction.
 - [x] Stationary SCR controls show FIRST/LAST equivalence: median ratios 1.007, 0.966 and 1.025.
 - [x] Mirrored ordered-state simulations reverse the FIRST/LAST direction while preserving displacement magnitudes.
@@ -56,12 +58,12 @@ Date: 2026-10-05
 
 ## Manuscript / figures / reproducibility
 
-- [x] Manuscript v0.5 uses the positional-non-uniqueness → temporal-symmetry → estimand-stability structure.
+- [x] Manuscript v0.6 uses the positional-non-uniqueness → serial-persistence/time-reversal → estimand-stability structure.
 - [x] Supplement v0.3 contains the estimator benchmark, time-reversal theorem, closure note, SCR consequence benchmark and post-result symmetry audit.
 - [x] Figure 2 is a three-panel stability figure: stationary null, mirrored state-transition failure mode, exploratory PEMA stability plus additive benchmark.
 - [x] Figure captions v4 match the current figure set.
 - [x] Generic and manuscript invariant tests include the additive benchmark and time-reversal audit.
-- [x] Review-package builder includes the time-reversal audit and v3 calibration stop.
+- [x] Review-package builder includes the time-reversal audit, v3 calibration stop, and matched PEMA stationary-displacement diagnostic.
 - [ ] Final review-package workflow at the current head must complete successfully after the latest synchronization.
 - [ ] Create final versioned archival release / persistent repository identifier.
 
@@ -76,7 +78,7 @@ Date: 2026-10-05
 
 ## Current decision
 
-**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, uses time-reversal symmetry as an interpretable sufficient condition for directional stability, and demonstrates by mirrored simulation how an arrow of time can break that stability. The empirical PEMA result and reversal audit support the stable side of the framework, while the v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
+**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, uses time-reversal symmetry as an interpretable sufficient condition for directional stability, and demonstrates by mirrored simulation how an arrow of time can break that stability. The matched-session stationary reference further shows that the empirical PEMA displacement magnitude itself does not require an ordered post-capture state shift, while the much lower changed-trap fraction reveals short-term persistence that the independent-check null misses. The v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
 
 **Pre-submission status:** **HOLD until the current-head review package/CI is green and the remaining author/archive metadata are completed.** No further same-data biological-effect search is justified.
 
