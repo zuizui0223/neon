@@ -46,7 +46,7 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - results/scr_sigma_dynamic_state_zero_shift_v2_1.json
 - results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
 
-The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The matched 19-session stationary-displacement diagnostic asks only whether the empirical first-to-last displacement magnitude exceeds a fixed-centre stationary SCR reference; it finds stationary-compatible RMS magnitude but substantially stronger same-trap persistence than under independent checks. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
+The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The matched 19-session stationary-displacement diagnostic asks only whether the empirical first-to-last displacement magnitude exceeds a fixed-centre stationary SCR reference; it finds stationary-compatible RMS magnitude, so an ordered state shift is not required by displacement scale, but substantially stronger same-trap persistence remains than under independent checks. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
 
 ## Post-result temporal-direction audit
 - analysis/audit_time_reversal_symmetry_v1.py
