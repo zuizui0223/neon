@@ -1,0 +1,139 @@
+{
+  "schema": "neon.pema_stationary_transition_mixture_decomposition.v1",
+  "status": "post_result_algebraic_decomposition_of_frozen_stationary_reference",
+  "empirical_scope": {
+    "species": "PEMA",
+    "eligible_sessions": 19,
+    "sigma_source": "same frozen 19-session PEMA post-stop SCR fit",
+    "repeat_nights": 218
+  },
+  "identity": "E[R^2] = P(R>0) * E[R^2 | R>0] because same-trap repeat nights have R=0 on the fixed lattice",
+  "observed": {
+    "changed_fraction": 0.6972,
+    "same_trap_fraction": 0.30279999999999996,
+    "radial_rms_m": 12.9021,
+    "changed_night_rms_m": 15.451893793831058
+  },
+  "primary": {
+    "sigma": 8.707,
+    "g0": 0.15,
+    "null_same_trap_median": 0.08256880733944905,
+    "null_same_trap_q025": 0.05504587155963303,
+    "null_same_trap_q975": 0.12385321100917401,
+    "null_changed_rms_median": 14.302860380746584,
+    "null_changed_rms_q025": 13.416173805689645,
+    "null_changed_rms_q975": 15.364458622634348,
+    "changed_rms_upper_tail_fraction": 0.016
+  },
+  "supported_cells": [
+    {
+      "sigma": 8.5625,
+      "g0": 0.15,
+      "n": 249,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 14.137648193624761,
+      "null_changed_rms_q025": 13.140415670727593,
+      "null_changed_rms_q975": 15.344063391136812,
+      "upper_tail_fraction": 0.012048192771084338,
+      "observed_changed_rms_above_q975": true,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.087155963302752,
+      "null_same_trap_q025": 0.05045871559632997,
+      "null_same_trap_q975": 0.12385321100917401,
+      "observed_same_trap_above_q975": true
+    },
+    {
+      "sigma": 8.5625,
+      "g0": 0.25,
+      "n": 250,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 13.736948766301,
+      "null_changed_rms_q025": 12.857199514468904,
+      "null_changed_rms_q975": 14.772018853659304,
+      "upper_tail_fraction": 0,
+      "observed_changed_rms_above_q975": true,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.096330275229358,
+      "null_same_trap_q025": 0.06422018348623804,
+      "null_same_trap_q975": 0.14678899082568797,
+      "observed_same_trap_above_q975": true
+    },
+    {
+      "sigma": 8.707,
+      "g0": 0.15,
+      "n": 250,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 14.302860380746584,
+      "null_changed_rms_q025": 13.416173805689645,
+      "null_changed_rms_q975": 15.364458622634348,
+      "upper_tail_fraction": 0.016,
+      "observed_changed_rms_above_q975": true,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.08256880733944905,
+      "null_same_trap_q025": 0.05504587155963303,
+      "null_same_trap_q975": 0.12385321100917401,
+      "observed_same_trap_above_q975": true
+    },
+    {
+      "sigma": 8.707,
+      "g0": 0.25,
+      "n": 250,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 13.97533254840269,
+      "null_changed_rms_q025": 13.01518165037582,
+      "null_changed_rms_q975": 14.949178433604926,
+      "upper_tail_fraction": 0.004,
+      "observed_changed_rms_above_q975": true,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.096330275229358,
+      "null_same_trap_q025": 0.056077981651376195,
+      "null_same_trap_q975": 0.13761467889908297,
+      "observed_same_trap_above_q975": true
+    },
+    {
+      "sigma": 8.8515,
+      "g0": 0.15,
+      "n": 249,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 14.455959106699943,
+      "null_changed_rms_q025": 13.53821331396554,
+      "null_changed_rms_q975": 15.505651677882058,
+      "upper_tail_fraction": 0.0321285140562249,
+      "observed_changed_rms_above_q975": false,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.08256880733944905,
+      "null_same_trap_q025": 0.045871559633027026,
+      "null_same_trap_q975": 0.11926605504587195,
+      "observed_same_trap_above_q975": true
+    },
+    {
+      "sigma": 8.8515,
+      "g0": 0.25,
+      "n": 250,
+      "observed_changed_rms_m": 15.451893793831058,
+      "null_changed_rms_median": 14.07153475936142,
+      "null_changed_rms_q025": 13.187997087831082,
+      "null_changed_rms_q975": 15.027045082124395,
+      "upper_tail_fraction": 0,
+      "observed_changed_rms_above_q975": true,
+      "observed_same_trap_fraction": 0.30279999999999996,
+      "null_same_trap_median": 0.096330275229358,
+      "null_same_trap_q025": 0.06066513761467894,
+      "null_same_trap_q975": 0.13658256880733982,
+      "observed_same_trap_above_q975": true
+    }
+  ],
+  "robustness": {
+    "supported_cell_count": 6,
+    "same_trap_above_q975_cells": 6,
+    "changed_rms_above_q975_cells": 5,
+    "changed_rms_upper_tail_fraction_min": 0,
+    "changed_rms_upper_tail_fraction_max": 0.0321285140562249
+  },
+  "claim_boundary": {
+    "causal_mechanism_identified": false,
+    "handling_effect_identified": false,
+    "preregistered_endpoint": false,
+    "interpretation": "The empirical sequence redistributes second-moment mass toward more zero-displacement repeats and, conditional on changing traps, longer displacements than the independent-check stationary reference. This is a post-result decomposition, not a causal movement model."
+  }
+}
