@@ -150,6 +150,34 @@ class MultiscaleDensityEstimabilityAuditTests(unittest.TestCase):
                 out["support"]["sessions"][0]["n_capture_rows"], 2
             )
 
+    def test_unknown_sampling_type_can_be_primary_when_exact_three_night(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            plot = root / "p.csv"
+            trap = root / "t.csv"
+            plot.write_text(
+                "nightuid,eventID,plotID,siteID,mammalGridSamplingType\n"
+                "n1,E1,P1,SITE,\n"
+                "n2,E1,P1,SITE,\n"
+                "n3,E1,P1,SITE,\n",
+                encoding="utf-8",
+            )
+            trap.write_text(
+                "nightuid,plotID,trapCoordinate,trapStatus,tagID,taxonID,scientificName\n"
+                "n1,P1,A1,5 - capture,i1,TX1,Species one\n"
+                "n2,P1,A2,5 - capture,i1,TX1,Species one\n"
+                "n3,P1,A3,5 - capture,i1,TX1,Species one\n",
+                encoding="utf-8",
+            )
+            out = audit(plot, trap)
+            s = out["support"]["sessions"][0]
+            self.assertTrue(s["exact_three_night_structure"])
+            self.assertTrue(s["primary_standardized_protocol"])
+            self.assertEqual(
+                s["protocol_identification_basis"],
+                "exact_three_night_structure_with_type_unavailable",
+            )
+
     def test_srer_is_separate_secondary_geometry(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
