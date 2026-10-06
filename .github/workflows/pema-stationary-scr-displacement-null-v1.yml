@@ -1,0 +1,92 @@
+name: pema-stationary-scr-displacement-null-v1
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - docs/PEMA_STATIONARY_SCR_DISPLACEMENT_NULL_V1.md
+      - analysis/pema_stationary_scr_displacement_null_v1.R
+      - .github/workflows/pema-stationary-scr-displacement-null-v1.yml
+  workflow_dispatch:
+
+concurrency:
+  group: pema-stationary-scr-displacement-null-v1-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  stationary-null:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      R_LIBS_USER: ${{ github.workspace }}/.R/library
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::secr
+            any::jsonlite
+
+      - name: Download frozen San Jacinto source
+        run: |
+          curl -L --fail --retry 3             https://ndownloader.figshare.com/files/33058799             -o /tmp/san_jacinto.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/san_jacinto.csv"             | sha256sum -c -
+
+      - name: Run stationary SCR displacement null
+        run: |
+          Rscript analysis/pema_stationary_scr_displacement_null_v1.R             --source /tmp/san_jacinto.csv             --target-repeat-pool 2500             --nboot 2000             --cores 4             --seed 20261006             --output-json results/pema_stationary_scr_displacement_null_v1.json             --output-csv results/pema_stationary_scr_displacement_null_cells_v1.csv
+
+      - name: Verify frozen outputs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p=json.loads(Path("results/pema_stationary_scr_displacement_null_v1.json").read_text())
+          assert p["schema"]=="neon.pema_stationary_scr_displacement_null.v1"
+          assert p["empirical"]["repeat_nights"]==485
+          assert p["empirical"]["captured_nights"]==1219
+          assert p["design"]["state_shift"] is False
+          assert p["design"]["sigma_m"]==[7.7806,8.5625,8.8515,9.7559]
+          assert p["design"]["g0"]==[0.03,0.06,0.1,0.15,0.25]
+          assert len(p["cells"])==20
+          assert p["design"]["bootstrap_samples"]==2000
+          print(json.dumps({
+              "empirical":p["empirical"],
+              "robustness":p["robustness"],
+          },indent=2,sort_keys=True))
+          PY
+
+      - name: Upload diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pema-stationary-scr-displacement-null-v1
+          path: |
+            results/pema_stationary_scr_displacement_null_v1.json
+            results/pema_stationary_scr_displacement_null_cells_v1.csv
+          if-no-files-found: error
+
+      - name: Persist diagnostic result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          git add results/pema_stationary_scr_displacement_null_v1.json
+          git add results/pema_stationary_scr_displacement_null_cells_v1.csv
+          if git diff --cached --quiet; then
+            echo "results unchanged"
+          else
+            git commit -m "Record PEMA stationary displacement null"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi
