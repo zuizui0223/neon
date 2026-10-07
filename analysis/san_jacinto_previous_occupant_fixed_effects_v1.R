@@ -175,6 +175,84 @@ for(nm in names(coef(pool_sm))){
   )
 }
 
+# Guild-level directional alignment with body size.
+# This is post-result exploratory: ask whether the effect of the heavier species
+# as previous occupant on the lighter target is lower than the reverse direction.
+weight_values <- suppressWarnings(as.numeric(raw$weight_g))
+weight_species <- up(raw$species)
+species_mass <- lapply(SPECIES,function(sp){
+  z <- weight_values[weight_species==sp & is.finite(weight_values) & weight_values>0 & weight_values<300]
+  list(n=length(z),median_g=median(z),mean_g=mean(z))
+})
+names(species_mass) <- SPECIES
+
+direction_dyads <- list()
+di <- 0L
+for(i in seq_len(length(SPECIES)-1L)){
+  for(j in (i+1L):length(SPECIES)){
+    a <- SPECIES[i]; b <- SPECIES[j]
+    heavy <- if(species_mass[[a]]$median_g >= species_mass[[b]]$median_g) a else b
+    light <- if(heavy==a) b else a
+    hl <- target_models[[light]]$contrasts_vs_previous_empty[[heavy]]
+    lh <- target_models[[heavy]]$contrasts_vs_previous_empty[[light]]
+    if(is.null(hl) || is.null(lh)) next
+    di <- di+1L
+    direction_dyads[[di]] <- list(
+      heavy=heavy,light=light,
+      heavy_median_g=species_mass[[heavy]]$median_g,
+      light_median_g=species_mass[[light]]$median_g,
+      mass_ratio=species_mass[[heavy]]$median_g/species_mass[[light]]$median_g,
+      heavy_to_light_or=hl$odds_ratio,
+      light_to_heavy_or=lh$odds_ratio,
+      log_direction_ratio=log(hl$odds_ratio/lh$odds_ratio),
+      heavy_to_light_lower=(hl$odds_ratio < lh$odds_ratio)
+    )
+  }
+}
+
+permute_vec <- function(v){
+  if(length(v)==1L) return(list(v))
+  out <- list()
+  oi <- 0L
+  for(i in seq_along(v)){
+    rest <- v[-i]
+    for(p in permute_vec(rest)){
+      oi <- oi+1L
+      out[[oi]] <- c(v[i],p)
+    }
+  }
+  out
+}
+obs_concordant <- sum(vapply(direction_dyads,function(x)isTRUE(x$heavy_to_light_lower),logical(1)))
+mass_vals <- vapply(species_mass,function(x)x$median_g,numeric(1))
+perm_counts <- integer()
+perms <- permute_vec(mass_vals)
+for(pi in seq_along(perms)){
+  mm <- setNames(perms[[pi]],SPECIES)
+  cc <- 0L
+  for(i in seq_len(length(SPECIES)-1L)){
+    for(j in (i+1L):length(SPECIES)){
+      a <- SPECIES[i]; b <- SPECIES[j]
+      heavy <- if(mm[a]>=mm[b]) a else b
+      light <- if(heavy==a) b else a
+      hl <- target_models[[light]]$contrasts_vs_previous_empty[[heavy]]
+      lh <- target_models[[heavy]]$contrasts_vs_previous_empty[[light]]
+      if(!is.null(hl) && !is.null(lh) && hl$odds_ratio < lh$odds_ratio) cc <- cc+1L
+    }
+  }
+  perm_counts <- c(perm_counts,cc)
+}
+body_size_direction_alignment <- list(
+  status="post_result_exploratory_guild_level_pattern",
+  species_mass=species_mass,
+  dyads=direction_dyads,
+  concordant_heavy_to_light_lower=obs_concordant,
+  n_dyads=length(direction_dyads),
+  mass_rank_permutations=length(perm_counts),
+  exact_upper_tail_fraction=mean(perm_counts>=obs_concordant),
+  interpretation="Across pairwise fixed-effect coefficients, the heavier-to-lighter previous-occupant direction is usually lower than the reverse direction. This is exploratory concordance with a body-size dominance hierarchy, not a causal test of interference competition."
+)
+
 # Descriptive transition matrix.
 states <- c("EMPTY",SPECIES)
 tab <- table(factor(tr$from_state,levels=states),factor(tr$to_state,levels=states))
@@ -216,6 +294,7 @@ out <- list(
     contrasts_vs_previous_empty=pool
   ),
   focal_previous_kangaroo_rat_contrasts=focal,
+  body_size_direction_alignment=body_size_direction_alignment,
   target_models=target_models,
   target_models_excluding_same_individual_recurrence=target_models_no_self,
   transition_matrix=mat,
