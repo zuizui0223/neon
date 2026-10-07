@@ -83,6 +83,12 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         for token in ("0.844","1.109","0.721","not an equivalence test"):
             self.assertIn(token,self.text.lower())
 
+    def test_span_magnitude_is_not_sold_as_bias_diagnostic(self):
+        lower=self.text.lower()
+        self.assertIn("span magnitude alone cannot identify",lower)
+        self.assertIn("not sufficient to diagnose representation sensitivity",lower)
+        self.assertIn("span-based correction can even point in the wrong direction",lower)
+
     def test_empirical_shift_energy_is_not_an_additive_sigma_correction(self):
         p=self.pema["primary_model"]
         q=self.den["species"]["PEMA"]["observed_one_spacing_aliasing_lower_bound_fraction_all_nights"]

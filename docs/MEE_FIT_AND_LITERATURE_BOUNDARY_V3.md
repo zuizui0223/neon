@@ -214,8 +214,24 @@ Prefer:
 
 The deterministic bounds are practical sensitivity translations rather than new mathematics.
 
+
+## Novelty stress test
+
+The manuscript should not sell the following as novel: temporal aggregation can lose information; movement can violate conditional independence; learned or trap-specific responses can alter encounter structure; or dynamic/continuous-time SCR can model dependence. Those points are already established by Borchers et al. (2014), Milleret et al. (2018), Stevenson et al. (2022) and newer movement/history-dependent SCR work.
+
+The time-reversal statement itself is also mathematically elementary. Its role is diagnostic, not theorem-level novelty.
+
+The defensible non-trivial contribution is narrower and practical:
+
+1. **Observed span magnitude is not a diagnostic of representation sensitivity.** The same span distribution can support opposite FIRST/LAST effects when temporal order is reversed.
+2. **The San Jacinto data provide an empirical counterexample to a tempting span-based correction.** Positional aliasing was frequent, and an independent-additive second-moment benchmark predicted about +24% sigma inflation, yet the observed PEMA point contrast was -3.3% and empirical RMS remained within the stationary reference.
+3. **Marginal spatial scale and temporal process can decouple.** Same-trap recurrence was far above the independent-check reference even though marginal RMS was stationary-compatible, showing that a plausible-looking spatial scale can hide a substantially different transition mixture.
+4. **The output is a decision rule rather than another movement model.** Screen positional non-uniqueness, inspect process asymmetry, then test the actual estimand; escalate to dynamic modelling only when the estimand or process requires it.
+
+This is sufficient for a Methods in Ecology and Evolution methods/practice contribution, but it is not a claim of a new general law of animal movement or a high-level discovery that dependence exists.
+
 ## Current MEE position
 
-The weakness that made v0.3 too thin has been resolved without needing a positive empirical bias result. The stronger contribution is that the paper explains **why a large raw aliasing signal may or may not matter downstream**, and identifies the extra temporal structure required for directional instability.
+The weakness that made v0.3 too thin has been resolved without needing a positive empirical bias result. The stronger contribution is that the paper shows **why a large raw aliasing signal is not itself a diagnostic of downstream sensitivity**, gives an empirical counterexample to a span-based sigma correction, and identifies temporal ordering as the extra information needed for a directed representation effect.
 
 The empirical downstream sigma comparison is limited to PEMA in one repeated-check trapping programme (19 sessions across five grids); cross-system generality remains open. Pre-submission remains on HOLD only until the current-head dedicated live-trap-aliasing review-package workflow is green and author/archive metadata are complete. No additional same-data biological-effect search is justified.
