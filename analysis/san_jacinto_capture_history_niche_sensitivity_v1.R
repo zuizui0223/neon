@@ -44,6 +44,11 @@ noct_time <- function(x) {
 identity_key <- function(d) {
   uid <- up(d$unique_ID)
   left <- up(d$left_tag); right <- up(d$right_tag); vie <- up(d$VIE)
+  bad <- function(x) !nzchar(x) | x=="NONE" | grepl("MISSING",x,fixed=TRUE)
+  uid[bad(uid)] <- ""
+  left[bad(left)] <- ""
+  right[bad(right)] <- ""
+  vie[bad(vie)] <- ""
   out <- rep("",nrow(d))
   i <- nzchar(uid)
   out[i] <- paste(up(d$species[i]),uid[i],sep="|")
