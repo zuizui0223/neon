@@ -204,10 +204,12 @@ changed <- function(axis) {
 
 delta_ses <- function(axis) {
   x <- vapply(results,function(z)z[[axis]]$first_only$ses-z[[axis]]$all$ses,numeric(1))
+  x <- x[is.finite(x)]
   list(
+    n=length(x),
     mean=mean(x),median=median(x),
-    q025=as.numeric(quantile(x,.025,type=8)),
-    q975=as.numeric(quantile(x,.975,type=8)),
+    q025=as.numeric(quantile(x,.025,type=8,na.rm=TRUE)),
+    q975=as.numeric(quantile(x,.975,type=8,na.rm=TRUE)),
     min=min(x),max=max(x)
   )
 }
