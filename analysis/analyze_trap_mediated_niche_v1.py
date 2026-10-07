@@ -432,6 +432,25 @@ def main():
         for pair in ("EARLY-MIDDLE","MIDDLE-LATE")
     }
 
+    # Spatial replication of the date-shuffle hierarchy.
+    full_optimal_order=dominance_alignment["hierarchy"]["optimal_orders"][0]
+    hierarchy_grid_loo={}
+    for gdrop in sorted({r["grid"] for r in transitions}):
+        h=hierarchy_from_records([r for r in transitions if r["grid"]!=gdrop])
+        h["omitted_grid"]=gdrop
+        h["full_data_optimal_order_remains_optimal"]=full_optimal_order in h["optimal_orders"]
+        hierarchy_grid_loo[f"omit_grid_{gdrop}"]=h
+    dominance_alignment["hierarchy"]["leave_one_grid_out_date_shuffle"]=hierarchy_grid_loo
+    dominance_alignment["hierarchy"]["leave_one_grid_out_date_shuffle_summary"]={
+        "full_data_optimal_order":full_optimal_order,
+        "full_data_optimal_order_remains_optimal_in":sum(
+            x["full_data_optimal_order_remains_optimal"] for x in hierarchy_grid_loo.values()
+        ),
+        "n_grid_omissions":len(hierarchy_grid_loo),
+        "maximum_pairwise_scores":[x["maximum_pairwise_score"] for x in hierarchy_grid_loo.values()],
+        "mass_order_scores":[x["mass_order_score"] for x in hierarchy_grid_loo.values()],
+    }
+
     # Community temporal overlap sensitivity: all captures vs first known capture per individual-night,
     # retaining unknown-ID rows in primary sensitivity.
     focal=[r for r in raw if r["_species"] in SPECIES_SET and r["_bin"] in BINS]
