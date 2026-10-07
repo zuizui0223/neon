@@ -24,7 +24,7 @@ This study also does **not** discover body-size dominance in this guild. Chock e
 
 The surviving gap is narrower:
 
-> **Can ordinary repeated live-trapping sequences recover a community-level directional interaction ordering that agrees with independently known dominance structure?**
+> **Can ordinary repeated live-trapping sequences reveal directional community structure that symmetric niche-overlap summaries miss, and is that structure stable or reconfigured within a night?**
 
 ## Current evidence
 
@@ -54,7 +54,18 @@ Here the optimal ordering satisfies 15 of 15 dyads.
 
 The body-mass order satisfies 13 of 15 dyads; 20/720 = 2.78% of possible orders score at least this well.
 
-Removing exact same-individual recurrence before refitting leaves the same unique 15/15 ordering.
+Removing exact same-individual recurrence before refitting leaves the same unique 15/15 pooled ordering.
+
+### 2b. Within-night interval split rejects a fixed hierarchy
+
+The pooled ordering is **not** stable when the two adjacent check intervals are analysed separately under the same trap × bout date-shuffle reference.
+
+- EARLY→MIDDLE has one 14/15 optimum: **SKR > DKR > PEMA > LAPM > CHFA > PEER**.
+- MIDDLE→LATE has a maximum score of only 12/15 and three alternative optimal orders.
+- Only **9/15 dyads keep the same direction** across the two intervals.
+- Body-mass direction agrees with **12/15 dyads early→middle but only 8/15 middle→late**.
+
+Therefore the full-night pooled order must not be described as a fixed social or dominance hierarchy. It is a compact summary of a **time-varying directional interaction network**.
 
 ### 3. Independent behavioural concordance
 
@@ -96,11 +107,13 @@ rather than another observation-bias paper.
 
 ## Claim boundary
 
-Until further robustness is complete, use:
+Use:
 
-- **trap-mediated interaction ordering**
-- **directional cue-response hierarchy**
-- **sequence-derived interaction order**
+- **time-varying trap-mediated interaction network**
+- **directional cue-response structure**
+- **pooled sequence-derived interaction order**
+
+Use `hierarchy` only for the mathematical ordering summary, not as a claim of a fixed biological dominance hierarchy.
 
 Do not yet use as the headline:
 
@@ -123,12 +136,8 @@ Refit the six target models after omitting each of the eight trapping grids in t
 3. body-mass-order score;
 4. number of unique optimal orders.
 
-If the same ordering remains near-optimal across most leave-one-grid-out refits, the sequence-derived hierarchy becomes the strongest ecological result on this branch.
-
-If it collapses, retain only the species-specific previous-occupant effects and do not promote a community hierarchy.
+Spatial leave-one-grid-out refits remain valuable for asking whether the **pooled** network summary is dominated by one grid. Even a perfectly stable spatial LOO result cannot restore a fixed-hierarchy claim, because the interval split already demonstrates within-night reconfiguration.
 
 ## Candidate one-sentence result
 
-> **A six-species rodent community that appears temporally overlapping at coarse scale contains a directional, detector-local interaction order whose point-estimate ranking closely tracks independently established body-size dominance.**
-
-This sentence remains provisional until the leave-one-grid-out audit is complete.
+> **A six-species rodent community that appears temporally overlapping at coarse scale contains a detector-local directional interaction network whose pooled ordering resembles body-size dominance but reconfigures within a single night.**

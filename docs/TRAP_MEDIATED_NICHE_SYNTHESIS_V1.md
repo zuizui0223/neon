@@ -38,20 +38,38 @@ Removing later within-night recaptures shifts the first-capture temporal profile
 
 Despite lower raw Czekanowski overlap after this removal, the original EcoSimR null gives the same counter-intuitive direction: temporal aggregation rises from 4/32 grid-seasons in our ALL-capture rerun to 13/32 under FIRST-only, while temporal segregation remains 0/32. The published ALL-capture reference was 7/32 aggregated, so the exact temporal count is not reproduced and this discrepancy remains explicit. By contrast, the spatial SIM9 result is reproduced exactly at 8/32 segregated and remains 8/32 under FIRST-only, with 0/32 classification changes.
 
+### 5. The pooled six-species order is structured but not temporally fixed
+
+Two different summaries of the directed heterospecific network give the same pooled optimum, **SKR > DKR > PEMA > CHFA > LAPM > PEER**: 14/15 dyads under the trap × bout date-shuffle O/E network and 15/15 under trap + grid-date-transition fixed effects. Removing exact same-individual recurrence leaves the fixed-effect optimum unchanged. The empirical body-mass order scores unusually well against both networks.
+
+However, splitting the sequence by check interval rejects a fixed hierarchy. EARLY→MIDDLE has a unique 14/15 optimum (**SKR > DKR > PEMA > LAPM > CHFA > PEER**), whereas MIDDLE→LATE reaches only 12/15 with three alternative optima. Only 9/15 dyads retain direction across intervals; body-mass alignment drops from 12/15 to 8/15.
+
+The correct ecological description is therefore a **time-varying directional interaction network**, not a stable dominance hierarchy.
+
+### 6. Coarse temporal niche inference is qualitatively robust but significance counts are representation-sensitive
+
+The completed representation audit gives:
+
+- ALL captures: 4/32 aggregated, 0/32 segregated;
+- FIRST: 16/32 aggregated, 0/32 segregated;
+- LAST: 9/32 aggregated, 1/32 segregated;
+- individual-night normalized: 3/32 aggregated, 0/32 segregated;
+- RANDOM one-capture representations: aggregation median 3/32, segregation median 0/32.
+
+Thus the published broad conclusion of little temporal segregation remains broadly intact, but the number of grid-seasons labelled significantly aggregated is highly sensitive to within-night representation.
+
 ## Current ecological interpretation
 
 The strongest defensible gap is no longer “live trapping biases niche estimates.”
 
 It is:
 
-> **Coarse nightly niche overlap can coexist with directional, species-specific microtemporal interaction history at the scale of individual trap checks.**
+> **Coarse nightly niche overlap can coexist with a detector-local, directional interaction network that changes within the same night.**
 
 This history may combine real local interactions, residual odour, release-site effects, bait/trap state and short-term space use. The exact-trap spatial decay argues against interpreting it as a broad exclusion zone.
 
 ## What would be genuinely strong
 
-EcoSimR now confirms that coarse temporal-overlap inference remains and strengthens under FIRST-only while spatial segregation is unchanged. Because FIRST is mechanically early-biased, this result still requires representation controls (LAST, random-one and individual-night normalization) before interpreting the stronger temporal aggregation biologically. If those controls retain the qualitative result, the ecological story becomes:
+The representation controls are now complete. They show that coarse temporal non-segregation is much more robust than the exact count of aggregated grid-seasons. The next decisive question is no longer whether recaptures manufacture the original niche result; they do not manufacture the spatial 8/32 segregation result and do not reveal hidden temporal segregation.
 
-> **Coarse community-level temporal overlap can coexist with directional, species-specific microtemporal sequence structure at the scale of hours and metres.**
-
-That is much more ecological than the original temporal-aliasing methods question, but remains exploratory until tested in independent data or an experiment.
+The stronger ecological question is whether the **time-varying directional sequence network** predicts independently measured interaction outcomes, experimental dominance, or fitness consequences. Until an independent dataset or experiment tests that bridge, the San Jacinto network remains exploratory and trap-mediated.

@@ -17,7 +17,7 @@ Using early -> middle and middle -> late same-detector transitions, with a date-
 - kangaroo rat (DKR or SKR) -> LAPM transitions are deficient, while LAPM -> kangaroo rat transitions are near null;
 - the KR -> LAPM deficit survives every leave-one-grid-out analysis and a grid × trapping-bout cluster bootstrap;
 - the deficit is strongest at the exact previous detector, weaker at adjacent detectors, and absent by Manhattan distance 2;
-- across the six-species guild, heavier-to-lighter direction is the lower transition direction in 12/15 dyads; this guild-level alignment is exploratory.
+- across the pooled six-species guild, the directed transition network admits a near-transitive ordering that broadly aligns with body mass, but interval-specific analyses show that this ordering reconfigures within the night.
 
 ## Ecological interpretation
 
@@ -34,9 +34,9 @@ The spatial decay is therefore important: a strong distance-0 effect with little
 
 ## Candidate general principle
 
-> Marginal temporal niche overlap can miss directional interaction structure in event sequences.
+> Marginal temporal niche overlap can miss **time-varying directional interaction structure** in event sequences.
 
-This general principle is not new in animal ecology; fine-scale time-to-encounter studies in carnivores already show avoidance despite broad diel overlap. The potentially useful contribution here is different: repeated live trapping can reveal—and itself mediate—such microtemporal structure in a small-mammal community, and the direction of that structure aligns with an independently established dominance hierarchy.
+This general principle is not new in animal ecology; fine-scale time-to-encounter studies in carnivores already show avoidance despite broad diel overlap. The potentially useful contribution here is different: repeated live trapping can reveal—and itself mediate—microtemporal directional structure in a small-mammal community. The pooled network resembles independently established body-size dominance, but its interval-specific reconfiguration shows that it should not be treated as a fixed hierarchy.
 
 ## Claim boundary
 
