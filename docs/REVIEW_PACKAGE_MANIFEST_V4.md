@@ -37,6 +37,8 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - results/scr_sigma_consequence_simulation_v1.json
 - results/scr_sigma_consequence_replicates_v1.csv
 - results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json
+- analysis/summarize_pema_sigma_ratio_uncertainty_v1.py
+- results/pema_sigma_ratio_uncertainty_sensitivity_v1.json
 - analysis/pema_stationary_displacement_null_v1.R
 - results/pema_stationary_displacement_null_v1.json
 - results/pema_stationary_displacement_null_replicates_v1.csv
@@ -48,7 +50,7 @@ This package is intentionally narrower than the parent NEON repository. It conta
 - results/scr_sigma_dynamic_state_zero_shift_v2_1.json
 - results/scr_sigma_dynamic_state_zero_shift_replicates_v2_1.csv
 
-The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme. The matched 19-session stationary-displacement diagnostic asks only whether the empirical first-to-last displacement magnitude exceeds a fixed-centre stationary SCR reference; it finds stationary-compatible RMS magnitude, so an ordered state shift is not required by displacement scale, but substantially stronger same-trap persistence remains than under independent checks. The algebraic transition-mixture receipt decomposes that same frozen result into a larger point mass at zero displacement and a longer distance scale conditional on changing traps; it is post-result descriptive evidence, not a causal movement model. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
+The PEMA SCR result is explicitly post-stop exploratory evidence. It does not replace the stopped two-species confirmatory SCR programme, and its -3.3% point contrast is not treated as demonstrated equivalence. The uncertainty-sensitivity receipt records how the approximate LAST/FIRST ratio interval changes with the unknown paired estimate correlation; it is not a formal paired confidence interval. The matched 19-session stationary-displacement diagnostic asks only whether the empirical first-to-last displacement magnitude exceeds a fixed-centre stationary SCR reference; it finds stationary-compatible RMS magnitude, so an ordered state shift is not required by displacement scale, but substantially stronger same-trap persistence remains than under independent checks. The algebraic transition-mixture receipt decomposes that same frozen result into a larger point mass at zero displacement and a longer distance scale conditional on changing traps; it is post-result descriptive evidence, not a causal movement model. The dynamic-state v2.1 files contain only the independently seeded zero-shift diagnostic used to validate the stationary sequential generator; non-zero-shift cells from the earlier failed-gate run remain excluded.
 
 ## Post-result temporal-direction audit
 - analysis/audit_time_reversal_symmetry_v1.py

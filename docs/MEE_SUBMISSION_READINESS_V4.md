@@ -15,7 +15,8 @@ Date: 2026-10-06
 
 ## Representation-stability results
 
-- [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%).
+- [x] PEMA FIRST sigma = 8.8515 m; LAST sigma = 8.5625 m; LAST/FIRST = 0.9673 (-3.27%) as a point contrast, not a formal equivalence result.
+- [x] Post-result ratio-uncertainty sensitivity is receipted: zero-correlation delta-method 95% ratio interval = 0.844–1.109; correlation >0.721 would be required for that interval to lie fully inside the contextual 0.9–1.1 band.
 - [x] Matched 19-session stationary-SCR displacement reference addresses the main state-shift alternative: 218/525 nights were repeat-observed, empirical per-axis RMS = 9.1231 m, and the primary stationary 95% interval = 9.0102–10.3629 m.
 - [x] Empirical changed-trap fraction = 0.6972, below the primary independent-check stationary 95% interval = 0.8807–0.9495, supporting short-term positional persistence/serial dependence rather than excess displacement.
 - [x] Post-result second-moment decomposition is receipted: same-trap fraction = 30.3% versus primary-null median 8.3% (95% 5.0–11.9%); changed-night RMS = 15.45 m versus primary-null median 14.30 m (95% 13.43–15.30 m). Same-trap excess occurs in 9/9 sensitivity cells; changed-night RMS exceeds the 97.5th percentile in 5/9, with upper-tail fractions 0–0.104.
@@ -47,6 +48,8 @@ Date: 2026-10-06
 - [x] Zero of 12 candidates matched all four San Jacinto observation-process targets.
 - [x] Frozen calibration decision remains `stop_v3_no_observation_process_match`.
 - [x] No downstream sigma was fitted in the v3 calibration and no handling mechanism is claimed.
+- [x] Capture-point release is discussed only as a biologically plausible source of trap-centred persistence, not as an identified irreversible mechanism.
+- [x] The empirical downstream sigma comparison is explicitly limited to PEMA in one repeated-check trapping programme (19 sessions across five grids).
 
 ## Aggregation theory and literature boundary
 
@@ -59,7 +62,7 @@ Date: 2026-10-06
 
 ## Manuscript / figures / reproducibility
 
-- [x] Main manuscript is within the current MEE Research Article length guidance: approximately 7,782 words including references/figure captions by repository word-like count.
+- [x] Main manuscript is within the current MEE Research Article length guidance: approximately 7,796 words including references/figure captions by repository word-like count.
 - [x] Numbered abstract is approximately 298 words, below the journal's 350-word target.
 - [x] Manuscript v0.6 uses the positional-non-uniqueness → serial-persistence/time-reversal → estimand-stability structure.
 - [x] Supplement v0.3 contains the estimator benchmark, time-reversal theorem, closure note, SCR consequence benchmark and post-result symmetry audit.
@@ -81,7 +84,7 @@ Date: 2026-10-06
 
 ## Current decision
 
-**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with downstream stability, uses time-reversal symmetry as an interpretable sufficient condition for directional stability, and demonstrates by mirrored simulation how an arrow of time can break that stability. The matched-session stationary reference further shows that the empirical PEMA displacement magnitude itself does not require an ordered post-capture state shift, while the much lower changed-trap fraction reveals short-term persistence that the independent-check null misses. The v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
+**Scientific status:** the v0.3 weakness has been resolved in a stronger form than a simple “aggregation biases sigma” result. The paper now shows that frequent within-occasion positional non-uniqueness can coexist with a small downstream FIRST/LAST point contrast, uses time-reversal symmetry as an interpretable sufficient condition for FIRST/LAST distributional equivalence under the stated process condition, and demonstrates by mirrored simulation how an arrow of time can break that stability. The matched-session stationary reference further shows that the empirical PEMA displacement magnitude itself does not require an ordered post-capture state shift, while the much lower changed-trap fraction reveals short-term persistence that the independent-check null misses. The v3 calibration stop prevents over-interpreting a simple handling-response mechanism.
 
 **Pre-submission status:** **HOLD until the current-head dedicated live-trap-aliasing review-package workflow is green and the remaining author/archive metadata are completed.** No further same-data biological-effect search is justified.
 

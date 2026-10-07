@@ -66,7 +66,7 @@ The narrower contribution here is different:
 - positional non-uniqueness is separated from **downstream estimand instability**;
 - time-reversal symmetry is used as an interpretable process-level sufficient condition for FIRST/LAST stability, weaker than full exchangeability;
 - mirrored ordered-state simulations show how an arrow of time breaks that condition;
-- an empirical PEMA comparison shows that large positional aliasing can coexist with sigma stability.
+- an empirical PEMA comparison shows that large positional aliasing can coexist with a small sigma point contrast, while a separate uncertainty-sensitivity analysis prevents that contrast from being overread as demonstrated equivalence.
 
 ## Repeated exposure and detector effort
 
@@ -102,7 +102,7 @@ Serial dependence is not excluded: a reversible stationary process can satisfy t
 
 This reframes the stable case as absence of a detectable arrow of time, not absence of movement.
 
-## Empirical stable side
+## Empirical small-contrast side
 
 The prospectively held-out observation-process result is strong:
 
@@ -110,16 +110,18 @@ The prospectively held-out observation-process result is strong:
 - PEER: 69.2% of 107 repeat nights did so;
 - all eligible validation grids passed.
 
-Yet the post-stop exploratory PEMA SCR comparison was stable:
+Yet the post-stop exploratory PEMA SCR comparison had a small point contrast:
 
 - FIRST sigma = 8.8515 m;
 - LAST sigma = 8.5625 m;
 - LAST/FIRST = 0.9673;
 - relative change = -3.27%.
 
+This is not a formal equivalence result. The frozen fit receipt lacks the covariance between the paired FIRST and LAST sigma estimates. A first-order delta-method sensitivity gives an approximate 95% LAST/FIRST ratio interval of 0.844–1.109 under a zero-correlation reference; the interval lies fully within the contextual 0.9–1.1 band only if the unknown paired estimate correlation exceeds about 0.721.
+
 A matched 19-session stationary-SCR displacement reference gives the same conclusion from the opposite direction: empirical per-axis RMS displacement was 9.1231 m versus a primary stationary 95% interval of 9.0102–10.3629 m, so an ordered post-capture state shift is not required to explain displacement magnitude. The empirical changed-trap fraction was instead 0.6972, below the independent-check stationary interval of 0.8807–0.9495, showing excess same-trap recurrence relative to that null. A post-result algebraic decomposition sharpens the pattern: same-trap repeats comprise 30.3% of observed repeat nights versus a primary-null median of 8.3% (95% 5.0–11.9%), while the RMS distance conditional on changing traps is 15.45 m versus a primary-null median of 14.30 m (95% 13.43–15.30 m). The same-trap contrast exceeds the 97.5th percentile in all nine sensitivity cells. The changed-night RMS exceeds it in five of nine cells (upper-tail fractions 0–0.104), so the long-tail contrast is sensitivity-dependent. This is evidence about transition-distribution shape, not an identified handling mechanism.\n\nA naive independent-additive interpretation of the observed PEMA transition energy would predict approximately +24.0% inflation instead. The contrast is central: positional-span magnitude is not a direct sigma correction.
 
-The post-result reversal audit is concordant with the stable interpretation:
+The post-result reversal audit is concordant with the small point contrast:
 
 - PEMA cluster sign-flip p = 0.193; mean directed vector = 0.071 m versus RMS 17.08 m;
 - PEER p = 0.735; mean directed vector = 1.68 m versus RMS 16.26 m.
@@ -172,7 +174,7 @@ Binding interpretation:
 
 ## Handling/release boundary
 
-Every later capture within a San Jacinto night occurs after at least one capture/handling/release event, so handling is a plausible contributor. It is not identifiable from these data as the cause.
+The field protocol released animals at the capture detector after each check, so capture/release is a plausible contributor to short-term trap-centred persistence. It is not identifiable from these data as the cause, and release at a detector does not by itself imply an irreversible process.
 
 The empirical first-to-last vector must not be described as:
 - an undisturbed movement trajectory;
@@ -208,7 +210,7 @@ Avoid:
 
 Prefer:
 
-> **The manuscript separates positional non-uniqueness from estimand instability and uses time-reversal symmetry as a tractable diagnostic boundary between stable FIRST/LAST representation and ordered-state failure modes. It provides a scale-aware screen, a direct downstream stability test, and an empirical example in which substantial within-occasion positional variation coexists with a stable SCR spatial scale.**
+> **The manuscript separates positional non-uniqueness from estimand instability and uses time-reversal symmetry as a tractable diagnostic boundary between FIRST/LAST distributional equivalence and ordered-state failure modes. It provides a scale-aware screen, a direct downstream representation-sensitivity test, and an empirical example in which substantial within-occasion positional variation coexists with a small FIRST/LAST SCR point contrast despite strong serial persistence.**
 
 The deterministic bounds are practical sensitivity translations rather than new mathematics.
 
@@ -216,4 +218,4 @@ The deterministic bounds are practical sensitivity translations rather than new 
 
 The weakness that made v0.3 too thin has been resolved without needing a positive empirical bias result. The stronger contribution is that the paper explains **why a large raw aliasing signal may or may not matter downstream**, and identifies the extra temporal structure required for directional instability.
 
-Pre-submission remains on HOLD only until the current-head dedicated live-trap-aliasing review-package workflow is green and author/archive metadata are complete. No additional same-data biological-effect search is justified.
+The empirical downstream sigma comparison is limited to PEMA in one repeated-check trapping programme (19 sessions across five grids); cross-system generality remains open. Pre-submission remains on HOLD only until the current-head dedicated live-trap-aliasing review-package workflow is green and author/archive metadata are complete. No additional same-data biological-effect search is justified.
