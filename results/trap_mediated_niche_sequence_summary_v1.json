@@ -1,0 +1,80 @@
+{
+  "schema": "neon.trap_mediated_niche_sequence.summary.v1",
+  "source_workflow_run_id": 37633593827,
+  "source_artifact_id": 11487193603,
+  "status": "post_result_exploratory",
+  "support": {
+    "valid_same_trap_consecutive_transition_opportunities": 28340,
+    "grid_bout_bootstrap_blocks": 96
+  },
+  "focal": {
+    "KR_to_LAPM": {
+      "observed": 29,
+      "expected": 40.33333333333333,
+      "observed_expected": 0.71900826446281,
+      "z": -2.6339579407440064,
+      "p_approx": 0.008439594158045346,
+      "bootstrap95": [
+        0.5325413494355473,
+        0.9284422513788159
+      ]
+    },
+    "LAPM_to_KR": {
+      "observed": 67,
+      "expected": 65.58333333333337,
+      "observed_expected": 1.0216010165184237,
+      "z": 0.27444354581299873,
+      "p_approx": 0.783743782412384,
+      "bootstrap95": [
+        0.8685347508357305,
+        1.1954887218045112
+      ]
+    },
+    "asymmetry_ratio": {
+      "point": 0.7038053533982983,
+      "bootstrap95": [
+        0.5229869650194143,
+        0.8884523931287884
+      ],
+      "fraction_bootstrap_log_ratio_ge_0": 0.00135
+    }
+  },
+  "spatial_decay": {
+    "distance0_oe": 0.71900826446281,
+    "distance1_oe": 0.911076443057722,
+    "distance2_oe": 1.0290550070521853
+  },
+  "exact3_subset": {
+    "KR_to_LAPM_oe": 0.6439024390243903,
+    "KR_to_LAPM_p_approx": 0.0016316849048862044,
+    "LAPM_to_KR_oe": 0.9845201238390082
+  },
+  "temporal_decay": {
+    "early_middle_KR_to_LAPM_oe": 0.5714285714285715,
+    "middle_late_KR_to_LAPM_oe": 0.9473684210526313,
+    "early_late_KR_to_LAPM_oe": 0.538116591928251
+  },
+  "body_size_alignment": {
+    "heavy_to_light_deficit_dyads": 12,
+    "total_dyads": 15,
+    "exact_upper_tail_fraction": 0.027777777777777776
+  },
+  "temporal_overlap_sensitivity": {
+    "all_capture_aggregated": 4,
+    "first_only_aggregated": 15,
+    "all_capture_null": 28,
+    "first_only_null": 17,
+    "null_to_aggregated": 12,
+    "aggregated_to_null": 1,
+    "mean_ses_delta": 1.2667999127763345,
+    "median_ses_delta": 1.0614347463122784,
+    "published_reference_aggregated": 7,
+    "published_reference_segregated": 0
+  },
+  "claim_boundary": {
+    "causal_competition_identified": false,
+    "residual_scent_identified": false,
+    "natural_encounter_avoidance_identified": false,
+    "interpretation": "KR-to-LAPM same-trap succession is directionally deficient under a trap x bout x check-pair date-shuffle reference and robust to grid leave-one-out and block bootstrap, but the mechanism remains trap-mediated interaction history rather than identified natural interference competition."
+  }
+}

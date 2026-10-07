@@ -1,0 +1,88 @@
+{
+  "schema": "neon.san_jacinto_previous_occupant_fixed_effects.summary.v1",
+  "source_workflow_run_id": 37638294947,
+  "source_artifact_id": 11491102815,
+  "status": "post_result_ecological_transition_analysis",
+  "support": {
+    "complete_grid_nights": 250,
+    "transition_rows": 24408,
+    "previous_occupied": 5451,
+    "previous_empty": 18957,
+    "ambiguous_species_cells": 42,
+    "nonmain_species_cells": 10
+  },
+  "pooled_small_species_after_previous_group": {
+    "previous_small_vs_empty": {
+      "odds_ratio": 7.2704,
+      "lcl95": 6.3765,
+      "ucl95": 8.2896,
+      "p": 4.8053e-193
+    },
+    "previous_kangaroo_vs_empty": {
+      "odds_ratio": 1.2124,
+      "lcl95": 0.9676,
+      "ucl95": 1.5191,
+      "p": 0.0941
+    }
+  },
+  "focal": {
+    "DKR_to_CHFA": {
+      "odds_ratio": 1.6851,
+      "lcl95": 1.153,
+      "ucl95": 2.4626,
+      "p": 0.007
+    },
+    "DKR_to_PEMA": {
+      "odds_ratio": 1.564,
+      "lcl95": 1.0234,
+      "ucl95": 2.3903,
+      "p": 0.0387
+    },
+    "DKR_to_PEER": {
+      "odds_ratio": 0.5172,
+      "lcl95": 0.2714,
+      "ucl95": 0.9857,
+      "p": 0.0451
+    },
+    "DKR_to_LAPM": {
+      "odds_ratio": 0.5457,
+      "lcl95": 0.1427,
+      "ucl95": 2.0871,
+      "p": 0.3761
+    },
+    "SKR_to_CHFA": {
+      "odds_ratio": 0.5221,
+      "lcl95": 0.1469,
+      "ucl95": 1.8559,
+      "p": 0.3152
+    },
+    "SKR_to_PEMA": {
+      "odds_ratio": 1.0042,
+      "lcl95": 0.6846,
+      "ucl95": 1.473,
+      "p": 0.9828
+    },
+    "SKR_to_PEER": {
+      "odds_ratio": 1.9941,
+      "lcl95": 0.3355,
+      "ucl95": 11.8508,
+      "p": 0.4478
+    },
+    "SKR_to_LAPM": {
+      "odds_ratio": 1.056,
+      "lcl95": 0.6531,
+      "ucl95": 1.7074,
+      "p": 0.8242
+    }
+  },
+  "design": {
+    "fixed_effects": "trap_id + grid_date_transition",
+    "cluster": "grid_date"
+  },
+  "claim_boundary": {
+    "generic_dominance_suppression_supported": false,
+    "causal_scent_effect_identified": false,
+    "interference_competition_identified": false,
+    "interpretation": "After trap and grid-date-transition fixed effects, a generic kangaroo-rat suppression of smaller species is not supported. Species-specific conditional associations remain, including lower PEER odds after DKR."
+  }
+}
