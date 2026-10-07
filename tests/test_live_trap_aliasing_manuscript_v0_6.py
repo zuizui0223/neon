@@ -86,7 +86,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
     def test_span_magnitude_is_not_sold_as_bias_diagnostic(self):
         lower=self.text.lower()
         self.assertIn("span magnitude alone cannot identify",lower)
-        self.assertIn("locational ambiguity explicit",lower)
+        self.assertIn("expose locational ambiguity",lower)
         self.assertIn("not when it matters inferentially",lower)
         self.assertIn("not sufficient to diagnose representation sensitivity",lower)
         self.assertIn("span-based correction can even point in the wrong direction",lower)
