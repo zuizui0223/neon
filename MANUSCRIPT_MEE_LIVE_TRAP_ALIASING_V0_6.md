@@ -289,6 +289,8 @@ The pre-designated primary exploratory model was fitted in `secr` 5.4.3 with hal
 
 We report FIRST and LAST sigma estimates, their marginal 95% confidence intervals, and the ratio \(\sigma_{LAST}/\sigma_{FIRST}\). The existing 10% relative-change threshold is retained only as a contextual materiality benchmark; it is not an equivalence margin or a confirmatory test.
 
+Because the same 19 sessions underlie both fits, the FIRST and LAST sigma estimates are paired. The frozen fit receipt, however, stores only marginal standard errors and not their joint covariance. We therefore did not construct a pseudo-paired interval from the two marginal confidence intervals. As a post-result uncertainty-sensitivity analysis, we applied a first-order delta method to \(\log(\sigma_{LAST}/\sigma_{FIRST})\) over assumed correlations \(\rho=0,0.25,0.5,0.75,0.9\) between the two sigma estimates. This calculation is descriptive only: it neither estimates \(\rho\) nor constitutes a formal paired confidence interval or equivalence test.
+
 ## 2.10 Post-result individual-dependence audit
 
 The frozen confirmatory rule treated repeat-capture individual-nights as the binomial units and separately required replication across trapping grids. Because the same marked individual could contribute multiple nights, we conducted a post-result, non-rescuing dependence audit to test whether a small number of repeatedly observed individuals dominated the species-level fractions.

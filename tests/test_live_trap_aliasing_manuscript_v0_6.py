@@ -65,6 +65,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         for token in ("8.8515","8.5625","0.9673","-3.27%"):
             self.assertIn(token,self.text)
         self.assertIn("post-stop exploratory",self.text.lower())
+        self.assertIn("post-result uncertainty-sensitivity analysis",self.text.lower())
         self.assertIn("remained stopped",self.text.lower())
 
     def test_pema_sigma_ratio_uncertainty_is_not_overclaimed(self):
