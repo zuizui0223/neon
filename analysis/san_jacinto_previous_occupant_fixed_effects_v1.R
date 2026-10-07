@@ -253,6 +253,54 @@ body_size_direction_alignment <- list(
   interpretation="Across pairwise fixed-effect coefficients, the heavier-to-lighter previous-occupant direction is usually lower than the reverse direction. This is exploratory concordance with a body-size dominance hierarchy, not a causal test of interference competition."
 )
 
+
+hierarchy_score <- function(order,target_lane){
+  pos <- setNames(seq_along(order),order)
+  score <- 0L
+  for(i in seq_len(length(SPECIES)-1L)){
+    for(j in (i+1L):length(SPECIES)){
+      a <- SPECIES[i]; b <- SPECIES[j]
+      upper <- if(pos[a] < pos[b]) a else b
+      lower <- if(upper==a) b else a
+      ul <- target_lane[[lower]]$contrasts_vs_previous_empty[[upper]]
+      lu <- target_lane[[upper]]$contrasts_vs_previous_empty[[lower]]
+      if(!is.null(ul) && !is.null(lu) && ul$odds_ratio < lu$odds_ratio) score <- score+1L
+    }
+  }
+  score
+}
+
+species_orders <- permute_vec(SPECIES)
+scores_main <- vapply(species_orders,hierarchy_score,integer(1),target_lane=target_models)
+max_score_main <- max(scores_main)
+optimal_orders_main <- species_orders[scores_main==max_score_main]
+mass_order <- names(sort(mass_vals,decreasing=TRUE))
+mass_order_score <- hierarchy_score(mass_order,target_models)
+
+scores_noself <- vapply(species_orders,hierarchy_score,integer(1),
+                        target_lane=target_models_no_self)
+max_score_noself <- max(scores_noself)
+optimal_orders_noself <- species_orders[scores_noself==max_score_noself]
+
+body_size_direction_alignment$hierarchy <- list(
+  edge_definition="A ranks above B when previous-A -> next-B OR is lower than previous-B -> next-A OR",
+  mass_order=mass_order,
+  mass_order_score=mass_order_score,
+  maximum_pairwise_score=max_score_main,
+  n_optimal_orders=length(optimal_orders_main),
+  optimal_orders=optimal_orders_main,
+  number_of_orders_score_at_least_mass=sum(scores_main>=mass_order_score),
+  total_orders=length(species_orders),
+  exact_fraction_orders_score_at_least_mass=mean(scores_main>=mass_order_score),
+  no_same_individual_recurrence=list(
+    maximum_pairwise_score=max_score_noself,
+    n_optimal_orders=length(optimal_orders_noself),
+    optimal_orders=optimal_orders_noself,
+    mass_order_score=hierarchy_score(mass_order,target_models_no_self)
+  ),
+  interpretation="The pairwise directional network is summarized as an ordering problem, not as a causal dominance estimate. Agreement with body-mass order is exploratory external concordance."
+)
+
 # Descriptive transition matrix.
 states <- c("EMPTY",SPECIES)
 tab <- table(factor(tr$from_state,levels=states),factor(tr$to_state,levels=states))
