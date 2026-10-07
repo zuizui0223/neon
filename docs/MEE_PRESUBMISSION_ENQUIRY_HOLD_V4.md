@@ -17,7 +17,7 @@ Dear Editors,
 
 We would like to ask whether our manuscript, **“Diagnosing when temporal aggregation changes spatial scale inference in repeated-location ecological data,”** would be suitable as a Research Article in *Methods in Ecology and Evolution*.
 
-Ecological observations are often collected more frequently than the occasions used for analysis. When several valid locations of the same marked individual are collapsed to one spatial state, the common response is to ask how large the within-occasion movement was. We address a different question: **when does that coarsening actually change the downstream estimand?**
+Ecological observations are often collected more frequently than the occasions used for analysis. When several valid locations of the same marked individual are collapsed to one spatial state, the common response is to ask how large the within-occasion movement was. We address a different question: **when does that coarsening actually change the downstream estimand?** Current `secr` software already exposes FIRST/LAST/random conflict-resolution choices when pooled occasions contain multiple detector locations; the unresolved practical question is when those choices matter inferentially.
 
 We introduce a two-stage framework that separates a warning signal from an estimand consequence. A scale-aware diagnostic first quantifies within-occasion positional non-uniqueness, and the intended downstream estimator is then evaluated under defensible temporal reductions. The practical result is that displacement magnitude itself is not a diagnostic of representation sensitivity: reversing temporal order leaves every span-only summary unchanged while reversing a directed FIRST-versus-LAST effect.
 

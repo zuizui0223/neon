@@ -16,6 +16,12 @@ The mathematically obvious part is not the contribution: if an ordered process i
 - Recent movement/history-dependent SCR models explicitly model dependence rather than assuming conditionally independent detections.
 - Current `secr` already exposes FIRST/LAST/random conflict resolution when occasions are pooled.
 
+## Strongest prior-art threat
+
+Borchers et al. (2014) is the closest conceptual competitor. It already showed that temporally aggregating SECR data can lose information, that movement-induced correlation matters, and that discrete-occasion bias can depend strongly on occasion length and detector spacing. It also simulated high rates of repeated same-detector detection. Therefore this manuscript cannot claim that dependence makes temporal aggregation conditionally safe or unsafe in a novel way.
+
+The surviving distinction is narrower. Borchers et al. studied temporal aggregation primarily as information loss/correlation in continuous-time or proximity-style detection. The present problem is **locational conflict after pooling** when one nominal occasion must retain one detector state even though the same marked individual occupied multiple valid detector locations. Current `secr` exposes FIRST/LAST/random choices for this ambiguity, but the documentation does not supply an inferential criterion for when the choice is consequential. The manuscript's contribution is to show that raw span magnitude cannot supply that criterion either; the downstream estimand itself, plus temporal ordering, must be examined.
+
 ## What is genuinely useful and non-trivial here
 
 ### 1. A warning signal is not a consequence estimate
