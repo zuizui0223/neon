@@ -385,7 +385,7 @@ We then broke time-reversal symmetry by imposing an ordered within-night state t
 
 The mirror experiment is important because all span-only aliasing summaries are invariant to reversing the temporal labels. The downstream direction changed while the positional-span distribution did not, demonstrating that span magnitude alone cannot identify which representation, if either, is closer to a baseline spatial scale.
 
-CHECK-level fits are not used to isolate state mixing because the stress generator also induces within-night encounter dependence. A separate sequential-check robustness route initially missed its 10% negative-control gate by 0.22 percentage points; an independently seeded 96-replicate zero-shift-only rerun passed (maximum median bias 5.55%; LAST/FIRST ratios 0.9968, 1.0031 and 0.9992). The already-opened non-zero-shift cells remain non-promoted; full details are in Supplementary Methods S9.3.1.
+CHECK-level fits are not used to isolate state mixing because the stress generator also induces within-night encounter dependence. A separate sequential-check robustness route initially missed its 10% negative-control gate at 10.22% (by 0.22 percentage points); an independently seeded 96-replicate zero-shift-only rerun passed (maximum median bias 5.55%; LAST/FIRST ratios 0.9968, 1.0031 and 0.9992). The already-opened non-zero-shift cells remain non-promoted; full details are in Supplementary Methods S9.3.1.
 
 ## 3.5 Denominator context
 
