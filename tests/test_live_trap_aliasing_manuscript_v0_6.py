@@ -87,7 +87,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         lower=self.text.lower()
         self.assertIn("span magnitude alone cannot identify",lower)
         self.assertIn("locational ambiguity explicit",lower)
-        self.assertIn("does not provide a criterion",lower)
+        self.assertIn("do not show when it matters inferentially",lower)
         self.assertIn("not sufficient to diagnose representation sensitivity",lower)
         self.assertIn("span-based correction can even point in the wrong direction",lower)
 
