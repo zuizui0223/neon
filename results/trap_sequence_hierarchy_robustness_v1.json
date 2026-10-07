@@ -1,0 +1,150 @@
+{
+  "schema": "neon.trap_sequence_hierarchy_robustness.summary.v1",
+  "status": "post_result_exploratory_robustness",
+  "source_fixed_effect_workflow_run_id": 37643307958,
+  "source_fixed_effect_artifact_id": 11494661806,
+  "fixed_effect_full_data": {
+    "edge_definition": "A ranks above B when OR(A previous -> B next) < OR(B previous -> A next)",
+    "maximum_pairwise_score": 15,
+    "n_optimal_orders": 1,
+    "optimal_order": [
+      "SKR",
+      "DKR",
+      "PEMA",
+      "CHFA",
+      "LAPM",
+      "PEER"
+    ],
+    "mass_order": [
+      "SKR",
+      "DKR",
+      "CHFA",
+      "PEMA",
+      "PEER",
+      "LAPM"
+    ],
+    "mass_order_score": 13,
+    "exact_fraction_orders_score_at_least_mass": 0.0278,
+    "no_same_individual_recurrence": {
+      "maximum_pairwise_score": 15,
+      "n_optimal_orders": 1,
+      "optimal_order": [
+        "SKR",
+        "DKR",
+        "PEMA",
+        "CHFA",
+        "LAPM",
+        "PEER"
+      ],
+      "mass_order_score": 13
+    }
+  },
+  "fixed_effect_leave_one_grid_out": {
+    "omit_grid_1": {
+      "maximum_pairwise_score": 14,
+      "n_optimal_orders": 3,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 12
+    },
+    "omit_grid_2": {
+      "maximum_pairwise_score": 14,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": false,
+      "mass_order_score": 14,
+      "optimal_order": [
+        "SKR",
+        "DKR",
+        "CHFA",
+        "PEMA",
+        "PEER",
+        "LAPM"
+      ]
+    },
+    "omit_grid_3": {
+      "maximum_pairwise_score": 15,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 13
+    },
+    "omit_grid_4": {
+      "maximum_pairwise_score": 14,
+      "n_optimal_orders": 2,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 12
+    },
+    "omit_grid_5": {
+      "maximum_pairwise_score": 15,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 13
+    },
+    "omit_grid_6": {
+      "maximum_pairwise_score": 14,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 12
+    },
+    "omit_grid_7": {
+      "maximum_pairwise_score": 15,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 13
+    },
+    "omit_grid_8": {
+      "maximum_pairwise_score": 15,
+      "n_optimal_orders": 1,
+      "full_data_order_remains_optimal": true,
+      "mass_order_score": 13
+    }
+  },
+  "fixed_effect_leave_one_grid_out_summary": {
+    "full_data_order_remains_optimal_in": 7,
+    "n_grid_omissions": 8,
+    "maximum_pairwise_score_range": [
+      14,
+      15
+    ],
+    "interpretation": "The pooled sequence-derived order is spatially robust but not universal: it remains optimal after 7/8 grid omissions; omitting grid 2 instead makes the empirical body-mass order the unique optimum."
+  },
+  "date_shuffle_independent_audit": {
+    "full_data_optimal_order": [
+      "SKR",
+      "DKR",
+      "PEMA",
+      "CHFA",
+      "LAPM",
+      "PEER"
+    ],
+    "full_data_score": 14,
+    "full_data_order_remains_optimal_in": 8,
+    "n_grid_omissions": 8,
+    "interval_hierarchy": {
+      "early_middle": {
+        "maximum_pairwise_score": 14,
+        "n_optimal_orders": 1,
+        "optimal_order": [
+          "SKR",
+          "DKR",
+          "PEMA",
+          "LAPM",
+          "CHFA",
+          "PEER"
+        ],
+        "full_data_order_score": 13
+      },
+      "middle_late": {
+        "maximum_pairwise_score": 12,
+        "n_optimal_orders": 3,
+        "full_data_order_score": 10
+      }
+    },
+    "dyad_direction_same_between_intervals": 9,
+    "dyad_direction_reversed_or_nonestimable": 6
+  },
+  "claim_boundary": {
+    "fixed_biological_dominance_hierarchy": false,
+    "causal_competition_identified": false,
+    "natural_encounter_network_identified": false,
+    "interpretation": "The pooled directional ordering is spatially replicated across grids and analysis designs, but it reconfigures within a night. The defensible result is a time-varying, detector-local trap-mediated interaction network rather than a fixed dominance hierarchy."
+  }
+}
