@@ -301,6 +301,65 @@ body_size_direction_alignment$hierarchy <- list(
   interpretation="The pairwise directional network is summarized as an ordering problem, not as a causal dominance estimate. Agreement with body-mass order is exploratory external concordance."
 )
 
+
+# Post-result leave-one-grid-out hierarchy audit.
+# This tests stability of the transition-derived ordering across spatial replication.
+# It is descriptive robustness, not confirmatory evidence.
+fit_target_subset <- function(target,zbase) {
+  z <- zbase
+  z$y <- as.integer(z$to_state==target)
+  fit <- feglm(
+    y ~ i(from_state, ref="EMPTY") | trap_id + stratum,
+    data=z,
+    family=binomial("logit"),
+    warn=FALSE,notes=FALSE
+  )
+  sm <- summary(fit,cluster=~grid_date)
+  cf <- coef(sm); ss <- se(sm); pv <- pvalue(sm)
+  out <- list()
+  for(nm in names(cf)){
+    if(!grepl("^from_state::",nm)) next
+    from <- sub("^from_state::","",nm)
+    beta <- unname(cf[nm]); se0 <- unname(ss[nm]); p0 <- unname(pv[nm])
+    out[[from]] <- list(
+      log_odds=beta,SE=se0,odds_ratio=exp(beta),
+      lcl95=exp(beta-1.96*se0),ucl95=exp(beta+1.96*se0),p=p0
+    )
+  }
+  list(target=target,contrasts_vs_previous_empty=out)
+}
+
+hierarchy_leave_one_grid_out <- list()
+grid_levels <- sort(unique(tr$grid))
+for(gdrop in grid_levels){
+  zbase <- tr[tr$grid!=gdrop,,drop=FALSE]
+  lane <- list()
+  for(sp in SPECIES) lane[[sp]] <- fit_target_subset(sp,zbase)
+  sc <- vapply(species_orders,hierarchy_score,integer(1),target_lane=lane)
+  mx <- max(sc)
+  opt <- species_orders[sc==mx]
+  hierarchy_leave_one_grid_out[[paste0("omit_grid_",gdrop)]] <- list(
+    omitted_grid=gdrop,
+    maximum_pairwise_score=mx,
+    n_optimal_orders=length(opt),
+    optimal_orders=opt,
+    mass_order_score=hierarchy_score(mass_order,lane),
+    exact_fraction_orders_score_at_least_mass=mean(sc>=hierarchy_score(mass_order,lane))
+  )
+}
+body_size_direction_alignment$hierarchy$leave_one_grid_out <- hierarchy_leave_one_grid_out
+body_size_direction_alignment$hierarchy$leave_one_grid_out_summary <- list(
+  all_max_scores=vapply(hierarchy_leave_one_grid_out,function(x)x$maximum_pairwise_score,numeric(1)),
+  all_mass_scores=vapply(hierarchy_leave_one_grid_out,function(x)x$mass_order_score,numeric(1)),
+  unique_optimal_order_in_all=sum(vapply(hierarchy_leave_one_grid_out,function(x)x$n_optimal_orders==1L,logical(1)))==length(hierarchy_leave_one_grid_out),
+  full_data_optimal_order=optimal_orders_main[[1]],
+  full_data_optimal_order_remains_optimal_in=sum(vapply(
+    hierarchy_leave_one_grid_out,
+    function(x) any(vapply(x$optimal_orders,function(o)identical(o,optimal_orders_main[[1]]),logical(1))),
+    logical(1)
+  ))
+)
+
 # Descriptive transition matrix.
 states <- c("EMPTY",SPECIES)
 tab <- table(factor(tr$from_state,levels=states),factor(tr$to_state,levels=states))
