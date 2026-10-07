@@ -1,0 +1,46 @@
+name: san-jacinto-temporal-representation-robustness-v1
+
+on:
+  push:
+    branches:
+      - analysis/trap-mediated-niche-v1
+    paths:
+      - analysis/san_jacinto_temporal_representation_robustness_v1.py
+      - docs/SAN_JACINTO_TEMPORAL_REPRESENTATION_ROBUSTNESS_V1.md
+      - .github/workflows/san-jacinto-temporal-representation-robustness-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  robustness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and verify public source
+        run: |
+          mkdir -p /tmp/sj
+          curl -L --fail --retry 3 \
+            https://ndownloader.figshare.com/files/33058799 \
+            -o /tmp/sj/year_round_trap_data.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/sj/year_round_trap_data.csv" | sha256sum -c -
+
+      - name: Compare temporal representations
+        run: |
+          python analysis/san_jacinto_temporal_representation_robustness_v1.py \
+            --input /tmp/sj/year_round_trap_data.csv \
+            --output /tmp/sj/temporal_representation_robustness_v1.json \
+            --random-representations 100 \
+            --random-null-reps 999 \
+            --seed 20261007
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-temporal-representation-robustness-v1
+          path: /tmp/sj/temporal_representation_robustness_v1.json
+          if-no-files-found: error
+          retention-days: 30

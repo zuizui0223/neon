@@ -36,7 +36,7 @@ Within-night repeat fractions are highly species-specific:
 
 Removing later within-night recaptures shifts the first-capture temporal profile sharply toward EARLY, especially for CHFA, DKR and SKR.
 
-Despite lower raw Czekanowski overlap after this removal, the preliminary RA3-style exact enumeration makes standardized temporal aggregation *more* frequent rather than revealing temporal segregation. This counter-intuitive result is being checked with EcoSimR itself before promotion.
+Despite lower raw Czekanowski overlap after this removal, the original EcoSimR null gives the same counter-intuitive direction: temporal aggregation rises from 4/32 grid-seasons in our ALL-capture rerun to 13/32 under FIRST-only, while temporal segregation remains 0/32. The published ALL-capture reference was 7/32 aggregated, so the exact temporal count is not reproduced and this discrepancy remains explicit. By contrast, the spatial SIM9 result is reproduced exactly at 8/32 segregated and remains 8/32 under FIRST-only, with 0/32 classification changes.
 
 ## Current ecological interpretation
 
@@ -50,8 +50,8 @@ This history may combine real local interactions, residual odour, release-site e
 
 ## What would be genuinely strong
 
-If EcoSimR confirms that coarse temporal-overlap inference remains or strengthens after removing repeat captures, while the KR -> LAPM sequence asymmetry remains highly local, the ecological story becomes:
+EcoSimR now confirms that coarse temporal-overlap inference remains and strengthens under FIRST-only while spatial segregation is unchanged. Because FIRST is mechanically early-biased, this result still requires representation controls (LAST, random-one and individual-night normalization) before interpreting the stronger temporal aggregation biologically. If those controls retain the qualitative result, the ecological story becomes:
 
-> **Species can appear to share the same nightly activity niche while still avoiding one another asymmetrically at the scale of hours and metres.**
+> **Coarse community-level temporal overlap can coexist with directional, species-specific microtemporal sequence structure at the scale of hours and metres.**
 
 That is much more ecological than the original temporal-aliasing methods question, but remains exploratory until tested in independent data or an experiment.

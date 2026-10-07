@@ -1,0 +1,67 @@
+{
+  "schema": "neon.san_jacinto_capture_history_niche_sensitivity.summary.v1",
+  "source_workflow_run_id": 37638597176,
+  "source_artifact_id": 11491700634,
+  "status": "post_result_ecological_sensitivity_not_causal_decontamination",
+  "support": {
+    "capture_rows_main_six": 8971,
+    "first_only_rows": 4693,
+    "rows_removed": 4278,
+    "fraction_removed": 0.4769,
+    "grid_seasons": 32
+  },
+  "reproduction": {
+    "published_spatial_segregated_grid_seasons": 8,
+    "published_temporal_aggregated_grid_seasons": 7,
+    "all_capture_spatial": {
+      "segregated": 8,
+      "aggregated": 0,
+      "null": 24
+    },
+    "all_capture_temporal": {
+      "segregated": 0,
+      "aggregated": 4,
+      "null": 28
+    },
+    "spatial_endpoint_reproduced_exactly": true,
+    "temporal_endpoint_reproduced_qualitatively_not_exactly": true,
+    "temporal_count_mismatch": "EcoSimR rerun gave 4/32 aggregated versus 7/32 reported; no temporal segregation in either."
+  },
+  "first_only": {
+    "spatial": {
+      "segregated": 8,
+      "aggregated": 0,
+      "null": 24
+    },
+    "temporal": {
+      "segregated": 0,
+      "aggregated": 13,
+      "null": 19
+    },
+    "spatial_classification_changes": 0,
+    "temporal_classification_changes": 11,
+    "temporal_delta_ses": {
+      "n": 32,
+      "mean": 1.2891,
+      "median": 1.0366,
+      "q025": -1.4964,
+      "q975": 4.1405,
+      "min": -1.6534,
+      "max": 4.1598
+    },
+    "spatial_delta_ses": {
+      "n": 29,
+      "mean": -0.5715,
+      "median": -0.0236,
+      "q025": -9.5291,
+      "q975": 2.2397,
+      "min": -9.9107,
+      "max": 2.292
+    }
+  },
+  "interpretation": {
+    "spatial": "Removing later within-night recaptures did not change a single grid-season spatial significance classification.",
+    "temporal": "Removing later recaptures did not reveal temporal segregation. Instead, RA3-standardized temporal aggregation became more frequent even though raw Czekanowski overlap generally decreased.",
+    "caveat": "FIRST-only is mechanically biased toward earlier checks and is a sensitivity representation, not a reconstruction of undisturbed activity."
+  }
+}
