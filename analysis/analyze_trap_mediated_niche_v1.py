@@ -361,6 +361,24 @@ def main():
                 hl=dmap[(heavy,light)]["observed_expected"]; lh=dmap[(light,heavy)]["observed_expected"]
                 if hl and lh and hl<lh: c+=1
         perm_counts.append(c)
+    # Summarize the directed O/E network as an ordering problem.
+    # A is ranked above B when A->B O/E is lower than B->A O/E.
+    def hierarchy_score(order):
+        pos={sp:i for i,sp in enumerate(order)}
+        score=0
+        for i,a in enumerate(SPECIES):
+            for b in SPECIES[i+1:]:
+                upper,lower=(a,b) if pos[a]<pos[b] else (b,a)
+                if dmap[(upper,lower)]["observed_expected"] < dmap[(lower,upper)]["observed_expected"]:
+                    score+=1
+        return score
+    species_orders=list(itertools.permutations(SPECIES))
+    hierarchy_scores=[hierarchy_score(o) for o in species_orders]
+    hierarchy_max=max(hierarchy_scores)
+    hierarchy_optimal=[list(o) for o,v in zip(species_orders,hierarchy_scores) if v==hierarchy_max]
+    mass_order=tuple(sorted(SPECIES,key=lambda sp:masses[sp]["median_g"],reverse=True))
+    mass_order_score=hierarchy_score(mass_order)
+
     dominance_alignment={
         "species_mass":masses,
         "dyads":dyads,
@@ -368,6 +386,15 @@ def main():
         "n_dyads":len(dyads),
         "mass_rank_permutations":len(perm_counts),
         "exact_upper_tail_fraction":sum(x>=observed_concordant for x in perm_counts)/len(perm_counts),
+        "hierarchy":{
+            "edge_definition":"A ranks above B when A->B observed/expected is lower than B->A observed/expected",
+            "maximum_pairwise_score":hierarchy_max,
+            "n_optimal_orders":len(hierarchy_optimal),
+            "optimal_orders":hierarchy_optimal,
+            "mass_order":list(mass_order),
+            "mass_order_score":mass_order_score,
+            "exact_fraction_orders_score_at_least_mass":sum(v>=mass_order_score for v in hierarchy_scores)/len(hierarchy_scores),
+        },
         "status":"post_result_exploratory_guild_level_pattern",
     }
 
