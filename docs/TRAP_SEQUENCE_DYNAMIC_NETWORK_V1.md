@@ -18,6 +18,22 @@ Pooled across adjacent within-night checks, two different analyses recover the s
 
 The empirical body-mass ordering is unusually concordant with the pooled network.
 
+## Spatial replication of the pooled order
+
+The pooled order is not driven by one trapping grid.
+
+Under the stronger trap + grid-date-transition fixed-effect network, omitting each grid in turn gives maximum pairwise scores of **14–15/15**. The full-data order
+
+**SKR > DKR > PEMA > CHFA > LAPM > PEER**
+
+remains among the optimal orders after **7/8** grid omissions. The one exception is omission of grid 2, where the unique optimum becomes the empirical body-mass order:
+
+**SKR > DKR > CHFA > PEMA > PEER > LAPM**.
+
+An independent date-shuffle leave-one-grid-out audit is even more stable: the full-data order remains optimal after **8/8** grid omissions.
+
+Thus the pooled directional structure is spatially replicated, even though its exact lower-rank ordering is not immutable.
+
 ## Temporal reconfiguration
 
 The pooled ordering decomposes differently across the night:
@@ -68,7 +84,6 @@ Not allowed:
 
 The highest-value next evidence is external rather than more same-data fishing:
 
-1. spatial leave-one-grid-out robustness of the pooled fixed-effect ordering;
-2. an independent repeated-check dataset;
-3. an experiment manipulating previous-occupant cue / trap cleaning / release history;
-4. direct behavioural observations that can distinguish natural avoidance from trap-mediated response.
+1. an independent repeated-check dataset;
+2. an experiment manipulating previous-occupant cue / trap cleaning / release history;
+3. direct behavioural observations that can distinguish natural avoidance from trap-mediated response.
