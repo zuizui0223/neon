@@ -1,0 +1,40 @@
+name: trap-mediated-niche-sequence-v1
+
+on:
+  push:
+    branches:
+      - analysis/trap-mediated-niche-v1
+    paths:
+      - analysis/analyze_trap_mediated_niche_v1.py
+      - docs/TRAP_MEDIATED_NICHE_ROBUSTNESS_PROTOCOL_V1.md
+      - .github/workflows/trap-mediated-niche-sequence-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify frozen public source
+        run: |
+          mkdir -p /tmp/trap-niche
+          curl -L --fail --retry 3 \
+            https://ndownloader.figshare.com/files/33058799 \
+            -o /tmp/trap-niche/yearroundtrapdata.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/trap-niche/yearroundtrapdata.csv" | sha256sum -c -
+      - name: Run exploratory ecological sequence analysis
+        run: |
+          python analysis/analyze_trap_mediated_niche_v1.py \
+            --input /tmp/trap-niche/yearroundtrapdata.csv \
+            --output /tmp/trap-niche/trap_mediated_niche_sequence_v1.json
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: trap-mediated-niche-sequence-v1
+          path: /tmp/trap-niche/trap_mediated_niche_sequence_v1.json
+          if-no-files-found: error
+          retention-days: 30
