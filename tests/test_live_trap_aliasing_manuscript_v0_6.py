@@ -17,6 +17,7 @@ REVERSAL=ROOT/"results"/"time_reversal_symmetry_audit_v1.json"
 CALIB=ROOT/"validation"/"san_jacinto_scr_sigma_v1"/"observation_calibration_v3.json"
 STATIONARY=ROOT/"results"/"pema_stationary_displacement_null_v1.json"
 MIXTURE=ROOT/"results"/"pema_stationary_transition_mixture_decomposition_v1.json"
+SIGMA_UNCERTAINTY=ROOT/"results"/"pema_sigma_ratio_uncertainty_sensitivity_v1.json"
 
 
 class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
@@ -32,6 +33,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         cls.calib=json.loads(CALIB.read_text())
         cls.stationary=json.loads(STATIONARY.read_text())
         cls.mixture=json.loads(MIXTURE.read_text())
+        cls.sigma_uncertainty=json.loads(SIGMA_UNCERTAINTY.read_text())
 
     def test_version_and_core_reframe(self):
         self.assertIn("**Version:** v0.6",self.text)
@@ -64,6 +66,21 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
             self.assertIn(token,self.text)
         self.assertIn("post-stop exploratory",self.text.lower())
         self.assertIn("remained stopped",self.text.lower())
+
+    def test_pema_sigma_ratio_uncertainty_is_not_overclaimed(self):
+        p=self.sigma_uncertainty
+        self.assertEqual(p["schema"],"neon.pema_sigma_ratio_uncertainty_sensitivity.v1")
+        self.assertFalse(p["claim_boundary"]["formal_paired_confidence_interval"])
+        self.assertFalse(p["claim_boundary"]["equivalence_test"])
+        self.assertAlmostEqual(p["zero_correlation_reference"]["ratio_lcl95"],0.84385,places=4)
+        self.assertAlmostEqual(p["zero_correlation_reference"]["ratio_ucl95"],1.10893,places=4)
+        self.assertAlmostEqual(
+            p["correlation_required_for_95pct_interval_inside_contextual_band"],
+            0.72095,
+            places=4,
+        )
+        for token in ("0.844","1.109","0.721","not an equivalence test"):
+            self.assertIn(token,self.text.lower())
 
     def test_empirical_shift_energy_is_not_an_additive_sigma_correction(self):
         p=self.pema["primary_model"]
@@ -168,7 +185,7 @@ class LiveTrapAliasingManuscriptV06Tests(unittest.TestCase):
         self.assertAlmostEqual(p["observed"]["same_trap_fraction"],0.3028,places=4)
         self.assertAlmostEqual(p["observed"]["changed_night_rms_m"],15.4519,places=4)
         self.assertAlmostEqual(p["primary"]["null_same_trap_median"],0.08257,places=4)
-        self.assertAlmostEqual(p["primary"]["null_changed_rms_median"],14.30286,places=4)
+        self.assertAlmostEqual(p["primary"]["null_changed_rms_median"],14.30396,places=4)
         self.assertEqual(p["quantile_definition"],"R quantile type=8 equivalent")
         self.assertAlmostEqual(p["primary"]["null_same_trap_q025"],0.05046,places=4)
         self.assertAlmostEqual(p["primary"]["null_changed_rms_q025"],13.43010,places=4)

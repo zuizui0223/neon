@@ -347,7 +347,7 @@ Thus the frozen empirical programme decision for positional non-uniqueness was
 \texttt{authorize\_live\_trap\_positional\_aliasing\_result}.
 \]
 
-## 3.2 Frequent aliasing did not imply material PEMA sigma instability
+## 3.2 Frequent aliasing produced only a small PEMA sigma point contrast
 
 The prospectively planned empirical two-species SCR programme remained stopped because PEER did not meet its session-support requirement. The subsequent PEMA-only analysis is therefore exploratory.
 
@@ -359,11 +359,11 @@ Across the 19 frozen eligible PEMA sessions, FIRST and LAST histories each conta
 
 a relative change of -3.27%. This did not cross the existing 10% contextual materiality threshold.
 
-The empirical result therefore separates the two questions motivating the framework: within-night position was frequently non-unique, but the pooled PEMA SCR spatial scale was comparatively stable to whether the first or last nightly capture location was retained.
+The point estimate therefore separates the two questions motivating the framework: within-night position was frequently non-unique, yet the pooled PEMA SCR spatial scale changed little when the first rather than last nightly capture location was retained. This is not an equivalence test. Because the paired FIRST/LAST fits were not stored with their joint covariance, marginal standard errors alone cannot provide a formal paired confidence interval for the ratio. A post-result delta-method sensitivity analysis gave an approximate 95% ratio interval of 0.844–1.109 under a zero-correlation reference; the interval would lie fully inside the contextual 0.9–1.1 band only if the correlation between the two sigma estimates exceeded approximately 0.721.
 
 The same data also reject a tempting quantitative interpretation of the raw span distribution. Among all valid PEMA individual-nights, directly observed material FIRST-to-LAST transitions occurred on 352/1,219 nights, and the RMS length of those material transitions was 17.08 m. If those vectors were treated as independent, zero-mean additive displacements applied after the FIRST state, the continuous second-moment benchmark using the FIRST estimate (sigma = 8.8515 m) would predict sigma_LAST / sigma_FIRST ≈ 1.240, or about +24.0%. The observed ratio was instead 0.967 (-3.3%). This model-dependent discrepancy is inconsistent with interpreting the observed FIRST-to-LAST vectors as an independent additive transition kernel for PEMA and reinforces that positional-span magnitude is not an empirical correction for SCR sigma.
 
-The post-result reversal audit found no clear grid-stratified directional asymmetry. For PEMA, the cluster sign-flip randomization gave \(p=0.193\); the mean directed first-to-last vector had magnitude only 0.071 m compared with a 17.08-m RMS changed-night displacement (0.4%). For PEER, the corresponding values were \(p=0.735\), 1.68 m and 16.26 m (10.3%). These are consistency diagnostics rather than evidence that the process is exactly reversible, but the near-zero PEMA flux is concordant with its stable FIRST/LAST sigma estimate.
+The post-result reversal audit found no clear grid-stratified directional asymmetry. For PEMA, the cluster sign-flip randomization gave \(p=0.193\); the mean directed first-to-last vector had magnitude only 0.071 m compared with a 17.08-m RMS changed-night displacement (0.4%). For PEER, the corresponding values were \(p=0.735\), 1.68 m and 16.26 m (10.3%). These are consistency diagnostics rather than evidence that the process is exactly reversible, but the near-zero PEMA flux is concordant with the small FIRST/LAST sigma point contrast.
 
 ## 3.3 Empirical displacement magnitude was stationary-compatible, but repeat locations were more persistent
 
@@ -383,11 +383,9 @@ When all within-night checks sampled one stationary SCR state, FIRST and LAST di
 
 We then broke time-reversal symmetry by imposing an ordered within-night state transition using the observed held-out displacement-vector distribution and repeat frequency. With the baseline state observed before the transition (POST), median LAST/FIRST sigma ratios were 1.347, 1.154 and 1.124 for generating \(\sigma=6.25\), 12.5 and 25 m. Reversing the temporal ordering (PRE) preserved the same displacement magnitudes but reversed the direction of the representation effect: corresponding ratios were 0.766, 0.856 and 0.894.
 
-At \(\sigma=6.25\) m, POST median sigma biases were approximately -0.6% for FIRST and +38.8% for LAST; PRE gave +35.0% for FIRST and -0.7% for LAST. At \(\sigma=12.5\) m, POST biases were -1.7% and +15.1%, whereas PRE biases were +16.6% and approximately 0.0%.
-
 The mirror experiment is important because all span-only aliasing summaries are invariant to reversing the temporal labels. The downstream direction changed while the positional-span distribution did not, demonstrating that span magnitude alone cannot identify which representation, if either, is closer to a baseline spatial scale.
 
-CHECK-level fits in this particular stress test are not used to isolate the effect of state mixing because the empirical-transition generator also clusters repeated detections within captured nights. The correctly generated stationary CHECK controls remained close to the generating sigma. A separate sequential-check robustness benchmark was attempted with every check generated directly through `secr`. Its initial 24-replicate negative-control gate failed narrowly (maximum absolute median bias 10.22% versus a 10% requirement), so its non-zero-shift cells are not promoted as confirmatory support. We then ran an independent, zero-shift-only diagnostic with a new seed and 96 replicates per generating sigma, without reopening any non-zero-shift outcome. The maximum absolute median bias fell to 5.55%, and paired LAST/FIRST ratios were 0.9968, 1.0031 and 0.9992 at generating sigma values of 6.25, 12.5 and 25 m. Thus the original 10.22% null excursion was not reproducible at higher Monte Carlo replication, while the already-opened non-zero-shift cells remain non-promoted.
+CHECK-level fits are not used to isolate state mixing because the stress generator also induces within-night encounter dependence. A separate sequential-check robustness route initially missed its 10% negative-control gate by 0.22 percentage points; an independently seeded 96-replicate zero-shift-only rerun passed (maximum median bias 5.55%; LAST/FIRST ratios 0.9968, 1.0031 and 0.9992). The already-opened non-zero-shift cells remain non-promoted; full details are in Supplementary Methods S9.3.1.
 
 ## 3.5 Denominator context
 
@@ -411,15 +409,15 @@ The post-result dependence audit did not indicate that the confirmatory position
 
 ## 4.1 Positional aliasing is a warning condition, not a bias estimate
 
-The held-out validation showed frequent materially different detector states within a night, yet PEMA sigma changed only -3.3% between FIRST and LAST. The stationary diagnostic further showed that the displacement RMS itself was not unusually large; instead, PEMA changed traps less often than independent stationary checks predicted.
+The held-out validation showed frequent materially different detector states within a night, yet the PEMA sigma point estimate changed only -3.3% between FIRST and LAST. That small contrast is not a formal equivalence result: without the paired fit covariance, its uncertainty remains correlation-dependent. The stationary diagnostic further showed that the displacement RMS itself was not unusually large; instead, PEMA changed traps less often than independent stationary checks predicted.
 
 The data therefore separate three properties that should not be conflated: spatial span, short-term serial dependence and directional temporal asymmetry. More importantly, they show that a marginal spatial scale can be approximately right for the wrong temporal process. The first-stage aliasing screen identifies positional non-uniqueness; it does not estimate downstream bias.
 
-## 4.2 Time-reversal symmetry explains the stable case
+## 4.2 Serial dependence need not imply directional representation instability
 
 If the within-occasion data law is unchanged by reversing check order, FIRST and LAST are distributionally equivalent despite differing in a realized night. Full exchangeability is sufficient but unnecessary; reversible serial dependence also qualifies.
 
-PEMA fits this distinction. Its displacement RMS was compatible with the fitted static kernel, but its changed-trap fraction was much lower than the independent-check expectation. The compensating mixture—more same-trap recurrence but slightly larger non-zero moves—shows why agreement in a marginal second moment, or stability of a pooled spatial-scale estimate, does not validate the assumed transition process. The reference uses the same `multi` model as the PEMA fit and therefore does not rule out effects of physical single-catch trapping. Serial dependence itself is established territory: Stevenson et al. (2022) showed that movement-induced residual correlation can violate conditional independence in SCR, and recent SCR work lets the most recent detection transiently alter subsequent spatial detection rates (van Helsdingen & Jones-Todd 2026). Our distinction is between dependence that may remain reversal-symmetric and ordered asymmetry that changes a directional FIRST-versus-LAST estimand.
+PEMA fits this distinction at the level of point estimates. Its displacement RMS was compatible with the fitted static kernel, but its changed-trap fraction was much lower than the independent-check expectation. The compensating mixture—more same-trap recurrence with a somewhat longer conditional non-zero tail—shows why agreement in a marginal second moment does not validate the assumed transition process. The field protocol released captured animals at the detector after each check (Chock et al. 2022), providing a biologically plausible source of short-term trap-centred persistence or trap response. However, release at a detector does not by itself identify an irreversible process: history dependence can remain time-reversal symmetric. Consistent with that caution, the simple release-centred transient-state calibration failed its independent observation-process gate and is not treated as the empirical mechanism. Serial dependence itself is established territory (Stevenson et al. 2022; van Helsdingen & Jones-Todd 2026); our distinction is between dependence that may remain reversal-symmetric and ordered asymmetry that changes a directional FIRST-versus-LAST estimand.
 
 The directional audit supports that boundary: PEMA's mean first-to-last vector was only 0.071 m versus a 17.08-m RMS changed-night displacement, with no clear grid-stratified reversal asymmetry. This does not prove reversibility, but it argues against treating the observed vectors as a one-way additive post-capture shift.
 
@@ -449,9 +447,7 @@ This sampling limitation is conceptually separate from representation stability.
 
 Two prospectively planned downstream routes stopped for insufficient support. The MCP analysis failed its individual-level gate, and the two-species empirical SCR sigma programme failed because PEER had only two eligible sessions. We retain those stops. The PEMA-only sigma comparison is useful precisely because it is labelled as post-stop exploratory rather than presented as rescued confirmation.
 
-The sequential robustness route illustrates the same principle. Its first 24-replicate negative-control gate failed narrowly, exceeding the pre-specified 10% tolerance by 0.22 percentage points. An independently seeded zero-shift-only replication with 96 replicates per sigma subsequently passed the same gate (maximum absolute median bias 5.55%; paired LAST/FIRST ratios within 0.32% of one), showing that the original null excursion was not stable Monte Carlo behaviour. We nevertheless do not retroactively promote the already-opened non-zero-shift cells from the failed-gate run. Preserving both facts separates validation of the generator from post hoc rescue of a favourable effect.
-
-The observation-process calibration adds a complementary stop. None of the 12 independently validated candidates selected from a 204-cell search reproduced all four empirical targets, and no SCR sigma model was fitted in that calibration. We retain this failure rather than widening tolerances after seeing the result. It prevents the state-transition stress test from being relabelled as an empirically matched handling model.
+The sequential robustness and observation-process calibration both retain their original stopping rules. The first sequential null missed its 10% gate narrowly before a larger zero-shift-only rerun passed, but already-opened non-zero cells remain non-promoted. Separately, none of 12 independently validated release-centred candidates reproduced all four empirical observation targets, and no sigma model was fitted in that calibration. These stops prevent a controlled failure mode from being relabelled as an empirically matched handling mechanism.
 
 ## 4.7 Generality and recommended workflow
 
@@ -465,7 +461,7 @@ A practical workflow follows directly from the results:
 4. if positional aliasing is material, re-run the intended downstream analysis under defensible temporal representations;
 5. treat stable downstream estimates as evidence that the coarsening choice is not practically important for that estimand, and unstable estimates as a trigger for finer temporal or state modelling.
 
-The central methodological point is deliberately narrower than “never aggregate”. The useful question is: **when does temporal representation change the spatial quantity we intend to infer?** The San Jacinto example shows that even a strongly non-independent within-night sequence can leave a marginal spatial-scale estimate stable when its dependence is not directionally ordered; the ordered-state simulations show the complementary conditions under which the same representation choice becomes consequential.
+The central methodological point is deliberately narrower than “never aggregate”. The useful question is: **when does temporal representation change the spatial quantity we intend to infer?** The San Jacinto point estimates show that strong within-night dependence can coexist with a small FIRST/LAST spatial-scale contrast, while the ordered-state simulations show how directional asymmetry can make the same representation choice consequential. The downstream empirical comparison is restricted to PEMA within this single repeated-check trapping programme (19 sessions across five grids); its generality across taxa, detector systems and study designs remains untested, even though the positional-aliasing screen itself was prospectively replicated in both PEMA and PEER.
 
 # 5. Data and code availability
 

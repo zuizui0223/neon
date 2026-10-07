@@ -46,6 +46,8 @@ on:
       - results/pema_stationary_displacement_null_v1.json
       - results/pema_stationary_displacement_null_replicates_v1.csv
       - results/pema_stationary_transition_mixture_decomposition_v1.json
+      - results/pema_sigma_ratio_uncertainty_sensitivity_v1.json
+      - analysis/summarize_pema_sigma_ratio_uncertainty_v1.py
       - analysis/pema_stationary_displacement_null_v1.R
       - analysis/decompose_pema_stationary_transition_mixture_v1.py
       - validation/pema_stationary_displacement_null_v1/eligible_pema_sessions.csv
@@ -108,6 +110,19 @@ jobs:
           print(json.dumps(frozen["robustness"],indent=2,sort_keys=True))
           PY
 
+      - name: Verify PEMA sigma-ratio uncertainty receipt is reproducible
+        run: |
+          python analysis/summarize_pema_sigma_ratio_uncertainty_v1.py \
+            --pema-json results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json \
+            --output-json /tmp/pema_sigma_ratio_uncertainty_sensitivity_v1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          frozen=json.loads(Path("results/pema_sigma_ratio_uncertainty_sensitivity_v1.json").read_text())
+          rebuilt=json.loads(Path("/tmp/pema_sigma_ratio_uncertainty_sensitivity_v1.json").read_text())
+          assert rebuilt == frozen, "PEMA sigma-ratio uncertainty receipt does not reproduce"
+          PY
+
       - name: Build clean review directory
         run: |
           set -euo pipefail
@@ -168,8 +183,10 @@ jobs:
           cp results/pema_stationary_displacement_null_v1.json /tmp/live-trap-aliasing-review/results/
           cp results/pema_stationary_displacement_null_replicates_v1.csv /tmp/live-trap-aliasing-review/results/
           cp results/pema_stationary_transition_mixture_decomposition_v1.json /tmp/live-trap-aliasing-review/results/
+          cp results/pema_sigma_ratio_uncertainty_sensitivity_v1.json /tmp/live-trap-aliasing-review/results/
           cp analysis/pema_stationary_displacement_null_v1.R /tmp/live-trap-aliasing-review/analysis/
           cp analysis/decompose_pema_stationary_transition_mixture_v1.py /tmp/live-trap-aliasing-review/analysis/
+          cp analysis/summarize_pema_sigma_ratio_uncertainty_v1.py /tmp/live-trap-aliasing-review/analysis/
           cp validation/pema_stationary_displacement_null_v1/eligible_pema_sessions.csv /tmp/live-trap-aliasing-review/validation/pema_stationary_displacement_null_v1/
           cp results/time_reversal_symmetry_audit_v1.json /tmp/live-trap-aliasing-review/results/
           cp analysis/simulate_scr_sigma_dynamic_state_zero_shift_v2_1.R /tmp/live-trap-aliasing-review/analysis/

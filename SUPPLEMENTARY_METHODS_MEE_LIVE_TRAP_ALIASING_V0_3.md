@@ -527,6 +527,18 @@ No validation cell passed all four criteria. The frozen decision was
 
 The claim boundary is therefore stricter than the generative stress test: an ordered transient state can make temporal representations diverge, but this simple release-centred mechanism did not reproduce the San Jacinto observation summaries well enough to be promoted as an empirical mechanism or quantitative calibration.
 
+### S9.3.3 PEMA FIRST/LAST ratio uncertainty sensitivity
+
+The exploratory PEMA fit receipt reports marginal standard errors for FIRST and LAST sigma but not the covariance between those estimates, although both fits use the same 19 sessions. We therefore do not infer a paired confidence interval by combining the marginal 95% intervals.
+
+As a post-result transparency analysis, let \(r=\log(\hat\sigma_{LAST}/\hat\sigma_{FIRST})\), with first-order marginal standard errors \(a=SE_F/\hat\sigma_F\) and \(b=SE_L/\hat\sigma_L\). For an assumed correlation \(\rho\) between the paired sigma estimates,
+
+\[
+SE(r)\approx\sqrt{a^2+b^2-2\rho ab}.
+\]
+
+With FIRST = 8.8515 m (SE 0.4396) and LAST = 8.5625 m (SE 0.4186), the zero-correlation reference gives an approximate 95% LAST/FIRST ratio interval of **0.844–1.109**. The interval lies fully inside the contextual 0.9–1.1 band only when the assumed correlation exceeds approximately **0.721**. This calculation does not estimate that correlation and is not a formal paired confidence interval or equivalence test. Its purpose is to prevent the -3.3% point contrast from being overinterpreted as demonstrated equivalence.
+
 ### S9.4 Claim boundary
 
 The benchmark supports the conditional methodological statement that temporal representation can change fitted SCR spatial scale when a nominal occasion contains multiple observation-conditioned spatial states. It does not show:
