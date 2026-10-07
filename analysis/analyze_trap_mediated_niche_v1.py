@@ -398,6 +398,40 @@ def main():
         "status":"post_result_exploratory_guild_level_pattern",
     }
 
+    def hierarchy_from_records(records):
+        local=[]
+        for a in SPECIES:
+            for b in SPECIES:
+                if a==b: continue
+                mm=grouped_metric(records,lambda r,a=a:r["prev"]==a,lambda r,b=b:r["next"]==b)
+                local.append(dict(source=a,target=b,**mm))
+        lm={(r["source"],r["target"]):r for r in local}
+        def sc(order):
+            pos={sp:i for i,sp in enumerate(order)}
+            total=0
+            for i,a in enumerate(SPECIES):
+                for b in SPECIES[i+1:]:
+                    upper,lower=(a,b) if pos[a]<pos[b] else (b,a)
+                    u=lm[(upper,lower)]["observed_expected"]
+                    v=lm[(lower,upper)]["observed_expected"]
+                    if u is not None and v is not None and u<v: total+=1
+            return total
+        vals=[sc(o) for o in species_orders]
+        mx=max(vals)
+        opt=[list(o) for o,v in zip(species_orders,vals) if v==mx]
+        ms=sc(mass_order)
+        return {
+            "maximum_pairwise_score":mx,
+            "n_optimal_orders":len(opt),
+            "optimal_orders":opt,
+            "mass_order_score":ms,
+            "exact_fraction_orders_score_at_least_mass":sum(v>=ms for v in vals)/len(vals),
+        }
+    dominance_alignment["interval_hierarchy"]={
+        pair:hierarchy_from_records([r for r in transitions if r["pair"]==pair])
+        for pair in ("EARLY-MIDDLE","MIDDLE-LATE")
+    }
+
     # Community temporal overlap sensitivity: all captures vs first known capture per individual-night,
     # retaining unknown-ID rows in primary sensitivity.
     focal=[r for r in raw if r["_species"] in SPECIES_SET and r["_bin"] in BINS]
