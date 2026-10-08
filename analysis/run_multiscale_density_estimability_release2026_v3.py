@@ -17,11 +17,14 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import http.client
 import io
 import json
 import os
 import tempfile
+import time
 import urllib.request
+import urllib.error
 from concurrent.futures import ThreadPoolExecutor
 from collections import defaultdict
 from pathlib import Path
@@ -135,17 +138,34 @@ def _inventory(query_payload: dict) -> list[dict[str, Any]]:
 
 
 def _download_one(row: dict[str, Any], token: str) -> bytes:
+    """Retry transient transport failures, NEVER accept incomplete/wrong bytes.
+
+    Scientific inputs are identical: the published inventory size and MD5 are
+    validated on every successful download. Retrying changes transport only.
+    """
     req = urllib.request.Request(
         str(row["url"]),
         headers={"User-Agent": USER_AGENT, "X-API-Token": token},
     )
-    with urllib.request.urlopen(req, timeout=240) as response:
-        raw = response.read()
-    if len(raw) != int(row["size"]):
-        raise RuntimeError(f"size mismatch: {row['name']}")
-    if hashlib.md5(raw).hexdigest() != row["md5"]:
-        raise RuntimeError(f"md5 mismatch: {row['name']}")
-    return raw
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=240) as response:
+                raw = response.read()
+            if len(raw) != int(row["size"]):
+                raise RuntimeError(f"size mismatch: {row['name']}")
+            if hashlib.md5(raw).hexdigest() != row["md5"]:
+                raise RuntimeError(f"md5 mismatch: {row['name']}")
+            return raw
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429, 500, 502, 503, 504) or attempt + 1 == max_attempts:
+                raise
+        except (http.client.IncompleteRead, ConnectionResetError, TimeoutError,
+                urllib.error.URLError):
+            if attempt + 1 == max_attempts:
+                raise
+        time.sleep(1.5 * (attempt + 1))
+    raise AssertionError("unreachable retry state")
 
 
 def _download_many(
