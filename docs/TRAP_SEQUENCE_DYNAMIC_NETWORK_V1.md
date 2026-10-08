@@ -6,7 +6,7 @@ Status: post-result exploratory synthesis.
 
 ## Central result
 
-The San Jacinto rodent guild contains **directional sequence structure at the exact detector scale that is invisible to symmetric whole-night niche-overlap summaries, but that structure is not a fixed hierarchy**.
+The San Jacinto rodent guild contains **directional detector-local capture sequences not represented by symmetric whole-night niche-overlap summaries**. Whether these sequence associations change within one night remains unresolved; the post-result uncertainty audit did not support a temporal-rewiring claim.
 
 Pooled across adjacent within-night checks, two different analyses recover the same best six-species ordering:
 
@@ -34,7 +34,7 @@ An independent date-shuffle leave-one-grid-out audit is even more stable: the fu
 
 Thus the pooled directional structure is spatially replicated, even though its exact lower-rank ordering is not immutable.
 
-## Temporal reconfiguration
+## Within-night interval split: descriptive differences, not demonstrated rewiring
 
 The pooled ordering decomposes differently across the night:
 
@@ -43,7 +43,14 @@ The pooled ordering decomposes differently across the night:
 - only 9/15 dyad directions are conserved across intervals;
 - body-mass alignment is 12/15 early→middle and 8/15 middle→late.
 
-Therefore the pooled ordering is **not evidence for one static dominance hierarchy**.
+The interval-specific optima differ descriptively, but this is **not evidence that a biological dominance hierarchy changed**. The pooled ordering is also not a verified natural dominance hierarchy.
+
+
+### October 8 uncertainty closure
+
+The 5,000-replicate grid × trapping-bout block bootstrap used 250 grid-nights containing all three check labels (24,408 valid adjacent transitions; 95 blocks). On this common-support subset, **10/15 dyad signs** matched between EARLY→MIDDLE and MIDDLE→LATE (bootstrap range of sign agreements 6–12). **No dyad's interval contrast excluded zero at the 95% level (0/15), and none survived exploratory BH at q < 0.10 (0/15).** Under the exact-three-night-bout sensitivity, one dyad had an unadjusted interval excluding-zero interval, but again 0/15 survived BH.
+
+For KR→LAPM, observed/expected was 0.629 early→middle and 0.816 middle→late; the paired smoothed log-O/E difference was −0.252 (95% bootstrap −0.778 to 0.245). A change in direction or strength is **not statistically established**. Full receipt: `docs/TRAP_SEQUENCE_INTERVAL_REWIRING_RESULT_V1.md`.
 
 ## Spatial scale
 
@@ -61,14 +68,14 @@ Thus symmetric coarse-scale niche overlap and directed fine-scale sequence struc
 
 ## Strongest ecological gap
 
-> **When interaction effects are asymmetric and change over hours, can community-level niche overlap conceal the direction and temporal reorganization of species interactions?**
+> **Can directional detector-local capture histories contain ecological information that symmetric coarse niche-overlap indices miss, without assuming a natural dominance hierarchy or proven within-night rewiring?**
 
 The present dataset supplies a strong exploratory example but cannot identify whether the detector-local sequence structure is caused by natural interference, residual scent, capture/release, bait/trap state, or combinations of these processes.
 
 ## Claim boundary
 
 Allowed:
-- time-varying directional interaction network;
+- directional detector-local capture-sequence network (pooled exploratory summary);
 - trap-mediated sequence structure;
 - directional cue-response structure;
 - pooled ordering concordant with body size.

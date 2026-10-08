@@ -17,7 +17,7 @@ Using early -> middle and middle -> late same-detector transitions, with a date-
 - kangaroo rat (DKR or SKR) -> LAPM transitions are deficient, while LAPM -> kangaroo rat transitions are near null;
 - the KR -> LAPM deficit survives every leave-one-grid-out analysis and a grid × trapping-bout cluster bootstrap;
 - the deficit is strongest at the exact previous detector, weaker at adjacent detectors, and absent by Manhattan distance 2;
-- across the pooled six-species guild, the directed transition network admits a near-transitive ordering that broadly aligns with body mass, but interval-specific analyses show that this ordering reconfigures within the night.
+- across the pooled six-species guild, the directed transition network admits a near-transitive ordering that broadly aligns with body mass, but interval-specific estimates differ and a subsequent block-bootstrap audit failed to establish temporal rewiring.
 
 ## Ecological interpretation
 
@@ -34,9 +34,9 @@ The spatial decay is therefore important: a strong distance-0 effect with little
 
 ## Candidate general principle
 
-> Marginal temporal niche overlap can miss **time-varying directional interaction structure** in event sequences.
+> Coarse niche overlap cannot describe **directional detector-local capture sequences**, whose causal ecological interpretation remains unresolved.
 
-This general principle is not new in animal ecology; fine-scale time-to-encounter studies in carnivores already show avoidance despite broad diel overlap. The potentially useful contribution here is different: repeated live trapping can reveal—and itself mediate—microtemporal directional structure in a small-mammal community. The pooled network resembles independently established body-size dominance, but its interval-specific reconfiguration shows that it should not be treated as a fixed hierarchy.
+This general principle is not new in animal ecology; fine-scale time-to-encounter studies in carnivores already show avoidance despite broad diel overlap. The potentially useful contribution here is different: repeated live trapping can reveal—and itself mediate—microtemporal directional structure in a small-mammal community. The pooled network resembles independently established body-size dominance, but the lack of demonstrated within-night rewiring and untested causal mechanism mean it should not be treated as a natural dominance hierarchy.
 
 ## Claim boundary
 

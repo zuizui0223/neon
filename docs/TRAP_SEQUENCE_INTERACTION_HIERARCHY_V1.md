@@ -56,7 +56,7 @@ The body-mass order satisfies 13 of 15 dyads; 20/720 = 2.78% of possible orders 
 
 Removing exact same-individual recurrence before refitting leaves the same unique 15/15 pooled ordering.
 
-### 2b. Within-night interval split rejects a fixed hierarchy
+### 2b. Within-night interval split is not evidence for temporal rewiring
 
 The pooled ordering is **not** stable when the two adjacent check intervals are analysed separately under the same trap × bout date-shuffle reference.
 
@@ -65,7 +65,7 @@ The pooled ordering is **not** stable when the two adjacent check intervals are 
 - Only **9/15 dyads keep the same direction** across the two intervals.
 - Body-mass direction agrees with **12/15 dyads early→middle but only 8/15 middle→late**.
 
-Therefore the full-night pooled order must not be described as a fixed social or dominance hierarchy. It is a compact summary of a **time-varying directional interaction network**.
+A post-result block-bootstrap audit found that none of 15 dyad interval contrasts excluded zero (0/15; exploratory BH q < 0.10 in 0/15). The alternative interval-specific rankings are descriptive estimates, not evidence of biological rewiring. The pooled ranking must not be described as an identified social/dominance hierarchy.
 
 ### 3. Independent behavioural concordance
 
@@ -109,7 +109,7 @@ rather than another observation-bias paper.
 
 Use:
 
-- **time-varying trap-mediated interaction network**
+- **directional trap-mediated capture-sequence network**
 - **directional cue-response structure**
 - **pooled sequence-derived interaction order**
 
@@ -136,8 +136,8 @@ Refit the six target models after omitting each of the eight trapping grids in t
 3. body-mass-order score;
 4. number of unique optimal orders.
 
-Spatial leave-one-grid-out refits remain valuable for asking whether the **pooled** network summary is dominated by one grid. Even a perfectly stable spatial LOO result cannot restore a fixed-hierarchy claim, because the interval split already demonstrates within-night reconfiguration.
+Spatial leave-one-grid-out refits remain valuable for asking whether the **pooled** network summary is dominated by one grid. The pooled ordering is spatially reproducible, but the interval split has insufficient statistical resolution to establish or reject time-invariant biological interactions.
 
 ## Candidate one-sentence result
 
-> **A six-species rodent community that appears temporally overlapping at coarse scale contains a detector-local directional interaction network whose pooled ordering resembles body-size dominance but reconfigures within a single night.**
+> **A rodent guild showing coarse temporal overlap contains detector-local directional capture-sequence asymmetries, some concordant with known body-size dominance, without proving natural interference or within-night network rewiring.**

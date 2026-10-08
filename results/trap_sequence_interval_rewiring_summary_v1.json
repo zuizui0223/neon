@@ -1,0 +1,78 @@
+{
+  "schema": "neon.trap_sequence_interval_rewiring_summary.v1",
+  "status": "post_result_exploratory_non_rescuing",
+  "source": {
+    "workflow_name": "trap-sequence-interval-rewiring-audit-v1",
+    "run_id": 37705561797,
+    "artifact_id": 11519064103,
+    "artifact_name": "trap-sequence-interval-rewiring-audit-v1",
+    "source_head_sha": "30c96dce3ca64b225fa0d6f8c151987a9f8940d9",
+    "workflow_conclusion": "success",
+    "original_source_checksum_expected": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "support": {
+    "complete_grid_dates": 250,
+    "valid_adjacent_trap_transitions": 24408,
+    "ambiguous_or_nonfocal_transitions_excluded": 92,
+    "grid_x_bout_blocks": 95,
+    "block_bootstrap_replicates": 5000,
+    "seed": 20261008
+  },
+  "all_complete_bin_nights": {
+    "focal_KR_to_LAPM": {
+      "early_middle": {
+        "observed": 13,
+        "expected": 20.666666666666664,
+        "oe": 0.6290322580645162
+      },
+      "middle_late": {
+        "observed": 14,
+        "expected": 17.166666666666668,
+        "oe": 0.8155339805825242
+      },
+      "smoothed_log_oe_interval_difference": -0.25220695632866885,
+      "bootstrap95_interval_difference": [
+        -0.7775749853418961,
+        0.24493864084392072
+      ],
+      "interval_difference_excludes_zero": false
+    },
+    "dyad_interval_comparison": {
+      "n_dyads": 15,
+      "point_signs_conserved": 10,
+      "conserved_bootstrap95": [
+        6,
+        12
+      ],
+      "n_interval_difference_bootstrap95_excludes_zero": 0,
+      "n_interval_difference_bh_q_below_0_1": 0
+    }
+  },
+  "exact_three_night_bouts": {
+    "focal_KR_to_LAPM": {
+      "smoothed_log_oe_interval_difference": -0.3279723641813625,
+      "bootstrap95_interval_difference": [
+        -0.8729266172992284,
+        0.32828118435590925
+      ],
+      "interval_difference_excludes_zero": false
+    },
+    "dyad_interval_comparison": {
+      "n_dyads": 15,
+      "point_signs_conserved": 11,
+      "conserved_bootstrap95": [
+        6,
+        12
+      ],
+      "n_interval_difference_bootstrap95_excludes_zero": 1,
+      "n_interval_difference_bh_q_below_0_1": 0
+    }
+  },
+  "claim_boundary": {
+    "temporal_rewiring_supported": false,
+    "temporal_constancy_proven": false,
+    "natural_dominance_hierarchy_identified": false,
+    "causal_competition_identified": false,
+    "interpretation": "A pooled directed capture-sequence ordering remains exploratory; observed interval-specific ranking differences do not exceed bootstrap sampling uncertainty after accounting for 15 dyad comparisons. The network must not be called temporally reconfiguring as a supported ecological finding."
+  }
+}

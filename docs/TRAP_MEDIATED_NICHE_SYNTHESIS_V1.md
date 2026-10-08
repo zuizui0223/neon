@@ -38,13 +38,13 @@ Removing later within-night recaptures shifts the first-capture temporal profile
 
 Despite lower raw Czekanowski overlap after this removal, the original EcoSimR null gives the same counter-intuitive direction: temporal aggregation rises from 4/32 grid-seasons in our ALL-capture rerun to 13/32 under FIRST-only, while temporal segregation remains 0/32. The published ALL-capture reference was 7/32 aggregated, so the exact temporal count is not reproduced and this discrepancy remains explicit. By contrast, the spatial SIM9 result is reproduced exactly at 8/32 segregated and remains 8/32 under FIRST-only, with 0/32 classification changes.
 
-### 5. The pooled six-species order is structured but not temporally fixed
+### 5. Pooled capture-sequence ordering is structured; temporal change remains unresolved
 
 Two different summaries of the directed heterospecific network give the same pooled optimum, **SKR > DKR > PEMA > CHFA > LAPM > PEER**: 14/15 dyads under the trap × bout date-shuffle O/E network and 15/15 under trap + grid-date-transition fixed effects. Removing exact same-individual recurrence leaves the fixed-effect optimum unchanged. The empirical body-mass order scores unusually well against both networks.
 
-However, splitting the sequence by check interval rejects a fixed hierarchy. EARLY→MIDDLE has a unique 14/15 optimum (**SKR > DKR > PEMA > LAPM > CHFA > PEER**), whereas MIDDLE→LATE reaches only 12/15 with three alternative optima. Only 9/15 dyads retain direction across intervals; body-mass alignment drops from 12/15 to 8/15.
+An initial descriptive split suggested interval-specific differences. EARLY→MIDDLE has a unique 14/15 optimum (**SKR > DKR > PEMA > LAPM > CHFA > PEER**), whereas MIDDLE→LATE reaches only 12/15 with three alternative optima. Only 9/15 dyads retain direction across intervals; body-mass alignment drops from 12/15 to 8/15.
 
-The correct ecological description is therefore a **time-varying directional interaction network**, not a stable dominance hierarchy.
+A subsequent 5,000-replicate block-bootstrap audit of 24,408 same-trap transitions found 0/15 dyads with a 95% interval-excluding-zero change in directional association between adjacent check intervals and 0/15 surviving exploratory BH at q < 0.10. The temporal-rewiring hypothesis is therefore **not supported**. The defensible finding is a pooled **detector-local directional capture-sequence network**, not an identified natural dominance hierarchy.
 
 ### 6. Coarse temporal niche inference is qualitatively robust but significance counts are representation-sensitive
 
@@ -64,7 +64,7 @@ The strongest defensible gap is no longer “live trapping biases niche estimate
 
 It is:
 
-> **Coarse nightly niche overlap can coexist with a detector-local, directional interaction network that changes within the same night.**
+> **Coarse nightly niche overlap can coexist with directional detector-local capture histories, but the available records do not establish within-night rewiring or direct competition.**
 
 This history may combine real local interactions, residual odour, release-site effects, bait/trap state and short-term space use. The exact-trap spatial decay argues against interpreting it as a broad exclusion zone.
 
@@ -72,4 +72,4 @@ This history may combine real local interactions, residual odour, release-site e
 
 The representation controls are now complete. They show that coarse temporal non-segregation is much more robust than the exact count of aggregated grid-seasons. The next decisive question is no longer whether recaptures manufacture the original niche result; they do not manufacture the spatial 8/32 segregation result and do not reveal hidden temporal segregation.
 
-The stronger ecological question is whether the **time-varying directional sequence network** predicts independently measured interaction outcomes, experimental dominance, or fitness consequences. Until an independent dataset or experiment tests that bridge, the San Jacinto network remains exploratory and trap-mediated.
+The stronger ecological question is whether the **pooled directional capture-sequence network** predicts independently measured interaction outcomes, experimental dominance, or fitness consequences. Until an independent dataset or experiment tests that bridge, the San Jacinto network remains exploratory and trap-mediated.
