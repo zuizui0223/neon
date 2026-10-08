@@ -66,19 +66,20 @@ class GeometryTests(unittest.TestCase):
     def test_post_result_site_omission_direction_is_accounted(self):
         rows = []
         for site in "ABCD":
-            for i in range(12):
-                n = i + 2
-                rows.append({
-                    "site": site,
-                    "taxon": "PEMA",
-                    "series_id": "PEMA|" + site + "|P1",
-                    "site_month": site + "|07",
-                    "year": "2020",
-                    "genus": "Peromyscus",
-                    "mnka": n,
-                    "nn_excess_xy_m2": 2 * n + 3,
-                    "nn_excess_series_m2": 3 * n - 1,
-                })
+            for plot in ("P1", "P2"):
+                for i in range(8):
+                    n = i + 2
+                    rows.append({
+                        "site": site,
+                        "taxon": "PEMA",
+                        "series_id": "PEMA|" + site + "|" + plot,
+                        "site_month": site + "|07",
+                        "year": "2020",
+                        "genus": "Peromyscus",
+                        "mnka": n,
+                        "nn_excess_xy_m2": 2 * n + 3,
+                        "nn_excess_series_m2": 3 * n - 1,
+                    })
         r = post_result_robustness(
             rows, ("nn_excess_xy_m2", "nn_excess_series_m2")
         )
