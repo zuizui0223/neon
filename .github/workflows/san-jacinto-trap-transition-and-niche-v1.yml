@@ -1,0 +1,47 @@
+name: san-jacinto-trap-transition-and-niche-v1
+
+on:
+  push:
+    branches:
+      - analysis/trap-mediated-niche-v1
+    paths:
+      - analysis/estimate_san_jacinto_trap_history_v1.py
+      - analysis/audit_san_jacinto_niche_reanalysis_v1.py
+      - .github/workflows/san-jacinto-trap-transition-and-niche-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and verify public source
+        run: |
+          mkdir -p /tmp/sj-trap
+          curl --fail -L --retry 3 https://ndownloader.figshare.com/files/33058799 -o /tmp/sj-trap/yearroundtrapdata.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/sj-trap/yearroundtrapdata.csv" | sha256sum -c -
+
+      - name: Compute early-middle-late trap-state transitions and null comparisons
+        run: |
+          python analysis/estimate_san_jacinto_trap_history_v1.py \
+            --input /tmp/sj-trap/yearroundtrapdata.csv \
+            --output /tmp/sj-trap/previous_occupant_transitions_v1.json
+
+      - name: Test original temporal niche inference under first-only individual-night thinning
+        run: |
+          python analysis/audit_san_jacinto_niche_reanalysis_v1.py \
+            --input /tmp/sj-trap/yearroundtrapdata.csv \
+            --output /tmp/sj-trap/recapture_niche_sensitivity_v1.json
+
+      - name: Upload aggregated results
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-trap-mediated-niche-v1
+          path: /tmp/sj-trap/*v1.json
+          if-no-files-found: error
+          retention-days: 45
