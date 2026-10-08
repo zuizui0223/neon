@@ -57,7 +57,9 @@ def summarize(values):
     }
 
 
-def run() -> dict:
+def run(*, include_centroid_coordinates: bool = False) -> dict:
+    """Optional geometry-only output; default preserves frozen metric result."""
+
     token = os.environ.get(TOKEN_ENV, "").strip()
     if not token:
         raise RuntimeError("NEON_API_TOKEN is required")
@@ -194,6 +196,11 @@ def run() -> dict:
             "event_id":s["event_id"],
             "n_individuals":m["n_individuals"],
             "n_excluded_or_inconsistent":len(m["excluded_or_inconsistent_tag_ids"]),
+            **({
+                "individual_centroid_coordinates_m": [
+                    record["centroid_m"] for record in m["individuals"]
+                ],
+            } if include_centroid_coordinates else {}),
             "W_m2":m["W_m2"],
             "B_observed_m2":m["B_observed_m2"],
             "centroid_noise_correction_m2":m["centroid_noise_correction_m2"],
