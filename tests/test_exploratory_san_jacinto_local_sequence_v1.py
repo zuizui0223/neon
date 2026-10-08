@@ -2,7 +2,7 @@
 import unittest
 
 from analysis.exploratory_san_jacinto_local_sequence_v1 import (
-    analyze, build_capture_index, case_rows,
+    analyze, build_capture_index, case_rows, adjacent_flags,
 )
 
 
@@ -49,6 +49,15 @@ class LocalSequenceTest(unittest.TestCase):
         self.assertEqual(qc["rejections"]["ambiguous_trap_check_cell"], 1)
         self.assertNotIn(("G1", "2020-07-01", "early", "A1"), captures)
         self.assertEqual(qc["eligible_grid_nights"], 1)
+
+    def test_neighbor_reference_only_uses_other_flags(self):
+        self.assertEqual(adjacent_flags("A1"), {"A2", "B1", "B2"})
+        self.assertEqual(len(adjacent_flags("D4")), 8)
+        rows = self.rows + [entry("2020-07-01", "early", "B", "bx", flag="A2")]
+        result = analyze(rows, replicates=0)
+        neighbor = result["analysis"]["early_to_middle"]["adjacent_trap_same_night_reference"]
+        self.assertEqual(neighbor["matched_cases"], 1)
+        self.assertAlmostEqual(neighbor["observed_minus_neighbor_fraction"], 1.0)
 
     def test_no_inferred_empty_as_ecological_absence(self):
         result = analyze(self.rows, replicates=0)
