@@ -1,0 +1,44 @@
+name: portal-spatial-recolonization-effect-v1
+on:
+  push:
+    branches: [analysis/trap-mediated-niche-v1]
+    paths:
+      - analysis/estimate_portal_spatial_recolonization_effect_v1.py
+      - .github/workflows/portal-spatial-recolonization-effect-v1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  effect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned PortalData
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/portal
+          SHA=171f9441c02c5a95e7dd1a6fafe3e4b063c36c14
+          for SRC in Rodents/Portal_rodent.csv Rodents/Portal_rodent_trapping.csv SiteandMethods/Portal_plots.csv; do
+            curl -fL --retry 3 "https://raw.githubusercontent.com/weecology/PortalData/$SHA/$SRC" -o "/tmp/portal/$(basename "$SRC")"
+          done
+      - name: Re-verify effect-blind support gate before unblinding space
+        run: |
+          python analysis/audit_portal_spatial_recolonization_support_v1.py \
+            --captures /tmp/portal/Portal_rodent.csv \
+            --trapping /tmp/portal/Portal_rodent_trapping.csv \
+            --plots /tmp/portal/Portal_plots.csv \
+            --output /tmp/portal/portal_spatial_support_v1.json
+      - name: Test frozen capture-position spatial dispersion
+        run: |
+          python analysis/estimate_portal_spatial_recolonization_effect_v1.py \
+            --captures /tmp/portal/Portal_rodent.csv \
+            --trapping /tmp/portal/Portal_rodent_trapping.csv \
+            --gate /tmp/portal/portal_spatial_support_v1.json \
+            --output /tmp/portal/portal_spatial_recolonization_effect_v1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-spatial-recolonization-effect-v1
+          path: /tmp/portal/*v1.json
+          if-no-files-found: error
+          retention-days: 45
