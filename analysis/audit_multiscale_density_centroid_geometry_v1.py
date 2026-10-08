@@ -169,6 +169,43 @@ def fit_or_status(rows: list[dict], response: str) -> dict:
             return {**support, "status": "NO_RESIDUAL_ABUNDANCE_VARIATION"}
 
 
+def post_result_robustness(rows: list[dict], responses: tuple[str, ...]) -> dict:
+    """Post-hoc site and taxon sensitivity; NEVER prospective confirmation."""
+    site_names = sorted({r["site"] for r in rows})
+    omissions = {}
+    for site in site_names:
+        subset = [r for r in rows if r["site"] != site]
+        omissions[site] = {k: fit_or_status(subset, k) for k in responses}
+    taxa = {}
+    for taxon in sorted({r["taxon"] for r in rows}):
+        sub = [r for r in rows if r["taxon"] == taxon]
+        taxa[taxon] = {
+            "sessions": len(sub),
+            "sites": len({r["site"] for r in sub}),
+            "fits": {k: fit_or_status(sub, k) for k in responses},
+        }
+    summary = {}
+    for response in responses:
+        values = [
+            v[response]["slope"] for v in omissions.values()
+            if v[response].get("slope") is not None
+        ]
+        summary[response] = {
+            "estimable_site_omissions": len(values),
+            "total_site_omissions": len(site_names),
+            "positive_count": sum(z > 0 for z in values),
+            "negative_count": sum(z < 0 for z in values),
+            "min_slope": min(values) if values else None,
+            "max_slope": max(values) if values else None,
+        }
+    return {
+        "state": "POST_RESULT_DESCRIPTIVE_NOT_CONFIRMATORY",
+        "leave_one_site_out": summary,
+        "taxon_descriptive": taxa,
+        "claim_boundary": "No independent site or future-release confirmation.",
+    }
+
+
 def analyze(rows: list[dict], *, seed: int = SEED, replicates: int = REPLICATES) -> dict:
     if len(rows) != EXPECTED_N:
         raise RuntimeError(f"drift in frozen development population: {len(rows)}")
@@ -220,6 +257,11 @@ def analyze(rows: list[dict], *, seed: int = SEED, replicates: int = REPLICATES)
             else "NO_COHERENT_POSITIVE_SPACING_EVIDENCE"
         ) if x.get("slope") is not None and y.get("slope") is not None else "NO_DUAL_NULL_TEST"
         per_genus[genus] = {
+            "post_result_robustness": (
+                post_result_robustness(
+                    subset, ("nn_excess_xy_m2", "nn_excess_series_m2")
+                ) if genus == "Peromyscus" else None
+            ),
             "sessions": len(subset),
             "nullB_coverage_fraction": (
                 sum(r["series_reference_eligible"] for r in subset) / len(subset)
@@ -239,6 +281,7 @@ def analyze(rows: list[dict], *, seed: int = SEED, replicates: int = REPLICATES)
         "num_sites": len({r["site"] for r in rows}),
         "nullB_coverage": sum(r["series_reference_eligible"] for r in results),
         "genera": per_genus,
+        "session_diagnostics": results,
         "frozen_6_of_8_development_guard": "FAILED_UNCHANGED",
         "biological_claim_boundary": (
             "Capture-session centroids are not true centers of undisturbed animal "
@@ -261,5 +304,11 @@ def run() -> dict:
 if __name__ == "__main__":
     result = run()
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    row_diagnostics = result.pop("session_diagnostics")
+    row_file = OUT.parent / "multiscale_density_centroid_session_diagnostics_v1.json"
+    row_file.write_text(
+        json.dumps(row_diagnostics, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8"
+    )
     OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2, sort_keys=True))
