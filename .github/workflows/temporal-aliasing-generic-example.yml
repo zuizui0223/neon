@@ -1,0 +1,46 @@
+# Generic end-to-end example for review and reuse.
+name: temporal-aliasing-generic-example
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/temporal_aliasing_diagnostic_v1.py
+      - examples/repeated_locations_example.csv
+      - examples/repeated_locations_example_expected.json
+      - .github/workflows/temporal-aliasing-generic-example.yml
+  workflow_dispatch:
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run generic CLI on synthetic repeated-location data
+        run: |
+          python analysis/temporal_aliasing_diagnostic_v1.py             --input examples/repeated_locations_example.csv             --individual-col animal_id             --night-col night_id             --time-col time_hours             --coordinate-col x_m             --coordinate-col y_m             --material-scale 5             --output /tmp/example_aliasing.json
+
+      - name: Verify expected generic output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          got=json.loads(Path("/tmp/example_aliasing.json").read_text())
+          exp=json.loads(Path("examples/repeated_locations_example_expected.json").read_text())
+          assert got["qc"]["input_rows"] == exp["input_rows"]
+          assert got["qc"]["individual_nights"] == exp["individual_nights"]
+          assert got["qc"]["repeat_observation_individual_nights"] == exp["repeat_observation_individual_nights"]
+          assert got["qc"]["single_observation_individual_nights"] == exp["single_observation_individual_nights"]
+          assert got["span_summary"]["material_scale"] == exp["material_scale"]
+          assert got["span_summary"]["material_shift_count"] == exp["material_shift_count"]
+          assert abs(got["span_summary"]["material_shift_fraction"] - exp["material_shift_fraction"]) < 1e-12
+          print(json.dumps(got,indent=2,sort_keys=True))
+          PY

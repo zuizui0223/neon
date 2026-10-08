@@ -1,0 +1,89 @@
+{
+  "schema": "neon.pema_sigma_ratio_uncertainty_sensitivity.v1",
+  "status": "post_result_uncertainty_sensitivity_not_formal_paired_ci",
+  "source": "results/san_jacinto_pema_scr_sigma_post_stop_result_v1.json",
+  "point_estimate": {
+    "sigma_first_m": 8.8515,
+    "se_first_m": 0.4396,
+    "sigma_last_m": 8.5625,
+    "se_last_m": 0.4186,
+    "ratio_last_first": 0.9673501666384229,
+    "relative_change": -0.03264983336157712,
+    "log_ratio": -0.0331947325948524
+  },
+  "method": {
+    "description": "First-order delta-method sensitivity for log(sigma_LAST/sigma_FIRST) as a function of the unknown correlation between the paired FIRST and LAST sigma estimates.",
+    "se_log_sigma_first": 0.04966389877421906,
+    "se_log_sigma_last": 0.04888759124087592,
+    "formula": "Var(log ratio) ~= SE_F^2/sigma_F^2 + SE_L^2/sigma_L^2 - 2*rho*(SE_F/sigma_F)*(SE_L/sigma_L)",
+    "correlation_grid": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      0.9
+    ],
+    "z_value": 1.96,
+    "contextual_ratio_band": [
+      0.9,
+      1.1
+    ]
+  },
+  "sensitivity": [
+    {
+      "rho": 0,
+      "se_log_ratio": 0.06968858887071,
+      "ratio_lcl95": 0.8438467583718091,
+      "ratio_ucl95": 1.108929240542362,
+      "relative_change_lcl95": -0.1561532416281909,
+      "relative_change_ucl95": 0.10892924054236208
+    },
+    {
+      "rho": 0.25,
+      "se_log_ratio": 0.06035333650627541,
+      "ratio_lcl95": 0.8594288208868797,
+      "ratio_ucl95": 1.0888235560098265,
+      "relative_change_lcl95": -0.14057117911312034,
+      "relative_change_ucl95": 0.0888235560098265
+    },
+    {
+      "rho": 0.5,
+      "se_log_ratio": 0.049280331128033074,
+      "ratio_lcl95": 0.8782849605176704,
+      "ratio_ucl95": 1.0654473057853957,
+      "relative_change_lcl95": -0.12171503948232965,
+      "relative_change_ucl95": 0.0654473057853957
+    },
+    {
+      "rho": 0.75,
+      "se_log_ratio": 0.03485077968622016,
+      "ratio_lcl95": 0.9034791367724899,
+      "ratio_ucl95": 1.0357365287240994,
+      "relative_change_lcl95": -0.09652086322751008,
+      "relative_change_ucl95": 0.03573652872409938
+    },
+    {
+      "rho": 0.9,
+      "se_log_ratio": 0.022049769384888777,
+      "ratio_lcl95": 0.9264341769847303,
+      "ratio_ucl95": 1.010073212045164,
+      "relative_change_lcl95": -0.0735658230152697,
+      "relative_change_ucl95": 0.010073212045164093
+    }
+  ],
+  "zero_correlation_reference": {
+    "rho": 0,
+    "se_log_ratio": 0.06968858887071,
+    "ratio_lcl95": 0.8438467583718091,
+    "ratio_ucl95": 1.108929240542362,
+    "relative_change_lcl95": -0.1561532416281909,
+    "relative_change_ucl95": 0.10892924054236208
+  },
+  "correlation_required_for_95pct_interval_inside_contextual_band": 0.720946186409474,
+  "claim_boundary": {
+    "formal_paired_confidence_interval": false,
+    "equivalence_test": false,
+    "correlation_estimated_from_data": false,
+    "interpretation": "The -3.3% point contrast is small, but marginal SEs alone do not establish equivalence. Under a zero-correlation reference the approximate 95% ratio interval is 0.844-1.109. A paired estimate correlation above about 0.721 would be required for this delta-method interval to lie fully inside the contextual 0.9-1.1 band."
+  }
+}

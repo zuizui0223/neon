@@ -1,0 +1,15 @@
+{
+  "description": "Expected output features for examples/repeated_locations_example.csv with material scale 5 m.",
+  "input_rows": 7,
+  "individual_nights": 4,
+  "repeat_observation_individual_nights": 3,
+  "single_observation_individual_nights": 1,
+  "material_scale": 5,
+  "material_shift_count": 2,
+  "material_shift_fraction": 0.6666666666666666,
+  "spans": [
+    5,
+    0,
+    6
+  ]
+}
