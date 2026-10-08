@@ -55,3 +55,14 @@ python analysis/exploratory_san_jacinto_local_sequence_v1.py \
 ```
 
 The runner downloads the checksum-locked source and writes the result only under `build/`. No real-data result is asserted by this protocol itself.
+
+## Post-result sensitivity (added after the first 889-case effect was opened)
+
+The first exploratory real-data run (GitHub Actions run 37783229362) found a matched same-species difference of +0.04593, from 889 matched different-individual capture transitions, across 8 grids and 79 grid-month clusters. The 2,000-replicate grid×month cluster bootstrap produced an exploratory 95% percentile interval of 0.01529–0.07619. Both within-night transitions showed a similar positive contrast. **This is a modest association consistent with previously reported prior-occupant trapping effects and does not establish a novel ecological mechanism.**
+
+Two additional checks were added **after** those outcomes were known and must be reported as sensitivity only:
+
+- leave-one-grid-out recomputation of the matched difference;
+- a same-night earlier-bin **neighboring-trap** reference (up to eight adjacent flags, excluding identical-individual captures), compared with the same-trap preceding capture. This asks whether the association extends beyond the immediately preceding trap cell; it does not remove microhabitat confounding.
+
+No multiple-comparison-adjusted confirmation, independent holdout or ecological causal inference is claimed.
