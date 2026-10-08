@@ -1,0 +1,41 @@
+name: uk-previous-occupant-feasibility-audit-v1
+
+on:
+  push:
+    branches:
+      - analysis/trap-mediated-niche-v1
+    paths:
+      - analysis/audit_uk_previous_occupant_data_v1.py
+      - .github/workflows/uk-previous-occupant-feasibility-audit-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download public Brouard et al. (2015) S1 Data
+        run: |
+          mkdir -p /tmp/uk-po
+          curl -L --fail --retry 3 \
+            "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0145006.s010&type=supplementary" \
+            -o /tmp/uk-po/uk_previous_occupant_s1.csv
+          file /tmp/uk-po/uk_previous_occupant_s1.csv
+          head -c 150 /tmp/uk-po/uk_previous_occupant_s1.csv
+          echo
+      - name: Check schema and capture sequence support
+        run: |
+          python analysis/audit_uk_previous_occupant_data_v1.py \
+            --input /tmp/uk-po/uk_previous_occupant_s1.csv \
+            --output /tmp/uk-po/uk_previous_occupant_audit_v1.json
+      - name: Upload audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: uk-previous-occupant-feasibility-audit-v1
+          path: /tmp/uk-po/uk_previous_occupant_audit_v1.json
+          if-no-files-found: error
+          retention-days: 30
