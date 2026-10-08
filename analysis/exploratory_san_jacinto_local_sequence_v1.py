@@ -62,6 +62,15 @@ def build_capture_index(rows: list[dict]) -> tuple[dict, dict]:
              "rejections": dict(rejects)})
 
 
+def adjacent_flags(flag: str) -> set[str]:
+    """Moore neighbors on the 7×7 array, excluding the focal flag."""
+    x, y = ord(flag[0]) - ord("A"), int(flag[1:]) - 1
+    return {f"{chr(ord('A') + a)}{b + 1}"
+            for a in range(max(0, x - 1), min(6, x + 1) + 1)
+            for b in range(max(0, y - 1), min(6, y + 1) + 1)
+            if (a, b) != (x, y)}
+
+
 def case_rows(captures: dict) -> list[dict]:
     """Pair observed subsequent captures with same-flag other-night references.
 
@@ -91,6 +100,11 @@ def case_rows(captures: dict) -> list[dict]:
                 comparisons.append(float(alternate[0] == following[0]))
         if not comparisons:
             continue
+        neighbors = [captures.get((grid, day, prevslot, other))
+                     for other in adjacent_flags(flag)]
+        neighbors = [v for v in neighbors if v is not None and v != following]
+        neighbor_same = (sum(float(v[0] == following[0]) for v in neighbors)
+                         / len(neighbors)) if neighbors else None
         observed_same = float(preceding[0] == following[0])
         baseline = sum(comparisons) / len(comparisons)
         results.append({
@@ -103,6 +117,7 @@ def case_rows(captures: dict) -> list[dict]:
             "reference_same_species": baseline,
             "difference": observed_same - baseline,
             "reference_n": len(comparisons),
+            "neighbor_previous_same_species": neighbor_same,
         })
     return results
 
@@ -132,8 +147,27 @@ def summarize(cases: list[dict], *, seed: int = 20261008,
             bs.sort()
             ci = [bs[int((len(bs) - 1) * 0.025)],
                   bs[int((len(bs) - 1) * 0.975)]]
+        leave_one_grid = {
+            g: sum(r["difference"] for r in a if r["grid"] != g)
+               / sum(r["grid"] != g for r in a)
+            for g in sorted({r["grid"] for r in a})
+            if any(r["grid"] != g for r in a)
+        }
+        neighbor_matched = [r for r in a
+                            if r["neighbor_previous_same_species"] is not None]
+        neighbor_contrast = (
+            sum(r["observed_same_species"] - r["neighbor_previous_same_species"]
+                for r in neighbor_matched) / len(neighbor_matched)
+            if neighbor_matched else None
+        )
         result[label] = {
             "state": "EXPLORATORY_ONLY",
+            "leave_one_grid_out_matched_difference": leave_one_grid,
+            "adjacent_trap_same_night_reference": {
+                "matched_cases": len(neighbor_matched),
+                "observed_minus_neighbor_fraction": neighbor_contrast,
+                "interpretation": "post-result habitat-scale sensitivity, not causal" 
+            },
             "n": len(a), "grid_bout_clusters": len(clusters),
             "grids": len({r["grid"] for r in a}),
             "observed_same_species_fraction": observed,
