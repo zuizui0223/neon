@@ -25,6 +25,23 @@ class GeometryTests(unittest.TestCase):
         self.assertLess(raw_nearest_neighbor_squared(clustered), 1200)
         self.assertGreater(edge_fraction(clustered), 0)
 
+    def test_footprint_expansion_can_coexist_with_tighter_local_spacing(self):
+        # An explicit counterexample to reading larger B as animal repulsion.
+        # The samples have equal m: ten spread across a small regular grid
+        # versus two compact clusters at opposite corners.
+        regular = [(float(x), float(y))
+                   for y in (30, 50) for x in (20, 30, 40, 50, 60)]
+        clustered = [(10., 10.)] * 5 + [(90., 90.)] * 5
+        self.assertEqual(len(regular), len(clustered))
+        self.assertGreater(
+            half_mean_pairwise_squared(clustered),
+            half_mean_pairwise_squared(regular)
+        )
+        self.assertLess(
+            raw_nearest_neighbor_squared(clustered),
+            raw_nearest_neighbor_squared(regular)
+        )
+
     def test_same_centroids_have_zero_nn(self):
         points = [(10., 10.)] * 5
         self.assertEqual(raw_nearest_neighbor_squared(points), 0)
