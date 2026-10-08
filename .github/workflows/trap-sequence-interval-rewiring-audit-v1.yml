@@ -1,0 +1,39 @@
+name: trap-sequence-interval-rewiring-audit-v1
+
+on:
+  push:
+    branches:
+      - analysis/trap-mediated-niche-v1
+    paths:
+      - analysis/audit_trap_sequence_interval_rewiring_v1.py
+      - .github/workflows/trap-sequence-interval-rewiring-audit-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified public source
+        run: |
+          mkdir -p /tmp/trap-rewiring
+          curl -L --fail --retry 3 \
+            https://ndownloader.figshare.com/files/33058799 \
+            -o /tmp/trap-rewiring/yearroundtrapdata.csv
+          echo "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301  /tmp/trap-rewiring/yearroundtrapdata.csv" | sha256sum -c -
+      - name: Test temporal rewiring against block-sampling uncertainty
+        run: |
+          python analysis/audit_trap_sequence_interval_rewiring_v1.py \
+            --input /tmp/trap-rewiring/yearroundtrapdata.csv \
+            --output /tmp/trap-rewiring/interval_rewiring_v1.json
+      - name: Upload audit receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: trap-sequence-interval-rewiring-audit-v1
+          path: /tmp/trap-rewiring/interval_rewiring_v1.json
+          if-no-files-found: error
+          retention-days: 30
