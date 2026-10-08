@@ -48,6 +48,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: multiscale-density-centroid-geometry-v1
-          path: build/multiscale_density_centroid_geometry_v1.json
+          path: |
+            build/multiscale_density_centroid_geometry_v1.json
+            build/multiscale_density_centroid_session_diagnostics_v1.json
           if-no-files-found: warn
           retention-days: 30
