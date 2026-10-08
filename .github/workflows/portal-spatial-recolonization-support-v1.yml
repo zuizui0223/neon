@@ -1,0 +1,38 @@
+name: portal-spatial-recolonization-support-v1
+on:
+  push:
+    branches: [analysis/trap-mediated-niche-v1]
+    paths:
+      - analysis/audit_portal_spatial_recolonization_support_v1.py
+      - docs/PORTAL_SPATIAL_RECOLONIZATION_HYPOTHESIS_LOCK_V1.md
+      - .github/workflows/portal-spatial-recolonization-support-v1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned public PortalData inputs
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/portal
+          SHA=171f9441c02c5a95e7dd1a6fafe3e4b063c36c14
+          for PATH_IN in Rodents/Portal_rodent.csv Rodents/Portal_rodent_trapping.csv SiteandMethods/Portal_plots.csv; do
+            curl -fL --retry 3 "https://raw.githubusercontent.com/weecology/PortalData/$SHA/$PATH_IN" -o "/tmp/portal/$(basename "$PATH_IN")"
+          done
+      - name: Run effect-blind capture support gate
+        run: |
+          python analysis/audit_portal_spatial_recolonization_support_v1.py \
+            --captures /tmp/portal/Portal_rodent.csv \
+            --trapping /tmp/portal/Portal_rodent_trapping.csv \
+            --plots /tmp/portal/Portal_plots.csv \
+            --output /tmp/portal/portal_spatial_support_v1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-spatial-recolonization-support-v1
+          path: /tmp/portal/portal_spatial_support_v1.json
+          if-no-files-found: error
+          retention-days: 30
