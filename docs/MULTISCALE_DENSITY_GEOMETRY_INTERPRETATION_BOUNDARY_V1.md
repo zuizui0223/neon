@@ -49,3 +49,40 @@ Publishable biological proposition, if it survives future independent testing:
 > Under increasing abundance, taxa may differ not just in the amount of capture-derived space use, but in whether spatial accommodation occurs by **population footprint expansion** or by **local spacing change**.
 
 The released data have *not yet* demonstrated the latter. The present B result is only a centroid-footprint statistic.
+
+## Prior-art update and logical counterexample (2026-10-08)
+
+**Nearest-neighbour distances from live-trap centroids are not novel in themselves.**
+For example, *My niche: individual spatial niche specialization affects within-
+and between-species interactions* (2020; https://pmc.ncbi.nlm.nih.gov/articles/PMC7003455/)
+used capture-mark-recapture coordinates to estimate individual spatial centres
+and nearest conspecific/heterospecific neighbors. A second methodological
+reference (2022; https://pmc.ncbi.nlm.nih.gov/articles/PMC9418289/) illustrates
+how trapping-derived spatial-use networks require a calibrated observation model.
+
+Recent macro-level context:
+- 2025 *Nature Ecology & Evolution* (https://doi.org/10.1038/s41559-025-02843-z):
+density often increases network connectedness across wild animals, commonly
+with nonlinear effects.
+- 2026 *Journal of Mammalogy*
+(https://academic.oup.com/jmammal/article/107/4/848/8725976):
+kinship and local density jointly influence overlap in a largely solitary
+ground squirrel.
+
+Thus the **remaining empirical hypothesis** is not that density alters spatial
+association, not that neighboring centers can be estimated from CMR, and not
+that some species have different responses. It is whether the frozen within/between
+variance allocation relates to independently interpretable **local geometry
+after accounting for cohort size, marginal spatial footprint and detection**.
+
+A simple equal-m logical counterexample: ten centroids regularly spaced
+within a grid yield B_observed=333.33 m² and mean squared nearest-neighbor
+distance=100 m². Ten centroids arranged as two groups of five coincident
+points at opposite grid corners yield B_observed=3555.56 m² but mean squared
+nearest-neighbor distance=0 m². This is an illustration only, **not** an
+empirical NEON result. The geometry unit test implements this counterexample.
+
+Scope guard: if both local-spacing randomization references explain away
+all apparent signal, retain a *descriptive footprint-variance change*, not
+a biological spatial-repulsion story. Even agreement is not proof of
+competition, territoriality, or socially driven space use.
