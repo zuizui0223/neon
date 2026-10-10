@@ -13,7 +13,9 @@
     "exact_cross_release_id_audit_run": 38045366599,
     "borneo_false_green_retracted_run": 37444977522,
     "borneo_validity_stop_run": 38012430095,
-    "exact_cross_release_id_audit_artifact_id": 11667537980
+    "exact_cross_release_id_audit_artifact_id": 11667537980,
+    "continuous_tag_history_run": 38045587044,
+    "continuous_tag_history_artifact_id": 11667548679
   },
   "effect_blind_structure": {
     "new_site_month_candidates": 301,
@@ -63,12 +65,24 @@
       "overlapping_event_ids": 0,
       "overlapping_nightuids": 0,
       "status": "IDENTIFIER_DISJOINTNESS_PASS"
+    },
+    "continuous_history": {
+      "previous_new_tag_histories": 8476,
+      "previous_old_tag_histories": 40396,
+      "cross_source_recapture_histories": 230,
+      "histories_excluded_cross_genus": 78,
+      "continuous_known_alive_intervals": 48564,
+      "candidate_sessions_paired": 287,
+      "Peromyscus_varying_series": 32,
+      "Peromyscus_sessions_in_varying_series": 127,
+      "Peromyscus_sites_in_varying_series": 19,
+      "spatial_effects_opened": false
     }
   },
   "independence_blockers": {
     "event_night_ID_disjointness": "PASSED_505_FUTURE_EVENTS_AND_1515_NIGHTUIDS_EXACTLY_DISJOINT",
-    "complete_frozen_and_new_tag_history_genus_MNKA": "NOT VERIFIED",
-    "sampled_centroid_null_B_coverage": "STRUCTURAL UPPER BOUND ONLY",
+    "complete_frozen_and_new_tag_history_genus_MNKA": "PASSED_EFFECT_BLIND_HISTORY_RECONSTRUCTION_287_OF_287_PAIRABLE",
+    "sampled_centroid_null_B_coverage": "DENOMINATOR_SPECIFIC_CONTINUOUS_MNKA_STRUCTURAL_SCREEN_RUNNING",
     "official_release_stability": "PROVISIONAL_NOT_STABLE",
     "actual_new_W_B_metrics": "SEALED"
   },
@@ -81,7 +95,7 @@
   },
   "next_steps": [
     "PASSED: all 505 complete future events and 1515 nightuids disjoint from frozen RELEASE-2026, checked against entire relevant archive.",
-    "Rebuild continuous genus MNKA using historical plus provisional capture tags but no prior W/B response values.",
+    "PASSED effect-blind historical+future target tag histories; Peromyscus 32 series/127 sessions unchanged, 230 tags cross the source boundary.",
     "Verify exact prospective support and non-observation artifact before unsealing any W/B.",
     "Keep original frozen future-mode and Peromyscus contracts and their post-result m addendum distinct.",
     "Check both-null structural coverage on the frozen MNKA-varying Peromyscus analysis cohort; do not relax 90%."
