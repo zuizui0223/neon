@@ -17,6 +17,7 @@ from datetime import date
 from pathlib import Path
 
 from analysis.audit_multiscale_density_estimability_v1 import audit
+from analysis.audit_future_neon_mnka_support_v1 import future_only_mnka_support
 from analysis.audit_future_neon_plot_structure_v1 import (
     select_provisional_plot_files, COMPLETE, START, END,
     FROZEN_RELEASE,
@@ -148,6 +149,7 @@ def run() -> dict:
             "identificationQualifier","taxonRank"])
         result=audit(p,t)
     support=summarize_effect_blind_support(result["support"]["sessions"],target_ids)
+    future_mnka=future_only_mnka_support(trap_rows,selected,result["support"]["sessions"],target_ids)
     return {
         "schema":"neon.future_mammal_capture_support.v1",
         "status":"EFFECT_BLIND_PROVISIONAL_CAPTURE_SUPPORT_ONLY",
@@ -156,10 +158,12 @@ def run() -> dict:
         "exact_three_night_complete_events":len(selected["events"]),
         "capture_trap_night_rows_processed":len(trap_rows),
         "support":support,
+        "future_only_mnka_variation_support":future_mnka,
         "release2026_same_month_excluded":True,
         "event_id_disjointness_against_all_old_months_checked":False,
         "independent_confirmation_authorized":False,
-        "future_MNKA_within_series_variation_checked":False,
+        "future_only_MNKA_within_series_variation_checked":True,
+        "final_MNKA_boundary_history_complete":False,
         "next_gate":"Verify historical event-ID disjointness and 3+ events / two distinct future-only genus MNKA values in each fixed taxon/genus, before opening any future spatial outcome.",
         "provisional_version_warning":"Live provisional records are mutable; freeze source file hashes and cross-check against subsequent official release before promoting replication."
     }
