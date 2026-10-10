@@ -19,9 +19,8 @@ import math
 from collections import Counter, defaultdict
 from pathlib import Path
 
-import pandas as pd
-import scipy.stats as stats
-import statsmodels.formula.api as smf
+# Heavy optional analysis packages are imported only within the dedicated
+# transportability workflow. Core repository paper checks need no pandas.
 
 EXPECTED_DEVELOPMENT_N=1326
 EXPECTED_FUTURE_N=287
@@ -71,6 +70,9 @@ def future_varying_cohort(rows):
 
 
 def site_phase_difference(old,new):
+    import pandas as pd
+    import scipy.stats as stats
+    import statsmodels.formula.api as smf
     if not old or not new:raise ValueError("empty comparison phase")
     data=pd.DataFrame([{**r,"phase":"old"} for r in old]+
                       [{**r,"phase":"new"} for r in new])
