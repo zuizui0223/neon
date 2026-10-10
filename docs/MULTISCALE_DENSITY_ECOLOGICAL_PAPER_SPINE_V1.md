@@ -376,3 +376,40 @@ The development answer is:
 > **Not always the same one.**
 
 That is currently the strongest ecological spine.
+
+
+## 2026-10-10 post-provisional heldout correction: ecology CLAIM HOLD
+
+The 2026-10-06 development-derived five-genus ecological modes have now been evaluated against the first provisional *non-overlapping 2025–2026 NEON sampling events*. This does **not** alter the original failed eight-genus replication guard.
+
+**Event heldout support checks passed:** original and new event/night IDs have zero overlap; 287 future taxon-event sessions pass the frozen m and trap saturation gates; all 287 new W/B metrics pass scored-data QC; continuous old+future marked-animal histories and the frozen genus MNKA were rebuilt. In Peromyscus, 127 sessions from 32 varied taxon-plot series across 19 sites support the new temporal response, and the dual-null nearest-neighbour metric has 123/127 (96.9%) actual reference coverage. The current source is *PROVISIONAL*, not an immutable later NEON release, and 230 marked tag histories cross old/new boundaries.
+
+**First prespecified directional findings:**
+
+| Frozen genus | Development βΔ | New provisional βΔ | Decision |
+|---|---:|---:|---|
+| Peromyscus | +15.93 | −7.07 | Expected positive direction did **not** replicate; 127 sessions / 19 sites |
+| Dipodomys | −1.38 | +27.19 | Expected negative direction did **not** replicate; 25 sessions / 3 sites |
+| Chaetodipus | +27.33 | Not estimable | 0 varying series |
+| Myodes | +24.70 | Not reliably estimable | 7 new sessions / 1 site |
+| Sigmodon | −16.40 | Not reliably estimable | 7 new sessions / 2 sites |
+
+The **five-genus confirmatory programme is inestimable as a whole**, and its successful-replication claim is blocked. Peromyscus's new site-cluster 95% interval for βΔ is [−46.95, +32.81] m²/MNKA: the negative point estimate is far too uncertain to establish an inversion of ecological dynamics. All 19 leave-one-site-out slopes are negative, but that is a post-result descriptive robustness check.
+
+The separate **frozen Peromyscus two-null local-spacing prediction fails**: new x/y-shuffle residual slope +5.21, but same-series-other-event residual slope −5.31. The frozen rule required *both* to be positive with positive lower site-bootstrap confidence limits. After adding m, neither local-spacing residual has a positive site-cluster confidence-interval lower bound. Active individual spatial repulsion, competition and territoriality cannot be inferred.
+
+**Postresult comparison of development versus provisional slope differences:**
+
+- All development sessions versus future: βΔ difference −23.00, site-cluster 95% [−61.10,+15.10].
+- Restricting development to exactly the same 19 sites: −24.96 [−61.44,+11.51].
+- Restricting both periods to the same 31 taxon×site×plot series: −26.71 [−68.56,+15.13].
+
+Thus a different mix of sites alone does not erase the apparent sign mismatch, but the phase **difference remains statistically unresolved**. It is invalid to present this as a demonstrated time-dependent ecological regime shift. Newly observed site-years are 2025–2026; the prior cohort is 2015–2024, and retrospective MNKA near the terminal available period may be affected by future recapture truncation. Prospective publication-level confirmation requires a fixed later official release or an independent observation process.
+
+**Biological answer that is currently defensible:**
+
+> Crowding-associated within- and among-individual spatial variance can be measured separately in standardised mammal capture records, but the same positive redistribution pattern was not reliably transported from the ten-year development period to the first provisional new events. There is no supported universal spatial packing rule or identified territorial mechanism.
+
+No more development-era ecological moderator/species/season exploration should be used to rescue this result. Retain the original failures, exploratory model information, raw support and negative time-heldout findings as the transparent project record. **Ecological paper submission remains HOLD**, not Nature/Oikos-ready. The live-trap aliasing methods paper is a separate manuscript and is not evidence that these ecological mechanisms hold.
+
+Evidence: `results/future_neon_provisional_holdout_decision_v1.json`, `results/peromyscus_provisional_transportability_receipt_v1.json`. CI runs 38046615310, 38046723852, 38057952692.
