@@ -12,7 +12,8 @@
     "future_only_mnka_run": 38013062697,
     "exact_cross_release_id_audit_run": 38045366599,
     "borneo_false_green_retracted_run": 37444977522,
-    "borneo_validity_stop_run": 38012430095
+    "borneo_validity_stop_run": 38012430095,
+    "exact_cross_release_id_audit_artifact_id": 11667537980
   },
   "effect_blind_structure": {
     "new_site_month_candidates": 301,
@@ -28,7 +29,14 @@
       "future_only_mnka_varying_series": 32,
       "sessions_in_varying_series": 127,
       "sites_in_varying_series": 19,
-      "future_only_tag_MNKA_not_final": true
+      "future_only_tag_MNKA_not_final": true,
+      "null_B_reference_pre_series_screen": {
+        "eligible_event_sessions": 194,
+        "other_event_structural_reference_possible_sessions": 148,
+        "structural_upper_bound_fraction": 0.7628865979381443,
+        "prospective_required_fraction": 0.9,
+        "caveat": "The formal 90% null B coverage gate applies to the final prospective analysis cohort, not necessarily all 194 candidate sessions; denominator-specific audit is still pending."
+      }
     },
     "other_frozen_genera": {
       "Chaetodipus": {
@@ -44,10 +52,21 @@
         "varying_series": 2
       }
     },
-    "seven_frozen_taxon_problem": "CHHI and PEBO have 0 varying series; all 7 preregistered taxon directions currently not estimable"
+    "seven_frozen_taxon_problem": "CHHI and PEBO have 0 varying series; all 7 preregistered taxon directions currently not estimable",
+    "cross_release_identifier_verification": {
+      "run_id": 38045366599,
+      "frozen_archived_plot_night_files_checked": 1760,
+      "frozen_events": 10877,
+      "frozen_nightuids": 21228,
+      "new_events": 505,
+      "new_nightuids": 1515,
+      "overlapping_event_ids": 0,
+      "overlapping_nightuids": 0,
+      "status": "IDENTIFIER_DISJOINTNESS_PASS"
+    }
   },
   "independence_blockers": {
-    "event_night_ID_disjointness": "AUDIT_RUNNING_NOT_YET_PASSED",
+    "event_night_ID_disjointness": "PASSED_505_FUTURE_EVENTS_AND_1515_NIGHTUIDS_EXACTLY_DISJOINT",
     "complete_frozen_and_new_tag_history_genus_MNKA": "NOT VERIFIED",
     "sampled_centroid_null_B_coverage": "STRUCTURAL UPPER BOUND ONLY",
     "official_release_stability": "PROVISIONAL_NOT_STABLE",
@@ -61,9 +80,10 @@
     "original_6_of_8_genus_guard": "FAILED_UNCHANGED"
   },
   "next_steps": [
-    "Complete all-archived-plot identifiers compared to provisional candidate complete bouts, fail closed on any event or night overlap.",
+    "PASSED: all 505 complete future events and 1515 nightuids disjoint from frozen RELEASE-2026, checked against entire relevant archive.",
     "Rebuild continuous genus MNKA using historical plus provisional capture tags but no prior W/B response values.",
     "Verify exact prospective support and non-observation artifact before unsealing any W/B.",
-    "Keep original frozen future-mode and Peromyscus contracts and their post-result m addendum distinct."
+    "Keep original frozen future-mode and Peromyscus contracts and their post-result m addendum distinct.",
+    "Check both-null structural coverage on the frozen MNKA-varying Peromyscus analysis cohort; do not relax 90%."
   ]
 }
