@@ -76,7 +76,8 @@
       "Peromyscus_varying_series": 32,
       "Peromyscus_sessions_in_varying_series": 127,
       "Peromyscus_sites_in_varying_series": 19,
-      "spatial_effects_opened": false
+      "spatial_effects_opened": false,
+      "independent_event_not_independent_individuals_note": "Disjoint event and night IDs establish out-of-release sampling events, not distinct individual animals: 230 site×plot×tag histories recur across source boundaries."
     }
   },
   "independence_blockers": {
@@ -84,7 +85,8 @@
     "complete_frozen_and_new_tag_history_genus_MNKA": "PASSED_EFFECT_BLIND_HISTORY_RECONSTRUCTION_287_OF_287_PAIRABLE",
     "sampled_centroid_null_B_coverage": "DENOMINATOR_SPECIFIC_CONTINUOUS_MNKA_STRUCTURAL_SCREEN_RUNNING",
     "official_release_stability": "PROVISIONAL_NOT_STABLE",
-    "actual_new_W_B_metrics": "SEALED"
+    "actual_new_W_B_metrics": "SEALED",
+    "individual_level_independence": "NOT_SATISFIED_230_TAG_HISTORIES_CROSS_FROZEN_TO_PROVISIONAL"
   },
   "decision": {
     "full_five_genus_mode_confirmation": "SUPPORT_INSUFFICIENT_ON_CURRENT_CANDIDATES",
@@ -98,6 +100,7 @@
     "PASSED effect-blind historical+future target tag histories; Peromyscus 32 series/127 sessions unchanged, 230 tags cross the source boundary.",
     "Verify exact prospective support and non-observation artifact before unsealing any W/B.",
     "Keep original frozen future-mode and Peromyscus contracts and their post-result m addendum distinct.",
-    "Check both-null structural coverage on the frozen MNKA-varying Peromyscus analysis cohort; do not relax 90%."
+    "Check both-null structural coverage on the frozen MNKA-varying Peromyscus analysis cohort; do not relax 90%.",
+    "Estimate sensitivity of future signal to historically captured individuals if future effects are ever opened, without changing locked primary comparison."
   ]
 }
