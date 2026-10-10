@@ -9,6 +9,8 @@ slopes, or ecological effect directions.
 from __future__ import annotations
 
 import csv
+import hashlib
+import re
 import http.cookiejar
 import io
 import json
@@ -165,16 +167,84 @@ def _download_public_file_stream(name: str) -> bytes:
     )
 
 
+class SourcePayloadError(RuntimeError):
+    """Published file bytes could not be independently validated."""
+
+
+def _reject_html(raw: bytes, name: str) -> None:
+    head = raw[:2048].lstrip().lower()
+    if (
+        b"<!doctype html" in head
+        or b"<html" in head
+        or b"<head>" in head
+        or b"<title>validating" in head
+        or b"within.website" in head
+        or b"cloudflare" in head
+    ):
+        raise SourcePayloadError(
+            f"{name}: anti-bot HTML/verification page received instead of scientific data"
+        )
+
+
+def _validate_publication_file(name: str, raw: bytes, meta: dict) -> None:
+    """Reject HTML and validate published byte length and optional digest.
+
+    Never infer ecological structural eligibility from an HTML error document.
+    """
+    _reject_html(raw, name)
+    size = meta.get("size")
+    if size is not None:
+        if isinstance(size, bool) or not isinstance(size, int) or size <= 0:
+            raise SourcePayloadError(f"{name}: invalid declared file size {size!r}")
+        if len(raw) != size:
+            raise SourcePayloadError(
+                f"{name}: byte length mismatch {len(raw)} vs published {size}"
+            )
+    digest = str(meta.get("digest") or "").strip()
+    dtype = str(meta.get("digestType") or "").strip().lower().replace("-", "")
+    if digest and dtype in ("md5", "sha256"):
+        observed = hashlib.new(dtype, raw).hexdigest()
+        if observed.lower() != digest.lower():
+            raise SourcePayloadError(f"{name}: published {dtype} checksum mismatch")
+    if name.lower().endswith(".csv"):
+        text = raw.decode("utf-8-sig")
+        reader = csv.DictReader(io.StringIO(text))
+        fields = reader.fieldnames or []
+        if len(fields) < 3 or any(
+            not field or "<" in field or ">" in field or "=" in field
+            for field in fields
+        ):
+            raise SourcePayloadError(f"{name}: invalid data CSV header")
+        sample = list(__import__("itertools").islice(reader, 100))
+        if len(sample) < 3 or any(None in row for row in sample):
+            raise SourcePayloadError(
+                f"{name}: insufficient structured CSV rows or ragged records"
+            )
+    elif not raw.strip():
+        raise SourcePayloadError(f"{name}: empty README")
+
+
 def _download_file(row: dict) -> tuple[bytes, str]:
     name = str(row.get("path", ""))
     href = _href(row.get("_links", {}).get("stash:download"))
+    errors = []
     if href:
         try:
-            return _download(_abs(href)), "dryad_rest_api"
-        except urllib.error.HTTPError as exc:
-            if exc.code not in (401, 403):
-                raise
-    return _download_public_file_stream(name), "public_landing_file_stream"
+            raw = _download(_abs(href))
+            _validate_publication_file(name, raw, row)
+            return raw, "dryad_rest_api"
+        except (urllib.error.HTTPError, SourcePayloadError) as exc:
+            errors.append("rest_api: " + str(exc)[:180])
+    try:
+        raw = _download_public_file_stream(name)
+        _validate_publication_file(name, raw, row)
+        return raw, "public_landing_file_stream"
+    except (urllib.error.HTTPError, SourcePayloadError, RuntimeError) as exc:
+        errors.append("file_stream: " + str(exc)[:180])
+    raise SourcePayloadError(
+        f"{name}: no independently valid published file bytes; "
+        + "; ".join(errors)
+    )
 
 
 def _csv_diagnostic(raw: bytes) -> dict:
@@ -263,7 +333,25 @@ def run() -> dict:
 
 
 def main() -> int:
-    result = run()
+    try:
+        result = run()
+    except SourcePayloadError as exc:
+        # A successful workflow must never mean a challenge page was parsed
+        # as biological tabular data. Persist machine-readable STOP evidence.
+        result = {
+            "schema": "neon.borneo_multiscale_density.schema_diagnostic.v2",
+            "status": "STOP_EXTERNAL_SOURCE_BYTES_UNVERIFIED",
+            "doi": DOI,
+            "error": str(exc),
+            "precedent_run_retracted": 37444977522,
+            "W_opened": False,
+            "B_opened": False,
+            "abundance_slopes_opened": False,
+        }
+        OUT.parent.mkdir(parents=True, exist_ok=True)
+        OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return 3
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
         json.dumps(result, indent=2, sort_keys=True) + "\n",
