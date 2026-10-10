@@ -11,7 +11,7 @@ class FuturePlotSupportTests(unittest.TestCase):
             return {"name":path,"url":"https://file.test/c.csv",
                     "size":123,"md5":"a"*32}
         q={"data":{"releases":[
-            {"release":"RELEASE-2026","packages":[{"siteCode":"ABBY","month":"2026-07",
+            {"release":"RELEASE-2026","packages":[{"siteCode":"ABBY","month":"2026-06",
                   "packageType":"basic","files":[f("mam_perplotnight_old.csv")]}]},
             {"release":"PROVISIONAL","packages":[
                 {"siteCode":"ABBY","month":"2026-07","packageType":"basic",
