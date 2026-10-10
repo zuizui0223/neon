@@ -1,0 +1,40 @@
+name: future-neon-continuous-MNKA-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_continuous_mnka_v1.py"
+      - "tests/test_future_neon_continuous_mnka_v1.py"
+      - ".github/workflows/future-neon-continuous-MNKA-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-mnka:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test historical continuity and taxonomic conflict exclusion
+        run: python -m unittest discover -s tests -p 'test_future_neon_continuous_mnka_v1.py' -v
+      - name: Require NEON token
+        run: test -n "$NEON_API_TOKEN"
+      - name: Validate frozen versus provisional event IDs and continuous target MNKA
+        run: python -m analysis.audit_future_neon_continuous_mnka_v1
+      - name: Archive effect-blind history receipt even if stopped
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: future-neon-continuous-MNKA-support-v1
+          path: build/future_neon_continuous_mnka_support_v1.json
+          if-no-files-found: warn
+          retention-days: 35
