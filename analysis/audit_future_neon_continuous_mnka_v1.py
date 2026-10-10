@@ -25,6 +25,9 @@ from analysis.audit_future_neon_capture_support_v1 import (
 from analysis.audit_future_neon_mnka_support_v1 import (
     future_only_mnka_support, MODE_GENERA, FROZEN_TAXA,
 )
+from analysis.audit_future_neon_null_b_support_v1 import (
+    null_b_screen_on_varying_series,
+)
 from analysis.audit_future_neon_mammal_availability_v1 import (
     audit as public_inventory, URL as PRODUCT_META_URL,
 )
@@ -258,6 +261,8 @@ def run() -> dict:
         old_trap,new_trap,old_selected,new_selected,genus_by_taxon,locked)
     variations=future_series_variation(
         sessions,locked,continuous["new_event_genus_mnka"])
+    null_b_screen=null_b_screen_on_varying_series(
+        sessions,locked,continuous["new_event_genus_mnka"])
 
     # Historical source ID and output history counts only; no raw tag IDs.
     return {
@@ -274,6 +279,7 @@ def run() -> dict:
         "identifier_disjointness_status":independence["status"],
         "history":continuous["history_audit"],
         "continuous_MNKA_future_only_response_support":variations,
+        "continuous_MNKA_varying_series_null_B_structural_screen":null_b_screen,
         "future_only_history_comparator":future_only_mnka_support(
             new_trap,new_selected,sessions,locked),
         "future_W_B_opened":False,
