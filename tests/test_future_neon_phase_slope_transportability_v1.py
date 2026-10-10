@@ -1,9 +1,16 @@
 import unittest
+import importlib.util
 from analysis.audit_future_neon_phase_slope_transportability_v1 import (
     site_phase_difference, future_varying_cohort, join_new,
 )
 
 
+@unittest.skipUnless(
+    importlib.util.find_spec("pandas")
+    and importlib.util.find_spec("scipy")
+    and importlib.util.find_spec("statsmodels"),
+    "Optional phase-transportability statistics dependencies are not installed",
+)
 class TimeSplitTransportabilityTests(unittest.TestCase):
     def test_source_matched_fixed_effects_identify_phase_slopes(self):
         old=[];new=[]
