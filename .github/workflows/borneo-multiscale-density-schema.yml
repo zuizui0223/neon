@@ -7,6 +7,7 @@ on:
     paths:
       - "analysis/diagnose_borneo_multiscale_density_schema_v1.py"
       - ".github/workflows/borneo-multiscale-density-schema.yml"
+      - "tests/test_borneo_source_payload_integrity_v1.py"
   workflow_dispatch:
 
 permissions:
@@ -21,9 +22,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate scientific bytes versus anti-bot HTML
+        run: python -m unittest discover -s tests -p "test_borneo_source_payload_integrity_v1.py" -v
       - name: Run effect-blind Borneo schema diagnostic
         run: python -m analysis.diagnose_borneo_multiscale_density_schema_v1
-      - name: Upload Borneo schema receipt
+      - name: Upload Borneo schema or access-block receipt
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: borneo-multiscale-density-schema-v1
