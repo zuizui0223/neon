@@ -76,6 +76,28 @@ def summarize_effect_blind_support(sessions: list[dict], target_ids: set[str]) -
             "repeat_supported_individuals":int(s["n_repeat_coordinate_supported_tagged_individuals"]),
             "saturation":float(s["all_capture_trap_night_fraction_of_observed"])
         })
+    # Effect-blind structural upper-bound for the frozen Peromyscus null-B
+    # sampling rule. Counts eligible repeat-supported individuals from OTHER
+    # events in the same taxon x site x plot. True scored centroids and exact
+    # null coverage remain unopened, so this is a screening value only.
+    peros=[r for r in eligible if r["genus"]=="Peromyscus"]
+    by_series=defaultdict(list)
+    for r in peros:
+        by_series[(r["taxon"],r["site"],r["plot"])].append(r)
+    possible=0
+    for series,rs in by_series.items():
+        total=sum(r["repeat_supported_individuals"] for r in rs)
+        possible+=sum(
+            total-r["repeat_supported_individuals"] >= r["repeat_supported_individuals"]
+            for r in rs
+        )
+    null_b_upper_bound={
+        "peromyscus_structural_sessions":len(peros),
+        "sessions_with_sufficient_other_event_repeat_cohort_upper_bound":possible,
+        "structural_coverage_upper_bound":possible/len(peros) if peros else 0,
+        "actual_centroid_null_coverage_tested":False,
+        "rule":"same target taxon x site x plot, excluding focal event; sum structural m of other events >= focal structural m",
+    }
     genus_counts=Counter(r["genus"] for r in eligible)
     tax_counts=Counter(r["taxon"] for r in eligible)
     mode={}
@@ -101,6 +123,7 @@ def summarize_effect_blind_support(sessions: list[dict], target_ids: set[str]) -
         "mode_genus_support":mode,
         "frozen_taxon_support":fixed_taxa,
         "genus_counts":dict(sorted(genus_counts.items())),
+        "peromyscus_null_B_reference_structural_screen":null_b_upper_bound,
         "mnka_variation_checked":False,
         "individual_centroid_positions_extracted":False,
         "spatial_distances_computed":False,
