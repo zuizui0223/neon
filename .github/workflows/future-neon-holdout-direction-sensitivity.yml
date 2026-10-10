@@ -1,0 +1,59 @@
+name: future-neon-holdout-direction-sensitivity
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_direction_sensitivity_v1.py"
+      - ".github/workflows/future-neon-holdout-direction-sensitivity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  frozen-direction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned numerical dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Verify already frozen site-cluster calculations on synthetic data
+        run: python -m unittest discover -s tests -p 'test_peromyscus_site_uncertainty_v1.py' -v
+      - name: Fetch same future metric-only response artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-WB-metric-only-QC-v1
+          run-id: 38046250920
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/metrics
+      - name: Fetch same continuous tag-history future predictor artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-continuous-MNKA-support-v1
+          run-id: 38046339017
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/mnka
+      - name: Reproduce prospective point estimates exactly then audit uncertainty
+        run: |
+          python -m analysis.audit_future_neon_direction_sensitivity_v1 \
+            --metric build/metrics/future_neon_metric_session_values_v1.json \
+            --mnka build/mnka/future_neon_continuous_mnka_predictor_pairs_v1.json \
+            --qc build/metrics/future_neon_metric_qc_v1.json
+      - name: Archive unaltered original-claim sensitivity result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: future-neon-direction-sensitivity-v1
+          path: build/future_neon_direction_sensitivity_v1.json
+          if-no-files-found: warn

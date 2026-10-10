@@ -1,0 +1,152 @@
+{
+  "schema": "neon.multiscale_density.future_taxon_mode_contract.v1",
+  "date": "2026-10-06",
+  "state": "FROZEN_AFTER_RELEASE2026_DEVELOPMENT_BEFORE_FUTURE_RESPONSE_ACCESS",
+  "programme": "multiscale_density_accommodation_v1",
+  "development_sources": [
+    "results/multiscale_density_development_result_v1.json",
+    "results/multiscale_density_heterogeneity_result_v1.json",
+    "results/multiscale_density_observation_support_result_v1.json",
+    "results/multiscale_density_single_catch_null_result_v1.json"
+  ],
+  "scientific_status": {
+    "release2026_general_6_of_8_guard": "FAILED",
+    "this_contract_does_not_reclassify_that_failure": true,
+    "purpose": "prospective confirmation of development-discovered taxon-specific spatial response modes"
+  },
+  "frozen_taxon_predictions": [
+    {
+      "taxon_id": "CHHI",
+      "development_genus": "Chaetodipus",
+      "predicted_delta_sign": "positive",
+      "development_beta_delta": 102.52715714285715,
+      "minimum_development_support": {
+        "sessions": 16,
+        "sites": 2
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta positive"
+      ]
+    },
+    {
+      "taxon_id": "PEBO",
+      "development_genus": "Peromyscus",
+      "predicted_delta_sign": "positive",
+      "development_beta_delta": 23.458384803921568,
+      "minimum_development_support": {
+        "sessions": 21,
+        "sites": 2
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta positive"
+      ]
+    },
+    {
+      "taxon_id": "PEGO",
+      "development_genus": "Peromyscus",
+      "predicted_delta_sign": "positive",
+      "development_beta_delta": 20.125424,
+      "minimum_development_support": {
+        "sessions": 70,
+        "sites": 4
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta positive"
+      ]
+    },
+    {
+      "taxon_id": "PELE",
+      "development_genus": "Peromyscus",
+      "predicted_delta_sign": "positive",
+      "development_beta_delta": 15.957523227383865,
+      "minimum_development_support": {
+        "sessions": 416,
+        "sites": 15
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta positive"
+      ]
+    },
+    {
+      "taxon_id": "PEMA",
+      "development_genus": "Peromyscus",
+      "predicted_delta_sign": "positive",
+      "development_beta_delta": 11.62873867086614,
+      "minimum_development_support": {
+        "sessions": 400,
+        "sites": 22
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta positive"
+      ]
+    },
+    {
+      "taxon_id": "DIOR",
+      "development_genus": "Dipodomys",
+      "predicted_delta_sign": "negative",
+      "development_beta_delta": -23.04527472527473,
+      "minimum_development_support": {
+        "sessions": 55,
+        "sites": 4
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta negative"
+      ]
+    },
+    {
+      "taxon_id": "SIHI",
+      "development_genus": "Sigmodon",
+      "predicted_delta_sign": "negative",
+      "development_beta_delta": -16.3951818692867,
+      "minimum_development_support": {
+        "sessions": 65,
+        "sites": 7
+      },
+      "development_stability": [
+        "raw-B same sign",
+        "every leave-one-site-out delta negative"
+      ]
+    }
+  ],
+  "future_data_boundary": {
+    "response": "first NEON small-mammal observations not contained in RELEASE-2026",
+    "release2026_rows_forbidden_from_confirmation": true,
+    "sampling_rules": "copy exact-3-night standard-grid, completeness, target taxonomy, m>=5, saturation<=0.30, metric and genus-MNKA definitions unless NEON protocol itself changes before response access",
+    "protocol_change_rule": "if future NEON protocol is incompatible, stop and write a new structural estimability contract before opening future W/B effects"
+  },
+  "future_effect_blind_support_gate": {
+    "per_taxon_minimum_for_confirmatory_slope": "at least 3 eligible response sessions with at least 2 distinct genus-MNKA values",
+    "geographic_requirement": "report sites before effects; no taxon is replaced by another if sparse",
+    "sparse_taxon_rule": "taxon remains preregistered but is marked not estimable; do not substitute a development-favorable taxon"
+  },
+  "primary_confirmatory_estimand": {
+    "definition": "equal-taxon-weighted signed Delta, where positive-mode taxa use +Delta and negative-mode taxa use -Delta",
+    "prediction": "> 0",
+    "weighting": "each estimable frozen taxon concept has equal total weight",
+    "nuisance_adjustment": "same taxon x plot series, site x month and year fixed-effect structure where identifiable in future data"
+  },
+  "directional_replication_guard": {
+    "rule": "at least 6 of the 7 frozen taxon-specific Delta estimates must have the preregistered sign, provided all 7 are estimable",
+    "partial_estimability_rule": "if fewer than 7 are estimable, require all but at most one estimable taxon to match and do not claim seven-taxon confirmation",
+    "no_threshold_relaxation_after_future_effects": true
+  },
+  "secondary_future_predictions": {
+    "positive_mode_taxa": "Delta > 0; strong-form W<0 and B>=0 is secondary, not required for sign-mode confirmation",
+    "negative_mode_taxa": "Delta < 0; B<0 is a prespecified mechanistic secondary prediction because development negative mode was driven by centre compression"
+  },
+  "forbidden_rescues": [
+    "replace a failed frozen taxon with another taxon",
+    "flip or merge sign classes after future results",
+    "raise the saturation cutoff",
+    "lower m below 5",
+    "select habitat, territoriality, body size or sociality moderators based on future sign failures",
+    "combine RELEASE-2026 development rows into the confirmatory estimate"
+  ],
+  "external_dataset_relation": "Borneo or another independent CMR dataset may provide a separate external test, but does not consume or modify this future-NEON confirmation contract"
+}

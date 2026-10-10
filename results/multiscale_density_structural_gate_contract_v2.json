@@ -1,0 +1,44 @@
+{
+  "schema": "neon.multiscale_density.structural_gate_contract.v2",
+  "supersedes": "results/multiscale_density_structural_gate_contract_v1.json",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_W_B_OR_ABUNDANCE_RESPONSE_EFFECTS",
+  "programme": "multiscale_density_accommodation_v1",
+  "primary_support_definition": {
+    "era_start": "2015-04",
+    "geometry": "standard NEON 10x10 only; SRER excluded from primary",
+    "bout_key": "site x plotID x eventID",
+    "temporal_rule": "exactly 3 distinct nightuid values",
+    "completeness_rule": "gridCompletion values across the bout must equal only 'setting complete, processing complete'",
+    "taxonomy_conflict_rule": "if the same plot x eventID x tagID is associated with more than one taxonID, exclude that individual from W/B repeat support for that event",
+    "species_group_rule": "published NEON composite/speciesGroup taxon concepts are retained as taxon concepts rather than forced to species",
+    "mechanical_minimum_repeat_supported_individuals": 5,
+    "repeat_support_definition": "conflict-free tagged individual with coordinate-bearing captures on at least 2 distinct trapping nights within the same complete exact-3-night plot-event"
+  },
+  "go_requires_all": {
+    "minimum_eligible_taxon_plot_event_records": 30,
+    "minimum_taxon_concepts": 4,
+    "minimum_resolved_genera": 2,
+    "minimum_sites": 6,
+    "replicated_genera_rule": {
+      "minimum_genera": 2,
+      "per_genus_minimum_eligible_session_records": 10,
+      "per_genus_minimum_sites": 2
+    }
+  },
+  "no_relaxation_rules": [
+    "do not lower m below 5",
+    "do not admit incomplete bouts to make the gate pass",
+    "do not retain within-event taxon-conflict individuals to make the gate pass",
+    "do not pool one-, two-, or four-plus-night events",
+    "do not include SRER under the standard 10x10 calibration",
+    "do not widen the temporal session"
+  ],
+  "effect_boundary": {
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_opened": false,
+    "density_effects_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

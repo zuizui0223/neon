@@ -1,0 +1,36 @@
+name: future-neon-mammal-metadata-only
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_mammal_availability_v1.py"
+      - "tests/test_future_neon_mammal_availability_v1.py"
+      - ".github/workflows/future-neon-mammal-metadata-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify inventory-only gating on synthetic metadata
+        run: python -m unittest discover -s tests -p 'test_future_neon_mammal_availability_v1.py' -v
+      - name: Read NEON public product availability metadata only
+        run: python -m analysis.audit_future_neon_mammal_availability_v1
+      - name: Archive metadata-only result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: future-neon-mammal-metadata-only-v1
+          path: build/future_neon_mammal_availability_v1.json
+          if-no-files-found: warn
+          retention-days: 30
