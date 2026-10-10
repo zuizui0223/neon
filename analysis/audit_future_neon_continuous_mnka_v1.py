@@ -28,6 +28,9 @@ from analysis.audit_future_neon_mnka_support_v1 import (
 from analysis.audit_future_neon_null_b_support_v1 import (
     null_b_screen_on_varying_series,
 )
+from analysis.audit_future_neon_mnka_pair_export_v1 import (
+    future_mnka_predictor_pairs,
+)
 from analysis.audit_future_neon_mammal_availability_v1 import (
     audit as public_inventory, URL as PRODUCT_META_URL,
 )
@@ -263,6 +266,8 @@ def run() -> dict:
         sessions,locked,continuous["new_event_genus_mnka"])
     null_b_screen=null_b_screen_on_varying_series(
         sessions,locked,continuous["new_event_genus_mnka"])
+    predictor_pairs=future_mnka_predictor_pairs(
+        sessions,new_selected["events"],continuous["new_event_genus_mnka"],locked)
 
     # Historical source ID and output history counts only; no raw tag IDs.
     return {
@@ -280,6 +285,7 @@ def run() -> dict:
         "history":continuous["history_audit"],
         "continuous_MNKA_future_only_response_support":variations,
         "continuous_MNKA_varying_series_null_B_structural_screen":null_b_screen,
+        "_MNKA_predictor_pairs_for_separate_artifact":predictor_pairs,
         "future_only_history_comparator":future_only_mnka_support(
             new_trap,new_selected,sessions,locked),
         "future_W_B_opened":False,
@@ -301,6 +307,11 @@ if __name__=="__main__":
             "future_W_B_opened":False,"ecological_confirmation":False,
         }
     OUT.parent.mkdir(parents=True,exist_ok=True)
+    pairs=result.pop("_MNKA_predictor_pairs_for_separate_artifact",None)
+    if pairs is not None:
+        pairs_path=OUT.parent/"future_neon_continuous_mnka_predictor_pairs_v1.json"
+        pairs_path.write_text(json.dumps(pairs,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+        result["MNKA_predictor_pairs_exported_to_artifact"]=len(pairs)
     OUT.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps(result,indent=2,sort_keys=True))
     if result["status"]!="EFFECT_BLIND_CONTINUOUS_HISTORY_SUPPORT_ONLY":
