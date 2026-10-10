@@ -1,0 +1,69 @@
+{
+  "schema": "neon.future_mammal_independent_validation_readiness_v1",
+  "date": "2026-10-10",
+  "state": "EFFECT_BLIND_SUPPORT_ONLY_NO_FUTURE_SPATIAL_EFFECTS",
+  "pr": "https://github.com/zuizui0223/neon/pull/23",
+  "source_release": "RELEASE-2026",
+  "new_source": "PROVISIONAL version for site-months not listed in RELEASE-2026 as of 2026-10-10",
+  "provenance": {
+    "availability_run": 38012540469,
+    "complete_three_night_run": 38012660734,
+    "capture_support_run": 38012832929,
+    "future_only_mnka_run": 38013062697,
+    "exact_cross_release_id_audit_run": 38045366599,
+    "borneo_false_green_retracted_run": 37444977522,
+    "borneo_validity_stop_run": 38012430095
+  },
+  "effect_blind_structure": {
+    "new_site_month_candidates": 301,
+    "checksum_verified_provisional_plot_night_files": 301,
+    "checksum_verified_provisional_trap_night_files": 301,
+    "complete_three_night_plot_events": 505,
+    "sites_with_complete_bouts": 39,
+    "eligible_target_taxon_event_sessions_m_ge5_saturation_le030": 287,
+    "eligible_sites": 34,
+    "peromyscus": {
+      "eligible_event_sessions": 194,
+      "sites_with_event_support": 27,
+      "future_only_mnka_varying_series": 32,
+      "sessions_in_varying_series": 127,
+      "sites_in_varying_series": 19,
+      "future_only_tag_MNKA_not_final": true
+    },
+    "other_frozen_genera": {
+      "Chaetodipus": {
+        "varying_series": 0
+      },
+      "Myodes": {
+        "varying_series": 2
+      },
+      "Dipodomys": {
+        "varying_series": 5
+      },
+      "Sigmodon": {
+        "varying_series": 2
+      }
+    },
+    "seven_frozen_taxon_problem": "CHHI and PEBO have 0 varying series; all 7 preregistered taxon directions currently not estimable"
+  },
+  "independence_blockers": {
+    "event_night_ID_disjointness": "AUDIT_RUNNING_NOT_YET_PASSED",
+    "complete_frozen_and_new_tag_history_genus_MNKA": "NOT VERIFIED",
+    "sampled_centroid_null_B_coverage": "STRUCTURAL UPPER BOUND ONLY",
+    "official_release_stability": "PROVISIONAL_NOT_STABLE",
+    "actual_new_W_B_metrics": "SEALED"
+  },
+  "decision": {
+    "full_five_genus_mode_confirmation": "SUPPORT_INSUFFICIENT_ON_CURRENT_CANDIDATES",
+    "seven_taxon_confirmation": "SUPPORT_INSUFFICIENT_ON_CURRENT_CANDIDATES",
+    "peromyscus_future_local_geometry": "STRUCTURAL_CANDIDATE_ONLY",
+    "independent_ecological_confirmation": "NOT AUTHORIZED",
+    "original_6_of_8_genus_guard": "FAILED_UNCHANGED"
+  },
+  "next_steps": [
+    "Complete all-archived-plot identifiers compared to provisional candidate complete bouts, fail closed on any event or night overlap.",
+    "Rebuild continuous genus MNKA using historical plus provisional capture tags but no prior W/B response values.",
+    "Verify exact prospective support and non-observation artifact before unsealing any W/B.",
+    "Keep original frozen future-mode and Peromyscus contracts and their post-result m addendum distinct."
+  ]
+}
