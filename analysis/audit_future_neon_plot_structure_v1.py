@@ -26,7 +26,9 @@ FROZEN_RELEASE="RELEASE-2026"
 COMPLETE="setting complete, processing complete"
 
 
-def select_provisional_plot_files(query: dict, candidates: set[tuple[str,str]]) -> dict:
+def select_provisional_plot_files(query: dict, candidates: set[tuple[str,str]], *, kind: str = "mam_perplotnight") -> dict:
+    if kind not in ("mam_perplotnight", "mam_pertrapnight"):
+        raise ValueError("unsupported source table kind")
     data=query.get("data")
     if not isinstance(data,dict):
         raise RuntimeError("unrecognized NEON data query response")
@@ -38,18 +40,18 @@ def select_provisional_plot_files(query: dict, candidates: set[tuple[str,str]]) 
     for b in blocks:
         release=str(b.get("release") or "").strip()
         labels.append(release)
-        if release==FROZEN_RELEASE:
-            continue
         for pkg in b.get("packages",[]):
             site=str(pkg.get("siteCode") or "")
             month=str(pkg.get("month") or "")
             if (site,month) not in candidates:
                 continue
+            if release==FROZEN_RELEASE:
+                raise RuntimeError("Candidate month also present in frozen release inventory")
             if pkg.get("packageType")!="basic":
                 continue
             for f in pkg.get("files",[]):
                 name=str(f.get("name") or "")
-                if "mam_perplotnight" not in name or not name.lower().endswith(".csv"):
+                if kind not in name or not name.lower().endswith(".csv"):
                     continue
                 row={"site":site,"month":month,"name":name,
                      "size":f.get("size"),"md5":str(f.get("md5") or "").lower(),
