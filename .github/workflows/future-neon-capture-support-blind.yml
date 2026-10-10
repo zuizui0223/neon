@@ -6,6 +6,8 @@ on:
       - design/multiscale-density-accommodation-v1
     paths:
       - "analysis/audit_future_neon_capture_support_v1.py"
+      - "analysis/audit_future_neon_mnka_support_v1.py"
+      - "tests/test_future_neon_mnka_support_v1.py"
       - "analysis/audit_future_neon_plot_structure_v1.py"
       - "tests/test_future_neon_capture_support_v1.py"
       - ".github/workflows/future-neon-capture-support-blind.yml"
@@ -26,7 +28,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Test effect-blind support and complete-bout selection
-        run: python -m unittest discover -s tests -p 'test_future_neon_capture_support_v1.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_future_neon_capture_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_future_neon_mnka_support_v1.py' -v
       - name: Verify NEON token
         run: test -n "$NEON_API_TOKEN"
       - name: Count locked target repeats without opening W B or abundance effects
