@@ -229,9 +229,17 @@ def _local_geometry(all_future:list[dict], analysis:list[dict], support:dict,
             "nn_excess_xy_m2":geom["nn_excess_xy_m2"],
             "nn_excess_series_m2":geom["nn_excess_series_m2"],
         })
-    if any(r["nn_excess_series_m2"] is None for r in values):
-        # original contract uses a complete subset; do NOT cherry-pick.
-        raise RuntimeError("actual geometry metric reference missing after support GO")
+    # The frozen eligibility gate permits up to 10% missing null-B reference.
+    # Use one deterministic complete-case cohort for BOTH primary responses,
+    # not a post-result selected or response-dependent cohort.
+    dual=[r for r in values if r["nn_excess_series_m2"] is not None]
+    if len(dual)/len(values)<.90:
+        raise RuntimeError("dual-null eligible fraction fell below frozen 90%")
+    if len(dual)<80 or len({r["site"] for r in dual})<10 or len({
+            r["series_id"] for r in dual})<20:
+        raise RuntimeError("dual-null cohort fails frozen temporal/geographic gate")
+    original_response_count=len(values)
+    values=dual
 
     primary_names=("nn_excess_xy_m2","nn_excess_series_m2")
     primary={}
@@ -270,7 +278,8 @@ def _local_geometry(all_future:list[dict], analysis:list[dict], support:dict,
         "secondary_raw_NN_and_B_beta":extras,
         "post_discovery_pre_future_m_adjustment":m_sensitivity,
         "m_sensitive_robustness_lower95_both_positive":robust_after_m,
-        "number_of_future_eligible_sessions":len(values),
+        "number_of_future_eligible_sessions":original_response_count,
+        "number_of_complete_case_two_null_sessions":len(values),
         "independent_release_finalization_required":True,
         "causal_interaction_or_territoriality_demonstrated":False,
     }
