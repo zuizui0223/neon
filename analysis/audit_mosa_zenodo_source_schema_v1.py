@@ -95,10 +95,12 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
         encoding="cp1252"
         try:
             text=raw.decode(encoding)
-        except UnicodeDecodeError as exc:
-            raise PublishedSourceError(
-                "Published capture CSV cannot be decoded as UTF-8 or cp1252"
-            ) from exc
+        except UnicodeDecodeError:
+            # Fallback for older Latin-1 CMR exports containing cp1252-
+            # undefined bytes. Published checksum and source CSV structure
+            # remain mandatory, so this cannot silently accept arbitrary HTML.
+            encoding="latin-1"
+            text=raw.decode(encoding)
     if chr(0) in text or chr(0xfffd) in text:
         raise PublishedSourceError("Binary or replacement characters in capture CSV")
     reader=csv.DictReader(io.StringIO(text))
