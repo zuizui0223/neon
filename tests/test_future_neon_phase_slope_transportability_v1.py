@@ -36,6 +36,12 @@ class TimeSplitTransportabilityTests(unittest.TestCase):
         self.assertAlmostEqual(out["provisional_beta_delta"],-3,delta=.06)
         self.assertAlmostEqual(out["provisional_minus_dev_delta_slope"],-5,delta=.12)
         self.assertLess(out["CI95_site_cluster_t_df_sites_minus1"][1],0)
+        # The phase-specific FE design has redundant columns, so site CR1
+        # must use matrix rank rather than the inflated dummy count.
+        self.assertLess(out["effective_formula_rank"],
+                        out["raw_formula_dummy_columns"])
+        self.assertLessEqual(out["se_site_cluster_phase_difference"],
+                             out["legacy_dummy_count_se"]+1e-12)
 
     def test_future_provisional_mnka_varying_qualification(self):
         rows=[]
