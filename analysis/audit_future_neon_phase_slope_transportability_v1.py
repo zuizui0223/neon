@@ -87,11 +87,25 @@ def site_phase_difference(old,new):
     if o not in fit.params or n not in fit.params:
         raise RuntimeError("unidentified prospective phase slope")
     bo=float(fit.params[o]);bn=float(fit.params[n])
-    cov=fit.cov_params()
-    vv=float(cov.loc[o,o]+cov.loc[n,n]-2*cov.loc[o,n])
-    if not math.isfinite(vv) or vv<0:
-        raise RuntimeError("invalid site-cluster cross-phase uncertainty")
-    se=math.sqrt(vv)
+    # statsmodels' default cov_type="cluster" small-sample correction
+    # uses the *number of formula dummy columns*, including redundant ones,
+    # rather than the effective rank. The phase-specific design is highly
+    # collinear: count identifiable nuisance parameters, not raw columns.
+    from statsmodels.stats.sandwich_covariance import cov_cluster
+    raw_cov=cov_cluster(fit, data["site"], use_correction=False)
+    idx_old=fit.model.exog_names.index(o)
+    idx_new=fit.model.exog_names.index(n)
+    meat=float(raw_cov[idx_old,idx_old]+raw_cov[idx_new,idx_new]
+               -2*raw_cov[idx_old,idx_new])
+    rank=int(fit.model.rank)
+    nobs=len(data)
+    columns=fit.model.exog.shape[1]
+    if rank>=nobs or not math.isfinite(meat) or meat<0:
+        raise RuntimeError("invalid full-rank cluster comparison")
+    corrected=(g/(g-1))*((nobs-1)/(nobs-rank))
+    legacy=(g/(g-1))*((nobs-1)/(nobs-columns))
+    se=math.sqrt(meat*corrected)
+    previous_se=math.sqrt(meat*legacy)
     diff=bn-bo
     crit=float(stats.t.ppf(0.975,g-1))
     return {
@@ -101,6 +115,11 @@ def site_phase_difference(old,new):
         "provisional_minus_dev_delta_slope":diff,
         "se_site_cluster_phase_difference":se,
         "CI95_site_cluster_t_df_sites_minus1":[diff-crit*se,diff+crit*se],
+        "effective_formula_rank":rank,
+        "raw_formula_dummy_columns":columns,
+        "site_cluster_CR1_correction":"effective-rank-adjusted",
+        "legacy_dummy_count_se":previous_se,
+        "legacy_dummy_count_CI95":[diff-crit*previous_se,diff+crit*previous_se],
         "site_cluster_df":g-1,
         "fixed_effect_structure":"phase-specific taxon-plot, site-month and year",
         "state":"POST_RESULT_DESCRIPTIVE_NOT_REGIME_SHIFT_CONFIRMATION",
