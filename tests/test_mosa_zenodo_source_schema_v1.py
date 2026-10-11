@@ -25,7 +25,7 @@ class MOSASourceIntegrityTests(unittest.TestCase):
 
     def test_non_utf8_cp1252_capture_text_is_valid_when_checksum_matches(self):
         raw,f=self.fake()
-        raw=raw.replace(b",MAST,F,20",b",MAST\\xe9,F,20")
+        raw=raw.replace(b",MAST,F,20",b",MAST"+bytes([0xe9])+b",F,20")
         f["size"]=len(raw)
         f["checksum"]="md5:"+hashlib.md5(raw).hexdigest()
         result=validate_source_bytes(raw,f)
@@ -34,7 +34,7 @@ class MOSASourceIntegrityTests(unittest.TestCase):
 
     def test_legacy_latin1_when_cp1252_has_undefined_byte(self):
         raw,f=self.fake()
-        raw=raw.replace(b",MAST,F,20",b",MAST\\x81,F,20")
+        raw=raw.replace(b",MAST,F,20",b",MAST"+bytes([0x81])+b",F,20")
         f["size"]=len(raw)
         f["checksum"]="md5:"+hashlib.md5(raw).hexdigest()
         result=validate_source_bytes(raw,f)
