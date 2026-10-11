@@ -103,10 +103,31 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
             text=raw.decode(encoding)
     if chr(0) in text or chr(0xfffd) in text:
         raise PublishedSourceError("Binary or replacement characters in capture CSV")
-    reader=csv.DictReader(io.StringIO(text))
+    # Legacy Excel/European field-data exports sometimes use semicolon or
+    # tab-delimited files even when the published extension is .csv.
+    # Select ONLY by the outcome-blind header schema, before reading rows.
+    delimiters=(",", ";", "\\t")
+    choices=[]
+    header_text=text.splitlines()[0] if text.splitlines() else ""
+    for sep in delimiters:
+        if sep=="\\t":
+            sep="\\t"
+        try:
+            fields0=next(csv.reader([header_text],delimiter=sep))
+        except (csv.Error, StopIteration):
+            continue
+        if 6<=len(fields0)<=200 and all(
+            name and "<" not in name and ">" not in name for name in fields0
+        ):
+            choices.append((sep,fields0))
+    if len(choices)!=1:
+        raise PublishedSourceError(
+            "Invalid/ambiguous capture CSV header delimiters; candidate counts="
+            +str(len(choices))
+        )
+    delimiter=choices[0][0]
+    reader=csv.DictReader(io.StringIO(text),delimiter=delimiter)
     fields=list(reader.fieldnames or [])
-    if len(fields)<6 or any(not x or "<" in x or ">" in x for x in fields):
-        raise PublishedSourceError("Invalid published capture table column schema")
     count=0
     invalid_rows=0
     for row in reader:
@@ -120,6 +141,7 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
         "verified_byte_count":len(raw),
         "raw_capture_records":count,
         "text_encoding":encoding,
+        "delimiter_type":("TAB" if delimiter=="\\t" else "SEMICOLON" if delimiter==";" else "COMMA"),
         "column_headers":fields,
         "csv_field_count":len(fields),
         "all_csv_rows_structurally_well_formed":True,
