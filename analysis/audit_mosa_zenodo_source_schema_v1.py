@@ -99,7 +99,7 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
             raise PublishedSourceError(
                 "Published capture CSV cannot be decoded as UTF-8 or cp1252"
             ) from exc
-    if "\\x00" in text or text.count("\\ufffd"):
+    if chr(0) in text or chr(0xfffd) in text:
         raise PublishedSourceError("Binary or replacement characters in capture CSV")
     reader=csv.DictReader(io.StringIO(text))
     fields=list(reader.fieldnames or [])
