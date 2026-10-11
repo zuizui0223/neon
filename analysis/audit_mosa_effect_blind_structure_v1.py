@@ -34,7 +34,7 @@ ALIASES={
     "date":("DATE",),
     "grid":("GRID",),
     "species":("SPECIES","SP"),
-    "tag":("TOE-ID","TOEID"),
+    "tag":("TOE-ID","TOEID","TOE"),
     "x":("X",),
     "y":("Y",),
 }
