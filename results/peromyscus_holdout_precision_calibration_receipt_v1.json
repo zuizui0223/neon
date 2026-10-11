@@ -1,0 +1,105 @@
+{
+  "schema": "neon.peromyscus_holdout_precision_calibration_receipt.v1",
+  "date": "2026-10-11",
+  "status": "POST_RESULT_DESIGN_PRECISION_AUDIT_INDEPENDENT_LOCAL_REPRODUCTION",
+  "source": {
+    "development_release": "RELEASE-2026",
+    "development_source_workflow": 37793401501,
+    "development_artifact_id": 11556939610,
+    "new_metric_source_workflow": 38046250920,
+    "new_metric_artifact_id": 11667394798,
+    "new_historical_MNKA_workflow": 38046339017,
+    "new_MNKA_artifact_id": 11668095054,
+    "original_prospective_effect_workflow": 38046615310,
+    "phase_CI_rank_corrected_workflow": 38108107061,
+    "replication_code": "analysis/audit_peromyscus_holdout_information_v1.py",
+    "verification_note": "Old/new design fit and residual MNKA information independently reproduced locally from exact archive ZIP bytes; dedicated CI status must be read separately."
+  },
+  "sample": {
+    "old": {
+      "years": "2015-2024",
+      "sessions": 956,
+      "sites": 33,
+      "series": 111,
+      "range_MNKA": [
+        5,
+        64
+      ],
+      "partial_MNKA_ss": 43091.44185945408,
+      "partial_MNKA_sqrt_ss": 207.58478234074403,
+      "model_residual_df": 690,
+      "delta_beta": 15.93005706925735,
+      "site_cluster_CR1_effective_rank_SE": 3.3294127988568234
+    },
+    "future": {
+      "years": "2025-2026",
+      "sessions": 127,
+      "sites": 19,
+      "series": 32,
+      "range_MNKA": [
+        5,
+        56
+      ],
+      "partial_MNKA_ss": 2589.6824084338455,
+      "partial_MNKA_sqrt_ss": 50.88892225655644,
+      "model_residual_df": 46,
+      "delta_beta": -7.072964939150511,
+      "site_cluster_CR1_effective_rank_SE": 20.346861380235033
+    }
+  },
+  "interpretation": {
+    "residual_MNKA_information_ratio_future_to_old": 0.060097371930145346,
+    "future_delta_CI95_site_cluster_t18": [
+      -49.820134462615485,
+      35.67420458431447
+    ],
+    "old_positive_slope_compatible_with_future_CI": true,
+    "conditional_80pct_MDE_at_observed_future_SE": 59.871520097635475,
+    "post_result_conditional_two_sided_test_power_if_old_beta_true": 0.11503836932761684,
+    "post_result_normal_probability_of_negative_future_slope_if_old_beta_true": 0.217,
+    "not_actual_prospective_power": true,
+    "no_reversed_ecological_regime_identified": true,
+    "development_6_of_8_general_criterion": "FAILED",
+    "future_Peromyscus_positive_point_direction": "FAILED",
+    "five_genus_future_criterion": "NOT_ESTIMABLE",
+    "meaning": "Failure to reobserve the predicted positive slope does not establish a negative ecological response, nor does this imprecise future interval exclude the selected development effect."
+  },
+  "rank_correction": {
+    "issue": "High-rank-deficiency full phase-specific FE formula; statsmodels CR1 using raw dummy column count overstates correction versus effective design matrix rank.",
+    "new_phase_minus_old_beta": {
+      "all": -23.003022008407576,
+      "same_sites": -24.964640305773663,
+      "same_taxon_site_plot_series": -26.71091039081653
+    },
+    "old_CI95_dummy_count": {
+      "all": [
+        -61.10453137719029,
+        15.098487360375138
+      ],
+      "same_sites": [
+        -61.44169832102604,
+        11.512417709478711
+      ],
+      "same_series": [
+        -68.5564253202564,
+        15.134604538623336
+      ]
+    },
+    "corrected_CI95_rank": {
+      "all": [
+        -53.612088020402695,
+        7.606044003587542
+      ],
+      "same_sites": [
+        -56.35463348560612,
+        6.425352874058795
+      ],
+      "same_series": [
+        -61.28335616238393,
+        7.8615353807508725
+      ]
+    },
+    "all_corrected_intervals_cover_zero": true
+  },
+  "science_boundary": "Associations from 3-night trap coordinates and retrospective MNKA; observed-design diagnostics and posthoc model comparison cannot rescue preregistered failures or identify mechanisms. Provisional sources and overlapping marked-animal histories remain limitations."
+}
