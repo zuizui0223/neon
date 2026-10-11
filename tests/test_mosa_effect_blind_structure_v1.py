@@ -49,6 +49,23 @@ class MOSAStructuralSupportTests(unittest.TestCase):
     def test_legacy_column_aliases_exact(self):
         self.assertEqual(published_field_map(FIELDS)["tag"],"TOE-ID")
 
+    def test_real_source_header_and_DMY_date_format(self):
+        header="NUMBER;DATE;GRID;SPECIES;X;Y;WEIGHT;TOE;SX;SEXCON;FLAGS".split(";")
+        fmap=published_field_map(header)
+        self.assertEqual(fmap["tag"],"TOE")
+        self.assertEqual(fmap["x"],"X")
+        dates=parse_all_dates(["15/03/1994","16/03/1994","17/03/1994"])
+        self.assertEqual(dates["15/03/1994"].isoformat(),"1994-03-15")
+
+    def test_more_than_three_distinct_days_same_month_excluded(self):
+        base=synth(start=1994,end=1995,months=(3,),night_count=3)
+        extension={**base[0],"DATE":"22/03/1994","TOE-ID":"extra"}
+        # Use ISO dates for the whole fixture, keeping the fourth event
+        # in a different week of the same month, as in early MOSA records.
+        extension["DATE"]="1994-03-22"
+        result=effect_blind_support(FIELDS,base+[extension])
+        self.assertEqual(result["consecutive_three_day_MN_months"],0)
+
 
 if __name__=="__main__":
     unittest.main()
