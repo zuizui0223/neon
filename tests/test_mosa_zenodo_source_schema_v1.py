@@ -23,6 +23,15 @@ class MOSASourceIntegrityTests(unittest.TestCase):
         self.assertTrue(x["all_csv_rows_structurally_well_formed"])
         self.assertEqual(x["csv_field_count"],7)
 
+    def test_non_utf8_cp1252_capture_text_is_valid_when_checksum_matches(self):
+        raw,f=self.fake()
+        raw=raw.replace(b",MAST,F,20",b",MAST\\xe9,F,20")
+        f["size"]=len(raw)
+        f["checksum"]="md5:"+hashlib.md5(raw).hexdigest()
+        result=validate_source_bytes(raw,f)
+        self.assertEqual(result["text_encoding"],"cp1252")
+        self.assertEqual(result["raw_capture_records"],1200)
+
     def test_bot_challenge_even_if_metadata_checksum_matches(self):
         raw=b'<!DOCTYPE html><html><head><title>Validating...</title></head></html>'
         f={"key":"mosa_Feb2023_Flags.csv","size":len(raw),
