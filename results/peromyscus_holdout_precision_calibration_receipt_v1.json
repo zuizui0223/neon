@@ -1,7 +1,7 @@
 {
   "schema": "neon.peromyscus_holdout_precision_calibration_receipt.v1",
   "date": "2026-10-11",
-  "status": "POST_RESULT_DESIGN_PRECISION_AUDIT_INDEPENDENT_LOCAL_REPRODUCTION",
+  "status": "POST_RESULT_DESIGN_PRECISION_AUDIT_GITHUB_ACTIONS_REPRODUCED",
   "source": {
     "development_release": "RELEASE-2026",
     "development_source_workflow": 37793401501,
@@ -13,7 +13,10 @@
     "original_prospective_effect_workflow": 38046615310,
     "phase_CI_rank_corrected_workflow": 38108107061,
     "replication_code": "analysis/audit_peromyscus_holdout_information_v1.py",
-    "verification_note": "Old/new design fit and residual MNKA information independently reproduced locally from exact archive ZIP bytes; dedicated CI status must be read separately."
+    "verification_note": "Full report reproduced in successful GitHub Actions 38108150743 with fixed 956/127 cohorts, exact Δ slopes and rank-aware site CR1.",
+    "verified_independent_workflow": 38108150743,
+    "verified_independent_artifact_id": 11690975400,
+    "verified_independent_artifact_digest": "sha256:3f988d86fa2e7ccd9caae6aaa46ebdaf4ec061693b4e6f53b93baa92b3c9ab1b"
   },
   "sample": {
     "old": {
@@ -55,8 +58,8 @@
     ],
     "old_positive_slope_compatible_with_future_CI": true,
     "conditional_80pct_MDE_at_observed_future_SE": 59.871520097635475,
-    "post_result_conditional_two_sided_test_power_if_old_beta_true": 0.11503836932761684,
-    "post_result_normal_probability_of_negative_future_slope_if_old_beta_true": 0.217,
+    "post_result_conditional_two_sided_test_power_if_old_beta_true": 0.11503836932763016,
+    "post_result_normal_probability_of_negative_future_slope_if_old_beta_true": 0.2168357131793785,
     "not_actual_prospective_power": true,
     "no_reversed_ecological_regime_identified": true,
     "development_6_of_8_general_criterion": "FAILED",
