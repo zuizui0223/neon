@@ -106,12 +106,10 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
     # Legacy Excel/European field-data exports sometimes use semicolon or
     # tab-delimited files even when the published extension is .csv.
     # Select ONLY by the outcome-blind header schema, before reading rows.
-    delimiters=(",", ";", "\\t")
+    delimiters=(",", ";", chr(9))
     choices=[]
     header_text=text.splitlines()[0] if text.splitlines() else ""
     for sep in delimiters:
-        if sep=="\\t":
-            sep="\\t"
         try:
             fields0=next(csv.reader([header_text],delimiter=sep))
         except (csv.Error, StopIteration):
@@ -141,7 +139,7 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
         "verified_byte_count":len(raw),
         "raw_capture_records":count,
         "text_encoding":encoding,
-        "delimiter_type":("TAB" if delimiter=="\\t" else "SEMICOLON" if delimiter==";" else "COMMA"),
+        "delimiter_type":("TAB" if delimiter==chr(9) else "SEMICOLON" if delimiter==";" else "COMMA"),
         "column_headers":fields,
         "csv_field_count":len(fields),
         "all_csv_rows_structurally_well_formed":True,
