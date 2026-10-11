@@ -1,0 +1,40 @@
+name: external-MOSA-effect-blind-structure
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_effect_blind_structure_v1.py"
+      - "tests/test_mosa_effect_blind_structure_v1.py"
+      - ".github/workflows/external-MOSA-effect-blind-structure.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mosa-effect-blind-structure-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  structural-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify published field map and synthetic 10-year 3-night sample eligibility
+        run: python -m unittest discover -s tests -p 'test_mosa_effect_blind_structure_v1.py' -v
+      - name: Verify original MOSA checksum and frozen 49,216 rows then structural support only
+        run: python -m analysis.audit_mosa_effect_blind_structure_v1
+      - name: Archive support-only GO or fail-closed STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-effect-blind-structure-v1
+          path: build/mosa_external_structural_support_v1.json
+          if-no-files-found: warn
+          retention-days: 45
