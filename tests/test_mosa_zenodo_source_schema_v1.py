@@ -32,6 +32,15 @@ class MOSASourceIntegrityTests(unittest.TestCase):
         self.assertEqual(result["text_encoding"],"cp1252")
         self.assertEqual(result["raw_capture_records"],1200)
 
+    def test_legacy_latin1_when_cp1252_has_undefined_byte(self):
+        raw,f=self.fake()
+        raw=raw.replace(b",MAST,F,20",b",MAST\\x81,F,20")
+        f["size"]=len(raw)
+        f["checksum"]="md5:"+hashlib.md5(raw).hexdigest()
+        result=validate_source_bytes(raw,f)
+        self.assertEqual(result["text_encoding"],"latin-1")
+        self.assertEqual(result["raw_capture_records"],1200)
+
     def test_bot_challenge_even_if_metadata_checksum_matches(self):
         raw=b'<!DOCTYPE html><html><head><title>Validating...</title></head></html>'
         f={"key":"mosa_Feb2023_Flags.csv","size":len(raw),
