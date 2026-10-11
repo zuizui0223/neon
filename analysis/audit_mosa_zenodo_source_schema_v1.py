@@ -26,6 +26,11 @@ RECORD_ID=10049811
 API=f"https://zenodo.org/api/records/{RECORD_ID}"
 DATASET_DOI="10.5281/zenodo.10049811"
 EXPECTED_FILENAME="mosa_Feb2023_Flags.csv"
+# Immutable Zenodo version 10049811 inventory, pinned before raw ecological
+# capture occasions or any spatial or abundance response are inspected.
+EXPECTED_PUBLISHED_BYTES=2849668
+EXPECTED_PUBLISHED_MD5="12c04902947b91922c3f6c98760ecb54"
+EXPECTED_PUBLISHED_CAPTURE_RECORDS=49216
 AGENT="neon-ecology-independent-MOSA-byte-schema/1.0"
 
 
@@ -59,6 +64,10 @@ def select_datafile(meta:dict)->dict:
         raise PublishedSourceError(
             "Expected one raw MOSA capture CSV; candidates="+str(len(candidates)))
     f=candidates[0]
+    if f.get("size")!=EXPECTED_PUBLISHED_BYTES or str(f.get("checksum") or "").lower()!=(
+        "md5:"+EXPECTED_PUBLISHED_MD5):
+        raise PublishedSourceError(
+            "MOSA fixed original Zenodo bytes/digest changed; revalidate before any effects")
     url=(f.get("links") or {}).get("self") or (f.get("links") or {}).get("content")
     if not isinstance(url,str) or not url.startswith("https://"):
         raise PublishedSourceError("Zenodo file has no secure download URL")
@@ -133,6 +142,12 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
         if None in row: invalid_rows+=1
     if count<1000 or invalid_rows:
         raise PublishedSourceError(f"implausible source rows={count}, ragged={invalid_rows}")
+    # Do not silently accept a structurally plausible but incomplete or
+    # wrong-version MOSA extract when the published 2023 source should
+    # contain exactly 49,216 capture rows.
+    if name.lower()==EXPECTED_FILENAME.lower() and count!=EXPECTED_PUBLISHED_CAPTURE_RECORDS:
+        raise PublishedSourceError(
+            f"Original MOSA capture rows differ from published {EXPECTED_PUBLISHED_CAPTURE_RECORDS}: {count}")
     return {
         "file_name":name,
         "verified_checksum":declared,
