@@ -86,19 +86,30 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
     actual=hashlib.new(algorithm,raw).hexdigest()
     if actual!=want:
         raise PublishedSourceError("MOSA file checksum mismatch")
+    # The archived field notebook CSV may use a legacy text encoding.
+    # Decoding fallback never changes the checksum-verified source bytes.
+    encoding="utf-8-sig"
     try:
-        text=raw.decode("utf-8-sig")
-        reader=csv.DictReader(io.StringIO(text))
-        fields=list(reader.fieldnames or [])
-        if len(fields)<6 or any(not x or "<" in x or ">" in x for x in fields):
-            raise PublishedSourceError("Invalid published capture table column schema")
-        count=0
-        invalid_rows=0
-        for row in reader:
-            count+=1
-            if None in row: invalid_rows+=1
-    except UnicodeDecodeError as exc:
-        raise PublishedSourceError("Raw capture file not a UTF-8 CSV") from exc
+        text=raw.decode(encoding)
+    except UnicodeDecodeError:
+        encoding="cp1252"
+        try:
+            text=raw.decode(encoding)
+        except UnicodeDecodeError as exc:
+            raise PublishedSourceError(
+                "Published capture CSV cannot be decoded as UTF-8 or cp1252"
+            ) from exc
+    if "\\x00" in text or text.count("\\ufffd"):
+        raise PublishedSourceError("Binary or replacement characters in capture CSV")
+    reader=csv.DictReader(io.StringIO(text))
+    fields=list(reader.fieldnames or [])
+    if len(fields)<6 or any(not x or "<" in x or ">" in x for x in fields):
+        raise PublishedSourceError("Invalid published capture table column schema")
+    count=0
+    invalid_rows=0
+    for row in reader:
+        count+=1
+        if None in row: invalid_rows+=1
     if count<1000 or invalid_rows:
         raise PublishedSourceError(f"implausible source rows={count}, ragged={invalid_rows}")
     return {
@@ -106,6 +117,7 @@ def validate_source_bytes(raw:bytes,file:dict)->dict:
         "verified_checksum":declared,
         "verified_byte_count":len(raw),
         "raw_capture_records":count,
+        "text_encoding":encoding,
         "column_headers":fields,
         "csv_field_count":len(fields),
         "all_csv_rows_structurally_well_formed":True,
