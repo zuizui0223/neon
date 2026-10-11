@@ -11,7 +11,7 @@ class MOSASourceIntegrityTests(unittest.TestCase):
             f"tag{i},2020-01,{i%3+1},A{i%10+1},MAST,F,20\n".encode()
             for i in range(n))
         raw=head+body
-        f={"key":"mosa_Feb2023_Flags.csv","size":len(raw),
+        f={"key":"synthetic_mosa_flags.csv","size":len(raw),
            "checksum":"md5:"+hashlib.md5(raw).hexdigest(),
            "links":{"self":"https://zenodo.org/api/records/10049811/files/sample/content"}}
         return raw,f
@@ -79,10 +79,20 @@ class MOSASourceIntegrityTests(unittest.TestCase):
 
     def test_metadata_selects_single_real_source(self):
         raw,f=self.fake()
+        f={**f,"key":"mosa_Feb2023_flags.csv","size":2849668,
+           "checksum":"md5:12c04902947b91922c3f6c98760ecb54"}
         m={"files":[f,{"key":"CMRINPUT Manual.pdf","links":{"self":"https://zenodo.org/manual.pdf"}}]}
         self.assertEqual(select_datafile(m)["key"],f["key"])
         with self.assertRaisesRegex(PublishedSourceError,"Expected one"):
             select_datafile({"files":[]})
+        with self.assertRaisesRegex(PublishedSourceError,"fixed original"):
+            select_datafile({"files":[{**f,"size":1000}]})
+
+    def test_reject_wrong_length_original_even_with_matching_synthetic_checksum(self):
+        raw,f=self.fake()
+        f={**f,"key":"mosa_Feb2023_flags.csv"}
+        with self.assertRaisesRegex(PublishedSourceError,"capture rows differ"):
+            validate_source_bytes(raw,f)
 
 if __name__=="__main__":
     unittest.main()
