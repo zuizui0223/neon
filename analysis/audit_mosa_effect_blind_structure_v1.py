@@ -134,6 +134,13 @@ def effect_blind_support(fields,records):
             missing_tag+=1
             continue
         by_month[(day.year,day.month)].append((day,toe))
+    # Published 2023 source reports exactly 45,433 Mastomys natalensis
+    # capture records. A different count means the original dataset was
+    # not parsed faithfully, even if some monthly bouts look plausible.
+    if species["MN"]!=45433 and len(records)==49216:
+        raise PublishedSourceError(
+            f"MOSA published MN capture count mismatch: {species['MN']} vs 45433"
+        )
     valid_sessions=0
     all_three=0
     year_support=Counter()
