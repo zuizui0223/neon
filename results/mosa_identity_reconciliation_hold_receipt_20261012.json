@@ -1,0 +1,72 @@
+{
+  "schema": "neon.external_mosa_published_identity_reconciliation_hold.v1",
+  "date": "2026-10-12",
+  "status": "STOP_EXTERNAL_MOSA_IDENTITY_NOT_FULLY_RECONCILED",
+  "source": {
+    "Zenodo_DOI": "10.5281/zenodo.10049811",
+    "raw_name": "mosa_Feb2023_flags.csv",
+    "raw_byte_size": 2849668,
+    "raw_md5": "12c04902947b91922c3f6c98760ecb54",
+    "published_article_DOI": "10.1038/s41597-023-02700-3",
+    "published_total_capture_records": 49216,
+    "published_MN_capture_records": 45433,
+    "published_MN_unique_individuals": 19850
+  },
+  "verified_raw_identity": {
+    "Mastomys_natalensis_capture_records": 45433,
+    "unique_verbatim_TOE_strings": 19818,
+    "reported_unique_individuals_minus_TOE_string_count": 32,
+    "tags_with_observed_capture_span_over_24_months": 3,
+    "tags_with_observed_gap_over_24_months": 3,
+    "additional_identity_segments_if_gt24_month_gap_split": 4,
+    "hypothetical_distinct_segments_if_split": 19822,
+    "same_TOE_same_calendar_day_collision_keys": 217,
+    "same_TOE_same_calendar_day_extra_records": 221,
+    "codes_with_both_M_and_F_sex_records": 5,
+    "cross_species_TOE_label_overlap": 54,
+    "nonblank_flags_in_MN_capture_records": 6552,
+    "TOE_code_prefixes_preserved": true,
+    "no_coerced_identifier_merges_or_splits": true
+  },
+  "author_encounter_matrices": {
+    "archived_files": [
+      {
+        "name": "C_primary_secondary_capture_3consecutive_o_1_10000b.csv",
+        "rows": 9999,
+        "verified_md5": "d16d26003f3df2ed139edc03f11b9ebd"
+      },
+      {
+        "name": "C_primary_secondary_capture_3consecutive_o_10000-20000b.csv",
+        "rows": 9851,
+        "verified_md5": "bf600b8136891e39c70e203a867e1ef1"
+      }
+    ],
+    "combined_rows": 19850,
+    "row_count_equals_published_individuals": true,
+    "observed_first_column": "SPECIES",
+    "first_column_is_unique_individual_id": false,
+    "mapping_of_matrix_row_to_raw_TOE_unresolved": true
+  },
+  "provenance": {
+    "strict_MNA_stop_run": 38218728688,
+    "identity_discrepancy_audit_run": 38219634229,
+    "identity_discrepancy_artifact_id": 11732824600,
+    "identity_discrepancy_digest": "sha256:ced4ef2d58f985981eaea9e978d12308ebb6fe7169991e1d26d5583ab30c01e4",
+    "author_matrix_schema_run": 38219679637,
+    "author_matrix_schema_artifact_id": 11732959935,
+    "author_matrix_schema_digest": "sha256:ab3d6bdd0333d10ac8b74c53d80d9463fac928dea695ba308869742beacbf562"
+  },
+  "scientific_decision": {
+    "MOSA_external_population_spatial_effect_test_authorized": false,
+    "MOSA_MNA_time_series_effect_authorized": false,
+    "cause_of_32_individual_difference": "UNRESOLVED",
+    "mathematical_24_month_split_solves_discrepancy": false,
+    "same_day_duplicates_prove_separate_individuals": false,
+    "author_matrix_rows_without_ID_mapping_prove_reconciliation": false,
+    "continuation": "Verify author raw-to-encounter-matrix TOE roster and preprocessed individual-row crosswalk using source-verified author RMarkdown; retain STOP until deterministic source-based identity mapping verified. If such mapping is unavailable, do not compute MNA-dependent ecological effects or treat an arbitrary TOE string as a verified unique individual.",
+    "publication_prior_boundary": "Borremans et al. 2014 already tested density-dependent home range/overlap and absent territoriality on the same MOSA site for ~17 years. This dataset cannot independently discover those biological facts.",
+    "original_NEON_6_of_8_genus_guard": "FAILED_UNCHANGED",
+    "future_five_genus_test": "NOT_ESTIMABLE",
+    "provisional_Peromyscus_positive_D_direction": "NOT_REPLICATED_IMPRECISE"
+  }
+}
