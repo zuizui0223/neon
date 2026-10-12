@@ -21,7 +21,13 @@
     "maximum_single_TOE_span_months": 179,
     "raw_TOEs_used_across_species": 54,
     "toe_strings_with_external_whitespace": 17,
-    "single_TOE_both_reported_sexes": 5
+    "single_TOE_both_reported_sexes": 5,
+    "author_encounter_matrix_MN_rows": 19692,
+    "author_encounter_matrix_species_NA_rows": 158,
+    "author_encounter_matrix_distinct_MN_TOE": 19678,
+    "author_encounter_matrix_duplicate_MN_TOE_rows": 14,
+    "raw_MN_TOE_absent_author_encounter_matrix": 140,
+    "author_matrix_MN_TOE_absent_raw": 0
   },
   "published_author_supplements": {
     "processing_Rmd_checksum_verified": true,
@@ -33,7 +39,10 @@
     ],
     "author_encounter_matrix_rows": 19850,
     "author_encounter_matrix_rows_are_NOT_proven_unique_MN_individuals": true,
-    "author_matrix_specific_species_TOE_roster_check": "RUNNING_OR_PENDING"
+    "author_matrix_specific_species_TOE_roster_check": "RUNNING_OR_PENDING",
+    "matrix_species_roster_check": "COMPLETED_MD5_VERIFIED",
+    "author_matrix_rows_are_NOT_unique_MN_animals": true,
+    "author_matrix_MN_TOE_roster_is_substantive_subset_of_raw": true
   },
   "workflow_provenance": {
     "source_MD5_and_schema_run": 38109127624,
@@ -61,6 +70,6 @@
       "ignoring same-day multiple-station identity conflicts",
       "promoting structural 145-month feasibility to biological test success"
     ],
-    "next": "Read author supplementary matrix SPECIES+TOE field rosters and determine safe mapping to original raw source; stop if unresolvable and preserve original frozen NEON failures."
+    "next": "Publisher's 19850 individual claim is not resolved by 19850 capture matrix rows (158 are SPECIES NA, 14 MN duplicate TOE rows); preserve MNA/WB effect hold pending verified cleaned identity mapping or separately justified preregistered conservative-id cohort."
   }
 }
