@@ -45,7 +45,15 @@
     "row_count_equals_published_individuals": true,
     "observed_first_column": "SPECIES",
     "first_column_is_unique_individual_id": false,
-    "mapping_of_matrix_row_to_raw_TOE_unresolved": true
+    "mapping_of_matrix_row_to_raw_TOE_unresolved": true,
+    "MN_rows": 19692,
+    "unresolved_species_NA_rows": 158,
+    "unique_MN_TOE_strings": 19678,
+    "duplicate_MN_TOE_rows": 14,
+    "raw_MN_TOE_codes_missing_from_author_matrix": 140,
+    "author_MN_TOE_codes_missing_from_raw": 0,
+    "raw_author_roster_match": false,
+    "annotation": "Combined 19850 matrix rows are 19692 MN + 158 species NA, so equality of all rows to the article's 19850 MN individuals is a numerical coincidence; cannot infer a validated raw-to-author individual mapping."
   },
   "provenance": {
     "strict_MNA_stop_run": 38218728688,
@@ -54,7 +62,8 @@
     "identity_discrepancy_digest": "sha256:ced4ef2d58f985981eaea9e978d12308ebb6fe7169991e1d26d5583ab30c01e4",
     "author_matrix_schema_run": 38219679637,
     "author_matrix_schema_artifact_id": 11732959935,
-    "author_matrix_schema_digest": "sha256:ab3d6bdd0333d10ac8b74c53d80d9463fac928dea695ba308869742beacbf562"
+    "author_matrix_schema_digest": "sha256:ab3d6bdd0333d10ac8b74c53d80d9463fac928dea695ba308869742beacbf562",
+    "author_matrix_toe_roster_run": 38220149510
   },
   "scientific_decision": {
     "MOSA_external_population_spatial_effect_test_authorized": false,
@@ -67,6 +76,8 @@
     "publication_prior_boundary": "Borremans et al. 2014 already tested density-dependent home range/overlap and absent territoriality on the same MOSA site for ~17 years. This dataset cannot independently discover those biological facts.",
     "original_NEON_6_of_8_genus_guard": "FAILED_UNCHANGED",
     "future_five_genus_test": "NOT_ESTIMABLE",
-    "provisional_Peromyscus_positive_D_direction": "NOT_REPLICATED_IMPRECISE"
+    "provisional_Peromyscus_positive_D_direction": "NOT_REPLICATED_IMPRECISE",
+    "author_matrix_row_count_alone_reconciles_MN_individuals": false,
+    "canonical_author_tag_mapping_status": "FAIL_NOT_IDENTIFIED"
   }
 }
