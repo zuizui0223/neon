@@ -63,7 +63,8 @@
     "author_matrix_schema_run": 38219679637,
     "author_matrix_schema_artifact_id": 11732959935,
     "author_matrix_schema_digest": "sha256:ab3d6bdd0333d10ac8b74c53d80d9463fac928dea695ba308869742beacbf562",
-    "author_matrix_toe_roster_run": 38220149510
+    "author_matrix_toe_roster_run": 38220149510,
+    "author_ID_processing_RMarkdown_audit_run": 38219373764
   },
   "scientific_decision": {
     "MOSA_external_population_spatial_effect_test_authorized": false,
@@ -72,12 +73,25 @@
     "mathematical_24_month_split_solves_discrepancy": false,
     "same_day_duplicates_prove_separate_individuals": false,
     "author_matrix_rows_without_ID_mapping_prove_reconciliation": false,
-    "continuation": "Verify author raw-to-encounter-matrix TOE roster and preprocessed individual-row crosswalk using source-verified author RMarkdown; retain STOP until deterministic source-based identity mapping verified. If such mapping is unavailable, do not compute MNA-dependent ecological effects or treat an arbitrary TOE string as a verified unique individual.",
+    "continuation": "Author RMarkdown confirms a unique(MN$TOE) enumeration step; nevertheless official encounter matrices contain 19692 MN rows, 158 NA species rows, 14 duplicated MN TOE rows and omit 140 raw MN TOE strings. Preserve SOURCE-ID STOP until a version-pinned, per-record-to-author-matrix individual identity crosswalk (or author clarification) reconciles these inconsistencies. Never force 19,850 by artificial tag splitting.",
     "publication_prior_boundary": "Borremans et al. 2014 already tested density-dependent home range/overlap and absent territoriality on the same MOSA site for ~17 years. This dataset cannot independently discover those biological facts.",
     "original_NEON_6_of_8_genus_guard": "FAILED_UNCHANGED",
     "future_five_genus_test": "NOT_ESTIMABLE",
     "provisional_Peromyscus_positive_D_direction": "NOT_REPLICATED_IMPRECISE",
     "author_matrix_row_count_alone_reconciles_MN_individuals": false,
     "canonical_author_tag_mapping_status": "FAIL_NOT_IDENTIFIED"
+  },
+  "author_RMarkdown_identity_method": {
+    "script": "2_markdown Processing data.Rmd",
+    "checksum_verified": true,
+    "verified_source": "Zenodo record 10049811, original checksum-verified RMarkdown",
+    "identity_code_used": "ID = unique(MN$TOE), then select records by TOE and build encounter matrix rows",
+    "specific_original_lines": [
+      178,
+      283,
+      284,
+      289
+    ],
+    "caveat": "This is an explicit code expression, not proof that the published matrices were produced from precisely the current raw dataset with no missing/filtering or row collisions."
   }
 }
