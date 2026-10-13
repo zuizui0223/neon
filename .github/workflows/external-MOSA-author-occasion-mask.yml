@@ -7,6 +7,8 @@ on:
     paths:
       - "analysis/audit_mosa_author_occasion_mask_v1.py"
       - "tests/test_mosa_author_occasion_mask_v1.py"
+      - "analysis/audit_mosa_zenodo_source_schema_v1.py"
+      - "tests/test_mosa_zenodo_source_retries_v1.py"
       - ".github/workflows/external-MOSA-author-occasion-mask.yml"
   workflow_dispatch:
 
@@ -27,7 +29,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Verify official three-night calendar and missing-ID classification fixtures
-        run: python -m unittest discover -s tests -p 'test_mosa_author_occasion_mask_v1.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_mosa_zenodo_source_retries_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_author_occasion_mask_v1.py' -v
       - name: Compare missing MN tags against authors official sessions with source MD5 verification
         run: python -m analysis.audit_mosa_author_occasion_mask_v1
       - name: Archive effect-blind official author occasion receipt
