@@ -28,6 +28,31 @@ class AuthorOccasionMaskTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"not exactly three"):
             validated_author_days(rows,expected_sessions=None)
 
+    def test_multinight_retained_dates_explain_high_priority_id_cases(self):
+        fields=["DATE","GRID","SPECIES","TOE","X","Y","FLAGS"]
+        records=[]
+        for tag,days,flag in (
+            ("present",["15/03/1994"],""),
+            ("once",["15/03/1994"],""),
+            ("two",["15/03/1994","16/03/1994"],""),
+            ("na",["15/03/1994","16/03/1994"],""),
+            ("flagged",["15/03/1994","16/03/1994"],"Corrected")
+        ):
+            for d in days:
+                records.append({
+                    "DATE":d,"GRID":"MOSA","SPECIES":"MN",
+                    "TOE":tag,"X":"4","Y":"B","FLAGS":flag})
+        accepted={date(1994,3,15),date(1994,3,16),date(1994,3,17)}
+        result=classify_missing_by_author_days(
+            records,fields,[("MN","present"),("NA","na")],accepted,
+            expected_original_MN=None)
+        x=result["retained_date_missing_ID_subgroups"]
+        self.assertEqual(x["any_author_date"],4)
+        self.assertEqual(x["valid_station_and_two_distinct_dates"],3)
+        self.assertEqual(x["valid_two_dates_without_flags_and_without_NA_row"],1)
+        self.assertEqual(x["valid_two_dates_also_in_author_NA"],1)
+        self.assertEqual(x["valid_two_dates_with_any_flag"],1)
+
     def test_missing_tag_retained_date_is_not_auto_reassigned(self):
         fields=["DATE","GRID","SPECIES","TOE","X","Y","FLAGS"]
         records=[
