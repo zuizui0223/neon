@@ -116,6 +116,9 @@ def run():
         "processing_code_md5":outputs[RMD]["checksum"],
         "published_time_table":time_data,
         "exact_author_processing_lines_170_to_305":source_method_slice(method),
+        "author_preprocessing_lines_1_to_169":source_method_slice(
+            method,start_line=1,end_line=169
+        ),
         "MOSA_raw_MN_TOE_count":19818,
         "publication_MN_individual_count":19850,
         "published_count_gap_unresolved":True,
@@ -139,7 +142,7 @@ if __name__=="__main__":
     OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps({
         k:v for k,v in result.items()
-        if k!="exact_author_processing_lines_170_to_305"
+        if k not in ("exact_author_processing_lines_170_to_305", "author_preprocessing_lines_1_to_169")
     },indent=2,ensure_ascii=False,sort_keys=True))
     if result["status"]!="EFFECT_BLIND_AUTHOR_SESSION_SCHEMA_OPEN_NO_CAPTURE_EFFECTS":
         raise SystemExit(3)
