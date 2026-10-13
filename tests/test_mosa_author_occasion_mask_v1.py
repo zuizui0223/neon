@@ -59,6 +59,21 @@ class AuthorOccasionMaskTests(unittest.TestCase):
         self.assertEqual(x["valid_two_dates_without_flags_and_without_NA_row"],1)
         self.assertEqual(x["valid_two_dates_also_in_author_NA"],1)
         self.assertEqual(x["valid_two_dates_with_any_flag"],1)
+        self.assertEqual(x["valid_two_dates_matching_author_NO_CAPTURE_placeholder"],0)
+
+
+    def test_explicit_author_NO_CAPTURE_placeholder_not_counted_as_animal(self):
+        fields=["DATE","GRID","SPECIES","TOE","X","Y","FLAGS"]
+        rows=[]
+        for d in ("15/03/1994","16/03/1994"):
+            rows.append({"DATE":d,"GRID":"MOSA","SPECIES":"MN",
+                         "TOE":"NO_CAPTURE","X":"1","Y":"A","FLAGS":""})
+        result=classify_missing_by_author_days(
+            rows,fields,[],{date(1994,3,15),date(1994,3,16)},
+            expected_original_MN=None)
+        x=result["retained_date_missing_ID_subgroups"]
+        self.assertEqual(x["valid_two_dates_without_flags_and_without_NA_row"],1)
+        self.assertEqual(x["valid_two_dates_matching_author_NO_CAPTURE_placeholder"],1)
 
     def test_missing_tag_retained_date_is_not_auto_reassigned(self):
         fields=["DATE","GRID","SPECIES","TOE","X","Y","FLAGS"]
