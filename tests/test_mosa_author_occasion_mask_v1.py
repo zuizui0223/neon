@@ -2,10 +2,17 @@
 import unittest
 from datetime import date
 from analysis.audit_mosa_author_occasion_mask_v1 import (
-    validated_author_days, classify_missing_by_author_days,
+    validated_author_days, classify_missing_by_author_days, git_blob_sha1,
 )
 
 class AuthorOccasionMaskTests(unittest.TestCase):
+    def test_git_blob_sha1_matches_known_content(self):
+        self.assertEqual(
+            git_blob_sha1(b"hello"),
+            "b6fc4c620b67d95f953a5c1c1230aaab5db5a1b0"
+        )
+        self.assertNotEqual(git_blob_sha1(b"hello\n"),git_blob_sha1(b"hello"))
+
     def test_three_night_author_primary_is_valid(self):
         rows=[{"date":f"15/03/1994","prim_capt":"1","sec_capt":"1"},
               {"date":"16/03/1994","prim_capt":"1","sec_capt":"2"},
