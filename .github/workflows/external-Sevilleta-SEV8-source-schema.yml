@@ -1,0 +1,36 @@
+name: external-Sevilleta-SEV8-source-schema
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_sevilleta_external_source_schema_v1.py"
+      - "tests/test_sevilleta_external_source_schema_v1.py"
+      - ".github/workflows/external-Sevilleta-SEV8-source-schema.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test SEV8 source-byte HTML and ragged-data rejection
+        run: python -m unittest discover -s tests -p 'test_sevilleta_external_source_schema_v1.py' -v
+      - name: Check published Sevilleta 1989-2015 mirror raw headers only
+        run: python -m analysis.audit_sevilleta_external_source_schema_v1
+      - name: Archive structural source receipt, including stop
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-Sevilleta-SEV8-source-schema-v1
+          path: build/sevilleta_SEV8_source_schema_v1.json
+          if-no-files-found: warn
+          retention-days: 30
