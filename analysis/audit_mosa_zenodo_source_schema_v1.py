@@ -16,6 +16,8 @@ import hashlib
 import io
 import json
 import os
+import http.client
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -39,11 +41,26 @@ class PublishedSourceError(RuntimeError):
 
 
 def _get(url:str)->bytes:
+    """Retry transient Zenodo transport only; checksum validation stays downstream.
+
+    401/403 and unsupported responses are NOT retried or silently replaced.
+    """
     req=urllib.request.Request(
         url,headers={"User-Agent":AGENT,"Accept":"application/json, text/csv, */*"}
     )
-    with urllib.request.urlopen(req,timeout=150) as resp:
-        return resp.read()
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req,timeout=150) as resp:
+                return resp.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429, 500, 502, 503, 504) or attempt==2:
+                raise
+        except (http.client.IncompleteRead, ConnectionResetError, TimeoutError,
+                urllib.error.URLError):
+            if attempt==2:
+                raise
+        time.sleep(1.5*(attempt+1))
+    raise AssertionError("unexpected Zenodo retry terminal state")
 
 
 def select_datafile(meta:dict)->dict:
