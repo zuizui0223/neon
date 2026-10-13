@@ -13,6 +13,7 @@ Does not split re-used toe codes, reclassify species NA, or invent 32 animals.
 from __future__ import annotations
 
 import csv
+import hashlib
 import io
 import json
 from collections import Counter,defaultdict
@@ -39,6 +40,17 @@ FROZEN_AUTHOR_NA_ROWS=158
 FROZEN_N_OCCASIONS=363
 FROZEN_N_AUTHOR_DAYS=1089
 FROZEN_MISSING_CODES=140
+# Author's published RMarkdown loads this exact GitHub repository path
+# (main head pinned 2023-10-04, commit 298283987854d7423205f422ed3c59399afbb7b2).
+# GitHub's tree reports blob SHA below with size 2,849,668 bytes.
+GITHUB_AUTHOR_RAW_BLOB_SHA1="6463d3561d7d4fa6d43ecd6d482430b00ae64919"
+
+
+def git_blob_sha1(raw:bytes)->str:
+    """Git's canonical byte-for-byte blob object hash, independent of path."""
+    return hashlib.sha1(
+        b"blob "+str(len(raw)).encode("ascii")+b"\\x00"+raw
+    ).hexdigest()
 
 
 def validated_author_days(rows:list[dict], *,expected_sessions:int|None=FROZEN_N_OCCASIONS)->dict:
@@ -199,6 +211,11 @@ def run():
     rawfile=select_datafile(meta)
     raw=_validated_download(rawfile)
     valid=validate_source_bytes(raw,rawfile)
+    github_blob=git_blob_sha1(raw)
+    if github_blob!=GITHUB_AUTHOR_RAW_BLOB_SHA1:
+        raise PublishedSourceError(
+            "Zenodo original capture bytes disagree with published RMarkdown GitHub source blob; investigate source version before author identity claims"
+        )
     delim={"COMMA":",","SEMICOLON":";","TAB":"\t"}[valid["delimiter_type"]]
     rd=csv.DictReader(io.StringIO(raw.decode(valid["text_encoding"])),delimiter=delim)
     records=list(rd)
@@ -232,6 +249,10 @@ def run():
         "source":"Zenodo 10049811 official original capture and author matrices+time variables",
         "publication":"Leirs et al., Scientific Data 2023, DOI 10.1038/s41597-023-02700-3",
         "original_MD5":valid["verified_checksum"],
+        "author_RMarkdown_source_GitHub_commit":
+            "298283987854d7423205f422ed3c59399afbb7b2",
+        "original_Zenodo_bytes_match_author_GitHub_CSV_git_blob":True,
+        "original_Zenodo_source_git_blob_SHA1":github_blob,
         "time_variables_MD5":by_name[TIMEFILE]["checksum"],
         "author_matrices_MD5":[f["MD5"] for f in files],
         "author_session_schedule":date_report,
