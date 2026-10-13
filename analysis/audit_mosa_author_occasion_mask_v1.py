@@ -161,6 +161,8 @@ def classify_missing_by_author_days(
                 retained_subgroup["valid_two_dates_with_any_flag"]+=1
             if not has_any_flag and toe not in author_na:
                 retained_subgroup["valid_two_dates_without_flags_and_without_NA_row"]+=1
+                if toe.upper()=="NO_CAPTURE":
+                    retained_subgroup["valid_two_dates_matching_author_NO_CAPTURE_placeholder"]+=1
         if on_valid and toe in author_na:
             retained_subgroup["valid_station_on_author_date_also_in_author_NA"]+=1
         flags["single_capture_record" if len(records)==1 else "multiple_capture_records"]+=1
@@ -187,6 +189,7 @@ def classify_missing_by_author_days(
                 "valid_station_on_author_date",
                 "valid_station_and_two_distinct_dates",
                 "valid_two_dates_without_flags_and_without_NA_row",
+                "valid_two_dates_matching_author_NO_CAPTURE_placeholder",
                 "valid_two_dates_also_in_author_NA",
                 "valid_two_dates_with_any_flag",
                 "valid_station_on_author_date_also_in_author_NA",
