@@ -1,0 +1,36 @@
+name: external-MOSA-author-missing-tag-sources
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_author_missing_tag_sources_v1.py"
+      - "tests/test_mosa_author_missing_tag_sources_v1.py"
+      - ".github/workflows/external-MOSA-author-missing-tag-sources.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  raw-to-author-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test omitted-tag provenance categorization
+        run: python -m unittest discover -s tests -p 'test_mosa_author_missing_tag_sources_v1.py' -v
+      - name: Verify original checksum-locked raw and authored source omissions
+        run: python -m analysis.audit_mosa_author_missing_tag_sources_v1
+      - name: Archive source audit without biological effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-author-missing-tag-sources-v1
+          path: build/mosa_author_missing_tag_sources_v1.json
+          if-no-files-found: warn
+          retention-days: 45
