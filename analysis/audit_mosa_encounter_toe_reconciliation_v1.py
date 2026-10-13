@@ -37,7 +37,27 @@ def compare_tag_identity_rosters(raw_mn_toes:set[str],
     nonMN=Counter(str(species).strip().upper() for species,_ in matrix_rows
                   if str(species).strip().upper()!="MN")
     tagset=set(values)
+    # The archived encounter matrix contains records whose SPECIES is NA.
+    # Their TOE may coincide with raw MN identifiers, but an unknown species
+    # is NOT automatically a Mastomys individual. Summarize overlaps only.
+    unknown_labels={"", "NA", "N/A", "UNKNOWN"}
+    unknown=[
+        str(tag).strip() for species,tag in matrix_rows
+        if str(species).strip().upper() in unknown_labels
+    ]
+    unknown_ids={tag for tag in unknown if tag}
+    raw_missing=raw_mn_toes-tagset
     return {
+        "matrix_unknown_species_rows":len(unknown),
+        "matrix_unknown_species_blank_TOE_rows":sum(not tag for tag in unknown),
+        "matrix_unknown_species_distinct_nonblank_TOE":len(unknown_ids),
+        "unknown_species_TOE_matching_raw_MN_missing_from_MN_matrix":
+            len(unknown_ids & raw_missing),
+        "unknown_species_TOE_already_in_MN_matrix":len(unknown_ids & tagset),
+        "unknown_species_TOE_absent_from_raw_MN":len(unknown_ids-raw_mn_toes),
+        "raw_MN_TOE_missing_from_MN_and_unknown_species_rows":
+            len(raw_mn_toes-(tagset|unknown_ids)),
+        "unknown_species_rows_prove_MN_identity":False,
         "matrix_total_rows":len(matrix_rows),
         "matrix_MN_rows":len(MN),
         "matrix_MN_distinct_TOE":len(tagset),
