@@ -49,7 +49,7 @@ GITHUB_AUTHOR_RAW_BLOB_SHA1="6463d3561d7d4fa6d43ecd6d482430b00ae64919"
 def git_blob_sha1(raw:bytes)->str:
     """Git's canonical byte-for-byte blob object hash, independent of path."""
     return hashlib.sha1(
-        b"blob "+str(len(raw)).encode("ascii")+b"\\x00"+raw
+        b"blob "+str(len(raw)).encode("ascii")+b"\x00"+raw
     ).hexdigest()
 
 
