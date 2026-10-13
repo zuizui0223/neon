@@ -123,6 +123,7 @@ def classify_missing_by_author_days(
                if str(s).strip().upper() in ("NA","N/A","UNKNOWN","")
                and str(t).strip()}
     flags=Counter()
+    retained_subgroup=Counter()
     any_dates=set(); any_valid=set();twice=set();off_days=set()
     missing_captures_on_author_days=0
     missing_captures_valid_on_author_days=0
@@ -136,6 +137,20 @@ def classify_missing_by_author_days(
         if on_valid:any_valid.add(toe)
         if len(set(on_valid))>=2:twice.add(toe)
         if not on_date:off_days.add(toe)
+        has_2_good=len(set(on_valid))>=2
+        has_any_flag=any(x[2] for x in records)
+        if on_date:retained_subgroup["any_author_date"]+=1
+        if on_valid:retained_subgroup["valid_station_on_author_date"]+=1
+        if has_2_good:
+            retained_subgroup["valid_station_and_two_distinct_dates"]+=1
+            if toe in author_na:
+                retained_subgroup["valid_two_dates_also_in_author_NA"]+=1
+            if has_any_flag:
+                retained_subgroup["valid_two_dates_with_any_flag"]+=1
+            if not has_any_flag and toe not in author_na:
+                retained_subgroup["valid_two_dates_without_flags_and_without_NA_row"]+=1
+        if on_valid and toe in author_na:
+            retained_subgroup["valid_station_on_author_date_also_in_author_NA"]+=1
         flags["single_capture_record" if len(records)==1 else "multiple_capture_records"]+=1
         flags["any_flag" if any(x[2] for x in records) else "no_flag"]+=1
         flags["species_NA_matrix_overlap" if toe in author_na else "no_author_NA_row"]+=1
@@ -154,6 +169,17 @@ def classify_missing_by_author_days(
             missing_captures_valid_on_author_days,
         "missing_also_in_author_NA":len(missing&author_na),
         "missing_tag_record_flags":dict(sorted(flags.items())),
+        "retained_date_missing_ID_subgroups":{
+            k:int(retained_subgroup[k]) for k in (
+                "any_author_date",
+                "valid_station_on_author_date",
+                "valid_station_and_two_distinct_dates",
+                "valid_two_dates_without_flags_and_without_NA_row",
+                "valid_two_dates_also_in_author_NA",
+                "valid_two_dates_with_any_flag",
+                "valid_station_on_author_date_also_in_author_NA",
+            )
+        },
         "all_omissions_explained_by_dates":len(any_dates)==0,
         "species_NA_reassigned":False,
         "unknown_32_published_MN_individuals_gap":19850-len(raw_mn),
