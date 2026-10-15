@@ -35,7 +35,7 @@ class ConservativeSupportTests(unittest.TestCase):
         self.assertFalse(r["W_B_or_centroids_opened"])
 
     def test_ambiguous_tag_cannot_satisfy_five_support(self):
-        m=date(2000,7,10)
+        m=date(2000,7,12)
         rec=[row(t,"MN",m+timedelta(days=i))
              for t in "abcde" for i in range(3)]
         r,monthly=conservative_month_mna_structure(
@@ -56,7 +56,7 @@ class ConservativeSupportTests(unittest.TestCase):
         self.assertEqual(monthly,[])
 
     def test_reused_tag_longer_than_two_years_blocks_mna(self):
-        a=date(1994,1,10);b=date(1997,1,10)
+        a=date(1994,1,12);b=date(1997,1,12)
         rec=[row("a","MN",d) for d in (a,a+timedelta(days=1),
                                          b,b+timedelta(days=1))]
         r,monthly=conservative_month_mna_structure(
