@@ -26,6 +26,13 @@ absent from the processed MN matrix.
   19,850 matrix rows.
 - The frozen 153-month, 22-MNA-varying-year one-site conservative audit
   passes its *predictor-only structural* gate.
+- On 16 October, a **pre-committed warning-exclusion sensitivity** removed
+  all 39 known suspect TOE labels from the *repeat-support eligibility
+  computation*; **153/153** original eligible months and **22** MNA-varying
+  years still qualified. This robustness is about cohort eligibility ONLY,
+  not unique biological-animal identity or any W/B density effect.
+  Reproduction: GitHub Actions 38818948192 and
+  `results/mosa_warning_removal_support_receipt_20261016.json`.
 - New full-source effect-blind audit (run 38759043826) found 41
   same-code/same-calendar-date valid-station keys containing more than one
   trap location (13 keys in frozen eligible months), 169 same-station
@@ -83,9 +90,13 @@ stations should be interpreted after source corrections; and (3) whether
 the `FLAGS` or another archived lookup identifies superseded or corrected
 TOE/station entries.
 
-Our checks use the exact checksum-verified 2023 Zenodo source and we can
-supply a compact reproducibility receipt or affected raw-row references
-privately. No spatial ecology effects have been analysed on this dataset.
+Our checks use the exact checksum-verified 2023 Zenodo source. We
+also confirmed that excluding all 39 labels with observable identity
+warnings still leaves the same 153 eligible monthly trapping bouts, so
+our questions concern interpreting original animal identities rather
+than insufficient recaptures. We can provide a concise reproducibility
+receipt or the affected source-row references privately. No spatial
+ecology effects have been analysed on this dataset.
 
 Thank you for any guidance you can provide.
 
