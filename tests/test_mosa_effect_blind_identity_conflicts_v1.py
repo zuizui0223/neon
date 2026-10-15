@@ -110,6 +110,32 @@ class EffectBlindIdentityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unexpected grid"):
             audit_identity_conflicts(rec, FIELDS, {"a"}, set(), JULY)
 
+    def test_FLAG_on_ambiguous_station_is_warning_not_resolution(self):
+        rec = [row("a", "13/07/2000"), row("a", "13/07/2000", x="4"),
+               row("a", "14/07/2000")]
+        rec[1]["FLAGS"] = "SX"
+        out = audit_identity_conflicts(rec, FIELDS, {"a"}, set(), JULY)
+        self.assertEqual(out["same_day_multiple_station_keys_with_any_FLAG"], 1)
+        self.assertEqual(out["MN_capture_rows_with_nonblank_FLAGS"], 1)
+        self.assertEqual(out["potentially_affected_months_with_a_flagged_suspect_code"], 1)
+        self.assertFalse(out["nonblank_FLAG_proves_identity_reconciled"])
+
+    def test_TOE_series_prefix_and_B_suffix_are_retained_as_literal_IDs(self):
+        tags = {"5/1520", "4630100 B"}
+        rec = [row(t, d) for t in tags for d in ("13/07/2000", "14/07/2000")]
+        out = audit_identity_conflicts(rec, FIELDS, tags, set(), JULY)
+        self.assertEqual(out["repeat_cohort_codes_with_explicit_series_prefix"], 1)
+        self.assertEqual(out["repeat_cohort_codes_with_B_suffix"], 1)
+        self.assertEqual(out["repeat_supported_distinct_codes"], 2)
+
+    def test_missing_FLAGS_fails_closed(self):
+        rec = [row("a", "13/07/2000"), row("a", "14/07/2000")]
+        with self.assertRaisesRegex(ValueError, "FLAGS"):
+            audit_identity_conflicts(
+                rec, [c for c in FIELDS if c != "FLAGS"],
+                {"a"}, set(), JULY,
+            )
+
     def test_no_individual_ids_or_dates_emitted(self):
         rec = [row("UNIQUE_ANIMAL_LABEL", "13/07/2000"),
                row("UNIQUE_ANIMAL_LABEL", "14/07/2000")]
