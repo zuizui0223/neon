@@ -58,3 +58,22 @@ Rather than searching post-hoc environmental or lineage moderators for a favorab
 Keep the ecological manuscript **Draft/HOLD**. The defendable result is a transparent *failure to establish a transportable positive spatial response with the available new events*, not evidence of an opposing universal biological law.
 
 Reproduction: `analysis/audit_peromyscus_holdout_information_v1.py`, `analysis/audit_future_neon_phase_slope_transportability_v1.py`. Results `results/peromyscus_provisional_transportability_receipt_v1.json` and the dedicated October 11 precision receipt.
+
+
+## 2026-10-15 descriptive component audit: where is the apparent sign disagreement?
+
+The archived 2026-10-10 fixed-cohort response already includes separate W and debiased-B coefficients. Their **arithmetic** (without refitting or selecting sessions) helps locate the *point-estimate* disagreement:
+
+| Fixed Peromyscus cohort | beta_W | beta_B (debiased) | beta_delta = beta_B - beta_W |
+|---|---:|---:|---:|
+| RELEASE-2026 development, 956 sessions | -8.348 | +7.582 | +15.930 |
+| 2025-2026 provisional held-out events, 127 sessions | -2.246 | -9.319 | -7.073 |
+| Provisional minus development | **+6.101** | **-16.902** | **-23.003** |
+
+Units are m² per unit retrospective genus MNKA. The -23.003 difference in the cross-scale contrast decomposes into -16.902 from the among-centroid B coefficient and -6.101 from W becoming less negative. Thus the larger numerical contribution (about 73.5% of the absolute point-contrast difference) comes from the **among-observed-centroid component**, not from a demonstrated expansion of individual short-term variance.
+
+**This is not a confirmed ecological shift.** The held-out beta_delta has a rank-aware site-cluster t(18) interval [-49.82, +35.67], and the rank-corrected all-cohort phase difference interval is [-53.61, +7.61]; both cross zero. No interval or prospective success rule was specified for the above component-share fraction, and it must not be reported as a significant allocation effect, a footprint-compression response, evidence of territoriality, or a change in animal behaviour. The fixed historical and provisional sessions also differ in observation completeness and remain only partially independent in tagged-animal histories.
+
+**Biological value:** if a future *independent* study replicates a difference, separating the within-animal and among-capture-centroid components would distinguish whether it stems mainly from individual short-term space-use changes or the organization of observed population centres. The current records identify neither explanation. No new subgroup, seasonal comparison, model, effect estimate or relaxed gate is introduced here.
+
+Arithmetic inputs: `results/future_neon_provisional_holdout_decision_v1.json`; precision and corrected intervals: `results/peromyscus_holdout_precision_calibration_receipt_v1.json`.
