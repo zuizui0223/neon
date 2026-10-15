@@ -29,3 +29,11 @@ Does increasing local abundance in a single long-term *Mastomys natalensis* popu
 - `results/mosa_author_verified_bout_support_receipt_20261015.json`
 - `results/mosa_one_species_spatial_allocation_pre_effect_contract_v1.json`
 - GitHub Actions 38703326511 (structural gate PASS).
+
+## 2026-10-15 refinement: distinguish code reuse from harmless capture duplication
+
+A capture row is not a biological individual, and multiple rows for the same code on the same night are not automatically distinct animals. The identity audit must report **three separate denominators**: all author-first-MN normalized codes, the 19,664 codes remaining after the 14 known whitespace collisions, and the subset contributing repeated positions to the frozen 153-month cohort. Report the number of affected months and years, not just the number of anomalous rows.
+
+For each retained code and date, aggregate the set of *distinct valid station labels*; classify (1) one station with multiple records as repeated logging, (2) multiple stations on one date as spatially conflicting capture histories requiring source/field interpretation, and (3) cross-species or incompatible sex records as identity concerns. Do not assume two stations on one date necessarily indicate two animals without checking the capture protocol. For the W/B cohort, count a code as potentially influential only if it appears on >=2 different nights within a frozen eligible month. The **potentially affected** count is an upper bound, not a measured W/B bias.
+
+Do not mistake the absence of >24-month histories among the selected codes for definitive identity proof. A reused code within a shorter interval may still be possible; conversely a long history can represent a genuine long-lived animal. The only safe ecological inference remains HOLD until this uncertainty is characterized.
