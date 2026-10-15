@@ -35,6 +35,10 @@ def audit_identity_conflicts(
     if len(sex_fields) != 1:
         raise ValueError("MOSA source must contain its one verified SX sex column")
     sx = sex_fields[0]
+    flag_fields = [col for col in fields if str(col).strip().upper() == "FLAGS"]
+    if len(flag_fields) != 1:
+        raise ValueError("MOSA original must have one FLAGS correction-history column")
+    flag_col = flag_fields[0]
     roster = set(author_mn)
     excluded = set(excluded_codes)
     eligible = set(eligible_months)
@@ -52,7 +56,7 @@ def audit_identity_conflicts(
     # A suspect code anywhere may undermine a repeat observation in a later
     # eligible cohort month; a direct-concurrent ambiguity is reported apart.
     by_tag_day: dict[tuple[str, object], dict] = defaultdict(
-        lambda: {"stations": set(), "n_records": 0}
+        lambda: {"stations": set(), "n_records": 0, "n_flagged": 0}
     )
     by_tag_species = defaultdict(set)
     by_tag_sex = defaultdict(set)
@@ -62,6 +66,8 @@ def audit_identity_conflicts(
     seen_unknown_sex = 0
     author_mn_rows = 0
     excluded_rows = 0
+    flagged_MN_records = 0
+    codes_with_any_flagged_MN_record = set()
 
     for row in rows:
         tag = str(row.get(f["tag"]) or "").strip()
@@ -80,6 +86,11 @@ def audit_identity_conflicts(
             # Do not relabel non-MN captures as Mastomys.
             continue
         author_mn_rows += 1
+        raw_flag = str(row.get(flag_col) or "").strip()
+        has_flag = raw_flag.upper() not in {"", "NA", "N/A"}
+        if has_flag:
+            flagged_MN_records += 1
+            codes_with_any_flagged_MN_record.add(tag)
         if str(row.get(f["grid"]) or "").strip().upper() != "MOSA":
             raise ValueError("Author-retained MN code on an unexpected grid")
         sex = str(row.get(sx) or "").strip().upper()
@@ -99,6 +110,8 @@ def audit_identity_conflicts(
         key = (tag, day)
         by_tag_day[key]["stations"].add((x, y))
         by_tag_day[key]["n_records"] += 1
+        if has_flag:
+            by_tag_day[key]["n_flagged"] += 1
         if month in eligible:
             repeat_nights[(tag, month)].add(day)
 
@@ -165,6 +178,33 @@ def audit_identity_conflicts(
         "excluded_collision_capture_rows_all_species": excluded_rows,
         "known_M_or_F_SX_MN_capture_rows": seen_known_sex,
         "unknown_or_other_SX_MN_capture_rows": seen_unknown_sex,
+        "MN_capture_rows_with_nonblank_FLAGS": flagged_MN_records,
+        "same_day_multiple_station_keys_with_any_FLAG": sum(
+            by_tag_day[k]["n_flagged"] > 0 for k in multi_station_keys
+        ),
+        "station_warning_codes_with_any_FLAG_in_history": len(
+            station_suspect & codes_with_any_flagged_MN_record
+        ),
+        "suspect_repeat_codes_with_any_FLAG_in_history": len(
+            repeat_tags & union_suspect & codes_with_any_flagged_MN_record
+        ),
+        "potentially_affected_months_with_a_flagged_suspect_code": len({
+            month for tag, month in affected_pairs
+            if tag in codes_with_any_flagged_MN_record
+        }),
+        "repeat_cohort_codes_with_explicit_series_prefix": sum(
+            "/" in tag for tag in repeat_tags
+        ),
+        "repeat_cohort_codes_with_B_suffix": sum(
+            tag.upper().endswith(" B") for tag in repeat_tags
+        ),
+        "station_warning_codes_with_explicit_series_prefix": sum(
+            "/" in tag for tag in station_suspect
+        ),
+        "station_warning_codes_with_B_suffix": sum(
+            tag.upper().endswith(" B") for tag in station_suspect
+        ),
+        "nonblank_FLAG_proves_identity_reconciled": False,
         "distinct_valid_tag_date_keys_full_history": len(by_tag_day),
         "same_day_multiple_station_keys_full_history": len(multi_station_keys),
         "same_day_duplicate_same_station_keys_full_history": len(same_station_duplicate_keys),
