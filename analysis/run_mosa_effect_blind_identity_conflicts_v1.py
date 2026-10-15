@@ -143,7 +143,11 @@ def run() -> dict:
         "MNA_on_eligible_months",
         "eligible_months_by_year",
     ):
-        must_equal(structural[key], frozen[key], key)
+        # Python's year-indexed Counter serializes to string keys in the
+        # already-frozen JSON receipt. Normalize representation, never counts.
+        computed = ( {str(k): v for k, v in structural[key].items()}
+                     if key == "eligible_months_by_year" else structural[key] )
+        must_equal(computed, frozen[key], key)
     months = {entry["year_month"] for entry in strict}
     must_equal(len(months), 153, "unique frozen eligible months")
     expected_m = {entry["year_month"]: entry["m"] for entry in strict}
