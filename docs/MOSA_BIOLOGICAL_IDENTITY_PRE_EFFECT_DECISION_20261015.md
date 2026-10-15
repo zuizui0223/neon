@@ -121,3 +121,40 @@ An independent experimental/protocol note is required for same-day
 multi-station captures and toe-code reuse, not merely the encounter
 matrix's binary row label. This is a missing interpretation of capture
 events, not an invitation to select the convenient first or last station.
+
+## 2026-10-16 completed exclusion sensitivity — all original bouts retain support
+
+The result was frozen **before** computation in
+`docs/MOSA_EFFECT_BLIND_WARNING_EXCLUSION_STRESS_TEST_20261016.md`.
+The exact original-source/checksum-verified
+[GitHub Actions 38818948192](https://github.com/zuizui0223/neon/actions/runs/38818948192)
+completed successfully with the 153 original month identifiers, 6,530 repeated-code/month units and the original MNA predictor all unchanged.
+
+**Observed sensitivity:** discard all **39** author-first-MN code labels with
+any observed full-history same-day multi-station warning (38 codes), known
+male/female SX inconsistency (1 code), or known between-species
+inconsistency (0). The original 14 affected months lose one repeat-supported
+code in 13 cases and two in one case. The remaining 139 months lose none.
+**All 153/153** retain >=5 repeated individuals, with post-removal minimum
+m exactly **5**. **All 22** original MNA-varying years remain, with **147**
+eligible months in those years. The original 60-month, 10-year source
+support thresholds thus pass without altering any primary cohort.
+
+**This is a narrow but useful biological-data feasibility result.** The
+observed explicit conflicts are too sparse to destroy the repeated-animal
+support needed to *ask* the cross-scale population question. It does
+**not** establish that every unflagged tag denotes one true animal,
+that original MNA is unbiased, or that W/B or Delta density associations
+are identifiable. A sensitivity support result is not a measured
+biological spatial effect. The article's 19,850 MN individual-to-TOE
+mapping and 41 same-day/multi-station source keys remain unresolved.
+
+**STOP the loop of further opportunistic same-data ID checks.** The next
+scientific dependency is an external authoritative corrected-ID table or
+written interpretation of the toe-code and same-day station capture
+protocol. Until then keep the MOSA W/B and MNA×space analysis sealed and
+the ecological PR in Draft/HOLD. Do not convert a stress-support PASS
+into an override of the pre-effect source identity requirement.
+
+Reproducible record:
+`results/mosa_warning_removal_support_receipt_20261016.json`.
