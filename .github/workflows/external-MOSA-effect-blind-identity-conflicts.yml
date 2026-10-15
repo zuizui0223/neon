@@ -6,6 +6,8 @@ on:
       - design/multiscale-density-accommodation-v1
     paths:
       - "analysis/audit_mosa_effect_blind_identity_conflicts_v1.py"
+      - "analysis/audit_mosa_warning_removal_support_v1.py"
+      - "tests/test_mosa_warning_removal_support_v1.py"
       - "analysis/run_mosa_effect_blind_identity_conflicts_v1.py"
       - "tests/test_mosa_effect_blind_identity_conflicts_v1.py"
       - ".github/workflows/external-MOSA-effect-blind-identity-conflicts.yml"
@@ -30,6 +32,7 @@ jobs:
       - name: Verify synthetic identity, SX and frozen-cohort safeguards
         run: |
           python -m unittest discover -s tests -p 'test_mosa_effect_blind_identity_conflicts_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_warning_removal_support_v1.py' -v
           python -m unittest discover -s tests -p 'test_mosa_frozen_conservative_mna_support_v1.py' -v
       - name: Run checksum-verified real MOSA audit with all spatial effects sealed
         run: python -m analysis.run_mosa_effect_blind_identity_conflicts_v1
