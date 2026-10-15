@@ -19,6 +19,9 @@ from pathlib import Path
 from analysis.audit_mosa_effect_blind_identity_conflicts_v1 import (
     audit_identity_conflicts,
 )
+from analysis.audit_mosa_warning_removal_support_v1 import (
+    conservative_warning_exclusion_support,
+)
 from analysis.audit_mosa_frozen_conservative_mna_support_v1 import (
     conservative_month_mna_structure,
 )
@@ -161,8 +164,38 @@ def run() -> dict:
     must_equal(audit["MN_retained_rows_without_valid_lattice_station"],
                frozen["species_MN_rows_without_valid_lattice_position"],
                "valid station source exclusions")
+    # Independently reconstruct all warning labels and remove them from
+    # repeat SUPPORT only; the original 153 months and MNA indices are fixed.
+    stress = conservative_warning_exclusion_support(
+        retained, fields, author_mn, collisions, strict,
+    )
+    for a_key, b_key in (
+        ("original_frozen_months", "frozen_eligible_months"),
+        ("original_repeat_supported_code_month_pairs",
+         "repeat_supported_code_month_pairs"),
+        ("station_warning_codes", "station_conflict_codes_full_history"),
+        ("sex_warning_codes", "cross_sex_SX_codes_full_history"),
+        ("species_warning_codes", "cross_species_codes_full_history"),
+        ("union_warning_codes", "union_suspect_codes_full_history"),
+        ("warning_affected_original_months",
+         "potentially_affected_months_upper_bound"),
+        ("warning_affected_original_repeat_code_month_pairs",
+         "potentially_affected_repeat_code_month_pairs"),
+    ):
+        must_equal(stress[a_key], audit[b_key],
+                   "independent warning removal vs original identity audit: " + a_key)
+    must_equal(stress["original_frozen_months"], 153, "stress denominator")
+    must_equal(stress["original_repeat_supported_code_month_pairs"],
+               6530, "original frozen 6530 repeated-code/month units")
+    must_equal(stress["union_warning_codes"], 39, "pre-result observed warning set")
+    must_equal(stress["warning_affected_original_months"],
+               14, "original warning-affected months")
+    must_equal(stress["warning_affected_original_repeat_code_month_pairs"],
+               15, "original warning-affected repeated-code/month units")
+
     result = {
         **audit,
+        "warning_removal_support": stress,
         "source": {
             "doi": "10.5281/zenodo.10049811",
             "source_original_MD5": validation["verified_checksum"],
