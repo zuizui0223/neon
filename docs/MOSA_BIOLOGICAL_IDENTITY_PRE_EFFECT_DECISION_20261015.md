@@ -37,3 +37,63 @@ A capture row is not a biological individual, and multiple rows for the same cod
 For each retained code and date, aggregate the set of *distinct valid station labels*; classify (1) one station with multiple records as repeated logging, (2) multiple stations on one date as spatially conflicting capture histories requiring source/field interpretation, and (3) cross-species or incompatible sex records as identity concerns. Do not assume two stations on one date necessarily indicate two animals without checking the capture protocol. For the W/B cohort, count a code as potentially influential only if it appears on >=2 different nights within a frozen eligible month. The **potentially affected** count is an upper bound, not a measured W/B bias.
 
 Do not mistake the absence of >24-month histories among the selected codes for definitive identity proof. A reused code within a shorter interval may still be possible; conversely a long history can represent a genuine long-lived animal. The only safe ecological inference remains HOLD until this uncertainty is characterized.
+
+## 2026-10-16 source-verified identity and FLAGS audit — new evidence, HOLD retained
+
+Successful GitHub Actions runs **38759043826** (first identity conflict audit)
+and **38759703345** (correction `FLAGS` and literal TOE-series check) used
+the same MD5-verified published capture source, the original authors' exact
+55 date removals/one correction, the first-retained MN roster and the **same**
+frozen strict 153-month cohort. Both runs recomputed the original month-by-
+month repeated-individual m support exactly. The synthetic tests and the
+general frozen-paper checks passed.
+
+**Source-level counts, not biological effects:**
+
+- **19,678** authored first-MN normalized codes; **14** whitespace
+  collisions remain excluded; **19,664** noncolliding codes.
+- **6,530** distinct repeated-code × month units for the 153 fixed months,
+  representing **4,875** repeat-supported distinct codes.
+- **41** code/date keys observed at more than one valid station in the full
+  author-retained source; **13** such keys are in the frozen eligible months;
+  **169** same-code/date keys repeat the **same** station.
+- **38** distinct code labels account for the 41 multi-station same-day
+  keys; all **38** already have explicit slash-delimited series prefixes.
+  No station-warning code has a literal trailing ` B` suffix.
+- Across the full retained first-MN code history, **one** code has both
+  known `SX` sexes; **zero** have two different known species labels.
+- **11** suspect code labels enter repeat-supported cohorts, in **15** of
+  **6,530** repeated-code/month units. Their presence creates an upper
+  bound of **14 of the original 153 months (9.2%)** potentially affected;
+  same-month direct station conflicts affect **10** months. It is false
+  to call the remaining 139 months independently verified true individuals.
+- Of **44,426** author-retained species-MN capture rows under first-MN
+  codes, **5,430** contain a nonblank `FLAGS` value. Nevertheless,
+  **0/41** multi-station same-day keys have any flagged entry; none of
+  the 38 station-warning codes has a `FLAGS` entry elsewhere in its
+  retained species-MN history. Nonblank `FLAGS` do not prove an identity
+  error is resolved; blank `FLAGS` do not prove an error.
+
+Published protocol says trap checking takes place once each morning;
+the DATE is the morning a trap was checked. Multiple distinct stations
+assigned to the same code and morning require source-level explanation.
+The authors *also* document toe-series prefixes and a `B` suffix as
+disambiguation, as well as sex/species/capture-note corrections. Thus
+multi-station keys cannot simply be treated as biological repeat moves
+or definite tag reuse. See Leirs et al. 2023,
+https://doi.org/10.1038/s41597-023-02700-3.
+
+**Decision:** This audit narrows the potential contamination footprint,
+but does not reconcile the article's reported 19,850 MN biological
+individuals or identify what happened to the 41 conflicting code/day
+locations. The next decision requires author documentation of the
+canonical individual-to-TOE mapping, or a formally recorded STOP.
+No W/B, centroids or MNA–space coefficients may be opened as a
+consequence of this audit. Do not lower eligibility or retrospectively
+replace the original cohort with author-363-bout sensitivity.
+
+Artifacts:
+- `results/mosa_effect_blind_identity_conflicts_receipt_20261015.json`
+- `results/mosa_effect_blind_identity_flags_receipt_20261016.json`
+- `docs/MOSA_PUBLISHED_INDIVIDUAL_ID_AUTHORS_CLARIFICATION_20261014.md`
+  (corrected query draft only; **not sent**).
