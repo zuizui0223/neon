@@ -97,3 +97,27 @@ Artifacts:
 - `results/mosa_effect_blind_identity_flags_receipt_20261016.json`
 - `docs/MOSA_PUBLISHED_INDIVIDUAL_ID_AUTHORS_CLARIFICATION_20261014.md`
   (corrected query draft only; **not sent**).
+
+## Author encounter matrix cannot settle same-day station contradictions
+
+The published processing RMarkdown's *encounter-matrix conversion* constructs
+one binary capture column per retained date with
+`df[i,pmatch(ID2$DATE,date)]=1`. It saves the source fields for **only
+the first captured record** as `character=rbind(character,ID2[1,4:12])`.
+Multiple source rows for a TOE on one date are consequently collapsed to a
+single capture indicator, **not** adjudicated as one of two different station
+coordinates. The matrix also retains first-record X/Y characteristics, not
+a per-night trajectory.
+
+Thus the authors' verified encounter matrix is authoritative for the
+calendar and first species-label crosswalk, but **cannot independently
+resolve** which source trap position, if any, is correct for the 41
+same-day/multiple-station code/date keys. It must not be reinterpreted as
+proof of biological identity or used as an invented spatial response
+dataset. See the original authors' publicly released RMarkdown:
+https://github.com/Joachimmarien/MOSA/blob/main/2_markdown%20Processing%20data.Rmd.
+
+An independent experimental/protocol note is required for same-day
+multi-station captures and toe-code reuse, not merely the encounter
+matrix's binary row label. This is a missing interpretation of capture
+events, not an invitation to select the convenient first or last station.
