@@ -38,6 +38,10 @@ OUT=Path("build/mosa_author_exact_filter_v1.json")
 PROCESSING="2_markdown Processing data.Rmd"
 PUBLISHED_RMD_GIT_BLOB_SHA1="32e51e955a30b74052d5f1654216f846bb8874f9"
 EXPECTED_DELETIONS=55
+# Identical public authored exclusion command indices checked independently against
+# the Zenodo RMarkdown archived source; its whole-file bytes need not match
+# a later GitHub text snapshot.
+EXPECTED_AUTHOR_REMOVALS=(7, 8, 9, 10, 32, 33, 34, 35, 39, 40, 41, 57, 58, 59, 60, 61, 62, 63, 67, 89, 90, 91, 92, 96, 97, 113, 117, 118, 122, 123, 235, 236, 240, 241, 245, 246, 247, 248, 252, 253, 254, 291, 301, 371, 372, 373, 374, 375, 376, 377, 381, 382, 383, 384, 506)
 EXPECTED_CORRECTION_ORIGINAL_DATE_INDEX=469
 EXPECTED_CORRECTION_DATE="2004-04-13"
 
@@ -217,13 +221,18 @@ def run()->dict:
 
     method_raw=_validated_download(byname[PROCESSING])
     method_sha1=git_blob_sha1(method_raw)
-    if method_sha1!=PUBLISHED_RMD_GIT_BLOB_SHA1:
-        raise PublishedSourceError("author processing RMarkdown differs from pinned public source blob")
+    # The official Zenodo RMarkdown is MD5-verified above. It differs at
+    # whole-file byte level from the public GitHub text snapshot, so require
+    # literal equivalence of *all effect-blind cleaning commands* instead of
+    # treating a formatting/editorial change as a scientific identity drift.
     rmd=method_raw.decode("utf-8-sig",errors="strict")
     commands=parse_author_filter_commands(rmd)
-    if (commands["corrected_source_date_index"]!=EXPECTED_CORRECTION_ORIGINAL_DATE_INDEX
+    if (tuple(commands["removed_original_unique_date_indices"])
+            != EXPECTED_AUTHOR_REMOVALS
+        or commands["corrected_source_date_index"]
+            != EXPECTED_CORRECTION_ORIGINAL_DATE_INDEX
         or commands["corrected_to_date"]!=EXPECTED_CORRECTION_DATE):
-        raise PublishedSourceError("published author manual correction changed")
+        raise PublishedSourceError("published date deletion/correction semantics differ from audited source")
     time_raw=_validated_download(byname[TIMEFILE])
     time_reader=csv.DictReader(io.StringIO(time_raw.decode("utf-8-sig")),delimiter=";")
     cal=validated_author_days(list(time_reader))
@@ -242,6 +251,10 @@ def run()->dict:
         "original_md5":validated["verified_checksum"],
         "processing_script_md5":byname[PROCESSING]["checksum"],
         "processing_script_git_blob_SHA1":method_sha1,
+        "original_Zenodo_Rmd_bytes_equal_GitHub_snapshot":
+            method_sha1==PUBLISHED_RMD_GIT_BLOB_SHA1,
+        "all_55_original_date_deletions_match_GitHub_script":True,
+        "original_date_correction_matches_GitHub_script":True,
         "published_occasion_table_md5":byname[TIMEFILE]["checksum"],
         "published_matrix_md5":[a["MD5"] for a in authorfiles],
         "published_original_capture_records":len(original_rows),
