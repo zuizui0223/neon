@@ -1,5 +1,38 @@
 # MOSA published individual-identity clarification — corrected 2026-10-15
 
+## Verified corresponding author and send status (16 October 2026)
+
+- **Corresponding author:** Joachim Mariën
+- **Address in the published 2023 paper:** `joachim.marien@uantwerpen.be`
+- **Independently verified against:** publisher https://www.nature.com/articles/s41597-023-02700-3 and PubMed https://pubmed.ncbi.nlm.nih.gov/37952006/
+- **Gmail:** No draft was saved (the attempted draft creation was not authorized); no email was sent.
+- **Next action:** human review and send the approved correspondence. The sender's name and affiliation have deliberately not been fabricated.
+
+### Final concise message for manual sending
+
+**To:** joachim.marien@uantwerpen.be  
+**Subject:** Clarification on biological TOE identities in the 2023 MOSA archive
+
+Dear Dr Mariën,
+
+I am preparing an independent spatial-ecology analysis using the publicly released 2023 MOSA capture–mark–recapture archive (Leirs et al., *Scientific Data*, DOI 10.1038/s41597-023-02700-3). Thank you for publishing the long-term data and processing code.
+
+We have reproduced the 55 capture-date exclusions, the 2004 date correction, all 363 primary trapping occasions, and the original first-retained-species labels. Before using repeated capture positions, I would appreciate clarification of three remaining points:
+
+1. The article reports 19,850 distinct *Mastomys natalensis* animals, while the original capture CSV has 19,818 distinct MN-labelled TOE strings. The published encounter matrices contain 19,678 distinct normalized MN labels and 158 rows with missing species labels (19,850 rows in total). Is there a corrected biological individual-ID lookup or an intermediate processed table that reconciles the published MN animal count?
+2. The original capture records contain 41 TOE/date combinations at more than one valid station. Can the same identified animal be recorded at multiple stations on the same capture date under the trapping protocol, or do some records represent corrected/superseded entries?
+3. Is there an authoritative description of the `FLAGS` entries or a correction log for TOE-code and station-coordinate revisions?
+
+As an outcome-blind check, excluding all 39 TOE codes with detectable station, sex or species identity warnings still leaves all 153 eligible monthly three-night bouts with at least five repeat-captured codes. We have not estimated any density–space or movement effect from this dataset. I can share aggregate reproducibility results and exact relevant row references privately.
+
+Thank you very much for your guidance.
+
+Best regards,  
+[Name, affiliation]
+
+---
+
+
 **Status:** prepared research correspondence, **not sent**. Supersedes the
 2026-10-14 five-question request, because the exact author RMarkdown replay
 resolved the earlier apparent one-code exception and all 140 raw MN codes
