@@ -114,7 +114,7 @@ Separating within-individual and among-individual spatial variance reveals poten
 - O'Fallon, S., Pinter-Wollman, N. & Mabry, K. E. (2025). Uncovering multiple influences on space use by deer mice using large ecological networks. *Oecologia* 207:98. https://doi.org/10.1007/s00442-025-05731-2
 - Santini, L., Jacucci, G. & Tucker, M. A. (2026). Relationship between home range and population density in mammals: the role of sociality, territoriality and habitat dimensionality. *Ecography* e07936. https://doi.org/10.1002/ecog.07936
 - Wang, Z. et al. (2023). Linking changes in individual specialization and population niche of space use across seasons in the great evening bat (*Ia io*). *Movement Ecology* 11:32. https://doi.org/10.1186/s40462-023-00394-1
-- Efford, M. et al. (2016). Population density and spatial capture–recapture movement scale. *Ecography*. https://doi.org/10.1111/ecog.01511
+- Efford, M. G., Dawson, D. K., Jhala, Y. V. & Qureshi, Q. (2016). Density-dependent home-range size revealed by spatially explicit capture–recapture. *Ecography* 39:676–688. https://doi.org/10.1111/ecog.01511
 - Leirs, H. et al. (2023). Twenty-nine years of continuous monthly capture-mark-recapture data of multimammate mice (*Mastomys natalensis*) in Morogoro, Tanzania. *Scientific Data* 10:798. https://doi.org/10.1038/s41597-023-02700-3
 
 ## Exact internal evidence, in reproducible priority order
