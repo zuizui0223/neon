@@ -112,6 +112,29 @@ class MammalFigureIntegrityTests(unittest.TestCase):
             for actual, expected in zip(sorted(verticals[y]),sorted(x_axis(v) for v in ci)):
                 self.assertTrue(isclose(actual,expected,rel_tol=0,abs_tol=1e-6))
 
+    def test_exploratory_component_shift_is_arithmetic_not_mechanism(self):
+        p = self.future["mode_replicability"]["Peromyscus"]
+        shift_w=p["future_beta_W"]-p["development_beta_W"]
+        shift_b=p["future_beta_B"]-p["development_beta_B"]
+        shift_d=p["future_beta_D"]-p["development_beta_D"]
+        self.assertAlmostEqual(shift_d,shift_b-shift_w,places=7)
+        self.assertAlmostEqual(shift_w,6.101397442065647,places=7)
+        self.assertAlmostEqual(shift_b,-16.90162456634222,places=7)
+        share=abs(shift_b)/abs(shift_d)*100
+        self.assertAlmostEqual(share,73.4756701104945,places=6)
+        self.assertIn("73.5%",self.paper)
+        self.assertIn("−16.902",self.paper)
+        self.assertIn("does not** identify a true population-footprint shift",self.paper)
+        self.assertIn("genus-wide rather than necessarily focal-species-specific",self.paper)
+
+    def test_conditional_sign_negative_example_stays_post_result(self):
+        probability=self.precision["interpretation"][
+            "post_result_normal_probability_of_negative_future_slope_if_old_beta_true"
+        ]
+        self.assertAlmostEqual(probability,0.2168357131793785,places=10)
+        self.assertIn("**21.7%**",self.paper)
+        self.assertIn("neither prospective power nor a test proving the old model",self.paper)
+
     def test_captions_and_limits_not_silently_promoted(self):
         self.assertIn("figures/figure_1_density_cross_scale.svg",self.paper)
         self.assertIn("**Figure 1.**",self.paper)
