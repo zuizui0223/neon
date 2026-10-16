@@ -1,0 +1,192 @@
+{
+  "schema": "neon.multiscale_density.structural_go.v1",
+  "date": "2026-10-06",
+  "status": "GO_TO_PRE_EFFECT_METRIC_AND_OBSERVATION_PROCESS_DEVELOPMENT",
+  "programme": "multiscale_density_accommodation_v1",
+  "contract": "results/multiscale_density_structural_gate_contract_v2.json",
+  "provenance": {
+    "workflow": "multiscale-density-standardized-era-parallel",
+    "run_id": 37402113880,
+    "job_id": 112071662039,
+    "head_sha": "e785bd50eac95540348a2bf2c0aa0534ae5f582c",
+    "artifact_id": 11385996071,
+    "artifact_name": "multiscale-density-standardized-era-parallel-v1",
+    "artifact_digest": "sha256:8756659ff0e08a9a47a7f0a6db497193d0936b24097f94f158cbb8f04789e220",
+    "release": "RELEASE-2026",
+    "query_start": "2015-04",
+    "query_end": "2026-09",
+    "biological_bytes_opened_for_structural_support": 821727960
+  },
+  "mechanical_support": {
+    "standard_10x10_minimum_repeat_supported_individuals": 5,
+    "srer_7x7_minimum_repeat_supported_individuals": 15,
+    "observations_per_repeat_supported_individual": "2..3",
+    "synthetic_replicates_per_cell": 2000,
+    "seed": 20261005
+  },
+  "primary_definition": {
+    "geometry": "standard_10x10",
+    "bout": "exactly 3 nightuid values for site x plotID x eventID",
+    "completeness": "gridCompletion == 'setting complete, processing complete' across the bout",
+    "taxonomy": "NEON published taxon concept; event x tagID with >1 taxonID excluded from W/B support",
+    "minimum_repeat_supported_individuals": 5
+  },
+  "observed_support": {
+    "eligible_taxon_plot_event_records": 1996,
+    "taxon_concepts": 44,
+    "resolved_genera": 18,
+    "sites": 44,
+    "plots": 147,
+    "repeat_supported_individuals_per_session": {
+      "median": 8,
+      "q10": 5,
+      "q90": 18,
+      "max": 48
+    },
+    "unique_tagged_individuals_per_session": {
+      "median": 16,
+      "q90": 35,
+      "max": 87
+    },
+    "repeat_supported_fraction": {
+      "median": 0.5714285714285714,
+      "q10": 0.3333333333333333,
+      "q90": 0.8333333333333334
+    }
+  },
+  "gate_checks": {
+    "eligible_records": {
+      "observed": 1996,
+      "required": 30,
+      "pass": true
+    },
+    "taxon_concepts": {
+      "observed": 44,
+      "required": 4,
+      "pass": true
+    },
+    "resolved_genera": {
+      "observed": 18,
+      "required": 2,
+      "pass": true
+    },
+    "sites": {
+      "observed": 44,
+      "required": 6,
+      "pass": true
+    },
+    "replicated_genera": {
+      "observed": 12,
+      "required": 2,
+      "pass": true
+    }
+  },
+  "replicated_genera": [
+    {
+      "genus": "Peromyscus",
+      "eligible_sessions": 1251,
+      "sites": 36
+    },
+    {
+      "genus": "Dipodomys",
+      "eligible_sessions": 174,
+      "sites": 4
+    },
+    {
+      "genus": "Myodes",
+      "eligible_sessions": 98,
+      "sites": 12
+    },
+    {
+      "genus": "Sigmodon",
+      "eligible_sessions": 98,
+      "sites": 8
+    },
+    {
+      "genus": "Microtus",
+      "eligible_sessions": 76,
+      "sites": 10
+    },
+    {
+      "genus": "Perognathus",
+      "eligible_sessions": 73,
+      "sites": 2
+    },
+    {
+      "genus": "Chaetodipus",
+      "eligible_sessions": 71,
+      "sites": 4
+    },
+    {
+      "genus": "Tamias",
+      "eligible_sessions": 43,
+      "sites": 12
+    },
+    {
+      "genus": "Onychomys",
+      "eligible_sessions": 28,
+      "sites": 3
+    },
+    {
+      "genus": "Napaeozapus",
+      "eligible_sessions": 24,
+      "sites": 5
+    },
+    {
+      "genus": "Reithrodontomys",
+      "eligible_sessions": 17,
+      "sites": 4
+    },
+    {
+      "genus": "Mus",
+      "eligible_sessions": 10,
+      "sites": 4
+    }
+  ],
+  "taxonomy_qc": {
+    "event_tag_ids_with_multiple_taxon_ids_in_structural_input": 1523,
+    "conflict_rule": "excluded from repeat support before gate evaluation",
+    "conflicted_tag_ids_present_in_eligible_sessions_but_excluded_from_support": 1143,
+    "eligible_sessions_with_at_least_one_excluded_taxon_conflict": 417
+  },
+  "observation_pressure_effect_blind": {
+    "all_small_mammal_capture_trap_night_fraction": {
+      "median": 0.18333333333333332,
+      "q90": 0.37666666666666665,
+      "q95": 0.44333333333333336,
+      "q99": 0.5533333333333333,
+      "max": 0.7133333333333334,
+      "sessions_above_0_31": 382,
+      "sessions_above_0_40": 146,
+      "sessions_above_0_50": 57,
+      "sessions_above_0_60": 8
+    },
+    "focal_taxon_capture_trap_night_fraction": {
+      "median": 0.09333333333333334,
+      "q90": 0.19666666666666666,
+      "q95": 0.24,
+      "q99": 0.33349999999999985,
+      "max": 0.44333333333333336,
+      "sessions_above_0_31": 34,
+      "sessions_above_0_40": 4,
+      "sessions_above_0_50": 0,
+      "sessions_above_0_60": 0
+    },
+    "interpretation": "structural GO does not authorize ecological-effect fitting until trap-saturation handling is frozen"
+  },
+  "decision": {
+    "structural_gate_passed": true,
+    "W_open_authorized": false,
+    "B_open_authorized": false,
+    "abundance_response_open_authorized": false,
+    "next_required_gate": "freeze observation-process/saturation and abundance-index contract, then freeze W/B metric implementation before opening ecological effects"
+  },
+  "effect_boundary": {
+    "spatial_distances_calculated": false,
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_opened": false,
+    "density_effects_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

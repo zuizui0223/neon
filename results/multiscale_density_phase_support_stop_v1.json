@@ -1,0 +1,90 @@
+{
+  "schema": "neon.multiscale_density.phase_support_result_v1",
+  "date": "2026-10-08",
+  "status": "STRUCTURAL_STOP_TWO_MODE_HYSTERESIS_NOT_ESTIMABLE",
+  "provenance": {
+    "workflow": "multiscale-density-phase-support",
+    "run_id": 37784662694,
+    "job_id": 113336221873,
+    "artifact_id": 11553493127,
+    "artifact_digest": "sha256:fb54a3f9514db6c239abb8b405a63971cb7cdb86cd62f86e507a96864ea37f7c",
+    "checks": "PASS"
+  },
+  "exposure_boundary": {
+    "dataset": "RELEASE-2026",
+    "sessions": 1536,
+    "series_considered": 222,
+    "chronology_errors": {},
+    "transitions_all_gaps": 1136,
+    "gap_le_120": 598,
+    "gap_121_to_370": 313,
+    "gap_gt_370": 225,
+    "phase_W_B_effects_opened": false,
+    "mode_comparison_run": false,
+    "original_primary_slope_unchanged": true,
+    "original_6_of_8_guard_still_failed": true
+  },
+  "frozen_support_rule": {
+    "max_gap_days": 370,
+    "near_equal_mnka_difference": 2,
+    "per_mode_minimum_pairs": 20,
+    "per_mode_minimum_series": 10,
+    "per_mode_minimum_sites": 3
+  },
+  "modes": {
+    "packing": {
+      "eligible_transitions": 767,
+      "near_equal_opposite_phase_pairs": 290,
+      "paired_taxon_plot_series": 56,
+      "paired_sites": 29,
+      "gate_passed": true
+    },
+    "compression": {
+      "eligible_transitions": 144,
+      "near_equal_opposite_phase_pairs": 75,
+      "paired_taxon_plot_series": 9,
+      "paired_sites": 5,
+      "gate_passed": false
+    }
+  },
+  "by_genus": {
+    "Chaetodipus": {
+      "transitions": 28,
+      "pairs": 4,
+      "paired_series": 4,
+      "paired_sites": 3
+    },
+    "Myodes": {
+      "transitions": 44,
+      "pairs": 6,
+      "paired_series": 3,
+      "paired_sites": 2
+    },
+    "Peromyscus": {
+      "transitions": 695,
+      "pairs": 280,
+      "paired_series": 49,
+      "paired_sites": 24
+    },
+    "Dipodomys": {
+      "transitions": 103,
+      "pairs": 71,
+      "paired_series": 7,
+      "paired_sites": 3
+    },
+    "Sigmodon": {
+      "transitions": 41,
+      "pairs": 4,
+      "paired_series": 2,
+      "paired_sites": 2
+    }
+  },
+  "decision": {
+    "both_modes_structurally_supported": false,
+    "no_threshold_relaxation": "The compression mode has 9 distinct paired series against the pre-result threshold of 10; 75 overlapping pairs do not substitute for independent series.",
+    "no_diagnostic_rescue": "Do not lower minimum series, pool with a single mode, change ±2 MNKA tolerance or the 370-day gap after results.",
+    "status": "STOP_PHASE_HISTORY_TWO_MODE_W_B_FIT",
+    "critical_limitation": "MNKA is a retrospectively interpolated known-alive index and includes look-ahead from future captures; observed past-to-present MNKA change is not a directly measured behavioral cue.",
+    "interpretation": "Support-only failure, not biological falsification; no W/B response to phase was opened."
+  }
+}

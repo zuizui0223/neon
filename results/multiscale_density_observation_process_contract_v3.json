@@ -1,0 +1,55 @@
+{
+  "schema": "neon.multiscale_density.observation_process_contract.v3",
+  "supersedes": "results/multiscale_density_observation_process_contract_v2.json",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_ABUNDANCE_RESPONSE_EFFECTS",
+  "programme": "multiscale_density_accommodation_v1",
+  "target_structural_go": "results/multiscale_density_target_structural_go_v1.json",
+  "mnka_decision": "results/multiscale_density_mnka_variation_decision_v1.json",
+  "primary_saturation_guard": {
+    "quantity": "all-small-mammal occupied capture trap-nights / observed active trap-nights within the exact-3-night plot-event",
+    "primary_maximum": 0.3,
+    "comparison_operator": "<=",
+    "locked": true
+  },
+  "primary_abundance_predictor": {
+    "name": "genus-level event MNKA",
+    "individual_key": "site x plotID x tagID",
+    "known_alive_rule": "known alive at complete standard exact-3-night plot-events between first and last target capture at that plot",
+    "taxonomic_rule": {
+      "same_genus_taxon_switch": "retain as same genus-level individual",
+      "cross_genus_history": "exclude",
+      "response_taxon": "published target taxon concept remains the W/B response grouping"
+    },
+    "ecological_interpretation": "density of congeners experienced by the focal taxon concept within the plot-event",
+    "role": "abundance index, not true density",
+    "precedent": "O'Fallon et al. 2025 used genus-level Peromyscus MNKA because species identifications were unreliable"
+  },
+  "abundance_support": {
+    "paired_response_sessions": 1536,
+    "varying_response_sessions": 1408,
+    "varying_taxon_plot_series": 176,
+    "taxa": 26,
+    "genera": 13,
+    "sites": 41,
+    "mnka_range_median": 17,
+    "mnka_range_q10": 7,
+    "mnka_range_q90": 33.5
+  },
+  "secondary_abundance_sensitivity": [
+    "unique tagged individuals of the same genus observed in the event per active trap-night",
+    "taxon-concept-specific MNKA only as a prespecified sensitivity where taxonomic history is stable",
+    "model-based closed/SCR density only under a separate pre-effect contract"
+  ],
+  "no_rescue_rules": [
+    "do not switch from genus MNKA to a more favorable abundance proxy after W/B slopes are viewed",
+    "do not include cross-genus tag histories",
+    "do not raise the 0.30 saturation cutoff",
+    "do not redefine the temporal bout"
+  ],
+  "next_gate": "metric-only W/B QC under results/multiscale_density_metric_contract_v1.json",
+  "effect_boundary": {
+    "abundance_response_slopes_opened": false,
+    "habitat_moderators_opened": false
+  }
+}
