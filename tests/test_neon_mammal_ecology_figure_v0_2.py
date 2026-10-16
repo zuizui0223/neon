@@ -117,8 +117,8 @@ class MammalFigureIntegrityTests(unittest.TestCase):
         self.assertIn("**Figure 1.**",self.paper)
         self.assertIn("**Submission status:** **HOLD**",self.paper)
         self.assertIn("**NOT ESTIMABLE**",self.paper)
-        self.assertIn("not evidence that no population",self.paper.lower())
-        self.assertIn("no MOSA W, B, Δ or MNA–space ecological effect",self.paper)
+        self.assertIn("not proof that no population",self.paper.lower())
+        self.assertIn("no mosa w, b, δ or mna–space ecological effect",self.paper.lower())
         self.assertIn("not a randomized treatment",self.paper)
 
 
