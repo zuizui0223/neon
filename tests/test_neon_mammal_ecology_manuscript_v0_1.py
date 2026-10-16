@@ -113,7 +113,7 @@ class EcologyManuscriptContractTests(unittest.TestCase):
         self.assertIn("**provisional**",self.text)
         self.assertIn("230 marked animal histories",self.text)
         self.assertIn("not a randomized treatment",self.text)
-        self.assertIn("not complete home ranges",self.text)
+        self.assertIn("not full home ranges",self.text)
         self.assertIn("do not move this draft to any journal submission",self.text)
         self.assertTrue(self.model["primary_universe"]["no_new_response_based_filtering"])
 
