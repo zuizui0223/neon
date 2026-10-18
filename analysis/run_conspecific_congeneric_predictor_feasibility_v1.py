@@ -9,6 +9,8 @@ FAILED multigenus packing hypothesis or refit previously viewed outcomes.
 """
 from __future__ import annotations
 
+import csv
+import io
 import json
 import os
 import tempfile
@@ -93,7 +95,12 @@ def run() -> dict:
             if "mam_pertrapnight" in row["name"]
             and (row["site"],row["month"]) in site_months]
     trows=[]
+    qualifier_headers_checked=0
     for meta,raw in zip(tfiles,_download_many(tfiles,token,max_workers=MAX_DOWNLOAD_WORKERS)):
+        fieldnames=next(csv.reader(io.StringIO(raw.decode("utf-8-sig").splitlines()[0])),[])
+        if not {"identificationQualifier","identification_qualifier"}.intersection(fieldnames):
+            raise RuntimeError("NEON source pertrapnight lacks identificationQualifier")
+        qualifier_headers_checked+=1
         for row in _read_trap_rows(raw,nights):
             row["_site"]=meta["site"]
             trows.append(row)
@@ -157,6 +164,8 @@ def run() -> dict:
 
     tag_taxa=defaultdict(set)
     tag_events=defaultdict(set)
+    qualifier_warning_histories=set()
+    qualifier_warning_capture_rows=0
     target_capture_rows=0
     for r in trows:
         if not _capture_status(r.get("trapStatus","")):continue
@@ -169,6 +178,10 @@ def run() -> dict:
         hkey=(site,plot,tag)
         tag_taxa[hkey].add(taxon)
         tag_events[hkey].add(str(event_key[2]))
+        qualifier=str(r.get("identificationQualifier") or "").strip().upper()
+        if qualifier not in {"", "NA", "N/A", "NULL"}:
+            qualifier_warning_histories.add(hkey)
+            qualifier_warning_capture_rows+=1
         target_capture_rows+=1
 
     require(len(tag_taxa)==frozen["taxonomy_history"]["target_tag_histories"],
@@ -178,7 +191,8 @@ def run() -> dict:
 
     histories=[
         {"site":key[0],"plot_id":key[1],
-         "taxon_ids":sorted(taxa),"event_ids":sorted(tag_events[key])}
+         "taxon_ids":sorted(taxa),"event_ids":sorted(tag_events[key]),
+         "qualifier_warning":key in qualifier_warning_histories}
         for key,taxa in tag_taxa.items()
     ]
     maps,history_types=event_predictors(
@@ -187,6 +201,26 @@ def run() -> dict:
         genus_by_taxon=genus_by_taxon,
         resolved_species_ids=species_ids,
     )
+    maps_qualifier,history_types_qualifier=event_predictors(
+        ordered_events=ordered_events,histories=histories,
+        genus_by_taxon=genus_by_taxon,
+        resolved_species_ids=species_ids,
+        respect_qualifier_warning=True,
+    )
+    require(set(maps_qualifier)==set(maps),
+            "identity sensitivity changed original event keys")
+    require(all(maps[k]["N"]==maps_qualifier[k]["N"] for k in maps),
+            "identity sensitivity changed the original genus MNKA")
+    require(history_types_qualifier.get("CROSS_GENUS",0)==
+            history_types.get("CROSS_GENUS",0),
+            "identity sensitivity changed cross-genus exclusions")
+    require(history_types_qualifier.get("RESOLVED_SPECIES",0)<=
+            history_types.get("RESOLVED_SPECIES",0),
+            "qualifier warning created newly resolved species")
+    require(history_types_qualifier.get("UNRESOLVED_IN_GENUS",0)>=
+            history_types.get("UNRESOLVED_IN_GENUS",0),
+            "qualifier warning removed unresolved histories")
+
     require(history_types.get("CROSS_GENUS",0)==
             frozen["taxonomy_history"]["cross_genus_histories_excluded"],
             "cross-genus identity count")
@@ -237,6 +271,16 @@ def run() -> dict:
     per_genus=genus_support(report_rows,all_genera=all_target_genera)
     candidate=[genus for genus,info in per_genus.items()
                if info["state"]=="PREDICTOR_ONLY_POTENTIALLY_IDENTIFIABLE"]
+    qual_rows,qual_row_counts=response_predictor_rows(
+        indexed_sessions,maps_qualifier,resolved_species_ids=species_ids
+    )
+    require(qual_row_counts==row_counts,
+            "Qualifier sensitivity changed fixed response session classification")
+    require(all(o["N"]==q["N"] for o,q in zip(report_rows,qual_rows)),
+            "Qualifier sensitivity changed any known-alive N in fixed cohort")
+    qual_per_genus=genus_support(qual_rows,all_genera=all_target_genera)
+    qual_candidate=[g for g,meta in qual_per_genus.items()
+                    if meta["state"]=="PREDICTOR_ONLY_POTENTIALLY_IDENTIFIABLE"]
 
     return {
         "schema":"neon.conspecific_congeneric_predictor_feasibility_v1",
@@ -250,6 +294,7 @@ def run() -> dict:
             "taxonomy_source":"NEON SMALL_MAMMAL target taxonomy and frozen target lock",
             "files_checked":len(inventory),
             "perplot_files":len(pfiles),"pertrap_files":len(tfiles),
+            "qualifier_source_columns_verified":qualifier_headers_checked,
             "data_policy":"No raw code, animal ID, location, or W/B outcomes in output",
         },
         "invariants":{
@@ -273,6 +318,22 @@ def run() -> dict:
         "priority_genus":"Peromyscus",
         "per_genus":per_genus,
         "candidate_genera_predictor_only":candidate,
+        "qualifier_conservative_sensitivity":{
+            "classification_rule":"Any nonblank identificationQualifier except NA/N/A/NULL converts a single-species taxon history to same-genus unresolved U",
+            "original_genus_N_invariant_every_event":True,
+            "strict_structural_response_session_universe_unchanged":True,
+            "warning_capture_rows":qualifier_warning_capture_rows,
+            "warning_tag_histories":len(qualifier_warning_histories),
+            "newly_unresolved_formerly_resolved_histories":(
+                history_types["RESOLVED_SPECIES"]-
+                history_types_qualifier.get("RESOLVED_SPECIES",0)
+            ),
+            "qualifier_sensitive_taxonomy_histories":history_types_qualifier,
+            "per_genus":qual_per_genus,
+            "candidate_genera_qualifier_conservative":qual_candidate,
+            "no_W_B_spatial_ecological_effects":True,
+            "explicit_qualifier_warning_is_not_proof_of_wrong_species":True,
+        },
         "hypothesis_scope":"NEW post-development species-vs-congener question, not retrospective original hypothesis confirmation",
         "biological_caution":{
             "F_C_U_not_true_density":True,
