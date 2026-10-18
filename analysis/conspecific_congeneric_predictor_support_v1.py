@@ -27,6 +27,8 @@ def classify_history(
     taxon_ids: Iterable[str],
     genus_by_taxon: dict[str, str],
     resolved_species_ids: set[str],
+    *,
+    qualifier_warning: bool = False,
 ) -> tuple[str, str | None, str | None]:
     """Return (state, one_genus_or_none, one_resolved_taxon_or_none)."""
     ids = {str(t).strip() for t in taxon_ids}
@@ -38,7 +40,7 @@ def classify_history(
     if len(genera) != 1:
         return ("CROSS_GENUS", None, None)
     genus = next(iter(genera))
-    if len(ids) == 1 and next(iter(ids)) in resolved_species_ids:
+    if len(ids) == 1 and next(iter(ids)) in resolved_species_ids and not qualifier_warning:
         return ("RESOLVED_SPECIES", genus, next(iter(ids)))
     return ("UNRESOLVED_IN_GENUS", genus, None)
 
@@ -49,6 +51,7 @@ def event_predictors(
     histories: Iterable[dict],
     genus_by_taxon: dict[str, str],
     resolved_species_ids: set[str],
+    respect_qualifier_warning: bool = False,
 ) -> tuple[dict[tuple[str, str, str, str], dict], dict]:
     """Construct genus N=F+C+U known-alive decomposition per plot event.
 
@@ -67,7 +70,11 @@ def event_predictors(
     summary = Counter()
     for h in histories:
         state, genus, species = classify_history(
-            h["taxon_ids"], genus_by_taxon, resolved_species_ids
+            h["taxon_ids"], genus_by_taxon, resolved_species_ids,
+            qualifier_warning=(
+                bool(h.get("qualifier_warning", False))
+                if respect_qualifier_warning else False
+            ),
         )
         summary[state] += 1
         if state in {"EMPTY", "CROSS_GENUS"}:
