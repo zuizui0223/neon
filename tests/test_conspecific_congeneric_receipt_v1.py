@@ -84,7 +84,7 @@ class FrozenConspecificCongenericReceiptTests(unittest.TestCase):
         self.assertEqual(p["unresolved_abundance_sum"],1892)
         self.assertAlmostEqual(p["fraction_of_genus_N_unresolved"],1892/19723,places=9)
         self.assertEqual(d["invariants"]["taxonomy_histories"]["UNRESOLVED_IN_GENUS"],4095)
-        self.assertFalse(d["biological_caution"]["species_groups_never_assigned_to_species"] is False)
+        self.assertTrue(d["biological_caution"]["species_groups_never_assigned_to_species"])
         self.assertTrue(d["biological_caution"]["same_genus_multitaxon_histories_not_assigned_to_a_specific_species"])
 
     def test_original_ecology_falsification_unchanged(self):
@@ -104,7 +104,7 @@ class FrozenConspecificCongenericReceiptTests(unittest.TestCase):
         self.assertTrue(b["this_is_predictor_only_historical_response_consumed_data"])
         self.assertEqual(b["original_8_genus_guard"],"FAILED_5_OF_8")
         self.assertIn("Casula",self.contract)
-        self.assertIn("NOT the first",self.contract)
+        self.assertIn("**not** the first",self.contract.lower())
         self.assertIn("never",self.contract.lower())
 
 
