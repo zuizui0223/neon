@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 TARGETS = {'mam_identificationHistory', 'mam_voucherIdentificationHistory'}
-TABLE_RE = re.compile(r'\.(mam_[A-Za-z0-9_]+)\.(\d{4}-\d{2})\.(basic|expanded)\.')
+TABLE_RE = re.compile(r'\.(mam_[A-Za-z0-9_]+)\.')
 MOLECULAR = re.compile(r'\b(?:DNA|COI|CO1|COX1|BOLD|genetic(?:s|ally)?|molecular|sequenc\w*|barcod\w*|PacBio|GenBank)\b', re.I)
 NEGATIVE = re.compile(r'\b(?:no|not|without|pending|await\w*|unconfirmed|unavailable)\b.{0,70}\b(?:DNA|COI|genetic|molecular|sequenc\w*|barcod\w*|confirm\w*)\b|\b(?:DNA|sequenc\w*|barcod\w*)\b.{0,40}\b(?:failed|pending|unavailable)\b', re.I)
 RATIONALE_NAMES = {'identificationmethod','identificationremarks','identificationreferences', 'remarks','reason','rationale','taxonomynotes','identificationnotes','identificationreason','updatejustification','updatejustificationremarks','taxonidentificationmethod'}
@@ -126,32 +126,38 @@ def summarize_history_csv(raw: bytes, *, seen: set[str] | None = None) -> dict:
 
 
 def run() -> dict:
-    # Existing release-aware, size/MD5-validating transport only. Importing
-    # here keeps the pure unit tests runnable without network or credentials.
     from analysis.run_multiscale_density_estimability_release2026_v3 import (
         _request_json, _site_codes, _download_many, QUERY_URL, TOKEN_ENV)
     token = os.environ.get(TOKEN_ENV, '').strip()
     if not token: raise RuntimeError('Existing NEON token required')
     product = 'DP1.10072.001'; release = 'RELEASE-2026'
-    sites = _site_codes(_request_json(f'https://data.neonscience.org/api/v0/products/{product}'))
+    product_meta = _request_json(f'https://data.neonscience.org/api/v0/products/{product}')
+    sites = _site_codes(product_meta)
+    packages = ('basic','expanded') if product_meta['data'].get('productHasExpanded') else ('basic',)
     selected = {}; inventories = []
-    # Inspect both documented packages, never infer missing history from
-    # a parser that only accepts pertrapnight/perplotnight tables.
-    for package in ('basic', 'expanded'):
-        payload = _request_json(QUERY_URL, token=token, body={
-            'productCode': product, 'siteCodes': sites, 'startDateMonth':'2013-06',
-            'endDateMonth':'2026-09','release':release,'package':package,
-            'includeProvisional':True})
-        files, overview = extract_history_inventory(payload)
-        inventories.append({'requested_package': package, **overview})
-        for f in files:
-            key = (f['release'], f['site'], f['month'], f['table'], f['md5'])
-            selected.setdefault(key, f)
+    # Official neonUtilities omits the release parameter for current data.
+    # Keep named historical release and returned current/provisional blocks separate.
+    for query_label in ('named_release','current_with_provisional'):
+        for package in packages:
+            body = {'productCode':product,'siteCodes':sites,'startDateMonth':'2013-06',
+                    'endDateMonth':'2026-09','package':package,'includeProvisional':True}
+            if query_label == 'named_release': body['release'] = release
+            payload = _request_json(QUERY_URL, token=token, body=body)
+            files, overview = extract_history_inventory(payload)
+            inventories.append({'query_label':query_label,'requested_package':package,**overview})
+            for f in files:
+                key = (f['release'],f['site'],f['month'],f['table'],f['md5'])
+                selected.setdefault(key,f)
     files = select_history_files(list(selected.values()))
     manifest = [{k:v for k,v in f.items() if k != 'url'} for f in files]
-    raw_files = _download_many(files, token, max_workers=4)
+    unique_payloads = {}
+    for f in files:
+        unique_payloads.setdefault((f['release'],f['table'],f['md5'],f['size']),f)
+    payload_items = list(unique_payloads.items())
+    raw_cache = dict(zip([k for k,_ in payload_items], _download_many([v for _,v in payload_items],token,max_workers=4)))
     groups = {}; seen_by_group = defaultdict(set)
-    for meta, raw in zip(files, raw_files):
+    for meta in files:
+        raw = raw_cache[(meta['release'],meta['table'],meta['md5'],meta['size'])]
         key = meta['release'] + '/' + meta['table']
         summary = summarize_history_csv(raw, seen=seen_by_group[key])
         g = groups.setdefault(key, {'release':meta['release'], 'table':meta['table'],
@@ -171,7 +177,8 @@ def run() -> dict:
         'status':'HISTORY_EVIDENCE_SCANNED_NOT_SPECIES_VALIDATED' if files else 'NO_HISTORY_TABLES_IN_RETURNED_INVENTORIES',
         'accessed_utc':datetime.now(timezone.utc).isoformat(),'requested_release':release,
         'requested_include_provisional':True,'requested_collection_window':['2013-06','2026-09'],
-        'inventory_overviews':inventories,'downloaded_history_files':len(files),
+        'inventory_overviews':inventories,'downloaded_history_files':len(unique_payloads),
+        'history_manifest_entries':len(files),
         'package_selection':'Expanded preferred over basic per release/site/month/table; no variant double counting',
         'manifest':manifest,'manifest_sha256':hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest(),
         'groups':groups,'explicit_molecular_species_calls_verified':0,
