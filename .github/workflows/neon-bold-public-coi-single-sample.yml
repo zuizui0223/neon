@@ -1,0 +1,44 @@
+name: neon-bold-public-coi-single-sample
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_neon_bold_public_coi_pilot_v1.py"
+      - "tests/test_neon_bold_public_coi_pilot_v1.py"
+      - ".github/workflows/neon-bold-public-coi-single-sample.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-bold-coi-pilot-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  public-record-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify no source animal IDs, specimen records or COI sequences are exposed
+        run: python -m unittest discover -s tests -p 'test_neon_bold_public_coi_pilot_v1.py' -v
+      - name: Require source-authenticated NEON RELEASE-2026 access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Public BOLD v5 three-stage read-only source test, one NEON Peromyscus sample
+        run: python -m analysis.audit_neon_bold_public_coi_pilot_v1
+      - name: Store aggregate connectivity result only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-bold-public-coi-single-sample-source-probe
+          path: build/neon_bold_public_coi_pilot_v1.json
+          if-no-files-found: warn
+          retention-days: 35
