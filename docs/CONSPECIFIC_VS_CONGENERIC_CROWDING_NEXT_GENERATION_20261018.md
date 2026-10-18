@@ -48,6 +48,20 @@ Competing predictions, to be tested on **new events not contained in either RELE
 
 Future release primary screening is based on *effect-blind predictor-support* criteria (full rank, fixed taxonomy rule, enough distinct site-level seasonal repeats, and trap completeness). Any formal minimum site/series number and expected detectable effect must be separately locked before opening future W/B outcomes. Use year- and site-cluster uncertainty, explicit detection sensitivity, and report W and B component slopes in addition to Δ. Distinguish observed trap coordinate variance from true home ranges.
 
+## Novelty boundary: prior studies already separate intra- and interspecific density
+
+This is **not** the first study to ask whether conspecific and other-species abundance affect rodent space use:
+
+- Wolff (1985), *Canadian Journal of Zoology* 63:2657–2662, specifically studied density, food and interspecific interference in home-range size of **P. leucopus** and **P. maniculatus**. https://hero.epa.gov/reference/3180950/
+- Dooley & Dueser (1990), *Ecology* 71:788–796, performed reciprocal-removal and telemetry comparisons for nest-site segregation of these two mice. Their evidence for nest-site separation did not establish strong resource-limitation causation. https://doi.org/10.2307/1940330
+- Dooley & Dueser (1996), *Oecologia* 105:81–86, experimentally assessed the asymmetry of congeneric nest-site interactions. https://doi.org/10.1007/BF00328794
+- Casula, Luiselli & Amori (2019), *Basic and Applied Ecology* 34:46–54, independently compared **conspecific density, sympatric other-species density and total density** using spatial capture–recapture home-range estimates for co-occurring *Apodemus* and *Myodes*. They reported associations with conspecific, rather than heterospecific or total density. https://doi.org/10.1016/j.baae.2018.11.002
+- O'Fallon, Pinter-Wollman & Mabry (2025), *Oecologia* 207:98, used NEON *Peromyscus* home ranges (>=5 adult captures), primarily at genus level because field species identifications may be unreliable. https://doi.org/10.1007/s00442-025-05731-2
+
+**Narrow prospective empirical distinction, conditional on new, high-quality evidence:** investigate whether *conspecific versus congeneric known-alive indices* have different associations with **two simultaneous components of short-window positional variance** (within individuals W versus among observed centres B), across repeated NEON sites. The novelty is NOT intra-/inter-specific density as predictors, home-range contraction, or nest-site competition themselves. A 3-night grid capture event with 2–3 detected locations cannot be called a telemetered or five-capture kernel home range.
+
+Field-identified labels that are stable across events **do not prove true biological species identity**, especially the *P. maniculatus–P. leucopus* complex. Explicit species-group and conflicting taxon histories remain unresolved; any future confirmatory focal-species study requires a prespecified identification-quality sensitivity (and DNA barcode/other independent validation where available), not post-result favorable reassignment.
+
 ## Rationale and availability
 
 NEON's publicly documented protocol uses **100 traps spaced 10 m** on standard 10 × 10 grids; complete three-night pathogen-grid bouts are scheduled multiple times per year with seasonality and lunar timing. Researchers identify species, sex, age and reproductive condition, and taxonomic identification history is tracked. Sampling and identification uncertainty must be confronted, not ignored. See:
