@@ -91,7 +91,7 @@ class ConspecificCongenericSupportTests(unittest.TestCase):
         p=result["Peromyscus"]
         self.assertEqual(p["species_sessions_in_3plus_series"],96)
         self.assertEqual(p["sites_in_3plus_series"],8)
-        self.assertEqual(p["series_joint_F_C_variation"],7)
+        self.assertEqual(p["series_joint_F_C_variation"],6)  # g=0 and g=5 have constant F
         self.assertEqual(p["fixed_effects_predictor_geometry"]["predictor_rank_after_FE"],2)
         self.assertEqual(p["state"],"PREDICTOR_ONLY_POTENTIALLY_IDENTIFIABLE")
         self.assertEqual(result["Sigmodon"]["state"],"PREDICTOR_ONLY_STRUCTURAL_LIMIT")
