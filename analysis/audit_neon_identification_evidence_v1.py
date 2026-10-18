@@ -69,6 +69,22 @@ def extract_history_inventory(payload: dict) -> tuple[list[dict], dict]:
     }
 
 
+def select_history_files(files: list[dict]) -> list[dict]:
+    """Expanded wins per release/site/month/table; reject ambiguous same-tier files."""
+    by_key = {}
+    for f in files:
+        key = (f['release'],f['site'],f['month'],f['table'])
+        old = by_key.get(key)
+        if old is None:
+            by_key[key] = f
+        elif old['package'] == f['package']:
+            if old['md5'] != f['md5']:
+                raise ValueError('Same-package history file conflict')
+        elif f['package'] == 'expanded':
+            by_key[key] = f
+    return [by_key[k] for k in sorted(by_key)]
+
+
 def summarize_history_csv(raw: bytes, *, seen: set[str] | None = None) -> dict:
     reader = csv.reader(io.StringIO(raw.decode('utf-8-sig')))
     header = next(reader, [])
@@ -131,7 +147,7 @@ def run() -> dict:
         for f in files:
             key = (f['release'], f['site'], f['month'], f['table'], f['md5'])
             selected.setdefault(key, f)
-    files = [selected[k] for k in sorted(selected)]
+    files = select_history_files(list(selected.values()))
     manifest = [{k:v for k,v in f.items() if k != 'url'} for f in files]
     raw_files = _download_many(files, token, max_workers=4)
     groups = {}; seen_by_group = defaultdict(set)
@@ -156,6 +172,7 @@ def run() -> dict:
         'accessed_utc':datetime.now(timezone.utc).isoformat(),'requested_release':release,
         'requested_include_provisional':True,'requested_collection_window':['2013-06','2026-09'],
         'inventory_overviews':inventories,'downloaded_history_files':len(files),
+        'package_selection':'Expanded preferred over basic per release/site/month/table; no variant double counting',
         'manifest':manifest,'manifest_sha256':hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest(),
         'groups':groups,'explicit_molecular_species_calls_verified':0,
         'claims':{'no_spatial_response_files_downloaded':True,'no_W_B_or_F_C_effect_fitted':True,
