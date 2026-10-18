@@ -34,6 +34,45 @@ class ConspecificCongenericSupportTests(unittest.TestCase):
                          ("CROSS_GENUS",None,None))
         self.assertIn("PELEPEMA", GROUP_TAXON_IDS)
 
+    def test_qualifier_moves_single_species_history_to_unresolved_only_when_enabled(self):
+        self.assertEqual(
+            classify_history(["PEMA"],TAXONOMY,SPECIES,qualifier_warning=True),
+            ("UNRESOLVED_IN_GENUS","Peromyscus",None))
+        self.assertEqual(
+            classify_history(["PEMA"],TAXONOMY,SPECIES,qualifier_warning=False),
+            ("RESOLVED_SPECIES","Peromyscus","PEMA"))
+
+    def test_qualifier_sensitivity_preserves_genus_N_and_frozen_events(self):
+        histories=[
+            dict(site="A",plot_id="P",taxon_ids=["PEMA"],
+                 event_ids=["e1","e3"],qualifier_warning=True),
+            dict(site="A",plot_id="P",taxon_ids=["PELE"],
+                 event_ids=["e2","e3"],qualifier_warning=False),
+            dict(site="A",plot_id="P",taxon_ids=["PELEPEMA"],
+                 event_ids=["e2"],qualifier_warning=True),
+        ]
+        params=dict(ordered_events={("A","P"):["e1","e2","e3"]},
+                    histories=histories,genus_by_taxon=TAXONOMY,
+                    resolved_species_ids=SPECIES)
+        baseline,bcount=event_predictors(**params)
+        conservative,ccount=event_predictors(
+            **params,respect_qualifier_warning=True)
+        self.assertEqual(set(baseline),set(conservative))
+        self.assertEqual(ccount["RESOLVED_SPECIES"],1)
+        self.assertEqual(bcount["RESOLVED_SPECIES"],2)
+        for key in baseline:
+            self.assertEqual(baseline[key]["N"],conservative[key]["N"])
+        key=("A","P","e2","Peromyscus")
+        self.assertEqual(baseline[key]["N"],3)
+        self.assertEqual(baseline[key]["unresolved"],1)
+        self.assertEqual(conservative[key]["unresolved"],2)
+        self.assertEqual(conservative[key]["resolved_species_counts"],{"PELE":1})
+
+    def test_qualifier_never_makes_cross_genus_history_resolved(self):
+        self.assertEqual(
+            classify_history(["PEMA","DIOR"],TAXONOMY,SPECIES,qualifier_warning=True),
+            ("CROSS_GENUS",None,None))
+
     def test_event_interval_and_exact_decomposition(self):
         histories=[
             dict(site="A",plot_id="P",taxon_ids=["PEMA"],event_ids=["e1","e3"]),
