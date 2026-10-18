@@ -21,7 +21,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from analysis.run_multiscale_density_estimability_release2026_v3 import (
-    _download_many, _inventory, _request_json, _site_codes,
+    _download_many, _request_json, _site_codes,
     PRODUCT as TRAP_PRODUCT, RELEASE, TOKEN_ENV, QUERY_URL,
 )
 from analysis.audit_multiscale_density_mnka_variation_v1 import USER_AGENT
@@ -87,9 +87,51 @@ def parse_schema(raw: bytes) -> dict:
 
 
 def extract_inventory(payload: dict) -> list[dict]:
-    # Reuse the exact release-aware canonical NEON inventory parser.
-    files = _inventory(payload)
-    return [row for row in files if classify_file(row["name"]) is not None]
+    """Parse the release-aware barcode inventory with the same MD5 rules.
+
+    The existing small-mammal _inventory explicitly filters to pertrapnight
+    and perplotnight tables, so reusing it here would silently discard all
+    BOLD files. Enforce identical security/provenance checks for BOLD tables.
+    """
+    data = payload.get("data")
+    if not isinstance(data,dict):
+        raise RuntimeError("barcode API query contains no data mapping")
+    blocks = [z for z in data.get("releases",[])
+              if isinstance(z,dict) and z.get("release")==RELEASE]
+    if len(blocks)!=1:
+        raise RuntimeError("barcode metadata lacks exactly one requested RELEASE-2026 block")
+    by_key={}
+    for package in blocks[0].get("packages",[]):
+        if not isinstance(package,dict) or str(package.get("packageType"))!="basic":
+            continue
+        site=str(package.get("siteCode") or "").strip()
+        month=str(package.get("month") or "").strip()
+        if len(site)!=4 or len(month)!=7 or month[4]!="-":
+            raise RuntimeError("invalid barcode inventory site/month metadata")
+        for item in package.get("files",[]):
+            if not isinstance(item,dict):
+                continue
+            name=str(item.get("name") or "")
+            if classify_file(name) is None:
+                continue
+            md5=str(item.get("md5") or "").lower()
+            url=str(item.get("url") or "")
+            size=item.get("size")
+            if not re.fullmatch(r"[0-9a-f]{32}",md5) or not url.startswith("https://"):
+                raise RuntimeError("unverified barcode source MD5 or URL")
+            if isinstance(size,bool) or not isinstance(size,int) or size<0:
+                raise RuntimeError("invalid barcode source file size")
+            key=(site,month,name)
+            entry={
+                "site":site,"month":month,"name":name,
+                "md5":md5,"url":url,"size":int(size),
+            }
+            if key in by_key and by_key[key]!=entry:
+                raise RuntimeError("conflicting duplicate source barcode inventory")
+            by_key[key]=entry
+    if not by_key:
+        raise RuntimeError("barcode RELEASE-2026 source contains no versioned BOLD data files")
+    return [by_key[key] for key in sorted(by_key)]
 
 
 def choose_schema_files(files: list[dict]) -> list[dict]:
