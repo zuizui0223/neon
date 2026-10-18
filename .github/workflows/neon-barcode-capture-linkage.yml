@@ -1,0 +1,44 @@
+name: neon-barcode-capture-linkage
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_neon_barcode_capture_linkage_v1.py"
+      - "tests/test_neon_barcode_capture_linkage_v1.py"
+      - ".github/workflows/neon-barcode-capture-linkage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-barcoding-capture-join-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-identity-link:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate exact-key linkage and ambiguity tests without real animal IDs
+        run: python -m unittest discover -s tests -p 'test_neon_barcode_capture_linkage_v1.py' -v
+      - name: Require authorized NEON RELEASE-2026 download
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run barcode sampleID to mammal earSampleID source-only crosswalk
+        run: python -m analysis.audit_neon_barcode_capture_linkage_v1
+      - name: Archive only aggregate source linkage counts, NOT sequences or animal IDs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-barcoding-earsamples-source-link-v1
+          path: build/neon_barcode_capture_linkage_v1.json
+          if-no-files-found: warn
+          retention-days: 45
