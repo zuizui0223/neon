@@ -15,6 +15,7 @@ import csv
 import io
 import json
 import os
+import re
 import tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -41,10 +42,19 @@ TABLES = BOLD_TABLES + OPTIONAL_TABLES
 
 
 def classify_file(name: str) -> str | None:
-    if not str(name).lower().endswith(".csv"):
+    """Require a standalone named table and a released package month.
+
+    This rejects ancillary variables/readme and prevents mistaking another
+    product's similarly named column for the BOLD source table itself.
+    """
+    name = str(name)
+    if not name.lower().endswith(".csv"):
         return None
+    if not re.search(r"\.\d{4}-\d{2}\.(?:basic|expanded)\.",name,re.I):
+        return None
+    sections = {x.casefold() for x in name.split(".")}
     for table in TABLES:
-        if table.casefold() in str(name).casefold():
+        if table.casefold() in sections:
             return table
     return None
 
