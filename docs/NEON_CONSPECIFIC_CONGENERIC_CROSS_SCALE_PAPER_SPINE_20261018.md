@@ -43,6 +43,14 @@ The unchanged historical NEON RELEASE-2026 capture identities yield 948 species-
 
 No other genus passed *all* frozen feasibility criteria: *Dipodomys* supplied variation at only four sites, *Myodes* and *Sigmodon* lacked independently varying resolved congeners. The temptation to select Peromyscus on the strength of its old W/B positive developmental slope is prohibited; it was prioritized because its ecology and cryptic species taxonomy make F versus C meaningful **before** any new F/C spatial response is observed.
 
+## Barcode source validation status: not yet a genetic species classification
+
+The original archived **COI barcoding data product** (DP1.10076.001) has been matched to box-trap `earSampleID`s using verified source files: 9,646 sample keys matched to both original BOLD taxonomy and voucher tables; 4,781 *Peromyscus* tag histories were unambiguously linked. Among *Peromyscus* histories with collected ear samples, this is 25.0% source-link coverage; it is **not** sequencing-based taxonomic validation and cannot be extrapolated to all captured individuals. In the original barcode taxonomy table **all 10,414 source records specify `identificationMethod=morphology`**, and 523 of the matched archive/field `taxonID` metadata values differ. Those are label differences, **not genetically established misidentifications**.
+
+A preregistered single-sample BOLD public v5 API probe stopped with **HTTP 403** before any independent COI sequence could be obtained. This establishes a source-access dependency, not a biological absence of sequences. BOLD's public documentation permits a sampleID → public process/sequence query, and NEON states the underlying data are publicly available in BOLD, but the end-to-end molecular join is **not demonstrated** on the current authorized runtime.
+
+Accordingly, neither a historical species-specific W/B effect nor the prospective focal-versus-congeneric Δ contrast has been estimated. For the next ecological study, verify whether a barcode record includes an independent molecular call with adequate COI quality and reference coverage, and use an explicit mitochondrial-introgression/hybrid caveat for cryptic *Peromyscus*; avoid treating archived morphological classifications as DNA confirmations. See the source-specific decision records `results/neon_barcode_capture_sample_key_linkage_receipt_20261018.json` and `results/neon_bold_public_coi_single_sample_probe_receipt_20261018.json`.
+
 ## What would distinguish biology from the observation process
 
 The index `F` can vary because more marked conspecifics are truly present, because trapping/detection changes, or because taxonomic labels change. This is not the same estimand as density from independent spatial capture–recapture or telemetry. The focal response W/B is conditioned on which animals are caught repeatedly and itself can change with individual behaviour, trapping differences or community turnover.
