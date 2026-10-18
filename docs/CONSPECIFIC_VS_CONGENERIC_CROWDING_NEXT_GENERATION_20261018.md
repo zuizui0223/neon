@@ -80,3 +80,39 @@ A static data release is citable and versioned; since 2026-06-30 NEON downloads 
 - Do not claim independent future validation if observations or tagged histories are reused across releases.
 - MOSA's 153-month predictor-only support does not solve biological identity issues or permit opening its sealed W/B effects.
 - The ecological manuscript `manuscript/NEON_MAMMAL_DENSITY_SPACE_ECOLOGY_V0_2.md` remains Draft/HOLD.
+
+
+## 18 October 2026: independent predictor-only feasibility result
+
+[Source-verified GitHub Actions 39091740732](https://github.com/zuizui0223/neon/actions/runs/39091740732) **succeeded** after the seven synthetic source-free checks passed. Its source-immutable input reconstruction exactly reproduced:
+
+- 1,536 original target taxon × plot × event structural sessions and 273 response series.
+- 47,360 tagged-animal histories (43,162 strictly single species-labelled, 4,095 unresolved within genus, 103 conflicting across genera), with 104,322 target capture rows.
+- The original genus-MNKA 176 series with repeated abundance variation and 1,408 corresponding sessions.
+- The fixed target-roster's **31 species** and **four species-group** concepts. The full NEON target taxonomy includes other species-rank concepts, considered legitimate *other congeners* when interpreting C.
+
+**Results are structural predictors only, without any W, B or density–space slope:**
+
+| Genus | Species-labelled sessions in >=3-event series | Sites | Series with joint F and C variation | FE rank (F,C) | Condition number | Decision at frozen thresholds |
+|---|---:|---:|---:|---:|---:|---|
+| *Peromyscus* | **948** | **33** | **74** | **2** | **2.27** | **Candidate predictor-feasibility GO only** |
+| *Dipodomys* | 116 | 4 | 7 | 2 | 1.84 | STOP: <6 sites |
+| *Chaetodipus* | 45 | 3 | 2 | 2 | 30.21 | STOP: multiple support criteria |
+| *Myodes* | 75 | 5 | 0 | 1 | undefined | STOP: C has no independent variation |
+| *Sigmodon* | 65 | 7 | 0 | 1 | undefined | STOP: C has no independent variation |
+| *Microtus* | 30 | 5 | 0 | 1 | undefined | STOP: insufficient joint variation |
+
+Every other genus also failed at least one originally locked support threshold; **only Peromyscus was a candidate**. That classification reflects the availability of two distinguishable historical **predictors**, not a replicated biological pattern, a test of competition, a W/B coefficient or adequate prospective power.
+
+Within *Peromyscus*, of **993** strictly species-labelled target structural sessions, **378** have an observed resolved other-congener C>0 and **432** have an unresolved U>0. Of those sessions, 948 belong to series with three or more observations. After original taxon×site×plot, site×calendar-month and year fixed effects, the residual sum of squares is **33,921.94 for F** and **6,734.19 for C**, with residual correlation **−0.128** and two-predictor condition number **2.27**. Thus congener variation does not simply duplicate focal-species variation in the historical predictors.
+
+**Field identification caveat:** U contributes **1,892 of 19,723** event-weighted genus-MNKA index units summed across *Peromyscus* species-response sessions (**9.59%**). This is *not* the fraction of genetically uncertain individual animals or a representative error probability; the same animal can contribute to multiple sampling occasions. A stable named species in NEON capture files is not proof of correct biological classification, particularly for cryptic *Peromyscus*. The 993/948 species-labelled cohorts and the original 956 W/B genus development cohort are different analysis universes and **must not be conflated**.
+
+### Prospective ecological interpretation after the feasibility result
+
+At high local small-mammal abundance, the sign of an observed W/B change could depend on whether that increase comes from additional individuals of the focal species or from another congener. This is a *new future test*, not an explanation demonstrated by the historical positive average or negative heldout. Wolff (1985), Dooley & Dueser (1990, 1996) and Casula et al. (2019) already studied congeneric/interspecific competition and density effects on rodent home ranges. Only a **validated comparison of the density response of both W and B under distinct F and C predictors**, replicated across new sampling events/sites, could be an empirical advance.
+
+**Future confounding guard:** F and C rank-two identification was checked **after the original fixed effects, without conditioning on U**. A future W/B model that includes ambiguous-label abundance U as a separate adjustment may be less identifiable; it requires an *effect-blind rank/support test before any new outcome opens*. Likewise, detection conditioning through number of repeatedly captured individuals m is not automatic causal bias correction. Under-specification of taxonomy/observation process remains a stop reason, not permission to transfer unknown U records into whichever species favours the effect.
+
+Authoritative record:
+`results/conspecific_congeneric_predictor_feasibility_receipt_20261018.json` (CI run 39091740732, artifact 12122368661). No original 8-genus result, provisional holdout finding, MOSA source seal, or ecological publication decision is changed.
