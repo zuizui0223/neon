@@ -17,7 +17,7 @@ from pathlib import Path
 
 from analysis.audit_multiscale_density_estimability_v1 import audit
 from analysis.audit_multiscale_density_mnka_variation_v1 import (
-    _capture_status, _taxonomy, SATURATION_MAX, MIN_REPEAT, COMPLETE
+    _capture_status, _taxonomy, TAXONOMY_URL, SATURATION_MAX, MIN_REPEAT, COMPLETE
 )
 from analysis.run_multiscale_density_estimability_release2026_v3 import (
     PRODUCT, RELEASE, START, END, PRODUCT_URL, QUERY_URL, TOKEN_ENV,
@@ -54,7 +54,23 @@ def run() -> dict:
     require(original_target.issubset(all_target),"frozen taxonomy target roster unavailable")
     require(GROUP_TAXON_IDS.issubset(original_target),"four original species-group taxa missing")
     require(len(GROUP_TAXON_IDS)==4,"species-group set drift")
-    species_ids=original_target-GROUP_TAXON_IDS
+    # The original source may contain target species not in the 44-concept
+    # analysis-response roster. They are still valid OTHER congeners when
+    # taxonomy confirms species rank; do not mislabel them unresolved.
+    rank_payload=_request_json(TAXONOMY_URL)
+    taxon_ranks=defaultdict(set)
+    for z in rank_payload["data"]:
+        tid=str(z.get("taxonID") or "").strip()
+        if tid in all_target and str(z.get("taxonProtocolCategory") or "").strip().lower()=="target":
+            taxon_ranks[tid].add(str(z.get("dwc:taxonRank") or "").strip())
+    require(all(len(taxon_ranks[t])==1 for t in all_target),
+            "missing or conflicting target taxon ranks")
+    rank_by_taxon={tid:next(iter(taxon_ranks[tid])) for tid in all_target}
+    species_ids={tid for tid,rnk in rank_by_taxon.items() if rnk=="species"}
+    require(len(original_target & species_ids)==31,
+            "frozen roster no longer has 31 explicitly species-ranked targets")
+    require(all(rank_by_taxon[t]=="speciesGroup" for t in GROUP_TAXON_IDS),
+            "frozen published species-group rank changed")
 
     site_codes=_site_codes(_request_json(PRODUCT_URL))
     release_query=_request_json(
@@ -244,6 +260,9 @@ def run() -> dict:
             "original_genus_mnka_varying_sessions":sum(map(len,varying)),
             "original_response_series":len(by_series),
             "taxonomy_histories":history_types,
+            "target_species_ids_in_original_roster":len(original_target & species_ids),
+            "target_species_group_ids_in_original_roster":len(GROUP_TAXON_IDS),
+            "all_public_target_species_ids":len(species_ids),
             **row_counts,
         },
         "fixed_feasibility_thresholds":{
