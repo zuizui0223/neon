@@ -116,3 +116,20 @@ At high local small-mammal abundance, the sign of an observed W/B change could d
 
 Authoritative record:
 `results/conspecific_congeneric_predictor_feasibility_receipt_20261018.json` (CI run 39091740732, artifact 12122368661). No original 8-genus result, provisional holdout finding, MOSA source seal, or ecological publication decision is changed.
+
+
+## Frozen follow-up: identificationQualifier-conservative predictor sensitivity (18 October 2026)
+
+**Registered after the first F/C *predictor-only* result and BEFORE its qualifier-based source audit.** This sensitivity does not change the original result, eligibility rules, 8-genus inference or any already-consumed W/B outcome.
+
+NEON's `mam_pertrapnight.identificationQualifier` is present in the source reader but was not used to declare resolved historical F/C histories. A single consistently named species can carry an explicit uncertain-identification qualifier; thus the 948 original Peromyscus sessions are best understood as *single-species-labelled structural sessions*, not 948 independently verified species identities.
+
+Predeclare a conservative history rule independent of ecological responses:
+- `qualifier_warning=True` for a captured target history if **any** of its raw captured NEON rows in the original complete 3-night standard-grid event universe has a nonblank `identificationQualifier` other than neutral missing markers `NA`, `N/A` or `NULL` (case-insensitive); `UNKNOWN` is a warning.
+- A previously single-species-labelled history with such a warning moves from its species-specific F/C contribution into the same genus's unresolved U component for this **sensitivity only**; do not change its genus, source taxonID, linked animal ID, original effect data, or the 1536 structural session universe.
+- Species-group and multi-taxon histories remain U. Cross-genus histories remain excluded. **N=F+C+U must hold exactly** in every eligible site×plot×event; no animal is counted twice.
+- Reconstruct fixed-series predictor-only F/C rank, condition number and co-occurrence for every genus under the same original m/session/site threshold contract; write original-baseline candidate and qualifier-conservative candidate results side-by-side without replacing one with the other. Both are *historical predictor feasibility*, not ecological effects.
+- Report total and per-genus warning-history counts, number of formerly species-labelled histories reclassified, and for Peromyscus adjusted F/C nuisance-FE rank, condition number, joint varying series, C>0 and U>0 sessions. No individual/tag IDs, actual species coordinates, W, B, Δ, home ranges or MNA×space associations may be exported.
+- Never interpret a blank qualifier as genetically confirmed species identification, nor a warning as proof that the label is wrong. Independent taxonomic verification would still be required for future causal interpretation.
+
+**Science decision:** this is an identifiability stress test, not an effort to rescue a favorable ecological coefficient. If qualifiers erase F/C independence, report STOP for species-specific interpretation on these historical field labels and do not weaken the predeclared limits.
