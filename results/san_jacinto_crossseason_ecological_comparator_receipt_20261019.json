@@ -30,7 +30,7 @@
     "same_taxonomic_rank_as_neon": false,
     "multi_region_independent_sites": false,
     "local_san_jacinto_grid_replication_only": true,
-    "p_values_must_not_be_pooled": false,
+    "p_values_must_not_be_pooled": true,
     "p_values_not_pooled": true,
     "individual_death_or_demographic_turnover_proven": false,
     "interference_competition_causal": false,
