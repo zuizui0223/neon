@@ -25,6 +25,16 @@ Use **the exact original nuisance effects Z**: intercept + focal taxon×site×pl
 4. squared residual predictor information for F after [Z,N,U], equivalent to holding the **total and unknown fraction** fixed; do not treat this as precision or a biological effect estimate;
 5. descriptive concentration of this conditional information among **physical NEON sites** (number of contributing sites, top-one/top-three share, Kish-equivalent number of sites), WITHOUT filtering favorable sites.
 
+## Exact observed fixed-total comparisons (predeclared descriptive diagnostic)
+
+A finite coefficient for the F-for-C substitution at fixed N and U may be model-supported even when **no literal observation pairs** share exactly that N and U within comparable ecological strata. Assess this **before reading spatial outcomes**, for both baseline and qualifier-conservative F/C/U classifications:
+
+- Primary matched context: same focal taxon × NEON site × plot, **same calendar month-of-year** (not necessarily same year), same original genus-N index and same U index, but **different F/C composition** in two or more distinct capture events.
+- Secondary broader context: same focal taxon × site × plot, same N and U, distinct F, *without* exact calendar-month agreement; label this seasonally non-equivalent and never promote it to primary evidence.
+- Count unique matched contexts, unordered distinct-event pairs, supported distinct original series and physical sites, fraction of fixed 3+-event series cohort sessions participating, and observed min/median/max absolute F differences among pairs; publish only aggregate totals, **no observed event keys or site codes**.
+- If the primary matched context count is zero, report `NO_LITERAL_SAME_SEASON_FIXED_TOTAL_PAIR`. This does **not** algebraically invalidate a full-rank additive regression, but its fixed-total interpretation is then a **model-based contrast unsupported by a literal same-season pair**.
+- Do not change nuisance fixed effects, relax N/U equality after reading counts, select an alternate genus, or use observed W/B outcomes to choose a favorable type of contrast. The lack of exact pairs is not a new biological null for Θ.
+
 ## Fixed source-only eligibility rule and interpretation
 
 A genus is a **candidate source-predictor comparison, NOT an ecological GO** only if it was already above all frozen F/C-only thresholds (>=60 sessions in >=3-event series, >=6 sites, >=8 series, >=5 series jointly varying F/C, conditional rank two and condition number <=30 **in the original F/C-only screen**) AND:
