@@ -91,6 +91,7 @@ def fixed_fixed_null_for_unit(
     burn_in: int=1000,
     swaps_per_draw: int=40,
     min_effective_draws: int=200,
+    private_draws_out: list[int] | None=None,
 ) -> dict:
     """Fixed margins: every genus row sum and individual trap column sum."""
     if not isinstance(A,dict) or not isinstance(B,dict) or set(A)!=set(B):
@@ -175,6 +176,11 @@ def fixed_fixed_null_for_unit(
         return {**unit,"status":"UNINFORMATIVE_ZERO_NULL_VARIANCE","z":None}
     if approx_ess<min_effective_draws:
         return {**unit,"status":"UNINFORMATIVE_PERSISTENT_NULL_AUTOCORRELATION","z":None}
+    # OPTIONAL ephemeral null values are only for post-result direct
+    # site-block calibration. No new random draws or altered MCMC steps.
+    # They are NEVER included in any returned or archived receipt.
+    if private_draws_out is not None:
+        private_draws_out.extend(draws)
     return {
         **unit,
         "status":"INFORMATIVE_FIXED_FIXED_NULL",
