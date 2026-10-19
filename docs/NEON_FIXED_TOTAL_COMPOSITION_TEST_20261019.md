@@ -96,3 +96,83 @@ Not executed: new NEON outcome retrieval; F/C/U-adjusted real predictor assessme
 First apply the declared identity handling and the new **predictor-only** N/F/U support check to the exact intended future cohort. If supported, use genuinely unconsumed observations under the existing primary Theta definition and paired W/B protocol. Keep molecular-source research subordinate to that biological question. Do not select a new habitat, species subset, or nonlinear model from favourable historical W/B results.
 
 **Working ecological statement:** Does neighbour identity change spatial use even when genus-level crowding is comparable, and does that association differ within animals versus among their observed centres?
+
+
+## Verified 2026-10-19 NEON source result: rank PASS, direct-match STOP
+
+The original NEON RELEASE-2026 source was downloaded and revalidated in
+[Actions 39202315974](https://github.com/zuizui0223/neon/actions/runs/39202315974).
+It exactly reproduced 1,536 original target structural sessions,
+47,360 original tagged histories and the original genus known-alive predictor.
+The source-only U-adjusted fixed-total design used *Peromyscus*' **same
+948 species-labelled three-plus-event sessions, 109 series and 33 sites**.
+It computed **no W, B or spatial ecological effect**.
+
+| Frozen predictor-only diagnostic | Baseline field labels | Nonblank identificationQualifier → U |
+|---|---:|---:|
+| Rank of F/C after nuisance Z and uncertain U | **2** | **2** |
+| Rank of F/C/U after Z | **3** | **3** |
+| Conditional F-for-C predictor information SS after Z,N,U | 6,054.22 | 2,621.83 |
+| Condition number of F/C after Z,U | 2.28 | 2.88 |
+| Effective physical sites by conditional-information concentration (descriptive) | 9.23 | 7.63 |
+| Top-three physical sites' conditional-information share | 50.4% | 55.0% |
+
+These rank/condition gates **PASS for source-predictor mathematical
+identifiability** in both label schemes, but the 33 physical sites do not
+contribute information equally. A rank and an effective information-site
+count are not power, causal identification or true species identification.
+
+### What is genuinely observed at the same total and uncertainty?
+
+A separate *precommitted and outcome-blind* [Actions 39202963828](https://github.com/zuizui0223/neon/actions/runs/39202963828)
+rechecked literal source-event pairs, requiring the same focal species,
+site, plot, **calendar month-of-year**, original genus known-alive total
+`N` and uncertain count `U`, but different resolved focal-versus-other
+congener abundance `F/C`. No ±count matching bands or favorable locations
+were chosen after viewing the data.
+
+| Literal equal-N, equal-U composition comparisons | Baseline | Conservative `identificationQualifier` |
+|---|---:|---:|
+| Same-calendar-month distinct-event pairs | **4** | **0** |
+| Physical sites containing those pairs | 2 | 0 |
+| Sessions in those primary matched groups, of 948 | 8 | 0 |
+| Pairs if calendar-month comparability is abandoned | 18 | 1 |
+
+Under the conservative taxonomic rule, there is **NO literal same-season
+fixed-N, fixed-U comparison** in the original historical 948 sessions,
+despite the rank-two global regression design. The one remaining
+unmatched-season pair cannot be used as a climate/season controlled
+replication. Even the four baseline pairs are spread over only two
+independent sites and depend on provisional morphology labels.
+
+**Decision: mathematical/model-based estimability PASS, but directly
+observed and identity-conservative fixed-total ecological support STOP.**
+This is a negative *data-overlap* result, **NOT evidence that mammals fail to
+respond differently to congeneric versus conspecific density**. A linear
+regression `Θ` could still be numerically fitted to old outcomes, but
+would infer its fixed-total comparison through the additive linear
+functional form and data borrowing across different abundance/season
+configurations. Do **not** reanalyse the consumed historical W/B outcomes
+to claim a confirmed neighbour-composition shift.
+
+### Next distinct empirical evidence, instead of further source-only audit loops
+
+An informative future ecological dataset requires *true species-ID
+validation* and repeated focal-species populations where genus N and
+uncertain U stay comparable but the conspecific-versus-congeneric
+composition changes across seasons or sites. Where feasible, deliberately
+sample enough within-population repeat sessions or use an independent
+experimental density/composition contrast and detection calibration. Only
+then open a prospective joint W/B comparison under a frozen paired
+covariance procedure and the original two-sided primary `Θ` estimand.
+Do not treat a rank-two result or the 9.2/7.6 effective-site diagnostics
+as proof of a mammal behavioural mechanism.
+
+Immutable receipts:
+- `results/neon_u_adjusted_fixed_total_predictor_receipt_20261019.json`
+- `results/neon_fixed_total_literal_composition_support_receipt_20261019.json`
+
+Previous cross-genus 5/8<6/8 generality failure, imprecise
+nonreplication in new Peromyscus, inestimable five-genus follow-up,
+and MOSA spatial-effects seal remain unchanged.
+
