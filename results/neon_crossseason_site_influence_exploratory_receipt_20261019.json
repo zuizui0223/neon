@@ -1,0 +1,79 @@
+{
+  "MOSA_WB_status": "SEALED",
+  "causal_interactions_identified": false,
+  "exploratory_not_preregistered": true,
+  "habitat_filtering_mechanism_identified": false,
+  "influence_diagnostics": {
+    "all_single_site_omission_count": 14,
+    "highest_leave_one_site_out_mean": 0.8792926451296303,
+    "largest_leave_one_site_out_p": 0.0023193359375,
+    "lowest_leave_one_site_out_mean": 0.6533409425328927,
+    "original_site_Z_ranks_in_anonymized_sorted_order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "post_result_influence_tests_not_separate_confirmatory_p_values": true,
+    "smallest_leave_one_site_out_p": 0.0006103515625,
+    "strongest_one_positive_site_removed": {
+      "mean_standardized_site_effect": 0.6533409425328927,
+      "number_site_sign_combinations": 8192,
+      "one_sided_p": 0.0023193359375,
+      "positive_sites": 10,
+      "sites_remaining": 13
+    },
+    "strongest_three_positive_sites_removed": {
+      "mean_standardized_site_effect": 0.38029504403820413,
+      "number_site_sign_combinations": 2048,
+      "one_sided_p": 0.00927734375,
+      "positive_sites": 8,
+      "sites_remaining": 11
+    }
+  },
+  "interpretation": {
+    "independent_14_sites_not_58_units": true,
+    "mechanism_habitat_filtering_competition_not_identified": true,
+    "no_geographic_or_species_moderator_is_selected": true,
+    "null_signflip_conditioning": "The sign-flip p is conditional on the already estimated unit Z scores and assumes appropriate physical-site sign exchangeability",
+    "positive_original_main_test_unchanged": true,
+    "post_result_sensitivity_not_frozen_confirmation": true
+  },
+  "new_original_spatial_effects_opened": false,
+  "original_density_paper_status": "FAILED_5_OF_8",
+  "original_frozen_primary_mean_Z": 0.8007420166137748,
+  "original_frozen_primary_p": 0.00115966796875,
+  "original_frozen_primary_positive_sites": 11,
+  "original_frozen_primary_sign_combinations": 16384,
+  "original_frozen_primary_sites": 14,
+  "schema": "neon.crossseason_site_influence_exploratory.v1",
+  "source": "results/neon_crossseason_genus_template_ecology_receipt_20261019.json",
+  "source_geographic_or_individual_IDs_exported": false,
+  "status": "EXPLORATORY_SITE_INFLUENCE_NOT_NEW_CONFIRMATORY_TEST",
+  "record_date": "2026-10-19",
+  "provenance": {
+    "run_id": 39211378508,
+    "job_id": 117925322502,
+    "head_commit_at_run": "5e9f7fb49abdc637fb97240ca5fa23e0e5573dc8",
+    "conclusion": "success",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39211378508",
+    "artifacts": [
+      {
+        "id": 12167622222,
+        "name": "neon-crossseason-exploratory-site-influence-v1",
+        "digest": "sha256:9f47b67bdb35e42b6cb91f7530e3999b18b663f698f652aaadb61fcf5e9f2a06"
+      }
+    ]
+  },
+  "editorial_caution": "Post-result site deletions were never part of the primary preregistered decision. They are supplementary influence probes; results do not show that habitat filtering or competition causes lineage trap recurrence."
+}
