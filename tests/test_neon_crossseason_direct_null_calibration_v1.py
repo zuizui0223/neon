@@ -6,7 +6,8 @@ The ORIGINAL sign-flip decision is not altered or reclassified.
 import math
 import unittest
 from analysis.neon_crossseason_direct_null_calibration_v1 import (
-    direct_site_weighted_product_null, season_sharing_diagnostic
+    direct_site_weighted_product_null, season_sharing_diagnostic,
+    reused_physical_site_ids_from_source_units
 )
 
 
@@ -93,6 +94,29 @@ class DirectSiteNullTests(unittest.TestCase):
         self.assertTrue(a["joint_shared_season_covariance_not_preserved"])
         self.assertNotIn("'A'",str(a))
         self.assertNotIn("'B'",str(a))
+
+    def test_shared_season_site_exclusion_is_outcome_blind(self):
+        units=[
+            {"site":"A","site_plot":("A","P"),"season_ordinal":100,
+             "observed_z":999.},
+            {"site":"A","site_plot":("A","P"),"season_ordinal":101,
+             "observed_z":-999.},
+            {"site":"B","site_plot":("B","P"),"season_ordinal":103,
+             "observed_z":-999.},
+        ]
+        excluded=reused_physical_site_ids_from_source_units(units)
+        self.assertEqual(excluded,{"A"})
+        units[0]["observed_z"]=-1000.
+        units[1]["observed_z"]=1000.
+        self.assertEqual(reused_physical_site_ids_from_source_units(units),excluded)
+        clean=[u for u in units if u["site"] not in excluded]
+        self.assertEqual(season_sharing_diagnostic(clean)["season_keys_used_in_multiple_pair_roles"],0)
+
+    def test_shared_season_source_validation_rejects_wrong_site(self):
+        with self.assertRaisesRegex(ValueError,"mismatch"):
+            reused_physical_site_ids_from_source_units([
+                {"site":"X","site_plot":("Y","P"),"season_ordinal":100}
+            ])
 
     def test_source_receipt_matches_original_frozen_statistic(self):
         import json
