@@ -31,6 +31,9 @@ from analysis.conspecific_congeneric_predictor_support_v1 import (
     GROUP_TAXON_IDS, event_predictors, response_predictor_rows,
     genus_support,
 )
+from analysis.audit_neon_u_adjusted_fixed_total_support_v1 import (
+    fixed_total_genus_support,
+)
 
 ROOT=Path(__file__).resolve().parents[1]
 LOCK=ROOT/"results/multiscale_density_target_taxon_lock_v1.json"
@@ -282,6 +285,56 @@ def run() -> dict:
     qual_candidate=[g for g,meta in qual_per_genus.items()
                     if meta["state"]=="PREDICTOR_ONLY_POTENTIALLY_IDENTIFIABLE"]
 
+    # Frozen subsequent ecological question: at fixed genus N and unknown
+    # U, can replacing one congener by one conspecific be *identified*
+    # after the same original site-month/year/series controls?
+    # Only the previously selected Peromyscus candidate receives this
+    # additional source-only check, NEVER a W/B or ecological response fit.
+    fixed_total_priority="Peromyscus"
+    require(fixed_total_priority in candidate and fixed_total_priority in qual_candidate,
+            "original source-only Peromyscus F/C structural candidate status drifted")
+    original_frozen_receipt=json.loads(
+        (ROOT/"results/conspecific_congeneric_predictor_feasibility_receipt_20261018.json").read_text(encoding="utf-8")
+    )
+    qualifier_frozen_receipt=json.loads(
+        (ROOT/"results/conspecific_congeneric_qualifier_sensitivity_receipt_20261018.json").read_text(encoding="utf-8")
+    )
+    expected_baseline=original_frozen_receipt["per_genus"][fixed_total_priority]
+    expected_qualifier=qualifier_frozen_receipt["qualifier_sensitivity"]["per_genus"][fixed_total_priority]
+    for actual,expected,phase in (
+        (per_genus[fixed_total_priority],expected_baseline,"baseline"),
+        (qual_per_genus[fixed_total_priority],expected_qualifier,"qualifier"),
+    ):
+        for key in ("species_sessions_in_3plus_series",
+                    "species_sessions_all",
+                    "sites_in_3plus_series",
+                    "species_series_with_3plus_sessions",
+                    "series_joint_F_C_variation",
+                    "unresolved_abundance_sum",
+                    "genus_abundance_sum",
+                    "event_sessions_with_resolved_other_congener_C"):
+            require(actual[key]==expected[key],
+                    "pre-existing original Peromyscus F/C "+phase+" "+key+" drifted")
+    baseline_fixed_total=fixed_total_genus_support(
+        report_rows,genus=fixed_total_priority,
+        previous_frozen_support=per_genus[fixed_total_priority],
+    )
+    qualifier_fixed_total=fixed_total_genus_support(
+        qual_rows,genus=fixed_total_priority,
+        previous_frozen_support=qual_per_genus[fixed_total_priority],
+    )
+    require(
+        baseline_fixed_total["strictly_species_labelled_source_sessions"]==
+        qualifier_fixed_total["strictly_species_labelled_source_sessions"]==948,
+        "same frozen 948 structural sessions required before U-adjusted support"
+    )
+    require(baseline_fixed_total["original_physical_sites"]==
+            qualifier_fixed_total["original_physical_sites"]==33,
+            "original 33 physical Peromyscus sites drifted")
+    require(baseline_fixed_total["rank_FC_after_nuisance"]==2 and
+            qualifier_fixed_total["rank_FC_after_nuisance"]==2,
+            "original two-predictor rank drifted")
+
     return {
         "schema":"neon.conspecific_congeneric_predictor_feasibility_v1",
         "status":"EFFECT_BLIND_SPECIES_CONGENER_FEASIBILITY_SCORED_NOT_ECOLOGICAL_EFFECT",
@@ -318,6 +371,27 @@ def run() -> dict:
         "priority_genus":"Peromyscus",
         "per_genus":per_genus,
         "candidate_genera_predictor_only":candidate,
+        "fixed_total_U_adjusted_predictor_only":{
+            "schema":"neon.fixed_total.U_adjusted_historical_FE_design.v1",
+            "status":"ORIGINAL_SOURCE_VERIFIED_NO_W_B_SPATIAL_OUTCOMES",
+            "primary_genus_precommitted":"Peromyscus",
+            "baseline":baseline_fixed_total,
+            "qualifier_conservative":qualifier_fixed_total,
+            "other_genera_original_F_C_structural_results_preserved":{
+                g:v["state"] for g,v in per_genus.items() if g!="Peromyscus"
+            },
+            "minimum_original_species_sessions":60,
+            "minimum_original_physical_sites":6,
+            "minimum_original_3plus_series":8,
+            "minimum_original_joint_FC_varying_series":5,
+            "conditional_FC_rank_required":2,
+            "maximum_conditional_FC_condition_number":30.0,
+            "the_same_observed_original_N_and_structural_cohort":True,
+            "rank_identifiability_does_not_establish_field_species_truth":True,
+            "observational_effect_not_fitted":True,
+            "independent_new_NEON_events_not_accessed":True,
+            "ecological_paper_publication_still_DRAFT_HOLD":True,
+        },
         "qualifier_conservative_sensitivity":{
             "classification_rule":"Any nonblank identificationQualifier except NA/N/A/NULL converts a single-species taxon history to same-genus unresolved U",
             "original_genus_N_invariant_every_event":True,
