@@ -8,6 +8,8 @@ on:
       - "analysis/conspecific_congeneric_predictor_support_v1.py"
       - "analysis/neon_fixed_total_contrast_v1.py"
       - "analysis/audit_neon_u_adjusted_fixed_total_support_v1.py"
+      - "analysis/audit_neon_fixed_total_observed_pairs_v1.py"
+      - "tests/test_neon_fixed_total_observed_pairs_v1.py"
       - "tests/test_neon_fixed_total_contrast_v1.py"
       - "tests/test_neon_u_adjusted_source_support_v1.py"
       - "analysis/run_conspecific_congeneric_predictor_feasibility_v1.py"
@@ -40,6 +42,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_conspecific_congeneric_predictor_support_v1.py' -v
           python -m unittest discover -s tests -p 'test_neon_fixed_total_contrast_v1.py' -v
           python -m unittest discover -s tests -p 'test_neon_u_adjusted_source_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_fixed_total_observed_pairs_v1.py' -v
       - name: Require existing NEON release-access token
         run: test -n "$NEON_API_TOKEN"
       - name: Audit public NEON RELEASE-2026 abundance composition only
