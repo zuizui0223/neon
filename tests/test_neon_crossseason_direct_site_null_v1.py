@@ -60,7 +60,7 @@ class DirectSiteNullCalibrationTests(unittest.TestCase):
         self.assertEqual(r["independent_unit_marginal_null"]["units"],25)
 
     def test_equal_draw_count_and_finite_inputs_fail_closed(self):
-        units=[make_unit("SITE_A"), make_unit("SITE_B",seq=[-1,0,1])]
+        units=[make_unit("SITE_A"), make_unit("SITE_B",seq=[-2,-1,0,1,2]*10)]
         with self.assertRaisesRegex(ValueError,"equal null draw"):
             direct_site_null_calibration(units,seed=100,n_replicates=100)
         units=[make_unit("SITE_A")]
