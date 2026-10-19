@@ -34,6 +34,9 @@ from analysis.conspecific_congeneric_predictor_support_v1 import (
 from analysis.audit_neon_u_adjusted_fixed_total_support_v1 import (
     fixed_total_genus_support,
 )
+from analysis.audit_neon_fixed_total_observed_pairs_v1 import (
+    observed_fixed_total_pairs,
+)
 
 ROOT=Path(__file__).resolve().parents[1]
 LOCK=ROOT/"results/multiscale_density_target_taxon_lock_v1.json"
@@ -335,6 +338,26 @@ def run() -> dict:
             qualifier_fixed_total["rank_FC_after_nuisance"]==2,
             "original two-predictor rank drifted")
 
+    # Literal matched observations at identical genus N and unresolved U:
+    # this distinguishes direct ecological source overlap from model-only
+    # regression extrapolation. Do not relax equality or access W/B.
+    literal_baseline=observed_fixed_total_pairs(
+        report_rows,genus=fixed_total_priority,
+        previous_frozen_support=per_genus[fixed_total_priority],
+    )
+    literal_qualifier=observed_fixed_total_pairs(
+        qual_rows,genus=fixed_total_priority,
+        previous_frozen_support=qual_per_genus[fixed_total_priority],
+    )
+    for literal in (literal_baseline,literal_qualifier):
+        require(literal["original_frozen_3plus_series_sessions"]==948,
+                "literal fixed-total session denominator drifted")
+        require(literal["original_physical_sites"]==33 and
+                literal["original_focal_series"]==109,
+                "literal fixed-total physical-site/series denominator drifted")
+        require(not literal["ecological_W_B_effects_opened"],
+                "literal source audit unexpectedly opened spatial outcomes")
+
     return {
         "schema":"neon.conspecific_congeneric_predictor_feasibility_v1",
         "status":"EFFECT_BLIND_SPECIES_CONGENER_FEASIBILITY_SCORED_NOT_ECOLOGICAL_EFFECT",
@@ -377,6 +400,13 @@ def run() -> dict:
             "primary_genus_precommitted":"Peromyscus",
             "baseline":baseline_fixed_total,
             "qualifier_conservative":qualifier_fixed_total,
+            "literal_same_total_and_U_observation_support":{
+                "schema":"neon.fixed_total.same_N_U_matched_source_observations.v1",
+                "original_same_948_focal_sessions":True,
+                "baseline":literal_baseline,
+                "qualifier_conservative":literal_qualifier,
+                "no_spatial_response_or_species_mechanism_opened":True,
+            },
             "other_genera_original_F_C_structural_results_preserved":{
                 g:v["state"] for g,v in per_genus.items() if g!="Peromyscus"
             },
