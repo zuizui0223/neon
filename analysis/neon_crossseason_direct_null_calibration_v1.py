@@ -57,6 +57,32 @@ def season_sharing_diagnostic(units: list[dict]) -> dict:
     }
 
 
+def reused_physical_site_ids_from_source_units(units: list[dict]) -> set[str]:
+    """PRIVATE set of physical sites whose adjacent pairs reuse a season.
+
+    Exclusively original source site×plot×season multiplicity is consulted.
+    No observed Z, shuffled null effect or taxon outcome participates.
+    Callers MUST output only its count, not source geographic identifiers.
+    """
+    source_key_counts=Counter()
+    for item in units:
+        site=str(item.get("site") or "")
+        site_plot=item.get("site_plot")
+        q=item.get("season_ordinal")
+        if not site or not isinstance(site_plot,(tuple,list)) or len(site_plot)!=2:
+            raise ValueError("No original source site/plot in reused-season guard")
+        if not isinstance(q,int) or site_plot[0]!=site:
+            raise ValueError("Site/season source mismatch in reused-season guard")
+        original_plot=tuple(site_plot)
+        source_key_counts[(original_plot,q)]+=1
+        source_key_counts[(original_plot,q+1)]+=1
+    return {
+        site_plot[0]
+        for (site_plot,_ordinal),uses in source_key_counts.items()
+        if uses>1
+    }
+
+
 def direct_site_weighted_product_null(
     units: list[dict], *, seed: int=2026101902, n_replicates: int=100_000
 ) -> dict:
