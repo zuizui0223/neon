@@ -17,8 +17,9 @@ def mock_rows(site_count=8, n_events=12, *, collinear_u=False, constant_u=False)
         for event in range(n_events):
             focal=5+(3*g+2*event)%7
             other=2+(g+3*event)%6
+            # U must vary within the same site, not be absorbed by site FE.
             unknown=(focal if collinear_u else
-                     4 if constant_u else 1+(2*g+4*event)%5  # U varies within site, not solely across site FE)
+                     (4 if constant_u else 1+(2*g+4*event)%5))
             out.append({
                 "site":site,
                 "genus":"Peromyscus",
