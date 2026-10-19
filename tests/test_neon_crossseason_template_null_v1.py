@@ -68,7 +68,7 @@ class NeONCrossSeasonTemplateNullTests(unittest.TestCase):
         self.assertAlmostEqual(mean(private),prior["null_mean"],places=12)
         self.assertAlmostEqual(stdev(private),prior["null_sd"],places=12)
         self.assertNotIn("private_draws_out",str(again))
-        self.assertNotIn("null_draws",str(again))
+        self.assertNotIn("null_unit_z_draws",str(again))
 
     def test_no_possible_swap_is_uninformative_not_false_success(self):
         all_traps={"A1","A2","A3"}
