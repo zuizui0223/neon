@@ -51,6 +51,25 @@ class NeONCrossSeasonTemplateNullTests(unittest.TestCase):
         self.assertTrue(z["genus_and_trap_occupancy_margins_preserved"])
         self.assertTrue(z["site_independence_not_claimed"])
 
+    def test_private_null_collector_preserves_original_output_exactly(self):
+        from statistics import mean,stdev
+        prior=fixed_fixed_null_for_unit(
+            self.A,self.B,seed=1234,n_draws=500,burn_in=200,
+            swaps_per_draw=30,min_effective_draws=50,
+        )
+        private=[]
+        again=fixed_fixed_null_for_unit(
+            self.A,self.B,seed=1234,n_draws=500,burn_in=200,
+            swaps_per_draw=30,min_effective_draws=50,
+            private_draws_out=private,
+        )
+        self.assertEqual(prior,again)
+        self.assertEqual(len(private),500)
+        self.assertAlmostEqual(mean(private),prior["null_mean"],places=12)
+        self.assertAlmostEqual(stdev(private),prior["null_sd"],places=12)
+        self.assertNotIn("private_draws_out",str(again))
+        self.assertNotIn("null_draws",str(again))
+
     def test_no_possible_swap_is_uninformative_not_false_success(self):
         all_traps={"A1","A2","A3"}
         a={x:set(all_traps) for x in ("G1","G2","G3")}
