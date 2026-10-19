@@ -1,0 +1,39 @@
+{
+  "schema": "neon.independent_san_jacinto_species_niche_template_comparator.v1",
+  "record_date": "2026-10-19",
+  "scientific_status": "PREVIOUSLY_OPENED_POSITIVE_SINGLE_REGION_SIX_GRID_PRIOR",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "source_branch": "ecology/san-jacinto-transition-niche-v1",
+    "source_branch_head_commit": "3e4e01c4f9dd925cb5a18da1b08d582a127b6f98",
+    "source_path": "results/san_jacinto_cross_season_turnover_v1.json",
+    "source_blob_sha": "43900860769f65b33d7d082e4ac51e1b2e22568d",
+    "source_figshare_doi": "10.6084/m9.figshare.18295520.v1",
+    "original_source_sha256_verified": true,
+    "original_result_seen_before_neon_genus_test": true
+  },
+  "source_test": {
+    "taxon_rank": "species",
+    "trap_lattice": "7×7",
+    "seasonal_units": 10,
+    "informative_units": 10,
+    "positive_unit_Z_count": 9,
+    "mean_unit_Z": 1.7746955004,
+    "physical_grids": 6,
+    "positive_physical_grid_means": 5,
+    "one_sided_exact_grid_signflip_p": 0.046875,
+    "fixed_fixed_null": "season A fixed; season B fixed-fixed curveball preserving season-B species occupancies and trap richness",
+    "individual_bridge_exclusion": "remove from both seasons every species x individual observed in both seasons",
+    "outcome": "support_cross_season_species_template_reassembly"
+  },
+  "boundaries": {
+    "same_taxonomic_rank_as_neon": false,
+    "multi_region_independent_sites": false,
+    "local_san_jacinto_grid_replication_only": true,
+    "p_values_must_not_be_pooled": false,
+    "p_values_not_pooled": true,
+    "individual_death_or_demographic_turnover_proven": false,
+    "interference_competition_causal": false,
+    "W_B_density_effect_opened": false
+  }
+}
