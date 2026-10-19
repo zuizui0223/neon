@@ -52,11 +52,20 @@ def _analysis_cohort(
     if not genus or not isinstance(genus,str):
         raise ValueError("Genus must be a nonempty literal")
     for row in rows:
-        _validate_source_row(row)
+        if not isinstance(row, dict):
+            raise ValueError("Malformed source-predictor rows")
+        # Source species-group rows legitimately have F/C=None. They cannot
+        # enter the resolved-species model, but fail closed on W/B leakage.
+        if any(str(k).casefold() in UNSAFE_KEYS or
+               "centroid" in str(k).casefold() or
+               "trapcoordinate" in str(k).casefold() for k in row):
+            raise ValueError("No spatial response, coordinates or animal IDs in source-predictor audit")
     active = [
         row for row in rows
         if row["genus"] == genus and row["strictly_resolved_response_taxon"]
     ]
+    for row in active:
+        _validate_source_row(row)
     by_series=defaultdict(list)
     for r in active:
         by_series[r["series_id"]].append(r)
@@ -64,6 +73,11 @@ def _analysis_cohort(
         r for key,items in by_series.items() if len(items)>=3
         for r in items
     ]
+    if len(kept)!=len({
+        (str(r["taxon"]),str(r["site"]),str(r["plot_id"]),str(r["event_id"]))
+        for r in kept
+    }):
+        raise ValueError("Original source has duplicate taxon×site×plot×event session")
     expected=previous_frozen_support.get("species_sessions_in_3plus_series")
     if expected is not None and len(kept)!=int(expected):
         raise ValueError("Previously frozen session denominator drifted")
@@ -75,11 +89,7 @@ def _analysis_cohort(
     if "species_series_with_3plus_sessions" in previous_frozen_support:
         if len({r["series_id"] for r in kept})!=int(previous_frozen_support["species_series_with_3plus_sessions"]):
             raise ValueError("Previously frozen series denominator drifted")
-    if len(kept)!=len({
-        (str(r["taxon"]),str(r["site"]),str(r["plot_id"]),str(r["event_id"]))
-        for r in kept
-    }):
-        raise ValueError("Original source has duplicate taxon×site×plot×event session")
+
     return kept
 
 
