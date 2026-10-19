@@ -110,6 +110,8 @@ def source_event_support(
     plot_rows: list[dict],
     trap_rows: list[dict],
     genus_by_taxon: dict[str,str],
+    *,
+    internal_units: list[dict] | None = None,
 ) -> dict:
     """Count biologically viable adjacent-season genus replacement contrasts.
 
@@ -220,6 +222,29 @@ def source_event_support(
             if len(eligible)>=2:
                 total["eligible_2genus_diagnostic_pairs"]+=1
             if len(eligible)>=3:
+                # A caller may request an IN-MEMORY private occupancy unit
+                # after the frozen structural GO. The public support JSON
+                # never serializes these source site/trap/genus matrices.
+                if internal_units is not None:
+                    internal_units.append({
+                        "site":site,
+                        "site_plot":(site,plot),
+                        "season_ordinal":q,
+                        "A":{
+                            genus:set().union(*(
+                                event_coords[key_a][(genus,t)]
+                                for t in sorted(event_tags[key_a][genus]-common_tags)
+                            ))
+                            for genus in sorted(eligible)
+                        },
+                        "B":{
+                            genus:set().union(*(
+                                event_coords[key_b][(genus,t)]
+                                for t in sorted(event_tags[key_b][genus]-common_tags)
+                            ))
+                            for genus in sorted(eligible)
+                        },
+                    })
                 total["eligible_primary_pairs"]+=1
                 support_sites.add(site)
                 support_plots.add((site,plot))
