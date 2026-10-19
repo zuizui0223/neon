@@ -80,3 +80,58 @@ A defensible prospective design must have all of:
 - Dooley & Dueser (1990), *Ecology* 71:788–796; (1996), *Oecologia* 105:81–86.
 
 **Paper status:** *Prospective question only. No cross-scale density-source ecological effect estimated. Not submission-ready.*
+
+
+## 19 October 2026: direct same-total composition comparison is not supported conservatively
+
+The new fixed-N, fixed-U ecological question has been checked against the
+original NEON source without fitting a spatial response. The original
+948-session Peromyscus cohort, 109 repeated taxon×plot series and 33 sites
+remain unchanged.
+
+The baseline and qualifier-conservative two-predictor models both remain
+algebraically **identifiable after adjusting for U**: conditional F/C rank
+2, full F/C/U rank 3, and conditional information attributable to about
+9.23 or 7.63 site-equivalents, respectively. These are **not biological
+effects**, and the actual 33 physical sites carry uneven predictor
+information.
+
+However, a literal same genus-N, same uncertain-U, same focal taxon,
+site, plot and calendar-month-of-year contrast with **different F/C** is
+supported by only **four unordered original-event pairs, in two physical
+sites, representing eight of 948 sessions** under the baseline field
+labels. After conservatively treating explicit identification qualifiers
+as U, **zero such pairs** remain. When the month-of-year restriction is
+removed, the baseline has 18 pairs and the conservative source has just
+one, but the lone conservative pair spans different calendar months and
+must not be called a season-controlled replicate.
+
+This distinction must drive the paper, rather than additional method
+development. **The historical dataset supports a linear model coefficient
+by borrowing identifying variation across N/U configurations; it does
+not supply a direct, conservative matched neighbour-substitution
+comparison.** This does not mean the fitted additive model necessarily
+extrapolates *outside* the convex range of observed F/C/U, and does not
+prove no biologically relevant effect; it means matched evidence is absent
+under the exact precommitted criterion.
+
+**Decision:** historical predictor-only rank GO, but **direct
+fixed-total ecological observation support STOP** for the
+qualifier-conservative model. Do not open historical consumed F/C×W/B to
+claim a confirmed mechanism. A new study must obtain independent focal
+species populations with validated identity and genuinely comparable
+F/C composition shifts at fixed total/capture condition, ideally through
+standardized repeated and independent sites or manipulative density
+trials, before assigning ecological mechanism to the relative W/B
+responses.
+
+Documentation and reproducible source receipts:
+- `docs/NEON_U_ADJUSTED_FIXED_TOTAL_SUPPORT_CONTRACT_20261019.md`
+- `results/neon_u_adjusted_fixed_total_predictor_receipt_20261019.json`
+- `results/neon_fixed_total_literal_composition_support_receipt_20261019.json`
+- GitHub Actions 39202315974 and 39202963828.
+
+The registered new `Θ` is unchanged and has **not been estimated on real
+spatial responses**; previous original 6/8 genus generality failure,
+imprecise Peromyscus nonreplication, and sealed MOSA effects remain unchanged.
+
