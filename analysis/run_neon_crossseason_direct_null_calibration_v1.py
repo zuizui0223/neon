@@ -29,6 +29,10 @@ from analysis.run_neon_crossseason_genus_template_ecology_v1 import (
 )
 from analysis.neon_crossseason_direct_null_calibration_v1 import (
     direct_site_weighted_product_null, season_sharing_diagnostic,
+    reused_physical_site_ids_from_source_units,
+)
+from analysis.neon_crossseason_direct_site_null_v1 import (
+    direct_site_null_calibration,
 )
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -143,6 +147,11 @@ def run() -> dict:
     require(len(units)==58,"source did not reproduce 58 original eligible units")
     units.sort(key=lambda r:(r["site"],r["site_plot"],r["season_ordinal"]))
     season_dependency=season_sharing_diagnostic(units)
+    reused_source_sites=reused_physical_site_ids_from_source_units(units)
+    require(len(reused_source_sites)==2,
+            "exactly two original season-reused source sites must be removed")
+    require(season_dependency["physical_sites_with_any_adjacent_pair_season_reuse"]==2,
+            "original dependency diagnostic changed")
 
     private_unit_nulls=[]
     observed_z_by_site=defaultdict(list)
@@ -203,6 +212,91 @@ def run() -> dict:
         "conditional null statistic not identical to frozen site mean",
     )
 
+    # Separately committed POST-RESULT dependence sensitivity: remove
+    # EVERY unit at either original physical site where one source season
+    # participates in more than one adjacent pair. Site selection uses
+    # source keys only, NEVER the observed genus trap recurrence Z.
+    independent_source_units=[
+        u for u in units if u["site"] not in reused_source_sites
+    ]
+    independent_units=[
+        u for u in private_unit_nulls if u["site"] not in reused_source_sites
+    ]
+    clean_dependency=season_sharing_diagnostic(independent_source_units)
+    require(clean_dependency["season_keys_used_in_multiple_pair_roles"]==0,
+            "reused seasons remain in source-dependence site exclusion")
+    require(len({u["site"] for u in independent_source_units})==12,
+            "expected 12 original season-disjoint physical sites")
+    require(len(independent_units)==len(independent_source_units),
+            "season exclusion altered unit identity/count")
+
+    cleaner_by_site=defaultdict(list)
+    for u in independent_units:
+        cleaner_by_site[u["site"]].append(u["observed_z"])
+    cleaner_site=crossseason_template_inference(
+        cleaner_by_site,seed=ORIGINAL_UNIT_SEED
+    )
+    require(cleaner_site["physical_sites"]==12,
+            "excluded-source site-block signflip not 12 sites")
+
+    cleaner_direct=direct_site_weighted_product_null(
+        independent_units,seed=2026101903,n_replicates=100_000
+    )
+    require(
+        close(
+            cleaner_direct["observed_equal_site_weighted_mean_z"],
+            cleaner_site["site_mean_Z_mean"],
+        )
+        and cleaner_direct["physical_sites"]==12
+        and cleaner_direct["seasonal_units"]==len(independent_units),
+        "season-disjoint source unit contrast differs from direct product-null test"
+    )
+
+    cleaner_coupled=direct_site_null_calibration(
+        [{
+            "site":item["site"],
+            "observed_unit_z":item["observed_z"],
+            "null_unit_z_draws":item["null_z_draws"],
+        } for item in sorted(independent_units,key=lambda z:z["unit_index"])],
+        seed=2026101932,n_replicates=20_000,
+    )
+    require(
+        cleaner_coupled["source_independent_physical_sites"]==12
+        and cleaner_coupled["source_original_seasonal_units"]==len(independent_units)
+        and close(
+            cleaner_coupled["observed_equal_site_weighted_mean_Z"],
+            cleaner_site["site_mean_Z_mean"],
+        ),
+        "season-disjoint within-site coupled sensitivity changed observed Z"
+    )
+    cleaner_comonotone=cleaner_coupled["comonotone_within_site_marginal_null"]
+    cleaner_result={
+        "schema":"neon.crossseason.site_reuse_exclusion_post_result.v1",
+        "status":(
+            "SECONDARY_12SITE_SOURCE_DEPENDENCE_EXCLUSION_SUPPORTS_DIRECTION"
+            if cleaner_direct["one_sided_p_with_plus_one"]<0.05
+            and cleaner_comonotone["one_sided_p"]<0.05
+            and cleaner_site["site_mean_Z_mean"]>0
+            else "SECONDARY_12SITE_SOURCE_DEPENDENCE_EXCLUSION_WEAKENS_INFERENCE"
+        ),
+        "source_only_excluded_sites":len(reused_source_sites),
+        "original_physical_sites":14,
+        "remaining_physical_sites":12,
+        "source_units_excluded":58-len(independent_units),
+        "source_units_remaining":len(independent_units),
+        "source_shared_season_keys_remaining":0,
+        "original_primary_statistic_unchanged":True,
+        "excluded_sites_based_on_source_keys_not_spatial_outcomes":True,
+        "post_result_exclusion_not_preregistered_primary_inference":True,
+        "remaining_original_site_signflip_exploratory":cleaner_site,
+        "remaining_direct_independent_unit_product_null":cleaner_direct,
+        "remaining_within_site_comonotone_stress":cleaner_comonotone,
+        "within_site_comonotone_not_upper_bound_on_all_joint_nulls":True,
+        "remaining_sites_do_not_eliminate_genus_detection_bias":True,
+        "site_geographic_identifiers_exported":False,
+        "animal_or_source_trap_records_exported":False,
+    }
+
     # Explicit, no-post-hoc-retuning labels. The p<.05 threshold is a
     # secondary calibration descriptor, not a newly preregistered decision.
     supported=conditional["one_sided_p_with_plus_one"]<0.05
@@ -235,6 +329,7 @@ def run() -> dict:
         },
         "direct_null_calibration":conditional,
         "reused_season_dependence_diagnostic":season_dependency,
+        "site_reuse_exclusion_post_result_sensitivity":cleaner_result,
         "interpretation":{
             "post_result_conditional_calibration_not_independent_confirmation":True,
             "no_site_sign_exchangeability_assumed_in_conditional_product_null":True,
