@@ -94,8 +94,11 @@ def _events(plot_rows: list[dict]):
             continue
         ordinal=next(iter(seasons))
         d0=min(dates)
+        # Private-only source dates: enable exact source-effective station
+        # history checks in a later geolocation audit. Never serialize them
+        # in public structural support JSON.
         info={"site":site,"plot":plot,"event":event,"season":ordinal,
-              "first":d0,"nights":nights}
+              "first":d0,"nights":nights,"dates":tuple(sorted(dates))}
         approved[key]=info
         season_candidates[(site,plot,ordinal)].append(info)
     chosen={}
@@ -222,6 +225,8 @@ def source_event_support(
             if len(eligible)>=2:
                 total["eligible_2genus_diagnostic_pairs"]+=1
             if len(eligible)>=3:
+                info_a=valid_events[key_a]
+                info_b=valid_events[key_b]
                 # A caller may request an IN-MEMORY private occupancy unit
                 # after the frozen structural GO. The public support JSON
                 # never serializes these source site/trap/genus matrices.
@@ -230,6 +235,8 @@ def source_event_support(
                         "site":site,
                         "site_plot":(site,plot),
                         "season_ordinal":q,
+                        "capture_dates_A":info_a["dates"],
+                        "capture_dates_B":info_b["dates"],
                         "A":{
                             genus:set().union(*(
                                 event_coords[key_a][(genus,t)]
