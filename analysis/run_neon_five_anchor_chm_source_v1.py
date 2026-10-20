@@ -239,7 +239,7 @@ def run():
     )
     require(
         result["plots_with_published_geolocation_issue"]==
-        e5.get("fixed_original_plots",30)*0+4,
+        4,
         "original flagged physical-grid denominator changed",
     )
     return {
