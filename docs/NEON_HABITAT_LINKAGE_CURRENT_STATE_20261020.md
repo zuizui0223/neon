@@ -31,3 +31,69 @@ No environmental response coefficient, habitat-conditioned recurrence, detection
 ## Repair verification
 
 The four previously committed site-coverage tests first failed locally because the imported implementation was absent. The new implementation satisfies them without altering or removing those tests. Eight additional source-only tests cover named-location identity, ragged data, ambiguous history, unknown uncertainty, orientation checks and grid-specific issue counting. The dedicated workflow runs these tests before source retrieval; repository-wide checks remain a distinct verification.
+
+
+## 2026-10-20 actual published CHM pixel retrieval and five-anchor heterogeneity
+
+The previous CHM manifest source failure was caused by recognizing only
+eight-character hexadecimal CRC32C values; actual NEON AOP files include
+un-padded 6/7-digit hexadecimal CRC values. A synthetic known byte-vector
+test failed before correction, then passed after extending the parser
+while preserving actual provider byte-size/CRC32C verification. See
+`docs/NEON_CHM_VARIABLE_LENGTH_CRC32C_CORRECTION_20261020.md`.
+
+**First source-derived raster access** ([Actions 39384927081](https://github.com/zuizui0223/neon/actions/runs/39384927081))
+retrieved 29 checksum-verified CHM GeoTIFFs, ~36.3 MB, and measured all
+30 E5 reference pixels from the unchanged 14-site/30-plot/58-pair
+ecological cohort. Median E5 canopy height was 0 m, maximum 23.107 m,
+and 19 of 30 E5 pixels were exactly zero. These are source raster pixel
+values, **not** CHM matched to historical capture events or to all traps.
+
+**Precommitted actual five-anchor follow-up**
+([Actions 39386226483](https://github.com/zuizui0223/neon/actions/runs/39386226483))
+used literal NEON source named locations A1, A10, J1, J10 and E5 at
+every one of the **same 30 original mammal plots**, with latest
+advertised 2015–2025 CHM acquisition month per original NEON site.
+All **150 of 150 named points** yielded valid GeoTIFF CHM pixels after
+deduplicating and verifying **34 published CRC32C+size raster tiles**
+(~40.3 MB). The original 30 valid E5 pixels and 19 zero E5 values
+were independently reconstructed exactly.
+
+| Source five-anchor variation | Plot count |
+|---|---:|
+| All five source pixels valid | **30/30** |
+| Nonzero canopy-height range among five named anchors | **14/30** |
+| All five named canopy pixels exactly zero | **16/30** |
+| Source E5 pixel zero while at least one other named anchor positive | **3/30** |
+| Five-anchor canopy-height range across individual plots | 0 to **36.904 m** (median across plots **0 m**) |
+
+**Critical scientific limitation:** coordinate uncertainty was published
+for **30 E5** locations, but was absent for **120 of 120** non-E5
+anchor locations. In addition, current source locations and the selected
+2022–2024 aerial canopy acquisitions are not aligned to historical
+seasonal trapping dates by an authoritative date-effective station
+crosswalk. Four of the original 30 mammal grids intersect the published
+geoNEON orientation/position-issue list, but the original nominal
+trap-label recurrence analysis has not been filtered or changed.
+
+Therefore **CHM is demonstrably heterogeneous at measured source points
+in some grids, and E5 alone is insufficient as a blanket plot value**,
+but neither canopy selection by a genus, temporal habitat persistence,
+nor adjusted genus-specific detection has been tested. An all-zero
+five-anchor CHM in 16 plots is also *not* evidence of bare ground:
+the AOP CHM does not resolve all low shrubs and grass cover.
+
+**Mechanism GO/STOP decision:** valid spatially projected current CHM
+point measurements are now available, but **source-dated, uncertainty-
+validated 100-station habitat exposure remains STOP**; do not compute a
+genus×canopy recurrence coefficient from the five-anchor samples or
+treat zero-height canopy as habitat absence. Proper next evidence is
+dated 100-station location histories, positional uncertainty, capture-
+year flight coverage and additional independent shrub/ground-vegetation
+measurements. The corrected positive 14-site lineage recurrence pattern
+and all original negative density/MOSA statuses remain unchanged.
+
+Machine-readable source:
+- `results/neon_e5_chm_reference_pixels_receipt_20261020.json`
+- `results/neon_five_anchor_chm_source_receipt_20261020.json`
+- `docs/NEON_FIVE_ANCHOR_CHM_VARIATION_PILOT_20261020.md`
