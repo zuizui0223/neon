@@ -6,6 +6,8 @@ on:
       - design/multiscale-density-accommodation-v1
     paths:
       - 'analysis/neon_e5_chm_pilot_v1.py'
+      - 'analysis/neon_chm_monthly_source_v2.py'
+      - 'tests/test_neon_e5_chm_monthly_v2.py'
       - 'analysis/run_neon_e5_chm_pilot_v1.py'
       - 'tests/test_neon_e5_chm_pilot_v1.py'
       - '.github/workflows/neon-e5-chm-raster-pilot.yml'
@@ -32,7 +34,9 @@ jobs:
       - name: Install pinned raster reader
         run: python -m pip install numpy==2.1.1 rasterio==1.4.3
       - name: Test synthetic raster masks, exact CRS and released byte checks
-        run: python -m unittest discover -s tests -p 'test_neon_e5_chm_pilot_v1.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_e5_chm_monthly_v2.py' -v
+          python -m unittest discover -s tests -p 'test_neon_e5_chm_pilot_v1.py' -v
       - name: Require existing source authorization
         run: test -n "$NEON_API_TOKEN"
       - name: Reconstruct original cohort and read released canopy raster at E5 only
