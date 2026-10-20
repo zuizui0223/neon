@@ -127,6 +127,7 @@ def run():
         g=grid_anchor_geometry({a:r['xy'] for a,r in coordinates[key].items()})
         g['historically_flagged_grid']=key[1] in GEO_LOCATION_ISSUE_GRIDS
         g['anchor_uncertainty_complete']=all(r['uncertainty_m'] is not None for r in coordinates[key].values())
+        g['known_anchor_uncertainty_count']=sum(r['uncertainty_m'] is not None for r in coordinates[key].values())
         geometry.append(g)
     return {
         'schema':'neon.lineage.habitat_source_and_anchor_link.v1',
@@ -150,6 +151,13 @@ def run():
             'plots_with_standard_cardinal_orientation':sum(g['standard_A10_south_J1_west_orientation'] for g in geometry),
             'historically_flagged_plots_with_standard_cardinal_orientation':sum(g['historically_flagged_grid'] and g['standard_A10_south_J1_west_orientation'] for g in geometry),
             'plots_with_all_five_anchor_uncertainties':sum(g['anchor_uncertainty_complete'] for g in geometry),
+            'plots_with_any_reported_anchor_uncertainty':sum(g['known_anchor_uncertainty_count']>0 for g in geometry),
+            'anchors_with_reported_coordinate_uncertainty':sum(g['known_anchor_uncertainty_count'] for g in geometry),
+            'observed_anchor_orientation_counts':dict(Counter(
+                g['A1_to_A10_dominant_direction']+'/'+g['A1_to_J1_dominant_direction'] for g in geometry)),
+            'orientation_key_order':'A1_to_A10 / A1_to_J1',
+            'coordinates_rotated_or_relabelled_to_fit_expected_orientation':False,
+            'orientation_mismatch_not_interpreted_as_automatic_source_error':True,
             'live_named_locations_not_RELEASE_2026':True,
             'history_matched_to_actual_capture_dates':False,
             'all_100_station_locations_verified':False,
