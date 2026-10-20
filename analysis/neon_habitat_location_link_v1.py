@@ -94,7 +94,16 @@ def grid_anchor_geometry(points:dict)->dict:
     closure=math.hypot(w[0]-u[0]-v[0],w[1]-u[1]-v[1])
     e5=math.hypot(m[0]-4*(u[0]+v[0])/9,m[1]-4*(u[1]+v[1])/9)
     cosine=abs(sum(a*b for a,b in zip(u,v))/(nu*nv)) if nu*nv else 1.
+    def direction(vector):
+        east,north=vector
+        if abs(east)<1e-8 and abs(north)<1e-8:return 'zero'
+        if abs(abs(east)-abs(north))<=1e-8:return 'diagonal'
+        if abs(east)>abs(north):return 'east' if east>0 else 'west'
+        return 'north' if north>0 else 'south'
     return {
+        'A1_to_A10_dominant_direction':direction(u),
+        'A1_to_J1_dominant_direction':direction(v),
+        'coordinates_rotated_or_relabelled':False,
         'edge_A1_A10_m':nu,'edge_A1_J1_m':nv,
         'parallelogram_closure_error_m':closure,'E5_grid_residual_m':e5,
         'absolute_edge_cosine':cosine,
