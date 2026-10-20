@@ -67,4 +67,59 @@ The earlier density W/B generality failure (5 positive genera versus six require
 
 The dedicated correction workflow passed. The repository-wide CI at the same run head did **not** pass: 429 tests, one error and three skips, caused by the already-missing `analysis.audit_neon_lineage_environmental_source_coverage_v1` module. The seven new sampler tests passed there as well. This unrelated unfinished module was not filled with a placeholder or silently skipped. Full integration remains outstanding; do not describe the entire repository as green.
 
+
+## Independent CHM habitat-source feasibility (no mechanism fit)
+
+**This is a post-result environmental-source investigation, not an
+explanatory regression or evidence of competition/habitat filtering.**
+The same immutable NEON RELEASE-2026 source cohort (14 sites, 30 plots,
+58 season pairs) was linked to NEON AOP product DP3.30015.001 through
+current, exact source-named locations and the latest advertised
+RELEASE-2026 canopy flight month in 2015–2025 for each site. The
+original zero-raster failure was a variable-width CRC32C decoding bug,
+which was reproduced by a source-independent known-byte regression
+test and corrected without bypassing published file-integrity checks.
+
+At the fixed E5 source anchor, all **30/30** current projected
+positions linked to valid 1-m CHM raster cells from **29** externally
+checksum-verified tiles across all 14 sites; **19 E5 pixels were exactly
+zero**. We then measured all **five literal official anchors** per
+original plot (A1, A10, J1, J10, E5). All **150/150** positions
+yielded valid CHM pixels from **34** CRC32C-verified raster tiles.
+**Fourteen of 30 plots** had a nonzero range of canopy heights across
+these five points (maximum within-plot range **36.904 m**); **16
+plots** had zero CHM at all five. E5 itself was zero but at least
+one other official anchor positive in **three plots**. This
+directly demonstrates that a single E5 value is not a valid universal
+surrogate for *within-grid* CHM variation at those five measured points.
+
+However, the published current coordinate-uncertainty value was
+available only at **30 E5 points** and unavailable at **all 120
+corner anchors**. Four original plots intersect the official
+geoNEON geolocation-issue roster, and **current coordinate positions
+were not linked by effective date to historical capture events**.
+Moreover, CHM zero is not a ground-cover/understory absence claim,
+and latest selected 2022–2024 canopy acquisitions are not synchronous
+with every 2015–2026 capture season.
+
+**Biological implication and boundary:** these 150 observations
+establish spatial variability in the *available canopy data*, not
+habitat filtering by any particular mammal genus. The positive
+season-to-season genus×trap recurrence cannot yet be partitioned into
+persistent habitat preference versus genus-dependent capture
+probability. A formal mechanism test requires authoritative
+historical, uncertainty-calibrated locations for all 100 stations
+and a relevant ground/understory environment layer (or separately
+calibrated detection), before fitting any genus×habitat associations.
+No station geometry was rotated, inferred from the plot centre,
+filled from E5 or selected because a canopy height looked favorable.
+
+Source-only, reproducible receipts and methods:
+- `docs/NEON_CHM_VARIABLE_LENGTH_CRC32C_CORRECTION_20261020.md`
+- `docs/NEON_FIVE_ANCHOR_CHM_VARIATION_PILOT_20261020.md`
+- `results/neon_e5_chm_reference_pixels_receipt_20261020.json`
+  ([Actions 39384927081](https://github.com/zuizui0223/neon/actions/runs/39384927081))
+- `results/neon_five_anchor_chm_source_receipt_20261020.json`
+  ([Actions 39386226483](https://github.com/zuizui0223/neon/actions/runs/39386226483))
+
 **Status: corrected conditional ecological pattern supported; research draft, not submitted.**
