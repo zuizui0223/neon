@@ -1,0 +1,48 @@
+name: neon-3000-dated-station-graphql-source
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_graphql_dated_station_source_v1.py"
+      - "analysis/run_neon_3000_station_dated_graphql_v1.py"
+      - "tests/test_neon_dated_3000_graphql_source_v1.py"
+      - ".github/workflows/neon-3000-dated-station-graphql-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-3000-dated-geolocation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  all-station-capture-date-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify synthetic batch GraphQL-REST source equivalence and 100-station half-open capture dates
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_dated_3000_graphql_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_dated_five_anchor_feasibility_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_dated_station_location_v1.py' -v
+      - name: Require authorized original NEON release source access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Query source-approved 3000 original named locations and 34800 actual capture-day station histories
+        run: python -m analysis.run_neon_3000_station_dated_graphql_v1
+      - name: Archive no-coordinates source time coverage only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-3000-station-original-dated-historical-geolocation-v1
+          path: build/neon_3000_station_dated_graphql_v1.json
+          if-no-files-found: warn
+          retention-days: 45
