@@ -139,6 +139,23 @@ class CrossSeasonGenusSupportTests(unittest.TestCase):
             self.assertNotIn(forbidden,str(result))
         self.assertTrue(result["no_source_individual_or_geographic_ids_exported"])
 
+    def test_private_internal_units_keep_exact_original_three_night_dates(self):
+        plot,trap,taxa=two_seasons()
+        private=[]
+        summary=source_event_support(plot,trap,taxa,internal_units=private)
+        self.assertEqual(summary["eligible_primary_pairs"],1)
+        self.assertEqual(len(private),1)
+        self.assertEqual(
+            tuple(d.isoformat() for d in private[0]["capture_dates_A"]),
+            ("2022-04-02","2022-04-03","2022-04-04"),
+        )
+        self.assertEqual(
+            tuple(d.isoformat() for d in private[0]["capture_dates_B"]),
+            ("2022-07-02","2022-07-03","2022-07-04"),
+        )
+        for date_str in ("2022-04-02","2022-07-02"):
+            self.assertNotIn(date_str,str(summary))
+
     def test_complete_session_without_genus_assignments_does_not_qualify(self):
         p,t,taxa=two_seasons()
         only_effort=[r for r in t if r["trapStatus"]=="No capture"]
