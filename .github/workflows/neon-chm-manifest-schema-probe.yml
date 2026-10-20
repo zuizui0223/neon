@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install parser dependencies
+        run: python -m pip install numpy==2.1.1 rasterio==1.4.3
       - name: Inspect official tutorial site AOP query schema only
         run: |
           python - <<'PY'
