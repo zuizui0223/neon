@@ -254,6 +254,7 @@ def summarize_full_station_dated_coverage(
     sites_valid_plots=set()
     pair_full=0
     pair_95=0
+    pair_95_with_source_U=0
     plot_dates=defaultdict(set)
     unique_date_no_monument=set()
     unique_date_full_uncertainty=set()
@@ -269,6 +270,7 @@ def summarize_full_station_dated_coverage(
 
     for plot,days in capture_events:
         pair_station_per_day=[]
+        pair_U_status=[]
         for day in days:
             plot_dates[plot].add(day)
             info_by_station={}
@@ -317,7 +319,9 @@ def summarize_full_station_dated_coverage(
             ]
             if not values:
                 unique_date_no_monument.add((plot,day))
+                pair_U_status.append(False)
             else:
+                pair_U_status.append(True)
                 maximum=max(values)
                 if per_day==100:
                     unique_date_full_uncertainty.add((plot,day))
@@ -326,14 +330,26 @@ def summarize_full_station_dated_coverage(
                     adjustedU.append(float(u)+1 if u is not None else maximum+3)
         pair_full+=int(all(v==100 for v in pair_station_per_day))
         pair_95+=int(all(v>=95 for v in pair_station_per_day))
+        pair_95_with_source_U+=int(
+            all(v>=95 for v in pair_station_per_day) and all(pair_U_status)
+        )
 
     qualified_plots={
         plot for plot,counts in date_coverage_by_plot.items()
         if all(n>=95 for n in counts)
     }
+    qualified_plots_with_U={
+        plot for plot in qualified_plots
+        if all((plot,day) not in unique_date_no_monument
+               for day in plot_dates[plot])
+    }
     sites_valid_plots={key[0] for key in qualified_plots}
+    sites_U_plots={key[0] for key in qualified_plots_with_U}
     ok=(len(qualified_plots)>=min_plots and
-        len(sites_valid_plots)>=min_sites and pair_95>=min_pairs)
+        len(sites_valid_plots)>=min_sites and pair_95>=min_pairs
+        and len(qualified_plots_with_U)>=min_plots
+        and len(sites_U_plots)>=min_sites
+        and pair_95_with_source_U>=min_pairs)
     if total!=len(units)*6*100 or valid+sum(nohistory.values())!=total:
         raise AssertionError("Original 58×6×100 source denominator changed")
     per_plot_min=[min(values) for values in date_coverage_by_plot.values()]
@@ -371,6 +387,9 @@ def summarize_full_station_dated_coverage(
         "sites_with_at_least_one_qualified_plot":len(sites_valid_plots),
         "pairs_with_all_100_positions_valid_every_day":pair_full,
         "pairs_with_at_least_95_station_positions_valid_every_day":pair_95,
+        "pairs_with_at_least_95_positions_and_a_direct_U_every_day":pair_95_with_source_U,
+        "plots_with_qualified_geoneon_assumed_uncertainty":len(qualified_plots_with_U),
+        "sites_with_qualified_geoneon_assumed_uncertainty":len(sites_U_plots),
         "plot_minimum_valid_station_per_capture_date_summary":_dist(per_plot_min),
         "preregistered_minimum_qualified_plots":min_plots,
         "preregistered_minimum_qualified_sites":min_sites,
