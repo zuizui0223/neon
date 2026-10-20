@@ -397,6 +397,7 @@ def summarize_full_station_dated_coverage(
         "source_date_and_geographic_coverage_gate_passed":ok,
         "uncertainty_is_geoNEON_adjusted_assumption_not_empirical_confidence":True,
         "unknown_uncertainty_never_assumed_zero":True,
+        "unreported_uncertainty_assumed_zero":False,
         "unknown_positions_reconstructed_from_grid_geometry":False,
         "source_geographic_and_animal_ids_not_exported":True,
         "actual_CHM_at_each_station_date_not_validated":True,
