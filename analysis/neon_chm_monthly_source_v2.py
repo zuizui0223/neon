@@ -11,7 +11,11 @@ def _crc_integer(value):
     if isinstance(value,int) and not isinstance(value,bool) and 0<=value<=0xffffffff:return value
     if not isinstance(value,str):raise ValueError('unrecognized provider CRC encoding')
     s=value.strip()
-    if re.fullmatch(r'(?:0x)?[0-9a-fA-F]{8}',s):return int(s.removeprefix('0x'),16)
+    # Official NEON AOP monthly metadata uses variable-width hexadecimal
+    # CRC values: the source has 6-, 7- and 8-character CRC32C strings.
+    # Missing leading zero hex digits are NOT missing checksum bytes.
+    # Digit-only source strings are interpreted as HEX, not decimal.
+    if re.fullmatch(r'(?:0[xX])?[0-9a-fA-F]{1,8}',s):return int(s,16)
     try:
         raw=base64.b64decode(s,validate=True)
         if len(raw)==4:return int.from_bytes(raw,'big')
