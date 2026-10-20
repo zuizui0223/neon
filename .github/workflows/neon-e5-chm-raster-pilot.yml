@@ -1,0 +1,47 @@
+name: neon-e5-chm-raster-pilot
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_e5_chm_pilot_v1.py'
+      - 'analysis/run_neon_e5_chm_pilot_v1.py'
+      - 'tests/test_neon_e5_chm_pilot_v1.py'
+      - '.github/workflows/neon-e5-chm-raster-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-e5-chm-raster-pilot-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reference-pixel-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned raster reader
+        run: python -m pip install numpy==2.1.1 rasterio==1.4.3
+      - name: Test synthetic raster masks, exact CRS and released byte checks
+        run: python -m unittest discover -s tests -p 'test_neon_e5_chm_pilot_v1.py' -v
+      - name: Require existing source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Reconstruct original cohort and read released canopy raster at E5 only
+        run: python -m analysis.run_neon_e5_chm_pilot_v1
+      - name: Archive aggregate access and validity counts only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-e5-chm-reference-pixel-access-v1
+          path: build/neon_e5_chm_raster_pilot_v1.json
+          if-no-files-found: warn
+          retention-days: 45
