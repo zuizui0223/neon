@@ -13,7 +13,8 @@ from analysis.neon_graphql_dated_station_source_v1 import (
     summarize_full_station_dated_coverage,
 )
 from analysis.neon_graphql_source_diagnostic_v1 import (
-    source_stop_receipt, SOURCE_PHASES,
+    source_stop_receipt, SOURCE_PHASES, 
+    safe_rest_graphql_diff_groups, summarize_preflight_diff_groups,
 )
 
 
@@ -82,6 +83,48 @@ class NEONGraphQLDateSourceTests(unittest.TestCase):
                               ValueError("Date projection refused"))
         self.assertEqual(o["failure_stage"],"ALL_STATION_DATE_COVERAGE")
         self.assertTrue(o["any_habitat_or_density_W_B_effect_computed"] is False)
+
+    def test_source_api_diagnostic_groups_without_source_values(self):
+        rest=document("SECRET.T.A1")
+        gql=document("SECRET.T.A1")
+        # Different current-field representation without changed date or XYZ.
+        gql["locationHistory"][0]["current"]=None
+        out=safe_rest_graphql_diff_groups(rest,gql)
+        self.assertIn("HISTORY_CURRENT_FIELD",out)
+        self.assertNotIn("SECRET",str(out))
+        self.assertNotIn("500123",str(out))
+        self.assertNotIn("2020-01-01",str(out))
+
+        other=document("SECRET.T.A1",[record(x=500124.)])
+        out=safe_rest_graphql_diff_groups(rest,other)
+        self.assertIn("HISTORY_UTM_COORDINATES",out)
+        self.assertNotIn("500124",str(out))
+
+    def test_source_diagnostics_separate_properties_and_time(self):
+        rest=document("SECRET.T.A1")
+        gql=document("SECRET.T.A1")
+        gql["locationProperties"][0]["locationPropertyValue"]="NAD83"
+        gql["locationHistory"][0]["locationEndDate"]="2021-01-01T00:00:00Z"
+        out=safe_rest_graphql_diff_groups(rest,gql)
+        self.assertIn("ROOT_LOCATION_PROPERTIES",out)
+        self.assertIn("HISTORY_VALIDITY_INTERVAL",out)
+        self.assertNotIn("NAD83",str(out))
+        self.assertNotIn("2021",str(out))
+
+    def test_identical_source_equivalence_diff_is_empty(self):
+        rest=document("SECRET.T.A1")
+        gql=document("SECRET.T.A1")
+        self.assertEqual(safe_rest_graphql_diff_groups(rest,gql),[])
+        agg=summarize_preflight_diff_groups([
+            safe_rest_graphql_diff_groups(rest,gql),
+            safe_rest_graphql_diff_groups(rest,document("SECRET.T.A1",
+                                  [record(x=500300.)]))
+        ])
+        self.assertEqual(agg["source_documents_compared"],2)
+        self.assertEqual(agg["source_documents_with_differences"],1)
+        self.assertEqual(agg["safe_field_group_counts"]["HISTORY_UTM_COORDINATES"],1)
+        for secret in ("SECRET","500300"):
+            self.assertNotIn(secret,str(agg))
 
     def test_api_query_is_official_batched_findLocations_with_history(self):
         self.assertIn("findLocations(query: $query)",GRAPHQL_QUERY)
