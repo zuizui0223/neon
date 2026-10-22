@@ -34,6 +34,7 @@ from analysis.audit_neon_dated_five_anchor_feasibility_v1 import (
 from analysis.audit_neon_lineage_environmental_source_coverage_v1 import (
     GEO_LOCATION_ISSUE_GRIDS
 )
+from analysis.neon_graphql_source_diagnostic_v1 import source_stop_receipt
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"build/neon_3000_station_dated_graphql_v1.json"
@@ -41,6 +42,12 @@ FIVE=ROOT/"results/neon_dated_five_anchor_feasibility_receipt_20261021.json"
 GRAPHQL="https://data.neonscience.org/graphql"
 MAX_BATCH=500
 COMPARE_REST=5
+CURRENT_SOURCE_PHASE="PRECHECK_EXISTING_FIVE_ANCHOR_RECEIPT"
+
+
+def _phase(value:str)->None:
+    global CURRENT_SOURCE_PHASE
+    CURRENT_SOURCE_PHASE=value
 
 
 def require(ok:bool,why:str):
@@ -72,6 +79,7 @@ def run()->dict:
             and five["sites_with_at_least_one_fully_valid_plot"]==14
             and five["plots_fully_valid_for_all_included_capture_days"]==30,
             "frozen five-location original capture day gate has changed")
+    _phase("ORIGINAL_MAMMAL_SOURCE_RECONSTRUCTION")
     units,cohort,sites,names,source=reconstruct(token)
     require((len(units),len(cohort),len(sites))==(58,30,14),
             "original source population no longer 58/30/14")
@@ -83,6 +91,7 @@ def run()->dict:
 
     # Keep plot-station source names and source keys in ephemeral process
     # memory only. Never print IDs in errors, logs or result artifacts.
+    _phase("BUILD_EXACT_3000_SOURCE_NAMES")
     private_names={
         next(iter(names[plot]))+"."+station:(plot[0],plot[1],station)
         for plot in sorted(cohort) for station in stations
@@ -93,10 +102,13 @@ def run()->dict:
 
     # Equivalence preflight against the known-good original REST history.
     original_five=all_names[:COMPARE_REST]
+    _phase("GRAPHQL_FIVE_NAME_PREFLIGHT")
     check_response=_gql(original_five,token)
+    _phase("GRAPHQL_FIVE_NAME_PARSE")
     check_docs=parse_graphql_locations(check_response,original_five)
     require(len(check_docs)==COMPARE_REST,
             "GraphQL lacks a complete verified five-name source preflight")
+    _phase("REST_GRAPHQL_HISTORY_EQUIVALENCE")
     REST_sha=[]
     for name in original_five:
         rest=_request_json(BASE+"locations/"+quote(name,safe="")+"?history=true",
@@ -111,6 +123,7 @@ def run()->dict:
         )
         REST_sha.append(digest(rest))
 
+    _phase("GRAPHQL_FULL_3000_BATCHES")
     source_docs={}
     graphql_response_hashes=[]
     n_returned=0
@@ -138,6 +151,7 @@ def run()->dict:
         for (site,plot,station),doc in source_docs.items()
         if station in original_five_names
     }
+    _phase("VERIFY_FIVE_ORIGINAL_CAPTURE_DAYS")
     five_recheck=summarize_five_anchor_date_history(
         units,five_histories,
         expected_pairs=58,expected_sites=14,expected_plots=30,
@@ -154,6 +168,7 @@ def run()->dict:
     }
     require(len(flagged)==4,"Published four-grid geolocation source issue roster changed")
 
+    _phase("ALL_STATION_DATE_COVERAGE")
     audit=summarize_full_station_dated_coverage(
         units,source_docs,expected_pairs=58,expected_sites=14,
         expected_plots=30,min_pairs=40,min_sites=8,min_plots=20,
@@ -162,6 +177,7 @@ def run()->dict:
     require(audit["original_source_plots_geolocation_issue_count"]==4
             and audit["fixed_original_station_date_attempts"]==34800,
             "Canonical source original 34,800-day geolocation denominator drifted")
+    _phase("FINAL_AGGREGATE_SOURCE_RECEIPT")
     return {
         **audit,
         "source_provenance":{
@@ -206,13 +222,7 @@ def main()->int:
         result=run()
         code=0 # A real scientific source STOP still produces a valid receipt.
     except Exception as exc:
-        result={
-            "schema":"neon.mammal.original_100_station_dated_source_QA.v1",
-            "status":"STOP_SOURCE_GRAPHQL_REST_EQUIVALENCE_OR_ORIGINAL_COHORT",
-            "error_class":type(exc).__name__,
-            "source_station_or_animal_ids_exported":False,
-            "any_habitat_or_density_W_B_effect_computed":False,
-        }
+        result=source_stop_receipt(CURRENT_SOURCE_PHASE,exc)
         code=3
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",
