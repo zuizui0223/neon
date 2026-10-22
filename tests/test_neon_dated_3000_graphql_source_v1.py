@@ -12,6 +12,9 @@ from analysis.neon_graphql_dated_station_source_v1 import (
     validate_history_projection,
     summarize_full_station_dated_coverage,
 )
+from analysis.neon_graphql_source_diagnostic_v1 import (
+    source_stop_receipt, SOURCE_PHASES,
+)
 
 
 def record(u="2020-01-01",end=None,x=500123.,unc="1.5"):
@@ -55,6 +58,31 @@ def all100():
 
 
 class NEONGraphQLDateSourceTests(unittest.TestCase):
+    def test_source_failure_phase_categorized_without_leaking_private_names(self):
+        self.assertIn("REST_GRAPHQL_HISTORY_EQUIVALENCE",SOURCE_PHASES)
+        o=source_stop_receipt(
+            "REST_GRAPHQL_HISTORY_EQUIVALENCE",
+            ValueError("BAD hidden source SITE.PLOT.A1 tag SECRET_ID token xyz"),
+        )
+        self.assertEqual(o["failure_stage"],"REST_GRAPHQL_HISTORY_EQUIVALENCE")
+        self.assertEqual(o["error_class"],"ValueError")
+        self.assertEqual(o["safe_reason_class"],"SOURCE_HISTORY_OR_COMPARISON_SCHEMA")
+        self.assertNotIn("SITE.PLOT",str(o))
+        self.assertNotIn("SECRET_ID",str(o))
+        self.assertNotIn("xyz",str(o))
+
+    def test_stop_reason_cannot_echo_arbitrary_unvalidated_stage(self):
+        o=source_stop_receipt("SECRET_SOURCE_SITE",RuntimeError("privacy trap"))
+        self.assertEqual(o["failure_stage"],"UNCLASSIFIED_SOURCE_PHASE")
+        self.assertNotIn("SECRET",str(o))
+        self.assertNotIn("privacy trap",str(o))
+
+    def test_exact_approved_coverage_phase_is_preserved(self):
+        o=source_stop_receipt("ALL_STATION_DATE_COVERAGE",
+                              ValueError("Date projection refused"))
+        self.assertEqual(o["failure_stage"],"ALL_STATION_DATE_COVERAGE")
+        self.assertTrue(o["any_habitat_or_density_W_B_effect_computed"] is False)
+
     def test_api_query_is_official_batched_findLocations_with_history(self):
         self.assertIn("findLocations(query: $query)",GRAPHQL_QUERY)
         self.assertIn("locationHistory",GRAPHQL_QUERY)
