@@ -7,6 +7,7 @@ on:
     paths:
       - "analysis/neon_graphql_dated_station_source_v1.py"
       - "analysis/run_neon_3000_station_dated_graphql_v1.py"
+      - "analysis/neon_graphql_source_diagnostic_v1.py"
       - "tests/test_neon_dated_3000_graphql_source_v1.py"
       - ".github/workflows/neon-3000-dated-station-graphql-source.yml"
   workflow_dispatch:
