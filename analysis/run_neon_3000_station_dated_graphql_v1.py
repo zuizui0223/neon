@@ -34,7 +34,10 @@ from analysis.audit_neon_dated_five_anchor_feasibility_v1 import (
 from analysis.audit_neon_lineage_environmental_source_coverage_v1 import (
     GEO_LOCATION_ISSUE_GRIDS
 )
-from analysis.neon_graphql_source_diagnostic_v1 import source_stop_receipt
+from analysis.neon_graphql_source_diagnostic_v1 import (
+    source_stop_receipt, safe_rest_graphql_diff_groups,
+    summarize_preflight_diff_groups, SourcePreflightMismatch,
+)
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"build/neon_3000_station_dated_graphql_v1.json"
@@ -110,18 +113,32 @@ def run()->dict:
             "GraphQL lacks a complete verified five-name source preflight")
     _phase("REST_GRAPHQL_HISTORY_EQUIVALENCE")
     REST_sha=[]
+    safe_differences=[]
     for name in original_five:
         rest=_request_json(BASE+"locations/"+quote(name,safe="")+"?history=true",
                            token=token)
         rest_obj=rest.get("data")
         require(isinstance(rest_obj,dict),
                 "Original REST source location metadata invalid")
-        require(
-            canonical_station_history_for_comparison(rest_obj)==
-            canonical_station_history_for_comparison(check_docs[name]),
-            "Official REST and GraphQL source history mismatch",
-        )
+        details=safe_rest_graphql_diff_groups(rest_obj,check_docs[name])
+        # A normalization/shape issue is not license to bypass original
+        # source equality. It becomes a SOURCE STOP with aggregate groups.
+        try:
+            equivalent=(
+                canonical_station_history_for_comparison(rest_obj)==
+                canonical_station_history_for_comparison(check_docs[name])
+            )
+        except (ValueError,TypeError,KeyError,OverflowError):
+            equivalent=False
+            details=sorted(set(details)|{"CANONICAL_COMPARISON_PARSE_ERROR"})
+        if not equivalent and not details:
+            details=["OTHER_CANONICAL_FIELDS"]
+        safe_differences.append(details)
         REST_sha.append(digest(rest))
+    if any(safe_differences):
+        raise SourcePreflightMismatch(
+            summarize_preflight_diff_groups(safe_differences)
+        )
 
     _phase("GRAPHQL_FULL_3000_BATCHES")
     source_docs={}
