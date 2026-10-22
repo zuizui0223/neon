@@ -1,0 +1,135 @@
+{
+  "schema": "neon.corrected_uniform_null.verified_aggregate_receipt.v2",
+  "date": "2026-10-20",
+  "status": "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
+  "receipt_scope": "Verified aggregate summary of the complete machine-generated workflow artifact; complete 58-unit diagnostics retained in that artifact, not duplicated here",
+  "provenance": {
+    "repository": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "workflow": "neon-uniform-null-correction-v2",
+    "run_id": 39370044411,
+    "job_id": 118455621391,
+    "head_commit_at_run": "4f7d7288dde3d5e627bdaa08263e61a1a2b3af76",
+    "conclusion": "success",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39370044411",
+    "artifact_id": 12241137829,
+    "artifact_name": "neon-uniform-null-correction-v2",
+    "artifact_zip_bytes": 7089,
+    "artifact_zip_sha256": "92961984ebedc33abfd410ae9d587cf6eb2cbe69c1ec252d1c05c455938c56cb",
+    "artifact_json": "neon_uniform_null_correction_v2.json",
+    "downloaded_artifact_SHA256_verified_locally": true,
+    "aggregate_arithmetic_verified_against_downloaded_artifact": true
+  },
+  "source": {
+    "release": "RELEASE-2026",
+    "source_files_MD5_checked": 3547,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827,
+    "original_58_source_support_reproduced": true,
+    "same_cohort_genus_labels_station_margins_and_tag_exclusions": true
+  },
+  "correction": {
+    "previous_implementation": "Count only accepted row-pair swaps, discarding failed proposals",
+    "defect": "Accepted-only jump chain generally samples fixed-margin states nonuniformly",
+    "corrected_implementation": "One lazy symmetric row-pair proposal per step; every failed proposal and hold counts",
+    "uniform_stationary_distribution_not_finite_time_exact_independent_sampling": true,
+    "post_result_correctness_reanalysis_not_new_independent_confirmation": true,
+    "original_p_values_retained_as_historical_not_validated_uniform_null_inference": true,
+    "proof_record": "results/neon_sampler_finite_state_audit_20261020.json",
+    "frozen_corrective_plan": "docs/NEON_NULL_PROPOSAL_CLOCK_CORRECTION_20261020.md"
+  },
+  "sampler_quality": {
+    "tested_units": 58,
+    "passing_units": 58,
+    "dropped_units": 0,
+    "chains_per_unit": 2,
+    "retained_draws_per_chain": 2000,
+    "burn_proposals_per_chain": 10000,
+    "spacing_proposals": 100,
+    "seed_base": 2026102001,
+    "second_chain_seed_offset": 1000003,
+    "max_split_Rhat": 1.0013467790067694,
+    "minimum_batch_means_ESS": 1023.9470598171469,
+    "mean_absolute_unit_Z_change": 0.029074003440124917,
+    "maximum_absolute_unit_Z_change": 0.1501601854715684,
+    "finite_state_and_sampler_tests_passed": 7
+  },
+  "full_14site": {
+    "physical_sites": 14,
+    "seasonal_pairs": 58,
+    "historical_accepted_clock_mean_Z": 0.8007420166137748,
+    "corrected_site_mean_Z": 0.7946637727454396,
+    "positive_site_means": 11,
+    "signflip_p_descriptive_only": 0.00103759765625,
+    "independent_product_null": {
+      "draws": 100000,
+      "exceedances": 0,
+      "plus_one_p": 0.00000999990000099999,
+      "null_mean": -0.00016505286015741405,
+      "null_sd": 0.16828882522793154,
+      "null_q025": -0.3259066599331565,
+      "null_q975": 0.33038914981905915,
+      "p_is_finite_simulation_resolution_floor": true
+    },
+    "within_site_comonotone_stress": {
+      "draws": 20000,
+      "exceedances": 24,
+      "plus_one_p": 0.0012499375031248437,
+      "null_q025": -0.5057093677695678,
+      "null_q975": 0.5141375150459259,
+      "not_a_proven_bound_for_all_joint_nulls": true
+    }
+  },
+  "source_disjoint_12site": {
+    "source_only_excluded_sites": 2,
+    "source_only_excluded_pairs": 12,
+    "physical_sites": 12,
+    "seasonal_pairs": 46,
+    "source_season_keys_reused_between_pairs": 0,
+    "historical_accepted_clock_mean_Z": 0.8497742041226968,
+    "corrected_site_mean_Z": 0.8431617303483938,
+    "positive_site_means": 10,
+    "signflip_p_descriptive_only": 0.001220703125,
+    "independent_product_null": {
+      "draws": 100000,
+      "exceedances": 0,
+      "plus_one_p": 0.00000999990000099999,
+      "null_mean": 0.000534456250176995,
+      "null_sd": 0.19053092301725932,
+      "null_q025": -0.3695569389644985,
+      "null_q975": 0.37617587841903016,
+      "p_is_finite_simulation_resolution_floor": true
+    },
+    "within_site_comonotone_stress": {
+      "draws": 20000,
+      "exceedances": 41,
+      "plus_one_p": 0.0020998950052497373,
+      "null_q025": -0.5541269409449179,
+      "null_q975": 0.5530133377008518,
+      "not_a_proven_bound_for_all_joint_nulls": true
+    }
+  },
+  "scientific_boundaries": {
+    "current_claim": "Genus-associated nominal trap positions recur across adjacent seasons among nonshared observed tagged-animal sets, beyond the specified fixed-margin conditional null",
+    "conditional_positive_pattern_survives_corrected_sampler_and_two_site_exclusion": true,
+    "not_new_independent_ecological_replication": true,
+    "p_values_not_pooled_or_selected_for_significance": true,
+    "shared_source_season_exclusion_does_not_remove_all_ecological_dependence": true,
+    "genus_specific_detection_bias_excluded": false,
+    "causal_competition_or_habitat_filtering_established": false,
+    "biological_demographic_replacement_or_species_identity_proven": false,
+    "San_Jacinto_species_level_source_not_recalibrated_in_this_run": true,
+    "old_density_W_B_generalization": "FAILED_5_OF_8",
+    "MOSA_W_B": "SEALED",
+    "manuscript_status": "DRAFT; disclose correction and retain observational scope"
+  },
+  "global_CI_status_at_run_head": {
+    "run_id": 39370049147,
+    "tests_run": 429,
+    "errors": 1,
+    "skipped": 3,
+    "error": "Pre-existing missing module analysis.audit_neon_lineage_environmental_source_coverage_v1",
+    "corrected_sampler_seven_tests_passed_in_global_CI": true,
+    "dedicated_correction_workflow_success_is_not_global_CI_success": true
+  }
+}

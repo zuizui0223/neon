@@ -1,0 +1,33 @@
+{
+  "schema": "neon.multiscale_density.development_cross_platform_check.v1",
+  "date": "2026-10-06",
+  "status": "NUMERICALLY_REPRODUCED_ACROSS_GITHUB_HOSTED_UBUNTU_AND_MACOS",
+  "ubuntu": {
+    "workflow": "multiscale-density-development-fit",
+    "run_id": 37425319377,
+    "job_id": 112143548409,
+    "head_sha": "81b6203f4b587bc2e7241ee6a34397579ce41b91",
+    "artifact_id": 11394373693,
+    "artifact_digest": "sha256:c14a999f2e80f9d37aea0e006e65ec436b725ad3be7cd34da9ec3345878f008b"
+  },
+  "macos": {
+    "workflow": "multiscale-density-development-fit-macos",
+    "run_id": 37425470104,
+    "job_id": 112144006948,
+    "head_sha": "0e726f6a613e2b8cd62595ab04c843923eca2d0a",
+    "artifact_id": 11394654483,
+    "artifact_digest": "sha256:775a534fe919601eadf51f79a8063cb1368faa9a02b2180876327ab4574d3438"
+  },
+  "comparison": {
+    "primary_delta_beta_absolute_difference": 0,
+    "two_way_cluster_se_absolute_difference": 2.842170943040401e-14,
+    "beta_W_absolute_difference": 1.7763568394002505e-15,
+    "beta_B_debiased_absolute_difference": 1.7763568394002505e-15,
+    "maximum_session_level_numeric_difference": 4.547473508864641e-13,
+    "session_keys_identical": true,
+    "analysis_session_count_identical": true,
+    "analysis_series_count_identical": true,
+    "positive_genus_count_identical": true
+  },
+  "conclusion": "development result and generality-guard failure are numerically platform independent to floating-point precision"
+}

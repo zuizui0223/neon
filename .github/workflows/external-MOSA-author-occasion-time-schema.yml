@@ -1,0 +1,40 @@
+name: external-MOSA-author-occasion-time-schema
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_author_time_session_schema_v1.py"
+      - "tests/test_mosa_author_time_session_schema_v1.py"
+      - ".github/workflows/external-MOSA-author-occasion-time-schema.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-author-time-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-time:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test fail-closed source date and CSV semantics
+        run: python -m unittest discover -s tests -p 'test_mosa_author_time_session_schema_v1.py' -v
+      - name: Read published time-variable metadata without species-spatial effects
+        run: python -m analysis.audit_mosa_author_time_session_schema_v1
+      - name: Archive published methods/occasion schema receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-author-occasion-time-schema-v1
+          path: build/mosa_author_capture_occasion_time_schema_v1.json
+          if-no-files-found: warn
+          retention-days: 30

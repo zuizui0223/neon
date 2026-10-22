@@ -1,0 +1,105 @@
+{
+  "direct_null_calibration": {
+    "competition_or_habitat_mechanism_proven": false,
+    "conditional_product_assumes_independent_unit_B_randomization": true,
+    "genus_specific_detection_bias_excluded": false,
+    "monte_carlo_binomial_se_conditional": 0.000009999850001874979,
+    "monte_carlo_replicates": 100000,
+    "monte_carlo_seed": 2026101902,
+    "null_T_mean": 0.0003295035202952345,
+    "null_T_quantile_025": -0.32875613636631185,
+    "null_T_quantile_50": -0.00024023302502898633,
+    "null_T_quantile_95": 0.2781291613193339,
+    "null_T_quantile_975": 0.3312017608095169,
+    "null_T_sd": 0.16865227245909595,
+    "observed_equal_site_weighted_mean_z": 0.8007420166137748,
+    "one_sided_p_with_plus_one": 0.00000999990000099999,
+    "original_preregistered_signflip_result_unchanged": true,
+    "overlapping_season_pair_covariance_not_preserved": true,
+    "physical_sites": 14,
+    "post_result_calibration_not_new_confirmatory_test": true,
+    "prior_density_W_B_effects_refitted": false,
+    "product_null_disallows_signflip_symmetry_assumption": true,
+    "raw_source_labels_or_null_draw_arrays_exported": false,
+    "schema": "neon.crossseason.direct_site_weighted_product_null.v1",
+    "seasonal_units": 58,
+    "site_means_weighted_equally": true,
+    "status": "SECONDARY_CONDITIONAL_PRODUCT_NULL_CALIBRATED_NOT_INDEPENDENT_CONFIRMATION",
+    "unit_null_chain_vectors_retained_only_in_memory": true,
+    "upper_tail_exceedances": 0
+  },
+  "interpretation": {
+    "MOSA_W_B_effects": "SEALED",
+    "genetic_species_identity_or_demographic_replacement_established": false,
+    "next": "Treat this as secondary post-result site statistic calibration. Do not upgrade biological mechanism or publication readiness without independent review of shared-season source dependence and persistent genus-specific capture heterogeneity.",
+    "no_site_sign_exchangeability_assumed_in_conditional_product_null": true,
+    "original_Peromyscus_temporal_directional_validation": "NOT_REPLICATED_IMPRECISE",
+    "original_density_space_generality": "FAILED_5_OF_8",
+    "original_fixed_total_FC_conservative_matching": "ZERO_SAME_SEASON_PAIRS",
+    "positive_site_template_pattern_if_supported_bounded_to_capture_locations": true,
+    "post_result_conditional_calibration_not_independent_confirmation": true,
+    "shared_season_dependence_not_jointly_preserved": true,
+    "site_genus_detection_and_habitat_filters_unresolved": true,
+    "empirical_p_is_simulation_resolution_floor": "0/100000 exceedances; plus-one 1/100001 not exact known p",
+    "two_affected_shared_season_sites_identified_from_source_only": true,
+    "original_density_paper_failed": "FAILED_5_OF_8",
+    "no_causal_competition_conclusion": true
+  },
+  "old_density_W_B_responses_reanalysed": false,
+  "original_primary_result_unmodified": {
+    "all_original_58_null_chain_Zs_and_14_site_means_reproduced": true,
+    "original_physical_sites": 14,
+    "original_seasonal_units": 58,
+    "positive_physical_site_means": 11,
+    "site_mean_Z": 0.8007420166137748,
+    "site_signflip_one_sided_p": 0.00115966796875,
+    "status": "SUPPORT_MULTI_SITE_GENUS_TEMPLATE_REASSEMBLY"
+  },
+  "raw_source_coordinates_genus_taxon_site_or_animal_identifiers_exported": false,
+  "raw_unit_null_MCMC_draws_exported": false,
+  "record_date": "2026-10-19",
+  "reused_season_dependence_diagnostic": {
+    "distinct_site_plot_season_keys": 113,
+    "joint_shared_season_covariance_not_preserved": true,
+    "number_seasonal_units": 58,
+    "physical_sites_with_any_adjacent_pair_season_reuse": 2,
+    "raw_site_plot_and_season_identifiers_exported": false,
+    "season_keys_used_in_multiple_pair_roles": 3,
+    "source_pair_roles_at_reused_seasons": 6
+  },
+  "schema": "neon.crossseason.site_mean_direct_conditional_null.v1",
+  "source": {
+    "checksum_MD5_verified_files": 3547,
+    "original_plot_csvs": 1773,
+    "original_trap_csvs": 1707,
+    "product": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "same_genus_trap_A_and_B_and_tag_exclusion_as_primary": true,
+    "same_original_58_unit_14_site_cohort": true,
+    "source_identity_and_location_values_not_exported": true
+  },
+  "status": "SECONDARY_CONDITIONAL_PRODUCT_NULL_SUPPORTS_DIRECTION_WITH_DEPENDENCE_CAVEAT",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39218422021,
+    "job_id": 117947698571,
+    "head_commit_at_run": "2c655d807d5a3a431ff4e63d2ed4cb4f6a5b11e2",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "id": 12170048627,
+        "name": "neon-crossseason-direct-site-null-calibration-v1",
+        "digest": "sha256:857f659d152dc70a948683cfd97389bbe32ac910648e15255ca8d5c34b65fdd9"
+      }
+    ],
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39218422021"
+  },
+  "relation_to_existing_secondary_calibration": {
+    "existing_record": "results/neon_crossseason_direct_site_null_calibration_receipt_20261019.json",
+    "same_original_cohort": true,
+    "independently_coded_100k_replication_of_independent_unit_product_null": true,
+    "comonotone_within_site_stress_covered_by_existing_record": true,
+    "not_new_confirmatory_study": true
+  }
+}

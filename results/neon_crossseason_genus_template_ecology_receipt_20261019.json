@@ -1,0 +1,699 @@
+{
+  "claim_boundary": {
+    "F_C_fixed_total_identification": "HISTORICAL_NO_CONSERVATIVE_DIRECT_PAIRS",
+    "MOSA_W_B_effects": "SEALED",
+    "activity_centres_telemetry_or_movement_estimated": false,
+    "capture_detectability_standardized_across_genera": false,
+    "causal_competition_or_habitat_filtering_proven": false,
+    "ecological_main_endpoint_opened": true,
+    "individual_identity_linkage_beyond_source_tag_proven": false,
+    "negative_or_stop_result_retained_unchanged": true,
+    "no_raw_animal_ids_or_site_codes_exported": true,
+    "original_eight_genus_density_generality": "FAILED_5_OF_8",
+    "site_test_criterion_supported": true,
+    "taxon_resolution_genus_not_species": true
+  },
+  "frozen_design": {
+    "accepted_swap_burnin": 1000,
+    "accepted_swaps_between_draws": 40,
+    "alpha_one_sided": 0.05,
+    "document": "docs/NEON_CROSS_SEASON_GENUS_SPATIAL_TEMPLATE_DESIGN_20261019.md",
+    "global_primary_inference": "physical NEON site means of unit Z; exact 2^site sign flips if <=18 sites",
+    "minimum_approx_effective_null_draws": 200,
+    "minimum_canonical_traps_per_night": 90,
+    "minimum_genera_per_unit": 3,
+    "minimum_informative_physical_sites": 8,
+    "minimum_replaced_tagged_individuals_per_genus_per_season": 2,
+    "no_additional_environmental_moderators_examined": true,
+    "null_randomization": "binary season-B 2x2 fixed-fixed swaps; each genus occupancy and each station season-B richness preserved",
+    "null_replicates_per_unit": 2000,
+    "original_eligible_pairs": 58,
+    "original_eligible_physical_sites": 14,
+    "random_seed": 2026101901,
+    "season_A_matrix_fixed": true,
+    "shared_marked_individuals_excluded_from_both_seasons": true,
+    "target_source_site_plot_adjacent_meteorological_seasons": true,
+    "taxon_rank": "genus; species-group and uncertain species retained at genus level"
+  },
+  "independent_site_ecology": {
+    "ecological_site_level_criterion_passed": true,
+    "informative_seasonal_units": 58,
+    "one_sided_site_signflip_p": 0.00115966796875,
+    "physical_sites": 14,
+    "positive_site_means": 11,
+    "schema": "neon.crossseason_site_block_primary_test.v1",
+    "signflip_exact_given_site_statistics": true,
+    "signflip_samples": 16384,
+    "site_Z_means_sorted_ascending": [
+      -0.22041615409234835,
+      -0.1814162643011947,
+      -0.0481056663939734,
+      0.21623258519776653,
+      0.27630956162269976,
+      0.2797808750344952,
+      0.3588869947693908,
+      0.7003441001037978,
+      0.721621203296151,
+      0.8854942017617811,
+      1.19451404742168,
+      2.0146141200663674,
+      2.2955726484409915,
+      2.716955979665242
+    ],
+    "site_level_inference_not_season_pair_pseudoreplication": true,
+    "site_mean_Z_mean": 0.8007420166137748,
+    "site_mean_Z_median": 0.5296155474365942,
+    "site_names_exported": false,
+    "status": "SUPPORT_MULTI_SITE_GENUS_TEMPLATE_REASSEMBLY"
+  },
+  "informative_unit_source_geometry_summary": {
+    "informative_site_count": 14,
+    "informative_unit_count": 58,
+    "unlabelled_unit_diagnostics": [
+      {
+        "approx_effective_null_draws_lag1": 1886.964903346498,
+        "lag1_overlap_autocorrelation": 0.02908055499965636,
+        "observed_genus_trap_cells_season_A": 26,
+        "observed_genus_trap_cells_season_B": 51,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.1101809973988552
+      },
+      {
+        "approx_effective_null_draws_lag1": 1507.064074524398,
+        "lag1_overlap_autocorrelation": 0.14055515240121486,
+        "observed_genus_trap_cells_season_A": 36,
+        "observed_genus_trap_cells_season_B": 69,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.3330614091934468
+      },
+      {
+        "approx_effective_null_draws_lag1": 1797.2941297866944,
+        "lag1_overlap_autocorrelation": 0.05338166159509275,
+        "observed_genus_trap_cells_season_A": 30,
+        "observed_genus_trap_cells_season_B": 52,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9979302188054405,
+        "z": -0.6185554226914558
+      },
+      {
+        "approx_effective_null_draws_lag1": 1764.4536818742883,
+        "lag1_overlap_autocorrelation": 0.0625711824427164,
+        "observed_genus_trap_cells_season_A": 53,
+        "observed_genus_trap_cells_season_B": 42,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9999753092516234,
+        "z": 1.3363294122302374
+      },
+      {
+        "approx_effective_null_draws_lag1": 1908.9852149505155,
+        "lag1_overlap_autocorrelation": 0.023283481529012752,
+        "observed_genus_trap_cells_season_A": 58,
+        "observed_genus_trap_cells_season_B": 12,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.9048115016252414
+      },
+      {
+        "approx_effective_null_draws_lag1": 1818.4089275948031,
+        "lag1_overlap_autocorrelation": 0.047556737858241965,
+        "observed_genus_trap_cells_season_A": 56,
+        "observed_genus_trap_cells_season_B": 52,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.8988813920454546,
+        "z": 2.686333795256741
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.004349833253335414,
+        "observed_genus_trap_cells_season_A": 46,
+        "observed_genus_trap_cells_season_B": 22,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9995310841827291,
+        "z": 1.1027587371430145
+      },
+      {
+        "approx_effective_null_draws_lag1": 1938.0269322826816,
+        "lag1_overlap_autocorrelation": 0.015737085800323774,
+        "observed_genus_trap_cells_season_A": 12,
+        "observed_genus_trap_cells_season_B": 16,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.9694513082624847
+      },
+      {
+        "approx_effective_null_draws_lag1": 1495.9045261113763,
+        "lag1_overlap_autocorrelation": 0.144196007105877,
+        "observed_genus_trap_cells_season_A": 41,
+        "observed_genus_trap_cells_season_B": 51,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9998889012331963,
+        "z": 2.2825658718338375
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.03546065831940084,
+        "observed_genus_trap_cells_season_A": 60,
+        "observed_genus_trap_cells_season_B": 21,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.195635953994686
+      },
+      {
+        "approx_effective_null_draws_lag1": 1972.0852809876046,
+        "lag1_overlap_autocorrelation": 0.007027723988205748,
+        "observed_genus_trap_cells_season_A": 32,
+        "observed_genus_trap_cells_season_B": 21,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.7341355007493945
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.008146470249919427,
+        "observed_genus_trap_cells_season_A": 32,
+        "observed_genus_trap_cells_season_B": 38,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.980107448816611,
+        "z": 1.3508079140454519
+      },
+      {
+        "approx_effective_null_draws_lag1": 1916.1938029996354,
+        "lag1_overlap_autocorrelation": 0.02139991052949745,
+        "observed_genus_trap_cells_season_A": 27,
+        "observed_genus_trap_cells_season_B": 37,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.9766864688973704
+      },
+      {
+        "approx_effective_null_draws_lag1": 1978.9453398628327,
+        "lag1_overlap_autocorrelation": 0.005291517811574981,
+        "observed_genus_trap_cells_season_A": 36,
+        "observed_genus_trap_cells_season_B": 17,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.7570694346061944
+      },
+      {
+        "approx_effective_null_draws_lag1": 1492.9816903215094,
+        "lag1_overlap_autocorrelation": 0.14515344042121858,
+        "observed_genus_trap_cells_season_A": 31,
+        "observed_genus_trap_cells_season_B": 51,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9999382754150978,
+        "z": 1.0134395036340602
+      },
+      {
+        "approx_effective_null_draws_lag1": 1333.0424575273125,
+        "lag1_overlap_autocorrelation": 0.20010472442870827,
+        "observed_genus_trap_cells_season_A": 22,
+        "observed_genus_trap_cells_season_B": 60,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.999925931412488,
+        "z": 0.48663186609626274
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.026415955315811607,
+        "observed_genus_trap_cells_season_A": 41,
+        "observed_genus_trap_cells_season_B": 29,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.7077826047874065
+      },
+      {
+        "approx_effective_null_draws_lag1": 1650.3136961663918,
+        "lag1_overlap_autocorrelation": 0.09579623367735589,
+        "observed_genus_trap_cells_season_A": 51,
+        "observed_genus_trap_cells_season_B": 55,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.998766954377312,
+        "z": 0.21623258519776653
+      },
+      {
+        "approx_effective_null_draws_lag1": 1610.071130248811,
+        "lag1_overlap_autocorrelation": 0.10801140910603457,
+        "observed_genus_trap_cells_season_A": 43,
+        "observed_genus_trap_cells_season_B": 78,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9792543159727259,
+        "z": 2.7371721801262594
+      },
+      {
+        "approx_effective_null_draws_lag1": 1856.6321817144085,
+        "lag1_overlap_autocorrelation": 0.037174356155960826,
+        "observed_genus_trap_cells_season_A": 91,
+        "observed_genus_trap_cells_season_B": 42,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 2.2772085304492204
+      },
+      {
+        "approx_effective_null_draws_lag1": 1384.0942772501962,
+        "lag1_overlap_autocorrelation": 0.18200016674779768,
+        "observed_genus_trap_cells_season_A": 43,
+        "observed_genus_trap_cells_season_B": 60,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.999457085040225,
+        "z": -0.06915828997735511
+      },
+      {
+        "approx_effective_null_draws_lag1": 1755.8119674865995,
+        "lag1_overlap_autocorrelation": 0.06501604303604464,
+        "observed_genus_trap_cells_season_A": 43,
+        "observed_genus_trap_cells_season_B": 45,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.9789704048041009
+      },
+      {
+        "approx_effective_null_draws_lag1": 1861.6740255544507,
+        "lag1_overlap_autocorrelation": 0.03582020997375327,
+        "observed_genus_trap_cells_season_A": 24,
+        "observed_genus_trap_cells_season_B": 66,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.0307573089341928
+      },
+      {
+        "approx_effective_null_draws_lag1": 1631.5225912442988,
+        "lag1_overlap_autocorrelation": 0.10146636830626095,
+        "observed_genus_trap_cells_season_A": 75,
+        "observed_genus_trap_cells_season_B": 66,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9934262166405023,
+        "z": -1.0151716763359313
+      },
+      {
+        "approx_effective_null_draws_lag1": 1830.3190926669674,
+        "lag1_overlap_autocorrelation": 0.04429941820196702,
+        "observed_genus_trap_cells_season_A": 15,
+        "observed_genus_trap_cells_season_B": 40,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.5525316690695993
+      },
+      {
+        "approx_effective_null_draws_lag1": 1838.3387380170052,
+        "lag1_overlap_autocorrelation": 0.04211750786396547,
+        "observed_genus_trap_cells_season_A": 32,
+        "observed_genus_trap_cells_season_B": 40,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.6017241341513154
+      },
+      {
+        "approx_effective_null_draws_lag1": 1931.8664489193382,
+        "lag1_overlap_autocorrelation": 0.01732855171095353,
+        "observed_genus_trap_cells_season_A": 12,
+        "observed_genus_trap_cells_season_B": 22,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.3141259778519769
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.03855222233897236,
+        "observed_genus_trap_cells_season_A": 50,
+        "observed_genus_trap_cells_season_B": 27,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.2780856605773707
+      },
+      {
+        "approx_effective_null_draws_lag1": 1979.830008823076,
+        "lag1_overlap_autocorrelation": 0.0050680534425360125,
+        "observed_genus_trap_cells_season_A": 25,
+        "observed_genus_trap_cells_season_B": 35,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.8307047838227702
+      },
+      {
+        "approx_effective_null_draws_lag1": 1308.5851592373324,
+        "lag1_overlap_autocorrelation": 0.20897598444225834,
+        "observed_genus_trap_cells_season_A": 32,
+        "observed_genus_trap_cells_season_B": 83,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9999382754150978,
+        "z": 0.3316819895900858
+      },
+      {
+        "approx_effective_null_draws_lag1": 1622.1177083674954,
+        "lag1_overlap_autocorrelation": 0.10432634222779517,
+        "observed_genus_trap_cells_season_A": 20,
+        "observed_genus_trap_cells_season_B": 58,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9962486931923006,
+        "z": -1.5555193831014276
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.01509602312224692,
+        "observed_genus_trap_cells_season_A": 13,
+        "observed_genus_trap_cells_season_B": 22,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.5625889312342967
+      },
+      {
+        "approx_effective_null_draws_lag1": 1962.1723937065647,
+        "lag1_overlap_autocorrelation": 0.009547188394306147,
+        "observed_genus_trap_cells_season_A": 9,
+        "observed_genus_trap_cells_season_B": 7,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.79814377096858
+      },
+      {
+        "approx_effective_null_draws_lag1": 1905.6578022444066,
+        "lag1_overlap_autocorrelation": 0.024155264626967408,
+        "observed_genus_trap_cells_season_A": 15,
+        "observed_genus_trap_cells_season_B": 29,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 2.221945110389686
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.0034019976993870525,
+        "observed_genus_trap_cells_season_A": 19,
+        "observed_genus_trap_cells_season_B": 27,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 3.4756383363971364
+      },
+      {
+        "approx_effective_null_draws_lag1": 1324.8246551857217,
+        "lag1_overlap_autocorrelation": 0.20307096308408584,
+        "observed_genus_trap_cells_season_A": 34,
+        "observed_genus_trap_cells_season_B": 61,
+        "source_genera": 5,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9999382754150978,
+        "z": 3.479279332461195
+      },
+      {
+        "approx_effective_null_draws_lag1": 1392.6218290135323,
+        "lag1_overlap_autocorrelation": 0.17902914076429038,
+        "observed_genus_trap_cells_season_A": 60,
+        "observed_genus_trap_cells_season_B": 52,
+        "source_genera": 5,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.995269398537814,
+        "z": 4.74764611541706
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.02783905252928479,
+        "observed_genus_trap_cells_season_A": 14,
+        "observed_genus_trap_cells_season_B": 27,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 2.7250243538643892
+      },
+      {
+        "approx_effective_null_draws_lag1": 1434.6252912197976,
+        "lag1_overlap_autocorrelation": 0.16461030268003732,
+        "observed_genus_trap_cells_season_A": 37,
+        "observed_genus_trap_cells_season_B": 62,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9796096074305203,
+        "z": 0.5710148381586461
+      },
+      {
+        "approx_effective_null_draws_lag1": 1371.9536480810714,
+        "lag1_overlap_autocorrelation": 0.18625592682044734,
+        "observed_genus_trap_cells_season_A": 59,
+        "observed_genus_trap_cells_season_B": 74,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -1.9588626341408093
+      },
+      {
+        "approx_effective_null_draws_lag1": 1943.9929361445838,
+        "lag1_overlap_autocorrelation": 0.014200599433670745,
+        "observed_genus_trap_cells_season_A": 44,
+        "observed_genus_trap_cells_season_B": 14,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.694121209218235
+      },
+      {
+        "approx_effective_null_draws_lag1": 1775.312420123412,
+        "lag1_overlap_autocorrelation": 0.05951496323296155,
+        "observed_genus_trap_cells_season_A": 31,
+        "observed_genus_trap_cells_season_B": 18,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.058064374164143756
+      },
+      {
+        "approx_effective_null_draws_lag1": 1293.8337183976241,
+        "lag1_overlap_autocorrelation": 0.21439038578605288,
+        "observed_genus_trap_cells_season_A": 102,
+        "observed_genus_trap_cells_season_B": 109,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.4970602193945797
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.034042722648737124,
+        "observed_genus_trap_cells_season_A": 40,
+        "observed_genus_trap_cells_season_B": 21,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.010411887338327023
+      },
+      {
+        "approx_effective_null_draws_lag1": 1373.4271478413805,
+        "lag1_overlap_autocorrelation": 0.18573777487963739,
+        "observed_genus_trap_cells_season_A": 67,
+        "observed_genus_trap_cells_season_B": 93,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.1414866580005809
+      },
+      {
+        "approx_effective_null_draws_lag1": 1730.8669246727059,
+        "lag1_overlap_autocorrelation": 0.0721368734830723,
+        "observed_genus_trap_cells_season_A": 56,
+        "observed_genus_trap_cells_season_B": 48,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9996791153456915,
+        "z": 0.735570106851053
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.00019152633944283077,
+        "observed_genus_trap_cells_season_A": 40,
+        "observed_genus_trap_cells_season_B": 37,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9998642159706707,
+        "z": -0.3167566662320887
+      },
+      {
+        "approx_effective_null_draws_lag1": 1352.2630069269123,
+        "lag1_overlap_autocorrelation": 0.193223798888883,
+        "observed_genus_trap_cells_season_A": 53,
+        "observed_genus_trap_cells_season_B": 99,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9999876544734015,
+        "z": 1.094196266296688
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.008155121413534056,
+        "observed_genus_trap_cells_season_A": 12,
+        "observed_genus_trap_cells_season_B": 33,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 2.0146141200663674
+      },
+      {
+        "approx_effective_null_draws_lag1": 1931.6370007192284,
+        "lag1_overlap_autocorrelation": 0.01738792245272541,
+        "observed_genus_trap_cells_season_A": 23,
+        "observed_genus_trap_cells_season_B": 46,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 0.6036146703552661
+      },
+      {
+        "approx_effective_null_draws_lag1": 1723.132974438655,
+        "lag1_overlap_autocorrelation": 0.07436399061279532,
+        "observed_genus_trap_cells_season_A": 55,
+        "observed_genus_trap_cells_season_B": 49,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.5899242658305824
+      },
+      {
+        "approx_effective_null_draws_lag1": 1859.7882653802335,
+        "lag1_overlap_autocorrelation": 0.03632627620467527,
+        "observed_genus_trap_cells_season_A": 21,
+        "observed_genus_trap_cells_season_B": 34,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -1.34006525638327
+      },
+      {
+        "approx_effective_null_draws_lag1": 1702.519534455073,
+        "lag1_overlap_autocorrelation": 0.08034541419069366,
+        "observed_genus_trap_cells_season_A": 14,
+        "observed_genus_trap_cells_season_B": 61,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.8546510281799715
+      },
+      {
+        "approx_effective_null_draws_lag1": 1917.997043727796,
+        "lag1_overlap_autocorrelation": 0.02092981575968262,
+        "observed_genus_trap_cells_season_A": 48,
+        "observed_genus_trap_cells_season_B": 41,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.999000999000999,
+        "z": 0.09238197587338176
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.019501654251931805,
+        "observed_genus_trap_cells_season_A": 41,
+        "observed_genus_trap_cells_season_B": 22,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": 1.000146318358008
+      },
+      {
+        "approx_effective_null_draws_lag1": 1906.2812407433685,
+        "lag1_overlap_autocorrelation": 0.023991810492067073,
+        "observed_genus_trap_cells_season_A": 26,
+        "observed_genus_trap_cells_season_B": 47,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.47302507914006586
+      },
+      {
+        "approx_effective_null_draws_lag1": 2000,
+        "lag1_overlap_autocorrelation": -0.03174112527191233,
+        "observed_genus_trap_cells_season_A": 30,
+        "observed_genus_trap_cells_season_B": 19,
+        "source_genera": 3,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 1,
+        "z": -0.04543311423086504
+      },
+      {
+        "approx_effective_null_draws_lag1": 1632.7896996074514,
+        "lag1_overlap_autocorrelation": 0.1010821794700168,
+        "observed_genus_trap_cells_season_A": 33,
+        "observed_genus_trap_cells_season_B": 37,
+        "source_genera": 4,
+        "status": "INFORMATIVE_FIXED_FIXED_NULL",
+        "swap_acceptance_rate": 0.9990995769245001,
+        "z": 1.3578008184744166
+      }
+    ]
+  },
+  "schema": "neon.independent_crossseason_genus_template_ecology.v1",
+  "source": {
+    "San_Jacinto_study_area_prior_seen_before_freeze": true,
+    "original_pre_effect_source_gate_reproduced": true,
+    "original_study": "NEON RELEASE-2026 2015-04 through 2026-09",
+    "product": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "source_files_MD5_verified": 3547,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827,
+    "structural_receipt": "results/neon_crossseason_genus_template_support_receipt_20261019.json"
+  },
+  "status": "SUPPORT_MULTI_SITE_GENUS_TEMPLATE_REASSEMBLY",
+  "unit_result_counts": {
+    "INFORMATIVE_FIXED_FIXED_NULL": 58
+  },
+  "record_date": "2026-10-19",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39208798076,
+    "job_id": 117917364355,
+    "head_commit_at_run": "7104fedd6d6bb5de0b67e1a12fc1eefa80e815f3",
+    "workflow_conclusion": "success",
+    "source_deterministic": true,
+    "artifact": [
+      {
+        "id": 12166534248,
+        "name": "neon-crossseason-genus-spatial-template-ecology-v1",
+        "digest": "sha256:b4faa06431ab16acf5ef6a1e25f2aaafcfa86a10f522789150eebd10cbcac399",
+        "size": 4777
+      }
+    ],
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39208798076"
+  },
+  "interpretation": {
+    "supported_claim": "Across 14 geographically independent NEON sites, different tagged small-mammal individuals tend to reoccupy genus-associated trap positions across adjacent seasons more than a season-B fixed-fixed null preserving genus station occupancy and trap richness. Original frozen site-level one-sided signflip p = 0.001159668.",
+    "antecedent": "San Jacinto single-region study demonstrated season-over-season species-level trap recurrence in 6 physical grids; NEON test uses genus rank across 14 independent sites. They are independent datasets but not identical taxonomic estimands or trap protocols.",
+    "not_confirmed": "Competition, social territoriality, true species-level mechanism, microhabitat covariates, detection calibration, animal activity centres, long-term individual dynamics, or genetic identity.",
+    "before_result_hypothesis": "Positive genus-site template recurrence and 8-site source eligibility declared before opening NEON spatial outcomes.",
+    "multiple_tests": "This is a different new hypothesis after original density-generalization failure; do not retroactively transform original 5/8<6/8 into support.",
+    "other_original_failed_status": "Original density generality FAILED; fixed-total F/C conservative direct matches zero; MOSA effects sealed.",
+    "next": "Independent code review/Monte Carlo mixing check and causal explanatory followup only with new registered habitat and detectability data. Avoid changing primary endpoint, taxon rank or seasonal matching post-result."
+  }
+}
