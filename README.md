@@ -37,6 +37,8 @@ The historical pooled density slopes had beta_W = -4.395, beta_B = +4.977, and d
 
 **SUBMISSION HOLD.** Do not submit this framework or the earlier Oikos V6 package as a demonstrated mechanistic macroecological law. A future full paper needs matched-population source support, genuinely unseen validation, explicit habitat/detection alternatives and site-level inference. Old *Paper A/B* files are retained as historical provenance; they are not two current manuscripts to advance independently.
 
+Original submission-hold evidence and explicitly archived redesign remain available at `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`, `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`, and `submission/OIKOS_READINESS_V4_HOLD.md`. These are historical quality boundaries, not a revived second active paper.
+
 The archived V6 study remains a design warning: 93/94 coarse adjacency worlds collapsed within-grid trap geometry, while observed taxonomic-carrier turnover did not exceed a species-pool-conditioned explanation. The pre-audit V6 snapshot lives at `submission/oikos-v6-2026-09-27` (commit `d7c24907bd6bb3f64905c0052141e537706d1792`). It is no longer a biological submission candidate. Historical `eog.*` filenames may appear in immutable provenance.
 
 **Repository boundary:** NEON tagged small-mammal ecological monitoring only; world-survival/EOG methodological research and the NEON camera-trap programme are outside this paper.
