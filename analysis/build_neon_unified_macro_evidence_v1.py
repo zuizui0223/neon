@@ -18,6 +18,7 @@ FILES = {
     "recurrence_support": "neon_crossseason_genus_template_support_receipt_20261019.json",
     "habitat": "neon_five_anchor_chm_source_receipt_20261020.json",
     "san_jacinto": "san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
+    "crosswalk": "neon_unified_macro_source_crosswalk_receipt_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -33,6 +34,7 @@ def build(root: Path = RESULTS) -> dict:
     src = _read(root)
     rec, dev, het = src["recurrence"], src["density"], src["density_modes"]
     sup, habitat, sj = src["recurrence_support"], src["habitat"], src["san_jacinto"]
+    cw = src["crosswalk"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -80,6 +82,20 @@ def build(root: Path = RESULTS) -> dict:
             and sj["source_test"]["positive_unit_Z_count"]==9
             and sj["boundaries"]["p_values_must_not_be_pooled"],
             "San Jacinto previous, different-rank evidence changed")
+
+    require(cw["status"] == "STOP_MATCHED_RESPONSES_NOT_STRUCTURALLY_GENERAL",
+            "original source-only joint macro crosswalk decision changed")
+    match = cw["exact_pair_crosswalk"]
+    require(cw["original_source"]["frozen_season_pairs"] == 58
+            and cw["original_source"]["sites"] == 14
+            and match["pairs_with_same_original_recurrence_genus_repeat_supported_in_both_events"] == 12
+            and match["distinct_physical_sites_with_matched_pairs"] == 8
+            and match["genera_with_matched_pairs_across_at_least_two_sites"] == 1,
+            "independently source-reproduced crosswalk changed")
+    require(not cw["new_post_result_source_feasibility_gates"]["pass"]
+            and not cw["limitations"]["actual_W_B_m2_calculated"]
+            and not cw["limitations"]["joint_spatial_recurrence_density_effect_computed"],
+            "crosswalk improperly promoted into ecological response")
 
     def recurrence(group: dict) -> dict:
         return {
@@ -157,7 +173,12 @@ def build(root: Path = RESULTS) -> dict:
             "historical_grid_signflip_p_not_pooled":sj["source_test"]["one_sided_exact_grid_signflip_p"],
         },
         "joint_macro_inference":{
-            "matched_same_population_site_plot_event_support_audited":False,
+            "matched_same_population_site_plot_event_support_audited":True,
+            "source_only_exact_matched_season_pairs":match["pairs_with_same_original_recurrence_genus_repeat_supported_in_both_events"],
+            "source_only_matched_physical_sites":match["distinct_physical_sites_with_matched_pairs"],
+            "source_only_multi_site_genera":match["genera_with_matched_pairs_across_at_least_two_sites"],
+            "original_release_same_population_source_feasibility_passed":False,
+            "direct_joint_model_status":"STOP_TOO_FEW_MATCHED_PAIRS_AND_REPLICATED_GENERA",
             "same_population_coupling_effect_estimated":False,
             "cross_cohort_site_overlap_known":False,
             "R_and_density_beta_different_estimands_not_pooled":True,
