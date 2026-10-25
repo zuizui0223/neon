@@ -146,6 +146,34 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertTrue(x["new_outcome_historical_post_result_not_independent_replication"])
         self.assertIn("ORIGINAL_SAME_TRAP_OVERLAP_FIXED",x["null_conditions"])
 
+    def test_operability_status_456_source_stop_protects_catchability_uncertainty(self):
+        o=self.ledger["official_neon_six_night_operability_source_limit"]
+        self.assertEqual((o["original_two_genus_pairs"],
+                          o["original_physical_sites"]),(158,30))
+        self.assertEqual((o["status_rows"],
+                          o["median_all_six_night_recorded_stations"],
+                          o["median_all_six_night_official_status456_stations"]),
+                         (87916,100,60))
+        self.assertEqual((o["retained_strict_source_pairs"],
+                          o["retained_strict_physical_sites"],
+                          o["retained_strict_NEON_domains"]),(18,8,7))
+        self.assertEqual((o["predeclared_minimum_source_pairs"],
+                          o["predeclared_minimum_physical_sites"],
+                          o["predeclared_minimum_NEON_domains"]),(80,18,10))
+        self.assertEqual(sum((
+                          o["trapStatus_one_not_set_or_unprocessed_rows"],
+                          o["trapStatus_two_disturbed_closed_rows"],
+                          o["trapStatus_three_door_open_spoor_rows"],
+                          o["trapStatus_four_multiple_capture_rows"],
+                          o["trapStatus_five_capture_rows"],
+                          o["trapStatus_six_trap_set_empty_rows"]
+                          )),87916)
+        self.assertFalse(o["new_operability_coded_genus_recurrence_Z_or_p_calculated"])
+        self.assertTrue(o["source_QC_not_species_specific_capture_detection_estimator"])
+        self.assertTrue(o["failure_of_estimation_not_negative_ecological_effect"])
+        self.assertTrue(o["codes_four_five_select_capture_related_outcomes"])
+        self.assertEqual(o["status"],"STRICT_STATUS_456_COHORT_SOURCE_STOP_NO_ECOLOGICAL_EFFECT")
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
