@@ -55,13 +55,32 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertFalse(j["original_release_same_population_source_feasibility_passed"])
         self.assertTrue(j["R_and_density_beta_different_estimands_not_pooled"])
         self.assertFalse(self.ledger["habitat_source_only"]["genus_habitat_or_detection_effect_estimated"])
-        self.assertEqual(self.ledger["status"],"INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST")
+        self.assertEqual(self.ledger["status"],"INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT")
         self.assertIn("same-site crosswalk",self.design)
         self.assertIn("source-only",self.design)
         c=json.loads((ROOT/"results/neon_unified_macro_source_crosswalk_receipt_20261025.json").read_text(encoding="utf-8"))
         self.assertFalse(c["new_post_result_source_feasibility_gates"]["pass"])
         self.assertEqual(c["original_source"]["frozen_season_pairs"],58)
         self.assertFalse(c["limitations"]["actual_W_B_m2_calculated"])
+
+    def test_exact_two_exploratory_positive_same_release_not_new_replication(self):
+        e=self.ledger["exploratory_exact_two_genus_spatial_recurrence"]
+        self.assertEqual((e["source_exact_two_pairs"],e["source_sites"],e["source_domains"]),
+                         (158,30,15))
+        self.assertEqual((e["informative_exact_uniform_two_row_pairs"],
+                          e["noninformative_zero_variance_pairs"],
+                          e["positive_physical_sites"]), (150,8,25))
+        self.assertAlmostEqual(e["site_mean_z"],0.6147113767599713,places=12)
+        self.assertEqual((e["source_reuse_disjoint_pairs"],e["source_reuse_disjoint_sites"]),(48,17))
+        self.assertAlmostEqual(e["source_reuse_disjoint_mean_z"],0.6983519175917221,places=12)
+        self.assertEqual((e["all_two_plus_source_union_pairs"],
+                          e["all_two_plus_source_union_unique_sites"],
+                          e["all_two_plus_source_union_ecological_domains"]),(216,31,15))
+        self.assertTrue(e["genus_richness_specific_estimands_not_pooled"])
+        self.assertTrue(e["source_release_same_as_original_primary_not_independent_replication"])
+        self.assertTrue(e["genus_specific_capture_propensity_not_calibrated"])
+        self.assertTrue(e["within_site_rank_coupling_not_universal_dependence_bound"])
+        self.assertFalse(e["environmental_mechanism_not_fitted"] is False)
 
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
