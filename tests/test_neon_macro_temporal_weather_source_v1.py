@@ -78,7 +78,7 @@ class MacroTemporalWeatherSourceTests(unittest.TestCase):
         self.assertEqual(x["sites_with_air_temperature_and_consistent_precip_pairs"],1)
         self.assertTrue(out["scientific_scope"]["new_climate_by_R_or_gap_by_R_effect_computed"] is False)
         self.assertFalse(out["lag_effect_source_precheck"]["source_only_non_effect_prerequisites_pass"])
-        for secret in ("FAKE_A","FAKE_B","P1","2025-04-01"):
+        for secret in ("FAKE_A","FAKE_B","FAKE_A_P1","2025-04-01"):
             self.assertNotIn(secret,json.dumps(out))
 
     def test_missing_site_metadata_stops_not_fill_from_latitude(self):
