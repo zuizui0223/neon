@@ -12,17 +12,17 @@
 | Source-reuse exclusion | 46 contrasts / 12 sites, corrected mean Z **+0.843162**, 10/12 positive | Positive direction persists; not a second biological dataset |
 | Density-associated W/B responses | 1,326 development taxon-event sessions at 40 sites; 8 genera, 5/8 positive-versus-6-required guard | **General rule FAILED**; spatial response modes are exploratory/heterogeneous |
 | Environmental source | 150 official five-anchor CHM values at 30 plots; 14 with nonzero five-point canopy range | Source coverage only; not taxon habitat selection |
-| Direct ecological coupling of the two scales | Exact same site × plot × event support crosswalk under examination | **Not measured or inferred**; don't equate 14-site and 40-site cohorts |
+| Direct ecological coupling of the two scales | Original source-only event crosswalk: **12/58 pairs, 8 sites, 1 genus replicated across sites**; the new joint-coupling support gate **STOPPED** | The directly matched ecological association is **NOT ESTIMABLE** from the original source; do not pool 14-site and 40-site effects |
 | External San Jacinto species-level recurrence | 10 seasonal units / 6 grids in one study area | Different-rank historical prior, independent null/dependence recalibration outstanding |
 
-**This single macro framework is a hypothesis about high-level spatial persistence despite lower-level reorganization, not yet a demonstrated cross-level macro mechanism.** Historical NEON RELEASE-2026 responses are already inspected; prospective ecological confirmation needs new source-independent observations, not reclassification of the same data.
+**This single macro framework is a hypothesis about high-level spatial persistence despite lower-level reorganization, not yet a demonstrated cross-level macro mechanism.** Its direct joint-population test is now source-only **NOT ESTIMABLE** in the locked original cohort; future macro work must expand coverage through independent environmental/source sampling and fresh data, not loosen the frozen 58-pair/8-genus tests. Historical NEON RELEASE-2026 responses are already inspected; prospective ecological confirmation needs new source-independent observations, not reclassification of the same data.
 
 ## Start here
 
 - **One scientific contract:** [Unified macroecological question and effect/estimability boundaries](docs/NEON_UNIFIED_MACROECOLOGY_20261025.md).
 - **One unified manuscript:** [Spatial persistence and population reorganization — v0.1](manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_1.md). Research draft, **NOT SUBMITTED**.
 - **One machine-checkable evidence ledger:** [Existing positive and negative source results](results/neon_unified_macro_evidence_20261025.json), rebuilt from immutable receipts by `analysis/build_neon_unified_macro_evidence_v1.py`.
-- **One next empirically executable gate:** `analysis/audit_neon_unified_macro_source_crosswalk_v1.py` and `.github/workflows/neon-unified-macro-source-crosswalk-v1.yml`: source-only same-population feasibility, **no W/B or R ecological effect fitted**.
+- **Completed source-only joint-support test:** [Reproduced matched-pair audit](results/neon_unified_macro_source_crosswalk_receipt_20261025.json) — **12 original pairs / 8 physical sites / 1 cross-site replicated genus; source feasibility STOP**. [Verified Action](https://github.com/zuizui0223/neon/actions/runs/40162524657). No W/B or R outcomes refitted.
 - [Corrected NEON 14-/12-site recurrence figure](manuscript/figures/neon_crossseason_genus_site_means_corrected_v0_3.svg).
 
 ## Sampling and scientific limits
