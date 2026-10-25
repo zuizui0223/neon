@@ -8,7 +8,8 @@
     "habitat": "results/neon_five_anchor_chm_source_receipt_20261020.json",
     "recurrence": "results/neon_uniform_null_correction_receipt_20261020.json",
     "recurrence_support": "results/neon_crossseason_genus_template_support_receipt_20261019.json",
-    "san_jacinto": "results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json"
+    "san_jacinto": "results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
+    "crosswalk": "results/neon_unified_macro_source_crosswalk_receipt_20261025.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -147,12 +148,17 @@
     "historical_grid_signflip_p_not_pooled": 0.046875
   },
   "joint_macro_inference": {
-    "matched_same_population_site_plot_event_support_audited": false,
+    "matched_same_population_site_plot_event_support_audited": true,
     "same_population_coupling_effect_estimated": false,
     "cross_cohort_site_overlap_known": false,
     "R_and_density_beta_different_estimands_not_pooled": true,
     "new_confirmatory_data_required": true,
-    "mechanism_status": "HABITAT_VS_DETECTION_VS_INTERACTIONS_UNRESOLVED"
+    "mechanism_status": "HABITAT_VS_DETECTION_VS_INTERACTIONS_UNRESOLVED",
+    "source_only_exact_matched_season_pairs": 12,
+    "source_only_matched_physical_sites": 8,
+    "source_only_multi_site_genera": 1,
+    "original_release_same_population_source_feasibility_passed": false,
+    "direct_joint_model_status": "STOP_TOO_FEW_MATCHED_PAIRS_AND_REPLICATED_GENERA"
   },
   "plan": "docs/NEON_UNIFIED_MACROECOLOGY_20261025.md"
 }
