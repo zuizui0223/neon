@@ -9,7 +9,8 @@
     "recurrence": "results/neon_uniform_null_correction_receipt_20261020.json",
     "recurrence_support": "results/neon_crossseason_genus_template_support_receipt_20261019.json",
     "san_jacinto": "results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
-    "crosswalk": "results/neon_unified_macro_source_crosswalk_receipt_20261025.json"
+    "crosswalk": "results/neon_unified_macro_source_crosswalk_receipt_20261025.json",
+    "macro_selection": "results/neon_macro_biogeographic_selection_receipt_20261025.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -160,5 +161,23 @@
     "original_release_same_population_source_feasibility_passed": false,
     "direct_joint_model_status": "STOP_TOO_FEW_MATCHED_PAIRS_AND_REPLICATED_GENERA"
   },
-  "plan": "docs/NEON_UNIFIED_MACROECOLOGY_20261025.md"
+  "plan": "docs/NEON_UNIFIED_MACROECOLOGY_20261025.md",
+  "geographic_macro_selection_source_only": {
+    "status": "ORIGINAL_RELEASE_INCLUSION_SUPPORT_ONLY",
+    "effort_valid_three_night_bouts": 1838,
+    "physical_sites_with_qualifying_effort_bouts": 45,
+    "candidate_adjacent_season_pairs": 803,
+    "candidate_physical_sites": 42,
+    "primary_strict_three_genus_pairs": 58,
+    "primary_strict_sites": 14,
+    "strict_fraction_of_candidate_pairs": 0.0722291407222914,
+    "candidate_ecological_domains": 18,
+    "primary_ecological_domains": 10,
+    "core_candidate_pairs": 373,
+    "core_strict_pairs": 27,
+    "gradient_candidate_pairs": 430,
+    "gradient_strict_pairs": 31,
+    "ecological_recurrence_by_domain_estimated": false,
+    "geographic_ineligibility_not_zero_recurrence": true
+  }
 }
