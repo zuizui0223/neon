@@ -125,11 +125,11 @@ The corrected, source-fixed NEON evidence supports an ecological *pattern*: **ge
 ## Figure and submission gates
 
 - **Figure 1:** clearly labelled schematic distinguishing repeated capture of the same tag from recurrence among nonshared observed tags; illustrative, not a simulated biological mechanism presented as data.
-- **Figure 2:** rebuild all 14 physical-site effects from the **corrected** source artifact. The current `neon_crossseason_genus_site_means_v1.svg` is based on the obsolete accepted-only sampler and **must not** be used as a current-result figure.
+- **Figure 2 (corrected and source-backed):** [Corrected NEON site-recurrence figure](figures/neon_crossseason_genus_site_means_corrected_v0_3.svg) plots all 14 sorted original physical-site means and the 12 source-disjoint means from the SHA-256-verified correction artifact. Each panel is separately ranked, so vertical ranks are not matched site identities. The older `neon_crossseason_genus_site_means_v1.svg` was based on the obsolete accepted-only sampler and **must not** be used for current inference. No biological identifiers are exported.
 - **Figure 3:** show full 14-site and source-disjoint 12-site corrected results, with 100,000 product-null and 20,000 rank-coupled **null reference distributions** clearly labelled as nonindependent post-result sensitivity analyses. Do not show null reference ranges as confidence intervals.
 - **Secondary San Jacinto figure:** present distinct species-level California results separately, subject to a new independent sampling and dependence audit. Do not merge its p-value with NEON.
 
-**Submission remains HOLD** until independent review of corrected null mixing/site dependence, observation-identity linkage, public-source reproducibility, an accurate replacement Figure 2, and an explicit decision whether habitat/detection must be established for the selected journal. This draft alone does not lift the hold.
+**Submission remains HOLD** until independent review of corrected null mixing/site dependence, observation-identity linkage, public-source reproducibility, and an explicit decision whether habitat/detection must be established for the selected journal. This draft alone does not lift the hold.
 
 ## Reproducibility and priority sources
 
