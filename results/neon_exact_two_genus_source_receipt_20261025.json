@@ -1,0 +1,95 @@
+{
+  "exact_two_source": {
+    "disjoint_sensitivity_exclusion_all_pairs_at_affected_sites": true,
+    "domains": 15,
+    "domains_by_original_qualifying_pair_count": {
+      "D01": 16,
+      "D02": 11,
+      "D03": 25,
+      "D05": 10,
+      "D06": 18,
+      "D07": 3,
+      "D09": 17,
+      "D10": 10,
+      "D11": 4,
+      "D12": 1,
+      "D13": 5,
+      "D14": 15,
+      "D15": 7,
+      "D16": 6,
+      "D17": 10
+    },
+    "pairs": 158,
+    "physical_sites": 30,
+    "plots": 62,
+    "source_pair_year_counts": {
+      "2015": 12,
+      "2016": 25,
+      "2017": 33,
+      "2018": 31,
+      "2019": 18,
+      "2020": 4,
+      "2021": 7,
+      "2022": 3,
+      "2023": 17,
+      "2024": 8
+    },
+    "source_season_reuse_physical_sites": 13,
+    "source_whole_site_disjoint_sensitivity_pairs": 52,
+    "source_whole_site_disjoint_sensitivity_sites": 17
+  },
+  "macro_geographical_comparison": {
+    "exact_two_and_original_strict_primary_nonoverlapping": true,
+    "exact_two_domains_not_in_strict_primary": 5,
+    "exact_two_sites_not_in_strict_primary": 17,
+    "original_source_216_ge2_genus_diagnostic_pairs": 216,
+    "original_source_803_candidate_pairs": 803,
+    "original_strict_sites_not_in_exact_two": 1,
+    "sites_common_to_both_source_subsets": 13,
+    "strict_primary_domains_not_in_exact_two": 0
+  },
+  "original_strict_primary": {
+    "domains": 10,
+    "old_positive_spatial_effects_not_recomputed": true,
+    "pairs": 58,
+    "sites": 14
+  },
+  "precommitted_source_gate": {
+    "minimum_ecological_domains": 8,
+    "minimum_exact_two_pairs": 80,
+    "minimum_independent_sites": 12,
+    "passed": true,
+    "post_result_historical_exploration_not_new_independent_replication": true
+  },
+  "schema": "neon.macro.exactly_two_genus_source_support.v1",
+  "scientific_scope": {
+    "new_genus_trap_overlap_computed": false,
+    "new_null_distribution_or_Z_computed": false,
+    "next": "run pre-locked uniform two-row fixed-margin sampler only",
+    "nonqualifying_site_or_domain_not_zero_recurrence": true,
+    "old_58_original_result_unchanged": true,
+    "old_eight_genus_density_generality_failed": true,
+    "private_original_site_plot_station_taxon_or_animal_ID_exported": false
+  },
+  "source_provenance": {
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "new_exact_two_spatial_effects_not_opened": true,
+    "original_Domain_metadata": "NEON GET /api/v0/sites?release=RELEASE-2026",
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827,
+    "release": "RELEASE-2026",
+    "source_preregistered_original_three_genus_gate_passed": true
+  },
+  "status": "EXACT_TWO_GENUS_SOURCE_GO_NO_EFFECT_OPENED",
+  "workflow_provenance": {
+    "repo": "zuizui0223/neon",
+    "run_id": 40166195183,
+    "job_id": 121087630054,
+    "source_branch_commit": "d544e266b47572d71081aa17974fa72578e2ec5c",
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40166195183",
+    "effect_opened": false
+  }
+}
