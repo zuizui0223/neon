@@ -27,6 +27,7 @@ FILES = {
     "recorded_stations_source":"neon_macro_six_night_recorded_station_support_20261025.json",
     "recorded_stations_recurrence":"neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
     "original_tower_temperature_qc":"neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
+    "exact_station_conditioned_10m_patch":"neon_macro_10m_patch_conditional_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -51,6 +52,7 @@ def build(root: Path = RESULTS) -> dict:
     station_source=src["recorded_stations_source"]
     station_effect=src["recorded_stations_recurrence"]
     climate_source=src["original_tower_temperature_qc"]
+    patch=src["exact_station_conditioned_10m_patch"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -203,6 +205,29 @@ def build(root: Path = RESULTS) -> dict:
             and climate_source["source_metadata_and_selection"]["source_structural_thresholds"]["minimum_original_QC_paired_pairs"]==80,
             "the environmental site-month source quality gate was not preserved")
 
+
+    require(patch["status"]=="POSITIVE_EXPLORATORY_10M_PATCH_RECURRENCE_BEYOND_SAME_TRAP_OVERLAP"
+            and patch["source_conditional_null_variance_gate"]["passed"]
+            and (patch["source_conditional_null_variance_gate"]["original_source_pairs"],
+                 patch["source_conditional_null_variance_gate"]["exact_conditional_variance_positive_pairs"],
+                 patch["source_conditional_null_variance_gate"]["exact_conditional_variance_zero_pairs"])==(158,153,5),
+            "new exploratory exact-overlap-conditioned 10m patch source/gate changed")
+    require((patch["observed"]["physical_sites"],
+             patch["observed"]["positive_site_mean_count"],
+             patch["observed"]["informative_source_pairs"])==(30,22,153)
+            and abs(patch["observed"]["equal_physical_site_mean_Z_neighbor_given_same_station_overlap"]-0.31030688542725354)<1e-10,
+            "source-stabilized exact-overlap-conditioned patch score drifted")
+    require(patch["conditional_site_meta_null"]["comonotone_within_site_marginal_null"]["one_sided_p"]<.05
+            and patch["site_reused_season_exclusion"]["conditional_site_meta_null"]["comonotone_within_site_marginal_null"]["one_sided_p"]>.05,
+            "main/strict season-source patch robustness distinction changed")
+    require((patch["site_reused_season_exclusion"]["remaining_informative_pairs"],
+             patch["site_reused_season_exclusion"]["remaining_physical_sites"])==(50,17)
+            and abs(patch["site_reused_season_exclusion"]["conditional_site_meta_null"]["observed_equal_site_weighted_mean_Z"]-0.1825892504019166)<1e-10,
+            "new patch source reuse exclusion cohort/effect drifted")
+    require(patch["inference"]["correlated_genus_catchability_at_neighbor_traps_not_excluded"]
+            and patch["inference"]["no_independent_new_release_or_confirmation"],
+            "new ecological patch mechanism falsely claimed as causally established")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -322,6 +347,27 @@ def build(root: Path = RESULTS) -> dict:
             "temperature_slope_or_confidence_interval_estimated":False,
             "not_evidence_of_zero_climate_ecological_effect":True,
             "no_threshold_relaxation_or_different_weather_variable":True,
+        },
+        "exact_trap_conditional_10m_local_patch_ecology":{
+            "status":"MIXED_EXPLORATORY_FULL_COHORT_POSITIVE_SOURCE_REUSED_SITE_EXCLUSION_NOT_SUPPORTED",
+            "null_conditions":"genus_station_margins_AND_ORIGINAL_SAME_TRAP_OVERLAP_FIXED",
+            "original_source_exact_two_pairs":patch["source_conditional_null_variance_gate"]["original_source_pairs"],
+            "conditional_patch_variance_informative_pairs":patch["source_conditional_null_variance_gate"]["exact_conditional_variance_positive_pairs"],
+            "conditional_patch_zero_variance_pairs":patch["source_conditional_null_variance_gate"]["exact_conditional_variance_zero_pairs"],
+            "physical_sites":patch["observed"]["physical_sites"],
+            "positive_site_mean_count":patch["observed"]["positive_site_mean_count"],
+            "original_full_mean_Z":patch["observed"]["equal_physical_site_mean_Z_neighbor_given_same_station_overlap"],
+            "full_product_null_conditional_p":patch["conditional_site_meta_null"]["independent_unit_marginal_null"]["one_sided_p"],
+            "full_rank_coupled_conditional_p":patch["conditional_site_meta_null"]["comonotone_within_site_marginal_null"]["one_sided_p"],
+            "whole_site_season_reuse_exclusion_pairs":patch["site_reused_season_exclusion"]["remaining_informative_pairs"],
+            "whole_site_season_reuse_exclusion_sites":patch["site_reused_season_exclusion"]["remaining_physical_sites"],
+            "whole_site_season_reuse_exclusion_mean_Z":patch["site_reused_season_exclusion"]["conditional_site_meta_null"]["observed_equal_site_weighted_mean_Z"],
+            "whole_site_season_reuse_exclusion_product_p":patch["site_reused_season_exclusion"]["conditional_site_meta_null"]["independent_unit_marginal_null"]["one_sided_p"],
+            "whole_site_season_reuse_exclusion_rank_coupled_p":patch["site_reused_season_exclusion"]["conditional_site_meta_null"]["comonotone_within_site_marginal_null"]["one_sided_p"],
+            "strong_general_patch_recurrence_after_source_disjointness_established":False,
+            "unit_conditional_marginal_moments_exact_no_MCMC":True,
+            "new_outcome_historical_post_result_not_independent_replication":True,
+            "taxon_specific_spatially_correlated_catchability_unresolved":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
