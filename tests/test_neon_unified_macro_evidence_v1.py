@@ -63,6 +63,23 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertEqual(c["original_source"]["frozen_season_pairs"],58)
         self.assertFalse(c["limitations"]["actual_W_B_m2_calculated"])
 
+    def test_geographic_macro_selection_denominator_and_causal_scope(self):
+        q=self.ledger["geographic_macro_selection_source_only"]
+        self.assertEqual((q["effort_valid_three_night_bouts"],
+                          q["physical_sites_with_qualifying_effort_bouts"]), (1838,45))
+        self.assertEqual((q["candidate_adjacent_season_pairs"],
+                          q["candidate_physical_sites"]), (803,42))
+        self.assertEqual((q["primary_strict_three_genus_pairs"],
+                          q["primary_strict_sites"]), (58,14))
+        self.assertEqual((q["candidate_ecological_domains"],
+                          q["primary_ecological_domains"]), (18,10))
+        self.assertAlmostEqual(q["strict_fraction_of_candidate_pairs"],58/803)
+        self.assertEqual((q["core_candidate_pairs"],q["core_strict_pairs"],
+                          q["gradient_candidate_pairs"],q["gradient_strict_pairs"]),
+                          (373,27,430,31))
+        self.assertFalse(q["ecological_recurrence_by_domain_estimated"])
+        self.assertTrue(q["geographic_ineligibility_not_zero_recurrence"])
+
     def test_macro_population_denominator_not_inflated(self):
         z=self.ledger["macro_sampling_frame"]
         self.assertEqual((z["effort_qualified_three_night_selected_bouts"],
