@@ -29,7 +29,7 @@ from analysis.run_neon_exact_two_genus_ecology_v1 import reuse_physical_sites
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"build/neon_macro_6night_operable_status456_ecology_v1.json"
-FROZEN=ROOT/"results/neon_macro_6night_operable_source_receipt_20261026.json"
+FROZEN=ROOT/"results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json"
 OLDER=ROOT/"results/neon_exact_two_genus_ecological_receipt_20261025.json"
 DESIGN="docs/NEON_ALL_SIX_NIGHT_OPERABLE_TRAPSTATUS_GATE_20261026.md"
 META_SEED=2026102662
@@ -66,6 +66,30 @@ def run()->dict:
     require(bool(token),"Original source access unavailable")
     old=json.loads(OLDER.read_text(encoding="utf-8"))
     locked=json.loads(FROZEN.read_text(encoding="utf-8"))
+    if locked["status"]=="STOP_OPERABLE_456_SIX_NIGHT_SOURCE_SUPPORT":
+        # The original fixed cohort failed the source gate (18/158 pairs).
+        # Preserve that scientific STOP and avoid downloading or
+        # generating any new genus×trap ecological response.
+        require(locked["source_two_genus_original_pairs"]==158
+                and locked["retained_pairs"]==18
+                and locked["retained_physical_sites"]==8
+                and locked["retained_NEON_domains"]==7
+                and locked["original_source_rule"]["passed"] is False,
+                "original all-six-night source STOP cohort changed")
+        return {
+            "schema":"neon.macro.operable_456_all_six_nights_two_genus_exact_recurrence.v1",
+            "status":"STOP_ORIGINAL_ALL6_OPERABLE_STATUS456_SOURCE_GATE",
+            "source_receipt":"results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
+            "original_exact_two_genus_pair_universe":158,
+            "strict_all_six_456_retained_pairs":18,
+            "strict_retained_independent_sites":8,
+            "strict_retained_domains":7,
+            "original_80pair_18site_10domain_source_threshold_unchanged":True,
+            "new_operable_subcohort_ecological_Z_or_p_NOT_computed":True,
+            "original_30_site_positive_capture_recurrence_unchanged":True,
+            "outcome_selection_or_replacing_operability_definition_forbidden":True,
+            "not_a_negative_animal_ecological_effect":True,
+        }
     require(locked["status"]=="SOURCE_SIX_NIGHT_OPERABLE_456_GO"
             and locked["original_source_rule"]["passed"]
             and locked["source_two_genus_original_pairs"]==158
