@@ -122,3 +122,20 @@ The single-paper goal is retained, but **not** as an estimated density→ecologi
 4. **Negative result remains informative:** under the currently qualified time/individual support, only 12/58 seasonal pairs can even *potentially* support both a recurring genus and within-individual response, providing a concrete design limit on studies that infer cross-scale mechanisms from the same mark-recapture data.
 
 **Publication ceiling now:** a one-manuscript, ecology-first synthesis with a corrected positive recurrence result and historical negative/hypothesis-generating density heterogeneity; any new macro generality must be separately generated and validated.
+
+---
+
+## Novelty audit — named overlapping macroecological studies (25 October 2026)
+
+The merged-paper claim must be **narrower than "a new macroecological abundance–occupancy law"**. Several close published programmes already occupy the broad space:
+
+- **Holian et al. (2026), `Abundance–Occupancy Relationships are Informed by Species Temporal Occupancy`, *Ecology and Evolution*, DOI [10.1002/ece3.73214](https://doi.org/10.1002/ece3.73214)**: used NEON small-mammal observations across geographically distributed sites, **127 species / 40 genera, 2014–2019**, and explicitly evaluated spatial AND temporal occupancy–abundance relationships at both interspecific and intraspecific levels. Therefore *temporal persistence + abundance + continental NEON* is **already published** and must not be claimed as our novel contribution. Their temporal occupancy is a fraction of time species present; our original `R` is specifically **a taxon occupying the same exact trap location across adjacent seasons with shared observed tags excluded**, conditional on taxon and station marginal totals. These are related but non-equivalent estimands, and the publication should be described as a prior theory/context, not as an identical test.
+- **Brownfield et al. (2025), `Uncovering multiple influences on space use by deer mice using large ecological networks`, *Oecologia*, DOI [10.1007/s00442-025-05731-2](https://doi.org/10.1007/s00442-025-05731-2)**: tested *Peromyscus* spatial use vs density, habitat and latitude across **36 NEON sites**. Continental density × habitat × latitude in NEON alone is established.
+- **Barton et al. (2026), `An Ecological Dipole in North American Mast-Eating Small Mammal Dynamics`, *Ecology and Evolution*, DOI [10.1002/ece3.73413](https://doi.org/10.1002/ece3.73413)**: continental rodent abundance synchrony / anti-synchrony across **23 NEON forested sites**, so broad geographic population variation is not the novelty.
+- **Chock et al. (2022), *Oecologia*, DOI [10.1007/s00442-021-05104-5](https://doi.org/10.1007/s00442-021-05104-5)**: rodent trap-level co-occurrence segregation, species-specific habitat filtering and fixed-fixed comparison were already demonstrated in San Jacinto. Old methods cannot be headlined as innovations.
+
+**Refined nontrivial question:** `Is taxon-to-station spatial recurrence among NONSHARED observed marked individuals preserved beyond marginal occupancy, and how do the environmental/biogeographic limits of eligibility, detection and population response determine the scope of its generalization?`
+
+**What would make a genuinely new macro *result***: source-verified inclusion probabilities across all NEON domains, followed by a *new independently observed cohort* showing that **conditional spatial recurrence at individual-disjoint traps** varies predictably across site-level independent environmental differences after allowing taxon-specific capture propensity. The existing 14-site positive result remains strong *conditional* ecological evidence, but is not by itself proof of that macroenvironmental relationship.
+
+**Avoid a false inference from the new source crosswalk STOP:** It does **not** show an inverse ecological relation between within-individual reorganization and community persistence; it shows there is insufficient same-event repeat support for the proposed joint response analysis.
