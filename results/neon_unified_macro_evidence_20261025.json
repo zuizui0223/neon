@@ -13,7 +13,8 @@
     "macro_selection": "results/neon_macro_biogeographic_selection_receipt_20261025.json",
     "exact_two_source": "results/neon_exact_two_genus_source_receipt_20261025.json",
     "exact_two_ecology": "results/neon_exact_two_genus_ecological_receipt_20261025.json",
-    "expanded_2plus_geo": "results/neon_macro_two_plus_genus_coverage_20261025.json"
+    "expanded_2plus_geo": "results/neon_macro_two_plus_genus_coverage_20261025.json",
+    "new_site_sensitivity": "results/neon_exact_two_new_sites_sensitivity_receipt_20261025.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -206,5 +207,22 @@
     "within_site_rank_coupling_not_universal_dependence_bound": true,
     "genus_specific_capture_propensity_not_calibrated": true,
     "environmental_mechanism_not_fitted": true
+  },
+  "exact_two_new_geographic_site_sensitivity": {
+    "status": "POST_RESULT_PHYSICAL_SITE_NONOVERLAP_POSITIVE_CONDITIONAL",
+    "new_original14_nonoverlap_physical_sites": 17,
+    "new_original14_nonoverlap_ecological_domains": 11,
+    "new_domains_absent_from_original_strict14": 5,
+    "source_exact_two_pairs": 74,
+    "informative_exact_null_pairs": 71,
+    "positive_site_means": 15,
+    "equal_site_mean_z": 0.7600592308705587,
+    "rank_coupled_within_site_stress_p": 0.000599970001499925,
+    "source_reuse_full_site_sensitivity_status": "STOP_WHOLE_SITE_SOURCE_DISJOINT_SUBCOHORT_UNDERPOWERED",
+    "source_reuse_full_site_survivor_pairs": 16,
+    "source_reuse_full_site_survivor_sites": 9,
+    "same_historical_release_not_new_temporal_sampling": true,
+    "post_result_no_independent_preregistration": true,
+    "genus_specific_detection_not_calibrated": true
   }
 }
