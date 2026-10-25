@@ -160,7 +160,7 @@ def build(root: Path = RESULTS) -> dict:
     return {
         "schema":"neon.unified_mammal_spatial_macro_evidence.v1",
         "date":"2026-10-25",
-        "status":"INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST",
+        "status":"INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT",
         "source_receipts":{k:"results/"+v for k,v in sorted(FILES.items())},
         "scientific_centre":"Persistence of taxon-associated spatial organization across observed identity and population-state changes",
         "macro_sampling_frame":{
