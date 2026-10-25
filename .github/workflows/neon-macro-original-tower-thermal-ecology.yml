@@ -8,6 +8,7 @@ on:
       - "analysis/neon_macro_tower_thermal_contrast_v1.py"
       - "analysis/run_neon_macro_original_tower_thermal_ecology_v1.py"
       - "tests/test_neon_macro_tower_thermal_contrast_v1.py"
+      - "tests/test_neon_macro_tower_exact_month_query_v1.py"
       - ".github/workflows/neon-macro-original-tower-thermal-ecology.yml"
   workflow_dispatch:
 
@@ -34,6 +35,7 @@ jobs:
       - name: Check prespecified weather QC, source-month and site model gates
         run: |
           python -m unittest discover -s tests -p 'test_neon_macro_tower_thermal_contrast_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_tower_exact_month_query_v1.py' -v
           python -m unittest discover -s tests -p 'test_neon_macro_temporal_weather_source_v1.py' -v
           python -m unittest discover -s tests -p 'test_neon_exact_two_row_fixedmargin_v1.py' -v
       - name: Require original NEON release source permission
