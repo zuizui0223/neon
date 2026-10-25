@@ -1,0 +1,158 @@
+{
+  "schema": "neon.unified_mammal_spatial_macro_evidence.v1",
+  "date": "2026-10-25",
+  "status": "INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST",
+  "source_receipts": {
+    "density": "results/multiscale_density_development_result_v1.json",
+    "density_modes": "results/multiscale_density_heterogeneity_result_v1.json",
+    "habitat": "results/neon_five_anchor_chm_source_receipt_20261020.json",
+    "recurrence": "results/neon_uniform_null_correction_receipt_20261020.json",
+    "recurrence_support": "results/neon_crossseason_genus_template_support_receipt_20261019.json",
+    "san_jacinto": "results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json"
+  },
+  "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
+  "macro_sampling_frame": {
+    "original_source_release": "RELEASE-2026",
+    "effort_qualified_three_night_selected_bouts": 1838,
+    "adjacent_season_candidates": 803,
+    "primary_at_least_3_genus_pairs": 58,
+    "primary_sites": 14,
+    "diagnostic_at_least_2_genus_pairs_not_confirmed": 216,
+    "unqualified_or_absent_biomes_not_as_negative_spatial_effect": true,
+    "original_2026_release_already_used_for_hypothesis_generation": true
+  },
+  "spatial_recurrence": {
+    "status": "POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
+    "all_original_sites": {
+      "sites": 14,
+      "pairs": 58,
+      "positive_site_means": 11,
+      "corrected_site_mean_z": 0.7946637727454396,
+      "post_result_product_null_plus_one_p": 0.00000999990000099999,
+      "post_result_product_null_tail_at_simulation_floor": true,
+      "post_result_rank_coupled_null_plus_one_p": 0.0012499375031248437,
+      "rank_coupled_null_not_any_joint_model_bound": true
+    },
+    "exclude_source_reused_seasons": {
+      "sites": 12,
+      "pairs": 46,
+      "positive_site_means": 10,
+      "corrected_site_mean_z": 0.8431617303483938,
+      "post_result_product_null_plus_one_p": 0.00000999990000099999,
+      "post_result_product_null_tail_at_simulation_floor": true,
+      "post_result_rank_coupled_null_plus_one_p": 0.0020998950052497373,
+      "rank_coupled_null_not_any_joint_model_bound": true
+    },
+    "taxonomic_rank": "genus",
+    "sampling_unit": "site x plot x consecutive season, independent geographic unit site",
+    "all_original_shared_tags_excluded_from_both_seasons": true,
+    "biological_death_birth_or_emigration_proven": false,
+    "old_accepted_swap_null_not_validated": true,
+    "no_competition_or_habitat_cause_identified": true
+  },
+  "density_accommodation": {
+    "status": "DEVELOPMENT_HETEROGENEITY_WITH_FROZEN_GENERALITY_FAILURE",
+    "sessions": 1326,
+    "sites": 40,
+    "genera": 8,
+    "genus_balanced_beta_w_m2_per_mnka": -4.394825896684285,
+    "genus_balanced_beta_b_m2_per_mnka": 4.976939575783388,
+    "genus_balanced_delta_beta_m2_per_mnka": 9.37176547246767,
+    "old_required_positive_genera": 6,
+    "old_observed_positive_genera": 5,
+    "old_general_cross_genus_rule_passed": false,
+    "all_eight_genera_including_negative": [
+      {
+        "genus": "Chaetodipus",
+        "beta_delta_m2_per_mnka": 27.329656408661233,
+        "sessions": 45,
+        "sites": 3
+      },
+      {
+        "genus": "Dipodomys",
+        "beta_delta_m2_per_mnka": -1.3752879902781707,
+        "sessions": 129,
+        "sites": 4
+      },
+      {
+        "genus": "Microtus",
+        "beta_delta_m2_per_mnka": 7.741869363443585,
+        "sessions": 30,
+        "sites": 5
+      },
+      {
+        "genus": "Myodes",
+        "beta_delta_m2_per_mnka": 24.700199228253584,
+        "sessions": 75,
+        "sites": 5
+      },
+      {
+        "genus": "Napaeozapus",
+        "beta_delta_m2_per_mnka": -1.012417937693133,
+        "sessions": 8,
+        "sites": 1
+      },
+      {
+        "genus": "Onychomys",
+        "beta_delta_m2_per_mnka": 143.13393859576294,
+        "sessions": 18,
+        "sites": 1
+      },
+      {
+        "genus": "Peromyscus",
+        "beta_delta_m2_per_mnka": 15.93005706925735,
+        "sessions": 956,
+        "sites": 33
+      },
+      {
+        "genus": "Sigmodon",
+        "beta_delta_m2_per_mnka": -16.3951818692867,
+        "sessions": 65,
+        "sites": 7
+      }
+    ],
+    "post_result_spatial_response_modes": {
+      "packing_like": [
+        "Chaetodipus",
+        "Myodes",
+        "Peromyscus"
+      ],
+      "footprint_compression_like": [
+        "Dipodomys",
+        "Sigmodon"
+      ],
+      "unresolved": [
+        "Microtus",
+        "Napaeozapus",
+        "Onychomys"
+      ]
+    },
+    "future_confirmatory_response_opened": false,
+    "spatial_accommodation_causally_due_to_competition": false
+  },
+  "habitat_source_only": {
+    "tested_original_plots": 30,
+    "valid_five_anchor_chm_values": 150,
+    "plots_with_nonzero_five_anchor_chm_range": 14,
+    "plots_with_all_five_anchors_chm_zero": 16,
+    "non_e5_coordinate_uncertainty_missing": 120,
+    "all_stations_capture_dated_and_raster_matched": false,
+    "genus_habitat_or_detection_effect_estimated": false
+  },
+  "independent_system_prior": {
+    "status": "SINGLE_STUDY_AREA_DIFFERENT_SPECIES_RANK_ORIGINAL_NOT_RECALIBRATED",
+    "seasonal_units": 10,
+    "physical_grids_in_one_study_area": 6,
+    "positive_unit_z": 9,
+    "historical_grid_signflip_p_not_pooled": 0.046875
+  },
+  "joint_macro_inference": {
+    "matched_same_population_site_plot_event_support_audited": false,
+    "same_population_coupling_effect_estimated": false,
+    "cross_cohort_site_overlap_known": false,
+    "R_and_density_beta_different_estimands_not_pooled": true,
+    "new_confirmatory_data_required": true,
+    "mechanism_status": "HABITAT_VS_DETECTION_VS_INTERACTIONS_UNRESOLVED"
+  },
+  "plan": "docs/NEON_UNIFIED_MACROECOLOGY_20261025.md"
+}
