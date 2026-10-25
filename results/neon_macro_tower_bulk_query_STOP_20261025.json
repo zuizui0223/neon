@@ -1,0 +1,69 @@
+{
+  "climate_effect_opened": false,
+  "design": "docs/NEON_MACRO_THERMAL_PERSISTENCE_SINGLE_CONTRAST_20261025.md",
+  "mammal_source": {
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827
+  },
+  "original_216pairs_31sites_macro_status_not_reclassified": true,
+  "original_3plus_positive_conditional_effect_unchanged": true,
+  "original_8genus_WB_generalization_FAILED_5_of_8": true,
+  "physical_data_grain": "NEON released tower monthly QC mean versus mammal site-level average exact-two Z",
+  "research_status": "HISTORICAL_POST_RESULT_EXPLORATORY_NOT_PROSPECTIVE",
+  "schema": "neon.macro.original_tower_month_thermal_recurrence.v1",
+  "single_precommitted_climate_variable": "abs_differenced_original_source_monthly_SAAT_tempSingleMean",
+  "source_metadata_and_selection": {
+    "candidate_exact_2026_temperature_release_month_pairs": 140,
+    "candidate_original_domains": 15,
+    "candidate_original_physical_sites": 28,
+    "no_original_2026 ecological_Z_x_climate_contrast_opened": true,
+    "original_all_source_domains": 15,
+    "original_source_two_genus_pairs": 158,
+    "original_strict_threeplus_pairs_unmodified": 58,
+    "source_site_month_temperature_data_objects_requested": 205,
+    "source_structural_thresholds": {
+      "minimum_ecological_domains": 10,
+      "minimum_original_QC_paired_pairs": 80,
+      "minimum_physical_sites": 18
+    }
+  },
+  "status": "STOP_ORIGINAL_TOWER_TEMPERATURE_QC_OR_DOMAIN_SUPPORT",
+  "weather_pair_pre_effect_feasibility": {
+    "failed_pair_source_QA_categories": {
+      "NO_ARCHIVE_MONTH": 140
+    },
+    "no_B_vs_A_weather_imputation": true,
+    "quality_verified_ecological_domains": 0,
+    "quality_verified_original_physical_sites": 0,
+    "release_eligible_source_pairs": 140,
+    "source_pair_with_both_months_station_quality_verified": 0,
+    "temperature_overall_source_QC_data_grain_month_not_capture_night": true
+  },
+  "weather_source_QA": {
+    "NEON_original_release": "RELEASE-2026",
+    "QC_bad_months": 0,
+    "QC_good_months": 0,
+    "archive_30min_file_months_advertised": 0,
+    "file_access_error_class_counts": {},
+    "fixed_min_valid_30min_fraction": 0.7,
+    "no_30min_file_months": 205,
+    "one_preselected_sensor_file_per_original_site_month": true,
+    "provider_MD5_and_byte_counts_checked_on_each_readable_month": true,
+    "requested_source_site_months": 205,
+    "source_file_names_and_URLs_never_serialized": true,
+    "source_tower_is_not_mammal_grid_microhabitat": true,
+    "verified_and_parsed_months": 0
+  },
+  "provenance": {
+    "source": "GitHub Actions log aggregate only",
+    "run_id": 40179253423,
+    "job_id": 121126550737,
+    "commit": "fb9a69e4992a72c77ec55e8d4bf0fa0ac81b88b1",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/40179253423",
+    "action_conclusion": "success_but_ecological_SOURCE_STOP",
+    "no_weather_effect_opened": true
+  }
+}
