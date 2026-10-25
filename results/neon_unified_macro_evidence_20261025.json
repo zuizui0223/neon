@@ -310,7 +310,7 @@
     "source_QC_not_species_specific_capture_detection_estimator": true,
     "failure_of_estimation_not_negative_ecological_effect": true,
     "codes_four_five_select_capture_related_outcomes": true,
-    "strict_six_night_status_intersection_does_not_mean_82percent_traps_nonoperable": true,
+    "failure_of_source_pair_gate_not_fraction_of_traps_nonoperable": true,
     "original_conditional_positive_30site_result_unchanged": true
   }
 }
