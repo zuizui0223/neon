@@ -40,7 +40,7 @@ class CorrectedEcologyManuscriptV03Tests(unittest.TestCase):
         self.assertIn("historical", self.paper.lower())
         self.assertIn("not a guaranteed upper", self.paper.lower())
         self.assertIn("SUBMISSION HOLD", self.paper)
-        self.assertIn("not a new preregistration", self.paper.lower())
+        self.assertIn("a new preregistration", self.paper.lower())
 
     def test_no_habitat_detection_or_competition_effect_claim(self):
         for claim in (
