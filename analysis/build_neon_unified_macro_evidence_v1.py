@@ -23,6 +23,7 @@ FILES = {
     "exact_two_source":"neon_exact_two_genus_source_receipt_20261025.json",
     "exact_two_ecology":"neon_exact_two_genus_ecological_receipt_20261025.json",
     "expanded_2plus_geo":"neon_macro_two_plus_genus_coverage_20261025.json",
+    "new_site_sensitivity":"neon_exact_two_new_sites_sensitivity_receipt_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -43,6 +44,7 @@ def build(root: Path = RESULTS) -> dict:
     two_source = src["exact_two_source"]
     two_effect = src["exact_two_ecology"]
     expanded = src["expanded_2plus_geo"]
+    new_site = src["new_site_sensitivity"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -146,6 +148,23 @@ def build(root: Path = RESULTS) -> dict:
     require(two_effect["full_exact_two_genus_conditional_meta_null"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"]<0.05,
             "exact two-genus constrained exploratory site-null no longer supported")
 
+    require(new_site["status"]=="NEW_PHYSICAL_SITES_POSITIVE_CONDITIONAL_EXPLORATORY_SENSITIVITY"
+            and new_site["feasibility"]["passed"]
+            and (new_site["source"]["geographically_new_exact_two_physical_sites"],
+                 new_site["source"]["new_site_exact_two_pairs"],
+                 new_site["observed_geographically_nonoverlap_sites"]["informative_exact_two_pairs"],
+                 new_site["observed_geographically_nonoverlap_sites"]["positive_site_mean_count"])==(17,74,71,15),
+            "geographically nonoverlap exploratory sensitivity source cohort changed")
+    require(abs(new_site["observed_geographically_nonoverlap_sites"]["equal_site_mean_z"]-0.7600592308705587)<1e-10
+            and new_site["source"]["new_ecological_domains_not_in_original_strict14"]==5
+            and new_site["scientific_inference"]["post_result_geographic_sensitivity_not_predeclared_independent_replication"],
+            "new physical-site conditional ecology sign or pre-effect caveat changed")
+    require(new_site["whole_site_source_reuse_exclusion"]["status"]==
+            "STOP_WHOLE_SITE_SOURCE_DISJOINT_SUBCOHORT_UNDERPOWERED"
+            and (new_site["whole_site_source_reuse_exclusion"]["remaining_physical_sites"],
+                 new_site["whole_site_source_reuse_exclusion"]["remaining_informative_pairs"])==(9,16),
+            "strict entire season-reuse site exclusion was improperly opened")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -214,6 +233,23 @@ def build(root: Path = RESULTS) -> dict:
             "within_site_rank_coupling_not_universal_dependence_bound":True,
             "genus_specific_capture_propensity_not_calibrated":True,
             "environmental_mechanism_not_fitted":True,
+        },
+        "exact_two_new_geographic_site_sensitivity":{
+            "status":"POST_RESULT_PHYSICAL_SITE_NONOVERLAP_POSITIVE_CONDITIONAL",
+            "new_original14_nonoverlap_physical_sites":new_site["source"]["geographically_new_exact_two_physical_sites"],
+            "new_original14_nonoverlap_ecological_domains":new_site["source"]["new_site_ecological_domains"],
+            "new_domains_absent_from_original_strict14":new_site["source"]["new_ecological_domains_not_in_original_strict14"],
+            "source_exact_two_pairs":new_site["source"]["new_site_exact_two_pairs"],
+            "informative_exact_null_pairs":new_site["observed_geographically_nonoverlap_sites"]["informative_exact_two_pairs"],
+            "positive_site_means":new_site["observed_geographically_nonoverlap_sites"]["positive_site_mean_count"],
+            "equal_site_mean_z":new_site["observed_geographically_nonoverlap_sites"]["equal_site_mean_z"],
+            "rank_coupled_within_site_stress_p":new_site["conditional_new_site_meta_null"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"],
+            "source_reuse_full_site_sensitivity_status":new_site["whole_site_source_reuse_exclusion"]["status"],
+            "source_reuse_full_site_survivor_pairs":new_site["whole_site_source_reuse_exclusion"]["remaining_informative_pairs"],
+            "source_reuse_full_site_survivor_sites":new_site["whole_site_source_reuse_exclusion"]["remaining_physical_sites"],
+            "same_historical_release_not_new_temporal_sampling":True,
+            "post_result_no_independent_preregistration":True,
+            "genus_specific_detection_not_calibrated":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
