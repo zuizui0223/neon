@@ -188,7 +188,8 @@ def climate_site_model(records:list[dict],*,seed:int=2026102521,n_bootstrap:int=
         ix=p*(len(boot)-1)
         lo=int(ix)
         hi=min(len(boot)-1,lo+1)
-        return boot[lo]*(hi-ix)+boot[hi]*(ix-lo)
+        w=ix-lo
+        return boot[lo]*(1-w)+boot[hi]*w
     loo=[]
     for idx in range(len(rows)):
         take=[i for i in range(len(rows)) if i!=idx]
