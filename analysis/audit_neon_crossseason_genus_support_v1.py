@@ -115,6 +115,7 @@ def source_event_support(
     genus_by_taxon: dict[str,str],
     *,
     internal_units: list[dict] | None = None,
+    internal_two_genus_units: list[dict] | None = None,
 ) -> dict:
     """Count biologically viable adjacent-season genus replacement contrasts.
 
@@ -224,6 +225,34 @@ def source_event_support(
                     eligible.append(genus)
             if len(eligible)>=2:
                 total["eligible_2genus_diagnostic_pairs"]+=1
+            # New, opt-in, post-2026-10-25 diagnostic extraction only.
+            # The original 3+ genus eligibility and all frozen public
+            # historical results remain byte-for-byte unchanged when this
+            # optional argument is omitted. This does not open an effect.
+            if len(eligible)==2 and internal_two_genus_units is not None:
+                ia=valid_events[key_a]
+                ib=valid_events[key_b]
+                internal_two_genus_units.append({
+                    "site":site,
+                    "site_plot":(site,plot),
+                    "season_ordinal":q,
+                    "capture_dates_A":ia["dates"],
+                    "capture_dates_B":ib["dates"],
+                    "A":{
+                        genus:set().union(*(
+                            event_coords[key_a][(genus,t)]
+                            for t in sorted(event_tags[key_a][genus]-common_tags)
+                        ))
+                        for genus in sorted(eligible)
+                    },
+                    "B":{
+                        genus:set().union(*(
+                            event_coords[key_b][(genus,t)]
+                            for t in sorted(event_tags[key_b][genus]-common_tags)
+                        ))
+                        for genus in sorted(eligible)
+                    },
+                })
             if len(eligible)>=3:
                 info_a=valid_events[key_a]
                 info_b=valid_events[key_b]
