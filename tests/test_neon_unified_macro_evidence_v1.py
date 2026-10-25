@@ -82,6 +82,23 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertTrue(e["within_site_rank_coupling_not_universal_dependence_bound"])
         self.assertFalse(e["environmental_mechanism_not_fitted"] is False)
 
+    def test_seventeen_new_physical_sites_positive_but_strict_reuse_stop(self):
+        x=self.ledger["exact_two_new_geographic_site_sensitivity"]
+        self.assertEqual((x["new_original14_nonoverlap_physical_sites"],
+                          x["new_original14_nonoverlap_ecological_domains"],
+                          x["new_domains_absent_from_original_strict14"]),(17,11,5))
+        self.assertEqual((x["source_exact_two_pairs"],x["informative_exact_null_pairs"],
+                          x["positive_site_means"]),(74,71,15))
+        self.assertAlmostEqual(x["equal_site_mean_z"],0.7600592308705587,places=12)
+        self.assertAlmostEqual(x["rank_coupled_within_site_stress_p"],0.000599970001499925,places=12)
+        self.assertEqual((x["source_reuse_full_site_survivor_sites"],
+                          x["source_reuse_full_site_survivor_pairs"]),(9,16))
+        self.assertEqual(x["source_reuse_full_site_sensitivity_status"],
+                         "STOP_WHOLE_SITE_SOURCE_DISJOINT_SUBCOHORT_UNDERPOWERED")
+        self.assertTrue(x["same_historical_release_not_new_temporal_sampling"])
+        self.assertTrue(x["post_result_no_independent_preregistration"])
+        self.assertTrue(x["genus_specific_detection_not_calibrated"])
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
