@@ -24,3 +24,18 @@ The earlier provider-checksum-verified *single site×single month* source probe 
 - Verify pure unit tests of the exact one-site one-month query body, provider release metadata parser, absent record handling and private original site/date/URL sanitization before running any original NEON observations.
 
 **Statistical and biological boundaries unchanged:** Any resulting temperature association would be *historical same-RELEASE-2026 exploratory* and correlational, not independent confirmation or site-grid climate causality; original 14-/12-site and exact-two 30-/17-site positive genus station recurrence results remain intact. Universal density W/B generality still FAILED (5 of 8), and the direct matched R/W/B support STOP remains.
+
+---
+
+## Final differential diagnosis and true original-source outcome — 25 October 2026
+
+Two successive *source-only* STOPs were recorded before **any temperature–mammal effect** was fitted:
+
+1. The original all-site multi-year metadata query returned **0/205** required original weather month files; see `results/neon_macro_tower_bulk_query_STOP_20261025.json`.
+2. Retrying **one site×one month per query** returned the same **0/205** matches, confirming that the bulk response size was **not sufficient as the explanation**. The new filename parser required a literal `SAAT_30min.csv` ending, whereas the earlier one-month pilot accepted valid official `SAAT_30min` names with additional suffixes.
+
+The differential same-provider-response diagnostic [Actions 40180729075](https://github.com/zuizui0223/neon/actions/runs/40180729075) established: a valid source file was found by the original probe, with published source MD5/size and HTTPS URL, but the new strict suffix regex failed to recognize that same file. The official [NEON instrument-file naming convention](https://data.neonscience.org/file-naming-conventions) ends `DESC.YYYY-MM.PKGTYPE.GENTIME.csv`; the original regex wrongly omitted `.YYYY-MM.basic.GENTIME`. We corrected ONLY that official metadata parser and its synthetic regression tests. The original source, NEON product, one weather variable, QC bounds, prespecified 80-pair/18-site/10-domain feasibility gate and site-level regression model stayed fixed.
+
+**Actual repaired source result:** original-release [Actions 40181122523](https://github.com/zuizui0223/neon/actions/runs/40181122523) successfully verified and parsed **205/205** required source months, of which **143** passed and **62** failed the predeclared provider quality/completeness rule. This left **79** of 140 source-month-eligible original exact-two-genera seasonal pairs with BOTH monthly instrument quality requirements satisfied, across **27 physical sites and 15 domains**. The prespecified ecological data support threshold was **80 original seasonal pairs**. Consequently the study recorded **`STOP_ORIGINAL_TOWER_TEMPERATURE_QC_OR_DOMAIN_SUPPORT`** and **`climate_effect_opened=false`**. No regression of genus×trap recurrence Z on absolute source month-to-month tower temperature change was computed; no `beta_T` sign, CI or p-value exists for this study. Record: `results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json`.
+
+**Scientific interpretation:** This is an independently measured climate-*source* feasibility boundary, NOT a negative biological climate relationship. Do not relax 80→79, accept QF1 rows, impute weather, merge different sensor positions, switch to precipitation or substitute another climate axis to obtain a significant effect. Further ecological inference must use a genuinely independent eligible cohort with enough prospectively valid release-matched weather records.
