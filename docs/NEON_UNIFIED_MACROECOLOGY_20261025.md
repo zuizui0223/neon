@@ -89,3 +89,36 @@ These hypotheses are not all independent or guaranteed to be simultaneously esti
 4. **Later:** site/season environmental and detection source-audit and independent replication beyond the current NEON cohort. Do not block the macro framing on the unresolved 3,000-location GraphQL preflight; station-specific canopy effects remain explicitly unavailable in the meantime.
 
 **Historical strategy superseded as a planning decision (not deleted):** `docs/NEON_ECOLOGY_TWO_PAPER_DECISION_20261019.md`. Existing failed/null/hold decisions and individual effect locks cannot be overwritten by editorial unification.
+
+---
+
+## 25 October 2026 source-only crosswalk outcome — direct combined response STOP
+
+**Observed after the unified *feasibility criteria* above were written; no ecological R, W/B, abundance slopes, habitat scores or competition outcome was reopened.** The checksum/size-verifying workflow [40162524657](https://github.com/zuizui0223/neon/actions/runs/40162524657) rebuilt the exact same original **3,547**-file source manifest, downloaded/verified 3,480 relevant capture files, reproduced the **58** fixed eligible adjacent-season contrasts over **30 plots / 14 physical sites**, and matched their **113** distinct original three-night source events to the frozen target-taxon repeat-capture *structural* criteria. Source receipt: `results/neon_unified_macro_source_crosswalk_receipt_20261025.json`.
+
+| Structural stage | Verified count |
+|---|---:|
+| Frozen genus-recurrence pairs | **58** |
+| Distinct source trapping events within those pairs | **113** |
+| Events below the old total capture/trap-night saturation cap | **74** |
+| Events containing ≥1 structural repeat-supported target genus | **56** |
+| Pairs with ANY repeat-supported target genus in both seasons | **18** |
+| Pairs with the SAME genus that is in the original recurrence matrix and has repeat support in both seasons | **12** |
+| Physical sites containing such pairs | **8** |
+| Original plots containing such pairs | **10** |
+| Distinct matched genera | **6**, but **only 1** occurs in matched pairs at ≥2 sites |
+
+**Decision: `STOP_MATCHED_RESPONSES_NOT_STRUCTURALLY_GENERAL`.** The precommitted **8-site minimum passes exactly**, but **12 matched pairs < 20** and **1 multi-site replicated genus < 3**. Thus the already-opened data cannot justify a robust same-population `R`–`W/B` mediator/covariance analysis. This is an explicit *support-limited result*, not evidence that no ecological relationship exists; if the original full 1,326-session model membership and MNKA variation were imposed, support could narrow further.
+
+**Effect fidelity preserved:** the corrected positive 14-/12-site recurrence stays unchanged; the original eight-genus density 5/8 FAIL remains; San Jacinto is not pooled; the structural crosswalk is not a biological joint effect. Historical records and their source identity remain immutable. Do not relax the 20-pair or three multi-site-genera source guard to obtain an estimate from the previously inspected cohort.
+
+### Scientific direction after STOP — macro context before another biological effect
+
+The single-paper goal is retained, but **not** as an estimated density→ecological memory mechanism. Prioritize **geographic and temporal coverage, environmental contextualization and the selection process into the original 58 pairs**, followed by independent new source data for population-reorganization tests. The immediate feasible macro unit is the *physical NEON site* and its nested standardized three-night source observations, including sites failing the ≥3 shared-genus transition rule. A secondary core outcome remains the corrected genus×trap recurrence among the qualified subset.
+
+1. **Macro study universe:** document physical-site/domain/season coverage across *all* effort-valid bouts and **803** adjacent-season candidate pairs, then distinguish the 216 diagnostic two-genus and 58 stringent three-genus subsets. Presence in the 44-site NEON terrestrial protocol is not proof that a source site yields a supported paired effect. Estimate/report inclusion probability and environment/data-availability asymmetry without using observed recurrence signs.
+2. **Environmental context:** independently dated site-season climate and ecological-domain covariates may be audited before choosing biological hypotheses, avoiding the failed station-level REST–GraphQL geometry join. High-dimensional spatial niche habitat/interaction claims remain blocked until independent detection and station-specific covariates actually match capture dates.
+3. **Test novelty where possible:** whether taxon-associated space-use recurrence *and* the diversity of density spatial responses exhibit **predictable environmental/taxonomic heterogeneity** across new independent field cohorts. Do not interpret heterogeneous old development slopes as an already established climate-by-density interaction.
+4. **Negative result remains informative:** under the currently qualified time/individual support, only 12/58 seasonal pairs can even *potentially* support both a recurring genus and within-individual response, providing a concrete design limit on studies that infer cross-scale mechanisms from the same mark-recapture data.
+
+**Publication ceiling now:** a one-manuscript, ecology-first synthesis with a corrected positive recurrence result and historical negative/hypothesis-generating density heterogeneity; any new macro generality must be separately generated and validated.
