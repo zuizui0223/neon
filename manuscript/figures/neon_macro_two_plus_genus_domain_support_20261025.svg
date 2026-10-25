@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="730" viewBox="0 0 1200 730" role="img" aria-labelledby="title desc">
 <title id="title">NEON geographic sampling coverage of exactly two genera and three or more genera across seasons</title>
-<desc id="desc">18 source candidate NEON domains, 803 adjacent season candidate pairs; source-only selected 158 exactly two-genus pairs and 58 three-plus-genus pairs, totalling 216 two-plus pairs, over 31 physical sites and 15 domains. These bars count structural eligibility and do not report ecological recurrence.</desc>
+<desc id="desc">19 domains with effort-valid trapping bouts; 18 have 803 adjacent season candidate pairs (D18 has zero); source-only selected 158 exactly two-genus pairs and 58 three-plus-genus pairs, totalling 216 two-plus pairs, over 31 physical sites and 15 domains. These bars count structural eligibility and do not report ecological recurrence.</desc>
 <rect width="1200" height="730" fill="white"/>
 <text x="46" y="42" font-family="Arial" font-size="24" font-weight="bold" fill="#183244">Broader two-genus comparisons reach more ecological domains</text>
 <text x="46" y="69" font-family="Arial" font-size="14" fill="#496577">803 adjacent-season candidates · 216 with ≥2 supported genera · 58 with ≥3 genera</text>
-<text x="46" y="92" font-family="Arial" font-size="13" fill="#516c78">Geographic source eligibility only; bars do not measure habitat selection, recurrence Z, or population turnover</text>
+<text x="46" y="92" font-family="Arial" font-size="13" fill="#516c78">Geographic eligibility only; D18 has zero season pairs. Bars do not measure ecological recurrence, habitat or population turnover</text>
 <rect x="46" y="119" width="13" height="13" rx="2" fill="#d9e2e7"/>
 <text x="65" y="131" font-family="Arial" font-size="12" fill="#385264">Candidate only</text>
 <rect x="183" y="119" width="13" height="13" rx="2" fill="#2880a2"/>
