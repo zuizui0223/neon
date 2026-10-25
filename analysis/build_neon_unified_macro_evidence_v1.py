@@ -28,6 +28,7 @@ FILES = {
     "recorded_stations_recurrence":"neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
     "original_tower_temperature_qc":"neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
     "exact_station_conditioned_10m_patch":"neon_macro_10m_patch_conditional_20261025.json",
+    "official_trap_status_456_stop":"neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -53,6 +54,7 @@ def build(root: Path = RESULTS) -> dict:
     station_effect=src["recorded_stations_recurrence"]
     climate_source=src["original_tower_temperature_qc"]
     patch=src["exact_station_conditioned_10m_patch"]
+    trap_qc=src["official_trap_status_456_stop"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -228,6 +230,26 @@ def build(root: Path = RESULTS) -> dict:
             and patch["inference"]["no_independent_new_release_or_confirmation"],
             "new ecological patch mechanism falsely claimed as causally established")
 
+    require(trap_qc["status"]=="STOP_OPERABLE_456_SIX_NIGHT_SOURCE_SUPPORT"
+            and (trap_qc["source_two_genus_original_pairs"],
+                 trap_qc["source_original_physical_sites"],
+                 trap_qc["retained_pairs"],
+                 trap_qc["retained_physical_sites"],
+                 trap_qc["retained_NEON_domains"])==(158,30,18,8,7)
+            and trap_qc["original_source_rule"]["passed"] is False
+            and (trap_qc["original_source_rule"]["minimum_retained_pairs"],
+                 trap_qc["original_source_rule"]["minimum_physical_sites"],
+                 trap_qc["original_source_rule"]["minimum_domains"])==(80,18,10),
+            "original NEON operational-status source STOP overridden or source counts changed")
+    require((trap_qc["all_six_verified_status_456_stations"]["minimum"],
+             trap_qc["all_six_verified_status_456_stations"]["median"],
+             trap_qc["all_six_verified_status_456_stations"]["maximum"])==(1,60,97)
+            and sum(trap_qc["source_status_code_row_counts"].values())==87916,
+            "original source official NEON trap status count/topology drifted")
+    require(trap_qc["effects_sealed"]["no_new_observed_genus_A_cross_B_trap_overlap"]
+            and trap_qc["inference_limits"]["source_station_operability_is_not_capture_detection_probability"],
+            "unsupported operational-source subcohort incorrectly promoted to biological causal effect")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -241,7 +263,7 @@ def build(root: Path = RESULTS) -> dict:
 
     return {
         "schema":"neon.unified_mammal_spatial_macro_evidence.v1",
-        "date":"2026-10-25",
+        "date":"2026-10-26",
         "status":"INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT",
         "source_receipts":{k:"results/"+v for k,v in sorted(FILES.items())},
         "scientific_centre":"Persistence of taxon-associated spatial organization across observed identity and population-state changes",
@@ -368,6 +390,34 @@ def build(root: Path = RESULTS) -> dict:
             "unit_conditional_marginal_moments_exact_no_MCMC":True,
             "new_outcome_historical_post_result_not_independent_replication":True,
             "taxon_specific_spatially_correlated_catchability_unresolved":True,
+        },
+        "official_neon_six_night_operability_source_limit":{
+            "status":"STRICT_STATUS_456_COHORT_SOURCE_STOP_NO_ECOLOGICAL_EFFECT",
+            "original_two_genus_pairs":trap_qc["source_two_genus_original_pairs"],
+            "original_physical_sites":trap_qc["source_original_physical_sites"],
+            "status_rows":trap_qc["original_canonical_trap_status_rows"],
+            "trapStatus_one_not_set_or_unprocessed_rows":trap_qc["source_status_code_row_counts"]["1"],
+            "trapStatus_two_disturbed_closed_rows":trap_qc["source_status_code_row_counts"]["2"],
+            "trapStatus_three_door_open_spoor_rows":trap_qc["source_status_code_row_counts"]["3"],
+            "trapStatus_four_multiple_capture_rows":trap_qc["source_status_code_row_counts"]["4"],
+            "trapStatus_five_capture_rows":trap_qc["source_status_code_row_counts"]["5"],
+            "trapStatus_six_trap_set_empty_rows":trap_qc["source_status_code_row_counts"]["6"],
+            "median_all_six_night_recorded_stations":station_source["all_six_recorded_station_count_distribution"]["median"],
+            "median_all_six_night_official_status456_stations":trap_qc["all_six_verified_status_456_stations"]["median"],
+            "minimum_all_six_night_status456_stations":trap_qc["all_six_verified_status_456_stations"]["minimum"],
+            "maximum_all_six_night_status456_stations":trap_qc["all_six_verified_status_456_stations"]["maximum"],
+            "retained_strict_source_pairs":trap_qc["retained_pairs"],
+            "retained_strict_physical_sites":trap_qc["retained_physical_sites"],
+            "retained_strict_NEON_domains":trap_qc["retained_NEON_domains"],
+            "predeclared_minimum_source_pairs":trap_qc["original_source_rule"]["minimum_retained_pairs"],
+            "predeclared_minimum_physical_sites":trap_qc["original_source_rule"]["minimum_physical_sites"],
+            "predeclared_minimum_NEON_domains":trap_qc["original_source_rule"]["minimum_domains"],
+            "new_operability_coded_genus_recurrence_Z_or_p_calculated":False,
+            "source_QC_not_species_specific_capture_detection_estimator":True,
+            "failure_of_estimation_not_negative_ecological_effect":True,
+            "codes_four_five_select_capture_related_outcomes":True,
+            "strict_six_night_status_intersection_does_not_mean_82percent_traps_nonoperable":True,
+            "original_conditional_positive_30site_result_unchanged":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
