@@ -19,7 +19,7 @@ class TowerParserDifferentialTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_SOURCE",json.dumps(result))
 
     def test_strict_regex_rejection_detected_but_not_silently_lost(self):
-        rec=self.rec("030.SAAT_30min.csv")
+        rec=self.rec("BADPOS.030.SAAT_30min.csv")
         selected=select_fixed_temperature_file([rec])
         result=safe_parser_profile(rec,selected)
         self.assertFalse(result["current_exact_three_digit_position_regex_matches"])
