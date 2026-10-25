@@ -198,9 +198,9 @@ def temporal_climate_source_audit(
         "lag_effect_source_precheck":lag_gate,
         "tower_weather_release_month_availability_gate":weather_gate,
         "scientific_scope":{
-            "source_original_exactly_two_pairs":158,
-            "source_original_three_plus_pairs":58,
-            "total_original_2plus_pairs":216,
+            "source_original_exactly_two_pairs":len(exact_two),
+            "source_original_three_plus_pairs":len(strict_three),
+            "total_original_2plus_pairs":len(exact_two)+len(strict_three),
             "original_source_identification_and_effort_unchanged":True,
             "old_primary_effect_or_new_exact_two_R_Z_refitted":False,
             "source_site_capture_dates_lat_lon_site_ID_animal_IDs_exported":False,
