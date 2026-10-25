@@ -116,7 +116,7 @@ def selection_summary(exact:list[dict],known_three:list[dict],
     }
 
 
-def original_sources_for_two_genus():
+def original_sources_for_two_genus(*, include_private_source_rows: bool = False):
     token=os.environ.get(TOKEN_ENV,"").strip()
     check(bool(token),"NEON original release token absent")
     check((RELEASE,START,END)==("RELEASE-2026","2015-04","2026-09"),
@@ -156,6 +156,18 @@ def original_sources_for_two_genus():
     check((len(strict),len(exact),
            support["eligible_2genus_diagnostic_pairs"])==(58,158,216),
           "original diagnostic 216 or 58/158 split changed")
+    if include_private_source_rows:
+        # Future effect-blind observation-process QA. This is an explicit,
+        # opt-in ephemeral in-memory path; the original 3-value public
+        # return and all historically frozen source/effect estimates
+        # remain unchanged when called without this keyword.
+        return strict,exact,{
+            "manifest_files_original_verified":len(inventory),
+            "downloaded_checksum_verified_capture_files":len(pf)+len(tf),
+            "original_trap_rows":len(trap_rows),
+            "original_plot_rows":len(plot_rows),
+            "original_three_genus_source_support_verification":True,
+        },plot_rows,trap_rows
     return strict,exact,{
         "manifest_files_original_verified":len(inventory),
         "downloaded_checksum_verified_capture_files":len(pf)+len(tf),
