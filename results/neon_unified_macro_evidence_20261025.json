@@ -1,6 +1,6 @@
 {
   "schema": "neon.unified_mammal_spatial_macro_evidence.v1",
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "status": "INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT",
   "source_receipts": {
     "density": "results/multiscale_density_development_result_v1.json",
@@ -18,7 +18,8 @@
     "recorded_stations_source": "results/neon_macro_six_night_recorded_station_support_20261025.json",
     "recorded_stations_recurrence": "results/neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
     "original_tower_temperature_qc": "results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
-    "exact_station_conditioned_10m_patch": "results/neon_macro_10m_patch_conditional_20261025.json"
+    "exact_station_conditioned_10m_patch": "results/neon_macro_10m_patch_conditional_20261025.json",
+    "official_trap_status_456_stop": "results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -283,5 +284,33 @@
     "unit_conditional_marginal_moments_exact_no_MCMC": true,
     "new_outcome_historical_post_result_not_independent_replication": true,
     "taxon_specific_spatially_correlated_catchability_unresolved": true
+  },
+  "official_neon_six_night_operability_source_limit": {
+    "status": "STRICT_STATUS_456_COHORT_SOURCE_STOP_NO_ECOLOGICAL_EFFECT",
+    "original_two_genus_pairs": 158,
+    "original_physical_sites": 30,
+    "status_rows": 87916,
+    "trapStatus_one_not_set_or_unprocessed_rows": 1275,
+    "trapStatus_two_disturbed_closed_rows": 3494,
+    "trapStatus_three_door_open_spoor_rows": 4938,
+    "trapStatus_four_multiple_capture_rows": 57,
+    "trapStatus_five_capture_rows": 13727,
+    "trapStatus_six_trap_set_empty_rows": 64425,
+    "median_all_six_night_recorded_stations": 100,
+    "median_all_six_night_official_status456_stations": 60,
+    "minimum_all_six_night_status456_stations": 1,
+    "maximum_all_six_night_status456_stations": 97,
+    "retained_strict_source_pairs": 18,
+    "retained_strict_physical_sites": 8,
+    "retained_strict_NEON_domains": 7,
+    "predeclared_minimum_source_pairs": 80,
+    "predeclared_minimum_physical_sites": 18,
+    "predeclared_minimum_NEON_domains": 10,
+    "new_operability_coded_genus_recurrence_Z_or_p_calculated": false,
+    "source_QC_not_species_specific_capture_detection_estimator": true,
+    "failure_of_estimation_not_negative_ecological_effect": true,
+    "codes_four_five_select_capture_related_outcomes": true,
+    "strict_six_night_status_intersection_does_not_mean_82percent_traps_nonoperable": true,
+    "original_conditional_positive_30site_result_unchanged": true
   }
 }
