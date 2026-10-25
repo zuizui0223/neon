@@ -13,7 +13,7 @@ from analysis.run_neon_macro_original_tower_thermal_ecology_v1 import (
 
 def record(site,month):
     return {
-        "name":f"NEON.D01.{site}.DP1.00002.001.00000.000.010.030.SAAT_30min.csv",
+        "name":f"NEON.D01.{site}.DP1.00002.001.00000.000.010.030.SAAT_30min.{month}.basic.20261025T020000Z.csv",
         "url":"https://example.test/weather.csv",
         "size":321,
         "md5":"a"*32,
