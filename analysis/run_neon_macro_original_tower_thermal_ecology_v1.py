@@ -88,22 +88,72 @@ def prepare():
     return original_all_sorted,old,src,geo,candidates,need_months,structural
 
 
-def provider_weather_months(sites:list[str],months:set[tuple[str,str]],token:str)->tuple[dict,dict]:
-    """NEON released original site/month archives, fixed source file sort."""
-    if not months:
-        return {},{"requested":0,"metadata_found":0,"downloaded":0}
-    month_names=[m for s,m in months]
-    payload=_request_json(QUERY_URL,token=token,body={
-        "productCode":TEMP,"siteCodes":sites,
-        "startDateMonth":min(month_names),"endDateMonth":max(month_names),
+def _exact_month_query_body(site:str,month:str)->dict:
+    """Avoid unbounded 28-site × 10-year weather manifests.
+
+    A published one-site one-month RELEASE-2026 data/query worked in the
+    pre-effect source pilot; the earlier broad query matched 0 of 205
+    necessary site-month keys even though /sites advertised their release
+    availability. Never treat that bulk API shape failure as climate absence.
+    """
+    if not isinstance(site,str) or not site or not isinstance(month,str) or len(month)!=7:
+        raise ValueError("Source month/site key missing")
+    return {
+        "productCode":TEMP,"siteCodes":[site],
+        "startDateMonth":month,"endDateMonth":month,
         "release":RELEASE,"package":"basic","includeProvisional":False,
-    })
-    chosen=_month_catalog(payload,months)
-    valid={key:row for key,row in chosen.items() if row is not None}
-    wrong=len(months)-len(valid)
+    }
+
+
+def provider_weather_months(sites:list[str],months:set[tuple[str,str]],token:str)->tuple[dict,dict]:
+    """Query exactly the release-approved original site-month keys.
+
+    This changes *only provider archive retrieval granularity* after a
+    source-only STOP, not the original 158 mammal comparisons, the primary
+    temperature exposure, fixed sensor position, source QC, or any outcomes.
+    A metadata error is distinguished from a truly unavailable month.
+    """
+    if not months:
+        return {},{"requested_source_site_months":0,"verified_and_parsed_months":0}
+    if not isinstance(months,set) or any(
+        not isinstance(k,tuple) or len(k)!=2 for k in months
+    ):
+        raise ValueError("Source-month input malformed")
+    allowed=set(sites)
+    require(all(site in allowed for site,month in months),
+            "weather source month not in fixed source sites")
+
+    def exact_query(key):
+        site,month=key
+        try:
+            payload=_request_json(QUERY_URL,token=token,body=_exact_month_query_body(site,month))
+            record=_month_catalog(payload,{key}).get(key)
+            return key,record,None
+        except Exception as e:
+            # No raw site labels, archive URLs or provider messages.
+            return key,None,type(e).__name__
+
+    catalog={}
+    archive_errors=Counter()
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for key,rec,error in pool.map(exact_query,sorted(months)):
+            if error:archive_errors[error]+=1
+            else:catalog[key]=rec
+    # Metadata schema failures must not be misclassified as no original
+    # temperature data and cannot silently select only successful sources.
+    if archive_errors:
+        return {},{
+            "requested_source_site_months":len(months),
+            "site_month_single_release_query_attempts":len(months),
+            "weather_metadata_error_class_counts":dict(sorted(archive_errors.items())),
+            "source_archive_query_mode":"one_site_one_original_month",
+            "verified_and_parsed_months":0,
+            "metadata_source_failure_not_declared_zero_temperature":True,
+        }
+
+    valid={key:row for key,row in catalog.items() if row is not None}
     qc={}
     errors=Counter()
-
     def process(item):
         key,row=item
         try:
@@ -112,22 +162,23 @@ def provider_weather_months(sites:list[str],months:set[tuple[str,str]],token:str
             return key,out,None
         except Exception as e:
             return key,None,type(e).__name__
-
     with ThreadPoolExecutor(max_workers=8) as pool:
         for key,out,error in pool.map(process,sorted(valid.items())):
-            if error:
-                errors[error]+=1
+            if error:errors[error]+=1
             elif out is not None:
                 qc[key]={**out,"source_position":valid[key]["position"],
-                          "provider_digest_verified":True}
+                         "provider_digest_verified":True}
     return qc,{
         "requested_source_site_months":len(months),
+        "site_month_single_release_query_attempts":len(months),
         "archive_30min_file_months_advertised":len(valid),
-        "no_30min_file_months":wrong,
+        "no_30min_file_months":len(months)-len(valid),
         "verified_and_parsed_months":len(qc),
         "QC_good_months":sum(x["status"]=="TOWER_TEMP_MONTH_QC_PASS" for x in qc.values()),
         "QC_bad_months":sum(x["status"]!="TOWER_TEMP_MONTH_QC_PASS" for x in qc.values()),
         "file_access_error_class_counts":dict(sorted(errors.items())),
+        "weather_metadata_error_class_counts":{},
+        "source_archive_query_mode":"one_site_one_original_month",
         "provider_MD5_and_byte_counts_checked_on_each_readable_month":True,
         "one_preselected_sensor_file_per_original_site_month":True,
         "source_file_names_and_URLs_never_serialized":True,
@@ -155,6 +206,14 @@ def run()->dict:
                 "weather_quality_stage_opened":False,
                 "climate_effect_opened":False}
     weather,quality=provider_weather_months(sorted({s for s,m in monthkeys}),monthkeys,token)
+    if quality.get("weather_metadata_error_class_counts"):
+        return {
+            **base,
+            "status":"STOP_PROVIDER_SOURCE_MONTH_METADATA_SCHEMA",
+            "source_weather_request_qa":quality,
+            "climate_effect_opened":False,
+            "source_metadata_failure_not_zero_thermal_variation":True,
+        }
     count_weather={
         **quality,
         "fixed_min_valid_30min_fraction":0.70,
