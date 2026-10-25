@@ -17,7 +17,8 @@
     "new_site_sensitivity": "results/neon_exact_two_new_sites_sensitivity_receipt_20261025.json",
     "recorded_stations_source": "results/neon_macro_six_night_recorded_station_support_20261025.json",
     "recorded_stations_recurrence": "results/neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
-    "original_tower_temperature_qc": "results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json"
+    "original_tower_temperature_qc": "results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
+    "exact_station_conditioned_10m_patch": "results/neon_macro_10m_patch_conditional_20261025.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -261,5 +262,26 @@
     "temperature_slope_or_confidence_interval_estimated": false,
     "not_evidence_of_zero_climate_ecological_effect": true,
     "no_threshold_relaxation_or_different_weather_variable": true
+  },
+  "exact_trap_conditional_10m_local_patch_ecology": {
+    "status": "MIXED_EXPLORATORY_FULL_COHORT_POSITIVE_SOURCE_REUSED_SITE_EXCLUSION_NOT_SUPPORTED",
+    "null_conditions": "genus_station_margins_AND_ORIGINAL_SAME_TRAP_OVERLAP_FIXED",
+    "original_source_exact_two_pairs": 158,
+    "conditional_patch_variance_informative_pairs": 153,
+    "conditional_patch_zero_variance_pairs": 5,
+    "physical_sites": 30,
+    "positive_site_mean_count": 22,
+    "original_full_mean_Z": 0.31030688542725354,
+    "full_product_null_conditional_p": 0.0023998800059997,
+    "full_rank_coupled_conditional_p": 0.03914804259787011,
+    "whole_site_season_reuse_exclusion_pairs": 50,
+    "whole_site_season_reuse_exclusion_sites": 17,
+    "whole_site_season_reuse_exclusion_mean_Z": 0.1825892504019166,
+    "whole_site_season_reuse_exclusion_product_p": 0.15229238538073098,
+    "whole_site_season_reuse_exclusion_rank_coupled_p": 0.22053897305134743,
+    "strong_general_patch_recurrence_after_source_disjointness_established": false,
+    "unit_conditional_marginal_moments_exact_no_MCMC": true,
+    "new_outcome_historical_post_result_not_independent_replication": true,
+    "taxon_specific_spatially_correlated_catchability_unresolved": true
   }
 }
