@@ -8,7 +8,11 @@ import csv,io,math,calendar,re
 from statistics import mean
 
 
-NAME=re.compile(r"\.(\d{3})\.030\.SAAT_30min\.csv$")
+# Official NEON Instrumented Systems archive file naming:
+# NEON.DOM.SITE.DPL.PRNUM.REV.HOR.VER.TMI.DESC.YYYY-MM.PKGTYPE.GENTIME.csv
+# https://data.neonscience.org/file-naming-conventions
+# Prior regex omitted .YYYY-MM.basic.GENTIME and rejected source months.
+NAME=re.compile(r"\.(\d{3})\.030\.SAAT_30min\.(\d{4}-\d{2})\.basic\.(\d{8}T\d{6}Z)\.csv$")
 
 
 def position(name:str)->str|None:
