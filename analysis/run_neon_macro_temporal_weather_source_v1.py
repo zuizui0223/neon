@@ -82,6 +82,7 @@ def bout_start_gap(unit:dict)->int:
 def temporal_climate_source_audit(
     exact_two:list[dict], strict_three:list[dict],
     source_sites:list[dict],*,expected_two=158,expected_three=58,
+    expected_two_sites=30,expected_three_sites=14,
 )->dict:
     require(len(exact_two)==expected_two and len(strict_three)==expected_three,
             "original exactly-two/three-plus source cohorts drifted")
@@ -154,8 +155,10 @@ def temporal_climate_source_audit(
         }
     two=cohort(exact_two)
     three=cohort(strict_three)
-    require(two["pairs"]+three["pairs"]==216 and two["physical_sites"]==30 and three["physical_sites"]==14,
-            "original 216 source pairs/30/14 site source support changed")
+    require(two["pairs"]+three["pairs"]==expected_two+expected_three
+            and two["physical_sites"]==expected_two_sites
+            and three["physical_sites"]==expected_three_sites,
+            "original source pair/site source support changed")
     lag_gate={
         "min_informative_original_two_genus_pairs":100,
         "min_sites_with_two_plus_distinct_lags":15,
