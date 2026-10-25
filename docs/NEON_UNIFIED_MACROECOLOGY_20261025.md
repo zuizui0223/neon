@@ -139,3 +139,47 @@ The merged-paper claim must be **narrower than "a new macroecological abundance�
 **What would make a genuinely new macro *result***: source-verified inclusion probabilities across all NEON domains, followed by a *new independently observed cohort* showing that **conditional spatial recurrence at individual-disjoint traps** varies predictably across site-level independent environmental differences after allowing taxon-specific capture propensity. The existing 14-site positive result remains strong *conditional* ecological evidence, but is not by itself proof of that macroenvironmental relationship.
 
 **Avoid a false inference from the new source crosswalk STOP:** It does **not** show an inverse ecological relation between within-individual reorganization and community persistence; it shows there is insufficient same-event repeat support for the proposed joint response analysis.
+
+---
+
+## 25 October 2026: positive exactly-two-genus exploratory expansion (new original-release effect)
+
+**The source-feasibility and mathematically exact conditional-null design were committed before the new two-genus genus×trap spatial overlap results were opened.** The original previous >=3-genus positive 14-site result was already known, so this new same-release group is *historical post-result exploration*, NOT independently prospective replication. The immutable original 58 comparisons and failed original density generality remain unchanged.
+
+### Source-defined independence and broader macro coverage
+
+The original **216** pairs meeting the effect-blind >=2 genus diagnostic support divide into:
+- **58** original >=3-genus seasonal comparisons: strict old corrected positive conditional result at **14 sites/10 ecological domains**;
+- **158** disjoint EXACTLY-two-genera comparisons: **30 sites/15 ecological domains**, including **17 physical sites** and **five ecological domains** absent from the older strict group.
+
+The source union comprises **216 distinct seasonal pair keys at 31 unique physical sites and 15 ecological domains**, *not* 44 sites (13 sites overlap between groups), nor 216 independent physical ecosystems. This broadens estimable geographic source coverage from 14/42 to 31/42 candidate sites, and from 10/18 to 15/18 candidate domains. Strict >=3 source case fractions remain historically **58/803 = 7.22%**; >=2 diagnostic source coverage is **216/803 = 26.90%**. In the source pair-weighted Shannon sense, effective domain coverage rises from 7.56 to 12.64, versus 15.08 of all candidates. **These are sample representativeness, not ecological effect estimates.**
+
+### Exact two-genus ecological result (distinct conditional estimand)
+
+New original-data [Actions 40166644498](https://github.com/zuizui0223/neon/actions/runs/40166644498) opened the two-genus seasonal overlap only after source support GO and a separate exact-null variance feasibility GO. In two rows, the fixed-margin genus×trap null is mathematically a finite multivariate hypergeometric distribution, with no MCMC convergence approximation for each unit; see pre-effect `docs/NEON_EXACT_TWO_GENUS_EXACT_NULL_ADDENDUM_20261025.md` and brute-force state-enumeration tests.
+
+| Statistic | All original EXACT two-genus group | Entire reused-season source sites excluded |
+|---|---:|---:|
+| Original source seasonal pairs | 158 | 52 |
+| Informative nonzero exact-null-variance pairs | **150** (8 zero variance) | **48** |
+| Independent physical sites | **30** | **17** |
+| Observed positive site means | **25/30** | not separately archived (do not infer) |
+| Equal-site mean standardized recurrence Z | **+0.614711** | **+0.698352** |
+| Product exact-null 20k Monte Carlo plus-one p | 0.000050 | 0.000100 |
+| Rank-comonotone within-site exact-null 20k stress p | **0.000150** | **0.001250** |
+
+The 20k site meta-null draws still carry simulation precision limits, and the comonotone dependence scenario is NOT an all-joint ecological worst-case bound. All **30 original site means** are retained in an anonymous [source-backed figure](../manuscript/figures/neon_exact_two_genus_site_means_20261025.svg) including the five negative sites.
+
+**What this adds biologically:** The same direction of genus-to-exact-trap seasonal recurrence among different observed tags was present in a lower sampled genus-richness group with broader geographic coverage. It is conditional **capture-space structure**, *not* proof that lower richness increases or decreases true ecological persistence, and not a direct test that species are absent/present in particular habitat*. The two-row versus >=3-row matrices have different per-unit null effect scales; never pool their Z or p-values or compare their magnitudes as a genus-richness effect.
+
+**Major remaining alternatives:** stable genus-dependent trap catchability, unmeasured station-specific microhabitat/resource positions, unverified true demographic turnover, within-site season/dependence beyond the reported stress. None are excluded by an exact conditional fixed-margin null. Repeated source sites mean this is NOT an independent second ecosystem/time sample, even though pair keys are disjoint.
+
+**One manuscript, not A/B and not a new third paper:** active source is `manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_3.md`. The original historical density W/B 5/8 vs6 required failure and unsuccessful direct 12/58 cross-scale matching stay as clearly flagged separate-scale observations.
+
+**Next primary science gate:** identify environmental and detection-source variables that are independently measured and temporally aligned at these **30** sites / 15 domains. A single new held-out environmental hypothesis should then be frozen before testing another independent site/season cohort. Reporting exploratory correlations against already inspected site Z can generate hypotheses but cannot establish macro causal mechanisms.
+
+Original machine records:
+- `results/neon_exact_two_genus_source_receipt_20261025.json`;
+- `results/neon_exact_two_genus_ecological_receipt_20261025.json`;
+- `results/neon_macro_two_plus_genus_coverage_20261025.json`;
+- conditional-null code `analysis/neon_exact_two_row_fixedmargin_v1.py`, and effect runner `analysis/run_neon_exact_two_genus_ecology_v1.py`.
