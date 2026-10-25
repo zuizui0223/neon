@@ -10,7 +10,7 @@ class TowerParserDifferentialTests(unittest.TestCase):
                 "md5":"a"*32}
 
     def test_expected_numeric_height_suffix_matches(self):
-        rec=self.rec("010.030.SAAT_30min.csv")
+        rec=self.rec("010.030.SAAT_30min.2020-04.basic.20261025T020000Z.csv")
         selected=select_fixed_temperature_file([rec])
         result=safe_parser_profile(rec,selected)
         self.assertTrue(result["current_exact_three_digit_position_regex_matches"])
@@ -19,7 +19,7 @@ class TowerParserDifferentialTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_SOURCE",json.dumps(result))
 
     def test_strict_regex_rejection_detected_but_not_silently_lost(self):
-        rec=self.rec("BADPOS.030.SAAT_30min.csv")
+        rec=self.rec("BADPOS.030.SAAT_30min.2020-04.basic.20261025T020000Z.csv")
         selected=select_fixed_temperature_file([rec])
         result=safe_parser_profile(rec,selected)
         self.assertFalse(result["current_exact_three_digit_position_regex_matches"])
