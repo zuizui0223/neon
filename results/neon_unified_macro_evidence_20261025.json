@@ -1,7 +1,7 @@
 {
   "schema": "neon.unified_mammal_spatial_macro_evidence.v1",
   "date": "2026-10-25",
-  "status": "INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST",
+  "status": "INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT",
   "source_receipts": {
     "density": "results/multiscale_density_development_result_v1.json",
     "density_modes": "results/multiscale_density_heterogeneity_result_v1.json",
@@ -10,7 +10,10 @@
     "recurrence_support": "results/neon_crossseason_genus_template_support_receipt_20261019.json",
     "san_jacinto": "results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
     "crosswalk": "results/neon_unified_macro_source_crosswalk_receipt_20261025.json",
-    "macro_selection": "results/neon_macro_biogeographic_selection_receipt_20261025.json"
+    "macro_selection": "results/neon_macro_biogeographic_selection_receipt_20261025.json",
+    "exact_two_source": "results/neon_exact_two_genus_source_receipt_20261025.json",
+    "exact_two_ecology": "results/neon_exact_two_genus_ecological_receipt_20261025.json",
+    "expanded_2plus_geo": "results/neon_macro_two_plus_genus_coverage_20261025.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -179,5 +182,29 @@
     "gradient_strict_pairs": 31,
     "ecological_recurrence_by_domain_estimated": false,
     "geographic_ineligibility_not_zero_recurrence": true
+  },
+  "exploratory_exact_two_genus_spatial_recurrence": {
+    "status": "CONDITIONAL_POSITIVE_POST_RESULT_SAME_RELEASE_EXPLORATION",
+    "separate_original_strict_three_plus_pairs": 58,
+    "source_exact_two_pairs": 158,
+    "source_sites": 30,
+    "source_domains": 15,
+    "informative_exact_uniform_two_row_pairs": 150,
+    "noninformative_zero_variance_pairs": 8,
+    "positive_physical_sites": 25,
+    "site_mean_z": 0.6147113767599713,
+    "rank_coupled_20000_conditional_p": 0.00014999250037498125,
+    "source_reuse_disjoint_pairs": 48,
+    "source_reuse_disjoint_sites": 17,
+    "source_reuse_disjoint_mean_z": 0.6983519175917221,
+    "source_reuse_disjoint_rank_coupled_p": 0.0012499375031248437,
+    "all_two_plus_source_union_pairs": 216,
+    "all_two_plus_source_union_unique_sites": 31,
+    "all_two_plus_source_union_ecological_domains": 15,
+    "genus_richness_specific_estimands_not_pooled": true,
+    "source_release_same_as_original_primary_not_independent_replication": true,
+    "within_site_rank_coupling_not_universal_dependence_bound": true,
+    "genus_specific_capture_propensity_not_calibrated": true,
+    "environmental_mechanism_not_fitted": true
   }
 }
