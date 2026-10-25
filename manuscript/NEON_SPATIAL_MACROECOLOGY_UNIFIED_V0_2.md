@@ -111,7 +111,7 @@ Prior literature establishes separate axes of habitat association (Goldingay & P
 
 **Figure 2 — Corrected community spatial persistence.** Use only [corrected Figure 2](figures/neon_crossseason_genus_site_means_corrected_v0_3.svg) derived from verified corrected null output, 14 vs 12 physical-site sensitivity. Do not re-use the obsolete accepted-swap figure.
 
-**Figure 3 — Density-associated geometric response diversity.** Plot the eight original genus `Delta_beta` estimates with sample-size/site counts and a prominently labelled frozen **FAIL 5/8 < 6/8**; modes exploratory. There is no shared Z / beta axis or pooled significance.
+**Figure 3 — Density-associated geometric response diversity.** [All-eight-genus source-backed figure](figures/neon_unified_macro_density_heterogeneity_v0_1.svg) displays each frozen genus `Delta_beta` point estimate, all negative results, site/session replication, and the prominently labelled **FAIL 5/8 < 6/8**. Six multi-site genera have a shared x-axis; two one-site genera are separately listed as exact values to avoid false graphic scale interpretation. No confidence intervals or pooled recurrence/density p-value.
 
 **Future Figure 4 — Direct matched macro analysis.** Not authorized until source crosswalk, independent covariates and independently validated outcomes are available. Omit it rather than invent an association.
 
