@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="965" viewBox="0 0 1150 965" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="1010" viewBox="0 0 1150 1010" role="img" aria-labelledby="title desc">
 <title id="title">Exact two-genus lineage-associated trap-position recurrence across 30 independent NEON sites</title>
 <desc id="desc">Thirty anonymized physical-site mean standardized recurrence Z values for 150 informative exactly-two-genus adjacent-season comparisons, corrected by a mathematically exact fixed-margin hypergeometric null. Twenty-five of thirty site means are positive, grand equal-site mean 0.6147. Removing 13 physical sites with reused season source keys leaves 17 sites and 48 informative pairs, equal site mean Z 0.6984. Same historical release and genus-specific detectability not excluded.</desc>
-<rect width="1150" height="965" fill="white"/>
+<rect width="1150" height="1010" fill="white"/>
 <text x="46" y="41" font-family="Arial" font-size="25" font-weight="700" fill="#193446">Taxon-associated trap locations recur in less rich assemblages</text>
 <text x="46" y="70" font-family="Arial" font-size="14" fill="#4d6370">Exactly 2 eligible genera per season pair · 150 informative comparisons · 30 independent NEON sites</text>
 <text x="46" y="93" font-family="Arial" font-size="14" fill="#4d6370">Uniform fixed-margin null is exact per two-genus pair; site-level dependence calibration remains conditional</text>
