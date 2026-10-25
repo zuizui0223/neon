@@ -20,7 +20,7 @@
 ## Start here
 
 - **One scientific contract:** [Unified macroecological question and effect/estimability boundaries](docs/NEON_UNIFIED_MACROECOLOGY_20261025.md).
-- **One unified manuscript:** [Spatial persistence and population reorganization — v0.1](manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_1.md). Research draft, **NOT SUBMITTED**.
+- **One unified manuscript:** [Spatial persistence and population reorganization — v0.2, including real joint-support STOP](manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_2.md). Research draft, **NOT SUBMITTED**.
 - **One machine-checkable evidence ledger:** [Existing positive and negative source results](results/neon_unified_macro_evidence_20261025.json), rebuilt from immutable receipts by `analysis/build_neon_unified_macro_evidence_v1.py`.
 - **Completed source-only joint-support test:** [Reproduced matched-pair audit](results/neon_unified_macro_source_crosswalk_receipt_20261025.json) — **12 original pairs / 8 physical sites / 1 cross-site replicated genus; source feasibility STOP**. [Verified Action](https://github.com/zuizui0223/neon/actions/runs/40162524657). No W/B or R outcomes refitted.
 - [Corrected NEON 14-/12-site recurrence figure](manuscript/figures/neon_crossseason_genus_site_means_corrected_v0_3.svg).
