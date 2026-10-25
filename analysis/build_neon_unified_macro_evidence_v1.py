@@ -20,6 +20,9 @@ FILES = {
     "san_jacinto": "san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
     "crosswalk": "neon_unified_macro_source_crosswalk_receipt_20261025.json",
     "macro_selection": "neon_macro_biogeographic_selection_receipt_20261025.json",
+    "exact_two_source":"neon_exact_two_genus_source_receipt_20261025.json",
+    "exact_two_ecology":"neon_exact_two_genus_ecological_receipt_20261025.json",
+    "expanded_2plus_geo":"neon_macro_two_plus_genus_coverage_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -37,6 +40,9 @@ def build(root: Path = RESULTS) -> dict:
     sup, habitat, sj = src["recurrence_support"], src["habitat"], src["san_jacinto"]
     cw = src["crosswalk"]
     macro = src["macro_selection"]
+    two_source = src["exact_two_source"]
+    two_effect = src["exact_two_ecology"]
+    expanded = src["expanded_2plus_geo"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -112,6 +118,34 @@ def build(root: Path = RESULTS) -> dict:
             and macro["effect_boundary"]["macro_habitat_or_latitude_effect_fit"] is False,
             "original geographic sampling support or effect scope changed")
 
+    require(two_source["status"]=="EXACT_TWO_GENUS_SOURCE_GO_NO_EFFECT_OPENED"
+            and two_source["precommitted_source_gate"]["passed"]
+            and (two_source["exact_two_source"]["pairs"],
+                 two_source["exact_two_source"]["physical_sites"],
+                 two_source["exact_two_source"]["domains"])==(158,30,15),
+            "source-only exactly-two population drifted")
+    require(two_effect["status"]=="EXPLORATORY_CONDITIONAL_TWO_GENUS_RECURRENCE_POSITIVE"
+            and two_effect["variance_source_support"]["passed"]
+            and two_effect["observed"]["informative_exact_two_genus_pairs"]==150
+            and two_effect["observed"]["positive_physical_site_mean_count"]==25
+            and two_effect["observed"]["physical_sites"]==30,
+            "exact two-genus ecological outcome, support or status changed")
+    require(abs(two_effect["observed"]["corrected_equal_site_mean_Z"]-0.6147113767599713)<1e-10
+            and abs(two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["observed_equal_site_mean_z"]-0.6983519175917221)<1e-10
+            and (two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["sites"],
+                 two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["seasonal_pairs"])==(17,48),
+            "new site-block corrected Z or disjoint sensitivity drifted")
+    require(two_effect["claim_boundary"]["post_result_historical_exploratory_not_confirmatory"]
+            and two_effect["claim_boundary"]["no_density_W_B_or_climate_biogeographic_effect_fitted"],
+            "exploratory new source effects falsely labelled independent or causal")
+    require(expanded["status"]=="EFFECT_BLIND_EXPANDED_SAMPLE_COVERAGE_ONLY"
+            and (expanded["all_two_plus"]["pairs"],
+                 expanded["all_two_plus"]["physical_sites"],
+                 expanded["all_two_plus"]["ecological_domains"])==(216,31,15),
+            "2+ original macro geographical union changed")
+    require(two_effect["full_exact_two_genus_conditional_meta_null"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"]<0.05,
+            "exact two-genus constrained exploratory site-null no longer supported")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -156,6 +190,30 @@ def build(root: Path = RESULTS) -> dict:
             "gradient_strict_pairs":macro["field_site_core_gradient_grouped_source_only"]["GRADIENT"]["primary_eligible_pairs"],
             "ecological_recurrence_by_domain_estimated":False,
             "geographic_ineligibility_not_zero_recurrence":True,
+        },
+        "exploratory_exact_two_genus_spatial_recurrence":{
+            "status":"CONDITIONAL_POSITIVE_POST_RESULT_SAME_RELEASE_EXPLORATION",
+            "separate_original_strict_three_plus_pairs":two_source["original_strict_primary"]["pairs"],
+            "source_exact_two_pairs":two_source["exact_two_source"]["pairs"],
+            "source_sites":two_source["exact_two_source"]["physical_sites"],
+            "source_domains":two_source["exact_two_source"]["domains"],
+            "informative_exact_uniform_two_row_pairs":two_effect["observed"]["informative_exact_two_genus_pairs"],
+            "noninformative_zero_variance_pairs":two_effect["variance_source_support"]["null_zero_variance_pairs"],
+            "positive_physical_sites":two_effect["observed"]["positive_physical_site_mean_count"],
+            "site_mean_z":two_effect["observed"]["corrected_equal_site_mean_Z"],
+            "rank_coupled_20000_conditional_p":two_effect["full_exact_two_genus_conditional_meta_null"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"],
+            "source_reuse_disjoint_pairs":two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["seasonal_pairs"],
+            "source_reuse_disjoint_sites":two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["sites"],
+            "source_reuse_disjoint_mean_z":two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["observed_equal_site_mean_z"],
+            "source_reuse_disjoint_rank_coupled_p":two_effect["source_disjoint_exact_two_genus_conditional_meta_null"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"],
+            "all_two_plus_source_union_pairs":expanded["all_two_plus"]["pairs"],
+            "all_two_plus_source_union_unique_sites":expanded["all_two_plus"]["physical_sites"],
+            "all_two_plus_source_union_ecological_domains":expanded["all_two_plus"]["ecological_domains"],
+            "genus_richness_specific_estimands_not_pooled":True,
+            "source_release_same_as_original_primary_not_independent_replication":True,
+            "within_site_rank_coupling_not_universal_dependence_bound":True,
+            "genus_specific_capture_propensity_not_calibrated":True,
+            "environmental_mechanism_not_fitted":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
