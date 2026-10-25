@@ -183,3 +183,18 @@ Original machine records:
 - `results/neon_exact_two_genus_ecological_receipt_20261025.json`;
 - `results/neon_macro_two_plus_genus_coverage_20261025.json`;
 - conditional-null code `analysis/neon_exact_two_row_fixedmargin_v1.py`, and effect runner `analysis/run_neon_exact_two_genus_ecology_v1.py`.
+
+---
+
+## 25 October 2026 further geographic nonoverlap sensitivity: **positive conditional direction, strict season-reuse STOP**
+
+A new separate **post-result** conditional test retained only the **17 exact-two-genera physical sites not included among the original ≥3-genera 14 NEON physical sites**, by source site-ID set difference *before* opening the subgroup's effect. This provides a narrower ecological geographic statement than treating all 30 exact-two sites as independently replicating the original 14, which they do not (13 physical sites overlap). The new 17 sites span 11 ecological domains, including five absent from the original 14-site source.
+
+- **Source/conditional-null support:** 74 original seasonal comparisons across the 17 entirely new sites, **71** nondegenerate exact two-row uniform fixed-margin null contrasts.
+- **Observed result:** **15 of 17 site means positive**, equally weighted site Z=**+0.760059**, source-fixed independent-unit Monte Carlo +1 p=**0.000050** and strong within-site rank-comonotone dependence stress p=**0.000600** (20,000 draws per scenario).
+- **Important STOP:** eight new physical sites contained a reused source season key among full original exact-two pairs. Excluding *the entire site* from every such key left just **9 physical sites and 16 informative seasonal comparisons**, below the separately frozen 20-pair requirement. Hence no strict fully source-season-disjoint meta-null for the geographically new subset was opened. The 17-site positive conditional result does not prove arbitrary within-site dependence has been excluded.
+- **Inferential scope:** stronger geographic nonoverlap *within a previously inspected release*, not a new independent temporal cohort, not a new preregistered validation, and no demonstration of competition, stable local habitat choice or full biological turnover. The exact two-row marginal null removes MCMC error only, not genus-dependent capture propensity.
+
+Source: `docs/NEON_EXACT_TWO_NEW_SITES_GEOGRAPHIC_SENSITIVITY_20261025.md`, `results/neon_exact_two_new_sites_sensitivity_receipt_20261025.json`, verified [Actions 40167476048](https://github.com/zuizui0223/neon/actions/runs/40167476048).
+
+**Active biological conclusion, unified:** conditional genus-associated capture-station recurrence across *different observed tagged animals* appears at both ≥3-genus and exactly-two-genus comparison strata, and remains positive in source-defined sites not present in the original strict analysis. The density response is heterogeneous with original taxonomic generality FAIL, and exact joint W/B–recurrence effects remain STOP. Future causal macroecology must use independently matched habitat/detection information and genuinely unseen source populations rather than turn these nested historical comparisons into pseudo-replicates.
