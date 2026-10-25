@@ -416,7 +416,7 @@ def build(root: Path = RESULTS) -> dict:
             "source_QC_not_species_specific_capture_detection_estimator":True,
             "failure_of_estimation_not_negative_ecological_effect":True,
             "codes_four_five_select_capture_related_outcomes":True,
-            "strict_six_night_status_intersection_does_not_mean_82percent_traps_nonoperable":True,
+            "failure_of_source_pair_gate_not_fraction_of_traps_nonoperable":True,
             "original_conditional_positive_30site_result_unchanged":True,
         },
         "spatial_recurrence":{
