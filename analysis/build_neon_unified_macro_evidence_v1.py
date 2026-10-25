@@ -24,6 +24,9 @@ FILES = {
     "exact_two_ecology":"neon_exact_two_genus_ecological_receipt_20261025.json",
     "expanded_2plus_geo":"neon_macro_two_plus_genus_coverage_20261025.json",
     "new_site_sensitivity":"neon_exact_two_new_sites_sensitivity_receipt_20261025.json",
+    "recorded_stations_source":"neon_macro_six_night_recorded_station_support_20261025.json",
+    "recorded_stations_recurrence":"neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
+    "original_tower_temperature_qc":"neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -45,6 +48,9 @@ def build(root: Path = RESULTS) -> dict:
     two_effect = src["exact_two_ecology"]
     expanded = src["expanded_2plus_geo"]
     new_site = src["new_site_sensitivity"]
+    station_source=src["recorded_stations_source"]
+    station_effect=src["recorded_stations_recurrence"]
+    climate_source=src["original_tower_temperature_qc"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -165,6 +171,38 @@ def build(root: Path = RESULTS) -> dict:
                  new_site["whole_site_source_reuse_exclusion"]["remaining_informative_pairs"])==(9,16),
             "strict entire season-reuse site exclusion was improperly opened")
 
+    require(station_source["status"]=="SOURCE_COMMON_SIX_NIGHT_RECORDED_STATION_GO"
+            and station_source["retained_pairs"]==158
+            and station_source["retained_independent_physical_sites"]==30
+            and station_source["retained_NEON_ecological_domains"]==15
+            and station_source["all_six_recorded_station_count_distribution"]["min"]==93,
+            "original all-six recorded station support changed")
+    require(station_effect["status"]=="OBSERVATION_MATCHED_STATION_EXPLORATORY_RECURRENCE_POSITIVE"
+            and station_effect["variance_pre_effect"]["passed"]
+            and (station_effect["observed"]["informative_seasonal_pairs"],
+                 station_effect["observed"]["independent_physical_sites"],
+                 station_effect["observed"]["positive_site_mean_count"])==(150,30,25)
+            and abs(station_effect["observed"]["site_weighted_mean_Z"]-0.6109014700960878)<1e-10,
+            "six-night original two-row observational-geometry sensitivity changed")
+    require(station_effect["whole_site_reused_season_sensitivity_status"]==
+            "SOURCE_WHOLE_SITE_SEASON_REUSE_SENSITIVITY_FIT"
+            and (station_effect["whole_site_reused_season_sensitivity"]["seasonal_pairs"],
+                 station_effect["whole_site_reused_season_sensitivity"]["sites"])==(48,17),
+            "source whole-site reused-season observational effect changed")
+    require(station_effect["claim_boundary"]["recorded_station_roster_not_proof_of_operable_traps"]
+            and station_effect["claim_boundary"]["genus_specific_catchability_or_stable_microhabitat_not_excluded"],
+            "ecological observation process control overclaimed")
+    require(climate_source["status"]=="STOP_ORIGINAL_TOWER_TEMPERATURE_QC_OR_DOMAIN_SUPPORT"
+            and climate_source["climate_effect_opened"] is False
+            and (climate_source["weather_source_QA"]["verified_and_parsed_months"],
+                 climate_source["weather_source_QA"]["QC_good_months"],
+                 climate_source["weather_source_QA"]["QC_bad_months"])==(205,143,62)
+            and (climate_source["weather_pair_pre_effect_feasibility"]["source_pair_with_both_months_station_quality_verified"],
+                 climate_source["weather_pair_pre_effect_feasibility"]["quality_verified_original_physical_sites"],
+                 climate_source["weather_pair_pre_effect_feasibility"]["quality_verified_ecological_domains"])==(79,27,15)
+            and climate_source["source_metadata_and_selection"]["source_structural_thresholds"]["minimum_original_QC_paired_pairs"]==80,
+            "the environmental site-month source quality gate was not preserved")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -251,6 +289,40 @@ def build(root: Path = RESULTS) -> dict:
             "post_result_no_independent_preregistration":True,
             "genus_specific_detection_not_calibrated":True,
         },
+        "recorded_six_night_station_opportunity_control":{
+            "status":"EXPLORATORY_POSITIVE_UNDER_COMMON_RECORDED_STATIONS",
+            "original_two_genus_source_pairs":station_source["original_exact_two_genus_pairs"],
+            "common_all_six_station_min":station_source["all_six_recorded_station_count_distribution"]["min"],
+            "common_all_six_station_median":station_source["all_six_recorded_station_count_distribution"]["median"],
+            "source_pairs_retaining_full_genus_station_support":station_source["retained_pairs"],
+            "source_sites_retained":station_source["retained_independent_physical_sites"],
+            "effect_informative_original_pairs":station_effect["observed"]["informative_seasonal_pairs"],
+            "effect_independent_physical_sites":station_effect["observed"]["independent_physical_sites"],
+            "effect_positive_site_means":station_effect["observed"]["positive_site_mean_count"],
+            "effect_site_equal_mean_Z":station_effect["observed"]["site_weighted_mean_Z"],
+            "original_unrestricted_exact_two_mean_Z":station_effect["original_same_release_30_site_mean_Z_reference"],
+            "within_site_rank_coupled_conditional_p":station_effect["conditional_meta_exact_two_row_marginal"]["rank_comonotone_within_site_exact_marginal_stress"]["one_sided_plus_one_p"],
+            "whole_site_season_source_reuse_removed_pairs":station_effect["whole_site_reused_season_sensitivity"]["seasonal_pairs"],
+            "whole_site_season_source_reuse_removed_sites":station_effect["whole_site_reused_season_sensitivity"]["sites"],
+            "whole_site_season_source_reuse_removed_site_Z":station_effect["whole_site_reused_season_sensitivity"]["observed_equal_site_mean_z"],
+            "recorded_station_presence_does_not_verify_operability":True,
+            "genus_dependent_capture_probability_not_calibrated":True,
+            "same_historical_neon_release_not_new_replication":True,
+        },
+        "independent_original_tower_temperature_source_QC":{
+            "status":"STOP_BEFORE_ABIOTIC_ECOLOGICAL_ASSOCIATION",
+            "requested_original_site_months":climate_source["weather_source_QA"]["requested_source_site_months"],
+            "provider_MD5_size_verified_parsed_months":climate_source["weather_source_QA"]["verified_and_parsed_months"],
+            "source_months_QC_good":climate_source["weather_source_QA"]["QC_good_months"],
+            "source_months_QC_failed":climate_source["weather_source_QA"]["QC_bad_months"],
+            "source_pairs_with_two_qualified_months":climate_source["weather_pair_pre_effect_feasibility"]["source_pair_with_both_months_station_quality_verified"],
+            "sites_with_two_qualified_months":climate_source["weather_pair_pre_effect_feasibility"]["quality_verified_original_physical_sites"],
+            "domains_with_two_qualified_months":climate_source["weather_pair_pre_effect_feasibility"]["quality_verified_ecological_domains"],
+            "minimum_predeclared_source_pairs_for_model":climate_source["source_metadata_and_selection"]["source_structural_thresholds"]["minimum_original_QC_paired_pairs"],
+            "temperature_slope_or_confidence_interval_estimated":False,
+            "not_evidence_of_zero_climate_ecological_effect":True,
+            "no_threshold_relaxation_or_different_weather_variable":True,
+        },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
             "all_original_sites":recurrence(all14),
@@ -318,7 +390,7 @@ def build(root: Path = RESULTS) -> dict:
 def main() -> int:
     OUTPUT.write_text(json.dumps(build(),ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps({
-        "status":"INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST",
+        "status":"INTEGRATED_CORRECTED_PRIMARY_AND_POST_RESULT_TWO_GENUS_EXPLORATORY_EFFECT",
         "output":str(OUTPUT.relative_to(ROOT)),"preserved_density_failure":True,
         "no_combined_p_value":True},indent=2))
     return 0
