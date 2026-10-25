@@ -129,6 +129,23 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertTrue(w["not_evidence_of_zero_climate_ecological_effect"])
         self.assertTrue(w["no_threshold_relaxation_or_different_weather_variable"])
 
+    def test_10m_patch_beyond_exact_trap_is_mixed_not_general(self):
+        x=self.ledger["exact_trap_conditional_10m_local_patch_ecology"]
+        self.assertEqual(x["original_source_exact_two_pairs"],158)
+        self.assertEqual((x["conditional_patch_variance_informative_pairs"],
+                          x["conditional_patch_zero_variance_pairs"]),(153,5))
+        self.assertEqual((x["physical_sites"],x["positive_site_mean_count"]),(30,22))
+        self.assertAlmostEqual(x["original_full_mean_Z"],0.31030688542725354,places=12)
+        self.assertAlmostEqual(x["full_rank_coupled_conditional_p"],0.03914804259787011,places=12)
+        self.assertEqual((x["whole_site_season_reuse_exclusion_pairs"],
+                          x["whole_site_season_reuse_exclusion_sites"]),(50,17))
+        self.assertAlmostEqual(x["whole_site_season_reuse_exclusion_mean_Z"],0.1825892504019166,places=12)
+        self.assertAlmostEqual(x["whole_site_season_reuse_exclusion_rank_coupled_p"],0.22053897305134743,places=12)
+        self.assertFalse(x["strong_general_patch_recurrence_after_source_disjointness_established"])
+        self.assertTrue(x["taxon_specific_spatially_correlated_catchability_unresolved"])
+        self.assertTrue(x["new_outcome_historical_post_result_not_independent_replication"])
+        self.assertIn("ORIGINAL_SAME_TRAP_OVERLAP_FIXED",x["null_conditions"])
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
