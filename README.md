@@ -12,6 +12,7 @@
 | Source-reuse exclusion | 46 contrasts / 12 sites, corrected mean Z **+0.843162**, 10/12 positive | Positive direction persists; not a second biological dataset |
 | Density-associated W/B responses | 1,326 development taxon-event sessions at 40 sites; 8 genera, 5/8 positive-versus-6-required guard | **General rule FAILED**; spatial response modes are exploratory/heterogeneous |
 | Environmental source | 150 official five-anchor CHM values at 30 plots; 14 with nonzero five-point canopy range | Source coverage only; not taxon habitat selection |
+| Biogeographic sampling / eligible-site selection | Original-source 803 adjacent-season candidates at 42 sites/18 domains; only **58 (7.22%)** qualify at 14 sites/10 domains | **New source-only macro sampling result**, not proof of latitude/domain effects on recurrence |
 | Direct ecological coupling of the two scales | Original source-only event crosswalk: **12/58 pairs, 8 sites, 1 genus replicated across sites**; the new joint-coupling support gate **STOPPED** | The directly matched ecological association is **NOT ESTIMABLE** from the original source; do not pool 14-site and 40-site effects |
 | External San Jacinto species-level recurrence | 10 seasonal units / 6 grids in one study area | Different-rank historical prior, independent null/dependence recalibration outstanding |
 
@@ -23,6 +24,8 @@
 - **One unified manuscript:** [Spatial persistence and population reorganization — v0.2, including real joint-support STOP](manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_2.md). Research draft, **NOT SUBMITTED**.
 - **One machine-checkable evidence ledger:** [Existing positive and negative source results](results/neon_unified_macro_evidence_20261025.json), rebuilt from immutable receipts by `analysis/build_neon_unified_macro_evidence_v1.py`.
 - **Completed source-only joint-support test:** [Reproduced matched-pair audit](results/neon_unified_macro_source_crosswalk_receipt_20261025.json) — **12 original pairs / 8 physical sites / 1 cross-site replicated genus; source feasibility STOP**. [Verified Action](https://github.com/zuizui0223/neon/actions/runs/40162524657). No W/B or R outcomes refitted.
+- **Completed geographic macro sampling census:** [Full 45-site, 18-domain selection evidence](results/neon_macro_biogeographic_selection_receipt_20261025.json), [workflow](https://github.com/zuizui0223/neon/actions/runs/40163416566), and [domain figure](manuscript/figures/neon_unified_macro_domain_selection_v0_1.svg). **42 candidate sites → 14 qualifying sites, 18 candidate domains → 10 qualifying domains**; not estimates of spatial effect by domain.
+- [All-eight-genus W/B heterogeneity figure (historical generality FAIL)](manuscript/figures/neon_unified_macro_density_heterogeneity_v0_1.svg).
 - [Corrected NEON 14-/12-site recurrence figure](manuscript/figures/neon_crossseason_genus_site_means_corrected_v0_3.svg).
 
 ## Sampling and scientific limits
