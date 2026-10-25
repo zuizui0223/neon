@@ -19,6 +19,7 @@ FILES = {
     "habitat": "neon_five_anchor_chm_source_receipt_20261020.json",
     "san_jacinto": "san_jacinto_crossseason_ecological_comparator_receipt_20261019.json",
     "crosswalk": "neon_unified_macro_source_crosswalk_receipt_20261025.json",
+    "macro_selection": "neon_macro_biogeographic_selection_receipt_20261025.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -35,6 +36,7 @@ def build(root: Path = RESULTS) -> dict:
     rec, dev, het = src["recurrence"], src["density"], src["density_modes"]
     sup, habitat, sj = src["recurrence_support"], src["habitat"], src["san_jacinto"]
     cw = src["crosswalk"]
+    macro = src["macro_selection"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -97,6 +99,19 @@ def build(root: Path = RESULTS) -> dict:
             and not cw["limitations"]["joint_spatial_recurrence_density_effect_computed"],
             "crosswalk improperly promoted into ecological response")
 
+    macro_d = macro["original_source_denominators"]
+    macro_cov = macro["sampling_coverage_summary"]
+    require(macro["status"]=="SOURCE_ONLY_MACRO_SELECTION_RECONSTRUCTED"
+            and (macro_d["effort_valid_three_night_bouts"],
+                 macro_d["original_adjacent_season_pairs"],
+                 macro_d["original_primary_three_genus_eligible_pairs"])==(1838,803,58)
+            and (macro_d["physical_sites_with_one_or_more_candidate_pairs"],
+                 macro_d["primary_independent_physical_sites"])==(42,14)
+            and (macro_cov["distinct_candidate_domains"],
+                 macro_cov["distinct_primary_domains"])==(18,10)
+            and macro["effect_boundary"]["macro_habitat_or_latitude_effect_fit"] is False,
+            "original geographic sampling support or effect scope changed")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -123,6 +138,24 @@ def build(root: Path = RESULTS) -> dict:
             "diagnostic_at_least_2_genus_pairs_not_confirmed":sup["eligible_2genus_diagnostic_pairs"],
             "unqualified_or_absent_biomes_not_as_negative_spatial_effect":True,
             "original_2026_release_already_used_for_hypothesis_generation":True,
+        },
+        "geographic_macro_selection_source_only":{
+            "status":"ORIGINAL_RELEASE_INCLUSION_SUPPORT_ONLY",
+            "effort_valid_three_night_bouts":macro_d["effort_valid_three_night_bouts"],
+            "physical_sites_with_qualifying_effort_bouts":macro_d["physical_sites_with_one_or_more_effort_valid_bouts"],
+            "candidate_adjacent_season_pairs":macro_d["original_adjacent_season_pairs"],
+            "candidate_physical_sites":macro_d["physical_sites_with_one_or_more_candidate_pairs"],
+            "primary_strict_three_genus_pairs":macro_d["original_primary_three_genus_eligible_pairs"],
+            "primary_strict_sites":macro_d["primary_independent_physical_sites"],
+            "strict_fraction_of_candidate_pairs":macro_d["primary_eligibility_fraction_of_candidates"],
+            "candidate_ecological_domains":macro_cov["distinct_candidate_domains"],
+            "primary_ecological_domains":macro_cov["distinct_primary_domains"],
+            "core_candidate_pairs":macro["field_site_core_gradient_grouped_source_only"]["CORE"]["source_adjacent_season_candidate_pairs"],
+            "core_strict_pairs":macro["field_site_core_gradient_grouped_source_only"]["CORE"]["primary_eligible_pairs"],
+            "gradient_candidate_pairs":macro["field_site_core_gradient_grouped_source_only"]["GRADIENT"]["source_adjacent_season_candidate_pairs"],
+            "gradient_strict_pairs":macro["field_site_core_gradient_grouped_source_only"]["GRADIENT"]["primary_eligible_pairs"],
+            "ecological_recurrence_by_domain_estimated":False,
+            "geographic_ineligibility_not_zero_recurrence":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
