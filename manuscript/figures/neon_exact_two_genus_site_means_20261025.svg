@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="965" viewBox="0 0 1150 965" role="img" aria-labelledby="title desc">
+<title id="title">Exact two-genus lineage-associated trap-position recurrence across 30 independent NEON sites</title>
+<desc id="desc">Thirty anonymized physical-site mean standardized recurrence Z values for 150 informative exactly-two-genus adjacent-season comparisons, corrected by a mathematically exact fixed-margin hypergeometric null. Twenty-five of thirty site means are positive, grand equal-site mean 0.6147. Removing 13 physical sites with reused season source keys leaves 17 sites and 48 informative pairs, equal site mean Z 0.6984. Same historical release and genus-specific detectability not excluded.</desc>
+<rect width="1150" height="965" fill="white"/>
+<text x="46" y="41" font-family="Arial" font-size="25" font-weight="700" fill="#193446">Taxon-associated trap locations recur in less rich assemblages</text>
+<text x="46" y="70" font-family="Arial" font-size="14" fill="#4d6370">Exactly 2 eligible genera per season pair · 150 informative comparisons · 30 independent NEON sites</text>
+<text x="46" y="93" font-family="Arial" font-size="14" fill="#4d6370">Uniform fixed-margin null is exact per two-genus pair; site-level dependence calibration remains conditional</text>
+<line x1="46" y1="110" x2="1096" y2="110" stroke="#dbe5e9"/>
+<line x1="435.07" y1="126" x2="435.07" y2="821.20" stroke="#e5edf0" stroke-width="0.9"/>
+<line x1="602.24" y1="126" x2="602.24" y2="821.20" stroke="#81949f" stroke-width="1.6"/>
+<line x1="685.82" y1="126" x2="685.82" y2="821.20" stroke="#e5edf0" stroke-width="0.9"/>
+<line x1="769.40" y1="126" x2="769.40" y2="821.20" stroke="#e5edf0" stroke-width="0.9"/>
+<line x1="852.99" y1="126" x2="852.99" y2="821.20" stroke="#e5edf0" stroke-width="0.9"/>
+<line x1="936.57" y1="126" x2="936.57" y2="821.20" stroke="#e5edf0" stroke-width="0.9"/>
+<line x1="705.00" y1="126" x2="705.00" y2="821.20" stroke="#1f718e" stroke-width="2.1" stroke-dasharray="6 4"/>
+<text x="47" y="147.00" font-family="Arial" font-size="13" fill="#405563">Rank 1</text>
+<line x1="602.24" x2="942.39" y1="142.00" y2="142.00" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="942.39" cy="142.00" r="6" fill="#267997"/>
+<text x="1002" y="147.00" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+2.035</text>
+<text x="47" y="169.80" font-family="Arial" font-size="13" fill="#405563">Rank 2</text>
+<line x1="602.24" x2="903.57" y1="164.80" y2="164.80" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="903.57" cy="164.80" r="6" fill="#267997"/>
+<text x="1002" y="169.80" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.803</text>
+<text x="47" y="192.60" font-family="Arial" font-size="13" fill="#405563">Rank 3</text>
+<line x1="602.24" x2="883.30" y1="187.60" y2="187.60" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="883.30" cy="187.60" r="6" fill="#267997"/>
+<text x="1002" y="192.60" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.681</text>
+<text x="47" y="215.40" font-family="Arial" font-size="13" fill="#405563">Rank 4</text>
+<line x1="602.24" x2="868.56" y1="210.40" y2="210.40" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="868.56" cy="210.40" r="6" fill="#267997"/>
+<text x="1002" y="215.40" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.593</text>
+<text x="47" y="238.20" font-family="Arial" font-size="13" fill="#405563">Rank 5</text>
+<line x1="602.24" x2="865.51" y1="233.20" y2="233.20" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="865.51" cy="233.20" r="6" fill="#267997"/>
+<text x="1002" y="238.20" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.575</text>
+<text x="47" y="261.00" font-family="Arial" font-size="13" fill="#405563">Rank 6</text>
+<line x1="602.24" x2="805.76" y1="256.00" y2="256.00" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="805.76" cy="256.00" r="6" fill="#267997"/>
+<text x="1002" y="261.00" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.218</text>
+<text x="47" y="283.80" font-family="Arial" font-size="13" fill="#405563">Rank 7</text>
+<line x1="602.24" x2="796.00" y1="278.80" y2="278.80" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="796.00" cy="278.80" r="6" fill="#267997"/>
+<text x="1002" y="283.80" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.159</text>
+<text x="47" y="306.60" font-family="Arial" font-size="13" fill="#405563">Rank 8</text>
+<line x1="602.24" x2="780.77" y1="301.60" y2="301.60" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="780.77" cy="301.60" r="6" fill="#267997"/>
+<text x="1002" y="306.60" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.068</text>
+<text x="47" y="329.40" font-family="Arial" font-size="13" fill="#405563">Rank 9</text>
+<line x1="602.24" x2="775.27" y1="324.40" y2="324.40" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="775.27" cy="324.40" r="6" fill="#267997"/>
+<text x="1002" y="329.40" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+1.035</text>
+<text x="47" y="352.20" font-family="Arial" font-size="13" fill="#405563">Rank 10</text>
+<line x1="602.24" x2="738.29" y1="347.20" y2="347.20" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="738.29" cy="347.20" r="6" fill="#267997"/>
+<text x="1002" y="352.20" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.814</text>
+<text x="47" y="375.00" font-family="Arial" font-size="13" fill="#405563">Rank 11</text>
+<line x1="602.24" x2="712.21" y1="370.00" y2="370.00" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="712.21" cy="370.00" r="6" fill="#267997"/>
+<text x="1002" y="375.00" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.658</text>
+<text x="47" y="397.80" font-family="Arial" font-size="13" fill="#405563">Rank 12</text>
+<line x1="602.24" x2="705.89" y1="392.80" y2="392.80" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="705.89" cy="392.80" r="6" fill="#267997"/>
+<text x="1002" y="397.80" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.620</text>
+<text x="47" y="420.60" font-family="Arial" font-size="13" fill="#405563">Rank 13</text>
+<line x1="602.24" x2="699.90" y1="415.60" y2="415.60" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="699.90" cy="415.60" r="6" fill="#267997"/>
+<text x="1002" y="420.60" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.584</text>
+<text x="47" y="443.40" font-family="Arial" font-size="13" fill="#405563">Rank 14</text>
+<line x1="602.24" x2="698.33" y1="438.40" y2="438.40" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="698.33" cy="438.40" r="6" fill="#267997"/>
+<text x="1002" y="443.40" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.575</text>
+<text x="47" y="466.20" font-family="Arial" font-size="13" fill="#405563">Rank 15</text>
+<line x1="602.24" x2="695.06" y1="461.20" y2="461.20" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="695.06" cy="461.20" r="6" fill="#267997"/>
+<text x="1002" y="466.20" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.555</text>
+<text x="47" y="489.00" font-family="Arial" font-size="13" fill="#405563">Rank 16</text>
+<line x1="602.24" x2="688.36" y1="484.00" y2="484.00" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="688.36" cy="484.00" r="6" fill="#267997"/>
+<text x="1002" y="489.00" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.515</text>
+<text x="47" y="511.80" font-family="Arial" font-size="13" fill="#405563">Rank 17</text>
+<line x1="602.24" x2="682.51" y1="506.80" y2="506.80" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="682.51" cy="506.80" r="6" fill="#267997"/>
+<text x="1002" y="511.80" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.480</text>
+<text x="47" y="534.60" font-family="Arial" font-size="13" fill="#405563">Rank 18</text>
+<line x1="602.24" x2="681.84" y1="529.60" y2="529.60" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="681.84" cy="529.60" r="6" fill="#267997"/>
+<text x="1002" y="534.60" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.476</text>
+<text x="47" y="557.40" font-family="Arial" font-size="13" fill="#405563">Rank 19</text>
+<line x1="602.24" x2="673.52" y1="552.40" y2="552.40" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="673.52" cy="552.40" r="6" fill="#267997"/>
+<text x="1002" y="557.40" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.426</text>
+<text x="47" y="580.20" font-family="Arial" font-size="13" fill="#405563">Rank 20</text>
+<line x1="602.24" x2="672.18" y1="575.20" y2="575.20" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="672.18" cy="575.20" r="6" fill="#267997"/>
+<text x="1002" y="580.20" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.418</text>
+<text x="47" y="603.00" font-family="Arial" font-size="13" fill="#405563">Rank 21</text>
+<line x1="602.24" x2="666.95" y1="598.00" y2="598.00" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="666.95" cy="598.00" r="6" fill="#267997"/>
+<text x="1002" y="603.00" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.387</text>
+<text x="47" y="625.80" font-family="Arial" font-size="13" fill="#405563">Rank 22</text>
+<line x1="602.24" x2="656.46" y1="620.80" y2="620.80" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="656.46" cy="620.80" r="6" fill="#267997"/>
+<text x="1002" y="625.80" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.324</text>
+<text x="47" y="648.60" font-family="Arial" font-size="13" fill="#405563">Rank 23</text>
+<line x1="602.24" x2="641.01" y1="643.60" y2="643.60" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="641.01" cy="643.60" r="6" fill="#267997"/>
+<text x="1002" y="648.60" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.232</text>
+<text x="47" y="671.40" font-family="Arial" font-size="13" fill="#405563">Rank 24</text>
+<line x1="602.24" x2="630.31" y1="666.40" y2="666.40" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="630.31" cy="666.40" r="6" fill="#267997"/>
+<text x="1002" y="671.40" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.168</text>
+<text x="47" y="694.20" font-family="Arial" font-size="13" fill="#405563">Rank 25</text>
+<line x1="602.24" x2="628.38" y1="689.20" y2="689.20" stroke="#9ec6d6" stroke-width="2.5"/>
+<circle cx="628.38" cy="689.20" r="6" fill="#267997"/>
+<text x="1002" y="694.20" font-family="Arial" font-weight="600" font-size="13" fill="#266d88">+0.156</text>
+<text x="47" y="717.00" font-family="Arial" font-size="13" fill="#405563">Rank 26</text>
+<line x1="577.04" x2="602.24" y1="712.00" y2="712.00" stroke="#dcb4a0" stroke-width="2.5"/>
+<circle cx="577.04" cy="712.00" r="6" fill="#a36348"/>
+<text x="1002" y="717.00" font-family="Arial" font-weight="600" font-size="13" fill="#96583f">-0.151</text>
+<text x="47" y="739.80" font-family="Arial" font-size="13" fill="#405563">Rank 27</text>
+<line x1="551.24" x2="602.24" y1="734.80" y2="734.80" stroke="#dcb4a0" stroke-width="2.5"/>
+<circle cx="551.24" cy="734.80" r="6" fill="#a36348"/>
+<text x="1002" y="739.80" font-family="Arial" font-weight="600" font-size="13" fill="#96583f">-0.305</text>
+<text x="47" y="762.60" font-family="Arial" font-size="13" fill="#405563">Rank 28</text>
+<line x1="543.96" x2="602.24" y1="757.60" y2="757.60" stroke="#dcb4a0" stroke-width="2.5"/>
+<circle cx="543.96" cy="757.60" r="6" fill="#a36348"/>
+<text x="1002" y="762.60" font-family="Arial" font-weight="600" font-size="13" fill="#96583f">-0.349</text>
+<text x="47" y="785.40" font-family="Arial" font-size="13" fill="#405563">Rank 29</text>
+<line x1="533.48" x2="602.24" y1="780.40" y2="780.40" stroke="#dcb4a0" stroke-width="2.5"/>
+<circle cx="533.48" cy="780.40" r="6" fill="#a36348"/>
+<text x="1002" y="785.40" font-family="Arial" font-weight="600" font-size="13" fill="#96583f">-0.411</text>
+<text x="47" y="808.20" font-family="Arial" font-size="13" fill="#405563">Rank 30</text>
+<line x1="451.85" x2="602.24" y1="803.20" y2="803.20" stroke="#dcb4a0" stroke-width="2.5"/>
+<circle cx="451.85" cy="803.20" r="6" fill="#a36348"/>
+<text x="1002" y="808.20" font-family="Arial" font-weight="600" font-size="13" fill="#96583f">-0.900</text>
+<line x1="410" x2="970" y1="841.2" y2="841.2" stroke="#657b86"/>
+<line x1="435.07462686567163" x2="435.07462686567163" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="435.07462686567163" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">-1</text>
+<line x1="602.2388059701493" x2="602.2388059701493" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="602.2388059701493" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">0</text>
+<line x1="685.8208955223881" x2="685.8208955223881" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="685.8208955223881" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">0.5</text>
+<line x1="769.4029850746268" x2="769.4029850746268" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="769.4029850746268" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">1</text>
+<line x1="852.9850746268656" x2="852.9850746268656" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="852.9850746268656" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">1.5</text>
+<line x1="936.5671641791045" x2="936.5671641791045" y1="841.2" y2="847.2" stroke="#758e9e"/><text x="936.5671641791045" y="865.2" text-anchor="middle" font-family="Arial" font-size="12" fill="#526b78">2</text>
+<text x="690" y="891.2" text-anchor="middle" font-size="13" font-family="Arial" fill="#355468">Physical-site average conditional standardized recurrence Z</text>
+<text x="47" y="916.2" font-family="Arial" font-size="14" font-weight="bold" fill="#1e6583">25/30 site means positive; equal-site mean Z = +0.615</text>
+<text x="47" y="938.2" font-family="Arial" font-size="12" fill="#596d78">Reused-season source sites removed: 17 sites / 48 comparisons; mean Z = +0.698</text>
+<text x="47" y="958.2" font-family="Arial" font-size="11" fill="#5b6e79">Both dependence calibrations exploratory, not independent replication or proof against taxon-specific capture detection.</text>
+<text x="47" y="978.2" font-family="Arial" font-size="11" fill="#5b6e79">Source: results/neon_exact_two_genus_ecological_receipt_20261025.json · Actions 40166644498</text>
+</svg>
