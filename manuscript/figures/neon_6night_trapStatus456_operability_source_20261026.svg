@@ -8,22 +8,22 @@
 <line x1="55" y1="124" x2="1040" y2="124" stroke="#d5e0e5"/>
 <text x="55" y="153" font-family="Arial" font-size="17" font-weight="700" fill="#1e4659">Source trap-status codes (row-level frequencies)</text>
 <text x="55" y="200" font-family="Arial" font-size="13" fill="#345264">6 — Set and empty (recorded functional)</text>
-<rect x="425" y="185" width="571.5853769507256" height="30" rx="4" fill="#317b85"/>
+<rect x="425" y="185" width="373.72890031393604" height="30" rx="4" fill="#317b85"/>
 <text x="975" y="202" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">64,425 (73.3%)</text>
 <text x="55" y="253" font-family="Arial" font-size="13" fill="#345264">5 — Animal captured</text>
-<rect x="425" y="238" width="121.78738796123571" height="30" rx="4" fill="#2872a0"/>
+<rect x="425" y="238" width="79.63021520542335" height="30" rx="4" fill="#2872a0"/>
 <text x="975" y="255" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">13,727 (15.6%)</text>
 <text x="55" y="306" font-family="Arial" font-size="13" fill="#345264">4 — >1 animal captured</text>
-<rect x="425" y="291" width="0.5057099959051822" height="30" rx="4" fill="#5b9ab3"/>
+<rect x="425" y="291" width="0.3306565357841576" height="30" rx="4" fill="#5b9ab3"/>
 <text x="975" y="308" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">57 (0.1%)</text>
 <text x="55" y="359" font-family="Arial" font-size="13" fill="#345264">3 — Door open, spoor</text>
-<rect x="425" y="344" width="43.81045543473315" height="30" rx="4" fill="#d5a15c"/>
+<rect x="425" y="344" width="28.6452977842486" height="30" rx="4" fill="#d5a15c"/>
 <text x="975" y="361" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">4,938 (5.6%)</text>
 <text x="55" y="412" font-family="Arial" font-size="13" fill="#345264">2 — Disturbed, closed/empty</text>
-<rect x="425" y="397" width="30.999135538468536" height="30" rx="4" fill="#c78558"/>
+<rect x="425" y="397" width="20.268665544383275" height="30" rx="4" fill="#c78558"/>
 <text x="975" y="414" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">3,494 (4.0%)</text>
 <text x="55" y="465" font-family="Arial" font-size="13" fill="#345264">1 — Not set / not processed</text>
-<rect x="425" y="450" width="11.311934118931708" height="30" rx="4" fill="#a76556"/>
+<rect x="425" y="450" width="7.396264616224578" height="30" rx="4" fill="#a76556"/>
 <text x="975" y="467" font-family="Arial" font-size="13" font-weight="600" text-anchor="end" fill="#2f5060">1,275 (1.5%)</text>
 <line x1="55" y1="511" x2="1040" y2="511" stroke="#d5e0e5"/>
 <text x="55" y="541" font-family="Arial" font-size="17" font-weight="700" fill="#1e4659">Conservative all-six-night intersection</text>
