@@ -97,9 +97,35 @@ These patterns are **post-result descriptions**, not validated behaviour types o
 
 Both observational scales exist in the same broad continental monitoring programme. An original-source structural overlap audit **has now tested** whether the fixed 58 transition pairs have the exact same event, genus and repeated-individual support needed for a future matched W/B response: **12/58 pairs; 8 sites; 6 distinct genera but only one replicated across multiple sites**. Precommitted structural thresholds were 20 pairs, 8 sites and 3 multisite genera; hence **direct joint modeling STOP**. This cannot be interpreted as the exact historical 1,326-session effect crosswalk, a biological null association, or evidence for an ecological trade-off. **The single manuscript now emphasizes geographic selection and environmental heterogeneity across distinct response grains, with new independent cohorts required for cross-level confirmation.**
 
+
+### 4.4 First full-domain macro selection census (new source-only result, NOT an ecological effect)
+
+The **complete original NEON RELEASE-2026 source** was re-audited on 25 October 2026 without opening new genus×trap recurrence scores, density W/B outcomes, or habitat effects. The original **1,838** effort-valid three-night bouts spanned **45** physical sites. **803** adjacent-season candidate pairs spanned **42** physical sites and **18** ecological domains. Only **58/803 = 7.22%** passed the frozen stringent ≥3-genera, ≥2 nonshared marked individuals and ≥2 stations per genus rules, spanning **14/42** candidate sites and **10/18** candidate domains. The positive 14-site original effect is therefore estimated on a highly selected subset, not all NEON mammal populations.
+
+| Historical source stratum | Candidate season pairs | Strict qualifying pairs | Source eligibility |
+|---|---:|---:|---:|
+| All 18 candidate domains | 803 | 58 | **7.22%** |
+| CORE | 373 | 27 | 7.24% |
+| GRADIENT | 430 | 31 | 7.21% |
+| Latitude 35–45° N | 481 | 46 | 9.56% |
+| Latitude 45–55° N | 145 | 5 | 3.45% |
+| Latitude ≥55° N | 8 | 0 | 0% (no supported estimand) |
+| Original seasonal starts in 2015 | 71 | 13 | 18.31% |
+| Original seasonal starts in 2018 | 141 | 2 | 1.42% |
+| Original seasonal starts in 2024 | 89 | 12 | 13.48% |
+
+Original domain differences are substantial (D06 **13/96**, D10 **12/60**, D11 **9/35**, D15 **9/17**), but D15's nine eligible comparisons arise within only **one physical site**, whereas D06's 13 arise within **three sites**. None of these estimates identifies ecological *recurrence*, climate causation or within-species competition in those domains. The nearly identical CORE and GRADIENT average selection fractions cannot rule out finer site, genus-richness, year or detector selection.
+
+A broader diagnostic two-genus source-support pool (**216** transitions) exists, but is not a newly confirmed ecological result. The site-level spatial-recurrence result remains the corrected 58-pair/14-site finding without post hoc extension. The newly recorded macro finding is the **observational selection bottleneck**: many domains and years do not have an estimable animal-disjoint, multi-genus seasonal effect under the unchanged protocol. Geographic noneligibility must not be treated as zero ecological persistence.
+
+Original direct data: `results/neon_macro_biogeographic_selection_receipt_20261025.json`; reproducible [Actions 40163416566](https://github.com/zuizui0223/neon/actions/runs/40163416566). [Figure 1](figures/neon_unified_macro_domain_selection_v0_1.svg) plots the 18 candidate domains with full denominator and eligible subset. New predictive environmental inference requires a genuinely uninspected cohort, source-matched seasonal climate/biome variables and taxon-specific detection sensitivity.
+
 ## 5. Discussion and proposed generality
 
 The pattern established today is **organizational recurrence beyond repeated observation of the same individuals**. The historical density component does not establish a complementary conserved law: it instead warns that density-associated within-vs-among individual geometry varies among lineages and has observational limitations. This contrast motivates a stronger and genuinely macroecological next question: *Is high-level spatial organization buffered against lower-level population rearrangement, and do environmental heterogeneity and temporal constancy predict the limits of this buffering?*
+
+
+**Novelty boundary against recent NEON macroecology.** Holian et al. (2026, *Ecology and Evolution*, DOI [10.1002/ece3.73214](https://doi.org/10.1002/ece3.73214)) already examined continental NEON small-mammal **spatial and temporal occupancy–abundance relationships**, including 127 species/40 genera. Brownfield et al. (2025, *Oecologia*, DOI [10.1007/s00442-025-05731-2](https://doi.org/10.1007/s00442-025-05731-2)) analysed density, latitude and habitat effects on deer mouse space use across 36 NEON sites, and Barton et al. (2026, *Ecology and Evolution*, DOI [10.1002/ece3.73413](https://doi.org/10.1002/ece3.73413)) documented North American rodent population synchrony. Our unique current observable is specifically **the same genus recurring at the same trap station between adjacent seasons after excluding all shared observed tag identities, beyond fixed genus/station margins**. This differs from simply recording occupancy through time. Its predictive climate/biome generality remains untested, especially in light of the source eligibility bottleneck.
 
 The key prediction is cross-level, not a generic rediscovery of rodent niche segregation. A valuable **negative** future result would be that apparently persistent taxon signatures disappear when genus-specific detection is measured independently; another would be that few source populations support both nested responses, making direct coupling empirically unidentifiable in the current NEON data. Neither should be hidden by exploratory subgroup selection.
 
@@ -107,7 +133,7 @@ Prior literature establishes separate axes of habitat association (Goldingay & P
 
 ## 6. Figures in one paper
 
-**Figure 1 — Macro population & missingness.** Plot all standardized NEON source bouts, the 803 candidate transition denominator, the 216 diagnostic two-genus supports, and the 58 original three-genus eligible comparisons. Site/domain coverage must include unqualified sites (not classify them as negative outcomes).
+**Figure 1 — Geographic support / selection.** [Actual 18-domain selection plot](figures/neon_unified_macro_domain_selection_v0_1.svg) shows all **803** candidate season-pairs and **58** original strict three-genus pairs. It is a source-support figure, not a map of ecological effect sizes. Report **1,838** effort-valid bouts and **216** two-genus diagnostic pairs separately without calling them confirmed recurrence.
 
 **Figure 2 — Corrected community spatial persistence.** Use only [corrected Figure 2](figures/neon_crossseason_genus_site_means_corrected_v0_3.svg) derived from verified corrected null output, 14 vs 12 physical-site sensitivity. Do not re-use the obsolete accepted-swap figure.
 
@@ -126,6 +152,7 @@ Prior literature establishes separate axes of habitat association (Goldingay & P
 - Positive corrected NEON evidence: `results/neon_uniform_null_correction_receipt_20261020.json`; `manuscript/NEON_SPATIAL_TEMPLATE_CORRECTION_ADDENDUM_20261020.md`.
 - Historical density **failed** generality: `results/multiscale_density_development_result_v1.json`, `results/multiscale_density_heterogeneity_result_v1.json`.
 - Complete source support denominator: `results/neon_crossseason_genus_template_support_receipt_20261019.json`.
+- Source-only biogeography and eligibility: `results/neon_macro_biogeographic_selection_receipt_20261025.json`, `analysis/neon_macro_site_selection_v1.py`, [Actions 40163416566](https://github.com/zuizui0223/neon/actions/runs/40163416566).
 - CHM feasibility only: `results/neon_five_anchor_chm_source_receipt_20261020.json`.
 - San Jacinto historical different-rank result: `results/san_jacinto_crossseason_ecological_comparator_receipt_20261019.json`.
 - **Completed source-only joint audit:** `results/neon_unified_macro_source_crosswalk_receipt_20261025.json`; `analysis/audit_neon_unified_macro_source_crosswalk_v1.py`; workflow [40162524657](https://github.com/zuizui0223/neon/actions/runs/40162524657). **12/58 same-genus structural matches, eight sites, direct joint STOP.**
