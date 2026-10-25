@@ -32,14 +32,16 @@ def safe_parser_profile(archived_record:dict,strict_record:dict|None)->dict:
     name=str(archived_record.get("name") or "")
     ends=name.endswith(".csv")
     has_table="SAAT_30min" in name
-    suff=bool(re.search(r"\.\d{3}\.030\.SAAT_30min\.csv$",name))
+    # The old filename regex omitted the provider's formal suffix.
+    legacy_suffix=bool(re.search(r"\\.\\d{3}\\.030\\.SAAT_30min\\.csv$",name))
+    suff=position(name) is not None
     # File-name table pattern is a source format, not a private site name.
     return {
         "pilot_provider_record_was_valid":True,
         "file_is_csv":ends,
         "file_contains_explicit_SAAT_30min_table":has_table,
         "current_exact_three_digit_position_regex_matches":suff,
-        "file_has_three_digit_vertical_position_under_old_parser":position(name) is not None,
+        "legacy_no_month_filename_regex_matches":legacy_suffix,
         "full_new_parser_selects_a_record":strict_record is not None,
         "full_new_parser_same_provider_name_as_pilot":(
             strict_record is not None and str(strict_record.get("name") or "")==name
