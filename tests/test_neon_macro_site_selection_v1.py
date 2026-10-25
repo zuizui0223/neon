@@ -113,8 +113,11 @@ class MacroSourceSelectionTests(unittest.TestCase):
 
     def test_missing_station_effort_denominator_stops(self):
         plot,traps,units,metadata=fixture()
-        traps=[r for r in traps if not(r["nightuid"]=="FAKESITE_B_0_N0"
-                                    and r["trapCoordinate"]=="A1")]
+        # Eleven missing distinct station positions reduce one night to 89.
+        missing={"A"+str(j) for j in range(1,11)} | {"B1"}
+        traps=[r for r in traps if not(
+            r["nightuid"]=="FAKESITE_B_0_N0"
+            and r["trapCoordinate"] in missing)]
         with self.assertRaisesRegex(ValueError,"effort-complete bouts changed"):
             source_audit((plot,traps,units,metadata))
 
