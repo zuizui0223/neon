@@ -7,7 +7,7 @@ from analysis.neon_macro_tower_thermal_contrast_v1 import (
 )
 
 def row(pos):
-    return {"name":f"NEON.D01.SITE.DP1.00002.001.00000.000.{pos}.030.SAAT_30min.csv",
+    return {"name":f"NEON.D01.SITE.DP1.00002.001.00000.000.{pos}.030.SAAT_30min.2020-04.basic.20261025T020000Z.csv",
             "url":"https://example.test/file.csv","md5":"a"*32,"size":150000}
 
 def pair():
