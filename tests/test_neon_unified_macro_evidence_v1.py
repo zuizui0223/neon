@@ -99,6 +99,36 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertTrue(x["post_result_no_independent_preregistration"])
         self.assertTrue(x["genus_specific_detection_not_calibrated"])
 
+    def test_common_six_night_recorded_trap_control_does_not_exclude_catchability(self):
+        o=self.ledger["recorded_six_night_station_opportunity_control"]
+        self.assertEqual((o["common_all_six_station_min"],o["common_all_six_station_median"]),
+                         (93,100))
+        self.assertEqual((o["source_pairs_retaining_full_genus_station_support"],
+                          o["source_sites_retained"]),(158,30))
+        self.assertEqual((o["effect_informative_original_pairs"],
+                          o["effect_independent_physical_sites"],
+                          o["effect_positive_site_means"]),(150,30,25))
+        self.assertAlmostEqual(o["effect_site_equal_mean_Z"],0.6109014700960878,places=12)
+        self.assertAlmostEqual(o["original_unrestricted_exact_two_mean_Z"],0.6147113767599713,places=12)
+        self.assertEqual((o["whole_site_season_source_reuse_removed_pairs"],
+                          o["whole_site_season_source_reuse_removed_sites"]),(48,17))
+        self.assertTrue(o["recorded_station_presence_does_not_verify_operability"])
+        self.assertTrue(o["genus_dependent_capture_probability_not_calibrated"])
+
+    def test_temperature_provider_source_qc_stop_is_not_ecological_null(self):
+        w=self.ledger["independent_original_tower_temperature_source_QC"]
+        self.assertEqual((w["provider_MD5_size_verified_parsed_months"],
+                          w["source_months_QC_good"],
+                          w["source_months_QC_failed"]),(205,143,62))
+        self.assertEqual((w["source_pairs_with_two_qualified_months"],
+                          w["sites_with_two_qualified_months"],
+                          w["domains_with_two_qualified_months"]),(79,27,15))
+        self.assertEqual(w["minimum_predeclared_source_pairs_for_model"],80)
+        self.assertEqual(w["status"],"STOP_BEFORE_ABIOTIC_ECOLOGICAL_ASSOCIATION")
+        self.assertFalse(w["temperature_slope_or_confidence_interval_estimated"])
+        self.assertTrue(w["not_evidence_of_zero_climate_ecological_effect"])
+        self.assertTrue(w["no_threshold_relaxation_or_different_weather_variable"])
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
