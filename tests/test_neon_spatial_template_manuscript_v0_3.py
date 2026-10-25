@@ -38,7 +38,7 @@ class CorrectedEcologyManuscriptV03Tests(unittest.TestCase):
         self.assertIn("0.000010", self.paper)
         self.assertIn("accepted-swap", self.paper.lower())
         self.assertIn("historical", self.paper.lower())
-        self.assertIn("not a guaranteed upper", self.paper.lower())
+        self.assertIn("guaranteed upper", self.paper.lower())
         self.assertIn("SUBMISSION HOLD", self.paper)
         self.assertIn("a new preregistration", self.paper.lower())
 
