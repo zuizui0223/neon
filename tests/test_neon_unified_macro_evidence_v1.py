@@ -46,12 +46,22 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         j=self.ledger["joint_macro_inference"]
         self.assertFalse(j["same_population_coupling_effect_estimated"])
         self.assertFalse(j["cross_cohort_site_overlap_known"])
-        self.assertFalse(j["matched_same_population_site_plot_event_support_audited"])
+        self.assertTrue(j["matched_same_population_site_plot_event_support_audited"])
+        self.assertEqual((j["source_only_exact_matched_season_pairs"],
+                          j["source_only_matched_physical_sites"],
+                          j["source_only_multi_site_genera"]), (12,8,1))
+        self.assertEqual(j["direct_joint_model_status"],
+                         "STOP_TOO_FEW_MATCHED_PAIRS_AND_REPLICATED_GENERA")
+        self.assertFalse(j["original_release_same_population_source_feasibility_passed"])
         self.assertTrue(j["R_and_density_beta_different_estimands_not_pooled"])
         self.assertFalse(self.ledger["habitat_source_only"]["genus_habitat_or_detection_effect_estimated"])
         self.assertEqual(self.ledger["status"],"INTEGRATED_EXISTING_EVIDENCE_NO_NEW_ECOLOGICAL_TEST")
         self.assertIn("same-site crosswalk",self.design)
         self.assertIn("source-only",self.design)
+        c=json.loads((ROOT/"results/neon_unified_macro_source_crosswalk_receipt_20261025.json").read_text(encoding="utf-8"))
+        self.assertFalse(c["new_post_result_source_feasibility_gates"]["pass"])
+        self.assertEqual(c["original_source"]["frozen_season_pairs"],58)
+        self.assertFalse(c["limitations"]["actual_W_B_m2_calculated"])
 
     def test_macro_population_denominator_not_inflated(self):
         z=self.ledger["macro_sampling_frame"]
