@@ -6,6 +6,7 @@ test, independent confirmation, or habitat regression.
 import json
 from pathlib import Path
 import unittest
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "manuscript/NEON_SPATIAL_TEMPLATE_REASSEMBLY_ECOLOGY_V0_3.md"
@@ -53,6 +54,20 @@ class CorrectedEcologyManuscriptV03Tests(unittest.TestCase):
             self.assertIn(claim.lower(), self.paper.lower())
         self.assertIn("Figure 2", self.paper)
         self.assertIn("obsolete accepted-only sampler", self.paper)
+
+
+    def test_corrected_figure_is_source_backed_not_obsolete(self):
+        figpath = ROOT / "manuscript/figures/neon_crossseason_genus_site_means_corrected_v0_3.svg"
+        source = figpath.read_text(encoding="utf-8")
+        root = ET.fromstring(source)
+        ns = "{http://www.w3.org/2000/svg}"
+        points = root.findall(ns + "circle")
+        self.assertEqual(len(points), 14 + 12)
+        self.assertEqual(sum(z.attrib["fill"] == "#245b77" for z in points), 11 + 10)
+        self.assertEqual(sum(z.attrib["fill"] == "#a56c50" for z in points), 3 + 2)
+        self.assertIn("SHA256 of original verified correction artifact ZIP:", source)
+        self.assertIn("92961984ebedc33abfd410ae9d587cf6eb2cbe69c1ec252d1c05c455938c56cb", source)
+        self.assertIn("figures/neon_crossseason_genus_site_means_corrected_v0_3.svg", self.paper)
 
     def test_original_results_immutable_and_ref_is_only_corrected_source(self):
         x = self.receipt
