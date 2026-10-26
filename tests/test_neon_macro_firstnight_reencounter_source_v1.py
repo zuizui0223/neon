@@ -49,13 +49,18 @@ def fixture():
 
 def run_source(data=None,**kw):
     a,b,c,d=data if data is not None else fixture()
-    return source_first_night_cohort(
-        a,b,c,d,expected_pairs=2,expected_sites=2,
-        expected_unique_bouts=4,
-        minimum_firstnight_animals=20,minimum_sites_with_animal=2,
-        minimum_genus_animals=10,minimum_genus_sites=2,
-        minimum_shared_sites=2,minimum_per_genus_per_site=5,**kw
-    )
+    settings={
+        "expected_pairs":2,"expected_sites":2,
+        "expected_unique_bouts":4,
+        "minimum_firstnight_animals":20,
+        "minimum_sites_with_animal":2,
+        "minimum_genus_animals":10,
+        "minimum_genus_sites":2,
+        "minimum_shared_sites":2,
+        "minimum_per_genus_per_site":5,
+    }
+    settings.update(kw)
+    return source_first_night_cohort(a,b,c,d,**settings)
 
 
 class GenusFirstNightSourceTests(unittest.TestCase):
