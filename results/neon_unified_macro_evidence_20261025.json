@@ -19,7 +19,9 @@
     "recorded_stations_recurrence": "results/neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
     "original_tower_temperature_qc": "results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
     "exact_station_conditioned_10m_patch": "results/neon_macro_10m_patch_conditional_20261025.json",
-    "official_trap_status_456_stop": "results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json"
+    "official_trap_status_456_stop": "results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
+    "firstnight_reencounter_source": "results/neon_genus_firstnight_reencounter_source_20261026.json",
+    "firstnight_reencounter_outcome": "results/neon_genus_firstnight_reencounter_outcome_20261026.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -312,5 +314,33 @@
     "codes_four_five_select_capture_related_outcomes": true,
     "failure_of_source_pair_gate_not_fraction_of_traps_nonoperable": true,
     "original_conditional_positive_30site_result_unchanged": true
+  },
+  "firstnight_genus_reencounter_observation_process": {
+    "status": "OBSERVED_SOURCE_MATCHED_GENUS_REENCOUNTER_HETEROGENEITY_NOT_TRAP_DETECTION_P",
+    "original_source_firstnight_animals": 3255,
+    "unique_original_three_night_bouts": 293,
+    "firstnight_capture_physical_sites": 30,
+    "source_ranked_and_selected_genus_pair": [
+      "Microtus",
+      "Peromyscus"
+    ],
+    "matched_original_physical_sites": 7,
+    "microtus_firstnight_animals": 179,
+    "microtus_recaptured_on_later_original_night": 97,
+    "peromyscus_firstnight_animals": 435,
+    "peromyscus_recaptured_on_later_original_night": 330,
+    "site_equal_microtus_reencounter_fraction": 0.5417785895577012,
+    "site_equal_peromyscus_reencounter_fraction": 0.7768728012434933,
+    "site_equal_microtus_minus_peromyscus_fraction": -0.23509421168579211,
+    "site_block_bootstrap_95_interval": [
+      -0.45695823864059304,
+      -0.023687163564519265
+    ],
+    "bootstrap_interval_excludes_zero": true,
+    "genus_specific_trap_level_capture_detection_probability_known": false,
+    "cause_of_between_season_genus_at_exact_station_recurrence_identified": false,
+    "source_firstnight_genus_pair_chosen_before_later_reencounter": true,
+    "genus_site_matched_same_historical_RELEASE_2026": true,
+    "unknown_later_availability_release_fate_and_movement": true
   }
 }
