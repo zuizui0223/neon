@@ -29,6 +29,8 @@ FILES = {
     "original_tower_temperature_qc":"neon_macro_original_tower_month_thermal_QC_STOP_20261025.json",
     "exact_station_conditioned_10m_patch":"neon_macro_10m_patch_conditional_20261025.json",
     "official_trap_status_456_stop":"neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
+    "firstnight_reencounter_source":"neon_genus_firstnight_reencounter_source_20261026.json",
+    "firstnight_reencounter_outcome":"neon_genus_firstnight_reencounter_outcome_20261026.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -55,6 +57,8 @@ def build(root: Path = RESULTS) -> dict:
     climate_source=src["original_tower_temperature_qc"]
     patch=src["exact_station_conditioned_10m_patch"]
     trap_qc=src["official_trap_status_456_stop"]
+    first_source=src["firstnight_reencounter_source"]
+    first_obs=src["firstnight_reencounter_outcome"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -250,6 +254,35 @@ def build(root: Path = RESULTS) -> dict:
             and trap_qc["inference_limits"]["source_station_operability_is_not_capture_detection_probability"],
             "unsupported operational-source subcohort incorrectly promoted to biological causal effect")
 
+
+    require(first_source["status"]=="SOURCE_MATCHED_GENUS_REENCOUNTER_COMPARISON_GO"
+            and first_source["predeclared_source_gate"]["passed"]
+            and (first_source["source_firstnight_marked_animals"],
+                 first_source["unique_source_three_night_bouts"],
+                 first_source["independent_sites_with_firstnight_tagged_captures"])==(3255,293,30)
+            and first_source["preselected_genus_pair_if_pass"]["genera"]==["Microtus","Peromyscus"]
+            and first_source["preselected_genus_pair_if_pass"]["shared_qualified_physical_sites"]==7
+            and first_source["predeclared_source_gate"]["no_nextnight_matching_outcomes_opened"],
+            "firstnight genotype/source selection not independent of later outcome")
+    encounter=first_obs["reencounter"]
+    require(first_obs["status"]=="OBSERVED_SITE_PAIRED_GENUS_REENCOUNTER_FRACTION_DESCRIBED"
+            and first_obs["original_firstnight_source_reconstructed_and_selected_pair_unchanged"]
+            and encounter["preselected_genera"]==["Microtus","Peromyscus"]
+            and encounter["source_matched_physical_sites_retained"]==7,
+            "original response genus pair or physical-site support was changed")
+    need_micro=encounter["original_recapture_record_summary_by_genus"]["Microtus"]
+    need_pero=encounter["original_recapture_record_summary_by_genus"]["Peromyscus"]
+    require((need_micro["firstnight_marked_animals"],need_micro["recorded_reencountered_day2_or3"],
+             need_pero["firstnight_marked_animals"],need_pero["recorded_reencountered_day2_or3"])==(179,97,435,330)
+            and abs(encounter["site_equal_observed_genus_reencounter_fraction_difference"]+0.23509421168579211)<1e-12
+            and encounter["whole_physical_site_bootstrap"]["draws"]==2000
+            and encounter["whole_physical_site_bootstrap"]["interval_excludes_zero"],
+            "historical source selected genus reencounter fractions or uncertainty drifted")
+    require(encounter["claim_boundaries"]["not_capture_detection_p_of_animal_at_trap"]
+            and encounter["claim_boundaries"]["cannot_directly_explain_historical_site_exact_trap_recurrence"]
+            and first_obs["scientific_boundaries"]["six_night_456_code_operability_source_18of158_STOP_unchanged"],
+            "biological inference overpromoted genus reencounter rates to actual detection p")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -418,6 +451,28 @@ def build(root: Path = RESULTS) -> dict:
             "codes_four_five_select_capture_related_outcomes":True,
             "failure_of_source_pair_gate_not_fraction_of_traps_nonoperable":True,
             "original_conditional_positive_30site_result_unchanged":True,
+        },
+        "firstnight_genus_reencounter_observation_process":{
+            "status":"OBSERVED_SOURCE_MATCHED_GENUS_REENCOUNTER_HETEROGENEITY_NOT_TRAP_DETECTION_P",
+            "original_source_firstnight_animals":first_source["source_firstnight_marked_animals"],
+            "unique_original_three_night_bouts":first_source["unique_source_three_night_bouts"],
+            "firstnight_capture_physical_sites":first_source["independent_sites_with_firstnight_tagged_captures"],
+            "source_ranked_and_selected_genus_pair":first_source["preselected_genus_pair_if_pass"]["genera"],
+            "matched_original_physical_sites":encounter["source_matched_physical_sites_retained"],
+            "microtus_firstnight_animals":need_micro["firstnight_marked_animals"],
+            "microtus_recaptured_on_later_original_night":need_micro["recorded_reencountered_day2_or3"],
+            "peromyscus_firstnight_animals":need_pero["firstnight_marked_animals"],
+            "peromyscus_recaptured_on_later_original_night":need_pero["recorded_reencountered_day2_or3"],
+            "site_equal_microtus_reencounter_fraction":need_micro["physical_site_equal_reencounter_fraction"],
+            "site_equal_peromyscus_reencounter_fraction":need_pero["physical_site_equal_reencounter_fraction"],
+            "site_equal_microtus_minus_peromyscus_fraction":encounter["site_equal_observed_genus_reencounter_fraction_difference"],
+            "site_block_bootstrap_95_interval":encounter["whole_physical_site_bootstrap"]["percentile_95_interval"],
+            "bootstrap_interval_excludes_zero":encounter["whole_physical_site_bootstrap"]["interval_excludes_zero"],
+            "genus_specific_trap_level_capture_detection_probability_known":False,
+            "cause_of_between_season_genus_at_exact_station_recurrence_identified":False,
+            "source_firstnight_genus_pair_chosen_before_later_reencounter":True,
+            "genus_site_matched_same_historical_RELEASE_2026":True,
+            "unknown_later_availability_release_fate_and_movement":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
