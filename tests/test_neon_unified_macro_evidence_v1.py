@@ -174,6 +174,30 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertTrue(o["codes_four_five_select_capture_related_outcomes"])
         self.assertEqual(o["status"],"STRICT_STATUS_456_COHORT_SOURCE_STOP_NO_ECOLOGICAL_EFFECT")
 
+    def test_firstnight_reencounter_difference_is_not_true_capture_p(self):
+        x=self.ledger["firstnight_genus_reencounter_observation_process"]
+        self.assertEqual((x["original_source_firstnight_animals"],
+                          x["unique_original_three_night_bouts"],
+                          x["firstnight_capture_physical_sites"]),(3255,293,30))
+        self.assertEqual(x["source_ranked_and_selected_genus_pair"],
+                         ["Microtus","Peromyscus"])
+        self.assertEqual(x["matched_original_physical_sites"],7)
+        self.assertEqual((x["microtus_firstnight_animals"],
+                          x["microtus_recaptured_on_later_original_night"],
+                          x["peromyscus_firstnight_animals"],
+                          x["peromyscus_recaptured_on_later_original_night"]),
+                         (179,97,435,330))
+        self.assertAlmostEqual(x["site_equal_microtus_minus_peromyscus_fraction"],
+                               -0.23509421168579211,places=12)
+        self.assertAlmostEqual(x["site_block_bootstrap_95_interval"][0],
+                               -0.45695823864059304,places=12)
+        self.assertAlmostEqual(x["site_block_bootstrap_95_interval"][1],
+                               -0.023687163564519265,places=12)
+        self.assertTrue(x["bootstrap_interval_excludes_zero"])
+        self.assertFalse(x["genus_specific_trap_level_capture_detection_probability_known"])
+        self.assertFalse(x["cause_of_between_season_genus_at_exact_station_recurrence_identified"])
+        self.assertTrue(x["unknown_later_availability_release_fate_and_movement"])
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
