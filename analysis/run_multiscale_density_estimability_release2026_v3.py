@@ -289,26 +289,24 @@ def _read_trap_rows(raw: bytes, candidate_nights: set[str], *, include_fate: boo
         n = str(row.get(night, "")).strip()
         if n not in candidate_nights:
             continue
-        out.append(
-            {
-                "nightuid": n,
-                "plotID": str(row.get(plot, "")).strip(),
-                "trapCoordinate": str(row.get(coord, "")).strip(),
-                "trapStatus": str(row.get(status, "")).strip() if status else "",
-                "tagID": str(row.get(tag, "")).strip() if tag else "",
-                "taxonID": str(row.get(taxon, "")).strip() if taxon else "",
-                "scientificName": str(row.get(sci, "")).strip() if sci else "",
-                "identificationQualifier": (
-                    str(row.get(ident_qual, "")).strip() if ident_qual else ""
-                ),
-                "taxonRank": (
-                    str(row.get(taxon_rank, "")).strip() if taxon_rank else ""
-                ),
-            }
+        original_row = {
+            "nightuid": n,
+            "plotID": str(row.get(plot, "")).strip(),
+            "trapCoordinate": str(row.get(coord, "")).strip(),
+            "trapStatus": str(row.get(status, "")).strip() if status else "",
+            "tagID": str(row.get(tag, "")).strip() if tag else "",
+            "taxonID": str(row.get(taxon, "")).strip() if taxon else "",
+            "scientificName": str(row.get(sci, "")).strip() if sci else "",
+            "identificationQualifier": (
+                str(row.get(ident_qual, "")).strip() if ident_qual else ""
+            ),
+            "taxonRank": (
+                str(row.get(taxon_rank, "")).strip() if taxon_rank else ""
+            ),
+        }
         if include_fate:
-            # Opt-in, original-source fate/disposition metadata. Do NOT
-            # silently change the output shape of the historically frozen
-            # mammal matrix and W/B consumers.
+            # Raw RELEASE-2026 fate is available opt-in; historical source
+            # callers keep their original row fields unchanged.
             original_row["fate"] = str(row.get(fate_column, "")).strip() if fate_column else ""
             original_row["_fate_column_present"] = bool(fate_column)
         out.append(original_row)
