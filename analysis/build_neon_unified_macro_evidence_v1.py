@@ -31,6 +31,8 @@ FILES = {
     "official_trap_status_456_stop":"neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
     "firstnight_reencounter_source":"neon_genus_firstnight_reencounter_source_20261026.json",
     "firstnight_reencounter_outcome":"neon_genus_firstnight_reencounter_outcome_20261026.json",
+    "firstnight_fate_source":"neon_firstnight_original_fate_source_20261028.json",
+    "fate_codebook_lookup":"neon_original_fate_official_codebook_lookup_STOP_20261028.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -59,6 +61,8 @@ def build(root: Path = RESULTS) -> dict:
     trap_qc=src["official_trap_status_456_stop"]
     first_source=src["firstnight_reencounter_source"]
     first_obs=src["firstnight_reencounter_outcome"]
+    fate=src["firstnight_fate_source"]
+    fate_codebook=src["fate_codebook_lookup"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -283,6 +287,25 @@ def build(root: Path = RESULTS) -> dict:
             and first_obs["scientific_boundaries"]["six_night_456_code_operability_source_18of158_STOP_unchanged"],
             "biological inference overpromoted genus reencounter rates to actual detection p")
 
+    require(fate["status"]=="STOP_EXPLICIT_RELEASE_FATE_SOURCE_SUPPORT"
+            and (fate["original_pre_reencounter_firstnight_tag_cohort"],
+                 fate["original_frozen_matched_physical_sites"],
+                 fate["source_explicit_release_matched_sites"])==(615,7,1),
+            "original firstnight Microtus/Peromyscus fate source/GO criterion drifted")
+    require((fate["fate_categorical_counts_by_original_genus"]["Microtus"]["OTHER_UNMAPPED"],
+             fate["fate_categorical_counts_by_original_genus"]["Peromyscus"]["OTHER_UNMAPPED"])==(111,280),
+            "revised-era unmapped original fate counts changed")
+    require(abs(fate["source_firstnight_unambiguous_documented_fate_fraction"]-0.21138211382113822)<1e-12
+            and not fate["new_post_result_source_thresholds"]["passed"]
+            and fate["new_post_result_source_thresholds"]["minimum_original_matched_sites_with_five_released_per_genus"]==6,
+            "original fate source firstnight support STOP was improperly rescued")
+    require(fate["boundaries"]["day2_or3_tag_matching_or_return_outcome_opened"] is False
+            and fate["boundaries"]["unrecognized_raw_fate_values_not_mapped_ad_hoc"],
+            "unknown 2017+ original fate codes mapped without authoritative source")
+    require(fate_codebook["status"]=="STOP_CATEGORICAL_CODEBOOK_NOT_IN_ORIGINAL_RELEASE_QUERY"
+            and fate_codebook["no_fate_category_invented"],
+            "fate static metadata API restriction changed; do not assume no official codebook")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -473,6 +496,26 @@ def build(root: Path = RESULTS) -> dict:
             "source_firstnight_genus_pair_chosen_before_later_reencounter":True,
             "genus_site_matched_same_historical_RELEASE_2026":True,
             "unknown_later_availability_release_fate_and_movement":True,
+        },
+        "original_firstnight_disposition_source_constraint":{
+            "status":"ORIGINAL_RELEASED_ONLY_SUBCOHORT_NOT_ESTIMABLE_FROM_UNMAPPED_2017PLUS_FATE",
+            "original_firstnight_marked_records":fate["original_pre_reencounter_firstnight_tag_cohort"],
+            "original_comparison_physical_sites":fate["original_frozen_matched_physical_sites"],
+            "firstnight_microtus_source_tags":fate["observed_genus_source_firstnight_totals"]["Microtus"],
+            "firstnight_peromyscus_source_tags":fate["observed_genus_source_firstnight_totals"]["Peromyscus"],
+            "unmapped_post2017_microtus_fate_codes":fate["fate_categorical_counts_by_original_genus"]["Microtus"]["OTHER_UNMAPPED"],
+            "unmapped_post2017_peromyscus_fate_codes":fate["fate_categorical_counts_by_original_genus"]["Peromyscus"]["OTHER_UNMAPPED"],
+            "explicit_released_microtus_source_tags":fate["fate_categorical_counts_by_original_genus"]["Microtus"]["RELEASED_EXPLICIT"],
+            "explicit_released_peromyscus_source_tags":fate["fate_categorical_counts_by_original_genus"]["Peromyscus"]["RELEASED_EXPLICIT"],
+            "known_fate_classifier_fraction_not_original_metadata_completeness":fate["source_firstnight_unambiguous_documented_fate_fraction"],
+            "physical_sites_reaching_five_explicit_release_per_genus":fate["source_explicit_release_matched_sites"],
+            "minimum_original_physical_sites_required":fate["new_post_result_source_thresholds"]["minimum_original_matched_sites_with_five_released_per_genus"],
+            "new_released_conditioned_reencounter_outcome_estimated":False,
+            "firstnight_fate_column_optin_not_original_loader_default":True,
+            "original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased":True,
+            "official_NEON_monthly_data_query_does_not_include_static_categorical_dictionary":True,
+            "static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere":True,
+            "original_7site_minus_23_5pp_reencounter_not_true_capture_p":True,
         },
         "spatial_recurrence":{
             "status":"POSITIVE_CORRECTED_CONDITIONAL_PATTERN",
