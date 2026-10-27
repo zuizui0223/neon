@@ -33,6 +33,7 @@ FILES = {
     "firstnight_reencounter_outcome":"neon_genus_firstnight_reencounter_outcome_20261026.json",
     "firstnight_fate_source":"neon_firstnight_original_fate_source_20261028.json",
     "fate_codebook_lookup":"neon_original_fate_official_codebook_lookup_STOP_20261028.json",
+    "original_2017_fate_processed_label":"neon_fate_2017plus_unmapped_processed_source_receipt_20261028.json",
 }
 OUTPUT = RESULTS / "neon_unified_macro_evidence_20261025.json"
 
@@ -63,6 +64,7 @@ def build(root: Path = RESULTS) -> dict:
     first_obs=src["firstnight_reencounter_outcome"]
     fate=src["firstnight_fate_source"]
     fate_codebook=src["fate_codebook_lookup"]
+    fate_labels=src["original_2017_fate_processed_label"]
     require(rec["status"] == "CORRECTED_UNIFORM_NULL_SUPPORTS_RECURRENCE_CONDITIONALLY",
             "corrected recurrence no longer supports the frozen observational result")
     all14, clear12 = rec["full_14site"], rec["source_disjoint_12site"]
@@ -306,6 +308,15 @@ def build(root: Path = RESULTS) -> dict:
             and fate_codebook["no_fate_category_invented"],
             "fate static metadata API restriction changed; do not assume no official codebook")
 
+    require(fate_labels["status"]=="UNMAPPED_FATE_SOURCE_LABEL_FORMS_AUDITED_NO_SEMANTIC_RECLASSIFICATION"
+            and fate_labels["safe_frequency_audit"]["n_original_unmapped_source_values"]==391
+            and fate_labels["safe_frequency_audit"]["n_distinct_raw_unmapped_labels_private"]==1
+            and len(fate_labels["safe_frequency_audit"]["frequent_safe_original_raw_token_forms"])==1
+            and fate_labels["safe_frequency_audit"]["frequent_safe_original_raw_token_forms"][0]["normalized_controlled_looking_source_token"]=="processed"
+            and fate_labels["safe_frequency_audit"]["frequent_safe_original_raw_token_forms"][0]["n_firstnight_marked_captures"]==391
+            and fate_labels["claim_boundaries"]["no_laternight_reencounter_outcomes_accessed"],
+            "source-verified original post2017 fate label processed 391 evidence changed")
+
     def recurrence(group: dict) -> dict:
         return {
             "sites":group["physical_sites"], "pairs":group["seasonal_pairs"],
@@ -513,6 +524,11 @@ def build(root: Path = RESULTS) -> dict:
             "new_released_conditioned_reencounter_outcome_estimated":False,
             "firstnight_fate_column_optin_not_original_loader_default":True,
             "original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased":True,
+            "original_2017plus_raw_fate_label":"processed",
+            "original_2017plus_raw_processed_fate_count":fate_labels["safe_frequency_audit"]["n_original_unmapped_source_values"],
+            "raw_processed_individual_release_not_confirmed":True,
+            "all_391_original_2017plus_other_unmapped_values_same_processed_token":True,
+            "no_fate_code_reclassification_before_new_source_design":True,
             "official_NEON_monthly_data_query_does_not_include_static_categorical_dictionary":True,
             "static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere":True,
             "original_7site_minus_23_5pp_reencounter_not_true_capture_p":True,
