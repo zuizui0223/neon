@@ -215,6 +215,11 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
                           x["minimum_original_physical_sites_required"]),(1,6))
         self.assertFalse(x["new_released_conditioned_reencounter_outcome_estimated"])
         self.assertTrue(x["original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased"])
+        self.assertEqual(x["original_2017plus_raw_fate_label"],"processed")
+        self.assertEqual(x["original_2017plus_raw_processed_fate_count"],391)
+        self.assertTrue(x["raw_processed_individual_release_not_confirmed"])
+        self.assertTrue(x["all_391_original_2017plus_other_unmapped_values_same_processed_token"])
+        self.assertTrue(x["no_fate_code_reclassification_before_new_source_design"])
         self.assertTrue(x["static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere"])
         self.assertTrue(x["original_7site_minus_23_5pp_reencounter_not_true_capture_p"])
 
