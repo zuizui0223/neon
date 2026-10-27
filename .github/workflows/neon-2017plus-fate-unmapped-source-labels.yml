@@ -1,0 +1,46 @@
+name: neon-2017plus-fate-unmapped-source-labels
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_firstnight_unmapped_fate_labels_v1.py"
+      - "tests/test_neon_firstnight_unmapped_fate_labels_v1.py"
+      - ".github/workflows/neon-2017plus-fate-unmapped-source-labels.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-2017plus-fate-unmapped-source-labels-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-firstnight-controlled-fate-token-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check safe source label aggregation without reclassifying releases
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_firstnight_unmapped_fate_labels_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_original_fate_optin_v1.py' -v
+      - name: Require frozen original NEON source access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Count frequent post2017 firstnight raw fate code forms without later-night outcomes
+        run: python -m analysis.run_neon_firstnight_unmapped_fate_labels_v1
+      - name: Archive code forms or an honest source-only STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-firstnight-revised-fate-token-source-v1
+          path: build/neon_original_fate_unmapped_controlled_labels_20261028.json
+          if-no-files-found: warn
+          retention-days: 45
