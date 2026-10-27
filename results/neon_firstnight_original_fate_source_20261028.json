@@ -1,0 +1,102 @@
+{
+  "boundaries": {
+    "day2_or3_tag_matching_or_return_outcome_opened": false,
+    "empty_original_fate_value_is_not_assumed_released": true,
+    "no_new_genus_detection_p_or_habitat_cause_inferred": true,
+    "no_original_individual_site_plot_station_dates_or_raw_unknown_text_exported": true,
+    "original_7_source_sites_selected_before_any_fate_data": true,
+    "original_fate_column_may_be_unavailable_or_blank_before_2017": true,
+    "original_same_release_historical_reencounter_results_unchanged": true,
+    "source_disposition_metadata_is_not_true_survival_after_release": true,
+    "unrecognized_raw_fate_values_not_mapped_ad_hoc": true
+  },
+  "conflicting_original_firstnight_fates": 0,
+  "design": "docs/NEON_FATE_RELEASE_REENCOUNTER_DESIGN_20261028.md",
+  "fate_categorical_counts_by_original_genus": {
+    "Microtus": {
+      "BLANK_OR_UNKNOWN": 29,
+      "DEAD_EXPLICIT": 7,
+      "ESCAPED_EXPLICIT": 2,
+      "OTHER_UNMAPPED": 111,
+      "RELEASED_EXPLICIT": 30
+    },
+    "Peromyscus": {
+      "BLANK_OR_UNKNOWN": 65,
+      "DEAD_EXPLICIT": 5,
+      "ESCAPED_EXPLICIT": 14,
+      "OTHER_UNMAPPED": 280,
+      "RELEASED_EXPLICIT": 72
+    }
+  },
+  "fate_categorical_counts_overall": {
+    "BLANK_OR_UNKNOWN": 94,
+    "DEAD_EXPLICIT": 12,
+    "ESCAPED_EXPLICIT": 16,
+    "OTHER_UNMAPPED": 391,
+    "RELEASED_EXPLICIT": 102
+  },
+  "fate_categories_by_year_group": {
+    "2017_PLUS": {
+      "DEAD_EXPLICIT": 11,
+      "ESCAPED_EXPLICIT": 6,
+      "OTHER_UNMAPPED": 391
+    },
+    "PRE_2017_OR_UNKNOWN": {
+      "BLANK_OR_UNKNOWN": 94,
+      "DEAD_EXPLICIT": 1,
+      "ESCAPED_EXPLICIT": 10,
+      "RELEASED_EXPLICIT": 102
+    }
+  },
+  "interpretation": "Explicit documented-release cohort insufficient; effect stays sealed",
+  "later_night_fate_or_return_records_not_accessed_for_new_outcome": true,
+  "new_post_result_source_thresholds": {
+    "minimum_documented_fate_fraction": 0.8,
+    "minimum_original_matched_sites_with_five_released_per_genus": 6,
+    "minimum_per_genus_per_site": 5,
+    "minimum_released_microtus": 90,
+    "minimum_released_peromyscus": 220,
+    "passed": false
+  },
+  "observed_genus_source_firstnight_totals": {
+    "Microtus": 179,
+    "Peromyscus": 436
+  },
+  "original_frozen_genus_pair": [
+    "Microtus",
+    "Peromyscus"
+  ],
+  "original_frozen_matched_physical_sites": 7,
+  "original_pre_reencounter_firstnight_tag_cohort": 615,
+  "original_source_selected_seven_sites_reproduced": true,
+  "original_total_exact_two_comparisons": 158,
+  "original_total_three_plus_comparisons": 58,
+  "previous_observed_genus_reencounter_difference_not_refitted": true,
+  "released_individuals_in_source_qualified_sites_by_genus": {
+    "Microtus": 25,
+    "Peromyscus": 58
+  },
+  "schema": "neon.macro.original_marked_firstnight_fate_source.v1",
+  "source_explicit_release_matched_sites": 1,
+  "source_fate_categories_not_release_probability": true,
+  "source_firstnight_capture_rows_matched": 615,
+  "source_firstnight_marked_rows_without_fate_record": 0,
+  "source_firstnight_unambiguous_documented_fate_fraction": 0.21138211382113822,
+  "source_provenance": {
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827
+  },
+  "status": "STOP_EXPLICIT_RELEASE_FATE_SOURCE_SUPPORT",
+  "workflow_provenance": {
+    "repo": "zuizui0223/neon",
+    "run_id": 40535085090,
+    "job_id": 122298052254,
+    "head_sha": "9838a66675068ce6445f509c695422ce9d2076b2",
+    "conclusion": "success_source_ONLY_STOP",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40535085090",
+    "fate_selected_years_not_response": true
+  }
+}
