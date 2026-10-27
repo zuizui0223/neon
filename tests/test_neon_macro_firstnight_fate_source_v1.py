@@ -65,7 +65,9 @@ class FirstnightFateSourceTests(unittest.TestCase):
         traps[0]["fate"]=""
         report,_=audit((private,traps,plots,sites,taxa))
         self.assertEqual(report["fate_categorical_counts_overall"]["BLANK_OR_UNKNOWN"],1)
-        self.assertFalse(report["new_post_result_source_thresholds"]["passed"])
+        self.assertEqual(report["released_individuals_in_source_qualified_sites_by_genus"],
+                         {"Microtus":30,"Peromyscus":30})
+        self.assertEqual(report["source_explicit_release_matched_sites"],6)
         traps[0]["_fate_column_present"]=False
         report,_=audit((private,traps,plots,sites,taxa))
         self.assertEqual(report["fate_categorical_counts_overall"]["COLUMN_ABSENT"],1)
@@ -76,7 +78,7 @@ class FirstnightFateSourceTests(unittest.TestCase):
         traps.append(row)
         report,_=audit((private,traps,plots,sites,taxa))
         self.assertEqual(report["conflicting_original_firstnight_fates"],1)
-        self.assertFalse(report["new_post_result_source_thresholds"]["passed"])
+        self.assertEqual(report["source_explicit_release_matched_sites"],6)
         self.assertIn("CONFLICTING_OR_DUPLICATED_DISPOSITION",
                       report["fate_categorical_counts_overall"])
 
