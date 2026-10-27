@@ -213,7 +213,8 @@ def _read_plot_rows(
         p = str(row.get(plot, "")).strip()
         if not n or not e or not p:
             continue
-        original_row = {
+        out.append(
+            {
                 "nightuid": n,
                 "eventID": e,
                 "plotID": p,
