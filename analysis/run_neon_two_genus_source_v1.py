@@ -116,7 +116,13 @@ def selection_summary(exact:list[dict],known_three:list[dict],
     }
 
 
-def original_sources_for_two_genus(*, include_private_source_rows: bool = False):
+def original_sources_for_two_genus(
+    *,
+    include_private_source_rows: bool = False,
+    include_capture_fate: bool = False,
+):
+    if include_capture_fate and not include_private_source_rows:
+        raise ValueError("Fate must remain private to opt-in original-source QA")
     token=os.environ.get(TOKEN_ENV,"").strip()
     check(bool(token),"NEON original release token absent")
     check((RELEASE,START,END)==("RELEASE-2026","2015-04","2026-09"),
@@ -140,7 +146,7 @@ def original_sources_for_two_genus(*, include_private_source_rows: bool = False)
     check(len(tf)==1707,"original trap inventory drift")
     trap_rows=[]
     for meta,raw in zip(tf,_download_many(tf,token,max_workers=MAX_DOWNLOAD_WORKERS)):
-        for r in _read_trap_rows(raw,nights):
+        for r in _read_trap_rows(raw,nights,include_fate=include_capture_fate):
             r["_site"]=meta["site"]
             trap_rows.append(r)
     check((len(plot_rows),len(trap_rows))==(21363,1505827),
