@@ -198,6 +198,26 @@ class UnifiedMacroEvidenceTests(unittest.TestCase):
         self.assertFalse(x["cause_of_between_season_genus_at_exact_station_recurrence_identified"])
         self.assertTrue(x["unknown_later_availability_release_fate_and_movement"])
 
+    def test_original_fate_source_uncertainty_not_release_or_detection_p(self):
+        x=self.ledger["original_firstnight_disposition_source_constraint"]
+        self.assertEqual((x["original_firstnight_marked_records"],
+                          x["original_comparison_physical_sites"]),(615,7))
+        self.assertEqual((x["firstnight_microtus_source_tags"],
+                          x["firstnight_peromyscus_source_tags"]),(179,436))
+        self.assertEqual((x["unmapped_post2017_microtus_fate_codes"],
+                          x["unmapped_post2017_peromyscus_fate_codes"]),(111,280))
+        self.assertEqual((x["explicit_released_microtus_source_tags"],
+                          x["explicit_released_peromyscus_source_tags"]),(30,72))
+        self.assertAlmostEqual(
+            x["known_fate_classifier_fraction_not_original_metadata_completeness"],
+            0.21138211382113822,places=12)
+        self.assertEqual((x["physical_sites_reaching_five_explicit_release_per_genus"],
+                          x["minimum_original_physical_sites_required"]),(1,6))
+        self.assertFalse(x["new_released_conditioned_reencounter_outcome_estimated"])
+        self.assertTrue(x["original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased"])
+        self.assertTrue(x["static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere"])
+        self.assertTrue(x["original_7site_minus_23_5pp_reencounter_not_true_capture_p"])
+
     def test_geographic_macro_selection_denominator_and_causal_scope(self):
         q=self.ledger["geographic_macro_selection_source_only"]
         self.assertEqual((q["effort_valid_three_night_bouts"],
