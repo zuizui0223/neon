@@ -21,7 +21,9 @@
     "exact_station_conditioned_10m_patch": "results/neon_macro_10m_patch_conditional_20261025.json",
     "official_trap_status_456_stop": "results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json",
     "firstnight_reencounter_source": "results/neon_genus_firstnight_reencounter_source_20261026.json",
-    "firstnight_reencounter_outcome": "results/neon_genus_firstnight_reencounter_outcome_20261026.json"
+    "firstnight_reencounter_outcome": "results/neon_genus_firstnight_reencounter_outcome_20261026.json",
+    "firstnight_fate_source": "results/neon_firstnight_original_fate_source_20261028.json",
+    "fate_codebook_lookup": "results/neon_original_fate_official_codebook_lookup_STOP_20261028.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -342,5 +344,25 @@
     "source_firstnight_genus_pair_chosen_before_later_reencounter": true,
     "genus_site_matched_same_historical_RELEASE_2026": true,
     "unknown_later_availability_release_fate_and_movement": true
+  },
+  "original_firstnight_disposition_source_constraint": {
+    "status": "ORIGINAL_RELEASED_ONLY_SUBCOHORT_NOT_ESTIMABLE_FROM_UNMAPPED_2017PLUS_FATE",
+    "original_firstnight_marked_records": 615,
+    "original_comparison_physical_sites": 7,
+    "firstnight_microtus_source_tags": 179,
+    "firstnight_peromyscus_source_tags": 436,
+    "unmapped_post2017_microtus_fate_codes": 111,
+    "unmapped_post2017_peromyscus_fate_codes": 280,
+    "explicit_released_microtus_source_tags": 30,
+    "explicit_released_peromyscus_source_tags": 72,
+    "known_fate_classifier_fraction_not_original_metadata_completeness": 0.21138211382113822,
+    "physical_sites_reaching_five_explicit_release_per_genus": 1,
+    "minimum_original_physical_sites_required": 6,
+    "new_released_conditioned_reencounter_outcome_estimated": false,
+    "firstnight_fate_column_optin_not_original_loader_default": true,
+    "original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased": true,
+    "official_NEON_monthly_data_query_does_not_include_static_categorical_dictionary": true,
+    "static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere": true,
+    "original_7site_minus_23_5pp_reencounter_not_true_capture_p": true
   }
 }
