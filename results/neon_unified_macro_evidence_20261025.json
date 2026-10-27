@@ -23,7 +23,8 @@
     "firstnight_reencounter_source": "results/neon_genus_firstnight_reencounter_source_20261026.json",
     "firstnight_reencounter_outcome": "results/neon_genus_firstnight_reencounter_outcome_20261026.json",
     "firstnight_fate_source": "results/neon_firstnight_original_fate_source_20261028.json",
-    "fate_codebook_lookup": "results/neon_original_fate_official_codebook_lookup_STOP_20261028.json"
+    "fate_codebook_lookup": "results/neon_original_fate_official_codebook_lookup_STOP_20261028.json",
+    "original_2017_fate_processed_label": "results/neon_fate_2017plus_unmapped_processed_source_receipt_20261028.json"
   },
   "scientific_centre": "Persistence of taxon-associated spatial organization across observed identity and population-state changes",
   "macro_sampling_frame": {
@@ -363,6 +364,11 @@
     "original_2017plus_unmapped_codes_not_assumed_absent_or_unreleased": true,
     "official_NEON_monthly_data_query_does_not_include_static_categorical_dictionary": true,
     "static_codebook_unavailable_via_this_API_does_not_mean_its_absent_elsewhere": true,
-    "original_7site_minus_23_5pp_reencounter_not_true_capture_p": true
+    "original_7site_minus_23_5pp_reencounter_not_true_capture_p": true,
+    "original_2017plus_raw_fate_label": "processed",
+    "original_2017plus_raw_processed_fate_count": 391,
+    "raw_processed_individual_release_not_confirmed": true,
+    "all_391_original_2017plus_other_unmapped_values_same_processed_token": true,
+    "no_fate_code_reclassification_before_new_source_design": true
   }
 }
