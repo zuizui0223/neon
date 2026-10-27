@@ -213,8 +213,7 @@ def _read_plot_rows(
         p = str(row.get(plot, "")).strip()
         if not n or not e or not p:
             continue
-        out.append(
-            {
+        original_row = {
                 "nightuid": n,
                 "eventID": e,
                 "plotID": p,
@@ -267,7 +266,7 @@ def _candidate_nights(plot_rows: list[dict[str, str]]) -> tuple[set[str], set[tu
     return nights, site_months
 
 
-def _read_trap_rows(raw: bytes, candidate_nights: set[str]) -> list[dict[str, str]]:
+def _read_trap_rows(raw: bytes, candidate_nights: set[str], *, include_fate: bool = False) -> list[dict[str, str]]:
     reader = csv.DictReader(io.StringIO(raw.decode("utf-8-sig")))
     fields = list(reader.fieldnames or [])
     night = _pick(fields, ("nightuid", "nightUID"))
@@ -281,6 +280,7 @@ def _read_trap_rows(raw: bytes, candidate_nights: set[str]) -> list[dict[str, st
         fields, ("identificationQualifier", "identification_qualifier"), False
     )
     taxon_rank = _pick(fields, ("taxonRank", "taxon_rank"), False)
+    fate_column = _pick(fields, ("fate", "Fate"), False) if include_fate else None
     if taxon is None and sci is None:
         raise RuntimeError("pertrapnight file has neither taxonID nor scientificName")
 
@@ -305,7 +305,13 @@ def _read_trap_rows(raw: bytes, candidate_nights: set[str]) -> list[dict[str, st
                     str(row.get(taxon_rank, "")).strip() if taxon_rank else ""
                 ),
             }
-        )
+        if include_fate:
+            # Opt-in, original-source fate/disposition metadata. Do NOT
+            # silently change the output shape of the historically frozen
+            # mammal matrix and W/B consumers.
+            original_row["fate"] = str(row.get(fate_column, "")).strip() if fate_column else ""
+            original_row["_fate_column_present"] = bool(fate_column)
+        out.append(original_row)
     return out
 
 
