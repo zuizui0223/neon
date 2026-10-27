@@ -1,0 +1,51 @@
+name: neon-firstnight-fate-source-gate
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_firstnight_fate_source_v1.py"
+      - "analysis/run_neon_firstnight_fate_source_v1.py"
+      - "analysis/run_neon_two_genus_source_v1.py"
+      - "analysis/run_multiscale_density_estimability_release2026_v3.py"
+      - "tests/test_neon_original_fate_optin_v1.py"
+      - "tests/test_neon_macro_firstnight_fate_source_v1.py"
+      - ".github/workflows/neon-firstnight-fate-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-firstnight-fate-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-source-firstnight-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prove original capture loader default unchanged and unknown fate never mapped to released
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_original_fate_optin_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_firstnight_fate_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_firstnight_reencounter_source_v1.py' -v
+      - name: Require original NEON source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run original source-only seven-site firstnight fate census before any released-animal reencounter outcomes
+        run: python -m analysis.run_neon_firstnight_fate_source_v1
+      - name: Archive sanitized fate categories and GO or honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-firstnight-fate-availability-source-v1
+          path: build/neon_firstnight_source_fate_availability_20261028.json
+          if-no-files-found: warn
+          retention-days: 45
