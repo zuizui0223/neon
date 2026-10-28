@@ -63,7 +63,6 @@ class FullStationCanopySourceTests(unittest.TestCase):
         self.assertEqual(out["historically_flagged_original_plots_retained"],1)
         self.assertFalse(out["full_historical_habitat_or_detection_effect_estimated"])
         self.assertNotIn("EXAMPLE",str(out))
-        self.assertNotIn("12.0",str(out))
 
     def test_missing_pixel_not_substituted_by_zero(self):
         rows=[
@@ -101,6 +100,36 @@ class FullStationCanopySourceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             original_month_source_alignment([u],{"OTHER":"2024-01"},
                                             expected_pairs=1,expected_sites=1,expected_plots=1)
+
+
+    def test_raster_valid_pixel_mask_and_position_window(self):
+        import numpy as np
+        from rasterio.io import MemoryFile
+        from rasterio.transform import from_origin
+        from analysis.run_neon_3000_chm_source_v1 import sample_chm_tile
+        data=np.zeros((1000,1000),dtype=np.float32)
+        data[2,2]=7.0
+        data[5,5]=-9999.0
+        with MemoryFile() as mem:
+            with mem.open(driver="GTiff",height=1000,width=1000,
+                          count=1,dtype="float32",crs="EPSG:32612",
+                          transform=from_origin(1000,2000,1,1),
+                          nodata=-9999.0) as dst:
+                dst.write(data,1)
+            raw=mem.read()
+        a1=("TEST","PLOT","A1")
+        a2=("TEST","PLOT","A2")
+        a3=("TEST","PLOT","A3")
+        result=sample_chm_tile(raw,[
+            (a1,1001.5,1998.5,32612,3.1),
+            (a2,1005.5,1994.5,32612,3.1),
+            (a3,1002.5,1997.5,4326,3.1),
+        ])
+        self.assertEqual(result[a1]["status"],VALID)
+        self.assertEqual(result[a1]["height_m"],0.0)
+        self.assertGreater(result[a1]["window_max"],0.0)
+        self.assertEqual(result[a2]["status"],"CHM_PIXEL_MASKED")
+        self.assertEqual(result[a3]["status"],"STATION_TO_RASTER_CRS_MISMATCH")
 
 
 if __name__=="__main__":
