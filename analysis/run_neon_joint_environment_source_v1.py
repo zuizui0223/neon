@@ -101,11 +101,19 @@ def run():
         "startDateMonth":"2015-04","endDateMonth":"2025-12",
         "release":"RELEASE-2026","package":"basic","includeProvisional":False,
     })
-    must(digest(query)==plant["official_plant_manifest_digest"],
-         "published original base-plant file manifest digest")
+    # The REST query's FULL response envelope is provider-generated and
+    # may change even when the underlying checksum-verified CSV set is
+    # unchanged. Record full-response drift, but never treat it as
+    # silently identical. Source content must independently reproduce
+    # original file counts, advertised byte total, original row counts,
+    # and both frozen source support endpoints or STOP.
+    plant_response_digest=digest(query)
+    plant_envelope_sha_equal=(
+        plant_response_digest==plant["official_plant_manifest_digest"]
+    )
     files=plant_manifest(query,sites)
     must(len(files)==326 and sum(x["size"] for x in files)==131730791,
-         "original 326 MD5-verified plant source files")
+         "original 326 source files and total verified bytes")
 
     STAGE="DOWNLOAD_PUBLISHED_ORIGINAL_PLANT_FILES"
     verified=[]
@@ -114,6 +122,13 @@ def run():
         verified.append((row["site"],data,n))
     must(len(verified)==326,"source field plant file count")
     byplot,plant_counts=plant_source_events(verified,plots)
+    must(
+        plant_counts["original_plant_rows"]==355486
+        and plant_counts["plant_rows_with_plot_and_date"]==355486
+        and plant_counts["rows_at_shared_plotID"]==27854
+        and plant_counts["matched_rows_with_numeric_cover"]==27235,
+        "original plant source record universe 355486/27854/27235"
+    )
     old_support=summarize_nearby_plant_bouts(units,byplot)
     must(
         old_support["source_period_support_counts"]["numeric_365_distinct"]==51
@@ -134,7 +149,11 @@ def run():
         "source_provenance":{
             "original_mammal_source":mammal_source,
             "original_AOP_source_sha256":digest(aop),
-            "original_plant_source_sha256":digest(query),
+            "observed_plant_full_response_sha256":plant_response_digest,
+            "original_plant_full_response_sha_equal":plant_envelope_sha_equal,
+            "full_response_digest_not_a_substitute_for_provider_MD5_bytes":True,
+            "plant_326_file_131730791_byte_355486_row_universe_reproduced":True,
+            "plant_27854_matching_27235_numeric_source_records_reproduced":True,
             "original_plant_provider_MD5_verified_files":len(verified),
             "original_CHM_51_rasters_24600_pixels_attested_by_immutable_receipt":True,
             "CHM_rasters_not_reselected_or_redownloaded_using_old_mammal_Z":True,
