@@ -91,8 +91,12 @@ def summarize_actual_historical_pixels(units, site_months, day_valid_count,
         for v in day_valid_count.values()
     ):
         raise ValueError("Selected day/capture source coverage incomplete or invalid")
-    status={}
-    subset=Counter(); sites=defaultdict(set); plots=defaultdict(set)
+    # Explicit zero-valued category counts: a failed feasibility check
+    # must retain its scientific STOP rather than omit its output key.
+    categories=("within12","within3","prior12","prior3")
+    subset=Counter({name+"_metadata_eligible_pairs":0 for name in categories})
+    subset.update({name+"_actually_qualified_pairs":0 for name in categories})
+    sites=defaultdict(set); plots=defaultdict(set)
     for p in pairs:
         support=all(day_valid_count.get((p["plot"],day),0)>=threshold for day in p["source_days"])
         for name in ("within12","within3","prior12","prior3"):
