@@ -1,0 +1,86 @@
+{
+  "matched_plant_field_bout_support": {
+    "independent_sites_with_distinct_plant_events": {
+      "event_365": 14,
+      "event_90": 7,
+      "numeric_365": 14,
+      "numeric_90": 7
+    },
+    "nearby_base_plot_numeric_cover_source_GO": true,
+    "no_plotIDs_dates_percentCover_or_animal_tags_exported": true,
+    "original_mammal_physical_sites": 14,
+    "original_mammal_plots": 30,
+    "original_pair_count": 58,
+    "original_plots_with_distinct_plant_events": {
+      "event_365": 28,
+      "event_90": 11,
+      "numeric_365": 28,
+      "numeric_90": 11
+    },
+    "original_rodent_Z_or_detection_never_opened": true,
+    "plots_with_exact_ID_matched_base_plant_survey": 30,
+    "same_plotID_not_same_100_trap_locations": true,
+    "source_min_pairs": 20,
+    "source_min_plots": 12,
+    "source_min_sites": 8,
+    "source_period_support_counts": {
+      "event_365_A": 58,
+      "event_365_B": 57,
+      "event_365_both": 57,
+      "event_365_distinct": 52,
+      "event_90_A": 50,
+      "event_90_B": 49,
+      "event_90_both": 43,
+      "event_90_distinct": 16,
+      "numeric_365_A": 58,
+      "numeric_365_B": 56,
+      "numeric_365_both": 56,
+      "numeric_365_distinct": 51,
+      "numeric_90_A": 49,
+      "numeric_90_B": 48,
+      "numeric_90_both": 42,
+      "numeric_90_distinct": 16
+    }
+  },
+  "official_plant_manifest_digest": "0bba047d798b76b24eb035b094e3e633314fb0c2ae577bc0ae94623b8b93f1bd",
+  "old_14site_and_30site_capture_location_Z_unchanged": true,
+  "old_trap_operability_density_and_weather_failures_unchanged": true,
+  "original_mammal_source_cohort": {
+    "capture_files_without_required_namedLocation_schema": 0,
+    "downloaded_source_files_MD5_size_verified": 3480,
+    "manifest_files": 3547,
+    "perplotnight_files": 1773,
+    "pertrapnight_files": 1707,
+    "release": "RELEASE-2026",
+    "same_58_pairs_30_plots_14_sites_reproduced": true,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "plant_source_RELEASE": "RELEASE-2026",
+  "plant_source_product": "DP1.10058.001",
+  "plant_source_record_counts": {
+    "matched_rows_with_numeric_cover": 27235,
+    "original_plant_rows": 355486,
+    "plant_rows_with_plot_and_date": 355486,
+    "rows_at_shared_plotID": 27854
+  },
+  "provider_verified_plant_files": 326,
+  "published_plant_source_bytes": 131730791,
+  "retrieved_utc": "2026-10-28T02:03:49.769386+00:00",
+  "sampling_programme_independent_but_plot_grid_offset": true,
+  "schema": "neon.independent_base_plant_cover.source_only.v1",
+  "site_plot_individual_animal_dates_and_percent_cover_not_exported": true,
+  "source_plant_1m2_data_only_no_100m2_imputation": true,
+  "source_plant_cover_values_not_used_in_mammal_ecological_fit": true,
+  "status": "SOURCE_BASE_PLANT_NEARBY_TIME_MATCH_GO_NOT_TRAP_HABITAT",
+  "github_actions_provenance": {
+    "run_id": 40618381077,
+    "job_id": 122586133750,
+    "artifact_id": 12786396912,
+    "source_commit": "8da0c679ba9ce6a027be92b36eecd5d1004b85fd",
+    "workflow_status": "completed",
+    "workflow_conclusion": "success",
+    "archive_zip_digest": "sha256:ecc346e6ddb9ed81488d00ece2ed1fa1b4f9a83b389fdab5c52da651e22d867c",
+    "original_source_aggregate_only": true
+  }
+}
