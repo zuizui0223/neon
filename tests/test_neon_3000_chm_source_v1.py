@@ -103,6 +103,10 @@ class FullStationCanopySourceTests(unittest.TestCase):
 
 
     def test_raster_valid_pixel_mask_and_position_window(self):
+        import importlib.util
+        if (importlib.util.find_spec('numpy') is None or
+            importlib.util.find_spec('rasterio') is None):
+            self.skipTest('Optional geospatial raster tools installed only in dedicated CHM workflow')
         import numpy as np
         from rasterio.io import MemoryFile
         from rasterio.transform import from_origin
