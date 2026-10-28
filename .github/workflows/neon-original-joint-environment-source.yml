@@ -1,0 +1,46 @@
+name: neon-original-joint-environment-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_joint_environment_source_crosswalk_v1.py"
+      - "analysis/run_neon_joint_environment_source_v1.py"
+      - "tests/test_neon_joint_environment_source_crosswalk_v1.py"
+      - "docs/NEON_EXACT_JOINT_ENVIRONMENT_SOURCE_20261028.md"
+      - ".github/workflows/neon-original-joint-environment-source.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-original-joint-environment-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-pair-environment-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check exact source-key matching without animal outcomes
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_joint_environment_source_crosswalk_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_field_plant_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_aop_historical_flight_month_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_historical_chm_source_support_v1.py' -v
+      - name: Require original NEON source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Reconstruct exact original source pair overlap of plant and canopy
+        run: python -m analysis.run_neon_joint_environment_source_v1
+      - name: Archive only anonymous paired environmental source aggregate or STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-exact-original-pair-joint-environment-source
+          path: build/neon_joint_chm_plant_exact_pairs_source_20261028.json
+          if-no-files-found: warn
+          retention-days: 45
