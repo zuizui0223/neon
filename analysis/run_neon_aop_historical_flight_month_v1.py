@@ -18,7 +18,8 @@ from pathlib import Path
 from analysis.run_neon_habitat_source_link_v1 import (
     reconstruct,_request_json,BASE,TOKEN_ENV,digest
 )
-from analysis.neon_e5_chm_pilot_v1 import PRODUCT,RELEASE
+PRODUCT="DP3.30015.001"
+RELEASE="RELEASE-2026"
 from analysis.neon_3000_chm_source_qa_v1 import month_gap
 
 ROOT=Path(__file__).resolve().parents[1]
