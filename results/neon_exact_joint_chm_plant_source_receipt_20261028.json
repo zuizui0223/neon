@@ -1,0 +1,118 @@
+{
+  "AOP_months_alone_only_used_because_all_original_36_source_pairs_have_actual_pixel_QA": true,
+  "frozen_actual_CHM_raster_eligible_pair_counts": {
+    "prior12": 18,
+    "prior3": 10,
+    "within12": 36,
+    "within3": 22
+  },
+  "frozen_nearby_plant_numeric_two_event_pair_counts": {
+    "numeric365": 51,
+    "numeric90": 16
+  },
+  "interpretation": {
+    "base_plot_ground_cover_not_at_mammal_trap": true,
+    "exact_source_overlap_not_animal_ecological_effect": true,
+    "old_catchability_habitat_identifiability_UNRESOLVED": true,
+    "original_negative_source_gates_unchanged": true,
+    "single_macro_paper_submission_HOLD": true
+  },
+  "joint_source_support": {
+    "prior12__numeric365": {
+      "independent_physical_sites": 5,
+      "original_mammal_grid_plotIDs": 8,
+      "original_season_pairs": 15,
+      "source_minimum_met": false
+    },
+    "prior12__numeric90": {
+      "independent_physical_sites": 2,
+      "original_mammal_grid_plotIDs": 4,
+      "original_season_pairs": 7,
+      "source_minimum_met": false
+    },
+    "prior3__numeric365": {
+      "independent_physical_sites": 5,
+      "original_mammal_grid_plotIDs": 6,
+      "original_season_pairs": 9,
+      "source_minimum_met": false
+    },
+    "prior3__numeric90": {
+      "independent_physical_sites": 1,
+      "original_mammal_grid_plotIDs": 1,
+      "original_season_pairs": 1,
+      "source_minimum_met": false
+    },
+    "within12__numeric365": {
+      "independent_physical_sites": 12,
+      "original_mammal_grid_plotIDs": 19,
+      "original_season_pairs": 30,
+      "source_minimum_met": true
+    },
+    "within12__numeric90": {
+      "independent_physical_sites": 5,
+      "original_mammal_grid_plotIDs": 7,
+      "original_season_pairs": 11,
+      "source_minimum_met": false
+    },
+    "within3__numeric365": {
+      "independent_physical_sites": 12,
+      "original_mammal_grid_plotIDs": 15,
+      "original_season_pairs": 20,
+      "source_minimum_met": true
+    },
+    "within3__numeric90": {
+      "independent_physical_sites": 4,
+      "original_mammal_grid_plotIDs": 4,
+      "original_season_pairs": 5,
+      "source_minimum_met": false
+    }
+  },
+  "no_habitat_effect_or_genus_specific_detection_parameter_identified": true,
+  "old_exact_two_genus_cohort_and_full_original_outcomes_not_refitted": true,
+  "original_distinct_plot_capture_date_keys": 339,
+  "original_frozen_season_pairs": 58,
+  "original_mammal_grids": 30,
+  "original_physical_sites": 14,
+  "predeclared_descriptive_source_rule": {
+    "min_independent_sites": 8,
+    "min_original_plots": 12,
+    "min_pairs": 20
+  },
+  "same_plotID_plant_base_plot_not_actual_mammal_trap_habitat": true,
+  "schema": "neon.mammal.two_environment_sources_exact_pair_crosswalk.v1",
+  "source_plot_date_station_genus_animal_identifiers_not_exported": true,
+  "source_provenance": {
+    "CHM_rasters_not_reselected_or_redownloaded_using_old_mammal_Z": true,
+    "full_response_digest_not_a_substitute_for_provider_MD5_bytes": true,
+    "new_genus_spatial_effect_or_habitat_coefficient_opened": false,
+    "observed_plant_full_response_sha256": "189b23df64a2e37542bb0c6876d93c0af16fb5c8b3b7c6a36b06d97927c04ab4",
+    "original_AOP_source_sha256": "72c37f556a784075542f63a3cf6d4c7f79ee099576077a9c3c8aa3cf4dc5b0ce",
+    "original_CHM_51_rasters_24600_pixels_attested_by_immutable_receipt": true,
+    "original_mammal_source": {
+      "capture_files_without_required_namedLocation_schema": 0,
+      "downloaded_source_files_MD5_size_verified": 3480,
+      "manifest_files": 3547,
+      "perplotnight_files": 1773,
+      "pertrapnight_files": 1707,
+      "release": "RELEASE-2026",
+      "same_58_pairs_30_plots_14_sites_reproduced": true,
+      "source_plot_rows": 21363,
+      "source_trap_rows": 1505827
+    },
+    "original_plant_full_response_sha_equal": false,
+    "original_plant_provider_MD5_verified_files": 326,
+    "plant_27854_matching_27235_numeric_source_records_reproduced": true,
+    "plant_326_file_131730791_byte_355486_row_universe_reproduced": true,
+    "source_retrieved_utc": "2026-10-28T05:12:34.765038+00:00"
+  },
+  "status": "ORIGINAL_PAIR_EXACT_ENVIRONMENT_SOURCE_CROSSWALK_NOT_BIOLOGICAL_EFFECT",
+  "github_actions_provenance": {
+    "run_id": 40636346412,
+    "job_id": 122644091381,
+    "artifact_id": 12793892477,
+    "source_commit": "9a347e3370ad033f1e1f3066570971c96f1d49f4",
+    "workflow_conclusion": "success",
+    "artifact_zip_digest": "sha256:91e47e0216babf4175c9144ea085180d0b2277e015ef1be7ef1b9cbb0207295d",
+    "original_mammal_ecology_outcomes_unopened": true
+  }
+}
