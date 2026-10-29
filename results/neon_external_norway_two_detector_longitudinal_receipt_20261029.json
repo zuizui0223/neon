@@ -155,6 +155,7 @@
     "source_observation_cells": 240
   },
   "published_original_source": {
+    "camera_counts_precede_trapping_by_30_calendar_days": true,
     "camera_versus_cage_and_snap_ordinary_trapping": true,
     "doi": "10.5281/zenodo.15312178",
     "four_taxa_by_name": [
@@ -163,6 +164,8 @@
       "pygmy shrew",
       "wood mouse"
     ],
+    "observation_windows_not_concurrent": true,
+    "ordinary_capture_session_last_three_days": true,
     "original_years": [
       2018,
       2019,
@@ -174,16 +177,20 @@
     "species": 4,
     "v5_MD5": "56f71c980503a4e6043b4d3d424fd53c"
   },
-  "retrieved_utc": "2026-10-29T07:45:16.349858+00:00",
+  "retrieved_utc": "2026-10-29T07:53:32.004399+00:00",
   "schema": "neon.external_norway_two_detector_observation.v1",
   "scientific_limitations": {
     "cage_and_snap_included_and_gear_changes_reported": true,
+    "camera_and_capture_are_not_same_date_replicates": true,
     "camera_and_ordinary_trap_effort_not_equal": true,
+    "camera_comparison_uses_30_days_BEFORE_trapping": true,
     "camera_presence_not_true_occupancy_or_individual_survival": true,
+    "camera_vs_capture_difference_conflates_detector_duration_and_time_lag": true,
     "no_causal_habitat_memory_or_true_animal_absence_claim": true,
     "no_original_NEON_observed_genus_station_Z_or_detection_p_refitted": true,
     "norway_taxa_are_2_rodent_and_2_shrew_species": true,
     "not_original_NEON_14_or_30_site_cohort": true,
+    "ordinary_trap_data_use_three_following_days": true,
     "site_neighborhood_within_20m_not_exact_neon_station": true,
     "source_study_already_published_camera_trap_correlation": true
   },
@@ -195,12 +202,14 @@
   },
   "status": "EXTERNAL_TWO_METHOD_TEMPORAL_OBSERVATION_REANALYZED_EXPLORATORY_NOT_NEON_REPLICATION",
   "github_actions_provenance": {
-    "source_run_id": 40837442932,
-    "source_job_id": 123325447552,
-    "artifact_id": 12881570937,
-    "artifact_archive_digest": "sha256:549e7f7cedc32d8f1b9cfe605f0df3e3441ee220d9e8f49fe69a3a61d609c755",
-    "head_source_commit": "833240560caabdd76ca9f3c37e4482ec44f3d8b0",
+    "source_run_id": 40838327282,
+    "source_job_id": 123328331958,
+    "artifact_id": 12881413443,
+    "artifact_archive_digest": "sha256:6b45f8c4071989f86e34ab5500fb2a7a5f58a7990d738f625c8664399e249cf0",
+    "head_source_commit": "3d2342ae5f2849ee8b88ce8e31cf981b03e7ef57",
     "conclusion": "success",
-    "external_source_reanalysis_exploratory": true
+    "external_source_reanalysis_exploratory": true,
+    "prior_source_run_40837442932_record_values_unchanged": true,
+    "corrected_lindso_published_sampling_window_annotation": true
   }
 }
