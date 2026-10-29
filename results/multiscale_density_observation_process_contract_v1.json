@@ -1,0 +1,60 @@
+{
+  "schema": "neon.multiscale_density.observation_process_contract.v1",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_W_B_OR_ABUNDANCE_RESPONSE_EFFECTS",
+  "programme": "multiscale_density_accommodation_v1",
+  "structural_go": "results/multiscale_density_structural_go_v1.json",
+  "primary_saturation_guard": {
+    "quantity": "all-small-mammal occupied capture trap-nights / observed active trap-nights within the exact-3-night plot-event",
+    "primary_maximum": 0.3,
+    "comparison_operator": "<=",
+    "rationale": [
+      "single-catch trap dependence increases with trap saturation",
+      "Gerber & Parmenter treated mean trap saturation below 0.31 as sufficiently low that density bias was expected to be negligible in their small-mammal SCR validation",
+      "Distiller & Borchers found materially greater benefit of an explicit single-catch estimator at saturations above about 0.60",
+      "0.30 is a conservative pre-effect operational guard, not a universal biological threshold"
+    ],
+    "high_saturation_sessions": "excluded from primary W/B density-response analysis; retained only for prespecified sensitivity or a separately modeled single-catch observation process"
+  },
+  "primary_support_after_guard": {
+    "eligible_taxon_plot_event_records": 1571,
+    "taxon_concepts": 39,
+    "resolved_genera": 17,
+    "sites": 44,
+    "replicated_genera_meeting_10_sessions_2_sites": 9,
+    "structural_gate_still_passes": true
+  },
+  "abundance_predictor": {
+    "primary_candidate": "taxon-specific event-level MNKA",
+    "definition": "minimum number known alive, based on resolved tagged individuals known alive across eligible event sequence within plot",
+    "role": "population-state abundance index, not true density",
+    "must_not_equal": "repeat-supported individual count m",
+    "frozen_before_W_B": true
+  },
+  "secondary_abundance_sensitivity": [
+    "unique tagged individuals observed in the event per active trap-night",
+    "model-based closed/SCR density only if separately estimable and preregistered before W/B effects"
+  ],
+  "required_pre_effect_diagnostics": [
+    "MNKA distribution and within-taxon temporal variation",
+    "MNKA versus unique observed tagged individuals",
+    "all-small-mammal saturation distribution",
+    "focal-taxon saturation distribution",
+    "repeat-supported fraction versus MNKA",
+    "active trap-night effort",
+    "taxonomy conflict rate",
+    "gridCompletion status"
+  ],
+  "stop_or_escalate_rules": [
+    "STOP simple coordinate-density route if MNKA has insufficient within-taxon variation after the primary saturation guard",
+    "STOP or use a separately preregistered observation model if abundance is inseparable from trap saturation",
+    "do not raise the 0.30 saturation cutoff after W/B effects are viewed",
+    "do not replace MNKA with a more favorable abundance proxy after W/B effects are viewed"
+  ],
+  "effect_boundary": {
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_slopes_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

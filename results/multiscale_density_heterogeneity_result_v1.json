@@ -1,0 +1,156 @@
+{
+  "schema": "neon.multiscale_density.heterogeneity_result.v1",
+  "date": "2026-10-06",
+  "status": "POST_RESULT_DESCRIPTIVE_HETEROGENEITY_CONFIRMED",
+  "programme": "multiscale_density_accommodation_v1",
+  "provenance": {
+    "workflow": "multiscale-density-heterogeneity-audit",
+    "run_id": 37427223829,
+    "job_id": 112149521887,
+    "head_sha": "ffac2652cf832bb47caff56774e5d872094b459b",
+    "artifact_id": 11396031488,
+    "artifact_name": "multiscale-density-heterogeneity-audit-v1",
+    "artifact_digest": "sha256:43f62f403278ef1ee0e92c9edfc702ad363fb64e7b93782e018277577fd20062"
+  },
+  "frozen_primary_result": "results/multiscale_density_development_result_v1.json",
+  "primary_guard_remains_failed": true,
+  "primary_guard_may_not_be_relaxed": true,
+  "genus_diagnostics": [
+    {
+      "genus": "Chaetodipus",
+      "sessions": 45,
+      "sites": 3,
+      "beta_delta": 27.329656408661233,
+      "beta_W": -5.427136332871106,
+      "beta_B_debiased": 21.90252007579014,
+      "beta_delta_raw_B": 25.205294307935784,
+      "sign_quadrant": "W_DOWN_B_UP",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": true
+    },
+    {
+      "genus": "Dipodomys",
+      "sessions": 129,
+      "sites": 4,
+      "beta_delta": -1.3752879902781707,
+      "beta_W": -6.704710847309309,
+      "beta_B_debiased": -8.079998837587482,
+      "beta_delta_raw_B": -4.633700435102831,
+      "sign_quadrant": "W_DOWN_B_DOWN",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": true
+    },
+    {
+      "genus": "Microtus",
+      "sessions": 30,
+      "sites": 5,
+      "beta_delta": 7.741869363443585,
+      "beta_W": 4.028893859516156,
+      "beta_B_debiased": 11.770763222959747,
+      "beta_delta_raw_B": 9.991690783405968,
+      "sign_quadrant": "W_UP_B_UP",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": false
+    },
+    {
+      "genus": "Myodes",
+      "sessions": 75,
+      "sites": 5,
+      "beta_delta": 24.700199228253584,
+      "beta_W": -8.876147301351345,
+      "beta_B_debiased": 15.824051926902237,
+      "beta_delta_raw_B": 20.794643640708806,
+      "sign_quadrant": "W_DOWN_B_UP",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": true
+    },
+    {
+      "genus": "Napaeozapus",
+      "sessions": 8,
+      "sites": 1,
+      "beta_delta": -1.012417937693133,
+      "beta_W": 21.73223021921159,
+      "beta_B_debiased": 20.71981228151846,
+      "beta_delta_raw_B": 10.685120860025597,
+      "sign_quadrant": "W_UP_B_UP",
+      "raw_B_same_delta_sign": false,
+      "site_loo_all_same_delta_sign": null
+    },
+    {
+      "genus": "Onychomys",
+      "sessions": 18,
+      "sites": 1,
+      "beta_delta": 143.13393859576294,
+      "beta_W": -50.73214736668841,
+      "beta_B_debiased": 92.4017912290745,
+      "beta_delta_raw_B": 114.80738240803709,
+      "sign_quadrant": "W_DOWN_B_UP",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": null
+    },
+    {
+      "genus": "Peromyscus",
+      "sessions": 956,
+      "sites": 33,
+      "beta_delta": 15.93005706925735,
+      "beta_W": -8.347833713815255,
+      "beta_B_debiased": 7.582223355442094,
+      "beta_delta_raw_B": 12.488311149908265,
+      "sign_quadrant": "W_DOWN_B_UP",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": true
+    },
+    {
+      "genus": "Sigmodon",
+      "sessions": 65,
+      "sites": 7,
+      "beta_delta": -16.3951818692867,
+      "beta_W": -1.2999675278588736,
+      "beta_B_debiased": -17.69514939714557,
+      "beta_delta_raw_B": -16.67671577987546,
+      "sign_quadrant": "W_DOWN_B_DOWN",
+      "raw_B_same_delta_sign": true,
+      "site_loo_all_same_delta_sign": true
+    }
+  ],
+  "robust_multisite_descriptive_modes": {
+    "packing_like": [
+      {
+        "genus": "Chaetodipus",
+        "mode": "within compression plus centre dispersion"
+      },
+      {
+        "genus": "Myodes",
+        "mode": "within compression plus centre dispersion"
+      },
+      {
+        "genus": "Peromyscus",
+        "mode": "within compression plus centre dispersion"
+      }
+    ],
+    "footprint_compression_like": [
+      {
+        "genus": "Dipodomys",
+        "mode": "within compression plus stronger centre compression"
+      },
+      {
+        "genus": "Sigmodon",
+        "mode": "within compression plus stronger centre compression"
+      }
+    ],
+    "unresolved_or_context_dependent": [
+      "Microtus",
+      "Napaeozapus",
+      "Onychomys"
+    ]
+  },
+  "interpretation_boundary": {
+    "allowed": "describe these as development-data spatial-response modes that survive raw-B and leave-one-site-out diagnostics where multi-site support exists",
+    "not_allowed": [
+      "claim that mode is caused by territoriality or sociality",
+      "drop negative genera to rescue the failed 6/8 generality guard",
+      "treat one-site genera as general lineage modes",
+      "claim future confirmation has occurred"
+    ]
+  }
+}

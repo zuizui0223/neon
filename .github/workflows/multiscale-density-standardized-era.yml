@@ -1,0 +1,72 @@
+name: multiscale-density-standardized-era
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_multiscale_density_estimability_v1.py"
+      - "analysis/run_multiscale_density_estimability_release2026_v2.py"
+      - "analysis/validate_multiscale_density_metrics_v1.py"
+      - "analysis/simulate_multiscale_density_metric_support_v1.py"
+      - "tests/test_multiscale_density_estimability_v1.py"
+      - "tests/test_multiscale_density_metric_mechanics_v1.py"
+      - "tests/test_multiscale_density_metric_support_simulation_v1.py"
+      - "tests/test_multiscale_density_standardized_era_runner_v2.py"
+      - ".github/workflows/multiscale-density-standardized-era.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-standardized-era-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Verify frozen structural and mechanical code
+        run: |
+          python -m unittest \
+            tests.test_multiscale_density_estimability_v1 \
+            tests.test_multiscale_density_metric_mechanics_v1 \
+            tests.test_multiscale_density_metric_support_simulation_v1 \
+            tests.test_multiscale_density_standardized_era_runner_v2 \
+            -v
+
+      - name: Run synthetic standard-geometry support audit
+        run: python -m analysis.simulate_multiscale_density_metric_support_v1
+
+      - name: Require configured NEON access
+        run: |
+          test -n "$NEON_API_TOKEN" || {
+            echo "NEON_API_TOKEN is required for the standardized-era structural audit" >&2
+            exit 1
+          }
+
+      - name: Run 2015+ pathogen-only RELEASE-2026 structural audit
+        run: python -m analysis.run_multiscale_density_estimability_release2026_v2
+
+      - name: Upload frozen structural receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-standardized-era-v1
+          path: |
+            build/multiscale_density_estimability_release2026_v1.json
+            build/multiscale_density_metric_support_v1.json
+          if-no-files-found: error
+          retention-days: 30

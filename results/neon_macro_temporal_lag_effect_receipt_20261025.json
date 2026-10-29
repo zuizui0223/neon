@@ -1,0 +1,85 @@
+{
+  "lag_Z_regression_opened": true,
+  "no_genus_site_station_animal_or_source_date_identity_exported": true,
+  "no_site_climate_variable_or_mechanism_fitted": true,
+  "not_a_trial_of_true_demographic_replacement_or_cognitive_memory": true,
+  "old_corrected_original_threeplus_result_untouched": true,
+  "old_eight_genus_density_generality_failed_unchanged": true,
+  "original_exact_null_effect_result": "results/neon_exact_two_genus_ecological_receipt_20261025.json",
+  "primary_exact_two_site_and_season_adjusted_lag": {
+    "outcome_slope_estimated": false,
+    "source_sites": 30,
+    "status": "STOP_SITE_TRANSITION_FIXED_EFFECTS_RANK_DEFICIENT",
+    "transition_classes": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "replayed_original_two_genus_site_effects_exactly": true,
+  "research_status": "POST_RESULT_SAME_NEON_RELEASE_2026_EXPLORATORY_NOT_INDEPENDENT_VALIDATION",
+  "schema": "neon.macro.exact_two_genus_temporal_persistence_lag.v1",
+  "scientific_limits": {
+    "conditional_genus_capture_station_recurrence_not_true_occupancy": true,
+    "no_climate_weather_values_fitted": true,
+    "not_independent_new_release_or_new_preregistration": true,
+    "site_block_bootstrap_not_full_joint_null": true,
+    "source_2026_outcome_already_opened_before_lag_question": true,
+    "temporal_gap_correlational_not_mechanism": true,
+    "within_site_source_season_reuse_still_possible_in_full_model": true
+  },
+  "source_and_variance": {
+    "pre_effect_source_check": {
+      "historical_exact_null_informative_pairs": 150,
+      "lag_effect_gate_pass": true,
+      "original_transition_classes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "physical_sites_with_source_gap_range_at_least_30_days": 18,
+      "physical_sites_with_two_or_more_distinct_original_start_gaps": 24,
+      "source_exact_two_pairs": 158,
+      "source_only_no_G_x_observed_Z_relationship_opened": true,
+      "source_untouched_original_58_threeplus_pairs": 58
+    },
+    "source": {
+      "downloaded_checksum_verified_capture_files": 3480,
+      "manifest_files_original_verified": 3547,
+      "original_plot_rows": 21363,
+      "original_three_genus_source_support_verification": true,
+      "original_trap_rows": 1505827
+    },
+    "status": "LAG_FEASIBILITY_GO_ORIGINAL_EFFECT_REPLAY_NEXT"
+  },
+  "source_frozen_design": "docs/NEON_MACRO_TEMPORAL_PERSISTENCE_CONTEXT_20261025.md",
+  "source_result": "results/neon_macro_temporal_weather_source_receipt_20261025.json",
+  "status": "STOP_TEMPORAL_LAG_MODEL_FULL_RANK_OR_BOOTSTRAP",
+  "whole_source_reused_physical_site_exclusion": {
+    "excluded_physical_sites_count": 13,
+    "remaining_informative_pairs": 48,
+    "remaining_physical_sites": 17,
+    "secondary_model": {
+      "outcome_slope_estimated": false,
+      "source_sites": 17,
+      "status": "STOP_SITE_TRANSITION_FIXED_EFFECTS_RANK_DEFICIENT",
+      "transition_classes": [
+        1,
+        2
+      ]
+    },
+    "secondary_status": "STOP_SITE_TRANSITION_FIXED_EFFECTS_RANK_DEFICIENT",
+    "sites_with_two_plus_distinct_actual_gaps": 11
+  },
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "source_commit": "07f0876e65a25fcdd71b0459a3724126e62cada9",
+    "run_id": 40174742158,
+    "job_id": 121112885541,
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40174742158"
+  }
+}

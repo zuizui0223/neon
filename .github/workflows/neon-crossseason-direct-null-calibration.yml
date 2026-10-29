@@ -1,0 +1,49 @@
+name: neon-crossseason-direct-null-calibration
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_crossseason_direct_null_calibration_v1.py"
+      - "analysis/run_neon_crossseason_direct_null_calibration_v1.py"
+      - "analysis/neon_crossseason_template_null_v1.py"
+      - "tests/test_neon_crossseason_direct_null_calibration_v1.py"
+      - ".github/workflows/neon-crossseason-direct-null-calibration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-crossseason-null-calibration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conditional-product-null:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify source-free conditional product-null and original-unit MCMC tests
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_crossseason_direct_null_calibration_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_crossseason_template_null_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_crossseason_genus_support_v1.py' -v
+      - name: Require existing immutable NEON source access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Reconstruct original 58 null chains and calibrate 14-site statistic by 100000 conditional product draws
+        run: python -m analysis.run_neon_crossseason_direct_null_calibration_v1
+      - name: Archive aggregate conditional site-null calibration without source IDs or null draws
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-crossseason-direct-site-null-calibration-v1
+          path: build/neon_crossseason_direct_null_calibration_v1.json
+          if-no-files-found: warn
+          retention-days: 45

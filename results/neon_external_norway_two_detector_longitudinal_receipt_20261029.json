@@ -1,0 +1,215 @@
+{
+  "adjacent_same_season_year_comparison": {
+    "by_taxon": {
+      "bank vole": {
+        "apparent_camera_loss_capture_still_both": 1,
+        "apparent_capture_loss_camera_still_both": 2,
+        "camera_both_capture_never": 1,
+        "camera_first_positive_second_zero": 4,
+        "camera_two_year_capture_not": 11,
+        "capture_first_positive_second_zero": 5,
+        "capture_two_year_camera_not": 2,
+        "original_site_taxon_year_transition": 36,
+        "two_year_camera_detected": 17,
+        "two_year_capture_detected": 8
+      },
+      "common shrew": {
+        "apparent_camera_loss_capture_still_both": 0,
+        "apparent_capture_loss_camera_still_both": 2,
+        "camera_both_capture_never": 12,
+        "camera_first_positive_second_zero": 1,
+        "camera_two_year_capture_not": 19,
+        "capture_first_positive_second_zero": 2,
+        "capture_two_year_camera_not": 1,
+        "original_site_taxon_year_transition": 36,
+        "two_year_camera_detected": 26,
+        "two_year_capture_detected": 8
+      },
+      "pygmy shrew": {
+        "apparent_camera_loss_capture_still_both": 0,
+        "apparent_capture_loss_camera_still_both": 1,
+        "camera_both_capture_never": 6,
+        "camera_first_positive_second_zero": 2,
+        "camera_two_year_capture_not": 8,
+        "capture_first_positive_second_zero": 2,
+        "capture_two_year_camera_not": 0,
+        "original_site_taxon_year_transition": 36,
+        "two_year_camera_detected": 10,
+        "two_year_capture_detected": 2
+      },
+      "wood mouse": {
+        "apparent_camera_loss_capture_still_both": 0,
+        "apparent_capture_loss_camera_still_both": 3,
+        "camera_both_capture_never": 5,
+        "camera_first_positive_second_zero": 3,
+        "camera_two_year_capture_not": 12,
+        "capture_first_positive_second_zero": 5,
+        "capture_two_year_camera_not": 4,
+        "original_site_taxon_year_transition": 36,
+        "two_year_camera_detected": 15,
+        "two_year_capture_detected": 7
+      }
+    },
+    "by_trap_gear_stable_vs_switched": {
+      "same_capture_gear": {
+        "apparent_camera_loss_capture_still_both": 1,
+        "apparent_capture_loss_camera_still_both": 7,
+        "camera_both_capture_never": 19,
+        "camera_first_positive_second_zero": 7,
+        "camera_two_year_capture_not": 41,
+        "capture_first_positive_second_zero": 12,
+        "capture_two_year_camera_not": 7,
+        "original_site_taxon_year_transition": 120,
+        "two_year_camera_detected": 55,
+        "two_year_capture_detected": 21
+      },
+      "switched_capture_gear": {
+        "apparent_camera_loss_capture_still_both": 0,
+        "apparent_capture_loss_camera_still_both": 1,
+        "camera_both_capture_never": 5,
+        "camera_first_positive_second_zero": 3,
+        "camera_two_year_capture_not": 9,
+        "capture_first_positive_second_zero": 2,
+        "capture_two_year_camera_not": 0,
+        "original_site_taxon_year_transition": 24,
+        "two_year_camera_detected": 13,
+        "two_year_capture_detected": 4
+      }
+    },
+    "calendar_pairs": [
+      "2018 fall→2019 fall",
+      "2019 fall→2020 fall",
+      "2019 spring→2020 spring"
+    ],
+    "site_equal_camera_minus_capture_both_year_positive_fraction": {
+      "max": 0.75,
+      "mean": 0.2986111111111111,
+      "median": 0.3333333333333333,
+      "min": -0.16666666666666666,
+      "negative_sites": 1,
+      "positive_sites": 10,
+      "resamples": 10000,
+      "site_bootstrap_95pct_descriptive_interval": [
+        0.16666666666666669,
+        0.4305555555555556
+      ],
+      "sites": 12,
+      "zero_sites": 1
+    },
+    "totals": {
+      "apparent_camera_loss_capture_still_both": 1,
+      "apparent_capture_loss_camera_still_both": 8,
+      "camera_both_capture_never": 24,
+      "camera_first_positive_second_zero": 10,
+      "camera_two_year_capture_not": 50,
+      "capture_first_positive_second_zero": 14,
+      "capture_two_year_camera_not": 7,
+      "original_site_taxon_year_transition": 144,
+      "two_year_camera_detected": 68,
+      "two_year_capture_detected": 25
+    }
+  },
+  "paired_camera_capture_record": {
+    "camera_minus_capture_detected_taxa_per_site_campaign": {
+      "camera_more_detected_campaigns": 44,
+      "capture_more_detected_campaigns": 5,
+      "equal_detected_campaigns": 11,
+      "max": 4,
+      "mean": 1.2333333333333334,
+      "median": 1,
+      "min": -3
+    },
+    "detector_discordance": {
+      "both": 66,
+      "camera_only": 84,
+      "capture_only": 10,
+      "neither": 80
+    },
+    "discordance_by_taxon": {
+      "bank vole": {
+        "both": 24,
+        "camera_only": 16,
+        "capture_only": 3,
+        "neither": 17
+      },
+      "common shrew": {
+        "both": 18,
+        "camera_only": 31,
+        "capture_only": 1,
+        "neither": 10
+      },
+      "pygmy shrew": {
+        "both": 6,
+        "camera_only": 17,
+        "capture_only": 1,
+        "neither": 36
+      },
+      "wood mouse": {
+        "both": 18,
+        "camera_only": 20,
+        "capture_only": 5,
+        "neither": 17
+      }
+    },
+    "raw_event_sum_not_a_valid_effort_normalized_ratio": true,
+    "source_observation_cells": 240
+  },
+  "published_original_source": {
+    "camera_counts_precede_trapping_by_30_calendar_days": true,
+    "camera_versus_cage_and_snap_ordinary_trapping": true,
+    "doi": "10.5281/zenodo.15312178",
+    "four_taxa_by_name": [
+      "bank vole",
+      "common shrew",
+      "pygmy shrew",
+      "wood mouse"
+    ],
+    "observation_windows_not_concurrent": true,
+    "ordinary_capture_session_last_three_days": true,
+    "original_years": [
+      2018,
+      2019,
+      2020
+    ],
+    "site_campaign_taxon_cells": 240,
+    "site_campaigns": 60,
+    "sites": 12,
+    "species": 4,
+    "v5_MD5": "56f71c980503a4e6043b4d3d424fd53c"
+  },
+  "retrieved_utc": "2026-10-29T07:53:32.004399+00:00",
+  "schema": "neon.external_norway_two_detector_observation.v1",
+  "scientific_limitations": {
+    "cage_and_snap_included_and_gear_changes_reported": true,
+    "camera_and_capture_are_not_same_date_replicates": true,
+    "camera_and_ordinary_trap_effort_not_equal": true,
+    "camera_comparison_uses_30_days_BEFORE_trapping": true,
+    "camera_presence_not_true_occupancy_or_individual_survival": true,
+    "camera_vs_capture_difference_conflates_detector_duration_and_time_lag": true,
+    "no_causal_habitat_memory_or_true_animal_absence_claim": true,
+    "no_original_NEON_observed_genus_station_Z_or_detection_p_refitted": true,
+    "norway_taxa_are_2_rodent_and_2_shrew_species": true,
+    "not_original_NEON_14_or_30_site_cohort": true,
+    "ordinary_trap_data_use_three_following_days": true,
+    "site_neighborhood_within_20m_not_exact_neon_station": true,
+    "source_study_already_published_camera_trap_correlation": true
+  },
+  "source_validation": {
+    "2025_public_record_version": 5,
+    "no_original_NEON_response_opened": true,
+    "provider_original_MD5_verified": true,
+    "source_bytes": 8829
+  },
+  "status": "EXTERNAL_TWO_METHOD_TEMPORAL_OBSERVATION_REANALYZED_EXPLORATORY_NOT_NEON_REPLICATION",
+  "github_actions_provenance": {
+    "source_run_id": 40838327282,
+    "source_job_id": 123328331958,
+    "artifact_id": 12881413443,
+    "artifact_archive_digest": "sha256:6b45f8c4071989f86e34ab5500fb2a7a5f58a7990d738f625c8664399e249cf0",
+    "head_source_commit": "3d2342ae5f2849ee8b88ce8e31cf981b03e7ef57",
+    "conclusion": "success",
+    "external_source_reanalysis_exploratory": true,
+    "prior_source_run_40837442932_record_values_unchanged": true,
+    "corrected_lindso_published_sampling_window_annotation": true
+  }
+}

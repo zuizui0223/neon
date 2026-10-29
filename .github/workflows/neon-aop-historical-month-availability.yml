@@ -1,0 +1,42 @@
+name: neon-aop-historical-month-availability
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_neon_aop_historical_flight_month_v1.py'
+      - 'tests/test_neon_aop_historical_flight_month_v1.py'
+      - 'docs/NEON_AOP_HISTORICAL_MONTH_COVERAGE_20261028.md'
+      - '.github/workflows/neon-aop-historical-month-availability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-aop-flight-month-original-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-aop-calendar-availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify pre-outcome source month and capture-day checks
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_aop_historical_flight_month_v1.py' -v
+      - name: Require source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Retrieve original observed release AOP flight month history and frozen original mammal source dates
+        run: python -m analysis.run_neon_aop_historical_flight_month_v1
+      - name: Preserve only anonymous site-visit and temporal support aggregates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-aop-original-month-availability-source
+          path: build/neon_aop_historical_flight_month_coverage_v1.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,338 @@
+{
+  "calendar_year_pairs_source_only": {
+    "2015": {
+      "candidate_pairs": 71,
+      "primary_eligible_pairs": 13
+    },
+    "2016": {
+      "candidate_pairs": 96,
+      "primary_eligible_pairs": 8
+    },
+    "2017": {
+      "candidate_pairs": 109,
+      "primary_eligible_pairs": 8
+    },
+    "2018": {
+      "candidate_pairs": 141,
+      "primary_eligible_pairs": 2
+    },
+    "2019": {
+      "candidate_pairs": 103,
+      "primary_eligible_pairs": 2
+    },
+    "2020": {
+      "candidate_pairs": 18,
+      "primary_eligible_pairs": 3
+    },
+    "2021": {
+      "candidate_pairs": 46,
+      "primary_eligible_pairs": 4
+    },
+    "2022": {
+      "candidate_pairs": 34,
+      "primary_eligible_pairs": 4
+    },
+    "2023": {
+      "candidate_pairs": 96,
+      "primary_eligible_pairs": 2
+    },
+    "2024": {
+      "candidate_pairs": 89,
+      "primary_eligible_pairs": 12
+    }
+  },
+  "domain_grouped_source_only": {
+    "D01": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.043478260869565216,
+      "primary_eligible_pairs": 2,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 46,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 104,
+      "source_effort_valid_sites": 2
+    },
+    "D02": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.011764705882352941,
+      "primary_eligible_pairs": 1,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 85,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 172,
+      "source_effort_valid_sites": 3
+    },
+    "D03": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 62,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 144,
+      "source_effort_valid_sites": 3
+    },
+    "D04": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 8,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 16,
+      "source_effort_valid_sites": 2
+    },
+    "D05": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 56,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 143,
+      "source_effort_valid_sites": 3
+    },
+    "D06": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.13541666666666666,
+      "primary_eligible_pairs": 13,
+      "primary_eligible_sites": 3,
+      "source_adjacent_season_candidate_pairs": 96,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 178,
+      "source_effort_valid_sites": 3
+    },
+    "D07": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.024691358024691357,
+      "primary_eligible_pairs": 2,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 81,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 149,
+      "source_effort_valid_sites": 3
+    },
+    "D08": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 52,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 115,
+      "source_effort_valid_sites": 3
+    },
+    "D09": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.05,
+      "primary_eligible_pairs": 3,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 60,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 137,
+      "source_effort_valid_sites": 3
+    },
+    "D10": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.2,
+      "primary_eligible_pairs": 12,
+      "primary_eligible_sites": 2,
+      "source_adjacent_season_candidate_pairs": 60,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 131,
+      "source_effort_valid_sites": 3
+    },
+    "D11": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.2571428571428571,
+      "primary_eligible_pairs": 9,
+      "primary_eligible_sites": 2,
+      "source_adjacent_season_candidate_pairs": 35,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 90,
+      "source_effort_valid_sites": 2
+    },
+    "D12": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 12,
+      "source_adjacent_season_candidate_sites": 1,
+      "source_effort_valid_bouts": 24,
+      "source_effort_valid_sites": 1
+    },
+    "D13": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 31,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 91,
+      "source_effort_valid_sites": 2
+    },
+    "D14": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.16129032258064516,
+      "primary_eligible_pairs": 5,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 31,
+      "source_adjacent_season_candidate_sites": 1,
+      "source_effort_valid_bouts": 55,
+      "source_effort_valid_sites": 1
+    },
+    "D15": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.5294117647058824,
+      "primary_eligible_pairs": 9,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 17,
+      "source_adjacent_season_candidate_sites": 1,
+      "source_effort_valid_bouts": 48,
+      "source_effort_valid_sites": 1
+    },
+    "D16": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.06896551724137931,
+      "primary_eligible_pairs": 2,
+      "primary_eligible_sites": 1,
+      "source_adjacent_season_candidate_pairs": 29,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 75,
+      "source_effort_valid_sites": 2
+    },
+    "D17": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 34,
+      "source_adjacent_season_candidate_sites": 3,
+      "source_effort_valid_bouts": 84,
+      "source_effort_valid_sites": 3
+    },
+    "D18": {
+      "eligible_pair_fraction_of_candidate_pairs": null,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 0,
+      "source_adjacent_season_candidate_sites": 0,
+      "source_effort_valid_bouts": 8,
+      "source_effort_valid_sites": 2
+    },
+    "D19": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 8,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 74,
+      "source_effort_valid_sites": 3
+    }
+  },
+  "effect_boundary": {
+    "historical_2026_source_not_independent_confirmation": true,
+    "historical_W_B_or_density_slopes_read": false,
+    "historical_recurrence_Z_or_p_read": false,
+    "individual_tag_station_or_site_id_exported": false,
+    "macro_habitat_or_latitude_effect_fit": false,
+    "nonqualified_sites_not_declared_zero_recurrence": true,
+    "not_an_environmental_selection_causal_test": true,
+    "some_domains_have_no_supported_site_estimand": true,
+    "time_matched_climate_soil_canopy_read": false
+  },
+  "field_site_core_gradient_grouped_source_only": {
+    "CORE": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.07238605898123325,
+      "primary_eligible_pairs": 27,
+      "primary_eligible_sites": 5,
+      "source_adjacent_season_candidate_pairs": 373,
+      "source_adjacent_season_candidate_sites": 17,
+      "source_effort_valid_bouts": 811,
+      "source_effort_valid_sites": 18
+    },
+    "GRADIENT": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.07209302325581396,
+      "primary_eligible_pairs": 31,
+      "primary_eligible_sites": 9,
+      "source_adjacent_season_candidate_pairs": 430,
+      "source_adjacent_season_candidate_sites": 25,
+      "source_effort_valid_bouts": 1027,
+      "source_effort_valid_sites": 27
+    }
+  },
+  "latitude_band_grouped_source_only": {
+    "35to45": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.09563409563409564,
+      "primary_eligible_pairs": 46,
+      "primary_eligible_sites": 10,
+      "source_adjacent_season_candidate_pairs": 481,
+      "source_adjacent_season_candidate_sites": 22,
+      "source_effort_valid_bouts": 1029,
+      "source_effort_valid_sites": 22
+    },
+    "45to55": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.034482758620689655,
+      "primary_eligible_pairs": 5,
+      "primary_eligible_sites": 2,
+      "source_adjacent_season_candidate_pairs": 145,
+      "source_adjacent_season_candidate_sites": 8,
+      "source_effort_valid_bouts": 355,
+      "source_effort_valid_sites": 8
+    },
+    "ge55": {
+      "eligible_pair_fraction_of_candidate_pairs": 0,
+      "primary_eligible_pairs": 0,
+      "primary_eligible_sites": 0,
+      "source_adjacent_season_candidate_pairs": 8,
+      "source_adjacent_season_candidate_sites": 2,
+      "source_effort_valid_bouts": 82,
+      "source_effort_valid_sites": 5
+    },
+    "lt35": {
+      "eligible_pair_fraction_of_candidate_pairs": 0.04142011834319527,
+      "primary_eligible_pairs": 7,
+      "primary_eligible_sites": 2,
+      "source_adjacent_season_candidate_pairs": 169,
+      "source_adjacent_season_candidate_sites": 10,
+      "source_effort_valid_bouts": 372,
+      "source_effort_valid_sites": 10
+    }
+  },
+  "original_source_denominators": {
+    "effort_valid_three_night_bouts": 1838,
+    "original_adjacent_season_pairs": 803,
+    "original_primary_three_genus_eligible_pairs": 58,
+    "physical_sites_with_one_or_more_candidate_pairs": 42,
+    "physical_sites_with_one_or_more_effort_valid_bouts": 45,
+    "primary_eligibility_fraction_of_candidates": 0.0722291407222914,
+    "primary_independent_physical_sites": 14,
+    "primary_site_fraction_of_candidate_sites": 0.3333333333333333
+  },
+  "provenance": {
+    "downloaded_verified_source_files": 3480,
+    "official_NEON_sites_API": "GET /api/v0/sites?release=RELEASE-2026",
+    "official_metadata_SHA256": "cbe321306428b9d51011475e50a1d6d5ab770c26f84f2540240f1b62895260fe",
+    "original_checksum_pinned_manifest_files": 3547,
+    "original_neon_release": "RELEASE-2026",
+    "same_original_58_eligible_units_30_plots_14_sites": true,
+    "source_plot_rows": 21363,
+    "source_site_metadata_rows_for_mammal_source": 46,
+    "source_site_or_station_coordinates_exported": false,
+    "source_trap_rows": 1505827,
+    "taxonomy_genus_source_reconstructed_not_promoted_to_species": true
+  },
+  "sampling_coverage_summary": {
+    "candidate_site_latitude_median_degrees_not_capture_year_specific": 39.0370645,
+    "distinct_candidate_domains": 18,
+    "distinct_primary_domains": 10,
+    "eligible_site_latitude_median_degrees_not_capture_year_specific": 39.10561,
+    "site_latitudes_not_station_geolocation": true,
+    "source_metadata_coverage_complete": true
+  },
+  "schema": "neon.unified_macro.biogeographic_selection_source_only.v1",
+  "scientific_decision": {
+    "all_sites_mechanistic_macro_extrapolation_authorized": false,
+    "biogeographic_sample_selection_described_not_ecological_effect": true,
+    "next": "Audit independent time-matched seasonal climate or ecosystem domain coverage and prospectively independent recurrence cohorts; do not fit post hoc habitat-selected positive historical effects.",
+    "observed_12of58_direct_coupling_STOP_unchanged": true,
+    "one_unified_macroecology_research_programme": true,
+    "original_density_5of8_vs_6_guard_still_failed": true,
+    "positive_conditional_Neon_recurrence_unmodified": true
+  },
+  "status": "SOURCE_ONLY_MACRO_SELECTION_RECONSTRUCTED",
+  "study_window": "RELEASE-2026, 2015-04..2026-09",
+  "verified_workflow": {
+    "repository": "zuizui0223/neon",
+    "head_commit": "faab740eb7226bc8edf83aafd77dc5429ec6ac52",
+    "run_id": 40163416566,
+    "job_id": 121079502320,
+    "conclusion": "success",
+    "run_url": "https://github.com/zuizui0223/neon/actions/runs/40163416566",
+    "effect_opened": false
+  }
+}

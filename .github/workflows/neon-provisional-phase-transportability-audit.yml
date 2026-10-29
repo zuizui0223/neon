@@ -1,0 +1,79 @@
+name: neon-provisional-phase-transportability-audit
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_phase_slope_transportability_v1.py"
+      - "tests/test_future_neon_phase_slope_transportability_v1.py"
+      - ".github/workflows/neon-provisional-phase-transportability-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: neon-phase-transportability-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phase-difference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned numeric and fixed-effects packages
+        run: python -m pip install numpy==2.1.1 scipy==1.14.1 pandas==2.2.3 statsmodels==0.14.6
+      - name: Test repeated-site slope-difference estimation
+        run: python -m unittest discover -s tests -p 'test_future_neon_phase_slope_transportability_v1.py' -v
+      - name: Fetch sealed development spatial-centroid observations
+        uses: actions/download-artifact@v4
+        with:
+          name: multiscale-density-centroid-geometry-v1
+          run-id: 37793401501
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/dev
+      - name: Fetch sealed future metric-only observations
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-WB-metric-only-QC-v1
+          run-id: 38046250920
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/metric
+      - name: Fetch sealed future historical MNKA predictors
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-continuous-MNKA-support-v1
+          run-id: 38046339017
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/mnka
+      - name: Verify immutable original manifests
+        run: |
+          test -s build/dev/multiscale_density_centroid_session_diagnostics_v1.json
+          test -s build/metric/future_neon_metric_session_values_v1.json
+          test -s build/mnka/future_neon_continuous_mnka_predictor_pairs_v1.json
+      - name: Audit old versus future point slope difference without changing claim
+        run: |
+          python -m analysis.audit_future_neon_phase_slope_transportability_v1 \
+            --development build/dev/multiscale_density_centroid_session_diagnostics_v1.json \
+            --future-metric build/metric/future_neon_metric_session_values_v1.json \
+            --future-mnka build/mnka/future_neon_continuous_mnka_predictor_pairs_v1.json \
+            --output build/neon_provisional_phase_transportability_v1.json
+      - name: Archive transparent site-phase uncertainty receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-provisional-phase-transportability-v1
+          path: build/neon_provisional_phase_transportability_v1.json
+          if-no-files-found: warn
+          retention-days: 45

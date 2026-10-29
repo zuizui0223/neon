@@ -1,0 +1,48 @@
+name: neon-3000-chm-month-aware-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_3000_chm_source_qa_v1.py'
+      - 'analysis/run_neon_3000_chm_source_v1.py'
+      - 'tests/test_neon_3000_chm_source_v1.py'
+      - 'docs/NEON_3000_CHM_MONTH_AWARE_SOURCE_20261028.md'
+      - '.github/workflows/neon-3000-chm-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-3000-chm-month-aware-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  all-exact-original-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned original raster source tools
+        run: python -m pip install numpy==2.1.1 rasterio==1.4.3
+      - name: Source-only synthetic location CHM and month tests
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_3000_chm_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_five_anchor_chm_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_dated_3000_graphql_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_e5_chm_monthly_v2.py' -v
+      - name: Require source authorized token
+        run: test -n "$NEON_API_TOKEN"
+      - name: Canonical historical 3000 locations and independently checksum-verified month-aware source CHM
+        run: python -m analysis.run_neon_3000_chm_source_v1
+      - name: Save only anonymous aggregate source coverage and month mismatch
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-3000-chm-month-aware-source
+          path: build/neon_3000_chm_source_20261028.json
+          if-no-files-found: warn
+          retention-days: 45

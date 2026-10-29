@@ -1,0 +1,141 @@
+{
+  "schema": "neon.multiscale_density.target_structural_go.v1",
+  "date": "2026-10-06",
+  "status": "TARGET_ONLY_STRUCTURAL_GO",
+  "programme": "multiscale_density_accommodation_v1",
+  "source_structural_artifact": {
+    "workflow": "multiscale-density-standardized-era-parallel",
+    "run_id": 37402113880,
+    "job_id": 112071662039,
+    "head_sha": "e785bd50eac95540348a2bf2c0aa0534ae5f582c",
+    "artifact_id": 11385996071,
+    "artifact_digest": "sha256:8756659ff0e08a9a47a7f0a6db497193d0936b24097f94f158cbb8f04789e220"
+  },
+  "source_taxonomy_lock": "results/multiscale_density_target_taxon_lock_v1.json",
+  "filter": {
+    "era_start": "2015-04",
+    "bout": "exact 3-night site x plotID x eventID",
+    "geometry": "standard 10x10",
+    "completeness": "primary_complete_session == true",
+    "target_taxonomy": "taxonProtocolCategory == target",
+    "minimum_repeat_supported_individuals": 5
+  },
+  "before_saturation_guard": {
+    "eligible_taxon_plot_event_records": 1945,
+    "target_taxon_concepts": 35,
+    "resolved_genera": 14,
+    "sites": 44,
+    "plots": 147,
+    "replicated_genera_meeting_10_sessions_2_sites": 11
+  },
+  "after_primary_saturation_guard": {
+    "guard": "all-small-mammal capture trap-night fraction <= 0.30",
+    "eligible_taxon_plot_event_records": 1536,
+    "target_taxon_concepts": 32,
+    "resolved_genera": 14,
+    "sites": 44,
+    "plots": 145,
+    "replicated_genera_meeting_10_sessions_2_sites": 8,
+    "replicated_genera": [
+      {
+        "genus": "Peromyscus",
+        "eligible_sessions": 1017,
+        "sites": 36
+      },
+      {
+        "genus": "Dipodomys",
+        "eligible_sessions": 135,
+        "sites": 4
+      },
+      {
+        "genus": "Myodes",
+        "eligible_sessions": 82,
+        "sites": 9
+      },
+      {
+        "genus": "Sigmodon",
+        "eligible_sessions": 69,
+        "sites": 8
+      },
+      {
+        "genus": "Chaetodipus",
+        "eligible_sessions": 55,
+        "sites": 4
+      },
+      {
+        "genus": "Microtus",
+        "eligible_sessions": 48,
+        "sites": 8
+      },
+      {
+        "genus": "Onychomys",
+        "eligible_sessions": 21,
+        "sites": 3
+      },
+      {
+        "genus": "Napaeozapus",
+        "eligible_sessions": 13,
+        "sites": 3
+      }
+    ],
+    "target_taxa_removed_entirely_by_guard": [
+      "MIXA",
+      "PEFL",
+      "PEPO"
+    ],
+    "repeat_supported_individuals_per_session": {
+      "median": 8,
+      "q10": 5,
+      "q90": 15,
+      "max": 30
+    },
+    "all_small_mammal_capture_trap_night_fraction": {
+      "median": 0.15333333333333332,
+      "q90": 0.2633333333333333,
+      "q95": 0.2752924944812362,
+      "q99": 0.2942229580573953,
+      "max": 0.3
+    }
+  },
+  "gate_checks": {
+    "eligible_records": {
+      "observed": 1536,
+      "required": 30,
+      "pass": true
+    },
+    "target_taxon_concepts": {
+      "observed": 32,
+      "required": 4,
+      "pass": true
+    },
+    "resolved_genera": {
+      "observed": 14,
+      "required": 2,
+      "pass": true
+    },
+    "sites": {
+      "observed": 44,
+      "required": 6,
+      "pass": true
+    },
+    "replicated_genera": {
+      "observed": 8,
+      "required": 2,
+      "pass": true
+    }
+  },
+  "decision": {
+    "target_only_structural_gate_passed": true,
+    "W_open_authorized": false,
+    "B_open_authorized": false,
+    "abundance_response_open_authorized": false,
+    "next_required_gate": "freeze and validate target-taxon MNKA variation plus final W/B metric implementation before ecological-effect fitting"
+  },
+  "effect_boundary": {
+    "spatial_distances_calculated": false,
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_opened": false,
+    "density_effects_opened": false
+  }
+}

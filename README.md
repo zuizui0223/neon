@@ -1,103 +1,82 @@
-# NEON small-mammal ecology
+# NEON mammal spatial macroecology
 
-Independent repository for the NEON small-mammal ecological programme.
+**Active scientific direction (25 October 2026): ONE integrated macroecological paper programme.** The former seasonal-spatial-recurrence **A** versus density-accommodation **B** *paper split is no longer the active plan*. The old source-verified analyses, failed guards and immutable preregistration records remain accessible and must not be rewritten as two positive findings.
 
-## Current status: SUBMISSION HOLD
+> **When observed mammal identities and population states change, when and where can taxon-associated spatial organization recur—and how is this conditioned by environment and lineage?**
 
-**Do not submit V6 to Oikos in its current form.**
+## Current empirical position
 
-The pre-audit V6 snapshot is preserved at:
+| Scale/observational response | Verified source state | Claim |
+|---|---|---|
+| Genus-associated seasonal station recurrence | Corrected NEON RELEASE-2026 fixed-margin MCMC; 58 contrasts, 30 plots, 14 independent sites, mean Z **+0.794664**, 11/14 sites positive | Positive conditional *capture-space recurrence* among nonshared observed tag sets |
+| Source-reuse exclusion (original 3+ cohort) | 46 contrasts / 12 sites, corrected mean Z **+0.843162**, 10/12 positive | Positive direction persists; not a second biological dataset |
+| **New exactly-two genus spatial recurrence** | **158** source-supported season pairs in **30 sites/15 domains**; **150** exact-null informative, **25/30** positive site means; **Z=+0.614711** | **Positive, historically post-result exploratory**; not independent new-release replication; mathematically exact two-row fixed-margin null |
+| Exactly-two season-reuse site exclusion | **48 informative pairs / 17 sites, Z=+0.698352**, conditional rank-coupled p=0.001250 | Same historical release; still does not calibrate genus-specific detection |
+| **New physical sites absent from original 14** | Source-only 17 sites/11 domains (5 domains new), 74 source pairs, 71 informative; **15/17 positive, Z=+0.760059** | Post-result geographical sensitivity; rank-coupled conditional p=0.000600; strict whole-site season reuse removal leaves only **9 sites/16 pairs, STOP** |
+| Density-associated W/B responses | 1,326 development taxon-event sessions at 40 sites; 8 genera, 5/8 positive-versus-6-required guard | **General rule FAILED**; spatial response modes are exploratory/heterogeneous |
+| Environmental source | 150 official five-anchor CHM values at 30 plots; 14 with nonzero five-point canopy range | Source coverage only; not taxon habitat selection |
+| **Full 100-station canopy source** | **3,000/3,000** actual named trap CHM pixels (34 CRC32C-verified source tiles), zero canopy **1,894/3,000**, full-plot canopy range positive **25/30** instead of 14/30 when inspecting only five anchors | Observed **environmental-source** heterogeneity, not an animal habitat effect; positional uncertainty, temporal mismatch and understory remain uncorrected |
+| **Multi-year AOP flight month availability** | 97 published source site-month visits across 14 original sites; nearest-month metadata puts **36/58** original seasonal pairs within 12 months (22/58 within three months), compared with **9/58** within 12 months under the original fixed latest-image pilot | Multi-year time support only: exact-date habitat pixels not yet verified; genus-specific capture probability remains unobserved |
+| **Historical-source dated CHM pixels — actual raster QA GO** | **51** official-checksum-verified rasters; **24,600/24,600** station×capture-day pixels matched to original dated trap positions within ±12 months; original **36/58 seasonal pairs** qualify across **12 independent sites/21 grids** (±3 months 22/58) | Actual historical image **availability GO**, NOT tree-canopy stability or rodent niche/detection mechanism; strict pre-/same-month group **18/58 pairs in just six sites/10 grids** does not meet the 8-site gate |
+| **Independent distributed-base plant survey support (not trap habitat)** | Official MD5-verified 1m2 field vegetation data **326 files/355,486 rows**; all **30/30** mammal grid IDs linked to a nearby base-plot plant survey. Two distinct numeric-cover field events around paired seasons: **51/58 pairs across 14 sites/28 grids** within ±365 days, but **16/58 across seven sites/11 grids** within ±90 days | Observed source availability of landscape-neighborhood herb/ground cover, NOT cover at the exact mammal trap; independent genus-specific detection remains unavailable |
+| **Exact same-season joint environment-source coverage** | Verified original CHM +/-12 months plus two DISTINCT nearby base-plot numeric-cover visits +/-365 days at **30/58 original season comparisons, 12 independent sites/19 grids**; stricter plant +/-90 days **11/58, five sites/seven grids**; prior-only CHM **15/58, five sites/eight grids** | **Availability only, not habitat selection:** 53/58 seasonal pairs use the same AOP flight month in both seasons, so broad canopy-change inference is impossible; genus-specific detection is still unidentified |
+| **Independent 2026 camera-trap source audit** | Published Zenodo DOI 10.5281/zenodo.20826511 original 820 deployment/31,775 camera sequence records; **47** verified genus-level small-rodent source sequences in **six** deployments; original NEON E5 camera proximity <=250m at five original plots but **0 date-overlapping plots** | **SOURCE STOP** for independent detection/capture-space validation: no same original trapping day candidate, hence no actual A1-J10 station-level camera test opened; this is not an animal-space-use null |
+| **Independent longitudinal camera vs ordinary capture (Norway, 2018–2020)** | MD5-verified public 2025 study: **12 sites×5 campaigns×4 species=240 cells**; **84 camera-only vs 10 capture-only** detected site-campaign-taxa, **68 vs 25** adjacent-year site-taxon two-year positives, source gear-stable **55 vs 21**. Eight apparent capture disappearances are camera-positive in both years (reverse 1). | **Exploratory external observation-PROTOCOL contrast**: the camera window covers **30 days before**, whereas cage/snap records cover **three later days**. Hardware, duration and timing differ; not original NEON replication or detection p |
+| **Full historical trap geolocation — source GO (28 Oct)** | **3,000/3,000** original named stations and **34,800/34,800** original station×capture-day date-effective location checks; **30/30** plots, **14/14** independent sites, all original **58/58** pairs pass source coverage | Original official REST location history verified. Not measured habitat/detection, and 3.1m median geoNEON-adjusted uncertainty is a **rule-based estimate**, not 1m positional precision. |
+| Independent NEON tower climate | 205 original source months verified; **143 monthly QC pass**; **79** original two-genus pairs match temperature months, **below predeclared 80** | **Ecological temperature coefficient NOT ESTIMATED**; data-support STOP, not a null climate effect |
+| Six-night common recorded trap stations | **158/158** original 2-genus pairs retain ≥93 same recorded stations (median 100); on common positions **25/30** site means positive, Z=**+0.610901** | Recorded station-roster control positive; **not** proof of operable traps or absence of genus-specific catchability |
+| **Actual NEON trap-status 4/5/6 operability check** | 87,916 original canonical status rows; median only **60/100** stations had documented code4/5/6 across all six nights; **18/158** original seasonal pairs across **8 sites/7 domains** retain ≥90 | **SOURCE STOP** against frozen 80-pair/18-site/10-domain gate; no operability-adjusted genus Z or p estimated, and code4/5 depend on capture outcomes |
+| **New same-bout genus re-encounter process** | Initial night **3,255** tagged captures in **293** three-night bouts; two source-selected genera at **seven matched sites**: Microtus **97/179 (54.2%)**, Peromyscus **330/435 (75.9%)** re-recorded on nights 2/3; site-equal contrast **−23.5 pp** (95% site bootstrap **−45.7 to −2.4 pp**) | **Observed genus recapture process differs**; this is NOT taxon-specific trap-detection p, and does not identify a cause of old genus-at-trap spatial recurrence |
+| **Original source `fate` / disposition control** | Fixed 7-site firstnight cohort **615** original marks; **391** 2017+ source `fate` records now verified **all `processed`** (originally unrecognized by conservative parser), explicit release only 102 | **Released-only follow-up SOURCE STOP**: just **1 of 7** sites meets ≥5 confirmed releases per genus vs **6** required. Not a proof of missing original metadata or a true genus detection effect |
+| **10m patch recurrence beyond exact same trap** | Exact two-row conditioned hypergeometric null: **153/158** informative pairs, **22/30** site means positive, grand Z=**+0.310307**, dependent-stress conditional p=**0.039** | **MIXED**: remove source-season reuse sites → **50 pairs/17 sites**, Z=**+0.182589**, p=**0.220539**, **not supported**. Broad 10m patch persistence NOT established |
+| Biogeographic sampling / eligible-site selection | 803 adjacent-season candidates at 42 sites/18 domains; original ≥3 subset **58 (7.22%)** at 14 sites/10 domains; expanded ≥2 subset **216 (26.9%)** at **31 sites/15 domains** | Source support only; source union not an independent ecological meta-analysis |
+| Direct ecological coupling of the two scales | Original source-only event crosswalk: **12/58 pairs, 8 sites, 1 genus replicated across sites**; the new joint-coupling support gate **STOPPED** | The directly matched ecological association is **NOT ESTIMABLE** from the original source; do not pool 14-site and 40-site effects |
+| External San Jacinto species-level recurrence | 10 seasonal units / 6 grids in one study area | Different-rank historical prior, independent null/dependence recalibration outstanding |
 
-`submission/oikos-v6-2026-09-27` → `d7c24907bd6bb3f64905c0052141e537706d1792`
+**This single macro framework is a hypothesis about high-level spatial persistence despite lower-level reorganization, not yet a demonstrated cross-level macro mechanism.** Its direct joint-population test is now source-only **NOT ESTIMABLE** in the locked original cohort; future macro work must expand coverage through independent environmental/source sampling and fresh data, not loosen the frozen 58-pair/8-genus tests. Historical NEON RELEASE-2026 responses are already inspected; prospective ecological confirmation needs new source-independent observations, not reclassification of the same data.
 
-It is retained for provenance only.
+## Start here
 
-The active scientific state is the post-package mammal-ecology validity audit and redesign:
+- **One scientific contract:** [Unified macroecological question and effect/estimability boundaries](docs/NEON_UNIFIED_MACROECOLOGY_20261025.md).
+- **One unified manuscript:** [Spatial persistence and population reorganization — v0.9, with actual historical environmental-source GO but no new mammal mechanism](manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_9.md). Research draft, **NOT SUBMITTED**; frozen v0.8 kept for provenance.
+- **New source-fate eligibility limitation, not a biological null:** [615 original firstnight fate records](results/neon_firstnight_original_fate_source_20261028.json) at previously source-selected 7 Microtus/Peromyscus sites; all 391 original 2017+ `fate` labels are now verified `processed`, NOT missing; `processed` is a handling/condition category rather than independently confirmed alive release, and only one site has sufficient explicit release. The released-conditioned reencounter outcome is STOP. [Actual original-release workflow](https://github.com/zuizui0223/neon/actions/runs/40535085090). [Official fate codebook monthly query limitation](results/neon_original_fate_official_codebook_lookup_STOP_20261028.json) is a metadata access limitation, not data absence.
+- **Source-verified 2017+ fate semantics:** all **391/391** labels previously marked unrecognized are literally **`processed`**, not blank. [Source-only original-release receipt](results/neon_fate_2017plus_unmapped_processed_source_receipt_20261028.json) / [GitHub Action](https://github.com/zuizui0223/neon/actions/runs/40538157364). NEON [2023 field protocol](https://data.neonscience.org/documents/10179/1883155/NEON.DOC.000481vO/bde7eb23-ba45-8afb-05fa-9ca5667c3482) calls `processed` a fate/handling state but the field alone does not establish individual post-handling live release. Original six-site explicit-release requirement stays STOP; never retroactively recalculate night2/3 outcomes as if processed = definitely released.
+- **New 3,000-station original location SOURCE GO:** [permanent anonymized aggregate receipt](results/neon_3000_rest_historical_source_receipt_20261028.json), [source verified Action #40610372312](https://github.com/zuizui0223/neon/actions/runs/40610372312). Exact original 58-pair/30-grid/14-site denominator preserved, all 34,800 capture-day×station historical positions date-valid. [Full-station CHM and capture-flight month QA contract](docs/NEON_3000_CHM_MONTH_AWARE_SOURCE_20261028.md) is **source-only** and cannot establish genus habitat filtering or true detectability.
+- **New real CHM source-only results, not a mammal habitat effect:** [full 3,000-point canopy aggregate](results/neon_3000_chm_month_aware_source_receipt_20261028.json) from [Action #40612115870](https://github.com/zuizui0223/neon/actions/runs/40612115870) and [multi-year AOP acquisition-month census](results/neon_aop_multiyear_month_coverage_receipt_20261028.json) from [Action #40612718442](https://github.com/zuizui0223/neon/actions/runs/40612718442). The latest single AOP month is more than 12 months away for 49/58 original six-day pairs; historical visits offer improved time support but still need actual original raster pixel QA. See [evidence interpretation](docs/NEON_FULL_TRAP_CHM_AND_AOP_HISTORY_EMPIRICAL_20261028.md).
+- **New historical AOP pixel source GO (NOT an ecological effect):** [51 verified original CHM rasters / 24,600 pixels / 36 qualifying original season comparisons across 12 sites](results/neon_historical_chm_actual_pixel_source_receipt_20261028.json), [source Action #40614320719](https://github.com/zuizui0223/neon/actions/runs/40614320719), and [source interpretation including the 18/58 prior-month six-site limit](docs/NEON_HISTORICAL_CHM_SOURCE_EMPIRICAL_20261028.md). Original season recurrence and all failed density/temperature/operability claims remain unchanged.
+- **Independent ground and understory vegetation SOURCE GO at NEARBY base plots:** [NEON original MD5-verified plant sampling temporal coverage receipt](results/neon_baseplot_cover_time_source_receipt_20261028.json); [source Action #40618381077](https://github.com/zuizui0223/neon/actions/runs/40618381077); [spatial scale and ecological interpretation](docs/NEON_BASEPLOT_PLANT_EMPIRICAL_20261028.md). Source supports 51/58 season pairs within ±365 days, but stricter ±90-day support only 16/58 and 7 sites. Shared plotIDs are not trap-scale co-location; no new habitat or detection effects.
+- **Exact environmental SOURCE crosswalk, no animal-effect refit:** [30 of the original 58 paired seasons have both actual historical CHM and two distinct numeric nearby base-plot plant surveys](results/neon_exact_joint_chm_plant_source_receipt_20261028.json), covering 12 sites / 19 grids under the lenient ±12-month / ±365-day windows. [Original source test Action #40636346412](https://github.com/zuizui0223/neon/actions/runs/40636346412) and [limits on canopy temporal change and trap detection](docs/NEON_EXACT_JOINT_CHM_PLANT_RESULT_20261028.md). The previous 29–36 bound is resolved to exactly 30; strict nonfuture and close field-plant source cohorts do not meet geographic support.
+- **Actual independent camera observation SOURCE STOP (29 Oct):** [original public Zenodo 2026 camera data vs real original NEON E5/date source audit](results/neon_zenodo_camera_independent_source_receipt_20261029.json), [successful source-retrieval Action #40806838862](https://github.com/zuizui0223/neon/actions/runs/40806838862), and [biological interpretation / no detector co-location](docs/NEON_INDEPENDENT_CAMERA_SOURCE_RESULT_20261029.md). Five original E5 grids have camera deployments within 250m across all camera years, but ZERO overlap the original 58 comparison capture days. Independent genus-level camera detection source cannot validate this NEON recurrence: no detected biological zero or new p fitted.
+- **External independent detector comparison (source verified, exploratory):** [12-site 2018–2020 camera versus cage/snap paired observations](results/neon_external_norway_two_detector_longitudinal_receipt_20261029.json), [GitHub Action #40837442932](https://github.com/zuizui0223/neon/actions/runs/40837442932), [biological interpretation](docs/NEON_EXTERNAL_NORWAY_TWO_DETECTOR_EMPIRICAL_20261029.md). Across 144 matched adjacent-year site×species comparisons, camera detects taxon in both years 68 times versus 25 for ordinary traps, with 10/12 sites showing more camera repeat detection. Camera indices are from **30 days BEFORE** three-day trapping, so detector, effort and calendar lag are inseparable; this cannot validate original NEON spatial use. Original same-day NEON camera SOURCE STOP remains closed.
+- **One machine-checkable evidence ledger:** [Existing positive and negative source results](results/neon_unified_macro_evidence_20261025.json), rebuilt from immutable receipts by `analysis/build_neon_unified_macro_evidence_v1.py`.
+- **Completed source-only joint-support test:** [Reproduced matched-pair audit](results/neon_unified_macro_source_crosswalk_receipt_20261025.json) — **12 original pairs / 8 physical sites / 1 cross-site replicated genus; source feasibility STOP**. [Verified Action](https://github.com/zuizui0223/neon/actions/runs/40162524657). No W/B or R outcomes refitted.
+- **Source-matched genus re-encounter observation:** [Source-only pre-outcome 293-bout comparison](results/neon_genus_firstnight_reencounter_source_20261026.json) and [seven-site Microtus–Peromyscus subsequent-night outcome](results/neon_genus_firstnight_reencounter_outcome_20261026.json); [figure](manuscript/figures/neon_firstnight_microtus_peromyscus_reencounter_20261026.svg). Site-equal Microtus minus Peromyscus recorded reencounter −23.5 pp; 95% interval −45.7 to −2.4 pp. These are *same-bout recapture histories*, not detection probabilities or mediation of between-season spatial signatures.
+- **New official trap operability source limit, no new animal effect:** [Original 158-pair 4/5/6 status source receipt](results/neon_macro_six_night_trapStatus456_SOURCE_STOP_20261026.json), [visualization](manuscript/figures/neon_6night_trapStatus456_operability_source_20261026.svg), [source-verified Action](https://github.com/zuizui0223/neon/actions/runs/40211504923). The intersection of six nights of recorded trap rows is **not** six nights of code4/5/6 functioning evidence: median 100 versus 60 stations. Only **18 pairs in 8 sites/7 domains** meet ≥90 actual coded operational positions; the prespecified 80 pairs/18 sites/10 domains source gate **FAILED**, so no new capture-space Z or p was computed. Codes4/5 are themselves capture outcomes, and "not all six operable" does not prove true all-night trap failure.
+- **New ecological spatial scale test beyond exact station identity:** [10m rook-neighbor conditional recurrence](results/neon_macro_10m_patch_conditional_20261025.json), [figure with all 30 anonymous site means and strict 17-site non-support](manuscript/figures/neon_10m_patch_conditional_exact_station_20261025.svg), [original source workflow](https://github.com/zuizui0223/neon/actions/runs/40186368607). All 158 unchanged exact-two source pairs; 153 informative. Full dependent-stress p=0.039 (post-result), **season-key reused-site exclusion p=0.221 (not supported)**. Station-level signal remains robust; **general 10m patch memory has not been established**. Spatially correlated catchability/habitat remain rival mechanisms.
+- **Six-night observation-process sensitivity, source verified:** [Source recorded station overlap](results/neon_macro_six_night_recorded_station_support_20261025.json) and [retained +0.611 mean site Z / 25 of 30 positive](results/neon_macro_six_night_common_station_recurrence_receipt_20261025.json); [actual NEON recomputation](https://github.com/zuizui0223/neon/actions/runs/40180683068). Source station presence is not a guarantee that a trap was functioning, and genus-specific catchability remains unmeasured.
+- **Independent environmental source QC STOP:** [205 NEON tower months verified but only 79 season pairs pass QC versus 80 required](results/neon_macro_original_tower_month_thermal_QC_STOP_20261025.json). No abiotic regression fitted. [Actual source run](https://github.com/zuizui0223/neon/actions/runs/40181122523). Do not reduce the minimum, interpolate flagged weather, or infer zero thermal effect.
+- **New ecology result, exact-two group:** [Positive 30-site/15-domain conditional spatial recurrence](results/neon_exact_two_genus_ecological_receipt_20261025.json), verified [Actions 40166644498](https://github.com/zuizui0223/neon/actions/runs/40166644498), and [source-backed 30-site figure](manuscript/figures/neon_exact_two_genus_site_means_20261025.svg). Mathematical two-row hypergeometric null is exact; ecological detection mechanisms and arbitrary within-site dependence remain unresolved.
+- **Geographically new physical sites (separate source-defined sensitivity):** [17 sites absent from the original 14 with Z=+0.760, 15 positive site means](results/neon_exact_two_new_sites_sensitivity_receipt_20261025.json), [source-replay workflow](https://github.com/zuizui0223/neon/actions/runs/40167476048). Strict additional entire-season-reuse-site deletion is **STOP: only 9 sites/16 informative pairs**, so this is not a fully independent time-series validation.
+- **Expanded geography (source-only):** [216 ≥2-genus source pairs at 31 sites/15 domains](results/neon_macro_two_plus_genus_coverage_20261025.json); [candidate/exact-two/3+ domain figure](manuscript/figures/neon_macro_two_plus_genus_domain_support_20261025.svg). Do not pool p-values from 2 versus 3+ genera.
+- **Macro representativeness diagnostic:** 803 source candidate pairs represent **15.08 effective Shannon ecological domains**, while the 58 strict eligible pairs represent **7.56** — a **~50% effective domain coverage loss** (descriptive nested source sampling only, not a biological recurrence effect). [Verified result](results/neon_macro_eligibility_concentration_20261025.json).
+- **Completed geographic macro sampling census:** [Full 45-site, 18-domain selection evidence](results/neon_macro_biogeographic_selection_receipt_20261025.json), [workflow](https://github.com/zuizui0223/neon/actions/runs/40163416566), and [domain figure](manuscript/figures/neon_unified_macro_domain_selection_v0_1.svg). **42 candidate sites → 14 qualifying sites, 18 candidate domains → 10 qualifying domains**; not estimates of spatial effect by domain.
+- [All-eight-genus W/B heterogeneity figure (historical generality FAIL)](manuscript/figures/neon_unified_macro_density_heterogeneity_v0_1.svg).
+- [Corrected NEON 14-/12-site recurrence figure](manuscript/figures/neon_crossseason_genus_site_means_corrected_v0_3.svg).
 
-- `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`
-- `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`
-- `submission/OIKOS_READINESS_V4_HOLD.md`
-- `results/mammal_ecology_validity_audit_v1.json`
+## Sampling and scientific limits
 
-## Why V6 is on hold
+The original source-support denominator was 1,838 effort-valid selected 3-night bouts and 803 adjacent-season candidate pairs. Only 58 pairs (14 sites) passed the original ≥3 common genus / season-exclusive tagged-animal primary gate. The broader 216-pair ≥2-genus source support includes **158 exactly-two pairs** with a **positive post-result exploratory ecological effect**, and the 58 original strict pairs. The two group-specific effects are not pooled or independently replicated because both groups arise from the same original RELEASE-2026 observation system. Sites without qualifying pairs are missing *estimands*, not sites with demonstrated zero recurrence. Avoid extrapolating a genus-level 14-site spatial signature across every site, biome, rodent species or full home range.
 
-### 1. The adjacency scale collapses within-grid mammal geometry
+**Historical all-trap positions are now SOURCE GO, not habitat-effect GO.** On 28 October 2026 a separate canonical NEON REST-only audit recovered all 3,000 named station histories and validated 34,800 of 34,800 source capture-day coordinate checks, including all four historically flagged grids. The 22 October GraphQL-versus-REST five-station mismatch remains a valid STOP for that *other API route*. The new month-aware 3,000-station CHM extraction is an independent source-only check; 2022–2024 aerial canopy imagery cannot be treated as historical vegetation for every 2015–2024 trapping season, and ground/understory vegetation and genus-specific detection are not measured. The ecological mechanism remains unidentified.
 
-A metadata-only audit reconstructed all 27 sites from the two frozen response programmes.
+The historical pooled density slopes had beta_W = -4.395, beta_B = +4.977, and delta = +9.372 m²/MNKA. Those signs do **NOT** resurrect the failed >=6/8 genus criterion. Future taxon/trait/density moderators are subject to a new independent data and lock requirement, not a post-result way to create positive significance.
 
-Across **94 canonical adjacency worlds**, **93/94** made every same-grid trap pair adjacent.
+## Editorial and archival status
 
-At the smallest threshold:
-- **26/27 sites** already had 100% same-grid pair adjacency;
-- TOOL, the sole exception, still had **99.394%**.
+**SUBMISSION HOLD.** Do not submit this framework or the earlier Oikos V6 package as a demonstrated mechanistic macroecological law. A future full paper needs matched-population source support, genuinely unseen validation, explicit habitat/detection alternatives and site-level inference. Old *Paper A/B* files are retained as historical provenance; they are not two current manuscripts to advance independently.
 
-Observed within-grid maximum trap separation was about **127 m**, whereas minimum canonical thresholds ranged from **112.6 to 1569.7 m**.
+Original submission-hold evidence and explicitly archived redesign remain available at `docs/MAMMAL_ECOLOGY_VALIDITY_AUDIT_V1.md`, `docs/MAMMAL_ECOLOGY_REDESIGN_V1.md`, and `submission/OIKOS_READINESS_V4_HOLD.md`. These are historical quality boundaries, not a revived second active paper.
 
-Therefore the former result “within-grid organization ≈ 0” is predominantly a consequence of the declared geometry, not an independent biological result about small mammals.
+The archived V6 study remains a design warning: 93/94 coarse adjacency worlds collapsed within-grid trap geometry, while observed taxonomic-carrier turnover did not exceed a species-pool-conditioned explanation. The pre-audit V6 snapshot lives at `submission/oikos-v6-2026-09-27` (commit `d7c24907bd6bb3f64905c0052141e537706d1792`). It is no longer a biological submission candidate. Historical `eog.*` filenames may appear in immutable provenance.
 
-### 2. Carrier turnover is not independent of biogeography
-
-In the independent fresh 11-site panel:
-
-- species-pool Jaccard median = **0**;
-- carrier Jaccard median = **0**;
-- 35/55 site pairs shared no eligible species at all.
-
-A null that fixed each site's eligible species pool and observed carrier count gave:
-
-- observed mean carrier Jaccard = **0.03985**;
-- null mean = **0.03102**;
-- null 95% interval ≈ **0.00835–0.06948**;
-- p for carrier overlap being lower than the pool-conditioned null = **0.7568**.
-
-Thus raw carrier-set turnover does not establish carrier-specific taxonomic replacement beyond ordinary species-pool turnover.
-
-### 3. The response discarded mammal-specific information
-
-The old analyses reduced DP1.10072.001 to ever-positive species × trap incidence across RELEASE-2026.
-
-The NEON product is designed around mark-recapture and repeated sampling, including:
-- individual identities;
-- repeated bouts;
-- trap nights;
-- grid sampling type;
-- survey completeness;
-- taxonomic identification qualifiers/history;
-- habitat-linked grid placement.
-
-Those variables now define the next scientific mainline.
-
-## New mammal-ecology mainline
-
-Primary question:
-
-> **Within the same small-mammal species, how does within-grid space use vary among sites, years and habitats after sampling effort and local population size are accounted for?**
-
-The redesign uses:
-- within-grid scales of 10, 14.14, 20 and 30 m;
-- species × grid × year/bout units;
-- active trap-night effort;
-- individualID / recapture histories;
-- abundance or density estimation;
-- `identificationQualifier` and identification history;
-- `nlcdClass` and declared habitat covariates.
-
-RELEASE-2026 is already consumed and may be used only for retrospective development. Confirmatory validation must use future, previously unseen NEON small-mammal observations after the final model is frozen.
-
-## Historical V6 result
-
-The original 16-site and independent 11-site programmes remain fully reproducible historical results. They are useful as a negative design lesson:
-
-> response-blind freezing and perfect auditability do not guarantee that the frozen estimand is biologically informative at the scale of the target organism.
-
-They are no longer the active manuscript claim.
-
-## Project boundary
-
-- **Active:** mammal-scale population / space-use redesign
-- **Archived:** V6 local-cohesion submission package
-- Paper B: deferred
-- world-survival/EOG methods work: outside this repository
-- NEON camera-trap programme: excluded
-
-Historical `eog.*` schema names remain in immutable provenance where needed.
+**Repository boundary:** NEON tagged small-mammal ecological monitoring only; world-survival/EOG methodological research and the NEON camera-trap programme are outside this paper.

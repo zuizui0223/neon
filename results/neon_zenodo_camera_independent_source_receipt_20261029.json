@@ -1,0 +1,114 @@
+{
+  "camera_E5_proximity_screen": {
+    "NEON_10x10_station_proximity_not_concluded_from_E5": true,
+    "camera_plot_links_E5_250m_with_capture_day_overlap": 0,
+    "camera_plot_links_E5_within_10000m": 271,
+    "camera_plot_links_E5_within_1000m": 57,
+    "camera_plot_links_E5_within_250m": 5,
+    "camera_plot_links_E5_within_5000m": 207,
+    "original_plots_with_camera_E5_250m_and_actual_capture_day_overlap": 0,
+    "original_plots_with_camera_near_E5_250m_any_date": 5
+  },
+  "camera_exact_station_and_genus_source": {
+    "camera_detections_not_known_true_trap_use_or_p": true,
+    "exact_20m_camera_mammal_plot_links": 0,
+    "independent_physical_sites_with_rodent_camera_both_seasons": 0,
+    "independent_physical_sites_with_two_repeat_camera_genera": 0,
+    "no_mammal_rodent_capture_Z_or_animal_IDs_read": true,
+    "original_mammal_grids_with_camera_rodent_both_seasons": 0,
+    "source_observation_support": {
+      "original_pairs_with_a_camera_active_in_both_seasons": 0,
+      "original_pairs_with_at_least_2_camera_rodent_genera_shared_A_B": 0,
+      "original_pairs_with_camera_rodent_genus_detected_both_seasons": 0,
+      "original_pairs_with_camera_small_rodent_genus_in_A": 0,
+      "original_pairs_with_camera_small_rodent_genus_in_B": 0,
+      "original_pairs_with_exact_camera_station_20m_any_bout": 0
+    },
+    "strict_source_20pair_8site_12plot_two_genus_GO": false
+  },
+  "fixed_source_thresholds": {
+    "actual_station_proximity_radius_m": 20,
+    "genus_identification": "at least two recurring Cricetidae/Heteromyidae/Dipodidae/Muridae camera genus labels in both trapping seasons",
+    "min_original_grids": 12,
+    "min_pair_seasons": 20,
+    "min_physical_sites": 8,
+    "prefilter_E5_radius_m": 250
+  },
+  "original_neon_source": {
+    "distinct_plot_capture_dates": 339,
+    "exact_station_history_documents_checked_after_spacetime_prefilter": 0,
+    "exact_station_history_sha256_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "mammal_release": "RELEASE-2026",
+    "original_fixed_mammal_grids": 30,
+    "original_fixed_mammal_pairs": 58,
+    "original_mammal_source_reproduced": {
+      "capture_files_without_required_namedLocation_schema": 0,
+      "downloaded_source_files_MD5_size_verified": 3480,
+      "manifest_files": 3547,
+      "perplotnight_files": 1773,
+      "pertrapnight_files": 1707,
+      "release": "RELEASE-2026",
+      "same_58_pairs_30_plots_14_sites_reproduced": true,
+      "source_plot_rows": 21363,
+      "source_trap_rows": 1505827
+    },
+    "original_physical_sites": 14,
+    "source_30_E5_location_hashes_digest": "235ecb4dccaf044584c64e01c43bbc7bcedafb9488602c500959c06070bbcc99"
+  },
+  "retrieved_utc": "2026-10-29T02:34:37.406380+00:00",
+  "schema": "neon.macro.camera_independent_detection_original_source.v1",
+  "scientific_boundary": {
+    "camera_and_live_trap_detection_errors_not_assumed_independent": true,
+    "camera_genus_unidentified_small_mammal_not_treated_as_genus": true,
+    "camera_is_a_different_observation_hardware_from_sherman_traps": true,
+    "camera_mammal_genus_detections_not_detection_corrected_true_space_use": true,
+    "existing_positive_capture_space_R_and_all_failed_density_weather_operability_gates_unchanged": true,
+    "next_if_stop": "Seek pre-specified independent multi-season paired rodent cameras+live traps at exact stations, or a prospective new source; do not reinterpret camera survey as capture-space validation",
+    "no_animal_ID_site_grid_trap_station_camera_coordinates_raw_photos_or_dates_exported": true,
+    "original_mammal_genus_station_response_not_read_or_refitted": true,
+    "single_macro_ecology_paper_remains_SUBMISSION_HOLD": true,
+    "single_short_camera_campaign_cannot_demonstrate_adjacent_season_recurrence": true
+  },
+  "source": {
+    "camera_deployment_period": "2015-2022 original external survey",
+    "camera_deployments_with_genus_identified_small_rodents": 6,
+    "camera_original_deployments": {
+      "missing_or_bad_geodate_deployments": 0,
+      "source_deployment_rows": 820,
+      "valid_camera_deployments": 820
+    },
+    "camera_original_sequence_count_by_category": {
+      "camera_source_sequence_rows": 31775,
+      "known_rodent_genus_sequences": 2443,
+      "other_rodent_family_genus_sequences": 2396,
+      "rodent_order_sequences": 2601,
+      "rodent_without_genus_sequences": 158,
+      "sequences_outside_camera_effort_or_invalid_deployment": 9,
+      "source_sequences_without_known_deployment": 2605,
+      "target_small_rodent_genus_sequences": 47,
+      "time_valid_camera_sequence_rows": 29161,
+      "unidentified_small_mammal_sequences": 228
+    },
+    "camera_source_published_MD5_verified_three_csvs": true,
+    "doi": "10.5281/zenodo.20826511",
+    "known_target_small_rodent_camera_genus_richness": 2,
+    "original_source_downloaded_total_bytes": 3479745,
+    "published_year": 2026,
+    "source_bytes_by_file": {
+      "camera_trap_deployments.csv": 86395,
+      "camera_trap_sequences.csv": 3382821,
+      "subproject_descriptions.csv": 10529
+    }
+  },
+  "status": "STOP_INDEPENDENT_CAMERA_SAME_STATION_TWO_SEASON_SOURCE_SUPPORT",
+  "github_actions_provenance": {
+    "run_id": 40806838862,
+    "job_id": 123227707453,
+    "source_commit": "d411d1021a47463fcdbbcf9e5830694857225d70",
+    "archive_artifact_id": 12868881280,
+    "archive_zip_digest": "sha256:26b95df1648d81b97b4758d788ce0d761a392696355a4280018fcef7c47d6ed7",
+    "workflow_conclusion": "success",
+    "source_gate_result": "SCIENTIFIC_STOP",
+    "no_original_mammal_ecological_responses_opened": true
+  }
+}

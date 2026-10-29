@@ -1,0 +1,46 @@
+name: multiscale-density-metric-qc
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_multiscale_density_metric_qc_v1.py"
+      - "analysis/multiscale_density_metrics_v1.py"
+      - "tests/test_multiscale_density_metrics_v1.py"
+      - "results/multiscale_density_metric_contract_v1.json"
+      - "results/multiscale_density_target_taxon_lock_v1.json"
+      - ".github/workflows/multiscale-density-metric-qc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-metric-qc-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test frozen metric implementation
+        run: python -m unittest tests.test_multiscale_density_metrics_v1 -v
+      - name: Require NEON access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run metric-only QC without abundance
+        run: python -m analysis.run_multiscale_density_metric_qc_v1
+      - name: Upload metric QC receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-metric-qc-v1
+          path: build/multiscale_density_metric_qc_v1.json
+          if-no-files-found: error
+          retention-days: 30

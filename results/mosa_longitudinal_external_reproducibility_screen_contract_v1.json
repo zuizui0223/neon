@@ -1,0 +1,57 @@
+{
+  "schema": "neon.external_MOSA_ecological_reproducibility_screen.v1",
+  "date": "2026-10-11",
+  "state": "REGISTERED_AFTER_NEON_PROVISIONAL_NEGATIVE_DIRECTION_BEFORE_MOSA_CAPTURE_SCHEMA_OR_OUTCOMES",
+  "publication": {
+    "title": "Twenty-nine years of continuous monthly capture-mark-recapture data of multimammate mice (Mastomys natalensis) in Morogoro, Tanzania",
+    "doi": "10.1038/s41597-023-02700-3",
+    "data_doi": "10.5281/zenodo.10049811",
+    "raw_csv": "mosa_Feb2023_Flags.csv",
+    "sampling_window": "1994-03 to 2023-02",
+    "protocol": "one 3-ha 300-station grid, 30 x 10, 10 m lattice, every month for 3 consecutive nights",
+    "published_capture_count": 49216,
+    "published_unique_individual_count": 21927,
+    "focal_species": "Mastomys natalensis",
+    "license": "CC-BY"
+  },
+  "reason": "NEON future Peromyscus has only ~6% of developmental adjusted MNKA sum-of-squares information, so an event-heldout negative sign does not precisely exclude the old positive slope. MOSA has extensive repeated *within-plot* density episodes, potentially offering a more informative one-species external ecological test.",
+  "non_equivalence": {
+    "same_species_as_NEON": false,
+    "same_10x10_geometry": false,
+    "multiple_sites": false,
+    "same_date_range": false,
+    "what_can_test": "Within-species 29-year density-associated reallocation of spatial variance between repeated within-animal trap positions and between-animal trap-centroid spread.",
+    "what_cannot_test": "The original frozen NEON 8-genus or 5-genus generality claims, standardized numerical equality of m²/MNKA slopes across radically different grid geometries, or causal territoriality."
+  },
+  "no_effect_exposure_before_structural_gate": {
+    "validate_download": "Zenodo official API, published file size and cryptographic checksum, forbid challenge HTML",
+    "map_columns": [
+      "unique individual ID",
+      "capture event/month",
+      "calendar capture night 1-3",
+      "trap station grid position",
+      "taxonomic identity",
+      "capture status"
+    ],
+    "min_viable_sessions": 60,
+    "min_independent_years": 10,
+    "min_repeat_supported_animals_per_session": 5,
+    "require_same_individual_with_at_least_two_distinct_nights": true,
+    "require_at_least_two_MNA_levels_per_year": true,
+    "source_protocol_changes_report_before_effects": true,
+    "forbidden_if_fail": "Lower support threshold or merge non-consecutive months to fabricate a three-night within-bout W response",
+    "allowed_if_pass": "A newly specified one-species, one-plot time-series association, still prospective only relative to MOSA response outcomes; results explicitly treated as post-NEON-generated hypothesis."
+  },
+  "observation_process": {
+    "trap_shape": "30 by 10 station rectangle, 10 m spacing",
+    "reference_scale": "within-MOSA comparisons only; cannot directly transport unnormalized variance magnitudes from 10x10 NEON",
+    "individual_sampling_selection": "report m and unique captured cohort count with abundance proxy",
+    "site_temporal_dependence": "report effective temporal replication and autocorrelation rather than treating 300 traps as 300 independent populations",
+    "no_social_behavior_claim": true
+  },
+  "immediate_status": "REAL_CSV_BYTE_SCHEMA_AUDIT_RUNNING_NOT_YET_VERIFIED",
+  "sources": [
+    "https://zenodo.org/records/10049811",
+    "https://www.nature.com/articles/s41597-023-02700-3"
+  ]
+}

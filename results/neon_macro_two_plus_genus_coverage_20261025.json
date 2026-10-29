@@ -1,0 +1,195 @@
+{
+  "schema": "neon.macro.extended_2plus_genus_source_geography.v1",
+  "date": "2026-10-25",
+  "status": "EFFECT_BLIND_EXPANDED_SAMPLE_COVERAGE_ONLY",
+  "source_files": [
+    "results/neon_exact_two_genus_source_receipt_20261025.json",
+    "results/neon_macro_biogeographic_selection_receipt_20261025.json"
+  ],
+  "original_candidate": {
+    "pairs": 803,
+    "physical_sites": 42,
+    "ecological_domains": 18,
+    "shannon_effective_domains": 15.076389565919214
+  },
+  "strict_three_plus": {
+    "pairs": 58,
+    "physical_sites": 14,
+    "ecological_domains": 10,
+    "shannon_effective_domains": 7.55530803035287
+  },
+  "exactly_two": {
+    "pairs": 158,
+    "physical_sites": 30,
+    "ecological_domains": 15,
+    "shannon_effective_domains": 12.379145792590945
+  },
+  "all_two_plus": {
+    "pairs": 216,
+    "physical_sites": 31,
+    "ecological_domains": 15,
+    "shannon_effective_domains": 12.640370208764816,
+    "eligible_fraction_of_candidate_pairs": 0.26899128268991285
+  },
+  "source_only_domain_table": [
+    {
+      "domain": "D01",
+      "candidate_pairs": 46,
+      "original_three_plus": 2,
+      "exactly_two": 16,
+      "all_two_plus": 18,
+      "source_eligibility_fraction": 0.391304347826087
+    },
+    {
+      "domain": "D02",
+      "candidate_pairs": 85,
+      "original_three_plus": 1,
+      "exactly_two": 11,
+      "all_two_plus": 12,
+      "source_eligibility_fraction": 0.1411764705882353
+    },
+    {
+      "domain": "D03",
+      "candidate_pairs": 62,
+      "original_three_plus": 0,
+      "exactly_two": 25,
+      "all_two_plus": 25,
+      "source_eligibility_fraction": 0.4032258064516129
+    },
+    {
+      "domain": "D04",
+      "candidate_pairs": 8,
+      "original_three_plus": 0,
+      "exactly_two": 0,
+      "all_two_plus": 0,
+      "source_eligibility_fraction": 0
+    },
+    {
+      "domain": "D05",
+      "candidate_pairs": 56,
+      "original_three_plus": 0,
+      "exactly_two": 10,
+      "all_two_plus": 10,
+      "source_eligibility_fraction": 0.17857142857142858
+    },
+    {
+      "domain": "D06",
+      "candidate_pairs": 96,
+      "original_three_plus": 13,
+      "exactly_two": 18,
+      "all_two_plus": 31,
+      "source_eligibility_fraction": 0.3229166666666667
+    },
+    {
+      "domain": "D07",
+      "candidate_pairs": 81,
+      "original_three_plus": 2,
+      "exactly_two": 3,
+      "all_two_plus": 5,
+      "source_eligibility_fraction": 0.06172839506172839
+    },
+    {
+      "domain": "D08",
+      "candidate_pairs": 52,
+      "original_three_plus": 0,
+      "exactly_two": 0,
+      "all_two_plus": 0,
+      "source_eligibility_fraction": 0
+    },
+    {
+      "domain": "D09",
+      "candidate_pairs": 60,
+      "original_three_plus": 3,
+      "exactly_two": 17,
+      "all_two_plus": 20,
+      "source_eligibility_fraction": 0.3333333333333333
+    },
+    {
+      "domain": "D10",
+      "candidate_pairs": 60,
+      "original_three_plus": 12,
+      "exactly_two": 10,
+      "all_two_plus": 22,
+      "source_eligibility_fraction": 0.36666666666666664
+    },
+    {
+      "domain": "D11",
+      "candidate_pairs": 35,
+      "original_three_plus": 9,
+      "exactly_two": 4,
+      "all_two_plus": 13,
+      "source_eligibility_fraction": 0.37142857142857144
+    },
+    {
+      "domain": "D12",
+      "candidate_pairs": 12,
+      "original_three_plus": 0,
+      "exactly_two": 1,
+      "all_two_plus": 1,
+      "source_eligibility_fraction": 0.08333333333333333
+    },
+    {
+      "domain": "D13",
+      "candidate_pairs": 31,
+      "original_three_plus": 0,
+      "exactly_two": 5,
+      "all_two_plus": 5,
+      "source_eligibility_fraction": 0.16129032258064516
+    },
+    {
+      "domain": "D14",
+      "candidate_pairs": 31,
+      "original_three_plus": 5,
+      "exactly_two": 15,
+      "all_two_plus": 20,
+      "source_eligibility_fraction": 0.6451612903225806
+    },
+    {
+      "domain": "D15",
+      "candidate_pairs": 17,
+      "original_three_plus": 9,
+      "exactly_two": 7,
+      "all_two_plus": 16,
+      "source_eligibility_fraction": 0.9411764705882353
+    },
+    {
+      "domain": "D16",
+      "candidate_pairs": 29,
+      "original_three_plus": 2,
+      "exactly_two": 6,
+      "all_two_plus": 8,
+      "source_eligibility_fraction": 0.27586206896551724
+    },
+    {
+      "domain": "D17",
+      "candidate_pairs": 34,
+      "original_three_plus": 0,
+      "exactly_two": 10,
+      "all_two_plus": 10,
+      "source_eligibility_fraction": 0.29411764705882354
+    },
+    {
+      "domain": "D18",
+      "candidate_pairs": 0,
+      "original_three_plus": 0,
+      "exactly_two": 0,
+      "all_two_plus": 0,
+      "source_eligibility_fraction": null
+    },
+    {
+      "domain": "D19",
+      "candidate_pairs": 8,
+      "original_three_plus": 0,
+      "exactly_two": 0,
+      "all_two_plus": 0,
+      "source_eligibility_fraction": 0
+    }
+  ],
+  "biological_inference": {
+    "genus_two_row_ecological_effect_tested": false,
+    "three_plus_positive_conditional_effect_unchanged": true,
+    "original_density_eight_genus_generalization_failed": true,
+    "absence_of_source_support_not_zero_recurrence": true,
+    "two_plus_comparisons_same_historical_release_not_independent_replication": true
+  }
+}

@@ -1,0 +1,75 @@
+name: neon-peromyscus-holdout-information-audit
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_peromyscus_holdout_information_v1.py"
+      - "tests/test_peromyscus_holdout_information_v1.py"
+      - ".github/workflows/neon-peromyscus-holdout-information-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  precision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install frozen numerical dependencies
+        run: python -m pip install numpy==2.1.1 scipy==1.14.1
+      - name: Test residualized MNKA information and failed identifiability
+        run: python -m unittest discover -s tests -p 'test_peromyscus_holdout_information_v1.py' -v
+      - name: Download historical source observations
+        uses: actions/download-artifact@v4
+        with:
+          name: multiscale-density-centroid-geometry-v1
+          run-id: 37793401501
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/old
+      - name: Download heldout metric-only observations
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-WB-metric-only-QC-v1
+          run-id: 38046250920
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/new
+      - name: Download continuous-history heldout abundance
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-continuous-MNKA-support-v1
+          run-id: 38046339017
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/mnka
+      - name: Verify no source changes
+        run: |
+          test -s build/old/multiscale_density_centroid_session_diagnostics_v1.json
+          test -s build/new/future_neon_metric_session_values_v1.json
+          test -s build/mnka/future_neon_continuous_mnka_predictor_pairs_v1.json
+      - name: Evaluate observed-design compatibility without new model selection
+        run: |
+          python -m analysis.audit_peromyscus_holdout_information_v1 \
+            --development build/old/multiscale_density_centroid_session_diagnostics_v1.json \
+            --future-metric build/new/future_neon_metric_session_values_v1.json \
+            --future-mnka build/mnka/future_neon_continuous_mnka_predictor_pairs_v1.json \
+            --output build/peromyscus_holdout_information_v1.json
+      - name: Archive result or STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: peromyscus-holdout-information-v1
+          path: build/peromyscus_holdout_information_v1.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,49 @@
+name: multiscale-density-development-fit
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/multiscale_density_fixed_effects_v1.py"
+      - "analysis/run_multiscale_density_development_fit_v1.py"
+      - "analysis/audit_multiscale_density_mnka_variation_v1.py"
+      - "analysis/run_multiscale_density_metric_qc_v1.py"
+      - "results/multiscale_density_joint_model_contract_v1.json"
+      - "tests/test_multiscale_density_fixed_effects_v1.py"
+      - ".github/workflows/multiscale-density-development-fit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-development-fit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install model dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Test frozen fixed-effects estimator
+        run: python -m unittest tests.test_multiscale_density_fixed_effects_v1 -v
+      - name: Require NEON access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run first frozen development fit
+        run: python -m analysis.run_multiscale_density_development_fit_v1
+      - name: Upload development result
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-development-fit-v1
+          path: build/multiscale_density_development_fit_v1.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="690" viewBox="0 0 1120 690" aria-labelledby="title desc" role="img">
+<title id="title">NEON genus-specific density-associated contrast: exploratory heterogeneity and failed generality test</title>
+<desc id="desc">Frozen eight-genus development estimates of beta Delta, where delta equals beta_B minus beta_W in square metres per genus MNKA; five of eight estimates positive, short of the frozen six required. Six genera sampled at three or more sites are shown on scale minus twenty to plus thirty; two single-site genera are shown in a separate signed-value inset without direct numerical x-axis comparison. Values are descriptive, not statistically confirmed effects.</desc>
+<rect x="0" y="0" width="1120" height="690" fill="#fff"/>
+<text x="42" y="41" font-family="Arial" font-weight="bold" font-size="25" fill="#172d3b">Density responses differ among small-mammal genera</text>
+<text x="42" y="66" font-family="Arial" font-size="14" fill="#455968">Frozen NEON RELEASE-2026 development, 1,326 sessions / 40 sites. Contrasts are associations, not experimental density responses.</text>
+<text x="42" y="102" font-family="Arial" font-weight="bold" font-size="18" fill="#823c2f">Predeclared generality test: FAIL — 5/8 positive; 6/8 required</text>
+<text x="42" y="127" font-family="Arial" font-size="13" fill="#5c6971">Δβ = β(B among individual centres) − β(W within individuals)   [m² per genus-MNKA]</text>
+<line x1="42" y1="139" x2="1080" y2="139" stroke="#ced7de"/>
+<text x="42" y="172" font-family="Arial" font-size="18" font-weight="bold" fill="#1c3342">Multi-site genera (6 of 8)</text>
+<line x1="380" y1="191" x2="380" y2="428" stroke="#e6edf1" stroke-width="1" stroke-dasharray='3 4'/>
+<text x="380" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">-20</text>
+<line x1="474" y1="191" x2="474" y2="428" stroke="#e6edf1" stroke-width="1" stroke-dasharray='3 4'/>
+<text x="474" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">-10</text>
+<line x1="568" y1="191" x2="568" y2="428" stroke="#7e8b94" stroke-width="2" />
+<text x="568" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">0</text>
+<line x1="662" y1="191" x2="662" y2="428" stroke="#e6edf1" stroke-width="1" stroke-dasharray='3 4'/>
+<text x="662" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">+10</text>
+<line x1="756" y1="191" x2="756" y2="428" stroke="#e6edf1" stroke-width="1" stroke-dasharray='3 4'/>
+<text x="756" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">+20</text>
+<line x1="850" y1="191" x2="850" y2="428" stroke="#e6edf1" stroke-width="1" stroke-dasharray='3 4'/>
+<text x="850" y="455" font-family="Arial" font-size="12" fill="#465865" text-anchor="middle">+30</text>
+<text x="42" y="217" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Chaetodipus</text>
+<text x="258" y="217" font-family="Arial" font-size="13" fill="#53636d">3 sites / 45 sessions</text>
+<line x1="568" y1="213" x2="824.8987702414156" y2="213" stroke="#2b6d89" stroke-width="4"/>
+<circle cx="824.8987702414156" cy="213" r="5.6" fill="#2b6d89"/>
+<text x="895" y="218" font-family="Arial" font-size="15" font-weight="600" fill="#2b6d89">+27.33</text>
+<text x="42" y="253" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Dipodomys</text>
+<text x="258" y="253" font-family="Arial" font-size="13" fill="#53636d">4 sites / 129 sessions</text>
+<line x1="555.0722928913852" y1="249" x2="568" y2="249" stroke="#bd7954" stroke-width="4"/>
+<circle cx="555.0722928913852" cy="249" r="5.6" fill="#bd7954"/>
+<text x="895" y="254" font-family="Arial" font-size="15" font-weight="600" fill="#bd7954">-1.38</text>
+<text x="42" y="289" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Microtus</text>
+<text x="258" y="289" font-family="Arial" font-size="13" fill="#53636d">5 sites / 30 sessions</text>
+<line x1="568" y1="285" x2="640.7735720163696" y2="285" stroke="#2b6d89" stroke-width="4"/>
+<circle cx="640.7735720163696" cy="285" r="5.6" fill="#2b6d89"/>
+<text x="895" y="290" font-family="Arial" font-size="15" font-weight="600" fill="#2b6d89">+7.74</text>
+<text x="42" y="325" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Myodes</text>
+<text x="258" y="325" font-family="Arial" font-size="13" fill="#53636d">5 sites / 75 sessions</text>
+<line x1="568" y1="321" x2="800.1818727455836" y2="321" stroke="#2b6d89" stroke-width="4"/>
+<circle cx="800.1818727455836" cy="321" r="5.6" fill="#2b6d89"/>
+<text x="895" y="326" font-family="Arial" font-size="15" font-weight="600" fill="#2b6d89">+24.70</text>
+<text x="42" y="361" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Peromyscus</text>
+<text x="258" y="361" font-family="Arial" font-size="13" fill="#53636d">33 sites / 956 sessions</text>
+<line x1="568" y1="357" x2="717.7425364510191" y2="357" stroke="#2b6d89" stroke-width="4"/>
+<circle cx="717.7425364510191" cy="357" r="5.6" fill="#2b6d89"/>
+<text x="895" y="362" font-family="Arial" font-size="15" font-weight="600" fill="#2b6d89">+15.93</text>
+<text x="42" y="397" font-family="Arial" font-size="15" font-weight="600" fill="#253c4a">Sigmodon</text>
+<text x="258" y="397" font-family="Arial" font-size="13" fill="#53636d">7 sites / 65 sessions</text>
+<line x1="413.88529042870505" y1="393" x2="568" y2="393" stroke="#bd7954" stroke-width="4"/>
+<circle cx="413.88529042870505" cy="393" r="5.6" fill="#bd7954"/>
+<text x="895" y="398" font-family="Arial" font-size="15" font-weight="600" fill="#bd7954">-16.40</text>
+<line x1="42" y1="475" x2="1080" y2="475" stroke="#d0dbe1"/>
+<text x="42" y="505" font-family="Arial" font-size="18" font-weight="bold" fill="#1c3342">Single-site genera: insufficient geographic replication</text>
+<text x="42" y="543" font-family="Arial" font-size="15" fill="#263b48">Napaeozapus</text>
+<text x="258" y="543" font-family="Arial" font-size="13" fill="#53636d">1 site / 8 sessions</text>
+<text x="560" y="543" font-family="Arial" font-size="15" font-weight="600" fill="#bd7954">-1.01 m²/MNKA</text>
+<text x="42" y="573" font-family="Arial" font-size="15" fill="#263b48">Onychomys</text>
+<text x="258" y="573" font-family="Arial" font-size="13" fill="#53636d">1 site / 18 sessions</text>
+<text x="560" y="573" font-family="Arial" font-size="15" font-weight="600" fill="#2b6d89">+143.13 m²/MNKA</text>
+<text x="42" y="619" font-family="Arial" font-size="12" fill="#4c5a64">Genus-balanced development Δβ = +9.37 m²/MNKA, but positive pooled sign does not overcome the failed 6/8 rule.</text>
+<text x="42" y="639" font-family="Arial" font-size="12" fill="#4c5a64">No confidence interval or individual-site causal mechanism shown; lines represent point estimates only.</text>
+<text x="42" y="660" font-family="Arial" font-size="11" fill="#667983">Source: results/multiscale_density_development_result_v1.json; receipt locked 2026-10-06. One-site estimates shown outside scaled panel.</text>
+</svg>

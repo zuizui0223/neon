@@ -1,0 +1,100 @@
+{
+  "design": "docs/NEON_GENUS_FIRST_NIGHT_REENCOUNTER_SOURCE_GATE_20261026.md",
+  "genera_passing_predeclared_individual_and_site_marginal_support": [
+    {
+      "first_night_tagged_animals": 1736,
+      "genus": "Peromyscus",
+      "physical_sites_with_first_night_animals": 27
+    },
+    {
+      "first_night_tagged_animals": 183,
+      "genus": "Microtus",
+      "physical_sites_with_first_night_animals": 9
+    },
+    {
+      "first_night_tagged_animals": 111,
+      "genus": "Myodes",
+      "physical_sites_with_first_night_animals": 8
+    }
+  ],
+  "genera_with_potential_matched_site_comparisons": 3,
+  "independent_sites_with_firstnight_tagged_captures": 30,
+  "limits": {
+    "bout_duplicate_use_across_adjacent_season_comparisons_removed": true,
+    "historic_density_temperature_operability_source_failures_unchanged": true,
+    "nextnight_recapture_not_equal_true_genus_detection_p": true,
+    "site_plot_trap_night_tag_exact_dates_not_exported": true,
+    "tag_genus_conflicts_and_ambiguous_same_night_stations_excluded": true,
+    "this_source_cohort_is_not_the_historical_exact_station_Z_effect": true,
+    "unknown_fate_of_firstnight_tagged_individuals": true
+  },
+  "number_of_genera_with_one_plus_firstnight_captures": 15,
+  "number_of_source_supported_genus_pairs": 2,
+  "original_exact_two_season_pairs": 158,
+  "original_firstnight_capture_source_rejections": {
+    "ambiguous_original_source_tag_genus": 16,
+    "multi_location_same_tag_first_night": 1
+  },
+  "original_independent_physical_sites": 30,
+  "outcome_still_sealed": {
+    "new_genus_recapture_fraction_or_difference_not_computed": true,
+    "old_climate_79_of_80_QC_STOP_unchanged": true,
+    "old_failed_all_six_456_operability_source_gate_unchanged": true,
+    "old_failed_eight_genus_density_5of8_generalization_unchanged": true,
+    "original_genus_exact_trap_spatial_Z_unchanged": true,
+    "private_original_taxon_tag_event_site_station_dates_not_exported": true,
+    "source_only_before_day2_day3_individual_matching": true
+  },
+  "predeclared_source_gate": {
+    "minimum_common_sites": 6,
+    "minimum_firstnight_animals_per_genus": 100,
+    "minimum_firstnight_animals_per_genus_per_shared_site": 5,
+    "minimum_original_firstnight_tagged_animals": 400,
+    "minimum_overall_independent_sites": 15,
+    "minimum_sites_per_genus": 6,
+    "no_nextnight_matching_outcomes_opened": true,
+    "passed": true
+  },
+  "preselected_genus_pair_if_pass": {
+    "firstnight_all_sites_animals": [
+      183,
+      1736
+    ],
+    "genera": [
+      "Microtus",
+      "Peromyscus"
+    ],
+    "shared_qualified_physical_sites": 7,
+    "source_selected_only_by_firstnight_exposures": true
+  },
+  "schema": "neon.macro.genus_firstnight_reencounter_source.v1",
+  "source": {
+    "authoritative_original_NEON_target_genus_taxonomy": true,
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "original_NEON_release": "RELEASE-2026",
+    "original_exact_two_158_comparisons_preserved": true,
+    "original_plot_rows": 21363,
+    "original_strict_58_comparisons_preserved": true,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827,
+    "source_selected_by_firstnight_tagged_capture_only": true
+  },
+  "source_firstnight_marked_animals": 3255,
+  "source_firstnight_rows": {
+    "capture_missing_mark_or_authoritative_target_genus": 9986,
+    "invalid_first_night_named_station": 1,
+    "qualified_first_night_rows_before_conflict_resolution": 3273
+  },
+  "status": "SOURCE_MATCHED_GENUS_REENCOUNTER_COMPARISON_GO",
+  "unique_source_three_night_bouts": 293,
+  "workflow_provenance": {
+    "repo": "zuizui0223/neon",
+    "run_id": 40258347024,
+    "job_id": 121364980090,
+    "source_head": "20b3bdf08263777d7bff3767613f21fbed3cc647",
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40258347024",
+    "no_followup_night_outcome_opened": true
+  }
+}

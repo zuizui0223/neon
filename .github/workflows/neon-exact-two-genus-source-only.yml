@@ -1,0 +1,47 @@
+name: neon-exact-two-genus-source-only
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_neon_crossseason_genus_support_v1.py"
+      - "analysis/run_neon_two_genus_source_v1.py"
+      - "tests/test_neon_exact_two_genus_source_v1.py"
+      - ".github/workflows/neon-exact-two-genus-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-exact-two-genus-source-only-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-source-unopened-exact-two:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test additive exact-two source selection and immutable original three-genus results
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_crossseason_genus_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_genus_source_v1.py' -v
+      - name: Require original checksum-verified NEON release authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Rebuild exactly-two disjoint 158 source pairs without opening effects
+        run: python -m analysis.run_neon_two_genus_source_v1
+      - name: Store aggregate safe source support including honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-exact-two-genus-source-only-support
+          path: build/neon_exactly_two_genus_source_support_v1.json
+          if-no-files-found: warn
+          retention-days: 45

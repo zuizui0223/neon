@@ -1,0 +1,17 @@
+{
+  "animal_outcome_records_never_accessed": true,
+  "no_fate_category_invented": true,
+  "official_same_release_metadata_inventory_scanned": true,
+  "original_firstnight_615_fate_results_not_reclassified": true,
+  "schema": "neon.macro.official_fate_categorical_metadata.v1",
+  "source_release": "RELEASE-2026",
+  "status": "STOP_CATEGORICAL_CODEBOOK_NOT_IN_ORIGINAL_RELEASE_QUERY",
+  "source_provenance": {
+    "repository": "zuizui0223/neon",
+    "run_id": 40537138494,
+    "job_id": 122305326152,
+    "conclusion": "successful_source_scope_STOP",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40537138494",
+    "original_fate_records_not_reclassified": true
+  }
+}
