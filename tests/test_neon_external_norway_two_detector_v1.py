@@ -28,6 +28,8 @@ class PairedDetectorAuditTests(unittest.TestCase):
         counts=result["paired_camera_capture_record"]["detector_discordance"]
         self.assertEqual(counts,{"both":3,"camera_only":3,"capture_only":2,"neither":2})
         self.assertTrue(result["scientific_limitations"]["camera_and_ordinary_trap_effort_not_equal"])
+        self.assertTrue(result["scientific_limitations"]["camera_and_capture_are_not_same_date_replicates"])
+        self.assertTrue(result["published_original_source"]["camera_counts_precede_trapping_by_30_calendar_days"])
     def test_capture_apparent_loss_can_coexist_with_camera_continuity(self):
         result=summarize_observation_channels(original_rows(fixture(),pinned=False))
         n=result["adjacent_same_season_year_comparison"]["totals"]
