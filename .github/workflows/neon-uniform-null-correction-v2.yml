@@ -1,0 +1,47 @@
+name: neon-uniform-null-correction-v2
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_proposal_clock_v2.py"
+      - "analysis/run_neon_uniform_null_correction_v2.py"
+      - "tests/test_neon_proposal_clock_v2.py"
+      - ".github/workflows/neon-uniform-null-correction-v2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-uniform-clock-correction-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-locked-correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact finite-state stationarity and corrected proposal clock
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_proposal_clock_v2.py' -v
+          python -m py_compile analysis/run_neon_uniform_null_correction_v2.py
+      - name: Require authorized original NEON release access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Recompute unchanged 58 pairs with uniformly stationary proposal-clock sampler
+        run: python -m analysis.run_neon_uniform_null_correction_v2
+      - name: Archive aggregate corrected result even if source or quality stops
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-uniform-null-correction-v2
+          path: build/neon_uniform_null_correction_v2.json
+          if-no-files-found: warn
+          retention-days: 45

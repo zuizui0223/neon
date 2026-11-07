@@ -1,0 +1,26 @@
+name: neon-capture-template-identifiability-synthetic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_capture_template_identifiability_v1.py'
+      - 'tests/test_neon_capture_template_identifiability_v1.py'
+      - 'docs/NEON_CAPTURE_TEMPLATE_IDENTIFIABILITY_20261028.md'
+      - '.github/workflows/neon-capture-template-identifiability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-free-counterexample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact finite-state checks (no NEON source or secrets)
+        run: python -m unittest discover -s tests -p 'test_neon_capture_template_identifiability_v1.py' -v
+      - name: Print source-free synthetic expectation
+        run: python -m analysis.neon_capture_template_identifiability_v1

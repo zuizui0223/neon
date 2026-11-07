@@ -1,0 +1,168 @@
+{
+  "schema": "neon.multiscale_density.development_result.v1",
+  "date": "2026-10-06",
+  "status": "POSITIVE_GENUS_BALANCED_PATTERN_BUT_GENERALITY_GUARD_FAILED",
+  "programme": "multiscale_density_accommodation_v1",
+  "provenance": {
+    "workflow": "multiscale-density-development-fit-macos",
+    "run_id": 37425470104,
+    "job_id": 112144006948,
+    "head_sha": "0e726f6a613e2b8cd62595ab04c843923eca2d0a",
+    "artifact_id": 11394654483,
+    "artifact_name": "multiscale-density-development-fit-macos-v1",
+    "artifact_digest": "sha256:775a534fe919601eadf51f79a8063cb1368faa9a02b2180876327ab4574d3438",
+    "contract": "results/multiscale_density_joint_model_contract_v1.json"
+  },
+  "support": {
+    "analysis_sessions": 1326,
+    "analysis_series": 167,
+    "taxon_concepts": 21,
+    "genera": 8,
+    "sites": 40,
+    "sessions_by_genus": {
+      "Chaetodipus": 45,
+      "Dipodomys": 129,
+      "Microtus": 30,
+      "Myodes": 75,
+      "Napaeozapus": 8,
+      "Onychomys": 18,
+      "Peromyscus": 956,
+      "Sigmodon": 65
+    }
+  },
+  "primary": {
+    "delta_beta_m2_per_mnka": 9.37176547246767,
+    "se_two_way_cluster": 4.1414203807435515,
+    "beta_W_m2_per_mnka": -4.394825896684285,
+    "beta_B_debiased_m2_per_mnka": 4.976939575783388,
+    "strong_form_signs": true,
+    "interpretation": "on the frozen genus-balanced development fit, higher genus MNKA is associated with lower within-individual short-term space-use variance and higher among-centre variance"
+  },
+  "robustness": {
+    "all_leave_one_genus_out_positive": true,
+    "leave_one_genus_out_delta": [
+      {
+        "left_out_genus": "Chaetodipus",
+        "beta": 8.182287895735179
+      },
+      {
+        "left_out_genus": "Dipodomys",
+        "beta": 9.15404943299644
+      },
+      {
+        "left_out_genus": "Microtus",
+        "beta": 13.048596261345155
+      },
+      {
+        "left_out_genus": "Myodes",
+        "beta": 9.663087781614133
+      },
+      {
+        "left_out_genus": "Napaeozapus",
+        "beta": 9.657959136030104
+      },
+      {
+        "left_out_genus": "Onychomys",
+        "beta": 7.178843155793328
+      },
+      {
+        "left_out_genus": "Peromyscus",
+        "beta": 7.746158028114402
+      },
+      {
+        "left_out_genus": "Sigmodon",
+        "beta": 11.24590210071812
+      }
+    ],
+    "sensitivity_delta_beta": {
+      "unweighted": 14.332952936192655,
+      "raw_B": 7.44443506493165,
+      "no_site_month": 12.955080457929487
+    }
+  },
+  "genus_specific_delta": [
+    {
+      "genus": "Chaetodipus",
+      "beta": 27.329656408661233,
+      "sessions": 45,
+      "sites": 3,
+      "sign": "positive"
+    },
+    {
+      "genus": "Dipodomys",
+      "beta": -1.3752879902781707,
+      "sessions": 129,
+      "sites": 4,
+      "sign": "negative"
+    },
+    {
+      "genus": "Microtus",
+      "beta": 7.741869363443585,
+      "sessions": 30,
+      "sites": 5,
+      "sign": "positive"
+    },
+    {
+      "genus": "Myodes",
+      "beta": 24.700199228253584,
+      "sessions": 75,
+      "sites": 5,
+      "sign": "positive"
+    },
+    {
+      "genus": "Napaeozapus",
+      "beta": -1.012417937693133,
+      "sessions": 8,
+      "sites": 1,
+      "sign": "negative"
+    },
+    {
+      "genus": "Onychomys",
+      "beta": 143.13393859576294,
+      "sessions": 18,
+      "sites": 1,
+      "sign": "positive"
+    },
+    {
+      "genus": "Peromyscus",
+      "beta": 15.93005706925735,
+      "sessions": 956,
+      "sites": 33,
+      "sign": "positive"
+    },
+    {
+      "genus": "Sigmodon",
+      "beta": -16.3951818692867,
+      "sessions": 65,
+      "sites": 7,
+      "sign": "negative"
+    }
+  ],
+  "preregistered_guard": {
+    "required": [
+      "genus-balanced delta_beta > 0",
+      "every leave-one-genus-out delta_beta > 0",
+      "at least 6 of 8 genus-specific delta_beta estimates > 0"
+    ],
+    "observed_positive_genus_count": 5,
+    "required_positive_genus_count": 6,
+    "passed": false
+  },
+  "decision": {
+    "development_cross_scale_support": false,
+    "strong_form_general_principle_supported": false,
+    "allowed_statement": "the genus-balanced RELEASE-2026 development estimate shows the predicted strong-form sign pattern, but the preregistered multi-genus generality guard fails because only 5/8 genus-specific estimates are positive",
+    "prohibited_rescue": [
+      "lower 6/8 threshold to 5/8",
+      "drop negative genera post hoc",
+      "introduce habitat/body-size/latitude moderators to restore a general positive claim",
+      "relabel the pooled positive pattern as a general small-mammal law"
+    ],
+    "next_step": "diagnose heterogeneity descriptively under the frozen model, then decide whether the paper is a heterogeneous density-accommodation result rather than a universal packing result"
+  },
+  "effect_boundary": {
+    "RELEASE_2026_is_development_data": true,
+    "future_confirmatory_response_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

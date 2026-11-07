@@ -1,0 +1,46 @@
+name: portal-multiscale-density-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_portal_multiscale_density_support_v1.py"
+      - "tests/test_portal_multiscale_density_support_v1.py"
+      - ".github/workflows/portal-multiscale-density-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portal-multiscale-density-support-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: weecology/PortalData
+          ref: 72d7ff8568052763bf6899dc462e285684cf20f6
+          path: PortalData
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit test
+        run: python -m unittest tests.test_portal_multiscale_density_support_v1 -v
+      - name: Audit pinned Portal data
+        run: |
+          python -m analysis.audit_portal_multiscale_density_support_v1 \
+            --portal-dir PortalData \
+            --out build/portal_multiscale_density_support_v1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-multiscale-density-support-v1
+          path: build/portal_multiscale_density_support_v1.json
+          if-no-files-found: error
+          retention-days: 30

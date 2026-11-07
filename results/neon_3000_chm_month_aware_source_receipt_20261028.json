@@ -1,0 +1,122 @@
+{
+  "CHM_monthly_manifest_digest_set": "1c3a6d62436f9cc7aaed2ea526f2a7c7b1f436c926a36938bea583f5921d611f",
+  "CHM_monthly_manifest_error_categories": {},
+  "canopy_source_coverage": {
+    "CHM_canopy_minimum_height_not_low_ground_cover": true,
+    "CHM_zero_is_not_no_understory_vegetation": true,
+    "full_historical_habitat_or_detection_effect_estimated": false,
+    "full_station_height_range_m_summary": {
+      "maximum": 36.90399932861328,
+      "median": 0.9384999871253967,
+      "minimum": 0
+    },
+    "historically_flagged_original_plots_retained": 4,
+    "negative_height_pixels_flagged": 0,
+    "original_plots": 30,
+    "pixel_status_counts": {
+      "VALID_REFERENCE_PIXEL": 3000
+    },
+    "plots_E5_zero_but_another_station_positive": 14,
+    "plots_all_station_pixels_valid": 30,
+    "plots_all_stations_zero_canopy": 5,
+    "plots_at_least_95pct_pixels_valid": 30,
+    "plots_at_least_two_valid_pixels": 30,
+    "plots_with_nonzero_full_station_height_range": 25,
+    "raw_station_plot_site_coordinates_heights_or_taxon_ids_exported": false,
+    "source_station_positions": 3000,
+    "valid_station_pixels": 3000,
+    "valid_zero_pixels": 1894
+  },
+  "dated_REST_history_source_verified": true,
+  "ecological_limits": {
+    "canopy_height_does_not_measure_understory_shrub_ground_cover": true,
+    "contemporaneous_vegetation_habitat_not_established_by_month_matching": true,
+    "genus_habitat_selection_or_recurrence_effect_not_fitted": true,
+    "genus_specific_detection_not_identified": true,
+    "historical_2015_2026_capture_habitat_not_inferred_from_latest_2022_2024_AOP": true,
+    "next": "Use source-year-appropriate environment plus independent detection/effort before a future held-out ecological mechanism test",
+    "old_graphql_vs_rest_equivalence_STOP_unchanged": true,
+    "old_operability_18_of_158_and_temperature_79_of_80_STOP_unchanged": true,
+    "original_density_generality_5_of_8_failure_unchanged": true,
+    "original_mammal_capture_space_recurrence_unchanged": true
+  },
+  "geoNEON_adjusted_uncertainty_is_assumed_not_confidence_bound": true,
+  "historically_date_valid_station_attempts": 34800,
+  "original_58_30_14_geographical_cohort_unchanged": true,
+  "original_captured_population": {
+    "capture_files_without_required_namedLocation_schema": 0,
+    "downloaded_source_files_MD5_size_verified": 3480,
+    "manifest_files": 3547,
+    "perplotnight_files": 1773,
+    "pertrapnight_files": 1707,
+    "release": "RELEASE-2026",
+    "same_58_pairs_30_plots_14_sites_reproduced": true,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "original_station_location_source_digest_set_sha256": "b83a11e8431f6d7af802c55fbf37cc404d4f904c9f3b3ad8665324ddb55c7028",
+  "previous_five_anchor_replay": {
+    "E5_zero_pixels": 19,
+    "all_original_five_anchor_pixels_valid": true,
+    "five_anchor_zero_pixels": 93,
+    "five_named_anchor_pixels_valid": 150,
+    "plots_five_anchor_positive_canopy_range": 14
+  },
+  "provider_checksum_kinds": {
+    "crc32c": 34
+  },
+  "provider_size_and_checksum_verified_tiles": 34,
+  "raster_download_error_categories": {},
+  "raster_local_sha256_digest_set": "ac453e076e6d2a83b7cefe70a3d3bb554528e1c3eabfba9b8cb3355a69c019f7",
+  "raster_read_error_categories": {},
+  "schema": "neon.macro.full100_chm_month_source_qa.v1",
+  "selected_source_tile_bytes": 40330780,
+  "selected_source_unique_tiles": 34,
+  "source_acquisition_is_calendar_month_not_exact_flight_day": true,
+  "source_coordinates_and_raster_data_or_heights_not_exported": true,
+  "source_retrieved_utc": "2026-10-28T01:06:42.242836+00:00",
+  "status": "FULL_3000_STATION_CHM_SOURCE_AUDITED_NO_ECOLOGICAL_EFFECT",
+  "temporal_source_alignment": {
+    "abs_month_gap_12_or_less_attempts": 69,
+    "abs_month_gap_24_or_less_attempts": 108,
+    "abs_month_gap_3_or_less_attempts": 33,
+    "absolute_month_gap_summary": {
+      "max": 110,
+      "median": 70,
+      "min": 0
+    },
+    "acquisition_not_assumed_contemporaneous_with_capture": true,
+    "acquisition_year_site_counts": {
+      "2022": 1,
+      "2023": 5,
+      "2024": 8
+    },
+    "flight_month_after_capture_month_attempts": 276,
+    "flight_month_before_capture_month_attempts": 63,
+    "month_not_exact_flight_day": true,
+    "original_capture_tags_or_spatial_response_read": false,
+    "original_physical_sites": 14,
+    "original_season_pairs": 58,
+    "original_source_plots": 30,
+    "paired_source_day_attempts": 348,
+    "pairs_all_six_days_same_acquisition_year": 7,
+    "pairs_all_six_days_within_12_calendar_months": 9,
+    "pairs_all_six_days_within_3_calendar_months": 4,
+    "same_calendar_month_attempts": 9,
+    "site_flight_month_available": 14,
+    "unique_source_plot_day_keys": 339
+  },
+  "uncertainty_window_clipped_at_tile_edge": 30,
+  "uncertainty_window_positive_range": 1681,
+  "uncertainty_window_station_pixels_valid": 3000,
+  "uncertainty_window_zero_center_but_positive_neighborhood": 575,
+  "github_actions_provenance": {
+    "run_id": 40612115870,
+    "job_id": 122565909289,
+    "head_sha": "d0c3b801a1d13160086113869731dc0e3c87c0fa",
+    "artifact_id": 12782779873,
+    "artifact_zip_sha256": "18d5b4bdd030153cabb2cc91c56ec9a85e5b1a460aa2d368493ef24c4fee0125",
+    "workflow_conclusion": "success",
+    "same_mammal_RELEASE_2026_source_no_ecological_effect": true
+  }
+}

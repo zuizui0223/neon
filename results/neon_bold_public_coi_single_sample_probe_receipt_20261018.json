@@ -1,0 +1,33 @@
+{
+  "W_B_or_crossscale_effects_opened": false,
+  "raw_sample_ID_query_id_sequence_or_taxon_exported": false,
+  "sanitized_diagnostic": "BOLD preprocessor API HTTP status 403",
+  "schema": "neon.bold_v5_one_sample_readonly_api_probe.v1",
+  "status": "STOP_BOLD_PUBLIC_ONE_SAMPLE_PROBE",
+  "record_date": "2026-10-18",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39094782409,
+    "job_id": 117578837219,
+    "head_commit_at_run": "e20aa46130d4d977c9c61216672960a4dcf837f5",
+    "run_conclusion": "failure_expected_SOURCE_STOP",
+    "source_synthetic_tests": "PASS",
+    "artifacts": [
+      {
+        "id": 12123714281,
+        "name": "neon-bold-public-coi-single-sample-source-probe",
+        "digest": "sha256:4e45225b1eb4b321b15afae3c5459edc008e1fb5ed2f751230479beb4351c7bd"
+      }
+    ],
+    "url": "https://github.com/zuizui0223/neon/actions/runs/39094782409"
+  },
+  "interpretation": {
+    "meaning": "The public BOLD v5 preprocessor returned HTTP 403 from the CI runner when asked for one deterministic NEON source sample. This is a network/authorization or availability boundary; it is not evidence that the specimen lacks a COI barcode or that BOLD is generally inaccessible to users.",
+    "source_sample_ID_unpublished": true,
+    "no_COI_record_examined": true,
+    "no_DNA_species_identity_validated": true,
+    "do_not_substitute_morphology_metadata_as_sequence_evidence": true,
+    "next": "Use authoritative NEON/BOLD supported export or archived immutable BOLD data-package lookup; do not repeatedly attempt the blocked API path. Biological spatial effect remains sealed."
+  }
+}

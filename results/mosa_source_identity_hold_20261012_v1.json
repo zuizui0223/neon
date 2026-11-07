@@ -1,0 +1,75 @@
+{
+  "schema": "neon.external_MOSA_identity_before_MNA_hold.v1",
+  "date": "2026-10-12",
+  "status": "SOURCE_VERIFIED_INDIVIDUAL_IDENTITY_UNRESOLVED_MNA_WB_HOLD",
+  "source": {
+    "doi": "10.5281/zenodo.10049811",
+    "source_raw_capture_file": "mosa_Feb2023_flags.csv",
+    "raw_MD5": "12c04902947b91922c3f6c98760ecb54",
+    "raw_capture_records": 49216,
+    "raw_MN_capture_records": 45433,
+    "publication_MN_unique_animals": 19850,
+    "original_distinct_MN_TOE_stripped": 19818,
+    "original_distinct_MN_TOE_unstripped": 19832,
+    "original_distinct_MN_TOE_casefolded": 19817
+  },
+  "source_identity_issues": {
+    "published_animals_minus_raw_distinct_clean_TOE": 32,
+    "same_TOE_date_different_stations_groups": 45,
+    "distinct_TOEs_in_simultaneous_collisions": 41,
+    "TOE_histories_over_24_months": 3,
+    "maximum_single_TOE_span_months": 179,
+    "raw_TOEs_used_across_species": 54,
+    "toe_strings_with_external_whitespace": 17,
+    "single_TOE_both_reported_sexes": 5,
+    "author_encounter_matrix_MN_rows": 19692,
+    "author_encounter_matrix_species_NA_rows": 158,
+    "author_encounter_matrix_distinct_MN_TOE": 19678,
+    "author_encounter_matrix_duplicate_MN_TOE_rows": 14,
+    "raw_MN_TOE_absent_author_encounter_matrix": 140,
+    "author_matrix_MN_TOE_absent_raw": 0
+  },
+  "published_author_supplements": {
+    "processing_Rmd_checksum_verified": true,
+    "RMarkdown_code_selects_unique_TOE": true,
+    "RMarkdown_documented_reuse_and_long_recapture_flags": true,
+    "encounter_matrix_file_md5": [
+      "d16d26003f3df2ed139edc03f11b9ebd",
+      "bf600b8136891e39c70e203a867e1ef1"
+    ],
+    "author_encounter_matrix_rows": 19850,
+    "author_encounter_matrix_rows_are_NOT_proven_unique_MN_individuals": true,
+    "author_matrix_specific_species_TOE_roster_check": "RUNNING_OR_PENDING",
+    "matrix_species_roster_check": "COMPLETED_MD5_VERIFIED",
+    "author_matrix_rows_are_NOT_unique_MN_animals": true,
+    "author_matrix_MN_TOE_roster_is_substantive_subset_of_raw": true
+  },
+  "workflow_provenance": {
+    "source_MD5_and_schema_run": 38109127624,
+    "strict_three_night_support_run": 38109503505,
+    "failed_frozen_identity_gate_run": 38218728688,
+    "forensic_identity_quality_run": 38219092929,
+    "author_processing_RMarkdown_run": 38219373764,
+    "matrix_metadata_run": 38219679637,
+    "raw_vs_matrix_species_TOE_run": 38220149510
+  },
+  "effect_blind_support": {
+    "calendar_months_exact_three_consecutive_capture_dates": 182,
+    "months_with_m_ge_5_repeat_supported": 145,
+    "years_with_any_support": 27,
+    "not_final_year_variation_gate": true,
+    "W_B_or_density_slopes_opened": false,
+    "MNA_not_opened": true
+  },
+  "decision": {
+    "scientific_claim_boundary": "MOSA holds potential for one-species longitudinal ecology, but identity collisions and published animal count discrepancy must be resolved before reconstructing continuous marked-animal MNA or geometry.",
+    "not_allowed": [
+      "equating 19850 rows of mixed-species or duplicate encounter matrix with 19850 unique M. natalensis animals without checking SPECIES and TOE",
+      "silently equating 19818 raw toe strings with 19850 published animals",
+      "automatically splitting long toe histories based on an outcome-dependent criterion",
+      "ignoring same-day multiple-station identity conflicts",
+      "promoting structural 145-month feasibility to biological test success"
+    ],
+    "next": "Publisher's 19850 individual claim is not resolved by 19850 capture matrix rows (158 are SPECIES NA, 14 MN duplicate TOE rows); preserve MNA/WB effect hold pending verified cleaned identity mapping or separately justified preregistered conservative-id cohort."
+  }
+}

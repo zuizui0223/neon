@@ -1,0 +1,84 @@
+{
+  "schema": "neon.MOSA_one_species_spatial_allocation_pre_effect_contract.v1",
+  "date": "2026-10-11",
+  "status": "AFTER_NEON_DEVELOPMENT_AND_NEGATIVE_PROVISIONAL_RESPONSE_BEFORE_FIRST_MOSA_W_B_MNA_EFFECT",
+  "published_source": {
+    "dataset_doi": "10.5281/zenodo.10049811",
+    "article_doi": "10.1038/s41597-023-02700-3",
+    "exact_name": "mosa_Feb2023_flags.csv",
+    "exact_bytes": 2849668,
+    "exact_MD5": "12c04902947b91922c3f6c98760ecb54",
+    "published_raw_captures": 49216,
+    "Mastomys_natalensis_captures": 45433,
+    "layout": "single MOSA 30x10 station rectangle at 10m, 3 consecutive trap nights monthly, March 1994-February 2023",
+    "n_independent_sites": 1,
+    "nonterritorial_context": "Prior behavioral work documents broadly nonterritorial, overlapping home ranges; this is literature context, not a test of mechanism by itself."
+  },
+  "relationship_to_failed_NEON_hypotheses": {
+    "original_NEON_6_of_8_general_guard": "FAILED_5_OF_8",
+    "future_five_genus_mode": "NOT_ESTIMABLE_ALL_FIVE",
+    "Peromyscus_positive_D_in_new_events": "DIRECTION_NOT_REPLICATED_AND_IMPRECISE",
+    "meaning": "Independent species-site-year sequence, not an independent exact NEON 10x10/3night multigenus replication; never replace failed genera with Mastomys."
+  },
+  "pre_response_structural_gate": {
+    "exact_bytes_and_checksum": true,
+    "one_unambiguous_date_tag_species_x_y_schema": true,
+    "date_interpretation": "fully specified and unambiguous before spatial metrics",
+    "one_calendar_month_three_consecutive_capture_dates_conservative": true,
+    "min_three_night_month_sessions_with_ge5_repeat_supported_individuals": 60,
+    "min_years_with_support": 10,
+    "min_individual_recapture_nights_per_month": 2,
+    "min_monthly_abundance_levels_per_year": 2,
+    "no_threshold_changes_after_first_W_B_effect": true,
+    "if_failed": "STRUCTURAL_HOLD_NO_ECOLOGICAL_FIT"
+  },
+  "ecological_questions": {
+    "primary": "Does crowding in a largely nonterritorial rodent correlate with within-individual positional contraction and relatively larger among-individual centroid dispersion on the same three-night spatial scale?",
+    "competing": "Is the density-associated spatial response dominated by the compression of between-animal centres (beta_B < 0 and Delta <= 0), or is there no identifiable density association?",
+    "no_prior_density_mechanism": "No claimed causal social interaction, home-range territory, resource competition, or stable universal mammalian rule."
+  },
+  "frozen_responses": {
+    "W": "half mean squared within-tag pairwise trap-station distance across two or three distinct capture nights in eligible monthly session",
+    "B": "among distinct individual three-night trap-coordinate centroids variance, debiased by individual positional uncertainty, in m²",
+    "Delta": "B_debiased-W",
+    "geometry": "1..30 × A..J with 10m station spacing; no numerical comparison of unstandardized MOSA slope magnitudes with NEON 10x10"
+  },
+  "frozen_predictor": {
+    "MNA": "monthly Minimum Number Alive using encounter histories of same marked individuals across the 1994-2023 MOSA series; account for corrected toe-code identity, do not treat Toe ID text as continuous across documented re-use",
+    "not_true_density": true,
+    "post_outcome_change_forbidden": true
+  },
+  "prospective_analytical_model": {
+    "unit": "one 3-night primary month of one MOSA site",
+    "model": "response ~ MNA + month_of_year_FE + calendar_year_FE",
+    "dependence": "year-block bootstrap / clustered year with at least 10 supported independent years; preserve within-year autocorrelation",
+    "primary_response": "slope of Delta with MNA",
+    "primary_direction": "beta_Delta>0; do not convert a negative/null result to success",
+    "required_support_for_positive_inference": "beta_Delta point positive and 95% year-block percentile/bootstrap CI lower >0",
+    "secondary_signs": [
+      "beta_W<0",
+      "beta_B_debiased>=0"
+    ],
+    "secondary_observation_sensitivity": [
+      "equal repeated-capture m cohort and m-adjusted MNA response",
+      "raw vs debiased B",
+      "within-month capture-night completeness"
+    ],
+    "multiple_months_in_one_year_not_independent_sites": true,
+    "report_absolute_null": "also report observed total spatial variance W+B vs MNA without claiming variance conservation from algebra alone"
+  },
+  "falsification_and_scope": {
+    "primary_failed_if": "beta_Delta<=0 or year-block interval includes zero",
+    "strong_packing_failed_if": "beta_W>=0 or beta_B<0, even if beta_Delta positive",
+    "if_positive": "one-species, one-site longitudinal association with density across spatial scales in a broadly nonterritorial species; cannot infer territorial mechanism or multigenus generality",
+    "if_negative": "independent nontransportability of specific sign across ecology and geometry, not a universal opposite law",
+    "provisional_NEON_source_not_used_for_MOSA_response": true,
+    "forbidden": [
+      "retroactively selecting only favorable years, seasons, age or sex",
+      "tuning m or changing temporal bout from three to two nights",
+      "calling a single-site effect independent multi-site replication",
+      "equating monthly MNA with true density or behavioral cues"
+    ]
+  },
+  "time_boundary": "This document locks ecological direction before any MOSA individual spatial metric or abundance slope is calculated; if source and structural gate fail it remains a method-only artifact."
+}

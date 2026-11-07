@@ -1,0 +1,42 @@
+name: external-MOSA-author-first-species-provenance
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_author_first_species_v1.py"
+      - "tests/test_mosa_author_first_species_v1.py"
+      - ".github/workflows/external-MOSA-author-first-species-provenance.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-first-species-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify first-retained record, NA species and normalization fixtures
+        run: |
+          python -m unittest discover -s tests -p 'test_mosa_author_first_species_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_author_occasion_mask_v1.py' -v
+      - name: Read official checksum-locked MOSA raw and authors' occasion/encounter files
+        run: python -m analysis.audit_mosa_author_first_species_v1
+      - name: Archive first-species structural receipt or STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-author-first-species-v1
+          path: build/mosa_author_first_species_v1.json
+          if-no-files-found: warn
+          retention-days: 40

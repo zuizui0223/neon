@@ -1,0 +1,316 @@
+{
+  "MOSA_spatial_effects": "SEALED",
+  "W_B_or_MNKA_space_effect_opened": false,
+  "all_source_headers_recorded_as_original": true,
+  "barcode_product": "DP1.10076.001",
+  "barcode_sample_to_animal_matches_calculated": false,
+  "barcode_taxonomic_determinations_read": false,
+  "capture_sample_IDs_or_individual_IDs_exported": false,
+  "earSampleID_to_barcode_link_proven": false,
+  "first_last_header_drift": {
+    "mam_BOLDcollectionData": false,
+    "mam_BOLDspecimenDetails": false,
+    "mam_BOLDtaxonomy": false,
+    "mam_BOLDvoucherInfo": false,
+    "mam_barcodingqa": false
+  },
+  "fixed_query_end": "2023-11",
+  "fixed_query_start": "2015-04",
+  "full_five_genus_confirmation": "NOT_ESTIMABLE",
+  "inventory_unique_files": 3536,
+  "inventory_validated_MD5_and_file_size": true,
+  "new_Peromyscus_directional_replication": "NOT_REPLICATED_IMPRECISE",
+  "next_gate": "Identify unambiguous earSampleID and BOLD-voucher key from verified table schemas, then implement source-only join with barcode selection bias and taxonomy quality checks before opening any ecological effects.",
+  "original_8genus_generalization": "FAILED_5_OF_8",
+  "published_product_metadata_site_count": 46,
+  "release": "RELEASE-2026",
+  "release_files_by_table": {
+    "mam_BOLDcollectionData": {
+      "earliest_month": "2016-03",
+      "latest_month": "2023-11",
+      "sampled_schema": [
+        {
+          "columns": [
+            "sampleID",
+            "collectors",
+            "collectDate",
+            "countryOcean",
+            "stateProvince",
+            "region",
+            "sector",
+            "exactSite",
+            "latitude",
+            "longitude",
+            "elevation",
+            "depth",
+            "elevationPrecision",
+            "depthPrecision",
+            "gpsSource",
+            "coordinateAccuracy",
+            "eventTime",
+            "collectionDateAccuracy",
+            "habitat",
+            "samplingProtocol",
+            "collectionNotes",
+            "siteCode",
+            "collectionEventID"
+          ],
+          "n_columns": 23,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 8,
+          "source_checksum_MD5": "7d29d359e0546643e835db027f0e9b9d",
+          "source_file_size": 3403,
+          "source_site": "SCBI",
+          "source_year_month": "2016-03"
+        },
+        {
+          "columns": [
+            "sampleID",
+            "collectors",
+            "collectDate",
+            "countryOcean",
+            "stateProvince",
+            "region",
+            "sector",
+            "exactSite",
+            "latitude",
+            "longitude",
+            "elevation",
+            "depth",
+            "elevationPrecision",
+            "depthPrecision",
+            "gpsSource",
+            "coordinateAccuracy",
+            "eventTime",
+            "collectionDateAccuracy",
+            "habitat",
+            "samplingProtocol",
+            "collectionNotes",
+            "siteCode",
+            "collectionEventID"
+          ],
+          "n_columns": 23,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 20,
+          "source_checksum_MD5": "f48cb9db40168a2f55300381a687d40b",
+          "source_file_size": 6955,
+          "source_site": "SRER",
+          "source_year_month": "2023-11"
+        }
+      ],
+      "source_files": 884,
+      "source_sites": 46
+    },
+    "mam_BOLDspecimenDetails": {
+      "earliest_month": "2016-03",
+      "latest_month": "2023-11",
+      "sampled_schema": [
+        {
+          "columns": [
+            "sampleID",
+            "sex",
+            "reproduction",
+            "lifeStage",
+            "extraInfo",
+            "notes",
+            "voucherStatus",
+            "tissueDescriptor",
+            "externalURLs",
+            "associatedTaxa",
+            "associatedSpecimens"
+          ],
+          "n_columns": 11,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 8,
+          "source_checksum_MD5": "bbccc32325b16a6063a7ffe38ef57658",
+          "source_file_size": 1672,
+          "source_site": "SCBI",
+          "source_year_month": "2016-03"
+        },
+        {
+          "columns": [
+            "sampleID",
+            "sex",
+            "reproduction",
+            "lifeStage",
+            "extraInfo",
+            "notes",
+            "voucherStatus",
+            "tissueDescriptor",
+            "externalURLs",
+            "associatedTaxa",
+            "associatedSpecimens"
+          ],
+          "n_columns": 11,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 20,
+          "source_checksum_MD5": "82afd388982709f224b2d8bc86be06c1",
+          "source_file_size": 2997,
+          "source_site": "SRER",
+          "source_year_month": "2023-11"
+        }
+      ],
+      "source_files": 884,
+      "source_sites": 46
+    },
+    "mam_BOLDtaxonomy": {
+      "earliest_month": "2016-03",
+      "latest_month": "2023-11",
+      "sampled_schema": [
+        {
+          "columns": [
+            "sampleID",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "subfamily",
+            "tribe",
+            "genus",
+            "species",
+            "subspecies",
+            "taxonID",
+            "identifier",
+            "identifierEmail",
+            "identificationMethod",
+            "taxonomyNotes"
+          ],
+          "n_columns": 15,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 8,
+          "source_checksum_MD5": "f4e111fb226681aa21b362c1820bf9bb",
+          "source_file_size": 1787,
+          "source_site": "SCBI",
+          "source_year_month": "2016-03"
+        },
+        {
+          "columns": [
+            "sampleID",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "subfamily",
+            "tribe",
+            "genus",
+            "species",
+            "subspecies",
+            "taxonID",
+            "identifier",
+            "identifierEmail",
+            "identificationMethod",
+            "taxonomyNotes"
+          ],
+          "n_columns": 15,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 20,
+          "source_checksum_MD5": "eb5e5f273d673cc43ba0dce94ad4c5f3",
+          "source_file_size": 4245,
+          "source_site": "SRER",
+          "source_year_month": "2023-11"
+        }
+      ],
+      "source_files": 884,
+      "source_sites": 46
+    },
+    "mam_BOLDvoucherInfo": {
+      "earliest_month": "2016-03",
+      "latest_month": "2023-11",
+      "sampled_schema": [
+        {
+          "columns": [
+            "sampleID",
+            "fieldID",
+            "museumID",
+            "collectionCode",
+            "institutionStoring"
+          ],
+          "n_columns": 5,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 8,
+          "source_checksum_MD5": "13063173ba5510282a7d64858b4bab4d",
+          "source_file_size": 764,
+          "source_site": "SCBI",
+          "source_year_month": "2016-03"
+        },
+        {
+          "columns": [
+            "sampleID",
+            "fieldID",
+            "museumID",
+            "collectionCode",
+            "institutionStoring"
+          ],
+          "n_columns": 5,
+          "no_sample_values_exported": true,
+          "possible_sample_link_fields": [
+            "sampleID"
+          ],
+          "sampled_file_data_rows": 20,
+          "source_checksum_MD5": "5132733ca36895b5dc8e3720dac26f17",
+          "source_file_size": 1822,
+          "source_site": "SRER",
+          "source_year_month": "2023-11"
+        }
+      ],
+      "source_files": 884,
+      "source_sites": 46
+    },
+    "mam_barcodingqa": {
+      "earliest_month": null,
+      "latest_month": null,
+      "sampled_schema": [],
+      "source_files": 0,
+      "source_sites": 0
+    }
+  },
+  "sampled_files_verified": 8,
+  "schema": "neon.barcode_release2026_source_schema.v1",
+  "status": "BARCODE_SOURCE_SCHEMA_VERIFIED_NO_BIOLOGICAL_MATCHES",
+  "trap_product_for_future_link": "DP1.10072.001",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39093779761,
+    "job_id": 117575843456,
+    "head_commit_at_run": "8bcdc4abc7de1a102f0a65814f3510323645f8cb",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "id": 12123662710,
+        "name": "neon-barcode-release2026-schema-only",
+        "digest": "sha256:94dbcd5cec7855332b3d40c8abb64742b94488f9a00cac8e5e624d580940b8db"
+      }
+    ],
+    "run_url": "https://github.com/zuizui0223/neon/actions/runs/39093779761"
+  },
+  "science_note": {
+    "release_product": "DP1.10076.001",
+    "source_date_coverage": "2016-03 through 2023-11 for the four original BOLD tables; sampling may be incomplete relative to the NEON 2015-2026 trapping response",
+    "identificationMethod": "available in mam_BOLDtaxonomy, values not inspected in this metadata-only receipt",
+    "sequence_quality": "not checked; absence of mam_barcodingqa in this release may prevent classification as molecularly validated",
+    "linkage": "common BOLD sampleID across four tables, original trap earSampleID join not yet demonstrated",
+    "effect_status": "NO DNA species match, animal join, W/B or spatial ecological outcome opened"
+  }
+}

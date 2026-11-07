@@ -1,0 +1,50 @@
+name: neon-10m-patch-conditioned-on-exact-trap
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_10m_patch_conditional_v1.py"
+      - "analysis/run_neon_macro_10m_patch_ecology_v1.py"
+      - "tests/test_neon_macro_10m_patch_conditional_v1.py"
+      - "tests/test_neon_macro_10m_patch_effect_gate_v1.py"
+      - ".github/workflows/neon-10m-patch-conditioned-on-exact-trap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-10m-patch-conditioned-original-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exact-conditioned-local-mammal-spatial-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact conditional two-genus patch null and brute-force state enumeration
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_macro_10m_patch_conditional_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_10m_patch_effect_gate_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_six_night_effort_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_row_fixedmargin_v1.py' -v
+      - name: Require authorized original NEON RELEASE-2026
+        run: test -n "$NEON_API_TOKEN"
+      - name: Estimate source-gated 10 m neighborhood recurrence beyond exact matching
+        run: python -m analysis.run_neon_macro_10m_patch_ecology_v1
+      - name: Archive source-safe exact-conditional patch result or honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-10m-patch-beyond-exact-trap-v1
+          path: build/neon_macro_10m_patch_conditioned_exact_station_v1.json
+          if-no-files-found: warn
+          retention-days: 45

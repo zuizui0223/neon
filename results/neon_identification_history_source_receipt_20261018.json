@@ -1,0 +1,69 @@
+{
+  "schema": "neon.identification_history_molecular_source_evidence.v1",
+  "status": "HISTORY_EVIDENCE_SCANNED_NOT_SPECIES_VALIDATED",
+  "accessed_utc": "2026-10-18T08:40:39.045234+00:00",
+  "requested_release": "RELEASE-2026",
+  "requested_include_provisional": true,
+  "requested_collection_window": ["2013-06", "2026-09"],
+  "downloaded_history_files": 107,
+  "history_manifest_entries": 2299,
+  "manifest_sha256": "49902edfef5cae2b7a593808fae6017e7fb1da080baa8d7c5ec4f4a0d671ad39",
+  "package_selection": "Expanded preferred over basic per release/site/month/table; no variant double counting",
+  "explicit_molecular_species_calls_verified": 0,
+  "groups": {
+    "RELEASE-2026/mam_identificationHistory": {
+      "unique_rows": 1928,
+      "any_molecular_mention_rows": 1533,
+      "files": 1687,
+      "site_count": 41,
+      "rationale_columns": ["identificationReferences", "identificationRemarks", "remarks"]
+    },
+    "RELEASE-2026/mam_voucherIdentificationHistory": {
+      "unique_rows": 12,
+      "any_molecular_mention_rows": 7,
+      "files": 271,
+      "site_count": 6,
+      "rationale_columns": ["identificationReferences", "identificationRemarks", "remarks"]
+    },
+    "PROVISIONAL/mam_identificationHistory": {
+      "unique_rows": 1945,
+      "any_molecular_mention_rows": 1533,
+      "files": 293,
+      "site_count": 41,
+      "rationale_columns": ["identificationReferences", "identificationRemarks", "remarks"]
+    },
+    "PROVISIONAL/mam_voucherIdentificationHistory": {
+      "unique_rows": 12,
+      "any_molecular_mention_rows": 7,
+      "files": 48,
+      "site_count": 6,
+      "rationale_columns": ["identificationReferences", "identificationRemarks", "remarks"]
+    }
+  },
+  "provenance": {
+    "run_id": 39112240391,
+    "job_id": 117630648228,
+    "head_commit_at_run": "6a9c1c751ac429883cde4064976cbbc546e3d1b1",
+    "run_conclusion": "success",
+    "artifact_id": 12130128994,
+    "artifact_zip_sha256": "a971be7f054fe73b9f61ec0aae8a311a70a3aad4cad0beeabbbe1f30b69c61c3",
+    "source": "https://github.com/zuizui0223/neon/actions/runs/39112240391"
+  },
+  "interpretation": {
+    "molecular_mentions_not_verified_species_calls": true,
+    "history_taxonIDs_are_past_determinations": true,
+    "counts_in_different_release_blocks_not_independent_samples": true,
+    "earlier_zero_file_result_superseded_by_fixed_static_filename_and_expanded_package_scan": true,
+    "external_BOLD_API_not_retried": true
+  },
+  "claims": {
+    "MOSA_effects": "SEALED",
+    "different_releases_never_pooled": true,
+    "history_rows_are_past_determinations_not_current_species": true,
+    "molecular_mentions_require_manual_evidence_review": true,
+    "no_W_B_or_F_C_effect_fitted": true,
+    "no_spatial_response_files_downloaded": true,
+    "not_a_species_error_rate": true,
+    "original_eight_genus_guard": "FAILED_5_OF_8_UNCHANGED"
+  }
+}

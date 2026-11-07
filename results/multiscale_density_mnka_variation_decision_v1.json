@@ -1,0 +1,67 @@
+{
+  "schema": "neon.multiscale_density.mnka_variation_decision.v1",
+  "date": "2026-10-06",
+  "status": "GENUS_MNKA_STRUCTURE_GO",
+  "programme": "multiscale_density_accommodation_v1",
+  "provenance": {
+    "workflow": "multiscale-density-mnka-variation",
+    "run_id": 37420364613,
+    "job_id": 112128128145,
+    "head_sha": "53c2cb25264598cb325ae07f2c6f385cd3df3843",
+    "artifact_id": 11392558464,
+    "artifact_name": "multiscale-density-mnka-variation-v1",
+    "artifact_digest": "sha256:a9fb2079924d40468895e0a7f15b2789787c3e90bfd31678c88aba80b7b4fbb3"
+  },
+  "abundance_definition": {
+    "primary_grain": "genus",
+    "response_grain": "published target taxon concept x plot x event",
+    "individual_key": "site x plotID x tagID",
+    "known_alive_rule": "within each complete standard exact-3-night plot sequence, count a usable target individual at every eligible event between its first and last target capture at that plot",
+    "same_genus_taxon_switch": "retain as one individual for genus MNKA",
+    "cross_genus_tag_history": "exclude from MNKA",
+    "direct_precedent": "O'Fallon et al. 2025 genus-level Peromyscus MNKA"
+  },
+  "taxonomy_history": {
+    "target_tag_histories": 47360,
+    "single_taxon_histories": 45518,
+    "same_genus_multitaxon_histories": 1739,
+    "cross_genus_histories_excluded": 103,
+    "target_capture_rows_used_for_history": 104322
+  },
+  "frozen_response_support": {
+    "expected_target_guarded_sessions": 1536,
+    "observed_target_guarded_sessions": 1536,
+    "paired_with_genus_mnka": 1536,
+    "unpaired_count": 0
+  },
+  "mnka_variation": {
+    "taxon_plot_series_total": 273,
+    "series_with_at_least_3_response_sessions": 176,
+    "series_with_at_least_3_sessions_and_2_mnka_values": 176,
+    "series_with_at_least_3_sessions_and_3_mnka_values": 172,
+    "response_sessions_in_varying_series": 1408,
+    "taxa_in_varying_series": 26,
+    "genera_in_varying_series": 13,
+    "sites_in_varying_series": 41,
+    "mnka_range_median": 17,
+    "mnka_range_q10": 7,
+    "mnka_range_q90": 33.5
+  },
+  "decision": {
+    "genus_mnka_variation_gate_passed": true,
+    "primary_abundance_grain": "genus",
+    "taxon_specific_mnka_primary": false,
+    "reason": "genus MNKA preserves congeneric crowding while absorbing common same-genus taxon-ID changes; every repeated response series has abundance variation",
+    "W_open_authorized_for_metric_qc": true,
+    "B_open_authorized_for_metric_qc": true,
+    "abundance_response_slope_authorized": false,
+    "next_gate": "run W/B metric QC without joining MNKA; if the frozen metric QC passes, freeze the joint response model before opening abundance slopes"
+  },
+  "effect_boundary": {
+    "spatial_distances_calculated": false,
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_slopes_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

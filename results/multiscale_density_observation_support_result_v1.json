@@ -1,0 +1,83 @@
+{
+  "schema": "neon.multiscale_density.observation_support_result.v1",
+  "date": "2026-10-06",
+  "status": "DENSITY_DEPENDENT_RECAPTURE_SUPPORT_CONFIRMED",
+  "programme": "multiscale_density_accommodation_v1",
+  "provenance": {
+    "workflow": "multiscale-density-observation-support",
+    "run_id": 37441801889,
+    "job_id": 112197080645,
+    "head_sha": "30950fdde9143c52637fb558b9e24a8c735d6ff8",
+    "artifact_id": 11401264110,
+    "artifact_name": "multiscale-density-observation-support-v1",
+    "artifact_digest": "sha256:e148806c0c71dc03824700784448d654070f0482af926c3952bf782bfc3d66f9"
+  },
+  "support": {
+    "analysis_sessions": 1326,
+    "genera": 8,
+    "sites": 40,
+    "metric_cohort_size": {
+      "median": 8,
+      "q10": 5,
+      "q90": 15,
+      "max": 30
+    },
+    "repeat_supported_fraction": {
+      "median": 0.5833333333333334,
+      "q10": 0.35714285714285715,
+      "q90": 0.8461538461538461
+    }
+  },
+  "genus_balanced_within_series_slopes_per_mnka": {
+    "unique_tagged_individuals": {
+      "beta": 0.9311889633562832,
+      "se": 0.038522247431054195
+    },
+    "repeat_supported_individuals": {
+      "beta": 0.26763163241967747,
+      "se": 0.049572747621800764
+    },
+    "metric_cohort_individuals": {
+      "beta": 0.27007214136867486,
+      "se": 0.0497799351366878
+    },
+    "repeat_supported_fraction": {
+      "beta": -0.008288709569018633,
+      "se": 0.0013616343687675669
+    },
+    "metric_cohort_fraction": {
+      "beta": -0.008083837278548294,
+      "se": 0.001306227501774221
+    },
+    "coordinate_supported_fraction": {
+      "beta": -2.9542716884866877e-20,
+      "se": 4.535674331627721e-18
+    },
+    "all_capture_trap_night_fraction": {
+      "beta": 0.00395472174740231,
+      "se": 0.0003928843656218749
+    }
+  },
+  "genus_specific_repeat_fraction_slopes": {
+    "Chaetodipus": -0.018977516289151515,
+    "Dipodomys": -0.010641052584601367,
+    "Microtus": -0.011220145483792299,
+    "Myodes": -0.004540793593882172,
+    "Napaeozapus": -0.008796632972790151,
+    "Onychomys": -0.007874028354101208,
+    "Peromyscus": -0.0071610091157998795,
+    "Sigmodon": -0.0036770420084792942
+  },
+  "interpretation": {
+    "confirmed": "higher genus MNKA is associated with more observed and repeat-supported individuals but a smaller fraction of observed individuals contributing repeated-night support",
+    "likely_process": "fixed three-night single-catch observation process becomes more selective as local abundance rises",
+    "not_confirmed": "whether that selectivity is sufficient to generate the observed W/B density slopes",
+    "next_falsification": "single-catch null simulation with density-invariant latent spatial structure"
+  },
+  "no_rescue_boundary": {
+    "primary_development_result_changed": false,
+    "primary_6_of_8_guard_changed": false,
+    "repeat_fraction_may_not_be_added_as_a_post_hoc_primary_covariate": true,
+    "genera_may_not_be_dropped_because_of_support_fraction": true
+  }
+}

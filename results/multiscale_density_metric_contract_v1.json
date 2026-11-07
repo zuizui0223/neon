@@ -1,0 +1,62 @@
+{
+  "schema": "neon.multiscale_density.metric_contract.v1",
+  "date": "2026-10-06",
+  "state": "FROZEN_BEFORE_METRIC_QC_AND_ABUNDANCE_RESPONSE_EFFECTS",
+  "programme": "multiscale_density_accommodation_v1",
+  "implementation": {
+    "module": "analysis/multiscale_density_metrics_v1.py",
+    "tested_commit": "9413ccbc3830e2b8797a5ee23c992832a77de7b0",
+    "ci_runs": [
+      37420545225,
+      37420540771
+    ],
+    "geometry": "nominal standard NEON 10x10 trapCoordinate lattice",
+    "spacing_m": 10,
+    "accepted_coordinates": "A1..J10 only",
+    "invalid_or_X_coordinates": "ignored; never repaired or geocoded for the primary metric"
+  },
+  "individual_rule": {
+    "observation_unit": "one coordinate per distinct night",
+    "duplicate_same_night_same_coordinate": "collapse",
+    "multiple_distinct_coordinates_same_tag_same_night": "exclude that individual-session from W/B",
+    "minimum_coordinate_bearing_nights": 2,
+    "maximum_primary_nights": 3,
+    "W_i": "half mean pairwise squared Euclidean distance among distinct-night positions; equals unbiased within-individual covariance trace",
+    "session_W": "equal-individual mean of W_i"
+  },
+  "matched_cohort_rule": {
+    "minimum_repeat_supported_individuals": 5,
+    "W_and_B_same_individuals": true,
+    "taxon_conflict_individuals": "excluded before metric calculation under structural gate contract"
+  },
+  "between_individual_rule": {
+    "B_observed": "half mean pairwise squared Euclidean distance among matched individual session centroids",
+    "centroid_noise_correction": "mean_i(W_i / k_i)",
+    "B_primary": "B_debiased = B_observed - mean_i(W_i / k_i)",
+    "B_sensitivity": "B_observed",
+    "negative_B_debiased": "retain signed estimate; do not truncate at zero"
+  },
+  "metric_qc_gate": {
+    "primary_negative_B_debiased_fraction_max": 0.01,
+    "rationale": "same maximum nonpositive fraction used in the frozen synthetic support acceptance rule",
+    "if_failed": "STOP the simple coordinate-decomposition route before joining abundance; do not change m or truncate B to rescue it",
+    "required_reports": [
+      "fraction B_debiased <= 0",
+      "same-night conflicting-coordinate exclusions",
+      "eligible-individual counts",
+      "W, B_observed, centroid correction and B_debiased distributions",
+      "taxon/genus/site replication retained after metric QC"
+    ]
+  },
+  "model_boundary": {
+    "abundance_not_joined_yet": true,
+    "density_slopes_not_opened": true,
+    "transformation_not_chosen_from_effects": true,
+    "note": "Because W and B are both in m^2, a later joint identity-scale model can compare beta_B - beta_W directly; final model contract remains separate."
+  },
+  "effect_boundary": {
+    "abundance_response_opened": false,
+    "density_effects_opened": false,
+    "habitat_moderators_opened": false
+  }
+}

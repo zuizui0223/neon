@@ -1,0 +1,45 @@
+{
+  "claim_boundaries": {
+    "cannot_change_original_23_5point_observed_genus_contrast": true,
+    "no_laternight_reencounter_outcomes_accessed": true,
+    "no_raw_id_site_plot_trap_date_source_filename_or_rare_token_export": true,
+    "no_true_genus_specific_capture_detection_p_inferred": true,
+    "original_explicit_release_6_site_source_gate_still_STOP": true
+  },
+  "official_categorical_dictionary_still_not_retrieved": true,
+  "original_Neon_release": "RELEASE-2026",
+  "original_firstnight_tagged_cohort": 615,
+  "original_source_recapture_genus_comparison": "Microtus vs Peromyscus, seven original source selected sites",
+  "original_unmapped_genus_counts": {
+    "Microtus": 111,
+    "Peromyscus": 280
+  },
+  "other_unmapped_status_original_2017plus_only": true,
+  "safe_frequency_audit": {
+    "frequent_safe_original_raw_token_forms": [
+      {
+        "n_firstnight_marked_captures": 391,
+        "no_release_interpretation_assigned": true,
+        "normalized_controlled_looking_source_token": "processed"
+      }
+    ],
+    "n_distinct_raw_unmapped_labels_private": 1,
+    "n_original_unmapped_records_in_displayed_token_forms": 391,
+    "n_original_unmapped_records_with_literal_suppressed": 0,
+    "n_original_unmapped_source_values": 391,
+    "no_unknown_or_rare_original_tokens_exported": true,
+    "raw_fate_labels_are_not_official_release_semantics": true
+  },
+  "schema": "neon.macro.firstnight_original_post2017_fate_labels_source_only.v1",
+  "source_metadata_query_incomplete_not_evidence_dictionary_absent": true,
+  "status": "UNMAPPED_FATE_SOURCE_LABEL_FORMS_AUDITED_NO_SEMANTIC_RECLASSIFICATION",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "run_id": 40538157364,
+    "job_id": 122308943138,
+    "conclusion": "success",
+    "original_source_sha_at_run": "71c597fa1b3e725326142da07b680f23420ab252",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40538157364",
+    "no_outcome_opened": true
+  }
+}

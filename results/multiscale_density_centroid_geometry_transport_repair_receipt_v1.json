@@ -1,0 +1,44 @@
+{
+  "schema": "neon.multiscale_density.centroid_geometry_transport_repair_receipt.v1",
+  "date": "2026-10-08",
+  "context": "Post-result spatial centroid geometry audit, no ecological slopes inspected",
+  "original_failure": {
+    "workflow_run_id": 37787358363,
+    "job_id": 113345463625,
+    "conclusion": "failure",
+    "diagnosis": "http.client.IncompleteRead while downloading checksum-locked NEON mam_pertrapnight CSV",
+    "stage": "metric data download; before W/B join, centroid spatial nulls, or abundance slopes",
+    "synthetic_geometry_tests": "pass (6/6)",
+    "frozen_model_unit_tests": "pass (3/3)",
+    "ecological_result_available": false
+  },
+  "repair": {
+    "commit": "ae0898ed28a32d338ef3d87b63fd6dea80db30e3",
+    "test_commit": "cd95a13bac940ead51141141ac652ab537366744",
+    "workflow_commit": "0b86b45536cf608d65d04f23cad527421a605e62",
+    "transport_retry_attempts": 3,
+    "retryable": [
+      "IncompleteRead",
+      "ConnectionResetError",
+      "TimeoutError",
+      "URLError",
+      "HTTP 429/500/502/503/504"
+    ],
+    "non_retryable": [
+      "MD5 mismatch",
+      "size mismatch",
+      "HTTP 4xx other than 429"
+    ],
+    "preserves_source_file_md5": true,
+    "preserves_inventory_size": true,
+    "original_W_B_estimators_modified": false,
+    "fixed_preregistered_generality_guard_modified": false
+  },
+  "rerun": {
+    "workflow_id": 37792053440,
+    "result": "IN_PROGRESS_AT_RECEIPT_CREATION",
+    "no_ecological_claim_before_completed_result": true,
+    "url": "https://github.com/zuizui0223/neon/actions/runs/37792053440"
+  },
+  "interpretation": "Transport-only repair. Do not promote ecological geometry claim unless exact 1326-row baseline Δ reproduces and the real-data null fit completes."
+}

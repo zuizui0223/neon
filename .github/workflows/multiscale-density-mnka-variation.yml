@@ -1,0 +1,41 @@
+name: multiscale-density-mnka-variation
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_multiscale_density_mnka_variation_v1.py"
+      - "results/multiscale_density_target_taxon_lock_v1.json"
+      - ".github/workflows/multiscale-density-mnka-variation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-mnka-variation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Require NEON access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run effect-blind genus MNKA variation audit
+        run: python -m analysis.audit_multiscale_density_mnka_variation_v1
+      - name: Upload MNKA variation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-mnka-variation-v1
+          path: build/multiscale_density_mnka_variation_v1.json
+          if-no-files-found: error
+          retention-days: 30

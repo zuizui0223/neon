@@ -1,0 +1,44 @@
+name: neon-original-fate-codebook-source
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_original_fate_codes_v1.py"
+      - "tests/test_neon_original_fate_codes_v1.py"
+      - ".github/workflows/neon-original-fate-codebook-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-original-fate-codebook-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-release-fate-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit test controlled public fate codes and source privacy
+        run: python -m unittest discover -s tests -p 'test_neon_original_fate_codes_v1.py' -v
+      - name: Require authorized NEON RELEASE-2026 metadata
+        run: test -n "$NEON_API_TOKEN"
+      - name: Inspect only the original source fate categorical metadata
+        run: python -m analysis.run_neon_original_fate_codes_v1
+      - name: Archive source-only metadata receipt or honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-original-fate-categorical-codes-only
+          path: build/neon_fate_official_categorical_codes_20261028.json
+          if-no-files-found: warn
+          retention-days: 45

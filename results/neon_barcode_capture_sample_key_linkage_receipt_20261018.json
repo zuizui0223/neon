@@ -1,0 +1,152 @@
+{
+  "BOLD_taxonomy_source_counts": {
+    "distinct_source_sampleIDs": 10412,
+    "source_files_MD5_verified": 884,
+    "source_rows": 10414,
+    "source_sampleIDs_at_multiple_sites": 0,
+    "source_sampleIDs_with_conflicting_values": 0,
+    "source_sampleIDs_with_multiple_rows": 2,
+    "table": "mam_BOLDtaxonomy",
+    "taxonomy_identification_method_category_counts": {
+      "morphology": 10414
+    },
+    "taxonomy_identification_methods_remainder": 0
+  },
+  "BOLD_voucher_source_counts": {
+    "distinct_source_sampleIDs": 10412,
+    "source_files_MD5_verified": 884,
+    "source_rows": 10414,
+    "source_sampleIDs_at_multiple_sites": 0,
+    "source_sampleIDs_with_conflicting_values": 0,
+    "source_sampleIDs_with_multiple_rows": 2,
+    "table": "mam_BOLDvoucherInfo",
+    "taxonomy_identification_method_category_counts": {},
+    "taxonomy_identification_methods_remainder": 0
+  },
+  "capture_source_counts": {
+    "all_trap_rows": 1930569,
+    "capture_rows": 149470,
+    "capture_rows_outside_target_taxonomy": 14589,
+    "target_captures": 134881,
+    "target_captures_tagged": 134881,
+    "target_captures_with_ear_sampleID": 36744
+  },
+  "schema": "neon.barcode_capture_sample_key_linkage.v1",
+  "scientific_boundary": {
+    "8_genus_original_generalization": "FAILED_5_OF_8",
+    "BOLD_metadata_species_conflict_proves_DNA_misidentification": false,
+    "DNA_sequence_quality_assessed": false,
+    "MOSA_spatial_effects_opened": false,
+    "W_B_spatial_metrics_opened": false,
+    "barcode_samples_random_population_subset": false,
+    "biological_peromyscus_F_C_U_reclassified": false,
+    "next": "Evaluate source identificationMethod and independent quality-controlled COI/BOLD calls; verify barcode sample selection and key conflicts before any prospective species F/C×W/B ecological outcomes.",
+    "original_provisional_directional_holdout": "NOT_REPLICATED_IMPRECISE",
+    "sample_key_link_proves_genetic_species": false
+  },
+  "source_sample_key_join": {
+    "BOLD_identificationMethod_count_in_linked_samples": {
+      "morphology": 9646
+    },
+    "DNA_sequence_quality_or_species_identity_proven": false,
+    "Peromyscus_history_sample_link_coverage_within_ear_sampled_histories": 0.2499215891270256,
+    "capture_unique_Peromyscus_histories_with_earSampleID": 19130,
+    "capture_unique_Peromyscus_histories_with_unambiguous_BOLD_join": 4781,
+    "capture_unique_histories_with_earSampleID": 36406,
+    "capture_unique_histories_with_unambiguous_BOLD_join": 9617,
+    "capture_year_of_matched_sample_count": {
+      "2016": {
+        "linked_samples": 1231
+      },
+      "2017": {
+        "linked_samples": 1394
+      },
+      "2018": {
+        "linked_samples": 1616
+      },
+      "2019": {
+        "linked_samples": 1518
+      },
+      "2020": {
+        "linked_samples": 646
+      },
+      "2021": {
+        "linked_samples": 1264
+      },
+      "2022": {
+        "linked_samples": 782
+      },
+      "2023": {
+        "linked_samples": 1195
+      }
+    },
+    "captured_sample_IDs_in_BOLD_taxonomy": 9646,
+    "captured_sample_IDs_in_BOLD_voucherInfo": 9646,
+    "captured_samples_with_nonblank_single_earSampleID": 36743,
+    "metadata_taxonID_consistency_not_DNA_verification": {
+      "BOLD_taxonID_outside_target_or_blank": 2,
+      "metadata_different_taxonID": 523,
+      "metadata_same_taxonID": 9121
+    },
+    "no_raw_sample_IDs_or_animal_labels_exported": true,
+    "source_key_anomalies": {
+      "earSampleID_not_in_barcode_taxonomy": 27097
+    }
+  },
+  "sources": {
+    "barcode_inventory_files": 3536,
+    "barcode_manifest_citation": "results/neon_barcode_release2026_schema_receipt_20261018.json",
+    "barcode_product": "DP1.10076.001",
+    "barcode_taxonomy_files_MD5_verified": 884,
+    "barcode_voucher_files_MD5_verified": 884,
+    "box_files_by_capture_year": {
+      "2015": 117,
+      "2016": 156,
+      "2017": 174,
+      "2018": 194,
+      "2019": 197,
+      "2020": 197,
+      "2021": 194,
+      "2022": 195,
+      "2023": 181
+    },
+    "box_pertrapnight_files_MD5_verified": 1605,
+    "box_trapping_product": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "source_data_scope": "All published basic pertrapnight files for barcode-covered sites and study years, not frozen historical W/B response sessions",
+    "window": "2015-04 through 2023-11"
+  },
+  "status": "BOLD_SAMPLE_ID_LINK_VERIFIED_METADATA_ONLY_NOT_DNA_VALIDATED",
+  "date": "2026-10-18",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39094261788,
+    "job_id": 117577288814,
+    "head_commit_at_run": "af65612685eff9a6e55e497166b8bf5a925df68c",
+    "workflow_conclusion": "success",
+    "artifact": [
+      {
+        "id": 12123603891,
+        "name": "neon-barcoding-earsamples-source-link-v1",
+        "digest": "sha256:3aae97ec90d1ee445bb052d800f9689a01f6eb28b9c94c2809aa6ae3c640181e"
+      }
+    ],
+    "run_url": "https://github.com/zuizui0223/neon/actions/runs/39094261788"
+  },
+  "biological_interpretation": {
+    "barcode_DNA_product_exists": true,
+    "sample_to_capture_linkage_exact_and_proven_for_subset": true,
+    "Peromyscus_histories_with_ear_sampleID": 19130,
+    "Peromyscus_histories_with_sample_matched_BOLD_taxonomy_and_voucher": 4781,
+    "Peromyscus_link_coverage_conditional_on_ear_sampled_histories": 0.2499215891270256,
+    "ALL_10414_BARCODE_TAXONOMY_IDENTIFICATION_METHOD": "morphology",
+    "no_independent_DNA_species_confirmation_in_archived_BOLDtaxonomy": true,
+    "field_and_barcode_taxonID_same_9121_different_523_unknown_2": "Metadata consistency among exact linked sample IDs, not genetic species accuracy, true misidentification or new ecological spatial effect",
+    "selection_bias": "Sequencing targeted; unbarcoded individuals are not a random subset",
+    "next": "Inspect public BOLD sequence linkage/COI quality and identify independent molecular determinations; link original capture history counts and selected-ear history denominator explicitly. Do not use morphological BOLD taxonomy as genetic confirmation.",
+    "original_generality_failure": "FAILED_5_OF_8_UNCHANGED",
+    "provisional_peromyscus_nonreplication": "NONREPLICATED_IMPRECISE_UNCHANGED",
+    "MOSA_effects": "SEALED"
+  }
+}

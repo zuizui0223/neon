@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 635" width="1110" height="635" role="img" aria-labelledby="figTitle figDesc">
+<title id="figTitle">Corrected NEON genus-associated seasonal recurrence: 14 sites and source-disjoint 12 sites</title>
+<desc id="figDesc">Two anonymized dot charts of physical-site mean null-standardized genus by trap recurrence Z. Full original 14-site cohort has 11 positive site means and average Z 0.795. The independently source-defined 12-site sensitivity has 10 positive site means and average Z 0.843. Site ranks are sorted within each panel and are not paired.</desc>
+<rect width="1110" height="635" fill="#ffffff"/>
+<text x="50" y="36" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#192b37">Seasonal spatial recurrence among different observed animals</text>
+<text x="50" y="60" font-family="Arial, sans-serif" font-size="14" fill="#425466">Corrected fixed-margin null · NEON RELEASE-2026 · physical sites equally weighted</text>
+<text x="78" y="103" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#192b37">All original sites</text>
+<text x="78" y="124" font-family="Arial, sans-serif" font-size="13" fill="#52616b">14 sites · 58 seasonal pairs · 11 positive</text>
+<line x1="155.71" y1="140" x2="155.71" y2="502" stroke="#83929c" stroke-width="1.4"/>
+<line x1="244.26" y1="140" x2="244.26" y2="502" stroke="#4d7087" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="89" y="157.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">1</text>
+<line x1="155.71" y1="153.00" x2="456.68" y2="153.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="456.68" cy="153.00" r="5.5" fill="#245b77"/>
+<text x="89" y="182.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">2</text>
+<line x1="155.71" y1="178.00" x2="408.20" y2="178.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="408.20" cy="178.00" r="5.5" fill="#245b77"/>
+<text x="89" y="207.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">3</text>
+<line x1="155.71" y1="203.00" x2="376.52" y2="203.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="376.52" cy="203.00" r="5.5" fill="#245b77"/>
+<text x="89" y="232.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">4</text>
+<line x1="155.71" y1="228.00" x2="286.22" y2="228.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="286.22" cy="228.00" r="5.5" fill="#245b77"/>
+<text x="89" y="257.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">5</text>
+<line x1="155.71" y1="253.00" x2="255.96" y2="253.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="255.96" cy="253.00" r="5.5" fill="#245b77"/>
+<text x="89" y="282.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">6</text>
+<line x1="155.71" y1="278.00" x2="234.84" y2="278.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="234.84" cy="278.00" r="5.5" fill="#245b77"/>
+<text x="89" y="307.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">7</text>
+<line x1="155.71" y1="303.00" x2="233.92" y2="303.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="233.92" cy="303.00" r="5.5" fill="#245b77"/>
+<text x="89" y="332.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">8</text>
+<line x1="155.71" y1="328.00" x2="194.84" y2="328.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="194.84" cy="328.00" r="5.5" fill="#245b77"/>
+<text x="89" y="357.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">9</text>
+<line x1="155.71" y1="353.00" x2="186.36" y2="353.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="186.36" cy="353.00" r="5.5" fill="#245b77"/>
+<text x="89" y="382.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">10</text>
+<line x1="155.71" y1="378.00" x2="185.22" y2="378.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="185.22" cy="378.00" r="5.5" fill="#245b77"/>
+<text x="89" y="407.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">11</text>
+<line x1="155.71" y1="403.00" x2="180.00" y2="403.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="180.00" cy="403.00" r="5.5" fill="#245b77"/>
+<text x="89" y="432.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">12</text>
+<line x1="148.48" y1="428.00" x2="155.71" y2="428.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="148.48" cy="428.00" r="5.5" fill="#a56c50"/>
+<text x="89" y="457.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">13</text>
+<line x1="137.46" y1="453.00" x2="155.71" y2="453.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="137.46" cy="453.00" r="5.5" fill="#a56c50"/>
+<text x="89" y="482.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">14</text>
+<line x1="134.99" y1="478.00" x2="155.71" y2="478.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="134.99" cy="478.00" r="5.5" fill="#a56c50"/>
+<line x1="100.00" y1="513" x2="100.00" y2="518" stroke="#758694"/>
+<text x="100.00" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">-0.5</text>
+<line x1="155.71" y1="513" x2="155.71" y2="518" stroke="#758694"/>
+<text x="155.71" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">0</text>
+<line x1="267.14" y1="513" x2="267.14" y2="518" stroke="#758694"/>
+<text x="267.14" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">1</text>
+<line x1="378.57" y1="513" x2="378.57" y2="518" stroke="#758694"/>
+<text x="378.57" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">2</text>
+<line x1="490.00" y1="513" x2="490.00" y2="518" stroke="#758694"/>
+<text x="490.00" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">3</text>
+<line x1="100" y1="513" x2="490.00" y2="513" stroke="#718491"/>
+<text x="295.00" y="558" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#273f4d">Mean standardized recurrence Z (per physical site)</text>
+<text x="78" y="592" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#245b77">Grand site mean Z = +0.795</text>
+<text x="633" y="103" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#192b37">Source-disjoint sensitivity</text>
+<text x="633" y="124" font-family="Arial, sans-serif" font-size="13" fill="#52616b">12 sites · 46 seasonal pairs · 10 positive</text>
+<line x1="710.71" y1="140" x2="710.71" y2="502" stroke="#83929c" stroke-width="1.4"/>
+<line x1="804.67" y1="140" x2="804.67" y2="502" stroke="#4d7087" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="644" y="157.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">1</text>
+<line x1="710.71" y1="153.00" x2="1011.68" y2="153.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="1011.68" cy="153.00" r="5.5" fill="#245b77"/>
+<text x="644" y="182.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">2</text>
+<line x1="710.71" y1="178.00" x2="963.20" y2="178.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="963.20" cy="178.00" r="5.5" fill="#245b77"/>
+<text x="644" y="207.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">3</text>
+<line x1="710.71" y1="203.00" x2="931.52" y2="203.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="931.52" cy="203.00" r="5.5" fill="#245b77"/>
+<text x="644" y="232.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">4</text>
+<line x1="710.71" y1="228.00" x2="810.96" y2="228.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="810.96" cy="228.00" r="5.5" fill="#245b77"/>
+<text x="644" y="257.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">5</text>
+<line x1="710.71" y1="253.00" x2="789.84" y2="253.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="789.84" cy="253.00" r="5.5" fill="#245b77"/>
+<text x="644" y="282.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">6</text>
+<line x1="710.71" y1="278.00" x2="788.92" y2="278.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="788.92" cy="278.00" r="5.5" fill="#245b77"/>
+<text x="644" y="307.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">7</text>
+<line x1="710.71" y1="303.00" x2="749.84" y2="303.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="749.84" cy="303.00" r="5.5" fill="#245b77"/>
+<text x="644" y="332.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">8</text>
+<line x1="710.71" y1="328.00" x2="741.36" y2="328.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="741.36" cy="328.00" r="5.5" fill="#245b77"/>
+<text x="644" y="357.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">9</text>
+<line x1="710.71" y1="353.00" x2="740.22" y2="353.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="740.22" cy="353.00" r="5.5" fill="#245b77"/>
+<text x="644" y="382.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">10</text>
+<line x1="710.71" y1="378.00" x2="735.00" y2="378.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="735.00" cy="378.00" r="5.5" fill="#245b77"/>
+<text x="644" y="407.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">11</text>
+<line x1="703.48" y1="403.00" x2="710.71" y2="403.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="703.48" cy="403.00" r="5.5" fill="#a56c50"/>
+<text x="644" y="432.00" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#5b6974">12</text>
+<line x1="689.99" y1="428.00" x2="710.71" y2="428.00" stroke="#c7d5df" stroke-width="2"/>
+<circle cx="689.99" cy="428.00" r="5.5" fill="#a56c50"/>
+<line x1="655.00" y1="513" x2="655.00" y2="518" stroke="#758694"/>
+<text x="655.00" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">-0.5</text>
+<line x1="710.71" y1="513" x2="710.71" y2="518" stroke="#758694"/>
+<text x="710.71" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">0</text>
+<line x1="822.14" y1="513" x2="822.14" y2="518" stroke="#758694"/>
+<text x="822.14" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">1</text>
+<line x1="933.57" y1="513" x2="933.57" y2="518" stroke="#758694"/>
+<text x="933.57" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">2</text>
+<line x1="1045.00" y1="513" x2="1045.00" y2="518" stroke="#758694"/>
+<text x="1045.00" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#40525e">3</text>
+<line x1="655" y1="513" x2="1045.00" y2="513" stroke="#718491"/>
+<text x="850.00" y="558" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#273f4d">Mean standardized recurrence Z (per physical site)</text>
+<text x="633" y="592" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#245b77">Grand site mean Z = +0.843</text>
+<text x="50" y="619" font-family="Arial, sans-serif" font-size="11" fill="#5c6c75">Sites ranked separately in each panel; ranks do not denote matching site identity. Blue: positive, brown: negative; dashed: panel mean. This figure is not a test of habitat or competition.</text>
+<!-- SHA256 of original verified correction artifact ZIP: 92961984ebedc33abfd410ae9d587cf6eb2cbe69c1ec252d1c05c455938c56cb; Actions run 39370044411. No private site or animal identifiers. -->
+</svg>

@@ -1,0 +1,83 @@
+{
+  "schema": "neon.peromyscus_holdout_partial_leverage_audit.v1",
+  "date": "2026-10-12",
+  "status": "POST_RESULT_PREDICTOR_GEOMETRY_DIAGNOSTIC",
+  "source_archives": {
+    "development": {"run_id": 37793401501, "artifact_id": 11556939610, "sha256": "643ffa20c9b179a07888f801742fefea57f9740899095c4a75eab1699746302b"},
+    "future_metrics": {"run_id": 38046250920, "artifact_id": 11667394798, "sha256": "66a32cad70f6b7d4995bf24dc84a95035195b285c11f33f13424a48d303174d7"},
+    "continuous_MNKA": {"run_id": 38046339017, "artifact_id": 11668095054, "sha256": "68239bf6a419fd2fc4a0a71f7c1fa87f1ec2e95c583bbb48432f329127b2ee8e"}
+  },
+  "method": {
+    "projection": "independent rank-truncated SVD, checked against separate pivoted QR and frozen coefficient outputs",
+    "nuisance_terms": ["taxon-site-plot series", "site-calendar-month", "year"],
+    "site_share": "p_g = sum_i_in_g(residualized_MNKA_i^2) / sum_i(residualized_MNKA_i^2)",
+    "concentration_index": "1 / sum_g(p_g^2), descriptive only; NOT inferential degrees of freedom or independent-site sample size",
+    "numerical_negligibility_share_tolerance": 1e-12,
+    "site_ranking_uses_W_B_outcomes": false,
+    "observations_removed": false,
+    "ecological_model_or_success_rule_changed": false
+  },
+  "development": {
+    "sessions": 956, "sites": 33, "series": 111,
+    "nuisance_rank": 265, "regression_residual_df": 690,
+    "partial_MNKA_ss": 43091.44185945408,
+    "beta_D_per_MNKA": 15.93005706925736,
+    "site_CR1_SE_effective_rank": 3.329412798856825,
+    "residual_RMSE": 622.7998164738275,
+    "sites_with_negligible_partial_predictor_variation": 0,
+    "top_three_site_share": 0.20671516326925793,
+    "top_five_site_share": 0.3205322539178351,
+    "concentration_equivalent_site_count": 21.96803798686179
+  },
+  "provisional_holdout": {
+    "sessions": 127, "sites": 19, "series": 32,
+    "nuisance_rank": 80, "regression_residual_df": 46,
+    "partial_MNKA_ss": 2589.6824084338455,
+    "beta_D_per_MNKA": -7.072964939150482,
+    "site_CR1_SE_effective_rank": 20.34686138023511,
+    "residual_RMSE": 587.5794370397483,
+    "sites_with_negligible_partial_predictor_variation": 6,
+    "sessions_at_those_sites": 19,
+    "zero_partial_variation_sites": ["BART", "BLAN", "CLBJ", "NIWO", "ORNL", "STEI"],
+    "zero_partial_variation_sites_each_have_only_singleton_site_months": true,
+    "top_three_sites": [
+      {"site": "MLBS", "partial_ss_share": 0.2044921066869697},
+      {"site": "NOGP", "partial_ss_share": 0.1776896},
+      {"site": "KONA", "partial_ss_share": 0.1664413}
+    ],
+    "top_three_site_share": 0.5486229488903336,
+    "top_five_site_share": 0.7285010798370745,
+    "concentration_equivalent_site_count": 7.6881511265108635,
+    "partial_MNKA_ss_by_adjustment": {
+      "intercept_only": 13046.92913385826,
+      "series_only": 7144.430952380953,
+      "series_and_site_month": 2634.2900631694743,
+      "full_frozen_model": 2589.6824084338455
+    }
+  },
+  "precision_interpretation": {
+    "residual_predictor_ss_ratio_future_to_old": 0.060097371930145346,
+    "inverse_empirical_CR1_variance_ratio_future_to_old": 0.0267756755430349,
+    "distinction": "The first quantity is predictor geometry only. The second also depends on response residuals and site dependence. Neither is a literal fraction of all biological information.",
+    "zero_site_interpretation": "The frozen site-month effects absorb all local MNKA variation because each local calendar-month category occurs once. This does NOT imply no biological density response.",
+    "all_sites_and_original_confidence_intervals_retained": true
+  },
+  "validation": {
+    "three_source_SHA256_checks": "PASS",
+    "exact_956_and_127_cohorts": "PASS",
+    "original_point_slopes_and_future_CR1_SE_reproduced": "PASS",
+    "local_unit_tests_passed": 7,
+    "new_GitHub_Actions_success_claimed": false,
+    "reproduction_bundle_script_SHA256": "6deb9f4352bde8834334dcf3f2873dde2bf5be8e0f833209372cdd413bdd8d4f",
+    "reproduction_bundle_script": "analysis/audit_peromyscus_holdout_partial_leverage_v1.py",
+    "reproduction_bundle_test": "tests/test_peromyscus_holdout_partial_leverage_v1.py"
+  },
+  "science_boundary": {
+    "development_6_of_8_guard": "FAILED_UNCHANGED",
+    "full_five_genus_future_test": "NOT_ESTIMABLE_UNCHANGED",
+    "prospective_Peromyscus_positive_direction": "FAILED_UNCHANGED",
+    "new_biological_mechanism_claimed": false,
+    "posthoc_moderator_or_favorable_subgroup_selected": false,
+    "new_design_implication": "Future validation needs density-varying repeats of the same taxon/site/plot in comparable calendar months, distributed across sites. More unmatched dates alone need not identify density independently of season. This does not amend a preregistration."
+  }
+}

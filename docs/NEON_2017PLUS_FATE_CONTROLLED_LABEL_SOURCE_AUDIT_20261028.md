@@ -1,0 +1,16 @@
+# Original raw fate-token frequency audit after official categorical-codebook API STOP
+**2026-10-28. SOURCE-ONLY diagnostic of 2017+ fate labels; no later-night return outcome.**
+
+The original 615 first-night tagged-animal fates across fixed seven Microtus/Peromyscus sites were published as aggregate conservative source classes, with 391 non-empty labels unmapped in 2017+. A single `RELEASE-2026` `/data/query` metadata attempt DID NOT include the `categoricalCodes_10072` file, even though neonOS downloads may supply that file. That API selection absence is **not evidence the official codebook does not exist**.
+
+This follow-up investigates exactly which **repeated source-controlled-looking raw fate tokens** generated the 391 unmapped statuses. This is **not** another ecological effect or a rescue of the separately preregistered explicit-release source gate.
+
+- Original source cohort: 158 original exactly-two paired seasonal units, 293 unique original 3-night bouts, and the same first-night source-selected seven *Microtus/Peromyscus* physical sites. Reconstruct original 615 first-night tagged animals and the original 391 unmapped statuses before inspecting token labels.
+- Read ONLY first-night source `fate` on the same previously source-selected marked tags; keep genus/season/capture-date/station/tag/site privately in memory. Ignore and never compare day2/3 reencounters, or original spatial recurrence site effects.
+- Split category tokens into `BLANK`, conservative `KNOWN`, and `OTHER_UNMAPPED` according to the already published 2026-10-28 parser; neither `KNOWN` nor `OTHER` is equal to a proven released-alive fraction.
+- For original nonblank unmapped tokens only, output at most **12 frequently repeated normalized strings**, each with **at least 5** original first-night observations and matching strict regex `^[A-Za-z][A-Za-z0-9, .()/-]{0,48}$`; block values with 3+ consecutive digits or the substrings `site`, `plot`, `tag`, `nightuid`, `person`, `email`, `http`, and `@`. Suppress every rare/unallowed literal value, aggregate the remaining frequency into `OTHER_SUPPRESSED`. Raw site, genus, plot, individual, trap, actual dates, source filenames and URLs **must never be exported**.
+- Frozen numerical invariants: original first-night cohort **615**, original unmapped count **391** (111 Microtus + 280 Peromyscus), all 391 in 2017+, and original release source **58 old/158 exact-two**. Fail closed rather than changing cohorts.
+- This gives public-source label *forms* only; their official biological fate semantics must be verified from a separately accessible NEON controlled categorical dictionary or user guide before applying them as live-release statuses. **Do not treat a string containing release as proof without validating source code/era meaning.**
+- No released-only reencounter rate, site beta/p, individual detection probability, climate effect, W/B density result, or new ecological causal inference computed. The existing 2026-10-28 explicit-release gate **STOP** remains until an independently accepted, documented semantic revision and pre-outcome source support contract.
+
+A source-information audit to quantify the size of a known limitation is not a new biological data experiment. Keep one unified NEON macroecology paper.

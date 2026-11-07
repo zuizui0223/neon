@@ -1,0 +1,44 @@
+name: neon-macro-temporal-weather-source
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_macro_temporal_weather_source_v1.py"
+      - "tests/test_neon_macro_temporal_weather_source_v1.py"
+      - ".github/workflows/neon-macro-temporal-weather-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-macro-temporal-weather-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  weather-and-lag-support-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test original capture gap and release-weather semantic gates
+        run: python -m unittest discover -s tests -p 'test_neon_macro_temporal_weather_source_v1.py' -v
+      - name: Require original NEON release source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Audit original 216 seasonal pair gaps and independently available climate source months
+        run: python -m analysis.run_neon_macro_temporal_weather_source_v1
+      - name: Archive safe non-ecological-source support
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-macro-temporal-weather-source-only
+          path: build/neon_macro_temporal_weather_source_audit_v1.json
+          retention-days: 45
+          if-no-files-found: warn

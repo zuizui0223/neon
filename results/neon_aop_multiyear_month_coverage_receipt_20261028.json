@@ -1,0 +1,70 @@
+{
+  "AOP_month_metadata_does_not_prove_tile_coverage_at_mammal_trap": true,
+  "calendar_month_is_not_exact_aerial_flight_date": true,
+  "closest_month_abs_lag_12_or_less_day_attempts": 252,
+  "closest_month_abs_lag_24_or_less_day_attempts": 330,
+  "closest_month_abs_lag_3_or_less_day_attempts": 153,
+  "closest_month_earlier_than_capture_day_attempts": 171,
+  "closest_month_later_than_capture_day_attempts": 151,
+  "closest_month_same_calendar_month_attempts": 26,
+  "closest_source_month_gap_summary_abs": {
+    "max": 27,
+    "median": 5,
+    "min": 0
+  },
+  "distinct_plot_selected_month_keys": 51,
+  "nearest_month_tie_prefer_prior_acquisition": true,
+  "no_source_canopy_values_ever_opened": true,
+  "original_capture_pairs": 58,
+  "original_capture_plots": 30,
+  "original_day_attempts_with_any_published_month": 348,
+  "original_distinct_plot_day_keys": 339,
+  "original_mammal_genus_space_effects_unchanged": true,
+  "original_physical_sites": 14,
+  "original_repeated_capture_day_attempts": 348,
+  "pairs_all_six_days_closest_month_same_single_flight": 53,
+  "pairs_all_six_days_within_12_months": 36,
+  "pairs_all_six_days_within_12_months_only_not_later_acquisition": 18,
+  "pairs_all_six_days_within_24_months": 55,
+  "pairs_all_six_days_within_3_months": 22,
+  "pairs_all_six_days_within_3_months_only_not_later_acquisition": 10,
+  "private_site_plot_day_month_pairs_exported": false,
+  "schema": "neon.macro.AOP_original_flight_month_source_v1",
+  "sites_with_one_or_more_flight_month": 14,
+  "source_provenance": {
+    "genus_spatial_Z_not_refitted": true,
+    "no_full_CHM_manifest_or_any_pixel_measured_in_this_census": true,
+    "not_a_retry_of_failed_GraphQL_v_REST_station_history": true,
+    "official_product_metadata_digest": "72c37f556a784075542f63a3cf6d4c7f79ee099576077a9c3c8aa3cf4dc5b0ce",
+    "original_mammal_source_verified": {
+      "capture_files_without_required_namedLocation_schema": 0,
+      "downloaded_source_files_MD5_size_verified": 3480,
+      "manifest_files": 3547,
+      "perplotnight_files": 1773,
+      "pertrapnight_files": 1707,
+      "release": "RELEASE-2026",
+      "same_58_pairs_30_plots_14_sites_reproduced": true,
+      "source_plot_rows": 21363,
+      "source_trap_rows": 1505827
+    },
+    "retrieved_utc": "2026-10-28T01:06:39.009637+00:00",
+    "source": "NEON official RELEASE-2026 DP3.30015.001 site availability metadata"
+  },
+  "source_site_months_per_site_summary": {
+    "max": 10,
+    "median": 6.5,
+    "min": 5
+  },
+  "status": "MULTIYEAR_OFFICIAL_AOP_MONTH_AVAILABILITY_AUDITED_NOT_HABITAT_EFFECT",
+  "total_unique_site_flight_month_pairs": 97,
+  "true_mammal_habitat_or_genus_detection_not_estimated": true,
+  "github_actions_provenance": {
+    "run_id": 40612718442,
+    "job_id": 122567892816,
+    "head_sha": "bb3547eba9e252a18d899aa250f69e0741a2d624",
+    "artifact_id": 12783339343,
+    "artifact_zip_sha256": "61d20afdec3253aafaba8e06daf14af04e9d9c818ac678c0e6c148c688c6045d",
+    "workflow_conclusion": "success",
+    "no_raster_values_or_mammal_genus_Z_opened": true
+  }
+}

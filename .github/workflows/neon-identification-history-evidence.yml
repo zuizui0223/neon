@@ -1,0 +1,43 @@
+name: neon-identification-history-evidence
+
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - analysis/audit_neon_identification_evidence_v1.py
+      - tests/test_neon_identification_evidence_v1.py
+      - .github/workflows/neon-identification-history-evidence.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-identification-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify molecular mention, negation, release and privacy rules
+        run: python -m unittest discover -s tests -p 'test_neon_identification_evidence_v1.py' -v
+      - name: Require existing source access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Read official identification histories only, no spatial responses
+        run: python -m analysis.audit_neon_identification_evidence_v1
+      - name: Retain aggregate evidence and immutable input manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-identification-history-evidence-v1
+          path: build/neon_identification_evidence_v1.json
+          if-no-files-found: warn
+          retention-days: 45

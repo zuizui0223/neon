@@ -1,0 +1,47 @@
+name: neon-macro-six-night-trap-opportunity-ecology
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_macro_six_night_effort_ecology_v1.py"
+      - "tests/test_neon_macro_six_night_effort_ecology_v1.py"
+      - ".github/workflows/neon-macro-six-night-trap-opportunity-ecology.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-macro-six-night-recorded-station-ecology-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-six-night-recorded-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test source-only shared recorded stations and exact-null support before effects
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_macro_six_night_effort_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_six_night_effort_ecology_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_row_fixedmargin_v1.py' -v
+      - name: Require original NEON token
+        run: test -n "$NEON_API_TOKEN"
+      - name: Test fixed genus spatial recurrence after common six-night recorded trap geometry
+        run: python -m analysis.run_neon_macro_six_night_effort_ecology_v1
+      - name: Archive aggregate-only original observation support or honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-macro-six-night-recorded-station-recurrence-v1
+          path: build/neon_macro_six_night_station_matched_recurrence_v1.json
+          if-no-files-found: warn
+          retention-days: 45

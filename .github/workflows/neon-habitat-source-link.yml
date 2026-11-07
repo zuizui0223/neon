@@ -1,0 +1,49 @@
+name: neon-habitat-source-link
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_lineage_environmental_source_coverage_v1.py'
+      - 'analysis/neon_habitat_location_link_v1.py'
+      - 'analysis/run_neon_habitat_source_link_v1.py'
+      - 'tests/test_neon_habitat_location_link_v1.py'
+      - '.github/workflows/neon-habitat-source-link.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-habitat-source-link-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fixed-cohort-habitat-availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source coverage and named-location interpretation
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_lineage_environmental_source_coverage_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_habitat_location_link_v1.py' -v
+          python -m py_compile analysis/run_neon_habitat_source_link_v1.py
+      - name: Require original source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Match unchanged mammal cohort to habitat products and official named-location anchors
+        run: python -m analysis.run_neon_habitat_source_link_v1
+      - name: Archive aggregate environmental availability without identifiers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-habitat-source-link-v1
+          path: build/neon_habitat_source_link_v1.json
+          if-no-files-found: warn
+          retention-days: 45

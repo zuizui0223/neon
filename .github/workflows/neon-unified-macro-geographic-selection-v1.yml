@@ -1,0 +1,45 @@
+name: neon-unified-macro-geographic-selection
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_site_selection_v1.py"
+      - "analysis/run_neon_macro_biogeographic_selection_v1.py"
+      - "tests/test_neon_macro_site_selection_v1.py"
+      - ".github/workflows/neon-unified-macro-geographic-selection-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-unified-macro-biogeography-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-release-geographic-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit test source-only domain, latitude and missing-eligible subset
+        run: python -m unittest discover -s tests -p 'test_neon_macro_site_selection_v1.py' -v
+      - name: Require source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Census original 803 NEON seasonal candidates by source ecosystem domains
+        run: python -m analysis.run_neon_macro_biogeographic_selection_v1
+      - name: Upload aggregate-only original source selection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-unified-macro-biogeographic-selection-v1
+          path: build/neon_macro_biogeographic_selection_v1.json
+          if-no-files-found: warn
+          retention-days: 45

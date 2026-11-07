@@ -1,0 +1,87 @@
+{
+  "fixed_design": "docs/NEON_GENUS_FIRST_NIGHT_REENCOUNTER_SOURCE_GATE_20261026.md",
+  "original_158_two_genus_pairs_unchanged": true,
+  "original_58_threeplus_pairs_unchanged": true,
+  "original_NEON_release": "RELEASE-2026",
+  "original_firstnight_source_reconstructed_and_selected_pair_unchanged": true,
+  "reencounter": {
+    "claim_boundaries": {
+      "cannot_directly_explain_historical_site_exact_trap_recurrence": true,
+      "not_available_to_recapture_if_dead_or_not_released_cannot_be_identified": true,
+      "not_capture_detection_p_of_animal_at_trap": true,
+      "not_true_site_occupancy_or_movement": true,
+      "original_site_plot_trap_tag_day_or_individual_id_not_exported": true,
+      "same_original_NEON_RELEASE_2026": true
+    },
+    "day2_or3_event_recorded_reencounter_not_true_detection_p": true,
+    "direction": "negative",
+    "no_alternate_genus_pair_selected": true,
+    "no_alternative_genus_or_site_selected_from_late_outcomes": true,
+    "original_recapture_record_summary_by_genus": {
+      "Microtus": {
+        "firstnight_marked_animals": 179,
+        "not_true_detection_probability": true,
+        "physical_site_equal_reencounter_fraction": 0.5417785895577012,
+        "pooled_recorded_reencounter_fraction": 0.5418994413407822,
+        "recorded_reencountered_day2_or3": 97
+      },
+      "Peromyscus": {
+        "firstnight_marked_animals": 435,
+        "not_true_detection_probability": true,
+        "physical_site_equal_reencounter_fraction": 0.7768728012434933,
+        "pooled_recorded_reencounter_fraction": 0.7586206896551724,
+        "recorded_reencountered_day2_or3": 330
+      }
+    },
+    "original_source_selected_physical_sites": 7,
+    "preselected_genera": [
+      "Microtus",
+      "Peromyscus"
+    ],
+    "site_equal_observed_genus_reencounter_fraction_difference": -0.23509421168579211,
+    "source_ambiguous_late_tag_histories": 1,
+    "source_matched_physical_sites_retained": 7,
+    "status": "OBSERVED_SITE_PAIRED_GENUS_REENCOUNTER_FRACTION_DESCRIBED",
+    "unique_firstnight_tag_histories_in_fitted_site_genus_pairs": 614,
+    "whole_physical_site_bootstrap": {
+      "draws": 2000,
+      "interval_excludes_zero": true,
+      "not_independent_new_release_validation": true,
+      "percentile_95_interval": [
+        -0.45695823864059304,
+        -0.023687163564519265
+      ],
+      "seed": 2026102601
+    }
+  },
+  "research_status": "POST_RESULT_SAME_HISTORICAL_RELEASE_OBSERVATION_PROCESS",
+  "schema": "neon.macro.genus_source_paired_three_night_reencounter.v1",
+  "scientific_boundaries": {
+    "cause_of_genus_to_exact_trap_recurrence_not_identified": true,
+    "original_10m_neighbor_site_reuse_exclusion_nonsupport_unchanged": true,
+    "original_density_universal_5of8_FAIL_unchanged": true,
+    "original_historical_genus_exact_trap_recurrence_results_unchanged": true,
+    "original_source_animal_site_plot_trap_date_IDs_not_exported": true,
+    "reencounter_neither_true_genus_p_nor_animal_survival": true,
+    "six_night_456_code_operability_source_18of158_STOP_unchanged": true,
+    "tower_temperature_79of80_QC_STOP_unchanged": true
+  },
+  "source": {
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827
+  },
+  "source_gate_receipt": "results/neon_genus_firstnight_reencounter_source_20261026.json",
+  "status": "OBSERVED_SITE_PAIRED_GENUS_REENCOUNTER_FRACTION_DESCRIBED",
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "run_id": 40258847572,
+    "job_id": 121366549823,
+    "original_head_sha": "9e5fe319dd78df618d4c83aaf182b9bf1876a8a9",
+    "workflow_conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40258847572",
+    "same_release_not_independent_replication": true
+  }
+}

@@ -1,0 +1,36 @@
+name: external-MOSA-individual-identity-integrity
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_identity_integrity_v1.py"
+      - "tests/test_mosa_identity_integrity_v1.py"
+      - ".github/workflows/external-MOSA-individual-identity-integrity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ID-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test code reuse, same-day collisions and MNA identity stop
+        run: python -m unittest discover -s tests -p 'test_mosa_identity_integrity_v1.py' -v
+      - name: Reconcile original Zenodo toe-code identities with published count only
+        run: python -m analysis.audit_mosa_identity_integrity_v1
+      - name: Archive structural identity diagnostics and STOP if discrepancy
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-individual-identity-integrity-v1
+          path: build/mosa_individual_identity_integrity_v1.json
+          if-no-files-found: warn
+          retention-days: 45

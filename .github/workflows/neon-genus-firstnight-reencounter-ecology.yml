@@ -1,0 +1,47 @@
+name: neon-genus-firstnight-reencounter-ecology
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_genus_reencounter_effect_v1.py"
+      - "analysis/run_neon_genus_firstnight_reencounter_outcome_v1.py"
+      - "tests/test_neon_macro_genus_reencounter_effect_v1.py"
+      - ".github/workflows/neon-genus-firstnight-reencounter-ecology.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-genus-firstnight-reencounter-ecology-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-locked-original-release-three-night-reencounter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify outcome source site/genus pairing, firstnight denominator and ambiguity STOP
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_macro_firstnight_reencounter_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_genus_reencounter_effect_v1.py' -v
+      - name: Require original NEON RELEASE-2026 source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Evaluate first-night-marked Microtus Peromyscus subsequent re-encounter conditional on source GO
+        run: python -m analysis.run_neon_genus_firstnight_reencounter_outcome_v1
+      - name: Archive aggregate-only genus-level reencounter contrasts or honest STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-genus-firstnight-reencounter-ecology-v1
+          path: build/neon_genus_firstnight_reencounter_outcome_20261026.json
+          if-no-files-found: warn
+          retention-days: 45

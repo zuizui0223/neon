@@ -1,0 +1,42 @@
+name: external-MOSA-author-verified-repeat-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_author_verified_bout_support_v1.py"
+      - "tests/test_mosa_author_verified_bout_support_v1.py"
+      - ".github/workflows/external-MOSA-author-verified-repeat-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-authored-repeats-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repeats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test fixed session identity, repeats and reused-ID STOP
+        run: |
+          python -m unittest discover -s tests -p 'test_mosa_author_verified_bout_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_author_exact_filter_v1.py' -v
+      - name: Audit checksum-valid author-MN three-night structural support
+        run: python -m analysis.audit_mosa_author_verified_bout_support_v1
+      - name: Archive structure or fail-closed identity STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-author-verified-repeat-support-v1
+          path: build/mosa_author_verified_bout_support_v1.json
+          if-no-files-found: warn
+          retention-days: 40

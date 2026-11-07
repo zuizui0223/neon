@@ -1,0 +1,44 @@
+name: neon-macro-original-tower-weather-QA-pilot
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_macro_weather_pilot_v1.py"
+      - "tests/test_neon_macro_weather_pilot_v1.py"
+      - ".github/workflows/neon-macro-original-tower-weather-QA-pilot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-macro-original-tower-weather-QA-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-release-temperature-precipitation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify mock source metadata, weather schema QC and privacy boundaries
+        run: python -m unittest discover -s tests -p 'test_neon_macro_weather_pilot_v1.py' -v
+      - name: Require original mammal and meteorological source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Provider-checksum verify real same-month NEON 30-min air temperature and tipping precipitation
+        run: python -m analysis.run_neon_macro_weather_pilot_v1
+      - name: Archive safe source-only table QC
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-original-weather-tower-month-QA-v1
+          path: build/neon_macro_tower_weather_first_month_qc_pilot_v1.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,234 @@
+{
+  "schema": "neon.multiscale_density_accommodation.design.v1",
+  "date": "2026-10-05",
+  "state": "question_frozen_before_new_release2026_spatial_effect_extraction",
+  "programme": "multiscale_density_accommodation_v1",
+  "paper_lane": "mammal_ecology_separate_from_live_trap_aliasing_pr21",
+  "scientific_question": "When local small-mammal abundance rises, is crowding accommodated primarily by contraction of individual space use, expansion of the population footprint, or a cross-scale combination of both?",
+  "literature_boundary": {
+    "already_established": [
+      "individual home-range size commonly decreases with density",
+      "NEON Peromyscus home-range area decreases with density",
+      "habitat, latitude and density interact to influence Peromyscus home-range area",
+      "within- versus between-individual variation in space use is an established conceptual decomposition",
+      "higher density commonly increases spatial network connectedness across animal systems"
+    ],
+    "candidate_contribution": "identify how abundance responses are partitioned between within-individual spatial variance and dispersion of individual centres within matched standardized small-mammal sessions",
+    "key_reference": "O'Fallon S, Pinter-Wollman N, Mabry KE. 2025. Oecologia 207:98. doi:10.1007/s00442-025-05731-2",
+    "key_additional_reference": "Albery GF et al. 2025. Nature Ecology & Evolution 9:2002-2013. doi:10.1038/s41559-025-02843-z"
+  },
+  "release_2026": {
+    "status": "response_consumed_development_data",
+    "confirmatory_reuse_forbidden": true,
+    "allowed": [
+      "schema audit",
+      "effect-blind structural estimability",
+      "mechanical metric validation",
+      "model development",
+      "taxonomy sensitivity development",
+      "explicitly exploratory ecological estimates"
+    ]
+  },
+  "future_confirmation": {
+    "response": "first NEON small-mammal observations not contained in RELEASE-2026",
+    "freeze_before_access": [
+      "eligible sampling types",
+      "species and taxonomy rule",
+      "abundance metric",
+      "individual-scale spatial metric",
+      "population-footprint metric",
+      "effort model",
+      "support thresholds",
+      "model formula",
+      "primary cross-scale contrast",
+      "stop rules"
+    ]
+  },
+  "primary_unit": "species x plotID x sampling session/eventID",
+  "hierarchy": [
+    "site",
+    "plotID",
+    "year",
+    "eventID",
+    "nightuid",
+    "trapCoordinate",
+    "resolved individualID",
+    "capture event"
+  ],
+  "sampling_boundary": {
+    "primary_cross_scale_pool": "RELEASE-2026 records from 2015-04 onward, standard 10x10 geometry, and exactly three distinct nightuid values for the same site x plotID x eventID; this operationalizes the post-2015 pathogen-grid three-night protocol in the basic package",
+    "one_night_sessions": "population-footprint development only unless a future frozen model establishes comparability",
+    "denominator": "active trap-night",
+    "primary_geometry": {
+      "grid": "standard NEON 10x10 trapCoordinate lattice",
+      "trap_spacing_m": 10,
+      "footprint_m": "90 x 90",
+      "primary_sites": "all structurally eligible standard-grid sites",
+      "exception": "SRER uses 7x7 and is excluded from the primary standard-geometry contrast; it may be analyzed only under separately calibrated secondary geometry",
+      "coordinate_system": "nominal trapCoordinate lattice, not historical geographic latitude/longitude",
+      "rationale": "avoids conflating ecological spatial variance with historical geolocation/Named Location corrections; within-session geometry is defined by the sampling design"
+    },
+    "legacy_recapture_sessions": "structural/development sensitivity only; not pooled into the primary future confirmation",
+    "diversity_one_night_sessions": "identified structurally as one-night plot-events and not eligible for primary W/B inference",
+    "grid_completion_rule": "gridCompletion is audited where available; absence cannot be silently treated as complete, and any final completeness rule is frozen before spatial effects are opened",
+    "mammalGridSamplingType_basic_package": "not available/populated in the RELEASE-2026 basic-package perplotnight files used by the audit; do not require this field for primary eligibility",
+    "protocol_exception": "plot-events with 4+ nights are excluded from the primary denominator and retained only as protocol/QC exceptions"
+  },
+  "candidate_individual_scale_metrics": [
+    "primary coordinate candidate: equal-individual half mean pairwise squared distance among repeated locations (unbiased within-individual covariance-trace U-statistic)",
+    "alternative only if structurally estimable: session-level SCR/SECR spatial scale"
+  ],
+  "candidate_population_footprint_metrics": [
+    "primary coordinate candidate: half mean pairwise squared distance among matched repeat-supported individual session centres",
+    "primary mechanical sensitivity: subtract mean(W_i/k_i) centroid-noise contribution before abundance effects are opened",
+    "secondary only if prevalidated: effective occupied-trap number standardized by an effort/N/capture-frequency-preserving null"
+  ],
+  "mechanical_rejection_rule": "reject any footprint metric that is a deterministic or near-deterministic function of abundance, occupied-trap count, nominal grid size, or grid identity",
+  "primary_hypothesis": {
+    "name": "cross_scale_density_accommodation",
+    "individual_slope": "beta_W = abundance response of individual-scale spatial extent",
+    "population_slope": "beta_B = abundance response of population-footprint spatial extent",
+    "contrast": "Delta_beta = beta_B - beta_W",
+    "prediction": "Delta_beta > 0",
+    "strong_form": "beta_W < 0 and beta_B >= 0",
+    "interpretation": "additional individuals are accommodated more by spatial packing/compression at the individual scale than by proportional expansion of the population footprint"
+  },
+  "abundance_candidates": [
+    "resolved unique individuals / MNKA-like session count",
+    "effort-standardized capture rate",
+    "closed or spatial capture-recapture density where estimable"
+  ],
+  "effect_blind_next_gate": {
+    "allowed_fields": [
+      "site",
+      "plotID",
+      "year",
+      "eventID",
+      "nightuid",
+      "mammalGridSamplingType",
+      "gridCompletion",
+      "trap availability/status",
+      "resolved individual identifier",
+      "taxon identifier",
+      "capture coordinate identifier"
+    ],
+    "allowed_summaries": [
+      "active trap-night counts",
+      "unique individual counts",
+      "repeat-captured individual counts",
+      "coordinate-bearing capture counts",
+      "individual counts with at least two coordinate-bearing captures",
+      "capture-event counts",
+      "sessions per species/site/year"
+    ],
+    "forbidden_before_gate_freeze": [
+      "within-individual distances",
+      "between-individual distances",
+      "W or B values",
+      "density slopes",
+      "habitat effects",
+      "species effect ranking by outcome",
+      "distinct observed location-change status used for eligibility"
+    ]
+  },
+  "required_controls": [
+    "active trap-night effort",
+    "per-individual capture-frequency-preserving spatial null",
+    "leave-one-individual-out influence",
+    "leave-one-night-out influence",
+    "mammalGridSamplingType sensitivity",
+    "Peromyscus cryptic-identification sensitivity",
+    "grid-edge/truncation audit",
+    "audit repeat-capture support versus session abundance without conditioning on observed displacement",
+    "fixed-footprint mechanical null across varying sampled individual count",
+    "same prospectively defined individual-support rule for primary W/B comparison",
+    "pre-effect audit of repeat-supported fraction across abundance/support classes without opening spatial distances",
+    "raw-B versus prespecified centroid-debiased-B sensitivity",
+    "standard 10x10 and SRER 7x7 geometries must not be pooled without separate calibration",
+    "primary coordinate system uses nominal trapCoordinate lattice; geographic-coordinate sensitivity is secondary and requires current geoNEON/locations metadata"
+  ],
+  "replication_requirement": {
+    "taxonomic": true,
+    "geographic": true,
+    "exact_minimums": "freeze after effect-blind RELEASE-2026 structural audit and copy unchanged to future-response contract"
+  },
+  "stop_rules": [
+    "stop if both spatial scales are not jointly estimable across replicated species and sites",
+    "stop if footprint metric is mechanically driven by abundance",
+    "stop if within-individual metric is dominated by sparse recapture support",
+    "stop if effort or taxonomy semantics cannot be frozen prospectively",
+    "do not rescue future failure with post-hoc taxa, thresholds, metrics, habitat moderators, or incompatible sampling designs"
+  ],
+  "mechanical_metric_preference": {
+    "status": "frozen_before_effect_blind_structural_audit",
+    "individual_candidate": {
+      "name": "equal-individual half mean pairwise squared within-individual distance",
+      "formula": "W_i = [2*C(k_i,2)]^-1 * sum_{j<l} ||x_ij-x_il||^2; W = equal-individual mean(W_i)",
+      "minimum_support": "k_i >= 2 valid coordinate-bearing captures; support does not require distinct coordinates or observed movement; singleton within-individual spread is unresolved, not zero",
+      "property": "equals trace of unbiased sample covariance of observed locations"
+    },
+    "population_candidate": {
+      "name": "half mean pairwise squared distance among individual session centres",
+      "formula": "B = [2*C(m,2)]^-1 * sum_{i<r} ||c_i-c_r||^2",
+      "property": "equals trace of unbiased sample covariance of individual centres",
+      "mechanical_null": "under iid draws from an unchanged centre distribution, E[B] is invariant to sampled individual count m",
+      "centroid_noise_correction": "B_debiased = B_observed - mean_i(W_i / k_i) under iid repeated-location measurement benchmark",
+      "primary_support_cohort": "exactly the same repeat-captured, coordinate-supported individuals contributing to W; an all-individual B is sensitivity only"
+    },
+    "common_scale": "W and B are squared-distance variance quantities; matched transformations are required for slope comparison",
+    "centroid_uncertainty": "primary mechanical plan is to report raw B and prespecified B_debiased = B_observed - mean(W_i/k_i); if synthetic/grid audits show the correction is invalid under the observation process, abandon coordinate decomposition before ecological slopes are opened",
+    "primary_abundance_boundary": "N describes the session population, not the number of individuals eligible for W",
+    "validation_code": "analysis/validate_multiscale_density_metrics_v1.py"
+  },
+  "external_discovery_candidate": {
+    "dataset": "Portal Project rodent captures at pinned source commit 72d7ff8568052763bf6899dc462e285684cf20f6",
+    "status": "structural_support_audit_only_until_effect_blind_same-session_repeat-capture gate is known",
+    "role_if_structurally_eligible": "possible independent discovery/triangulation system; ecological effects require a separate frozen contract",
+    "role_if_not_structurally_eligible": "close Portal route without redefining session scale or pooling across incompatible temporal units"
+  },
+  "mechanical_support_selection": {
+    "status": "frozen_before_RELEASE2026_effect_blind_support_result",
+    "scenarios": [
+      "standard NEON 10x10 fixed detector grid with latent centres across full 10x10",
+      "standard NEON 10x10 fixed detector grid with latent centres restricted to central 8x8"
+    ],
+    "detector_spacing_m": 10,
+    "detector_kernel_sigma_m": 12.5,
+    "captures_per_repeat_supported_individual": "discrete uniform 2..3 in the primary synthetic audit, matching the maximum distinct-night support available within a three-night pathogen event",
+    "candidate_minimum_repeat_supported_individuals": [
+      3,
+      5,
+      8,
+      10,
+      15,
+      20
+    ],
+    "acceptance_criteria": {
+      "max_abs_mean_bias_fraction_of_target": 0.05,
+      "max_fraction_debiased_b_nonpositive": 0.01,
+      "max_median_absolute_relative_error": 0.25,
+      "max_q90_absolute_relative_error": 0.5
+    },
+    "selection_rule": "choose the smallest candidate m passing all criteria in every prespecified scenario; if none pass, STOP",
+    "implementation": "analysis/simulate_multiscale_density_metric_support_v1.py",
+    "relationship_to_real_support": "select the synthetic minimum from standard 10x10 scenarios only, then intersect it with the RELEASE-2026 effect-blind standard-grid support frontier; never lower it because real-data support is sparse",
+    "primary_geometry": "standard_10x10",
+    "secondary_geometry": {
+      "site": "SRER",
+      "geometry": "7x7 fixed detector grid, 10 m spacing",
+      "rule": "calibrate separately; SRER may not define or lower the primary standard-grid support threshold"
+    },
+    "note": "the synthetic support threshold is invalid if calculated with k>3 for the three-night primary design"
+  },
+  "taxonomy_integrity": {
+    "primary_unit": "NEON published taxonID concept; do not force cryptic composite taxon IDs to species",
+    "official_metadata_to_audit": [
+      "scientificName",
+      "identificationQualifier",
+      "taxonRank",
+      "consistency of taxonID across repeated captures of the same tagID within eventID"
+    ],
+    "replication_preference": "future generality should span multiple resolved genera, not merely multiple taxon concepts within Peromyscus",
+    "selection_boundary": "taxonomy rules must be frozen from metadata/support only before W, B, or density effects are opened"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "no_site_or_animal_private_values_exported": true,
+  "not_an_ecological_climate_or_detection_result": true,
+  "old_14_30_site_ecological_positive_results_unchanged": true,
+  "original_pre_effect_one_month_parser_succeeded": true,
+  "same_single_official_NEON_release_month_response_for_both_parsers": true,
+  "schema": "neon.macro.original_tower_month_parser_differential_source_qa.v1",
+  "source_safe_parser_profile": {
+    "current_exact_three_digit_position_regex_matches": true,
+    "file_contains_explicit_SAAT_30min_table": true,
+    "file_is_csv": true,
+    "full_new_parser_same_provider_name_as_pilot": true,
+    "full_new_parser_selects_a_record": true,
+    "legacy_no_month_filename_regex_matches": false,
+    "no_mammal_ecological_effect_opened": true,
+    "no_source_identifier_name_url_or_date_returned": true,
+    "pilot_provider_record_was_valid": true,
+    "provider_checksum_length": 32,
+    "provider_size_type": "int",
+    "provider_url_https": true,
+    "size_gt_0": true,
+    "size_le_15mb": true
+  },
+  "status": "ONE_ORIGINAL_MONTH_SOURCE_PARSER_DIFFERENCE_DIAGNOSED",
+  "strict_full_run_parser_succeeded": true,
+  "provenance": {
+    "repository": "zuizui0223/neon",
+    "run_id": 40181282844,
+    "job_id": 121132697395,
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40181282844",
+    "ecological_outcomes_accessed": false
+  }
+}

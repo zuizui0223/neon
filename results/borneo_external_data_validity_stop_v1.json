@@ -1,0 +1,50 @@
+{
+  "schema": "neon.borneo_external_data_validity_stop.v1",
+  "date": "2026-10-10",
+  "source": "Chapman et al. (2018) Dryad DOI 10.5061/dryad.4th3p35",
+  "previous_run": {
+    "id": 37444977522,
+    "previous_conclusion": "success",
+    "meaning": "RETRACTED_AS_VALID_SCHEMA_EVIDENCE",
+    "diagnosis": "CSV fields contained '<!doctype html>...<title>Validating...</title>' with only 37 synthetic parsed rows; anti-bot content misclassified as scientific data"
+  },
+  "corrected_run": {
+    "id": 38012430095,
+    "conclusion": "failure - expected, scientific fail-closed",
+    "artifact_id": 11653522894,
+    "artifact_digest": "sha256:703d52e983ba49a199109158233b6f330c056513010faaefa310821a850cda0d"
+  },
+  "access": {
+    "dryad_rest": "HTTP 401 Unauthorized",
+    "dryad_file_stream": "HTML anti-bot challenge rather than CSV",
+    "external_csv_verified": false,
+    "readme_verified": false
+  },
+  "published_protocol": {
+    "annual_seven_night_sampling": true,
+    "grid_4_by_12": true,
+    "point_spacing_m": 23,
+    "trap_count_per_grid": 96,
+    "note": "Source publication (doi 10.1007/s10531-018-1594-y) describes sampling, not proof of usable machine-readable source bytes."
+  },
+  "scientific_status": {
+    "decision": "STOP_EXTERNAL_DATA_BEFORE_SCHEMA_AND_SPATIAL_EFFECTS",
+    "NEON_three_night_W_B_direct_replication": false,
+    "note": "Seven-night design might be evaluated in a new pre-effect protocol as a sensitivity or independent transportability sample only AFTER genuine file bytes, cohort/occasion structure, capture-night identities and support are verified.",
+    "W_opened": false,
+    "B_opened": false,
+    "N_MNKA_join": false,
+    "species_effect_directions_opened": false
+  },
+  "repair": {
+    "tests": "HTML challenge, checksum, file length, and valid synthetic CSV tested",
+    "workflow": "borneo-multiscale-density-schema",
+    "code_path": "analysis/diagnose_borneo_multiscale_density_schema_v1.py"
+  },
+  "no_rescue": [
+    "accept HTTP 200 HTML as data",
+    "invent data columns from landing page metadata",
+    "interpret prior green CI as external empirical replication",
+    "combine seven-night capture estimator with frozen NEON three-night estimator without new eligibility decision"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "monthly_product_QA": {
+    "precip_tipping": {
+      "product_code": "DP1.00045.001",
+      "provider_selected_source_file_size_bytes": 83393,
+      "selected_interval": "30min",
+      "source_MD5_and_byte_count_verified": true,
+      "table": {
+        "field_count": 5,
+        "finite_numeric_rows_by_candidate": {
+          "precipBulk": 1488
+        },
+        "has_start_and_end_time_schema": true,
+        "n_final_quality_flag_columns": 1,
+        "no_ecological_effect_fitted": true,
+        "no_original_capture_dates_or_site_ids_exported": true,
+        "primary_physical_measurement_column_semantics_checked": true,
+        "primary_variable_candidates_detected": [
+          "precipBulk"
+        ],
+        "rows": 1488,
+        "summarized_final_quality_flag_counts": {
+          "0": 1488
+        }
+      }
+    },
+    "single_air_temperature": {
+      "product_code": "DP1.00002.001",
+      "provider_selected_source_file_size_bytes": 149163,
+      "selected_interval": "30min",
+      "source_MD5_and_byte_count_verified": true,
+      "table": {
+        "field_count": 10,
+        "finite_numeric_rows_by_candidate": {
+          "tempSingleMean": 1410
+        },
+        "has_start_and_end_time_schema": true,
+        "n_final_quality_flag_columns": 1,
+        "no_ecological_effect_fitted": true,
+        "no_original_capture_dates_or_site_ids_exported": true,
+        "primary_physical_measurement_column_semantics_checked": true,
+        "primary_variable_candidates_detected": [
+          "tempSingleMean"
+        ],
+        "rows": 1488,
+        "summarized_final_quality_flag_counts": {
+          "0": 1408,
+          "1": 80
+        }
+      }
+    }
+  },
+  "no_climate_mammal_Z_regression_fit": true,
+  "no_meteorology_value_or_mammal_identity_exported": true,
+  "no_other_weather_month_or_site_assumed_QC_passed": true,
+  "no_raw_original_files_or_neon_api_urls_exported": true,
+  "older_precipitation_methods_never_merged": true,
+  "query_cohort_selection_outcome_blind": true,
+  "schema": "neon.macro.tower_weather_first_original_month_QA.v1",
+  "source_cohort_frozen_3plus": 58,
+  "source_cohort_frozen_exact_two": 158,
+  "source_probe_is_only_first_eligible_original_source_month": true,
+  "source_release": "RELEASE-2026",
+  "status": "SOURCE_ONLY_ORIGINAL_NEON_TEMPERATURE_AND_TIPPING_30MIN_QA",
+  "weather_tower_not_mammal_grid_microhabitat": true,
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 40174999684,
+    "job_id": 121113650247,
+    "source_commit": "263ae02d20c78fb3fcdcdb168474bb4041afeb70",
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40174999684"
+  }
+}

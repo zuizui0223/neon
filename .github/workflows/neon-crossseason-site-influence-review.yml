@@ -1,0 +1,35 @@
+name: neon-crossseason-site-influence-review
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/review_neon_crossseason_site_influence_v1.py"
+      - "tests/test_neon_crossseason_ecology_robustness_v1.py"
+      - "results/neon_crossseason_genus_template_ecology_receipt_20261019.json"
+      - ".github/workflows/neon-crossseason-site-influence-review.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exploratory-site-influence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test original 14-site p against exact enumeration and guard ecology claims
+        run: python -m unittest discover -s tests -p 'test_neon_crossseason_ecology_robustness_v1.py' -v
+      - name: Calculate explicitly exploratory leave-site-out readout from frozen receipt only
+        run: python -m analysis.review_neon_crossseason_site_influence_v1
+      - name: Archive aggregate exploratory site diagnostics (no site names)
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-crossseason-exploratory-site-influence-v1
+          path: build/neon_crossseason_site_influence_exploratory_v1.json
+          retention-days: 45

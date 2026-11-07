@@ -1,0 +1,114 @@
+{
+  "calibration_robust_at_0_05_under_both_couplings": true,
+  "causal_habitat_filtering_or_competition_established": false,
+  "comonotone_is_not_a_proven_upper_bound_on_all_joint_ecological_nulls": true,
+  "comonotone_within_site_marginal_null": {
+    "extreme_null_meta_replicates": 28,
+    "mc_standard_error_approx": 0.0002690495146081609,
+    "no_sign_symmetry_assumption_invoked": true,
+    "not_independent_new_ecological_observations": true,
+    "null_coupling": "COMONOTONE_SITEWISE_UNIT_NULL_QUANTILES_STRESS_TEST",
+    "null_mean_of_site_grand_statistic": 0.0026840291706405283,
+    "null_meta_replicates": 20000,
+    "null_quantiles": {
+      "q025": -0.508979384348513,
+      "q50": 0.0030219758503318003,
+      "q975": 0.5152647145806406,
+      "q995": 0.6826289119770654
+    },
+    "null_sd_of_site_grand_statistic": 0.26396561491198867,
+    "observed_equal_site_weighted_grand_mean_Z": 0.8007420166137748,
+    "one_sided_p": 0.0014499275036248187,
+    "sites": 14,
+    "units": 58
+  },
+  "exact_original_primary_reproduction": {
+    "all_58_unit_Z_and_MCMC_diagnostics_match_archived": true,
+    "minimum_original_unit_null_lag1_ESS": 1293.8337183976241,
+    "original_14_sorted_site_means_match_archived": true,
+    "original_exact_signflip_p_unchanged": 0.00115966796875,
+    "original_physical_site_mean_Z_unchanged": 0.8007420166137748
+  },
+  "independent_unit_marginal_null": {
+    "extreme_null_meta_replicates": 0,
+    "mc_standard_error_approx": 0.00004999625023436133,
+    "no_sign_symmetry_assumption_invoked": true,
+    "not_independent_new_ecological_observations": true,
+    "null_coupling": "INDEPENDENT_UNIT_MARGINALS_CONDITIONAL_ON_FROZEN_SEASON_B_MARGINS",
+    "null_mean_of_site_grand_statistic": -0.0007216964703379387,
+    "null_meta_replicates": 20000,
+    "null_quantiles": {
+      "q025": -0.32878755030844276,
+      "q50": -0.0019089024158561413,
+      "q975": 0.3294679689074022,
+      "q995": 0.4236449621121483
+    },
+    "null_sd_of_site_grand_statistic": 0.168223844893941,
+    "observed_equal_site_weighted_grand_mean_Z": 0.8007420166137748,
+    "one_sided_p": 0.00004999750012499375,
+    "sites": 14,
+    "units": 58
+  },
+  "observed_equal_site_weighted_mean_Z": 0.8007420166137748,
+  "original_density_W_B_reestimated": false,
+  "original_signflip_not_assumed_for_new_tests": true,
+  "original_unit_null_draws_per_unit": 2000,
+  "post_result_statistical_validation_not_a_second_independent_ecological_dataset": true,
+  "random_seed_comonotone_site_stress": 2026101930,
+  "random_seed_independent_unit_marginals": 2026101929,
+  "raw_Neon_unit_samples_exported": false,
+  "schema": "neon.direct_nested_genus_recurring_site_null_validation.v1",
+  "scientific_boundary": {
+    "MOSA_W_B": "SEALED",
+    "all_original_unit_null_vectors_dropped_after_computation": true,
+    "comonotone_sensitivity_not_guaranteed_global_bound": true,
+    "conditional_fixed_fixed_null_generating_mechanism_assumed": true,
+    "density_W_B_original_generalization": "FAILED_5_OF_8",
+    "fixed_total_F_C_historical_direct_match": "NONE_UNDER_QUALIFIER",
+    "no_competition_habitat_filtering_or_detection_causation_proven": true,
+    "no_new_animal_or_genus_ecological_response_selected": true,
+    "no_p_value_selection_or_pooled_significance": true,
+    "original_signflip_p_not_an_unconditional_exact_ecological_null": true,
+    "raw_tags_sites_or_trap_positions_exported": false,
+    "same_original_58_pairs_and_14_sites": true,
+    "same_site_reused_season_dependence_not_known": true,
+    "species_level_and_genus_level_San_Jacinto_NEON_not_pooled": true,
+    "two_direct_null_couplings_are_post_result_checks": true
+  },
+  "source": {
+    "original_58_source_support_reproduced": true,
+    "source_files_MD5_checked": 3547,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "source_independent_physical_sites": 14,
+  "source_original_seasonal_units": 58,
+  "source_seasonal_unit_marginals_preserved": true,
+  "status": "POST_RESULT_DIRECT_FIXED_FIXED_NULL_SUPPORTS_PATTERN_UNDER_BOTH_COUPLINGS",
+  "within_site_dependence_not_ecologically_identified": true,
+  "record_date": "2026-10-19",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "head_commit_at_run": "9614263678365d724263df0b436d94560d6d209a",
+    "run_id": 39217395939,
+    "job_id": 117944367987,
+    "conclusion": "success",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39217395939",
+    "artifacts": [
+      {
+        "id": 12170381833,
+        "name": "neon-crossseason-direct-site-null-post-result-calibration",
+        "digest": "sha256:468871461a09c3756f5b3975084b1a6eee1fb29650136d133886a1323d8138c9"
+      }
+    ]
+  },
+  "interpretation": {
+    "meaningful": "Both new direct conditional null tests place original mean site Z 0.800742 in an extreme positive tail. Thus the archived pattern does not rely solely on the unverified symmetry assumption used by its original signflip p.",
+    "simulation": "One-sided Monte Carlo p=(1+extremes)/20001; 0 exceedances in independent-unit null implies p=0.0000499975 is a resolution floor and not a known exact tail probability. Comonotone within-site coupling gives 28/20000 exceedances, p=0.00144993.",
+    "dependencies": "Both nulls remain conditional on the original season-B fixed-fixed model. The comonotone coupling is a strong dependence stress, not a general upper bound or actual same-site full generative ecological null. Pair overlap and repeated seasonal samples can still induce dependence.",
+    "causality": "No genus-specific detectability adjustment, microhabitat proxy, animal-level demographic replacement inference, competition or behavior established.",
+    "registered_status": "The original NEON site signflip p=0.001159668 is unchanged; new tests were designed post-result to challenge one inference assumption, not a second prospective confirmation.",
+    "paper_status": "Stronger conditional null robustness; still research draft pending ecological/detection and independent code review."
+  }
+}

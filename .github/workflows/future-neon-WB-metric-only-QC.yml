@@ -1,0 +1,42 @@
+name: future-neon-WB-metric-only-QC
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_metric_qc_v1.py"
+      - "tests/test_future_neon_metric_qc_v1.py"
+      - ".github/workflows/future-neon-WB-metric-only-QC.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metric-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify original matched W/B and 95%/1% frozen gates on synthetic inputs
+        run: python -m unittest discover -s tests -p 'test_future_neon_metric_qc_v1.py' -v
+      - name: Require NEON token
+        run: test -n "$NEON_API_TOKEN"
+      - name: Score new W and B METRICS ONLY without any MNKA join
+        run: python -m analysis.audit_future_neon_metric_qc_v1
+      - name: Archive QC receipt and eligible new session metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: future-neon-WB-metric-only-QC-v1
+          path: |
+            build/future_neon_metric_qc_v1.json
+            build/future_neon_metric_session_values_v1.json
+          if-no-files-found: warn
+          retention-days: 35
