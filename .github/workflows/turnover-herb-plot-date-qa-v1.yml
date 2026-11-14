@@ -1,0 +1,41 @@
+name: turnover-herb-plot-date-qa-v1
+on:
+  push:
+    branches: [ops/turnover-herb-source-auth-20261114]
+    paths:
+      - analysis/turnover_herb_plot_date_qa_v1.py
+      - .github/workflows/turnover-herb-plot-date-qa-v1.yml
+  pull_request:
+    paths:
+      - analysis/turnover_herb_plot_date_qa_v1.py
+      - .github/workflows/turnover-herb-plot-date-qa-v1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: turnover-herb-plot-date-qa-v1
+  cancel-in-progress: false
+jobs:
+  source-record-join:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test nearest-date boundary, ties and missing measurements
+        run: |
+          python3 -m py_compile analysis/turnover_herb_plot_date_qa_v1.py
+          python3 analysis/turnover_herb_plot_date_qa_v1.py --self-test
+      - name: Download authorized source CSVs and audit only observed plot/date support
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python3 analysis/turnover_herb_plot_date_qa_v1.py \
+            --out validation/turnover_herb_source_v1/plot_date_source_support.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: turnover-herb-plot-date-source-support-v1
+          path: validation/turnover_herb_source_v1/plot_date_source_support.json
+          if-no-files-found: error
+          retention-days: 30
