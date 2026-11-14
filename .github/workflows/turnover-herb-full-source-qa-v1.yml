@@ -1,0 +1,121 @@
+name: turnover-herb-full-source-qa-v1
+on:
+  push:
+    branches: [ops/turnover-herb-source-auth-20261114]
+    paths: [.github/workflows/turnover-herb-full-source-qa-v1.yml]
+  pull_request:
+    paths: [.github/workflows/turnover-herb-full-source-qa-v1.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: turnover-herb-full-source-qa-v1
+  cancel-in-progress: false
+jobs:
+  full-source-support:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Audit released files and deterministic CSV schemas, no ecological effects
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib,csv,io,urllib.request,urllib.error
+          from urllib.parse import urlsplit
+          from pathlib import Path
+          from collections import Counter,defaultdict
+          RELEASE='RELEASE-2026';BASE='https://data.neonscience.org/api/v0'
+          PRODS=['DP1.10023.001','DP1.10058.001']
+          token=os.environ.get('NEON_API_TOKEN')
+          if not token:raise SystemExit('AUTH_HOLD_NO_EXISTING_TOKEN')
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,headers,newurl):
+                  raise urllib.error.HTTPError(req.full_url,code,'credential redirect blocked',headers,fp)
+          opener=urllib.request.build_opener(NoRedirect)
+          def api(path,body=None,auth=False):
+              headers={'Accept':'application/json','User-Agent':'turnover-herb-source-qa/1.0'}
+              if auth:headers['X-API-TOKEN']=token
+              if body is not None:headers['Content-Type']='application/json'
+              req=urllib.request.Request(BASE+path,headers=headers,data=json.dumps(body).encode() if body is not None else None)
+              with opener.open(req,timeout=100) as response:raw=response.read(80000001)
+              if len(raw)>80000000:raise ValueError('Metadata size limit')
+              return json.loads(raw)['data'],hashlib.sha256(raw).hexdigest()
+          def released_months(d):
+              out={}
+              for s in d['siteCodes']:
+                  r=[v for v in s.get('availableReleases',[]) if v.get('release')==RELEASE]
+                  if len(r)==1:out[s['siteCode']]=set(r[0]['availableMonths'])
+              return out
+          def packages(d):
+              rel=[r for r in d.get('releases',[]) if r.get('release')==RELEASE]
+              if len(rel)!=1:raise ValueError('Expected exact pinned release')
+              return [p for p in rel[0].get('packages',[]) if p.get('packageType')=='basic']
+          assert packages({'releases':[{'release':RELEASE,'packages':[{'packageType':'expanded'},{'packageType':'basic'}]}]})==[{'packageType':'basic'}]
+          monthsets={};metadata={}
+          for prod in PRODS:
+              obj,digest=api('/products/'+prod+'?release='+RELEASE)
+              monthsets[prod]=released_months(obj);metadata[prod]={'product_metadata_sha256':digest}
+          shared={s:sorted(monthsets[PRODS[0]][s]&monthsets[PRODS[1]][s]) for s in sorted(set(monthsets[PRODS[0]])&set(monthsets[PRODS[1]]))}
+          shared={s:m for s,m in shared.items() if m}
+          if len(shared)!=47 or sum(map(len,shared.values()))!=424:raise ValueError('Frozen 47-site 424-month catalog changed')
+          allowed={(s,m) for s,months in shared.items() for m in months}
+          start=min(m for _,m in allowed);end=max(m for _,m in allowed)
+          bycell=defaultdict(dict);domains={};examples={};query_records=[]
+          for prod in PRODS:
+              obj,digest=api('/data/query',{'productCode':prod,'siteCodes':sorted(shared),'startDateMonth':start,'endDateMonth':end,'release':RELEASE,'package':'basic','includeProvisional':False},auth=True)
+              ps=packages(obj);query_records.append({'product':prod,'query_sha256':digest,'all_basic_packages':len(ps)})
+              for p in ps:
+                  key=(p['siteCode'],p['month'])
+                  if key not in allowed:continue
+                  domains[key[0]]=p['domainCode']
+                  for f in p.get('files',[]):
+                      name=str(f.get('name','')).split('/')[-1]
+                      for table in ('hbp_perbout','hbp_massdata','div_1m2data'):
+                          if table in name.lower() and name.lower().endswith('.csv') and '.basic.' in name:
+                              if table in bycell[key] and bycell[key][table]['name']!=f['name']:raise ValueError('Ambiguous basic table for month')
+                              bycell[key][table]=f
+          cells=[];site_counts={}
+          for site in sorted(shared):
+              good=0
+              for month in shared[site]:
+                  found=bycell[(site,month)]
+                  missing=sorted(set(('hbp_perbout','hbp_massdata','div_1m2data'))-set(found))
+                  cells.append({'site':site,'month':month,'domain':domains.get(site),'missing_tables':missing,'all_three_present':not missing})
+                  if not missing:
+                      good+=1
+                      for t,f in found.items():examples.setdefault(t,(site,month,f))
+              site_counts[site]={'domain':domains.get(site),'catalog_months':len(shared[site]),'months_all_three_tables':good}
+          schemas=[]
+          for table,(site,month,f) in sorted(examples.items()):
+              url=f['url'];host=urlsplit(url).hostname or ''
+              if urlsplit(url).scheme!='https' or not (host=='storage.googleapis.com' or host.endswith('.storage.googleapis.com')):
+                  raise ValueError('Unapproved object host; credential will not be forwarded')
+              # Signed object URL only; no NEON token is sent to object storage.
+              with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'turnover-schema-only/1.0'}),timeout=80) as res:raw=res.read(20000001)
+              if len(raw)>20000000:raise ValueError('CSV size limit')
+              if f.get('md5') and hashlib.md5(raw).hexdigest()!=f['md5'].lower():raise ValueError('NEON MD5 mismatch')
+              reader=csv.DictReader(io.StringIO(raw.decode('utf-8-sig')));rows=list(reader)
+              schemas.append({'table':table,'example_site':site,'example_month':month,'filename':f['name'],
+                              'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'rows':len(rows),'columns':reader.fieldnames,
+                              'n_distinct_nonempty_plotID':len({r.get('plotID') for r in rows if r.get('plotID')})})
+          goodcells=[c for c in cells if c['all_three_present']]
+          goods={c['site'] for c in goodcells};gooddomains={c['domain'] for c in goodcells if c['domain']}
+          result={'status':'AUTHENTICATED_FULL_SOURCE_TABLE_CENSUS_COMPLETE','release':RELEASE,
+                  'catalog_sites':47,'catalog_site_months':424,'sites_with_all_three_tables':len(goods),
+                  'domains_with_all_three_tables':len(gooddomains),'site_months_all_three_tables':len(goodcells),
+                  'site_months_missing_mass_table':sum('hbp_massdata' in c['missing_tables'] for c in cells),
+                  'site_counts':site_counts,'cells':cells,'deterministic_example_schemas':schemas,'queries':query_records,
+                  'token_exported':False,'raw_records_exported':False,'ecological_effects_estimated':False,
+                  'plot_date_join_verified':False,'note':'Table presence is not valid sampled mass or matched plot-event coverage.'}
+          Path('turnover_herb_full_source_v1.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+          print('NEON_FULL_SOURCE_RESULT',json.dumps({k:v for k,v in result.items() if k!='cells'},sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: turnover-herb-full-source-v1
+          path: turnover_herb_full_source_v1.json
+          if-no-files-found: error
+          retention-days: 30
