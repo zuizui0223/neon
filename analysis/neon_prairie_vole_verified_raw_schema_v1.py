@@ -55,7 +55,11 @@ def audit():
     summary={}
     for name in sorted(raws):
         ident,sz,h=PIN[name]
-        record=header_and_shape(raws[name])
+        try:
+            record=header_and_shape(raws[name])
+        except Exception as err:
+            # Export only the PUBLIC file name and our static parser code.
+            raise ValueError("HEADER_SCHEMA_"+name+"_"+str(err)) from None
         # Preserve anonymous per-file CSV shape diagnostics rather than
         # imputing any original observation/missing datum to zero.
         summary[name]={
@@ -108,6 +112,7 @@ def main():
             "schema":"neon.prairie_vole_original_paired_detector_source_schema.v1",
             "status":"STOP_FIGSHARE_ORIGINAL_RAW_TRANSPORT_OR_SCHEMA",
             "failed_stage":STAGE,"error_class":type(exc).__name__,
+            "public_file_failure_code":str(exc),
             "no_biological_event_outcome_scored":True
         };code=3
     OUT.parent.mkdir(parents=True,exist_ok=True)
