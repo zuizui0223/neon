@@ -84,7 +84,7 @@ def dyad_reshuffle(summer,fall,rng,draws=DYAD_PERM_DRAWS):
         rng.shuffle(ids)
         shuffled=[fall[j] for j in ids]
         null.append(pearson_ranks(a,pair_distances(shuffled)))
-    return {"observed":obs,"null_mean":mean(null),
+    return {"observed":obs,"identity_shuffle_null_mean":mean(null),
             "identity_excess":obs-mean(null),
             "permutation_count":draws}
 
@@ -104,7 +104,7 @@ def directional_alignment(summer,fall,rng,draws=DIRECTION_PERM_DRAWS):
         x=fsum(length*cos(2*pi*rng.random()) for length in lengths)/len(lengths)
         y=fsum(length*sin(2*pi*rng.random()) for length in lengths)/len(lengths)
         null.append(hypot(x,y)/denom)
-    return {"estimable":True,"observed":obs,"null_mean":mean(null),
+    return {"estimable":True,"directional_observed":obs,"directional_rotation_null_mean":mean(null),
             "directional_excess":obs-mean(null),
             "random_angle_count":draws}
 
@@ -263,8 +263,8 @@ def run():
     primary=[bysite[s]["identity_excess"] for s in sorted(eligible)]
     directional=[bysite[s]["directional_excess"] for s in sorted(eligible)]
     actual=[bysite[s]["observed"] for s in sorted(eligible)]
-    null=[bysite[s]["null_mean"] for s in sorted(eligible)]
-    coherence=[bysite[s]["observed"] for s in sorted(eligible)]
+    null=[bysite[s]["identity_shuffle_null_mean"] for s in sorted(eligible)]
+    coherence=[bysite[s]["directional_observed"] for s in sorted(eligible)]
     # Preserve original source factorial sampling groups with bootstrapped sites.
     STAGE="STRATIFIED_SITE_BOOTSTRAP"
     boot={"partner":[],"direction":[]}
@@ -299,8 +299,8 @@ def run():
         },
         "common_directional_position_change":{
             "estimand":"Norm of mean within-individual seasonal capture centroid displacement vector divided by mean vector length, minus random-orientation reference",
-            "site_directional_coherence_observed":basic([bysite[s]["directional_excess"]+bysite[s]["null_mean"] for s in sorted(eligible)]),
-            "site_directional_coherence_null":basic([bysite[s]["null_mean"] for s in sorted(eligible)]),
+            "site_directional_coherence_observed":basic(coherence),
+            "site_directional_coherence_null":basic([bysite[s]["directional_rotation_null_mean"] for s in sorted(eligible)]),
             "site_directional_coherence_excess":basic(directional),
             "stratified_site_bootstrap95":ci(boot["direction"]),
             "random_directional_angle_rotations_each_site":DIRECTION_PERM_DRAWS,
