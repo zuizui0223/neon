@@ -29,3 +29,10 @@ Source results:
 - Successful GitHub Action #43680491616: https://github.com/zuizui0223/neon/actions/runs/43680491616
 - Original authors' code/source: https://github.com/jmistrick/vole-spatial-manuscript
 - Original 2024 JAE: https://doi.org/10.1111/1365-2656.14067
+
+
+## 15 November: independent physical proximity comparator (literature, NOT our new biology)
+
+A 2025 *Journal of Mammalogy* published study (Davidson et al., DOI 10.1093/jmammal/gyaf032) compared a 24-animal prairie-vole live-trap co-occurrence network against animal-borne ProxLogs logging proximity at 5–6cm in ONE semi-natural enclosure. Authors reported QAP r=0.148 and MRQAP R²=0.02. This is **weak direct-contact network explanation**, even though the matrices are statistically related, and reinforces that Finnish captured-centroid same-tag dyad-rank rho+0.469 is NOT an observed social-contact network. Its experiment, species, and time period are distinct; no direct field-contact validation of the Finnish source or NEON has occurred. All published original results are prior art and should not be presented as new experimental confirmation.
+
+The same project's original Figshare metadata were successfully recovered, including 9 provider MD5-declared public files and both raw modalities and collar lookup; see results/neon_prairie_vole_figshare_source_manifest_20261115.json. Raw contact and trap records are not yet admitted as an analyzable same-exposure pair; a public CSV source header/row quality audit is ongoing. Only a separate precommitted same-time collar+trap exposure model can generate a new ecological result.
