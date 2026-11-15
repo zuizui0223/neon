@@ -85,8 +85,13 @@ def run():
         "date_off_lexical_formats":dict(Counter(mask_format(r["date_off"]) for r in collars).most_common(8)),
         "original_overlapping_different_tag_same_device_intervals":overlaps
     })
-    must(not invalid and sum(map(len,episodes.values()))==38,
-         "ORIGINAL_COLLAR_EPISODE_ID_AND_DATE")
+    # One original source episode is chronologically reversed and one
+    # device has overlapping different-tag dates. These may be diagnosed
+    # by quarantining invalid/ambiguous events, but the original complete-
+    # 38-episode SOURCE GO remains FALSE. Never correct inferred dates.
+    original_full_38_episode_integrity=(
+        not invalid and sum(map(len,episodes.values()))==38 and overlaps==0
+    )
     STAGE="EVENTWISE_COLLAR_TO_ANIMAL_DATE_JOIN"
     counters=Counter()
     parsed_event_days=set()
@@ -135,19 +140,23 @@ def run():
     }
     source_days_overlap=len(parsed_event_days&parsed_trap_days)
     unique_rate=counters["events_with_both_original_devices_unambiguous_animal_tags"]/len(logger)
-    go=(unique_rate>=SOURCE_MIN_RELINK_RATE and
+    go=(original_full_38_episode_integrity and
+        unique_rate>=SOURCE_MIN_RELINK_RATE and
         len(collar_tags_in_trapping)>=SOURCE_MIN_COLLARED_TAGS_WITH_TRAP and
         source_days_overlap>=SOURCE_MIN_SHARED_CALENDAR_DAYS and
         counters["events_both_animals_have_sex_metadata"]>0)
     return {
         "schema":"neon.prairie_vole_original_collar_time_recycled_ID_linkage.v1",
         "status":"PRAIRIE_VOLE_EVENTWISE_ORIGINAL_COLLAR_TAG_TIME_SOURCE_GO_NOT_CONTACT_EFFECT"
-                 if go else "STOP_FROZEN_PRAIRIE_VOLE_ID_TIME_SOURCE_BREADTH",
+                 if go else "STOP_ORIGINAL_COLLAR_CHRONOLOGY_AND_SOURCE_BREADTH_NOT_CONTACT_EFFECT",
         "source":{
             "published_paper_doi":"10.1093/jmammal/gyaf032",
             "figshare_public_project":228462,
             "public_original_six_files_MD5_and_size_verified":True,
-            "source_38_recorded_collar_episodes":sum(map(len,episodes.values())),
+            "original_recorded_38_collar_episodes":len(collars),
+            "date_valid_collars_in_diagnostic_after_quarantining_invalid":sum(map(len,episodes.values())),
+            "original_invalid_collar_episode_reason_counts":invalid,
+            "original_full_38_episode_integrity_met":original_full_38_episode_integrity,
             "original_distinct_collar_device_IDs":len(episodes),
             "distinct_original_animal_tags_with_a_deployed_collar":len(collar_tags),
             "original_collar_episodes_with_overlapping_different_animals_same_device":overlaps,
@@ -167,11 +176,15 @@ def run():
             "minimum_original_collared_tag_IDs_also_in_trap_source":SOURCE_MIN_COLLARED_TAGS_WITH_TRAP,
             "minimum_calendar_days_with_recorded_both_observation_types":SOURCE_MIN_SHARED_CALENDAR_DAYS,
             "source_thresholds_do_NOT_authorize_contact_effect":True,
+            "require_all_original_38_episodes_chronology_valid_and_no_reused_device_overlap":True,
         },
         "limits":{
             "overlap_of_ANY_event_days_does_not_prove_simultaneous_dyad_recording":True,
             "same_day_trap_and_logger_does_not_prove_a_logger_was_recording_all_day":True,
             "one_broken_or_memory_full_logger_is_not_an_absence":True,
+            "quarantined_source_coverage_reported_descriptively_without_GO":True,
+            "invalid_original_date_intervals_not_imputed_or_corrected":True,
+            "same_device_ambiguous_date_tags_not_chosen_by_positive_contacts":True,
             "individual_closest_partner_may_be_biological_or_device_bias":True,
             "no_collected_animal_location_values_or_raw_identifiers_exported":True,
             "no_contact_dyad_positive_or_null_effect_estimated":True,
