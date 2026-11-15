@@ -1,0 +1,38 @@
+name: neon-original-prairie-vole-collar-time-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_neon_prairie_vole_original_collar_time_link_v1.py'
+      - 'tests/test_neon_prairie_vole_original_collar_time_link_v1.py'
+      - '.github/workflows/neon-original-prairie-vole-collar-time-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-original-prairie-vole-date-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  unique-logger-device-to-animal-source-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original device reuse, overlap, source timestamps
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_prairie_vole_original_collar_time_link_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_prairie_vole_figshare_identity_preflight_v1.py' -v
+      - name: Reverify original source MD5 and match ProxLogs device to animal at event dates
+        run: python -m analysis.run_neon_prairie_vole_original_collar_time_link_v1
+      - name: Archive anonymous source-ID time join counts only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-prairie-vole-collar-reuse-time-aware-source
+          path: build/neon_prairie_vole_original_collar_time_join_20261115.json
+          if-no-files-found: warn
+          retention-days: 45
