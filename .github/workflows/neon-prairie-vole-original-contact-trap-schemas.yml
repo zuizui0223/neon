@@ -1,0 +1,37 @@
+name: neon-prairie-vole-original-contact-trap-schemas
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_prairie_vole_verified_raw_schema_v1.py'
+      - 'tests/test_neon_prairie_vole_verified_raw_schema_v1.py'
+      - 'docs/NEON_PRAIRIE_VOLE_DUAL_DETECTOR_SOURCE_ROLES_20261115.md'
+      - '.github/workflows/neon-prairie-vole-original-contact-trap-schemas.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-prairie-vole-raw-contact-schema-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  provider-pinned-contact-and-trap-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Synthetic source header and checksum identity rules
+        run: python -m unittest discover -s tests -p 'test_neon_prairie_vole_verified_raw_schema_v1.py' -v
+      - name: Verify original Figshare provider-MD5 raw paired detector files, headers and row shapes ONLY
+        run: python -m analysis.neon_prairie_vole_verified_raw_schema_v1
+      - name: Preserve anonymous source header coverage/STOP, not observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-vole-original-raw-contact-trap-schema
+          path: build/neon_prairie_vole_verified_raw_schema_20261115.json
+          if-no-files-found: warn
+          retention-days: 45
