@@ -83,7 +83,7 @@ def run():
         for label,terms in {
             "trap_related":("trap","capture","live","location","social_network"),
             "proximity_related":("prox","logger","contact","collar","signal","rssi"),
-            "id_deployment_related":("tag","animal","pit","deployment","metadata","map"),
+            "id_deployment_related":("tag","animal","pit","deployment","metadata","map","collar_ids","global_ids","_ids"),
             "code_related":(".r",".rmd",".py",".ipynb"),
         }.items():
             if any(term in x for term in terms):name_counts[label]+=1
