@@ -41,6 +41,8 @@ def gate():
     STAGE="COLLAR_ASSIGNMENT_INTERVALS"
     if len(collar)!=38:raise ValueError("SOURCE_38_COLLAR_ASSIGNMENTS_CHANGED")
     episodes=[]
+    invalid_earlier_removal=0
+    same_day_removal=0
     unique_tags=set();unique_collars=set()
     for x in collar:
         tag=(x.get("tag") or "").strip()
@@ -48,9 +50,31 @@ def gate():
         if not tag or not device:raise ValueError("MISSING_COLLAR_TAG_CROSSWALK")
         start=parse_iso(x.get("date_on"))
         end=parse_iso(x.get("date_off"))
-        if start>end:raise ValueError("REVERSED_COLLAR_DATE_INTERVAL")
+        if start>end:
+            invalid_earlier_removal+=1
+            continue
+        if start==end:
+            same_day_removal+=1
         episodes.append((tag,device,start,end))
         unique_tags.add(tag);unique_collars.add(device)
+    if invalid_earlier_removal:
+        # This exact precommitted integrity constraint FAILED before
+        # opening animal dyad contacts. Report the full immutable original
+        # 38-row source QC failure, do not drop invalid source subjects
+        # and continue to a favorable biological network result.
+        return {
+            "schema":"neon.prairie_vole_contact_calendar_opportunity.v1",
+            "status":"STOP_ORIGINAL_COLLAR_INTERVALS_SOURCE_INTEGRITY",
+            "source_provider_original_MD5_verified":True,
+            "original_collar_source_rows":len(collar),
+            "invalid_original_reverse_date_intervals":invalid_earlier_removal,
+            "original_same_day_on_off_intervals":same_day_removal,
+            "remaining_source_row_counts_not_promoted_to_paired_exposure":True,
+            "zero_proximity_dyad_contact_or_trapping_outcomes_scored":True,
+            "no_collar_tag_identity_or_original_dates_exported":True,
+            "precommitted_source_original_interval_gate_not_relaxed":True,
+            "no_original_NEON_Portal_Finland_Structural_effect_changed":True,
+        }
     collisions=0
     for i,(tag,c,st,en) in enumerate(episodes):
         for tag2,c2,st2,en2 in episodes[i+1:]:
