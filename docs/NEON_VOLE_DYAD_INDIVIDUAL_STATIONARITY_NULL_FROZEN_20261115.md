@@ -5,7 +5,7 @@ This protocol was written **after** opening the same-cohort dyad-rank result (+0
 
 ## Distinct biological question
 
-Does summer-to-autumn persistence of the **rank ordering of pair distances** exceed what arises automatically if each tagged vole is independently faithful to its *own* characteristic captured stations? The existing all-autumn-identity permutation destroys both individual fidelity and pair structure and cannot separate them. Published social-network methods require spatially conditioned controls before interpreting apparent partner continuity (Farine & Whitehead 2015; Croft et al. 2017, DOI 10.1111/1365-2656.12630; Hobson et al. 2021, DOI 10.1111/2041-210X.13741).
+Does summer-to-autumn persistence of the **rank ordering of pair distances** exceed what arises automatically if each tagged vole is independently faithful to its *own* characteristic captured stations? The existing all-autumn-identity permutation destroys both individual fidelity and pair structure and cannot separate them. Published social-network methods require spatially conditioned controls before interpreting apparent partner continuity (Fisher et al. 2017, DOI 10.1111/1365-2656.12630; Farine & Carter 2022, DOI 10.1111/2041-210X.13741).
 
 This is NOT a test of animal direct contact, reproductive partners, territory, kinship, infection transmission, true occupancy or survival. Captured trap-centroid ranks are the sole observable endpoint.
 
