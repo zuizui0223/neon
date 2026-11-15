@@ -38,13 +38,21 @@ def get_original(name):
 def header_and_shape(raw):
     rdr=csv.DictReader(StringIO(raw.decode("utf-8-sig")))
     header=rdr.fieldnames or []
+    # Some original R export tables carry an unnamed first CSV row-index
+    # column. This is a HEADER convention, not a missing animal response.
+    # Accept ONLY one such leading blank heading and preserve the flag.
+    unnamed_first=bool(header and header[0]=="")
+    if unnamed_first:
+        header[0]="__unnamed_source_row_index__"
+        rdr.fieldnames=header
     if len(header)!=len(set(header)) or not header or any(not x for x in header):
         raise ValueError("SOURCE_COLUMNS_DUPLICATED_OR_MISSING")
     n=bad=0
     for row in rdr:
         n+=1
         if None in row or any(x is None for x in row.values()):bad+=1
-    return {"column_names":header,"source_data_rows":n,"ragged_rows":bad}
+    return {"column_names":header,"source_unnamed_leading_row_index_header":unnamed_first,
+            "source_data_rows":n,"ragged_rows":bad}
 
 def audit():
     global STAGE
