@@ -30,6 +30,29 @@ BOOTSTRAP_SEED=2026111514
 def gate(ok,what):
     if not ok:raise ValueError("FROZEN_PORTAL_ECOLOGY_STOP_"+what)
 
+def remove_shared_individuals(A,B):
+    """Delete ALL individual IDs observed in both census records."""
+    common=set(A)&set(B)
+    return ({k:v for k,v in A.items() if k not in common},
+            {k:v for k,v in B.items() if k not in common},
+            len(common))
+
+def station_collision_and_reference(stations_a,stations_b,
+                                    all_capture_a,all_capture_b):
+    """Species individual-disjoint observed same-stake overlap vs fixed refs."""
+    if not stations_a or not stations_b or not all_capture_a or not all_capture_b:
+        raise ValueError("Empty original individual or species-blind station reference")
+    for sample in (stations_a,stations_b,all_capture_a,all_capture_b):
+        if any(v not in STAKES for v in sample):
+            raise ValueError("Noncanonical original 7x7 capture stake")
+    a=Counter(stations_a);b=Counter(stations_b)
+    ca=Counter(all_capture_a);cb=Counter(all_capture_b)
+    nA=len(stations_a);nB=len(stations_b)
+    mA=len(all_capture_a);mB=len(all_capture_b)
+    o=fsum(a[s]/nA*b[s]/nB for s in STAKES)
+    e=fsum(ca[s]/mA*cb[s]/mB for s in STAKES)
+    return {"observed":o,"speciesblind":o-e,"uniform":o-1/49,"source_reference":e}
+
 def ecological_source(records):
     # Independent original 436-pair source is reconstructed before
     # any overlap calculations. Source IDs and stake positions remain
@@ -119,27 +142,24 @@ def ecological_source(records):
         mix_b=Counter(st for spp,animals in grouped_b.items()
                       for animal,st in animals.items())
         if not mix_a or not mix_b:continue
-        ref=fsum((mix_a[s]/sum(mix_a.values()))*
-                 (mix_b[s]/sum(mix_b.values())) for s in STAKES)
         for sp in sorted(set(grouped_a)&set(grouped_b)):
             all_a=grouped_a[sp];all_b=grouped_b[sp]
-            shared=set(all_a)&set(all_b)
-            new_a={ident:st for ident,st in all_a.items() if ident not in shared}
-            new_b={ident:st for ident,st in all_b.items() if ident not in shared}
-            excluded_shared["removed_shared_observed_identifiers"]+=len(shared)
+            new_a,new_b,n_shared=remove_shared_individuals(all_a,all_b)
+            excluded_shared["removed_shared_observed_identifiers"]+=n_shared
             if min(len(new_a),len(new_b))<MIN_NEW_ID:
                 continue
             if min(len(set(new_a.values())),len(set(new_b.values())))<MIN_STAKE:
                 continue
-            count_a=Counter(new_a.values())
-            count_b=Counter(new_b.values())
-            obs=fsum((count_a[s]/len(new_a))*(count_b[s]/len(new_b)) for s in STAKES)
+            scores=station_collision_and_reference(
+                list(new_a.values()),list(new_b.values()),
+                list(st for n in mix_a for st in [n] for _ in range(mix_a[n])),
+                list(st for n in mix_b for st in [n] for _ in range(mix_b[n])))
             outcomes.append({
                 # Private, NEVER export these raw grouping identifiers
                 "plot":plot,"year":year,"month":month,"species":sp,
-                "treatment":treatment,"observed":obs,
-                "uniform":obs-1/49,"speciesblind":obs-ref,
-                "ref":ref,"nA":len(new_a),"nB":len(new_b),
+                "treatment":treatment,"observed":scores["observed"],
+                "uniform":scores["uniform"],"speciesblind":scores["speciesblind"],
+                "ref":scores["source_reference"],"nA":len(new_a),"nB":len(new_b),
             })
     counts=Counter(x["treatment"] for x in outcomes)
     original_plots={t:{r["plot"] for r in outcomes if r["treatment"]==t} for t in TRT}
