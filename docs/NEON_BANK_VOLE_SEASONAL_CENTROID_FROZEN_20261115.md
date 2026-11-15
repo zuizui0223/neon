@@ -28,3 +28,8 @@ NEON (14 physical sites, corrected Z +0.795) remains a conditional genus×captur
 
 Original research: https://doi.org/10.1111/1365-2656.14067
 Original code: https://github.com/jmistrick/vole-spatial-manuscript
+
+
+## Post-STOP response-blind source codebook correction (2026-11-15)
+
+The first actual run stopped BEFORE computing any original seasonal x/y effect at the source cardinality check. Source-only inspection of the exact pinned 2024 Git files confirmed **13 original treatment-codebook site rows, of which exactly 12 are represented in the 2,012 recorded 2021 captures**. The thirteenth lookup site has no original 2021 captures; its treatment was never used in individual selection. The initial code incorrectly asserted 12 treatment rows. The correction accepts 13 metadata rows while still requiring 12 actually sampled sites, 742 unique captured animals, 120 observed in both seasons, 51 with >=2 records in both seasons, and three actual replicated sampled sites per each of four factorial groups. It does not change the frozen source sample, seasonal centroid definition, within-animal permutation, contrasts, statistical thresholds or old ecological results. Any further source mismatch STOPs.
