@@ -56,8 +56,8 @@ def audit():
     for name in sorted(raws):
         ident,sz,h=PIN[name]
         record=header_and_shape(raws[name])
-        if record["ragged_rows"] or not record["source_data_rows"]:
-            raise ValueError("SOURCE_RAGGED_OR_EMPTY_"+name)
+        # Preserve anonymous per-file CSV shape diagnostics rather than
+        # imputing any original observation/missing datum to zero.
         summary[name]={
             "source_file_id":ident,"verified_size_bytes":sz,
             "verified_provider_MD5":h,**record
@@ -66,9 +66,13 @@ def audit():
               "collar_ids.csv","global_ids.csv")
     if any(name not in summary for name in required):
         raise ValueError("MISSING_PAIRED_SOURCE_CATEGORY")
+    shape_ok=all(z["source_data_rows"]>0 and z["ragged_rows"]==0
+                 for z in summary.values())
     return {
         "schema":"neon.prairie_vole_original_paired_detector_source_schema.v1",
-        "status":"SOURCE_ORIGINAL_LOGGER_AND_TRAP_CSV_GO_HEADERS_ONLY",
+        "status":("SOURCE_ORIGINAL_LOGGER_AND_TRAP_CSV_GO_HEADERS_ONLY"
+                  if shape_ok else "STOP_RAW_PUBLIC_CSV_ROW_SHAPE_BEFORE_ANIMAL_EVENTS"),
+        "original_source_table_shape_all_uniform":shape_ok,
         "source_metadata":{
             "figshare_public_project_id":228462,
             "original_study_DOI":"10.1093/jmammal/gyaf032",
