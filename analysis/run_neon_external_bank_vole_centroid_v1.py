@@ -107,7 +107,9 @@ def run():
         "trap","x","y"
     ))
     trts,_=original_csv(files["site_trts.csv"],("site","food_trt","helm_trt"))
-    require(len(rows)==2012 and len(trts)==12,"ORIGINAL_SAMPLING_DENOMINATOR")
+    # One treatment metadata site has no captures in the frozen 2021 source.
+    # This source-only 13-vs-12 inventory drift does not change animal inclusion.
+    require(len(rows)==2012 and len(trts)==13,"ORIGINAL_SAMPLING_DENOMINATOR")
     site_assign={}
     for row in trts:
         site=(row["site"] or "").strip()
@@ -140,9 +142,12 @@ def run():
         traps[key]=(x,y)
         individuals[(site,tag)][season].append((x,y))
         counts[season]+=1
+    observed_source_sites={site for site,tag in individuals}
     require(counts=={"summer":905,"fall":1107}
-            and len(individuals)==742 and len(site_assign)==12,
-            "SOURCE_TOTALS_NOT_905_1107_742_12")
+            and len(individuals)==742 and len(site_assign)==13
+            and len(observed_source_sites)==12
+            and len(set(site_assign)-observed_source_sites)==1,
+            "SOURCE_905_1107_742_12_ACTIVE_PLUS_1_METADATA")
     both=[(key,obs) for key,obs in individuals.items()
           if obs["summer"] and obs["fall"]]
     eligible=[(key,obs) for key,obs in individuals.items()
@@ -213,7 +218,9 @@ def run():
             "original_742_individuals":len(individuals),
             "both_seasons_observed_individuals":len(both),
             "original_frozen_51_two_captures_per_season":len(eligible),
-            "original_distinct_sites":len(site_assign),
+            "original_distinct_sites":len(observed_source_sites),
+            "treatment_metadata_sites":len(site_assign),
+            "treatment_only_sites_without_capture_rows":1,
             "original_source_grid_trap_identities":len(traps),
             "original_source_season_counts":dict(counts),
             "frozen_protocol":"docs/NEON_BANK_VOLE_SEASONAL_CENTROID_FROZEN_20261115.md",
