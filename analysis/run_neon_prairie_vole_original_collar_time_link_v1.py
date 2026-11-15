@@ -21,6 +21,7 @@ SOURCE_MIN_RELINK_RATE=0.8
 SOURCE_MIN_COLLARED_TAGS_WITH_TRAP=12
 SOURCE_MIN_SHARED_CALENDAR_DAYS=5
 STAGE="ORIGINAL_FROZEN_MD5_FILES"
+EPISODE_DIAGNOSTICS={}
 
 def must(condition, label):
     if not condition:raise ValueError("FROZEN_COLLAR_MAPPING_SOURCE_STOP_"+label)
@@ -38,8 +39,14 @@ def collar_source_episodes(rows):
     for row in rows:
         tag=ident(row["tag"]);device=ident(row["collar"])
         start=time_date(row["date_on"]);end=time_date(row["date_off"])
-        if not tag or not device or start is None or end is None or end<start:
-            invalid["date_or_id_invalid"]+=1
+        if not tag or not device:
+            invalid["missing_tag_or_collar"]+=1
+            continue
+        if start is None or end is None:
+            invalid["nonparseable_start_or_stop"]+=1
+            continue
+        if end<start:
+            invalid["end_before_start"]+=1
             continue
         episodes[device].append((start,end,tag))
     conflicts=0
@@ -70,6 +77,14 @@ def run():
     trap_net=records["rfid_trap_network_data_method.csv"]
     STAGE="VERIFY_ORIGINAL_COLLAR_EPISODES"
     episodes,invalid,overlaps=collar_source_episodes(collars)
+    EPISODE_DIAGNOSTICS.update({
+        "original_source_collar_deployment_rows":len(collars),
+        "valid_dated_original_deployments":sum(map(len,episodes.values())),
+        "invalid_collar_deployment_reason_counts":invalid,
+        "date_on_lexical_formats":dict(Counter(mask_format(r["date_on"]) for r in collars).most_common(8)),
+        "date_off_lexical_formats":dict(Counter(mask_format(r["date_off"]) for r in collars).most_common(8)),
+        "original_overlapping_different_tag_same_device_intervals":overlaps
+    })
     must(not invalid and sum(map(len,episodes.values()))==38,
          "ORIGINAL_COLLAR_EPISODE_ID_AND_DATE")
     STAGE="EVENTWISE_COLLAR_TO_ANIMAL_DATE_JOIN"
@@ -177,6 +192,7 @@ def main():
           "status":"STOP_ORIGINAL_PRAIRIE_VOLE_COLLAR_DATE_SOURCE_IMPLEMENTATION",
           "phase":STAGE,
           "error_class":type(e).__name__,
+          "anonymized_source_episode_diagnostics":EPISODE_DIAGNOSTICS,
           "animal_source_identifiers_and_contact_events_not_exported":True,
           "no_old_mammal_biological_response_reopened":True,
         }
