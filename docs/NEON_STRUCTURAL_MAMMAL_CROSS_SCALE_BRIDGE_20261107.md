@@ -28,6 +28,14 @@ Evidence authority:
 - Redundancy/target-space turnover: https://github.com/zuizui0223/Structural/blob/main/development/global_mammals_distributed_irreplaceability_freeze_v1_181.json
 - Independent biological admission: https://github.com/zuizui0223/Structural/blob/main/development/independent_biological_evidence_admissibility_v1_196.json
 
+## New independent rodent field-boundary result — 15 November 2026
+
+The original cross-scale hypothesis now has an additional **independent field system that does NOT show a robust exact-stake increment after conditioning on an adequate observation reference**. Original PortalData source (pinned 2026-11-12 Git blobs) contributed 436 same-plot, same-month adjacent-year 7x7-stake rodent comparisons using only individuals not ID-shared between censuses. Across 20 unique experimental plots in ONE Arizona field landscape, the plot-equal excess cross-year exact-stake collision was **−0.00006439** against a plot×year all-granivore observed-station source reference (whole-plot bootstrap CI **[−0.00154688,+0.00140097]**), although the naive 49-uniform-stake comparator yielded +0.001908. Source-specific competitor exclusion-versus-control contrast was −0.000522 (CI [−0.004692,+0.003486]); no general treatment direction resolved. This is retrospective exploration, not fresh confirmatory data or true niche measurement.
+
+The result **weakens**, rather than supports, a blanket assertion that species-specific exact-location organization persists after observed individual turnover. It does not mean species lack spatial niches: strong reference captures species-blind capture opportunities and may conservatively absorb some focal habitat associations, while actual trap-specific detection probabilities and spatial habitat use remain unknown. Previous Portal competitor-release and microhabitat literature already covers simpler niche questions.
+
+Hence do NOT use positive NEON genus×capture trap station Z plus Structural rare-species heldout mapped-island log-loss to infer a universal spatial-role-substitution principle. These are different estimands under different geographic, taxonomic and observation conditions. The new empirical cross-system pattern is narrower: **apparent spatial regularity is reference-sensitive and not guaranteed to recur at the same exact spatial resolution across small-mammal field systems**. This is an exploratory caution, not a novel ecological law. See [source-verified analysis](results/neon_portal_disjoint_id_stake_ecology_receipt_20261115.json) and [full empirical interpretation](docs/NEON_PORTAL_INDIVIDUAL_DISJOINT_STAKE_ECOLOGY_RESULT_20261115.md); results remain in NEON PR #23 only.
+
 ## Main cross-scale ecological model: identity turnover versus spatial-role redundancy
 
 The interesting tension is **NOT** that island sources and NEON trap stations are the same biological unit: they are not. Rather:
