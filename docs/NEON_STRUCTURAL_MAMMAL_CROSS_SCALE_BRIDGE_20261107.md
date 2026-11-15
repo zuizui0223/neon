@@ -48,6 +48,12 @@ The already-inspected Finland 2021 bank vole source was examined with an additio
 
 This does not rescue a universal mammal niche memory law. NEON's 14-site original genus×capture-station signal remains conditional and could reflect station catchability. Portal's different-ID species-stake result is not robust to a species-blind station-capture background. The Finnish study identifies neither direct dyad encounter/parasite transmission nor alternative animal observation opportunities; its 10 sites are in one field experiment and the individual dyad subset differs from the original 51-animal centroid set. Structural is a map-derived ISLAND species-source prediction, not a population-level instantiation of these rodents' partner relationships. The biologically interesting bridge now concerns when spatial STRUCTURE of a group can persist while individual positions change, but this remains an open mechanism question.
 
+## Independent direct-contact detector boundary from prairie voles (15 November 2026)
+
+Direct encounter measurement is not interchangeable with baited-trap spatial positions. Davidson et al. (2025; DOI 10.1093/jmammal/gyaf032) previously reported positive but weak shared-animal trap network vs 5–6cm proximity-logger correspondence (original QAP r=0.148, R²=0.02). We verified nine original Figshare files, 50,741 event records, exact 27 logger device identities and 26 tag-linked animals; the source-based dated collar crosswalk aligned 50,737 positives, but an original inverted collar interval (1/38) and a concurrent device ID assignment to different animals (1 overlap) violate the complete-source gate. Ten distinct original dates had some trapping and some logger records; exact synchronized functioning dyad/non-contact exposure remains unvalidated. No new contact preference or habitat result was estimated.
+
+This is a DISTINCT prairie-vole population and a PRIOR-PUBLISHED network comparison, not biological confirmation of Finnish vole summer/fall same-individual pair-distance-rank persistence, NEON genus×station patterns or Structural mapped island mammal connectivity. The ecologically meaningful divide remains between observed space-location organization, relative neighbor position, actual encounter/contact networks and demographic movement/dispersal. No cross-scale causal unification is yet justified.
+
 ## Main cross-scale ecological model: identity turnover versus spatial-role redundancy
 
 The interesting tension is **NOT** that island sources and NEON trap stations are the same biological unit: they are not. Rather:

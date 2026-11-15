@@ -1,0 +1,91 @@
+{
+  "limits": {
+    "NEON_Portal_Finland_Structural_claims_unmodified": true,
+    "individual_closest_partner_may_be_biological_or_device_bias": true,
+    "invalid_original_date_intervals_not_imputed_or_corrected": true,
+    "no_collected_animal_location_values_or_raw_identifiers_exported": true,
+    "no_contact_dyad_positive_or_null_effect_estimated": true,
+    "one_broken_or_memory_full_logger_is_not_an_absence": true,
+    "one_integrated_mammal_manuscript_submission_HOLD": true,
+    "overlap_of_ANY_event_days_does_not_prove_simultaneous_dyad_recording": true,
+    "published_2025_matrix_QAP_R2_prior_art_unchanged": true,
+    "quarantined_source_coverage_reported_descriptively_without_GO": true,
+    "same_day_trap_and_logger_does_not_prove_a_logger_was_recording_all_day": true,
+    "same_device_ambiguous_date_tags_not_chosen_by_positive_contacts": true
+  },
+  "retrieved_utc": "2026-11-15T12:34:14.855286+00:00",
+  "schema": "neon.prairie_vole_original_collar_time_recycled_ID_linkage.v1",
+  "source": {
+    "calendar_days_with_any_valid_logger_date": 17,
+    "calendar_days_with_any_valid_trapping_date": 132,
+    "calendar_days_with_at_least_one_logger_and_one_trap_record": 10,
+    "collared_tags_with_multiple_recorded_enclosures": 15,
+    "date_valid_collars_in_diagnostic_after_quarantining_invalid": 37,
+    "distinct_original_animal_tags_with_a_deployed_collar": 26,
+    "figshare_public_project": 228462,
+    "fraction_original_logger_rows_both_endpoints_time_resolved": 0.9999211682860014,
+    "logger_source_rows": 50741,
+    "number_collared_tags_also_ever_in_original_live_trapping_source": 26,
+    "original_collar_episodes_with_overlapping_different_animals_same_device": 1,
+    "original_distinct_collar_device_IDs": 27,
+    "original_full_38_episode_integrity_met": false,
+    "original_invalid_collar_episode_reason_counts": {
+      "end_before_start": 1
+    },
+    "original_recorded_38_collar_episodes": 38,
+    "original_unparsed_timestamp_patterns_anonymous": {
+      "logger_datetime": {
+        "9/9/99 99:99": 28,
+        "9/9/99 9:99": 1,
+        "99/99/99 99:99": 510,
+        "99/99/99 9:99": 440,
+        "99:99:99 99/99/9999": 49762
+      },
+      "trap_network_TimeStart": {
+        "999": 1142,
+        "9999": 1446
+      },
+      "trap_network_TimeStop": {
+        "999": 1115,
+        "9999": 1473
+      }
+    },
+    "public_original_six_files_MD5_and_size_verified": true,
+    "published_global_sex_metadata_for_collared_tags": {
+      "F": 12,
+      "M": 14
+    },
+    "published_paper_doi": "10.1093/jmammal/gyaf032",
+    "recycled_collar_events_one_to_one_ID_source_counts": {
+      "events_both_animals_have_original_trap_tags": 50737,
+      "events_both_animals_have_sex_metadata": 50737,
+      "events_on_days_with_any_live_trapping_record": 42627,
+      "events_with_both_original_devices_unambiguous_animal_tags": 50737,
+      "original_logger_source_events": 50741,
+      "same_tag_assigned_to_both_device_endpoints": 0,
+      "source_event_endpoint_1_unique": 50741,
+      "source_event_endpoint_2_device_outside_date": 4,
+      "source_event_endpoint_2_unique": 50737
+    }
+  },
+  "source_rule_locked": {
+    "minimum_calendar_days_with_recorded_both_observation_types": 5,
+    "minimum_fraction_original_logger_events_unique_tag_pair": 0.8,
+    "minimum_original_collared_tag_IDs_also_in_trap_source": 12,
+    "require_all_original_38_episodes_chronology_valid_and_no_reused_device_overlap": true,
+    "source_thresholds_do_NOT_authorize_contact_effect": true
+  },
+  "status": "STOP_ORIGINAL_COLLAR_CHRONOLOGY_AND_SOURCE_BREADTH_NOT_CONTACT_EFFECT",
+  "github_actions_provenance": {
+    "final_scientific_source_stop_run": 43714508039,
+    "final_source_job": 132813004967,
+    "source_original_result_artifact_id": 14160929497,
+    "source_original_result_zip_sha256": "sha256:d09503257e17256874f477b7f5a232d8f15b50d407a8826d4fdcf386ce5daaba",
+    "source_original_header_run": 43713170444,
+    "source_original_header_artifact_id": 14161835126,
+    "source_header_zip_sha256": "sha256:8f76170b22f0ef9a53f574cfa93e89ba3853341e0ad79298b583b679b06fba66",
+    "source_read_commit": "71743b7bdfda839488ed648c6d6912c6cc56b98e",
+    "original_2025_public_paper_biology_not_refitted": true,
+    "old_NEON_Portal_Finland_Structural_scientific_effects_unchanged": true
+  }
+}
