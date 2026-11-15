@@ -1,0 +1,152 @@
+{
+  "common_directional_position_change": {
+    "cannot_identify_true_coordinated_group_movement": true,
+    "estimand": "Norm of mean within-individual seasonal capture centroid displacement vector divided by mean vector length, minus random-orientation reference",
+    "random_directional_angle_rotations_each_site": 2000,
+    "site_directional_coherence_excess": {
+      "max": 0.4420675524098425,
+      "mean": 0.11820050377338123,
+      "median": 0.15362813195610703,
+      "min": -0.31218662847824985,
+      "negative_sites": 3,
+      "positive_sites": 7,
+      "zero_sites": 0
+    },
+    "site_directional_coherence_null": {
+      "max": 0.6861383584043477,
+      "mean": 0.5060562034923483,
+      "median": 0.47576184893336837,
+      "min": 0.3619972891171529,
+      "negative_sites": 0,
+      "positive_sites": 10,
+      "zero_sites": 0
+    },
+    "site_directional_coherence_observed": {
+      "max": 0.8741748934959761,
+      "mean": 0.6242567072657295,
+      "median": 0.6510064921363174,
+      "min": 0.31895156993852813,
+      "negative_sites": 0,
+      "positive_sites": 10,
+      "zero_sites": 0
+    },
+    "stratified_site_bootstrap95": [
+      -0.034220615252053894,
+      0.2556886773340085
+    ]
+  },
+  "dyad_rank_maintenance": {
+    "estimand": "Within-site same-tag individual pair centroid distance Spearman rho SUMMER vs FALL, minus 2000 within-site AUTUMN animal-identity shuffle reference",
+    "individual_identity_permutations_each_site": 2000,
+    "no_direct_contact_or_transmission_observed": true,
+    "observed_site_rho": {
+      "max": 1,
+      "mean": 0.469986845366135,
+      "median": 0.7397639657418421,
+      "min": -1,
+      "negative_sites": 2,
+      "positive_sites": 8,
+      "zero_sites": 0
+    },
+    "original_monthly_overlap_networks_previously_published": true,
+    "reference_site_permuted_rho": {
+      "max": 0.0135,
+      "mean": 0.0005754894562561734,
+      "median": -0.00021785714285714095,
+      "min": -0.01275,
+      "negative_sites": 5,
+      "positive_sites": 5,
+      "zero_sites": 0
+    },
+    "site_equal_identity_specific_excess_rho": {
+      "max": 1.01275,
+      "mean": 0.4694113559098788,
+      "median": 0.7461050791346167,
+      "min": -1.0135,
+      "negative_sites": 2,
+      "positive_sites": 8,
+      "zero_sites": 0
+    },
+    "stratified_site_bootstrap95": [
+      0.10759168085155384,
+      0.8191362892193695
+    ]
+  },
+  "implementation": {
+    "original_source_coordinates_kept_in_grid_units": true,
+    "seed": 2026111553,
+    "site_bootstrap_draws": 5000,
+    "site_stratification_original_food_x_helminth": true,
+    "tie_aware_average_ranks": true
+  },
+  "retrieved_utc": "2026-11-15T05:18:21.331400+00:00",
+  "schema": "neon.external_vole_identity_specific_pair_geometry.v1",
+  "source_eligibility": {
+    "all_possible_dyads_at_n_ge3_sites": 102,
+    "dyads_at_eligible_sites": 102,
+    "min_original_sites_per_factorial_cell": 2,
+    "min_source_dyads_gate": 60,
+    "min_source_site_gate": 8,
+    "no_original_site_names_individual_tags_or_locations_exported": true,
+    "nonestimable_site_reason_counts": {},
+    "original_individuals_with_two_captures_both_seasons": 51,
+    "original_repeated_animal_sites": 12,
+    "site_count_per_original_factorial_group": {
+      "fed__control": 2,
+      "fed__deworm": 3,
+      "unfed__control": 3,
+      "unfed__deworm": 2
+    },
+    "site_with_at_least_three_matched_individuals": 10,
+    "site_with_at_least_three_unique_pair_distances_in_both_seasons": 10,
+    "source_gate_pass": true
+  },
+  "source_provenance": {
+    "original_immutable_git_sha": "47dc1e9b1f83ec2faaf7ba232e02e00f9e4cffb4",
+    "original_repository": "jmistrick/vole-spatial-manuscript",
+    "original_source_exactly_reconstructed": {
+      "all_source_animal_keys": 742,
+      "both_seasons_tags": 120,
+      "fall_source_captures": 1107,
+      "frozen_cell_counts": {
+        "fed__control": 16,
+        "fed__deworm": 12,
+        "unfed__control": 15,
+        "unfed__deworm": 8
+      },
+      "original_12_sampling_sites": 12,
+      "raw_capture_rows": 2012,
+      "same_frozen_51_tags": 51,
+      "source_13_metadata_sites": 13,
+      "source_station_name_to_coordinate_identities": 563,
+      "summer_source_captures": 905
+    },
+    "protocol_path": "docs/NEON_BANK_VOLE_DYAD_PERSISTENCE_FROZEN_20261115.md",
+    "source_git_file_blobs_sha_verified": true,
+    "this_endpoint_predeclared_before_dyad_ranks_were_inspected": true,
+    "this_is_REVISIT_of_already_opened_original_2021_capture_dataset": true
+  },
+  "status": "EXTERNAL_BANK_VOLE_DYAD_IDENTITY_GEOMETRY_RETROSPECTIVE_NOT_TRUE_CONTACT",
+  "uncertainty_and_boundaries": {
+    "all_CI_are_descriptive_site_bootstrap_not_confirmatory_p_values": true,
+    "already_published_original_2024_home_range_overlap_and_network_metrics_not_new": true,
+    "captured_centroid_not_true_animal_utilization_distribution": true,
+    "dyads_are_dependent_within_site": true,
+    "no_original_NEON_Portal_or_Structural_ecological_results_changed": true,
+    "no_p_value_or_taxon_treatment_subgroup_search": true,
+    "old_51_individual_centroid_outcome_was_seen_before_this_followup": true,
+    "single_neon_mammal_paper_remains_DRAFT_SUBMISSION_HOLD": true,
+    "some_original_sites_only_2_repeated_animals_are_not_estimable": true,
+    "summer_and_autumn_effort_and_species_specific_detection_not_identified": true
+  },
+  "github_actions_provenance": {
+    "source_run_id": 43680491616,
+    "source_job_id": 132709832761,
+    "source_artifact_id": 14148346453,
+    "source_artifact_archive_sha256": "sha256:3f6e1db69fd7c5ecc108a2c55bdfb79a11fb51c2856e11c44aa8a5348953a196",
+    "original_source_commit": "b586cee9695d4755e71a64b9f4b2966120255265",
+    "conclusion": "success",
+    "hypothesis_frozen_before_this_dyad_outcome": true,
+    "original_51_individual_centroid_outcomes_previously_opened": true
+  }
+}
