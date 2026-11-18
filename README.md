@@ -1,5 +1,19 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-18 handoff: individual stationarity null and ecology claim boundary
+
+**Current scientific state:** ONE unified small-mammal ecology draft, **SUBMISSION HOLD**; PR #23 remains draft, not merged. Do not turn source-overlap or capture-centroid geometry into mammal niche, social partner, direct contact or demographic mechanisms.
+
+- **Original NEON conditional positive** still stands: original >=3-genera 14 physical sites / Z=+0.795; exactly-two-genera 30 sites / Z=+0.615. These are source-reverified capture-station recurrence, not genus-specific trapping probability-corrected habitat preference.
+- **Finnish independent source, same observational cohort:** already-opened site-equal same-tag pair-distance Spearman rho +0.470 (10 forest sites, 47 repeated animals, 102 nonindependent dyads). Earlier autumn-ID permutation supported identity-specific geometry **only compared with relabeled animal identities**.
+- **Stricter post-result site-fidelity null:** preserve each vole's pooled captured-station distribution and own seasonal capture counts; over five Monte Carlo seeds, expected site rho +0.711–0.715, observed-minus-expected **−0.241 to −0.245**. All five treatment-stratified 10-site descriptive intervals ended just below zero, with fragile upper bounds (−0.0014 to −0.0107). 7/10 site residuals negative, and leave-one-site-out means remained negative. These five seeds are NOT biological replicates.
+- **Capture-process check:** positive-capture-station summer/fall Jaccard =0.468 averaged over those 10 sites; this is **not trap-operability evidence**. The original study repeatedly used 61-trap field grids. True movement, true site fidelity, competition, encounter pathways and fitness are unidentified.
+- **Published prior art:** Mistrick et al. (2024, DOI 10.1111/1365-2656.14067) already established seasonal / food / deworming effects on vole capture-derived space use and overlap. Null-model framework prior art: Farine 2017 (DOI 10.1111/2041-210X.12772); Farine & Carter 2022 (DOI 10.1111/2041-210X.13741). Do not rebrand those as our novel ecology.
+
+**Reproducible artifacts:** `docs/NEON_VOLE_STATIONARITY_SENSITIVITY_AND_NOVELTY_20261118.md`, `results/neon_vole_stationarity_multiseed_and_station_source_20261118.json`, `analysis/run_neon_bank_vole_individual_stationarity_null_v1.py`, `manuscript/NEON_SPATIAL_MACROECOLOGY_UNIFIED_V0_9.md`. The independent JS reanalysis has exact source hash verification; a matching Python workflow artifact still has **not been verified**.
+
+**Next biological dependency:** secure a genuinely independent matched mammal dataset with individual movement/use, temporal trap/camera effort and environmental resources. No positive pair-persistence or density-packing generalization should be promoted while this is absent. Keep original negative NEON density and Portal reference-conditioned evidence.
+
 **Active scientific direction (25 October 2026): ONE integrated macroecological paper programme.** The former seasonal-spatial-recurrence **A** versus density-accommodation **B** *paper split is no longer the active plan*. The old source-verified analyses, failed guards and immutable preregistration records remain accessible and must not be rewritten as two positive findings.
 
 > **When observed mammal identities and population states change, when and where can taxon-associated spatial organization recur—and how is this conditioned by environment and lineage?**
