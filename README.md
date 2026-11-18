@@ -1,5 +1,13 @@
 # NEON mammal spatial macroecology
 
+### 18 November 2026 — new independent matched camera/live-trap source gate
+
+- Public Australian Dryad original: **10.5061/dryad.18931zd8w** (Gil-Fernández et al. 2026), five urban and five forest locations, cameras observing Elliott live-trap stations. The already-published urban trappability and dominant-species effects are **PRIOR ART**, not newly discovered by NEON.
+- Provider links pin four **small** original source CSV files (full camera record, original trap capture record, visit/interaction table and site-level camera effort); the 10.16GB tagged-image archive is expressly excluded.
+- **Source-only stage implemented:** `docs/NEON_AUSTRALIA_CAMERA_CAPTURE_SOURCE_GATE_20261118.md`, `analysis/audit_aus_camera_capture_source_only_v1.py`, `tests/test_aus_camera_capture_source_only_v1.py` and `.github/workflows/neon-australia-camera-capture-source-only.yml`. It verifies provider metadata/digests, CSV header/time/station-key support and blocks effect computation on 403/HTML/identity or effort failures.
+- **Scientific status:** public dataset identified and source-gate code committed; original-source integrity and paired station×time readiness **not yet confirmed by a completed run**. No camera-vs-capture spatial effect and no new mammal biological mechanism have been estimated. Even with eventual source GO, baited trap-facing cameras cannot serve as true unbaited habitat-occupancy observations.
+- The existing Finland vole individual-stationarity null was separately made PR-testable via `.github/workflows/neon-bank-vole-individual-stationarity-null.yml`; matching Python-result/independent-JS agreement remains unverified until a completed runner artifact. Both are on THIS Draft PR, neither is a new positive manuscript.
+
 ## 2026-11-18 handoff: individual stationarity null and ecology claim boundary
 
 **Current scientific state:** ONE unified small-mammal ecology draft, **SUBMISSION HOLD**; PR #23 remains draft, not merged. Do not turn source-overlap or capture-centroid geometry into mammal niche, social partner, direct contact or demographic mechanisms.
