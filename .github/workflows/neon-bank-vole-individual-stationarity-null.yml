@@ -8,6 +8,14 @@ on:
       - 'tests/test_neon_bank_vole_individual_stationarity_null_v1.py'
       - 'docs/NEON_VOLE_DYAD_INDIVIDUAL_STATIONARITY_NULL_FROZEN_20261115.md'
       - '.github/workflows/neon-bank-vole-individual-stationarity-null.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/run_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'tests/test_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'docs/NEON_VOLE_DYAD_INDIVIDUAL_STATIONARITY_NULL_FROZEN_20261115.md'
+      - '.github/workflows/neon-bank-vole-individual-stationarity-null.yml'
   workflow_dispatch:
 permissions:
   contents: read
