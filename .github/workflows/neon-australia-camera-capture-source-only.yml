@@ -1,0 +1,45 @@
+name: neon-australia-camera-capture-source-only
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_aus_camera_capture_source_only_v1.py'
+      - 'tests/test_aus_camera_capture_source_only_v1.py'
+      - 'docs/NEON_AUSTRALIA_CAMERA_CAPTURE_SOURCE_GATE_20261118.md'
+      - '.github/workflows/neon-australia-camera-capture-source-only.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_aus_camera_capture_source_only_v1.py'
+      - 'tests/test_aus_camera_capture_source_only_v1.py'
+      - 'docs/NEON_AUSTRALIA_CAMERA_CAPTURE_SOURCE_GATE_20261118.md'
+      - '.github/workflows/neon-australia-camera-capture-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-aus-source-only-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  public-australia-paired-camera-live-trap-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate effect-blind contract and fail-closed source tests
+        run: python -m unittest discover -s tests -p 'test_aus_camera_capture_source_only_v1.py' -v
+      - name: Verify four small original Dryad CSVs and paired source eligibility WITHOUT opening effects
+        run: python -m analysis.audit_aus_camera_capture_source_only_v1
+      - name: Preserve source-only admission or explicit HTTP/scientific STOP receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-australia-public-camera-trap-source-only
+          path: build/neon_aus_camera_capture_source_only_v1.json
+          if-no-files-found: warn
+          retention-days: 45
