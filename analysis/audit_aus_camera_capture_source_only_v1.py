@@ -15,7 +15,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 import csv
 import json
+import os
 import re
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build/neon_aus_camera_capture_source_only_v1.json"
@@ -49,15 +51,25 @@ def get_bytes(url: str, max_bytes: int) -> bytes:
     """Read bounded public source only; HTTP errors never become CSV content."""
     req = Request(url, headers={
         "User-Agent": "NEON-SourceIntegrity/1.0 (public Dryad metadata audit)",
-        "Accept": "application/json, text/csv, application/octet-stream;q=0.5"
+        "Accept": "application/json, text/csv, application/octet-stream;q=0.5",
+        **({"Authorization": "Bearer " + os.environ["DRYAD_TOKEN"].strip()}
+           if os.environ.get("DRYAD_TOKEN", "").strip() else {}),
     })
     try:
         with urlopen(req, timeout=35) as handle:
             status = getattr(handle, "status", 200)
             require(status == 200, "PUBLIC_SOURCE_HTTP_STATUS")
             data = handle.read(max_bytes + 1)
-    except (HTTPError, URLError, TimeoutError, ConnectionError) as err:
-        raise ValueError("AU_SOURCE_STOP_HTTP_OR_ANTIBOT") from err
+    except HTTPError as err:
+        # Provider may require a valid user-held Dryad API bearer credential
+        # for downloads; do not attempt browser challenge or credential bypass.
+        if err.code in (401, 403):
+            raise ValueError("AU_SOURCE_STOP_DRYAD_401_403_AUTH_OR_ACCESS_DENIED") from err
+        if err.code == 429:
+            raise ValueError("AU_SOURCE_STOP_DRYAD_429_RATE_LIMIT") from err
+        raise ValueError("AU_SOURCE_STOP_DRYAD_HTTP_" + str(err.code)) from err
+    except (URLError, TimeoutError, ConnectionError) as err:
+        raise ValueError("AU_SOURCE_STOP_DRYAD_NETWORK_UNAVAILABLE") from err
     require(0 < len(data) <= max_bytes, "SOURCE_EMPTY_OR_TOO_LARGE")
     return data
 
@@ -314,6 +326,22 @@ def run() -> dict:
 
 def main() -> int:
     global STAGE
+    if len(sys.argv) == 2 and sys.argv[1] == "--source-stop-no-token":
+        # Explicit reproducible no-credential state is not source GO.
+        result = {
+            "schema": "neon.australia_paired_camera_capture_source_only.v1",
+            "status": "SOURCE_STOP_DRYAD_TOKEN_NOT_CONFIGURED",
+            "stopped_at": "ORIGINAL_PROVIDER_AUTHENTICATION",
+            "original_source_expected_doi": DOI,
+            "provider_token_not_logged_or_used": True,
+            "no_original_source_bytes_or_ecological_outcomes_opened": True,
+            "next_authorized_input": "GitHub Actions DRYAD_TOKEN repository secret from Dryad account",
+            "scientific_submission_HOLD": True,
+        }
+        OUT.parent.mkdir(parents=True, exist_ok=True)
+        OUT.write_text(json.dumps(result, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps(result, sort_keys=True, indent=2))
+        return 0  # completed source-STOP receipt; not a GO.
     try:
         result = run()
         status = 0 if result["status"] == "SOURCE_GO_ONLY_NO_ECOLOGICAL_EFFECT" else 3
