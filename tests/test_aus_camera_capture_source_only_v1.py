@@ -55,6 +55,40 @@ class TestAustraliaPairedDetectorSourceGate(unittest.TestCase):
             self.assertEqual(data, original)
             self.assertEqual(metadata["provider_size_and_actual_bytes"], len(original))
 
+    def test_provider_auth_denial_is_not_a_scientific_null(self):
+        from urllib.error import HTTPError
+        for code in (401, 403):
+            with self.subTest(http_status=code):
+                err = HTTPError("https://datadryad.org/api/v2/files/4537877",
+                                code, "access denied", {}, None)
+                with patch("analysis.audit_aus_camera_capture_source_only_v1.urlopen",
+                           side_effect=err):
+                    with self.assertRaisesRegex(
+                        ValueError,
+                        "AU_SOURCE_STOP_DRYAD_401_403_AUTH_OR_ACCESS_DENIED"
+                    ):
+                        get_bytes("https://datadryad.org/api/v2/files/4537877", 8000)
+
+    def test_bearer_token_only_sent_on_explicit_authorized_setting(self):
+        import os
+        class FakeResponse:
+            status = 200
+            def read(self, limit): return b"source-only"
+            def __enter__(self): return self
+            def __exit__(self, exc_type, exc, tb): return False
+        url = "https://datadryad.org/api/v2/files/4537877"
+        with patch.dict(os.environ, {"DRYAD_TOKEN": "SYNTHETIC_TEST_ONLY"}):
+            with patch("analysis.audit_aus_camera_capture_source_only_v1.urlopen",
+                       return_value=FakeResponse()) as remote:
+                self.assertEqual(get_bytes(url, 100), b"source-only")
+                self.assertEqual(remote.call_args.args[0].get_header("Authorization"),
+                                 "Bearer SYNTHETIC_TEST_ONLY")
+        with patch.dict(os.environ, {"DRYAD_TOKEN": ""}):
+            with patch("analysis.audit_aus_camera_capture_source_only_v1.urlopen",
+                       return_value=FakeResponse()) as remote:
+                self.assertEqual(get_bytes(url, 100), b"source-only")
+                self.assertIsNone(remote.call_args.args[0].get_header("Authorization"))
+
     def test_effect_blind_outputs_ignore_capture_and_behavior_values(self):
         row_camera = {"site_type": "urban reserve", "site": "K-1",
                       "station": "K-1-A5", "species": "Rattus rattus",
