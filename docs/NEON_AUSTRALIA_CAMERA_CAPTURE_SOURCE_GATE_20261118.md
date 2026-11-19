@@ -49,8 +49,20 @@ Positive capture/visit disagreement would support observation-process sensitivit
 
 - `analysis/audit_aus_camera_capture_source_only_v1.py`: exact file metadata/byte digest validation, fail-closed source gate.
 - `tests/test_aus_camera_capture_source_only_v1.py`: artificial source error and non-outcome support testing.
-- `.github/workflows/neon-australia-camera-capture-source-only.yml`: original-source workflow with only small public CSV downloads and no credentials.
+- `.github/workflows/neon-australia-camera-capture-source-only.yml`: source-only workflow with four bounded original CSVs and optional authorized Dryad API token; without a token it records source STOP and skips downloads.
 - `build/neon_aus_camera_capture_source_only_v1.json`: machine-readable source census / explicit stop, not ecological outcomes.
 
 Source landing: https://datadryad.org/dataset/doi:10.5061/dryad.18931zd8w
 API documentation: https://github.com/datadryad/dryad-app/blob/main/documentation/apis/README.md
+
+## 19 November 2026 — provider-access addendum (no change to biological gates)
+
+First real GitHub Actions source attempt [run 44308042680](https://github.com/zuizui0223/neon/actions/runs/44308042680) passed six source/effect-blind unit tests but returned `AU_SOURCE_STOP_HTTP_OR_ANTIBOT` at `ORIGINAL_FILE_METADATA`, before reading any one of the four published source files. That error does **not** imply the published data were invalid, nor does it establish a mammalian ecological null. A separate 18 November 2026 official-page inspection confirmed file IDs and the published Dryad DOI, but the actual file endpoint did not yield data to our runner.
+
+Dryad's 2026 official API-account documentation describes authenticated API access for downloads. The implementation now recognizes HTTP 401/403 denial separately from 429 rate limits, without attempting challenge solving or copying third-party partial CSV extracts. A newly supported `DRYAD_TOKEN` environment variable is used only to submit an authorized Bearer token via the official Dryad HTTPS API. The token is not printed, stored in a receipt or passed to model prompts. In GitHub Actions it must be a repository secret; no secret is currently visible to the workflow.
+
+Second source-only [run 44429126440](https://github.com/zuizui0223/neon/actions/runs/44429126440) completed successfully **as an audited STOP**, not source GO: the explicit `SOURCE_STOP_DRYAD_TOKEN_NOT_CONFIGURED` branch ran, while the data download step was skipped. No camera rows, station/time source joins, trap-state counts or biological detector effects have been opened. The precise anonymous checkpoint is `results/neon_aus_camera_capture_access_STOP_20261119.json`.
+
+**STOP remains binding.** No changes to the four pinned file names/IDs, bounded sizes, exact station/time matching, site/season eligibility, original pre-outcome biological hypotheses, old NEON/Portal/Finland results or publication HOLD. When an authorized Dryad credential becomes available, the source GO criteria can run unchanged. Without one, do not classify green workflow checks as empirical source verification.
+
+Additional candidate source appraisal (no data substituted): Hopkins et al. (2024, DOI 10.3389/fevo.2024.1359201) described cameras at eight live-trap stations per plot for three nights and an important published higher camera detection for six rodents, but its underlying raw source was reported as available from authors on request. The Norway Zenodo camera/trap comparison previously analyzed in this PR uses unequal time windows and cannot be substituted as an exact synchronous Australian station-level calibration. The current main aim remains ecological interpretation of which species-level spatial patterns survive observation-process conditioning.
