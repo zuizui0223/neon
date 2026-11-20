@@ -129,9 +129,9 @@ def strict_survey_census(sources):
     for row in dates:
         all_rows += 1
         y = i(row["year"])
-        if y is None or not YR_START <= y <= YR_END or (
-            row["censusdone"] or "").strip().lower() != "yes"
-        ):
+        if y is None or not YR_START <= y <= YR_END:
+            continue
+        if (row["censusdone"] or "").strip().lower() != "yes":
             continue
         day = survey_day(y, row["end_month"], row["end_day"])
         if day is None:
