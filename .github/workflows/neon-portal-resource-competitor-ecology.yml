@@ -1,0 +1,51 @@
+name: neon-portal-plant-change-by-competitor-ecology
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_portal_resource_competition_holdout_ecology_v1.py'
+      - 'analysis/audit_portal_resources_competition_learning_source_v1.py'
+      - 'tests/test_portal_resource_competition_holdout_ecology_v1.py'
+      - 'docs/NEON_PORTAL_RESOURCE_COMPETITOR_OUTCOME_FROZEN_20261120.md'
+      - '.github/workflows/neon-portal-resource-competitor-ecology.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/run_portal_resource_competition_holdout_ecology_v1.py'
+      - 'analysis/audit_portal_resources_competition_learning_source_v1.py'
+      - 'tests/test_portal_resource_competition_holdout_ecology_v1.py'
+      - 'docs/NEON_PORTAL_RESOURCE_COMPETITOR_OUTCOME_FROZEN_20261120.md'
+      - '.github/workflows/neon-portal-resource-competitor-ecology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-frozen-resource-competitor-ecology-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  portal-temporal-holdout-plant-change-x-competitor-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned linear algebra
+        run: python -m pip install numpy==2.2.6
+      - name: Verify frozen ecological metric and model using synthetic data only
+        run: |
+          python -m unittest discover -s tests -p 'test_portal_resource_competition_holdout_ecology_v1.py' -v
+          python -m unittest discover -s tests -p 'test_portal_resources_competition_learning_source_v1.py' -v
+      - name: Verify eight original source blob SHAs, freeze GO, run one pre-specified biological test
+        run: python -m analysis.run_portal_resource_competition_holdout_ecology_v1
+      - name: Archive original-source ecological estimate or fail-closed scientific stop
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-2020-25-resource-competitor-ecology-holdout
+          path: build/neon_portal_resource_competitor_holdout_ecology_v1.json
+          if-no-files-found: warn
+          retention-days: 45
