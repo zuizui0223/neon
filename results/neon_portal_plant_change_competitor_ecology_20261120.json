@@ -1,0 +1,99 @@
+{
+  "schema": "neon.portal_plant_change_x_competitor_ecology_holdout.v1",
+  "status": "ORIGINAL_SOURCE_VERIFIED_TEMPORAL_HOLDOUT_EXPLORATORY_BIOLOGY",
+  "date": "2026-11-20",
+  "run": {
+    "repo": "zuizui0223/neon",
+    "source_gate": "https://github.com/zuizui0223/neon/actions/runs/44760271257",
+    "analysis": "https://github.com/zuizui0223/neon/actions/runs/44761367686",
+    "artifact_id": 14639934117,
+    "artifact_name": "neon-portal-2020-25-resource-competitor-ecology-holdout",
+    "workflow_conclusion": "success",
+    "synthetic_tests": "success",
+    "runnable_code": "analysis/run_portal_resource_competition_holdout_ecology_v1.py"
+  },
+  "provenance": {
+    "original": "weecology/PortalData",
+    "immutable_source_commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "eight_original_source_blobs_verified": true,
+    "full_source_plant_survey_quad_rows": 3020,
+    "numeric_plant_species_rows": 5761,
+    "baseline_source_candidate_plot_month_pairs": 203,
+    "source_eligible_individual_disjoint_species_plot_year_pairs": 69,
+    "old_1996_2019_Portal_effects_untouched": true
+  },
+  "sample": {
+    "plot_year_month_pairs_fitted": 114,
+    "distinct_physical_plots": 18,
+    "control_pairs": 70,
+    "exclosure_pairs": 44,
+    "control_plots": 10,
+    "exclosure_plots": 8,
+    "distinct_start_years": 3,
+    "distinct_months": 5,
+    "excluded_due_to_under5_animals_either_year": 89
+  },
+  "model": {
+    "response": "Total variation of captured target granivore species proportions across adjacent same-month years",
+    "resource": "Absolute log1p difference in counted plants per actually censused 0.25m2 quadrat across preceding 90d surveys",
+    "fixed_terms": [
+      "plot",
+      "calendar_month",
+      "start_year",
+      "resource_change",
+      "resource_change:x:exclosure"
+    ],
+    "treatment_main_effect_not_estimable_with_plot_FE": true,
+    "bootstrap": {
+      "samples": 2000,
+      "valid": 2000,
+      "rank_deficient": 0,
+      "whole_plot_stratified_by_original_treatment": true,
+      "seed": 2026112071
+    }
+  },
+  "results": {
+    "mean_capture_composition_total_variation": 0.3442728480879633,
+    "mean_abs_log_plant_count_change": 1.2420043655048003,
+    "control_resource_slope": {
+      "beta": -0.11064319013971634,
+      "CI95_descriptive": [
+        -0.1930402158373582,
+        -0.07530821417644136
+      ]
+    },
+    "exclosure_resource_slope": {
+      "beta": 0.01889698541005623,
+      "CI95_descriptive": [
+        -0.049530618148689184,
+        0.09967662762870876
+      ]
+    },
+    "resource_x_exclosure_interaction": {
+      "beta": 0.12954017554977257,
+      "CI95_descriptive": [
+        0.05580614285448111,
+        0.24129668146926875
+      ]
+    },
+    "unadjusted_exclosure_minus_control_plot_equal": {
+      "difference": -0.07031871007136364,
+      "CI95_descriptive": [
+        -0.156098758517097,
+        0.0065929341323060124
+      ]
+    }
+  },
+  "interpretation": "Opposite-to-prior-positive resource-turnover slope in control: greater changes in original counted plant abundance associated with smaller subsequent captured rodent species composition differences. The source treatment interaction is positive, meaning this negative association is attenuated or absent in kangaroo-rat exclosure plots. NOT an estimate of biomass causation, competitive buffering, learning, true species occupancy or permanent within-trap niche.",
+  "limits": {
+    "temporal_not_geographic_holdout": true,
+    "one_desert_landscape": true,
+    "noncausal_site_treatment_historical_confounds": true,
+    "three_start_years_only": true,
+    "plant_abundance_not_food_or_biomass": true,
+    "detector_independent_validation_absent": true,
+    "no_reward_learning_data": true,
+    "old_NEON_Portal_Finland_Structural_results_unmodified": true,
+    "unified_ecology_manuscript_submission_HOLD": true
+  }
+}
