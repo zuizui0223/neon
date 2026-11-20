@@ -1,0 +1,42 @@
+# Portal 2020–2025 resource × competitor ecological outcome — final pre-effect lock
+
+Date: 20 November 2026. **Written after SOURCE GO, before any 2020–2025 plant-abundance totals or mammal compositional responses are opened.** This is an *exploratory temporal holdout in one 20-ha desert landscape*, not independent geographical confirmation of any NEON cross-season niche law. One existing NEON mammal Draft PR #23; SUBMISSION HOLD.
+
+## Immutability and source approval
+The only admitted source is the original PortalData commit `afd75933249ae60f3a5e9dab00b354f219e5e045`, with the same eight exact blob hashes as `docs/NEON_RESOURCE_COMPETITION_LEARNING_DISCRIMINATION_20261120.md`. The original immutable outcome-blind GitHub Actions source run **44760271257** passed and returned 69 individual-ID-disjoint eligible species×plot×adjacent-year pairs (37 control, 32 kangaroo-rat exclosure), 17 original physical plots (9 control, 8 exclosure), three source species and three original start years, with source numeric plant fields on both matched survey dates. Those **69 are an eligibility check, not 69 independent spatial/behavioral samples**. The old 1996–2019 Portal 436-pair result remains frozen.
+
+Do not alter the earlier 203 original plot×same-month×adjacent-year pairs at 18 plots with both preceding-90-day source vegetation surveys (113 control, 90 exclosure) to target favorable effects. These 203 are the *pre-animal-composition candidate universe*. Both fixed treatments must be unchanged across the paired original years. The numerical value of plant abundance and any animal composition were NOT opened for this freeze.
+
+## Exactly one ecological response (plot-level, NOT station recurrence)
+On EACH of those 203 plot×same-calendar-month adjacent-year pairs:
+1. Original target granivorous rodent species from original authoritative codebook, one original valid source tag `id` counted once per 48–49-trap full-QC census. Exclude same-census IDs with conflicting species assignment; do not use raw capture frequencies of multiply recaptured same tags as counts. A multi-stake same-census tag with one consistent taxon is one individual for this plot-level endpoint.
+2. Require at least **5 distinct captured target individuals in EACH of the paired source censuses**, across all target species. An absent species has zero captures, not verified biological absence. Do not require removing year-shared tags for this *composition* endpoint (a separate frozen ID-disjoint source gate already exists), and never imply all animals died or arrived.
+3. Compute relative captured-individual proportions `p[taxon,year]` across ALL qualified target species with no favorable taxon/functional subgroup selection. Response **total-variation compositional distance**:
+`D_comp = 0.5 × sum_taxon abs(pA - pB)`, bounded [0,1]. This is a captured-community composition change, not food/biomass, latent occupancy, birth/death/learning, or spatial role persistence within a 49-trap grid.
+4. Plant exposure is the same nearest *prior* completed original field survey end day at most 90 days before EACH rodent capture day, >=12/16 actually censused 0.25 m² quadrats per plot. Read each numeric original `abundance` row only if the corresponding quadrat had `censused==1`; all taxa in a censused quadrat contribute to plant count. Censused quadrats with no species rows contribute 0, while uncensused ones never contribute 0. Sum valid nonnegative abundance across those survey quadrats, divide by number of actually censused quadrats to give plant individuals per sampled 0.25 m² quadrat. **This is not biomass, seed production, dietary energy or food abundance for each rodent.** If source is not numeric, duplicated/invalid census membership or all source plots have no plant data, STOP instead of choosing another resource proxy.
+5. Primary resource predictor:
+`x = abs(log1p(plant_count_per_quadrat_B) - log1p(plant_count_per_quadrat_A))`.
+Competitor context `z = 1` for frozen original kangaroo-rat exclosure, `0` for original control. Do NOT use ant-treatment changes, sex, tag-recapture status, distance to plant quadrats, canopy, species abundance subtotals, temperature or other moderators to search favorable effects.
+
+## A single pre-fixed statistical comparison
+Primary site-conditional fit, all complete pair observations, one equation:
+`D_comp ~ C(original_plot) + C(original_month) + C(original_start_year) + x + x:z`.
+
+Because the original `exclosure` assignment is usually time-invariant within plot, its *main effect is collinear with original plot fixed effects* and is **not estimated from this fit**. Report the two prespecified slopes:
+- `beta_control = coefficient(x)`: positive would be consistent with more captured-community turnover at plots with larger preceding vegetation-abundance changes, but plant change is not manipulated.
+- `beta_exclosure = beta_control + coefficient(x:z)`; `theta = coefficient(x:z)` is the interaction/slope difference. Its direction is deliberately unspecified. Report positive, zero or negative, without choosing an easier subgroup.
+- Separately report original *unadjusted plot-equal* exclosure minus control mean `D_comp` and its interval as a **descriptive between-plot** contrast only, never as a causal estimate nor as an estimable exclosure main effect in the plot-FE fit.
+
+Use all originally eligible complete rows; no outcome-dependent row/site/year adjustment. Reject a regression if <60 original plot-year pairs, <10 unique physical plots, <4 distinct original plots per treatment, or if the full source-fixed model design is rank deficient. Use the one precommitted source universe and covariates only; do not simplify model to chase an effect.
+
+Uncertainty: **2,000** whole-plot bootstrap resamples *separately within original control/exclosure strata* using seed **2026112071**; preserve all original years/months in each sampled plot. Duplicate bootstrap plot blocks receive fresh unique FE labels. At least 1,800 full-rank draws required, otherwise STOP. Report 95% descriptive percentile intervals for beta_control, beta_exclosure, theta and between-treatment descriptive difference. No individual rodents, 16 quadrats, exact stations, matched year pairs or bootstrap rows are independent sites. Original treatment history and overlapping same-plot months prevent simple independent experiment inference.
+
+**A priori biological interpretation:** if resource beta is positive with intervals excluding zero, this supports an association of *plant abundance change* with *observed small-mammal composition turnover* in this single temporal holdout, not a test of plot internal spatial resource niches. If interaction is stable and interval excludes zero, it would suggest context dependence of that association with competitor exclusion, not a proven competition mechanism. All imprecise intervals are NONRESOLVING; don't declare either mechanism absent. A positive pattern is NOT new biomass ecology or a general animal law, given extensive prior Portal experimental literature.
+
+## Explicit third-mechanism negative control: learning NOT identified
+Animal tags allow historical encounter classification, but no reward relocation, randomized experience manipulation, independent path measurement or ability to separate habituation from trap capture propensity. **No `learning` parameter is fitted**. An ecological explanation from past capture alone would be a post-hoc misidentification.
+
+## Consequences
+No original 14-site NEON Z, two-genus 30-site Z, Portal historical 436-pair station collision, Finnish 47-vole seasonal rank, original 5/8 density generality FAIL, or Structural mapped island result is recalculated. This ecological result, positive or negative, remains plot-scale and observational, not direct mammal habitat, functional diversity, or biomass; manuscript stays DRAFT / SUBMISSION HOLD.
+
+Code to execute this pre-effect lock: `analysis/run_portal_resource_competition_holdout_ecology_v1.py`; synthetic tests `tests/test_portal_resource_competition_holdout_ecology_v1.py`; GitHub workflow `.github/workflows/neon-portal-resource-competitor-ecology.yml`. Outputs to `build/neon_portal_resource_competitor_holdout_ecology_v1.json` contain only anonymous aggregate effects, no plot/species/tag/date IDs, coordinates or raw plant observations. The original source-only GO receipt is archived as GitHub Actions artifact 14640627486; it must be reproduced verbatim first.
