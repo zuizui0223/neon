@@ -1,0 +1,92 @@
+{
+  "schema": "neon.portal_plant_change_competitor_postresult_stability.v1",
+  "status": "POSTRESULT_SAME_FROZEN_MODEL_YEAR_SENSITIVITY_WEAKENS_GENERALITY",
+  "date": "2026-11-20",
+  "provenance": {
+    "source": "weecology/PortalData",
+    "frozen_commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "source_action": "https://github.com/zuizui0223/neon/actions/runs/44760271257",
+    "primary_action": "https://github.com/zuizui0223/neon/actions/runs/44761367686",
+    "diagnostic_action": "https://github.com/zuizui0223/neon/actions/runs/44762065220",
+    "diagnostic_artifact_id": 14640739739
+  },
+  "sample": {
+    "frozen_plot_year_month_pairs": 114,
+    "original_plots": 18,
+    "original_start_years": 3,
+    "plot_start_year_resource_groups": 46,
+    "distinct_plot_year_resource_values": 64,
+    "month_pairs_reusing_plot_year_resource_information": 50
+  },
+  "original_frozen_estimate": {
+    "control": -0.11064319013971645,
+    "exclosure": 0.018896985410055647,
+    "interaction": 0.1295401755497721
+  },
+  "leave_plot_out": {
+    "n": 18,
+    "estimable": 18,
+    "control_range": [
+      -0.1605474975655634,
+      -0.10282847885841667
+    ],
+    "interaction_range": [
+      0.10994963156666399,
+      0.17971670440286647
+    ],
+    "negative_control_all_18": true,
+    "positive_interaction_all_18": true
+  },
+  "leave_start_year_out": {
+    "n": 3,
+    "estimable": 3,
+    "records": [
+      {
+        "omitted_year": 2021,
+        "remaining_pairs": 93,
+        "control": -0.13258022912875544,
+        "exclosure": 0.00725378076016614,
+        "interaction": 0.13983400988892158
+      },
+      {
+        "omitted_year": 2022,
+        "remaining_pairs": 49,
+        "control": 0.1639135114842616,
+        "exclosure": -0.5007441721495177,
+        "interaction": -0.6646576836337793
+      },
+      {
+        "omitted_year": 2023,
+        "remaining_pairs": 86,
+        "control": -0.08403378342649079,
+        "exclosure": 0.03895740356934102,
+        "interaction": 0.12299118699583181
+      }
+    ],
+    "sign_consistency": {
+      "negative_control": 2,
+      "positive_interaction": 2
+    },
+    "start_year_2022_is_needed_for_frozen_sign": true
+  },
+  "independent_plant_census_temporal_source": {
+    "original_203_prior90d_matched_plot_time_pairs": 203,
+    "both_years_original_plant_census_season_matched": 203,
+    "winter_to_winter": 132,
+    "summer_to_summer": 71,
+    "mean_source_plant_lag_first_year_days": 49.16256157635468,
+    "mean_source_plant_lag_second_year_days": 43.87192118226601,
+    "these_203_are_preanimal_source_population_not_114_model_pair_subset": true
+  },
+  "inference": {
+    "resource_by_competitor_context_association_original_full_sample": true,
+    "not_stable_when_2022_year_omitted": true,
+    "not_universal_multiyear_biomass_or_competition_effect": true,
+    "single_landscape": true,
+    "yearly_source_variation_3_years": true,
+    "not_evidence_of_memory_learning": true,
+    "retrospective_postresult_diagnostic": true,
+    "one_NEON_Draft_SUBMISSION_HOLD": true,
+    "original_Portal_436_NEON_Finland_Structural_results_unchanged": true
+  }
+}
