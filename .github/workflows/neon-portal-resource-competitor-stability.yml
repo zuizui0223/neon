@@ -1,0 +1,42 @@
+name: neon-portal-resource-competitor-stability-diagnostic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_portal_resource_competitor_stability_v1.py'
+      - 'analysis/run_portal_resource_competition_holdout_ecology_v1.py'
+      - '.github/workflows/neon-portal-resource-competitor-stability.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_portal_resource_competitor_stability_v1.py'
+      - 'analysis/run_portal_resource_competition_holdout_ecology_v1.py'
+      - '.github/workflows/neon-portal-resource-competitor-stability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-resource-competitor-diagnostic-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  postresult-fixed-model-plot-year-omission-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6
+      - name: Source-verified unchanged 114-record frozen model and complete leave-plot/year-out diagnostics
+        run: python -m analysis.diagnose_portal_resource_competitor_stability_v1
+      - name: Preserve aggregate diagnostic without hidden redefinition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-frozen-resource-competitor-stability
+          path: build/neon_portal_resource_competitor_postresult_stability_20261120.json
+          if-no-files-found: warn
+          retention-days: 45
