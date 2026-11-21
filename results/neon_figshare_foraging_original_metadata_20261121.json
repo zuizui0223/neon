@@ -1,0 +1,176 @@
+{
+  "candidate_order_locked_before_metadata_fetch": true,
+  "first_selected_article_ID": 21512436,
+  "no_NEON_Portal_Finland_Structural_original_effects_recomputed": true,
+  "no_rfid_camera_seed_choice_or_individual_data_opened": true,
+  "one_unified_NEON_manuscript_DRAFT_SUBMISSION_HOLD": true,
+  "original_sources": {
+    "21512436": {
+      "article_doi_from_provider": "10.6084/m9.figshare.21512436.v1",
+      "article_title_from_provider": "Data: Predation risk and personality influence seed predation and dispersal by a scatter-hoarding small mammal",
+      "article_version_from_provider": 1,
+      "maximum_original_file_size": 343858,
+      "no_original_animal_ID_or_seed_response_observed": true,
+      "no_raw_biological_files_downloaded": true,
+      "not_a_proof_usable_joined_RFID_resource_patch_data": true,
+      "not_an_independent_Neon_recurrence_replication": true,
+      "original_figshare_article_id": 21512436,
+      "original_file_count": 5,
+      "original_file_inventory": [
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "2018 Vole Seed Data.csv",
+          "provider_file_id": 38217891,
+          "published_md5_if_any": "5c58051b71eaa55cd888c87b6494a00c",
+          "published_size_bytes": 66667
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "r",
+          "original_filename": "Main Analysis Script.R",
+          "provider_file_id": 38217888,
+          "published_md5_if_any": "b209339b7d0f1f2a7be3b00ebd6fbf4d",
+          "published_size_bytes": 54662
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "r",
+          "original_filename": "Repeatability and BLUPS Script.R",
+          "provider_file_id": 38217894,
+          "published_md5_if_any": "a57329cf3eb25fcbff2ead6f86439715",
+          "published_size_bytes": 16130
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "Vole BLUPS.csv",
+          "provider_file_id": 38217897,
+          "published_md5_if_any": "ddfb7c7a7e6472dd064bc3e4edda7d81",
+          "published_size_bytes": 108786
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "Vole Personality Data.csv",
+          "provider_file_id": 38217900,
+          "published_md5_if_any": "f0d2310389cc1c02cbeabf352b0b131c",
+          "published_size_bytes": 343858
+        }
+      ],
+      "original_peer_reviewed_paper_doi": "10.1002/ecs2.4377",
+      "provider_meta_json_sha256": "fb3f86e22f36632d5a894dfe7de55020103eee60dc06d0e62ddf45c32d396b44",
+      "published_date_from_provider": "2022-11-16T14:24:20Z",
+      "role": "primary_2023_RFID_camera_seed_amount",
+      "schema": "neon.public_figshare_foraging_original_metadata_inventory.v1",
+      "source_landing": "https://doi.org/10.6084/m9.figshare.21512436",
+      "status": "PROVIDER_FILE_INVENTORY_GO_METADATA_ONLY"
+    },
+    "28207769": {
+      "article_doi_from_provider": "10.6084/m9.figshare.28207769.v2",
+      "article_title_from_provider": "Data: Intraspecific and environmental variation mediate seed finding effectiveness among scatter-hoarding small mammals",
+      "article_version_from_provider": 2,
+      "maximum_original_file_size": 1224945,
+      "no_original_animal_ID_or_seed_response_observed": true,
+      "no_raw_biological_files_downloaded": true,
+      "not_a_proof_usable_joined_RFID_resource_patch_data": true,
+      "not_an_independent_Neon_recurrence_replication": true,
+      "original_figshare_article_id": 28207769,
+      "original_file_count": 9,
+      "original_file_inventory": [
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "2016-2023 Capture Data.csv",
+          "provider_file_id": 51682214,
+          "published_md5_if_any": "d9b8cd69378a98c520b10172b80f2c23",
+          "published_size_bytes": 1224945
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "All Foraging Clean.csv",
+          "provider_file_id": 51682217,
+          "published_md5_if_any": "5f823a01c8751bd360dab723f3d49faa",
+          "published_size_bytes": 792575
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "All Station Nights.csv",
+          "provider_file_id": 51682220,
+          "published_md5_if_any": "1cc4f0c66043c9a96955bed1c66408e3",
+          "published_size_bytes": 35432
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "BLUPS_MG 2016-2023.csv",
+          "provider_file_id": 51682223,
+          "published_md5_if_any": "65a9f2335a0acf00cc0530b68f322c19",
+          "published_size_bytes": 132503
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "BLUPS_PM 2016-2023.csv",
+          "provider_file_id": 51682226,
+          "published_md5_if_any": "0f50cc5bcb1910a49340c22b5eea85c8",
+          "published_size_bytes": 106657
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "Mouse Foraging Data Clean.csv",
+          "provider_file_id": 51682229,
+          "published_md5_if_any": "63adc6b8f232e423fefc2d802d25904d",
+          "published_size_bytes": 278572
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "csv",
+          "original_filename": "Vole Foraging Data Clean.csv",
+          "provider_file_id": 51682232,
+          "published_md5_if_any": "e05cb082df82286672f49a39df4585b2",
+          "published_size_bytes": 313588
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "r",
+          "original_filename": "Main Analysis - Clean.R",
+          "provider_file_id": 51823913,
+          "published_md5_if_any": "b5f99bfd6b800cdecb435dfb23f6e6b9",
+          "published_size_bytes": 68819
+        },
+        {
+          "has_provider_https_download_href": true,
+          "original_file_suffix": "r",
+          "original_filename": "Repeatability.R",
+          "provider_file_id": 51823916,
+          "published_md5_if_any": "9e4fc28d8f223373c99fd409703d1ed2",
+          "published_size_bytes": 34050
+        }
+      ],
+      "original_peer_reviewed_paper_doi": "10.1002/ecy.70312",
+      "provider_meta_json_sha256": "2dda7ba7f21d4bcc35b478145ed9bf10aabfd5e80686c9953a99fceffc93c58e",
+      "published_date_from_provider": "2025-12-11T14:59:48Z",
+      "role": "secondary_2026_seed_finding_inventory_ONLY",
+      "schema": "neon.public_figshare_foraging_original_metadata_inventory.v1",
+      "source_landing": "https://doi.org/10.6084/m9.figshare.28207769",
+      "status": "PROVIDER_FILE_INVENTORY_GO_METADATA_ONLY"
+    }
+  },
+  "protocol": "docs/NEON_INDEPENDENT_FORAGING_RFID_SEED_SOURCE_GATE_20261121.md",
+  "retrieved_utc": "2026-11-21T02:10:30.778811+00:00",
+  "schema": "neon.public_original_figshare_foraging_candidate_inventory.v1",
+  "secondary_dataset_inventory_only_not_fallback_outcome": true,
+  "status": "PRIMARY_PROVIDER_METADATA_GO",
+  "workflow_provenance": {
+    "source_repository": "zuizui0223/neon",
+    "run_id": 44854388505,
+    "job_id": 136693024217,
+    "source_metadata_only_step": "success",
+    "synthetic_unit_tests": "5 passed",
+    "recorded_from_original_GitHub_job_stdout": true
+  }
+}
