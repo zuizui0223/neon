@@ -24,6 +24,7 @@ def diagnostic():
     stations=data["All Station Nights.csv"]
     c=Counter();unique_pit=set();unique_grid=set();year_labels=Counter();literal_YEAR_by_original_DATE_year=Counter()
     capture_tuples=set();capture_tag_grid=set()
+    capture_tuples_two_digit_YEAR_verified_against_DATE=set()
     for row in capt:
         tag=original_tag(row.get("PIT"))
         grid=token(row.get("GRID"))
@@ -54,6 +55,8 @@ def diagnostic():
         if yr and day:
             c["original_capture_DATE_and_YEAR_literal_text_equal"]+=int(
                 yr==str(day.year))
+            if re.fullmatch(r"d{2}",yr) and int(yr)==day.year%100 and tag and grid:
+                capture_tuples_two_digit_YEAR_verified_against_DATE.add((tag,grid,day.year))
     ep=set();eg=set();ept=set();eptg=set()
     event_count=Counter();event_year_parse=Counter()
     for row in events:
@@ -75,6 +78,8 @@ def diagnostic():
             ept.add((tag,grid,day.year))
             event_count["original_event_rows_exact_capture_PIT_GRID_year_match"]+=int(
                 (tag,grid,day.year) in capture_tuples)
+            event_count["original_event_rows_capture_PIT_GRID_year_match_SOURCE_YEAR_2digit_DATE_VERIFIED"]+=int(
+                (tag,grid,day.year) in capture_tuples_two_digit_YEAR_verified_against_DATE)
         if day:
             event_year_parse[str(day.year)]+=1
     station_index={}
@@ -105,6 +110,9 @@ def diagnostic():
       "unique_original_capture_literal_GRID_count":len(unique_grid),
       "distinct_original_capture_PIT_GRID_keys":len(capture_tag_grid),
       "distinct_capture_PIT_GRID_four_digit_YEAR_keys":len(capture_tuples),
+      "distinct_capture_PIT_GRID_calendar_year_keys_from_2digit_SOURCE_YEAR_verified_DATE":
+          len(capture_tuples_two_digit_YEAR_verified_against_DATE),
+      "original_capture_two_digit_YEAR_reconciliation_source_metadata_only":True,
       "unique_original_foraging_literal_PIT_count":len(ep),
       "unique_original_foraging_literal_Grid_count":len(eg),
       "distinct_exact_PIT_overlap_across_capture_and_foraging_source":len(ep&unique_pit),
