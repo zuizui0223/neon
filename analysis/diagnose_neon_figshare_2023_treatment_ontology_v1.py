@@ -29,6 +29,8 @@ def audit_source_categories():
     counts=Counter();grids=defaultdict(set)
     sessions=defaultdict(set);sites=defaultdict(set)
     missing_treat=0
+    original_SITE_ID_codes=Counter()
+    original_PRED_PRES_codes=Counter()
     for record in rd:
         tr=(record["TREAT"] or "").strip()
         if not tr:
@@ -38,6 +40,8 @@ def audit_source_categories():
         ses=(record["SESSION"] or "").strip()
         site=(record["SITE_ID"] or "").strip()
         counts[tr]+=1
+        original_SITE_ID_codes[site]+=1
+        original_PRED_PRES_codes[(record.get("PRED_PRES") or "").strip()]+=1
         if grid:grids[tr].add(grid)
         if ses:sessions[tr].add(ses)
         if grid and site:sites[tr].add((grid,site))
@@ -51,6 +55,15 @@ def audit_source_categories():
         "original_row_count":head["original_row_count"],
         "literal_uninterpreted_TREAT_category_row_counts":dict(sorted(counts.items())),
         "source_TREAT_category_count":len(counts),
+        "TREAT_category_meanings_from_original_published_methods":{
+            "EVN":"even-aged forest shelterwood",
+            "REF":"reference unlogged forest",
+            "TWO":"two-stage shelterwood forest"
+        },
+        "TREAT_is_not_safe_vs_risky_cover_experiment":True,
+        "SITE_ID_literal_source_category_counts_only":dict(sorted(original_SITE_ID_codes.items())),
+        "PRED_PRES_literal_source_category_counts_only":dict(sorted(original_PRED_PRES_codes.items())),
+        "SITE_ID_and_PRED_PRES_risk_semantics_NOT_INFERRED":True,
         "original_missing_TREAT_source_rows":missing_treat,
         "number_of_original_GRIDs_per_TREAT_label":{
             z:len(grids[z]) for z in sorted(counts)},
