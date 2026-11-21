@@ -78,6 +78,8 @@ def weather_support(raw):
     samples={y:{} for y in YEARS}
     parse_errors=Counter()
     raw_hour_entries=0
+    original_hour_0=0
+    original_hour_24=0
     for row in iter_csv(raw,("year","month","day","hour","precipitation")):
         try:
             year=int(row["year"])
@@ -98,7 +100,12 @@ def weather_support(raw):
             hr=int(row["hour"])
         except (TypeError,ValueError):
             raise ValueError("PORTAL_ENV_SOURCE_STOP_HOUR_FIELD_NOT_INTEGER") from None
-        require(0<=hr<=23,"HOUR_OUTSIDE_0_23")
+        # Portal original README documents "2400-hour" station values.
+        # Keep the literal original end-of-day label 24 as its own source
+        # observation slot; NEVER guess a shifted date or duplicate hour 0.
+        require(0<=hr<=24,"HOUR_OUTSIDE_DOCUMENTED_0_24")
+        original_hour_0+=int(hr==0)
+        original_hour_24+=int(hr==24)
         raw_hour_entries+=1
         text=(row["precipitation"] or "").strip()
         value=None
@@ -128,6 +135,9 @@ def weather_support(raw):
     return samples,{
         "per_year":coverage,
         "raw_target_monsoon_hour_entries":raw_hour_entries,
+        "source_label_hour_0_row_count":original_hour_0,
+        "source_label_hour_24_row_count":original_hour_24,
+        "source_hour_24_preserved_without_date_shift":True,
         "parse_flag_counts":dict(parse_errors),
         "all_years_rain_quality_pass":all(
             coverage[str(y)]["90pct_hours_threshold_passed"] for y in YEARS)
