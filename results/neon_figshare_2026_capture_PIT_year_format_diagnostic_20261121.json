@@ -1,0 +1,70 @@
+{
+  "distinct_capture_PIT_GRID_calendar_year_keys_from_2digit_SOURCE_YEAR_verified_DATE": 3962,
+  "distinct_capture_PIT_GRID_four_digit_YEAR_keys": 0,
+  "distinct_exact_GRID_overlap_across_capture_and_foraging_source": 6,
+  "distinct_exact_PIT_GRID_overlap_across_sources": 44,
+  "distinct_exact_PIT_overlap_across_capture_and_foraging_source": 44,
+  "distinct_original_capture_PIT_GRID_keys": 3834,
+  "literal_original_YEAR_code_to_original_DATE_calendar_year_source_census": {
+    "16__DATE_calendar_2016": 2268,
+    "17__DATE_calendar_2017": 963,
+    "18__DATE_calendar_2018": 2264,
+    "19__DATE_calendar_2019": 522,
+    "20__DATE_calendar_2020": 2994,
+    "21__DATE_calendar_2021": 942,
+    "22__DATE_calendar_2022": 1009,
+    "23__DATE_calendar_2023": 652
+  },
+  "no_individual_identifiers_or_exact_sites_or_calendar_dates_exported": true,
+  "no_original_seed_finding_choice_or_animal_trait_effect_calculated": true,
+  "no_original_source_key_normalization_to_get_favorable_match": true,
+  "one_NEON_Draft_SUBMISSION_HOLD": true,
+  "original_capture_field_presence_source_counts": {
+    "capture_rows_with_literal_GRID": 11614,
+    "capture_rows_with_literal_PIT": 10248,
+    "capture_rows_with_literal_YEAR": 11614,
+    "capture_rows_with_parsable_DATE": 11614,
+    "original_capture_DATE_and_YEAR_literal_text_equal": 0,
+    "original_source_capture_rows": 11614
+  },
+  "original_capture_two_digit_YEAR_reconciliation_source_metadata_only": true,
+  "original_capture_year_literal_format_counts": {
+    "other_numeric_digit_length": 11614
+  },
+  "original_figshare_article_id": 28207769,
+  "original_foraging_event_capture_exact_match_counts": {
+    "event_rows_with_exact_PIT_and_GRID": 2182,
+    "original_event_rows": 3243,
+    "original_event_rows_capture_PIT_GRID_year_match_SOURCE_YEAR_2digit_DATE_VERIFIED": 2077,
+    "original_event_rows_exact_capture_PIT_GRID_match": 2077,
+    "original_event_rows_exact_capture_PIT_GRID_year_match": 0,
+    "original_event_rows_exact_capture_PIT_only_match": 2125
+  },
+  "original_foraging_minus_station_night_date_difference_days_histogram": {
+    "0": 2443,
+    "1": 434,
+    "-1": 333,
+    "at_least_one_original_date_unparsable": 11,
+    "original_dates_more_than_3_days_apart": 22
+  },
+  "original_foraging_rows_by_parsed_calendar_year": {
+    "2023": 3243
+  },
+  "original_frozen_all_station_nights_required_source_GO_still_FAILED": true,
+  "retrieved_utc": "2026-11-21T02:35:13.342233+00:00",
+  "schema": "neon.figshare2026_original_PIT_grid_year_calendar_key_diagnostic.v1",
+  "source_original_md5_and_metadata_reverified": true,
+  "status": "AFTER_SOURCE_STOP_IDENTIFICATION_AND_DATE_FORMAT_ONLY_NO_SOURCE_GO",
+  "unique_original_capture_literal_GRID_count": 8,
+  "unique_original_capture_literal_PIT_count": 3764,
+  "unique_original_foraging_literal_Grid_count": 6,
+  "unique_original_foraging_literal_PIT_count": 47,
+  "version": 2,
+  "workflow_provenance": {
+    "github_run": "https://github.com/zuizui0223/neon/actions/runs/44856690988",
+    "job_id": 136700452204,
+    "original_provider_MD5_verified": true,
+    "source_only_no_ecological_response": true,
+    "recorded_from_GitHub_workflow_stdout": true
+  }
+}
