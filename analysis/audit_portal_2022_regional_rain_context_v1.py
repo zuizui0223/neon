@@ -20,7 +20,7 @@ SOURCE_COMMIT="afd75933249ae60f3a5e9dab00b354f219e5e045"
 SOURCE_BASE="https://raw.githubusercontent.com/weecology/PortalData/"+SOURCE_COMMIT+"/"
 ORIGINAL_SOURCES={
     "Rodeo":("Weather/Rodeo_regional_weather.csv",
-             "dcbcd3f7e414a51ff74d31b17891f8e0593506fc","USC00026716",30_000_000),
+             "dcbcd3f7e414a51ff74d31b17891f8e0593506fc","USC00026716",60_000_000),
     "SanSimon":("Weather/Sansimon_regional_weather.csv",
                 "0f905f95d788378e3415a1482e4abfa73a2ea3b6","US1AZCH0005",30_000_000),
 }
