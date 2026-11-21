@@ -58,7 +58,7 @@ def bounded_original(url,size):
     require(b"\x00" not in raw[:4096],"ORIGINAL_BINARY_OR_NUL_FILE")
     return raw
 
-def original_header_and_row_count(raw):
+def original_header_and_row_count(raw, original_filename=None):
     """Only CSV column names and number of original records, no response data."""
     try:
         original=raw.decode("utf-8-sig")
@@ -70,9 +70,15 @@ def original_header_and_row_count(raw):
     except StopIteration:
         raise ValueError("NEON_FIGSHARE_2023_ORIGINAL_STOP_EMPTY_CSV") from None
     require(2<=len(headings)<=200,"SOURCE_FIELD_COUNT_BAD")
-    require(all(isinstance(k,str) and k.strip() for k in headings),
+    # Exact pinned source HEADER diagnosis from original MD5-verified files:
+    # 'Vole BLUPS.csv' has exactly one empty first header; its scientific
+    # meaning was NOT established. Preserve it in raw schema, but exclude it
+    # from scientific column names; never assign it an invented variable.
+    empty=[i for i,k in enumerate(headings) if not k.strip()]
+    require(not empty or (original_filename=="Vole BLUPS.csv" and empty==[0]),
             "SOURCE_EMPTY_HEADER_LABEL")
-    require(len(set(headings))==len(headings),
+    usable=headings[1:] if empty else headings
+    require(all(usable) and len(set(usable))==len(usable),
             "SOURCE_DUPLICATE_HEADER")
     n=0
     for row in reader:
@@ -80,6 +86,9 @@ def original_header_and_row_count(raw):
         n+=1
     require(n>=1,"SOURCE_NO_RECORDS")
     return {"original_column_names":headings,
+            "scientific_column_names_excluding_any_source_unlabeled_first":usable,
+            "source_unlabeled_header_positions":empty,
+            "source_empty_first_column_excluded_from_scientific_join":bool(empty),
             "column_count":len(headings),
             "original_row_count":n}
 
@@ -132,7 +141,7 @@ def source_report():
     for fid,(name,size,digest) in FILES.items():
         raw=bounded_original(links[fid],size)
         require(md5(raw).hexdigest()==digest,"PINNED_ORIGINAL_FILE_MD5_MISMATCH")
-        fields=original_header_and_row_count(raw)
+        fields=original_header_and_row_count(raw,name)
         details[name]={
             "provider_file_id":fid,"original_bytes":size,
             "provider_original_MD5_verified":digest,
