@@ -78,8 +78,8 @@ def weather_support(raw):
     samples={y:{} for y in YEARS}
     parse_errors=Counter()
     raw_hour_entries=0
-    original_hour_0=0
-    original_hour_24=0
+    original_hour_100=0
+    original_hour_2400=0
     for row in iter_csv(raw,("year","month","day","hour","precipitation")):
         try:
             year=int(row["year"])
@@ -100,12 +100,14 @@ def weather_support(raw):
             hr=int(row["hour"])
         except (TypeError,ValueError):
             raise ValueError("PORTAL_ENV_SOURCE_STOP_HOUR_FIELD_NOT_INTEGER") from None
-        # Portal original README documents "2400-hour" station values.
-        # Keep the literal original end-of-day label 24 as its own source
-        # observation slot; NEVER guess a shifted date or duplicate hour 0.
-        require(0<=hr<=24,"HOUR_OUTSIDE_DOCUMENTED_0_24")
-        original_hour_0+=int(hr==0)
-        original_hour_24+=int(hr==24)
+        # Pinned-source 2026-11-21 schema audit: 24 literal station labels
+        # 100,200,...,2400. Timestamp hour maps label/100 (2400→00).
+        # Preserve its original source date, do not relabel midnight.
+        require(100<=hr<=2400 and hr%100==0,
+                "HOUR_NOT_ORIGINAL_HHMM_100_TO_2400")
+        original_hour_100+=int(hr==100)
+        original_hour_2400+=int(hr==2400)
+        hour_slot=hr//100
         raw_hour_entries+=1
         text=(row["precipitation"] or "").strip()
         value=None
@@ -116,7 +118,7 @@ def weather_support(raw):
                 parse_errors["non_numeric_precipitation"]+=1
             else:
                 require(isfinite(value) and value>=0,"NEGATIVE_OR_NONFINITE_RAIN")
-        key=(month,d.day,hr)
+        key=(month,d.day,hour_slot)
         old=samples[year].get(key,"UNSEEN")
         if old!="UNSEEN":
             require(old==value,"CONFLICTING_DUPLICATE_HOURLY_RAIN")
@@ -135,9 +137,10 @@ def weather_support(raw):
     return samples,{
         "per_year":coverage,
         "raw_target_monsoon_hour_entries":raw_hour_entries,
-        "source_label_hour_0_row_count":original_hour_0,
-        "source_label_hour_24_row_count":original_hour_24,
-        "source_hour_24_preserved_without_date_shift":True,
+        "source_label_hour_100_row_count":original_hour_100,
+        "source_label_hour_2400_row_count":original_hour_2400,
+        "source_original_labels_HHMM_100_to_2400_verified":True,
+        "source_end_of_day_2400_preserved_without_date_shift":True,
         "parse_flag_counts":dict(parse_errors),
         "all_years_rain_quality_pass":all(
             coverage[str(y)]["90pct_hours_threshold_passed"] for y in YEARS)
