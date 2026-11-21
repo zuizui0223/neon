@@ -30,3 +30,24 @@ There are **no** new temporal thresholds fitted to outcomes. Site-climate NDVI w
 `analysis/audit_portal_2022_ndvi_capture_chronology_v1.py`, `tests/test_portal_2022_ndvi_capture_chronology_v1.py`, GitHub Actions workflow, and anonymous aggregate source receipt. No exact coordinates, plot IDs, animal tags, individual taxon counts, dates, original 114 X/Y or response effects are exported. Original fitted result, NDVI context, and all 2022 omitted-year coefficients remain frozen.
 
 **Scientific decision rule:** If 2023 followup captures in PRE or DURING dominate, revise manuscript and README immediately to state that the large July–September 2023 NDVI decline cannot explain the timing of most of the 2022→23 response, instead of calling it a candidate driver. If POST dominates, retain only a qualified temporal coincidence. In either case **SUBMISSION HOLD**, no mechanism promotion, no learning or biomass claim.
+
+## Completed original-source audit and revision — 21 November 2026
+
+[Original eight-SHA-verified GitHub Action 44850363929](https://github.com/zuizui0223/neon/actions/runs/44850363929) passed three synthetic date/source-accounting tests, reverified the former 203 plot×month×year plant-survey source pairs and 69 eligible ID-disjoint species pairs **without effects**, and reproduced exactly **114 model-entry plot-month-year pairs from 18 original physical plots**. Of these, 21 start in 2021, 65 in 2022 and 28 in 2023; no resource-change X or captured-community Y values were calculated. Aggregate machine receipt: `results/neon_portal_ndvi_capture_chronology_20261121.json`; original workflow artifact 14684453370.
+
+For the exact original **65 start-year-2022→2023** pairs:
+
+| Original 2023 capture month | Fixed pair count |
+|---|---:|
+| April | 8 |
+| May | 17 |
+| June | 18 |
+| July–September | **0** |
+| October | 16 |
+| November | 6 |
+
+Thus **43/65 (66.2%)** original mammal followup observations were in April–June 2023, **BEFORE** the independent July–September 2023 NDVI period. The original plot-level pre-capture plant surveys were winter→winter for those 43. The other **22/65 (33.8%)** in October–November 2023 had original summer→summer plant surveys and both annual July–September NDVI windows before their respective captures. Recovered original plot coverage: 18 plots for the 43 spring comparisons and 16 plots for the 22 autumn comparisons; these overlap, so do not add them to form a geographic sample size.
+
+**Resolved scientific decision:** Later observed July–September 2023 site-wide NDVI decline may describe contemporaneous or subsequent external environmental change, but it **does not chronologically precede most (43/65) original 2023 mammal-capture responses**. It cannot be used to identify the mechanism of the full 114-contrast community-composition model or to claim that the 2022-start-year resource×competitor sign depended on a measured summer-2023 NDVI decline. Any interpretation that the satellite decrease caused the earlier spring response is rejected. Seasonal earlier resource change remains an untested hypothesis. Preserve original fixed mammal coefficients and year-omission sensitivity, original NDVI physical observations, all failed rainfall source quality gates, no learning/biomass inference, and **SUBMISSION HOLD**.
+
+Interpretation corrected in main `README.md`, `docs/NEON_PORTAL_2022_GRENNNESS_AND_RAIN_INDEPENDENT_CONTEXT_20261121.md` and unified manuscript v0.9; no manuscript submission or PR merge authorized by this source check.
