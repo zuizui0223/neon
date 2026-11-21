@@ -1,5 +1,16 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-21: leading February–March NDVI rejects simple prespring greenness crash
+
+**Source-backed non-support and mechanism boundary, not a new mammal regression.** Original data chronology already showed **43/65** 2023 follow-up rodent samples were collected in April–June, BEFORE the independently documented July–September site-NDVI decline; 22/65 were October–November. Thus the large summer NDVI fall could not have preceded most original captures.
+
+The original immutable PortalData Landsat8 USGS satellite file now yields a **chronologically earlier** February–March environmental reference under a fixed source-informed/POST-RESULT rule. With exactly the same provider, same-sensor cloud<=30% and equal weight to February/March in every 2021–2024 year, site-wide NDVI was **0.145096 (2021), 0.145309 (2022), 0.148276 (2023), 0.155456 (2024)**. The 2022→2023 change was **+0.002967, not a greenness decline**, versus later full July–September **−0.10156**. Valid Feb/Mar source images were **3/3, 2/4, 1/2, 2/1**; the February 2023 value is based on ONE satellite observation. The full three precapture changes (+0.000212, +0.002967, +0.007180) give no evidence of an exceptional prespring greenness crash.
+
+- Source and numerical result verified independently through original Git blob SHA `0a55a926712210ee786660517a1ae12285bb6303`, JS crosscheck and [Python GitHub Actions 44853409600](https://github.com/zuizui0223/neon/actions/runs/44853409600), 5 tests passed, artifact 14686132857.
+- This **does not rule out a seed/edible-food crash, understory change, predator activity, altered capture probability or individual learning**, none of which NDVI directly observes. The site-wide 1km image summary cannot explain original plot-specific competitor-treatment interaction, and the NDVI source period was selected after the mammal result and coverage inspection. No mechanistic rescue should be inferred.
+- Original 2020–25 Portal captured-community slope remains **year-fragile**: 65/114 source pairs started 2022, and omitting 2022 flips control and interaction slopes. No unreported alternative month or taxa subgroups are opened. The main 14-site NEON genus capture-station recurrence remains conditional; Portal 1996–2019 species-stake reference-conditioned null, Finnish capture-pair stationarity falsification and NEON density guard failure are unaltered.
+- Full evidence and code: `docs/NEON_PORTAL_PRECAPTURE_FEBMAR_NDVI_CONTEXT_FROZEN_20261121.md`, `docs/NEON_PORTAL_PRECAPTURE_FEBMAR_NDVI_RESULT_20261121.md`, `results/neon_portal_precapture_febmar_ndvi_context_20261121.json`. ONE unified paper Draft, **SUBMISSION HOLD**. Do not promote resource × competition causal mechanism or memory/learning finding into abstract.
+
 ## 2026-11-21: capture chronology DISCONFIRMS broad 2022→23 summer-NDVI driver
 
 **Major chronology correction: the July–September 2023 greenness drop occurs AFTER the 2023 capture response in 43 of the 65 (66.2%) original 2022-start-year plot comparisons.** The source-only audit revalidated the exact immutable 8 PortalData Git blobs, 203 original plant-time candidate pairs, the original 69 ID-disjoint source support, and **114 exact fixed model-entry pairs at 18 plots**, including 65 for 2022→23. No species-composition or vegetation-quantity effects were recomputed.
