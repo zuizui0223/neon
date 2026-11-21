@@ -49,9 +49,11 @@ class TestOriginalStationSeedLossWithoutVideo(unittest.TestCase):
         self.assertIsNone(output["seed_disappearance_effect_or_descriptive_numerators"])
 
     def test_bad_source_numeric_fails_closed(self):
-        for t in ("-1","1.1","nan","inf"):
+        for t in ("-1","1.1","inf"):
             with self.assertRaisesRegex(ValueError,"NONINTEGER|NEGATIVE_OR_NONFINITE"):
                 parse_seed_count(t)
+        # Original NAN is an explicit missingness marker, not a numeric zero.
+        self.assertIsNone(parse_seed_count("nan"))
 
     def test_blank_source_field_reduces_data_not_zero(self):
         nights,events=self.example()
