@@ -1,5 +1,14 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-21: capture chronology DISCONFIRMS broad 2022→23 summer-NDVI driver
+
+**Major chronology correction: the July–September 2023 greenness drop occurs AFTER the 2023 capture response in 43 of the 65 (66.2%) original 2022-start-year plot comparisons.** The source-only audit revalidated the exact immutable 8 PortalData Git blobs, 203 original plant-time candidate pairs, the original 69 ID-disjoint source support, and **114 exact fixed model-entry pairs at 18 plots**, including 65 for 2022→23. No species-composition or vegetation-quantity effects were recomputed.
+
+- Original follow-up dates among those 65: **43 in April–June 2023 (18 original plots)**, **0 in July–September**, **22 in October–November (16 plots)**. The 43 spring comparisons were linked to **winter→winter field plant surveys**; the 22 autumn comparisons to **summer→summer**. In only the 22 autumn comparisons did **both full July–September NDVI windows precede both captured-community census dates**.
+- The previously verified Landsat8 decline in full summer NDVI from 2022 to 2023 (**−0.10156**) remains an authentic independent site-wide observation. It **cannot serve as an antecedent explanation for the earlier 43 spring rodent responses**, and temporal ordering of the remaining 22 is only necessary, not evidence that site greenness drove food/biomass or competition.
+- Original plot-level resource-change slope and exclosure interaction are **temporally unstable** (sign reversal on omitted start-year 2022), based on only 3 start years and 65/114 comparisons concentrated in one transition. Neither a competitive-buffering principle nor biomass/learning mechanism has been established. The source-gated Australian camera data, local/regional rain STOP and original NEON/Portal/Finnish evidence remain unchanged.
+- Exact-source source-only action: [44850363929](https://github.com/zuizui0223/neon/actions/runs/44850363929); new audited machine receipt `results/neon_portal_ndvi_capture_chronology_20261121.json`; explicit scientific correction `docs/NEON_PORTAL_2022_GRENNNESS_AND_RAIN_INDEPENDENT_CONTEXT_20261121.md`. **One Draft PR #23, SUBMISSION HOLD.**
+
 ## 2026-11-21: independently observed greenness decline; rainfall QC STOP
 
 **New ecosystem context, NOT an identified mammal mechanism.** The fixed 2020–25 Portal plant-change × competitor exclusion model remains temporally fragile: **65/114 (57%)** pairs are 2022→2023, and omitting start-year 2022 reverses both original coefficient directions.
