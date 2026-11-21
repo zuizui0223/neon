@@ -1,0 +1,98 @@
+{
+  "schema": "neon.figshare2023_vole_resource_cover_individual_source_ontology_corrected.v2",
+  "date": "2026-11-21",
+  "status": "ORIGINAL_MD5_VERIFIED_599_FORAGING_EVENTS_43_PIT_LINKS_COVER_RISK_VS_FORESTRY_DISTINGUISHED_NO_ECOLOGY",
+  "source": {
+    "article_id": 21512436,
+    "article_version": 1,
+    "article_doi": "10.6084/m9.figshare.21512436.v1",
+    "original_paper_doi": "10.1002/ecs2.4377",
+    "original_seed_data": {
+      "file_id": 38217891,
+      "md5": "5c58051b71eaa55cd888c87b6494a00c",
+      "rows": 603
+    },
+    "original_BLUPS": {
+      "file_id": 38217897,
+      "md5": "ddfb7c7a7e6472dd064bc3e4edda7d81",
+      "rows": 1069
+    },
+    "original_personality": {
+      "file_id": 38217900,
+      "md5": "f0d2310389cc1c02cbeabf352b0b131c",
+      "rows": 3712
+    },
+    "original_R_code": {
+      "file_id": 38217888,
+      "md5": "b209339b7d0f1f2a7be3b00ebd6fbf4d",
+      "script_not_executed": true
+    },
+    "original_source_Actions": [
+      "https://github.com/zuizui0223/neon/actions/runs/44854388505",
+      "https://github.com/zuizui0223/neon/actions/runs/44854783115",
+      "https://github.com/zuizui0223/neon/actions/runs/44855002468",
+      "https://github.com/zuizui0223/neon/actions/runs/44855317175",
+      "https://github.com/zuizui0223/neon/actions/runs/44855434935"
+    ]
+  },
+  "true_structural_support": {
+    "foraging_event_rows": 603,
+    "distinct_PITs_all_2018_visits": 44,
+    "exact_PITs_shared_across_events_BLUPS_and_personality": 43,
+    "complete_PIT_patch_forest_stratum_numeric_two_seed_field_event_rows": 599,
+    "original_field_grids": 6,
+    "original_GRID_SITE_ID_keys": 12,
+    "original_SESSION_categories": 3,
+    "source_numeric_WP_and_BF_event_rows": 602,
+    "no_animal_tags_or_location_identifiers_exported": true
+  },
+  "original_source_ontology": {
+    "field_TREAT": {
+      "EVN": {
+        "source_rows": 180,
+        "meaning": "even-aged silvicultural forest",
+        "unique_grids": 2
+      },
+      "REF": {
+        "source_rows": 89,
+        "meaning": "unlogged reference forest",
+        "unique_grids": 2
+      },
+      "TWO": {
+        "source_rows": 334,
+        "meaning": "two-stage silvicultural forest",
+        "unique_grids": 2
+      },
+      "note": "This variable is forest-management environment, NOT covered-vs-exposed predation-risk manipulation"
+    },
+    "field_SITE_ID": {
+      "c": {
+        "source_rows": 360,
+        "meaning_from_original_methods_and_R_model": "covered/safe seed patch"
+      },
+      "u": {
+        "source_rows": 243,
+        "meaning_from_original_methods_and_R_model": "uncovered/exposed seed patch"
+      },
+      "original_R_model_uses_SITE_ID_in_a_CovUncov_contrast": true
+    },
+    "field_PRED_PRES": {
+      "y": 306,
+      "n": 297,
+      "meaning": "source categorical covariate separately included in original published R model; do not assume equivalent to SITE_ID or seed choice"
+    },
+    "original_R_model_use": "Original Main Analysis Script.R includes both SITE_ID (CovUncov) and PRED_PRES as separate predictors; script reviewed as static public text, not executed.",
+    "source_space": "All 6 trapping grids are within one Penobscot Experimental Forest and may overlap with separate 2016-2023 dataset from same team"
+  },
+  "scientific_boundaries": {
+    "original_2023_published_effects_prior_art": true,
+    "at_food_seed_trays_not_independent_unbaited_space_occupancy": true,
+    "data_no_within_event_timestamp_or_camera_non_detection_effort_denominator": true,
+    "nonexperimental_learning_not_identifiable": true,
+    "forest_management_not_kangaroo_rat_competition": true,
+    "predation_cover_not_direct_interspecific_competition": true,
+    "do_not_pool_2023_and_2026_Figshare_studies_as_independent_without_PIT_site_date_overlap_audit": true,
+    "original_NEON_Portal_Finland_Structural_effects_untouched": true,
+    "NEON_manuscript_Draft_SUBMISSION_HOLD": true
+  }
+}
