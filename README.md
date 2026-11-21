@@ -1,5 +1,15 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-21: independently observed greenness decline; rainfall QC STOP
+
+**New ecosystem context, NOT an identified mammal mechanism.** The fixed 2020–25 Portal plant-change × competitor exclusion model remains temporally fragile: **65/114 (57%)** pairs are 2022→2023, and omitting start-year 2022 reverses both original coefficient directions.
+
+- **Independent source success**: original Git-hash-locked Portal 2021–24 July–September `NDVI/ndvi.csv`, fixed same-sensor Landsat8, USGS, original cloud<=30% and >=2 images per year. Mean site NDVI 2021 **0.26739**, 2022 **0.28230**, 2023 **0.18074**, 2024 **0.16678** (valid images 8/9/6/5). Three fixed differences were **+0.01491**, **−0.10156**, **−0.01396**, so the 2022→2023 site-wide greenness decline was largest among three contrasts. Unequal original July/Aug/Sept image counts do not wholly explain it: after explicit post-result equal-month weighting the 2022→2023 change is **−0.10240**. [Original source/NDVI action 44848797764](https://github.com/zuizui0223/neon/actions/runs/44848797764).
+- **Original site precipitation FAIL**: 2,208 source hours/year required; valid 2021 **1,169 (52.9%)**, 2022 **1,354 (61.3%)**, 2023 and 2024 both **2,208 (100%)**. Frozen >=90% coverage fails across four years, so no 2022→23 rain amount is reported. The original weather source uses **0100–2400** station hour labels, independently diagnosed before any precipitation values ([Action 44848725262](https://github.com/zuizui0223/neon/actions/runs/44848725262)).
+- **Regional rain source STOP, not a replacement**: Rodeo pinned file is original *hourly* PWS with `preciptotal`, NOT daily GHCN `prcp`; SanSimon daily GHCN supports only **35/92, 36/92, 20/92, 16/92** valid monsoon days in 2021–24, failing >=90% each year. [Final regional source Action 44849401744](https://github.com/zuizui0223/neon/actions/runs/44849401744) records two scientific STOPS; no regional totals were computed.
+- **Biology:** a large **site-level greenness change** temporally coincides with the open 2022-dominated captured-rodent composition pattern. This does NOT show vegetation biomass, rodent food, predator/competitor behavior, learning or functional/niche change and cannot by itself identify plot-level exclosure interactions. Only three yearly transitions; the original temporal-generalization failure remains. NO new ecological coefficient or outcome refit; **SUBMISSION HOLD**.
+- Durable evidence and code: `docs/NEON_PORTAL_2022_GRENNNESS_AND_RAIN_INDEPENDENT_CONTEXT_20261121.md`, `results/neon_portal_2022_independent_monsoon_NDVI_and_rain_QC_20261121.json`, original verified actions, and the separate day/hour source audits.
+
 ## 2026-11-20: resource × competition temporal-holdout ecology — positive association but year generality FAIL
 
 The mechanism triage moved from speculation to **source-verifiable biology**, retaining ALL original historical NEON/Portal/Finnish results and no learning interpretation. Pre-2020 Portal field species/trap tests are NOT refit.
