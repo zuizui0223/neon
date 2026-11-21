@@ -8,8 +8,8 @@ from analysis.audit_portal_2022_site_climate_source_v1 import (
 class TestPortalSiteClimateSource(unittest.TestCase):
     def test_rain_and_missing_hours_are_distinct(self):
         raw=("year,month,day,hour,precipitation\n"
-             "2022,7,1,0,2.1\n2022,7,1,1,\n"
-             "2022,7,1,2,0\n2021,7,1,0,99\n").encode()
+             "2022,7,1,100,2.1\n2022,7,1,200,\n"
+             "2022,7,1,300,0\n2021,7,1,100,99\n").encode()
         sample,report=weather_support(raw)
         self.assertEqual(len(sample[2022]),3)
         self.assertEqual(sum(v for v in sample[2022].values() if v is not None),2.1)
@@ -17,23 +17,23 @@ class TestPortalSiteClimateSource(unittest.TestCase):
         self.assertEqual(report["per_year"]["2022"]["total_expected_hour_slots"],EXPECTED_HOURLY)
         self.assertFalse(report["all_years_rain_quality_pass"])
 
-    def test_documented_end_of_day_24hour_label(self):
+    def test_documented_HHMM_2400_label(self):
         raw=("year,month,day,hour,precipitation\n"
-             "2022,7,1,23,0\n2022,7,1,24,1.5\n").encode()
+             "2022,7,1,2300,0\n2022,7,1,2400,1.5\n").encode()
         series,report=weather_support(raw)
         self.assertEqual(series[2022][(7,1,24)],1.5)
-        self.assertEqual(report["source_label_hour_24_row_count"],1)
-        self.assertTrue(report["source_hour_24_preserved_without_date_shift"])
+        self.assertEqual(report["source_label_hour_2400_row_count"],1)
+        self.assertTrue(report["source_end_of_day_2400_preserved_without_date_shift"])
 
     def test_negative_precip_never_reclassified_as_meteorological_null(self):
         raw=("year,month,day,hour,precipitation\n"
-             "2022,7,1,0,-0.1\n").encode()
+             "2022,7,1,100,-0.1\n").encode()
         with self.assertRaisesRegex(ValueError,"NEGATIVE_OR_NONFINITE_RAIN"):
             weather_support(raw)
 
     def test_duplicate_conflicting_hour_source_stop(self):
         raw=("year,month,day,hour,precipitation\n"
-             "2022,7,1,0,2\n2022,7,1,0,4\n").encode()
+             "2022,7,1,100,2\n2022,7,1,100,4\n").encode()
         with self.assertRaisesRegex(ValueError,"CONFLICTING_DUPLICATE_HOURLY_RAIN"):
             weather_support(raw)
 
