@@ -1,0 +1,45 @@
+name: neon-figshare-2026-station-night-PIT-resource-source-only
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
+      - 'tests/test_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_STATION_NIGHT_ID_SEED_SOURCE_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2026-station-night-PIT-resource-source.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
+      - 'tests/test_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_STATION_NIGHT_ID_SEED_SOURCE_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2026-station-night-PIT-resource-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2026-station-night-PIT-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-station-night-foraging-capture-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate exact original source join syntax and no biological outcomes
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2026_foraging_station_effort_ID_source_v1.py' -v
+      - name: Reverify Figshare v2 original MD5 sources and join station-night, foraging, seed and capture PIT keys only
+        run: python -m analysis.audit_neon_figshare_2026_foraging_station_effort_ID_source_v1
+      - name: Archive original source GO or STOP with no biological coefficients
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-station-night-foraging-PIT-source-only
+          path: build/neon_figshare_2026_station_night_foraging_id_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45
