@@ -36,16 +36,16 @@ class TestFigshare2026OriginalSource(unittest.TestCase):
             validate_provider_info(x)
 
     def test_unlabeled_original_columns_recorded_not_given_scientific_meaning(self):
-        z=original_csv_structure(b",PIT,GRID\\n1,animal01,G1\\n2,animal02,G1\\n")
+        z=original_csv_structure(b",PIT,GRID\n1,animal01,G1\n2,animal02,G1\n")
         self.assertEqual(z["original_rows"],2)
         self.assertEqual(z["unlabeled_source_column_positions"],[0])
         self.assertEqual(z["scientific_header_names_excluding_unlabeled"],["PIT","GRID"])
 
     def test_original_repeated_and_ragged_headers_stop(self):
         with self.assertRaisesRegex(ValueError,"DUPLICATED_NAMED_COLUMNS"):
-            original_csv_structure(b"a,a\\n1,2\\n")
+            original_csv_structure(b"a,a\n1,2\n")
         with self.assertRaisesRegex(ValueError,"RAGGED_ROW_WIDTH"):
-            original_csv_structure(b"a,b\\n1,2\\n1,2,3\\n")
+            original_csv_structure(b"a,b\n1,2\n1,2,3\n")
 
 if __name__=="__main__":
     unittest.main()
