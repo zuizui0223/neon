@@ -135,11 +135,11 @@ def source_only_join(tables,integrity,meta_sha):
       "original_three_CSVs_and_603_1069_3712_rows_reverified":
           len(seed)==603 and len(blups)==1069 and len(personality)==3712,
       "at_least_8_exact_PITs_in_all_three_sources":len(shared_both)>=MIN_VALID_COMBINED_PIT,
-      "at_least_30_matching_risk_patch_seed_event_rows":
+      "at_least_30_matching_forestry_stratum_patch_seed_event_rows":
           eligible_matched_rows>=MIN_VALID_JOINED_EVENTS,
       "at_least_3_original_field_grids":len(valid_grids)>=MIN_GRIDS,
       "at_least_10_original_grid_site_keys":len(valid_patches)>=MIN_PATCHES,
-      "at_least_2_original_risk_treatment_source_categories":
+      "at_least_2_original_forest_management_TREAT_source_categories":
           len(valid_treat)>=MIN_TREAT_CATEGORIES,
       "at_least_2_original_session_categories":len(valid_sessions)>=MIN_SESSIONS,
       "at_least_30_resource_numeric_source_events":
@@ -149,7 +149,7 @@ def source_only_join(tables,integrity,meta_sha):
       "schema":"neon.figshare2023_pit_resource_risk_linkage_source.v1",
       "status":("SOURCE_JOIN_GO_ORIGINAL_BAITED_FORAGING_OBSERVATIONS_NOT_ECOLOGY"
                 if all(gates.values()) else
-                "SOURCE_JOIN_STOP_ID_PATCH_SEED_OR_RISK_SUPPORT"),
+                "SOURCE_JOIN_STOP_ID_PATCH_SEED_OR_FOREST_STRATUM_SUPPORT"),
       "original_article_id":21512436,
       "original_article_version":1,
       "original_meta_SHA256":meta_sha,
@@ -165,6 +165,13 @@ def source_only_join(tables,integrity,meta_sha):
       "eligible_original_source_grid_count":len(valid_grids),
       "eligible_original_grid_SITE_ID_key_count":len(valid_patches),
       "eligible_original_TREAT_levels_count":len(valid_treat),
+      "original_TREAT_is_silvicultural_management_NOT_safe_risky_cover":{
+          "EVN":"even-aged shelterwood forest",
+          "REF":"unlogged reference forest",
+          "TWO":"two-stage shelterwood forest"
+      },
+      "original_TREAT_is_not_behavioral_cover_treatment":True,
+      "true_cover_risk_variable_in_event_data_not_yet_identified":True,
       "eligible_original_SESSION_levels_count":len(valid_sessions),
       "original_BLUPS_PITs_with_multiple_source_rows":
           sum(c>1 for c in blup_ids.values()),
@@ -181,6 +188,7 @@ def source_only_join(tables,integrity,meta_sha):
           "no_camera_operable_time_or_absence_exposure_denominators":True,
           "no_learning_reward_reversal_or_dynamic_memory_measured":True,
           "no species_competitor_removal_in_original_cover_risk_manipulation":True,
+          "original_TREAT_EVN_REF_TWO_is_forest_management_not_predation_risk":True,
           "original_article_published_personality_and_risk_effects_PRIOR_ART":True,
           "source_only_not_behavioral_estimate_not_cross_system_replicate":True,
           "ONE_NEON_unified_ecology_paper_DRAFT_SUBMISSION_HOLD":True,
