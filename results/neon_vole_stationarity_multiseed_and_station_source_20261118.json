@@ -1,0 +1,141 @@
+{
+  "schema": "neon.finnish_bank_vole_stationarity_sensitivity_multiseed_v1",
+  "status": "SOURCE_VERIFIED_INDEPENDENT_JS_MONTE_CARLO_SENSITIVITY_NOT_NEW_BIOLOGICAL_REPLICATION",
+  "date": "2026-11-18",
+  "original_source": {
+    "repo": "jmistrick/vole-spatial-manuscript",
+    "commit": "47dc1e9b1f83ec2faaf7ba232e02e00f9e4cffb4",
+    "capture_file_blob_sha": "343de8c3846eea21d3f0648358e159bd61bb87a2",
+    "capture_records": 2012,
+    "unique_site_tag_keys": 742,
+    "unchanged_eligible_finnish_dyad_cohort": {
+      "physical_sites": 10,
+      "animals": 47,
+      "within_site_dyads_nonindependent": 102
+    }
+  },
+  "outcomes": {
+    "observed_site_equal_summer_fall_same_tag_pair_distance_rank_rho": 0.4699868453661349,
+    "stationary_individual_null_means_across_seeds": [
+      0.7137205232913992,
+      0.7109680281800684,
+      0.7121177466785031,
+      0.7132832043682463,
+      0.715128795206726
+    ],
+    "site_equal_observed_minus_null_across_seeds": [
+      -0.2437336779252642,
+      -0.24098118281393344,
+      -0.24213090131236825,
+      -0.24329635900211127,
+      -0.24514194984059118
+    ],
+    "site_stratified_bootstrap95_descriptive_by_seed": [
+      [
+        -0.49904891126795664,
+        -0.009455373616417578
+      ],
+      [
+        -0.4940425741697945,
+        -0.009856657162876776
+      ],
+      [
+        -0.4943547371077116,
+        -0.010741085698952397
+      ],
+      [
+        -0.5072368482628328,
+        -0.007960559196889866
+      ],
+      [
+        -0.5044992861255676,
+        -0.0014408993662717918
+      ]
+    ],
+    "leave_one_physical_site_out_mean_residual_ranges_across_seeds": [
+      [
+        -0.30453396559326634,
+        -0.13232662943729026
+      ],
+      [
+        -0.3015366419257517,
+        -0.13029408495887485
+      ],
+      [
+        -0.30051798875629465,
+        -0.13171588752443308
+      ],
+      [
+        -0.3037350570899733,
+        -0.13190916678976305
+      ],
+      [
+        -0.30515227336669276,
+        -0.13160615519897484
+      ]
+    ],
+    "positive_vs_negative_sites_each_seed": {
+      "positive": 3,
+      "negative": 7
+    },
+    "max_degenerate_draws_per_site_each_seed": 0
+  },
+  "source_recorded_station_overlap": {
+    "definition": "Jaccard overlap of site-specific trap station names with at least one recorded vole capture in summer vs fall, not the full operative-trap deployment/exposure",
+    "eligible_sites": 10,
+    "site_equal_mean": 0.46778606355513663,
+    "site_median": 0.5003561253561254,
+    "site_range": [
+      0.2222222222222222,
+      0.6226415094339622
+    ],
+    "individual_capture_station_jaccard_site_equal_mean": 0.19231878306878306,
+    "individual_capture_station_jaccard_site_median": 0.1966269841269841,
+    "all_capture_rows_eligible_sites_summer": 811,
+    "all_capture_rows_eligible_sites_fall": 975,
+    "operative_trap_exposure_measured": false
+  },
+  "computation": {
+    "independent_from_original_python_analysis": "JavaScript reimplementation of frozen within-animal pooling logic, not a new biological cohort",
+    "seeds": [
+      2026111567,
+      2026111568,
+      2026111569,
+      2026111570,
+      991
+    ],
+    "within_individual_stationarity_simulations_each_site_seed": 2000,
+    "physical_site_factorial_stratified_bootstrap_draws_each_seed": 5000,
+    "separate_python_GitHub_Action_artifact_verified": false,
+    "original_frozen_protocol": "docs/NEON_VOLE_DYAD_INDIVIDUAL_STATIONARITY_NULL_FROZEN_20261115.md"
+  },
+  "scientific_boundaries": {
+    "positive_identity_shuffle_rho_still_true_but_not_pair_specific_beyond_individual_spatial_preference": true,
+    "lower_than_stationarity_expected_rho_does_not_identify_behavioral_movement": true,
+    "season_specific_operable_trap_effort_not_observed": true,
+    "bootstrap_interval_upper_bounds_near_zero": true,
+    "five_seeds_not_five_independent_replicates": true,
+    "same_site_dyads_not_independent": true,
+    "original_Mistrick_2024_food_deworm_seasonal_space_use_findings_are_prior_art": true,
+    "no_social_contact_or_fitness_measured": true,
+    "no_change_to_NEON_Portal_Structural_primary_results": true,
+    "manuscript_stays_DRAFT_SUBMISSION_HOLD": true
+  },
+  "literature": [
+    {
+      "citation": "Mistrick et al. 2024",
+      "doi": "10.1111/1365-2656.14067",
+      "role": "original published ecology and source"
+    },
+    {
+      "citation": "Farine 2017",
+      "doi": "10.1111/2041-210X.12772",
+      "role": "pre-network/null-model methodological prior art"
+    },
+    {
+      "citation": "Farine & Carter 2022",
+      "doi": "10.1111/2041-210X.13741",
+      "role": "permutation test limitations methodological prior art"
+    }
+  ]
+}

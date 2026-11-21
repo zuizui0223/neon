@@ -1,0 +1,127 @@
+{
+  "no_animals_inferred_from_missing_seeds_or_no_video": true,
+  "no_natural_food_biomass_or_learning_estimated": true,
+  "no_original_animal_ID_or_species_or_site_or_date_exported": true,
+  "numeric_complete_station_nights_by_video_event_class": {
+    "no_recorded_camera_event": 152,
+    "recorded_camera_event": 136
+  },
+  "one_NEON_Draft_SUBMISSION_HOLD": true,
+  "original_figshare_article_id": 28207769,
+  "original_five_source_SHA_receipt": {
+    "2016-2023 Capture Data.csv": {
+      "MD5_verified": "d9b8cd69378a98c520b10172b80f2c23",
+      "original_SHA256": "ffeaf011ae2f71206bab2ae6f45c3a607c2e2aab2f8de2714e7bc146f0635a91",
+      "original_provider_file_id": 51682214,
+      "verified_original_rows": 11614
+    },
+    "All Foraging Clean.csv": {
+      "MD5_verified": "5f823a01c8751bd360dab723f3d49faa",
+      "original_SHA256": "c4b27c2c4dd9cb723fff0a4fc1bf482eb891cc10d3c9df5f6ca4b188761bc869",
+      "original_provider_file_id": 51682217,
+      "verified_original_rows": 3243
+    },
+    "All Station Nights.csv": {
+      "MD5_verified": "1cc4f0c66043c9a96955bed1c66408e3",
+      "original_SHA256": "683a932405b777d80e88f27681850da9142499a126506b9ff359fd0c2574e2e5",
+      "original_provider_file_id": 51682220,
+      "verified_original_rows": 291
+    },
+    "Mouse Foraging Data Clean.csv": {
+      "MD5_verified": "63adc6b8f232e423fefc2d802d25904d",
+      "original_SHA256": "48684c5d4a4e28a7f7eed4ddf0389fb478a1b0edbfea4129f9ecad4e1b283a22",
+      "original_provider_file_id": 51682229,
+      "verified_original_rows": 883
+    },
+    "Vole Foraging Data Clean.csv": {
+      "MD5_verified": "e05cb082df82286672f49a39df4585b2",
+      "original_SHA256": "10065f8548339942cef1207b55987051c2b062a7261506e52d57925aa3f191aa",
+      "original_provider_file_id": 51682232,
+      "verified_original_rows": 951
+    }
+  },
+  "original_provider_metadata_SHA256": "2dda7ba7f21d4bcc35b478145ed9bf10aabfd5e80686c9953a99fceffc93c58e",
+  "original_published_source_exact_MD5_byte_verified": true,
+  "original_source_frozen_all_291_station_row_GO_remains_FAILED": true,
+  "original_station_source_quality_exclusions": {},
+  "original_total_source_station_nights_including_keyless": 291,
+  "original_unique_valid_station_night_keys": 288,
+  "original_version": 2,
+  "post_result_descriptive_only_NOT_new_confirmatory_ecology": true,
+  "previous_2026_paper_seed_missing_analysis_PRIOR_ART": true,
+  "protocol": "docs/NEON_FIGSHARE_2026_SEED_LOSS_WITHOUT_VIDEO_FROZEN_DESCRIPTIVE_20261121.md",
+  "retrieved_utc": "2026-11-21T11:59:16.838813+00:00",
+  "schema": "neon.figshare_2026_seed_disappearance_camera_event_gap.v1",
+  "seed_disappearance_effect_or_descriptive_numerators": {
+    "fraction_of_all_source_missing_seed_counts_on_nights_without_recorded_video_event": 0.3122820612165827,
+    "no_recorded_camera_event": {
+      "fraction_source_nights_any_seed_missing": 0.7894736842105263,
+      "original_RO_seeds_missing": 139,
+      "original_RO_seeds_offered": 515,
+      "original_WP_seeds_missing": 667,
+      "original_WP_seeds_offered": 2318,
+      "original_both_types_seeds_missing": 806,
+      "original_complete_source_station_nights": 152,
+      "possible_animal_cause_versus_nonanimal_loss_UNIDENTIFIED": true,
+      "source_nights_with_any_seed_missing": 120
+    },
+    "recorded_camera_event": {
+      "fraction_source_nights_any_seed_missing": 0.9632352941176471,
+      "original_RO_seeds_missing": 211,
+      "original_RO_seeds_offered": 440,
+      "original_WP_seeds_missing": 1564,
+      "original_WP_seeds_offered": 1962,
+      "original_both_types_seeds_missing": 1775,
+      "original_complete_source_station_nights": 136,
+      "possible_animal_cause_versus_nonanimal_loss_UNIDENTIFIED": true,
+      "source_nights_with_any_seed_missing": 131
+    }
+  },
+  "source_station_night_video_event_class_counts": {
+    "all_288_keyed_station_nights": 288,
+    "no_recorded_camera_event_total": 152,
+    "recorded_camera_event_total": 136
+  },
+  "status": "RETROSPECTIVE_STATION_SOURCE_SEED_DISAPPEARANCE_DESCRIPTIVE_ONLY",
+  "three_nonblank_keyless_source_rows_NOT_RECODED_AS_STATIONS": [
+    {
+      "nonkey_original_nonblank_field_names": [
+        "RO.seeds.left",
+        "RO.seeds.set",
+        "WP.seeds.left",
+        "WP.seeds.set"
+      ],
+      "source_one_based_row_number": 289
+    },
+    {
+      "nonkey_original_nonblank_field_names": [
+        "RO.seeds.set",
+        "WP.seeds.set"
+      ],
+      "source_one_based_row_number": 290
+    },
+    {
+      "nonkey_original_nonblank_field_names": [
+        "RO.seeds.set",
+        "WP.seeds.set"
+      ],
+      "source_one_based_row_number": 291
+    }
+  ],
+  "workflow_provenance": {
+    "original_provider": "Figshare",
+    "original_article_id": 28207769,
+    "original_run": "https://github.com/zuizui0223/neon/actions/runs/44901631224",
+    "job_id": 136838575475,
+    "original_CSV_MD5_and_source_row_verification": "passed",
+    "synthetic_precondition_tests": "4 passed",
+    "original_strict_291_row_key_source_GO": "FAIL remains binding",
+    "descriptive_only_no_independent_animal_causality": true
+  },
+  "additional_predeclared_source_aggregate_transparency": {
+    "total_original_seeds_offered_both_groups_and_types": 5235,
+    "total_original_seeds_disappeared_both_groups_and_types": 2581,
+    "original_no_video_source_even_with_seed_loss_count": 120,
+    "no_video_source_night_seed_disappearance_count": 806
+  }
+}

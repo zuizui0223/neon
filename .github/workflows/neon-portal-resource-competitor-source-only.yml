@@ -1,0 +1,47 @@
+name: neon-portal-resource-competitor-learning-source-only
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_portal_resources_competition_learning_source_v1.py'
+      - 'tests/test_portal_resources_competition_learning_source_v1.py'
+      - 'docs/NEON_RESOURCE_COMPETITION_LEARNING_DISCRIMINATION_20261120.md'
+      - '.github/workflows/neon-portal-resource-competitor-source-only.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_portal_resources_competition_learning_source_v1.py'
+      - 'tests/test_portal_resources_competition_learning_source_v1.py'
+      - 'docs/NEON_RESOURCE_COMPETITION_LEARNING_DISCRIMINATION_20261120.md'
+      - '.github/workflows/neon-portal-resource-competitor-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-resource-competitor-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  frozen-portal-2020-25-resource-competitor-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify fixed future-cohort source-only windows and no ecological effects
+        run: |
+          python -m unittest discover -s tests -p 'test_portal_resources_competition_learning_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_portal_external_id_niche_source_v1.py' -v
+      - name: Download eight immutable original public Portal CSVs and audit resource x competitor x ID support
+        run: python -m analysis.audit_portal_resources_competition_learning_source_v1
+      - name: Archive effect-blind source GO or explicit scientific STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-three-mechanism-2020-25-source-gate
+          path: build/neon_portal_2020_2025_three_mechanism_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45

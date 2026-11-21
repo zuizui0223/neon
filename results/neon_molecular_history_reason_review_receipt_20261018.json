@@ -1,0 +1,81 @@
+{
+  "schema": "neon.provider_molecular_revision_provenance_receipt.v1",
+  "status": "PROVIDER_HISTORY_REASON_REVIEW_NOT_INDEPENDENT_DNA_VALIDATION",
+  "accessed_utc": "2026-10-18T08:47:53.188065+00:00",
+  "release": "RELEASE-2026",
+  "source_manifest_entries": 1958,
+  "distinct_history_payloads_downloaded": 49,
+  "tables": {
+    "mam_identificationHistory": {
+      "input_rows": 2211,
+      "unique_rows": 1928,
+      "molecular_mention_rows": 1533,
+      "unique_molecular_historyIDs": 1531,
+      "molecular_history_sites": 29,
+      "old_Peromyscus_molecular_rows": 1374,
+      "molecular_rows_with_closed_history_interval": 1533,
+      "molecular_and_revision_language_rows": 3,
+      "negative_or_pending_rows": 0,
+      "rows_without_historyID": 0,
+      "molecular_mention_by_rationale_field": {
+        "identificationRemarks": 1504,
+        "remarks": 1510
+      },
+      "previous_Peromyscus_taxonID_counts_NOT_current_species": {
+        "PEBO": 29,
+        "PEGO": 193,
+        "PEGOPELE": 24,
+        "PELE": 168,
+        "PELEPEMA": 177,
+        "PEMA": 767,
+        "PEPO": 1,
+        "PESP": 14,
+        "PETR": 1
+      },
+      "redacted_vocabulary_only_reason_patterns": [
+        {"count": 1386, "pattern": "bold [redacted]"},
+        {"count": 1241, "pattern": "[redacted] bold [redacted]"},
+        {"count": 138, "pattern": "based on analysis of [redacted] bold samples and [redacted] analysis of [redacted]"},
+        {"count": 118, "pattern": "genetic analysis"},
+        {"count": 46, "pattern": "[redacted] the [redacted] of [redacted] and [redacted] was [redacted] to [redacted] of dna [redacted] in [redacted] sample [redacted]"},
+        {"count": 46, "pattern": "[redacted] the [redacted] of [redacted] and [redacted] was [redacted] to [redacted] of dna [redacted] in [redacted]"},
+        {"count": 28, "pattern": "based on genetic analysis of [redacted] of the [redacted] of [redacted]"},
+        {"count": 3, "pattern": "based on analysis of [redacted] bold samples and [redacted] analysis of [redacted] in [redacted]"}
+      ],
+      "DNA_species_calls_independently_confirmed": false,
+      "history_taxon_treated_as_current": false,
+      "raw_identifiers_person_names_free_text_exported": false
+    },
+    "mam_voucherIdentificationHistory": {
+      "unique_rows": 12,
+      "molecular_mention_rows": 7,
+      "unique_molecular_historyIDs": 7,
+      "molecular_history_sites": 3,
+      "old_Peromyscus_molecular_rows": 6,
+      "molecular_rows_with_closed_history_interval": 7,
+      "DNA_species_calls_independently_confirmed": false
+    }
+  },
+  "provenance": {
+    "workflow_run_id": 39112799030,
+    "source_commit": "b633b9bd07b326b2ab44928bb6b3f9eb4fba8198",
+    "workflow_conclusion": "success",
+    "artifact_id": 12131640170,
+    "artifact_zip_sha256": "0d08e1b783ee03bdfa0a66c6cf2e75d31ca96d50c697364dd2bf98a84b5a3e2d",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/39112799030"
+  },
+  "scope": {
+    "molecular_historyIDs_not_verified_animals": true,
+    "old_Peromyscus_rows_not_independent_DNA_calls": true,
+    "reason_pattern_counts_are_field_occurrences_not_unique_animals": true,
+    "same_version_current_record_join_not_yet_performed": true,
+    "prior_BOLD_morphology_only_result_remains_correct": true,
+    "external_BOLD403_not_retried": true,
+    "no_current_species_assignment_performed": true,
+    "no_capture_response_files_downloaded": true,
+    "no_W_B_or_F_C_effect_fitted": true,
+    "original_eight_genus_guard": "FAILED_5_OF_8_UNCHANGED",
+    "MOSA_effects": "SEALED"
+  },
+  "next": "Link provider revision rationales to current published records of the SAME release through identificationHistoryID; classify direct individual molecular evidence separately from inferred or population-level taxonomic updates. Do not read the historical taxonID as the corrected species."
+}

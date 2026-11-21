@@ -1,0 +1,221 @@
+{
+  "article_and_file_manifest": [
+    {
+      "article_id": 27855279,
+      "doi": "10.6084/m9.figshare.27855279.v1",
+      "files": [
+        {
+          "id": 50635479,
+          "name": "collar_ids.csv",
+          "provider_declared_MD5": "11c9ec94411df6553110101f6770c7b5",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50635479",
+          "size_bytes": 1550
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:22Z",
+      "title": "collar_ids.csv"
+    },
+    {
+      "article_id": 27855339,
+      "doi": "10.6084/m9.figshare.27855339.v1",
+      "files": [
+        {
+          "id": 50636031,
+          "name": "proxlog_summary.csv",
+          "provider_declared_MD5": "d9f1379ce162695496f223c5fddd0540",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50636031",
+          "size_bytes": 2378
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:22Z",
+      "title": "proxlog_summary.csv"
+    },
+    {
+      "article_id": 27855354,
+      "doi": "10.6084/m9.figshare.27855354.v1",
+      "files": [
+        {
+          "id": 50636346,
+          "name": "full_voles_trap.csv",
+          "provider_declared_MD5": "8b6ac53786fae959ab0087d9c39b8e13",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50636346",
+          "size_bytes": 185698
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:22Z",
+      "title": "full_voles_trap.csv"
+    },
+    {
+      "article_id": 27855393,
+      "doi": "10.6084/m9.figshare.27855393.v1",
+      "files": [
+        {
+          "id": 50636655,
+          "name": "prox_full_noduplicates.csv",
+          "provider_declared_MD5": "29e1db3d6c0099822e1573267d9077c7",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50636655",
+          "size_bytes": 1973533
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:22Z",
+      "title": "prox_full_noduplicates.csv"
+    },
+    {
+      "article_id": 27855438,
+      "doi": "10.6084/m9.figshare.27855438.v1",
+      "files": [
+        {
+          "id": 50636994,
+          "name": "rfid_trap_network_data_method.csv",
+          "provider_declared_MD5": "a2f4000270ab7c88b74fa39e44c39baa",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50636994",
+          "size_bytes": 93557
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:22Z",
+      "title": "rfid_trap_network_data_method.csv"
+    },
+    {
+      "article_id": 27855444,
+      "doi": "10.6084/m9.figshare.27855444.v1",
+      "files": [
+        {
+          "id": 50637150,
+          "name": "collar_success_long.csv",
+          "provider_declared_MD5": "e2b5075c1ead340cdeb07d6a8b93d752",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50637150",
+          "size_bytes": 862
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:21Z",
+      "title": "collar_success_long.csv"
+    },
+    {
+      "article_id": 27855459,
+      "doi": "10.6084/m9.figshare.27855459.v1",
+      "files": [
+        {
+          "id": 50637243,
+          "name": "collar_success_adj.csv",
+          "provider_declared_MD5": "5e550d8de87b0ff58411a2e1519670fe",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50637243",
+          "size_bytes": 117
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:21Z",
+      "title": "collar_success_adj.csv"
+    },
+    {
+      "article_id": 27855462,
+      "doi": "10.6084/m9.figshare.27855462.v1",
+      "files": [
+        {
+          "id": 50637252,
+          "name": "global_ids.csv",
+          "provider_declared_MD5": "4c353d8c131e99df46d98fb025709f98",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50637252",
+          "size_bytes": 7174
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:21Z",
+      "title": "global_ids.csv"
+    },
+    {
+      "article_id": 27855516,
+      "doi": "10.6084/m9.figshare.27855516.v1",
+      "files": [
+        {
+          "id": 50637315,
+          "name": "JoM_analyses.R",
+          "provider_declared_MD5": "d43b6e2bca9d4745f1b2b127f7d3f693",
+          "provider_declared_download_url": "https://ndownloader.figshare.com/files/50637315",
+          "size_bytes": 23005
+        }
+      ],
+      "public_version": 1,
+      "published_date": "2024-11-19T18:24:21Z",
+      "title": "JournalofMammalogy_analyses.R"
+    }
+  ],
+  "biology_reported_by_original_authors_not_refit": {
+    "original_biological_result_not_new": true,
+    "original_enclosure_count": 1,
+    "proximity_logger_spatial_threshold_cm_approx": [
+      5,
+      6
+    ],
+    "published_MRQAP_R2": 0.02,
+    "published_QAP_matrix_correlation": 0.148,
+    "same_vole_paired_network_individuals": 24
+  },
+  "ecological_claim_boundary": {
+    "NEON_Portal_Finland_Structural_original_effects_not_reopened": true,
+    "neon_manuscript_remains_DRAFT_SUBMISSION_HOLD": true,
+    "no_actual_animal_ids_coordinates_contact_or_capture_rows_opened": true,
+    "no_new_contact_or_trap_species_effect_estimated": true,
+    "published_MRQAP_does_not_validate_Finland_dyad_contacts": true,
+    "source_file_names_do_not_establish_biological_schema": true,
+    "this_probe_only_public_metadata": true
+  },
+  "original_study": "Davidson et al. 2025, Journal of Mammalogy, 10.1093/jmammal/gyaf032",
+  "pre_specified_next_source_gate": {
+    "do_not_infer_absent_contact_from_missing_device": true,
+    "must_download_provider_MD5_verifiable_original_raw_files": true,
+    "need_animal_or_collar_ID_timestamp_proximity_records": true,
+    "need_exact_original_capture_sample_by_individual_and_trap_station": true,
+    "need_published_PIT_to_collar_crosswalk_and_recovery": true,
+    "need_simultaneous_recording_windows_and_logger_active_effort": true,
+    "one_enclosure_not_geographic_replication": true
+  },
+  "project_id": 228462,
+  "project_title": "Journal of Mammalogy - Methods for measuring fine-scale social proximity in small mammals",
+  "project_url": "https://figshare.com/projects/Journal_of_Mammalogy_-_Methods_for_measuring_fine-scale_social_proximity_in_small_mammals/228462",
+  "provider_article_list_MD5_or_SHA_not_invented": true,
+  "provider_metadata_json_SHA256": "d665e8758a17ab64bc2a0444d0e7de774d817a184e0ba6e95af180e833c40eaf",
+  "public_article_count": 9,
+  "public_files_count": 9,
+  "public_metadata_filename_screen": {
+    "any_tabular_source": true,
+    "candidate_contact_filenames": [
+      "collar_ids.csv",
+      "collar_success_adj.csv",
+      "collar_success_long.csv",
+      "prox_full_noduplicates.csv",
+      "proxlog_summary.csv"
+    ],
+    "candidate_trap_filenames": [
+      "full_voles_trap.csv",
+      "rfid_trap_network_data_method.csv"
+    ],
+    "metadata_names_only_not_verified_schema": true,
+    "tabular_source_filenames": [
+      "collar_ids.csv",
+      "collar_success_adj.csv",
+      "collar_success_long.csv",
+      "full_voles_trap.csv",
+      "global_ids.csv",
+      "prox_full_noduplicates.csv",
+      "proxlog_summary.csv",
+      "rfid_trap_network_data_method.csv"
+    ]
+  },
+  "retrieved_utc": "2026-11-15T08:27:52.068670+00:00",
+  "schema": "neon.external_mammal_direct_contact_versus_capture_figshare_metadata.v1",
+  "status": "CANDIDATE_PUBLISHED_BOTH_SENSOR_SOURCE_METADATA_ONLY",
+  "github_actions_source_provenance": {
+    "original_run_id": 43694580921,
+    "original_job_id": 132752184476,
+    "artifact_id": 14153867721,
+    "artifact_zip_SHA256": "sha256:d1840c5cb82e2f245cd82dce446dbf755c4554e4f8face63483ed069d89c55d2",
+    "source_only_workflow_conclusion": "success",
+    "raw_animal_contact_and_trapping_outcomes_not_opened": true
+  }
+}

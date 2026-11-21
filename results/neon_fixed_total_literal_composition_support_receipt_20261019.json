@@ -1,0 +1,156 @@
+{
+  "schema": "neon.fixed_total.composition_overlap_receipt.v1",
+  "date": "2026-10-19",
+  "status": "U_CONSERVATIVE_NO_LITERAL_SAME_SEASON_FIXED_TOTAL_PAIR_MODEL_ONLY_HOLD",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39202963828,
+    "job_id": 117899660239,
+    "head_commit_at_run": "64d7db2f97cd7b75cdb92de73fecc162d07d330e",
+    "conclusion": "success",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39202963828",
+    "artifacts": [
+      {
+        "id": 12164921318,
+        "name": "neon-conspecific-congeneric-predictor-feasibility-v1",
+        "digest": "sha256:d2e2c90fb40816d24646b7ea2089e7a1b65a147042c2750209ec774a2c6b0da0"
+      }
+    ]
+  },
+  "frozen_source_invariants": {
+    "all_public_target_species_ids": 134,
+    "original_genus_mnka_varying_series": 176,
+    "original_genus_mnka_varying_sessions": 1408,
+    "original_response_series": 273,
+    "original_source_target_sessions": 1536,
+    "original_target_capture_rows": 104322,
+    "original_target_histories": 47360,
+    "species_group_response_sessions": 38,
+    "strict_species_response_sessions": 1498,
+    "target_species_group_ids_in_original_roster": 4,
+    "target_species_ids_in_original_roster": 31,
+    "target_structural_sessions": 1536,
+    "taxonomy_histories": {
+      "CROSS_GENUS": 103,
+      "RESOLVED_SPECIES": 43162,
+      "UNRESOLVED_IN_GENUS": 4095
+    }
+  },
+  "U_adjusted_predictor": {
+    "baseline_rank_after_U": 2,
+    "qualifier_rank_after_U": 2,
+    "baseline_condition": 2.2808240359325653,
+    "qualifier_condition": 2.8797479882915997,
+    "baseline_conditional_focal_residual_SS": 6054.220909574635,
+    "qualifier_conditional_focal_residual_SS": 2621.826595859489
+  },
+  "direct_composition_overlap": {
+    "baseline": {
+      "MOSA_spatial_effects": "SEALED",
+      "additional_cross_season_pairs": 14,
+      "broader_within_series_any_season": {
+        "absolute_F_change_max": 12,
+        "absolute_F_change_median": 3,
+        "absolute_F_change_min": 1,
+        "distinct_event_pairs": 18,
+        "fraction_of_eligible_focal_sessions_in_matched_contexts": 0.03270042194092827,
+        "inference_scope": "Seasonally non-equivalent, never primary matched evidence",
+        "matched_context": "focal species × site × plot × genus-N × unresolved-U, arbitrary month",
+        "physical_sites_with_pairs": 10,
+        "qualifying_contexts": 14,
+        "seasonally_not_equivalent_to_primary": true,
+        "sessions_in_matched_contexts": 31,
+        "supported_focal_series_with_pairs": 12
+      },
+      "ecological_W_B_effects_opened": false,
+      "genus": "Peromyscus",
+      "literal_pairs_do_not_prove_causal_species_interaction": true,
+      "no_literal_same_season_fixed_total_pair": false,
+      "no_original_site_or_event_ids_exported": true,
+      "original_focal_series": 109,
+      "original_frozen_3plus_series_sessions": 948,
+      "original_genus_N_and_U_never_relaxed_to_force_matches": true,
+      "original_physical_sites": 33,
+      "past_cross_genus_generality_status": "FAILED_5_OF_8",
+      "primary_same_calendar_month": {
+        "absolute_F_change_max": 12,
+        "absolute_F_change_median": 4,
+        "absolute_F_change_min": 3,
+        "distinct_event_pairs": 4,
+        "fraction_of_eligible_focal_sessions_in_matched_contexts": 0.008438818565400843,
+        "inference_scope": "Exact arithmetic support only, potentially cross-year",
+        "matched_context": "focal species × site × plot × month-of-year × genus-N × unresolved-U",
+        "physical_sites_with_pairs": 2,
+        "qualifying_contexts": 4,
+        "seasonally_not_equivalent_to_primary": false,
+        "sessions_in_matched_contexts": 8,
+        "supported_focal_series_with_pairs": 3
+      },
+      "rank_two_without_literal_pair_is_model_based_extrapolation": true,
+      "schema": "neon.fixed_total.observed_N_U_matched_pair_support.v1"
+    },
+    "no_spatial_response_or_species_mechanism_opened": true,
+    "original_same_948_focal_sessions": true,
+    "qualifier_conservative": {
+      "MOSA_spatial_effects": "SEALED",
+      "additional_cross_season_pairs": 1,
+      "broader_within_series_any_season": {
+        "absolute_F_change_max": 1,
+        "absolute_F_change_median": 1,
+        "absolute_F_change_min": 1,
+        "distinct_event_pairs": 1,
+        "fraction_of_eligible_focal_sessions_in_matched_contexts": 0.002109704641350211,
+        "inference_scope": "Seasonally non-equivalent, never primary matched evidence",
+        "matched_context": "focal species × site × plot × genus-N × unresolved-U, arbitrary month",
+        "physical_sites_with_pairs": 1,
+        "qualifying_contexts": 1,
+        "seasonally_not_equivalent_to_primary": true,
+        "sessions_in_matched_contexts": 2,
+        "supported_focal_series_with_pairs": 1
+      },
+      "ecological_W_B_effects_opened": false,
+      "genus": "Peromyscus",
+      "literal_pairs_do_not_prove_causal_species_interaction": true,
+      "no_literal_same_season_fixed_total_pair": true,
+      "no_original_site_or_event_ids_exported": true,
+      "original_focal_series": 109,
+      "original_frozen_3plus_series_sessions": 948,
+      "original_genus_N_and_U_never_relaxed_to_force_matches": true,
+      "original_physical_sites": 33,
+      "past_cross_genus_generality_status": "FAILED_5_OF_8",
+      "primary_same_calendar_month": {
+        "absolute_F_change_max": null,
+        "absolute_F_change_median": null,
+        "absolute_F_change_min": null,
+        "distinct_event_pairs": 0,
+        "fraction_of_eligible_focal_sessions_in_matched_contexts": 0,
+        "inference_scope": "Exact arithmetic support only, potentially cross-year",
+        "matched_context": "focal species × site × plot × month-of-year × genus-N × unresolved-U",
+        "physical_sites_with_pairs": 0,
+        "qualifying_contexts": 0,
+        "seasonally_not_equivalent_to_primary": false,
+        "sessions_in_matched_contexts": 0,
+        "supported_focal_series_with_pairs": 0
+      },
+      "rank_two_without_literal_pair_is_model_based_extrapolation": true,
+      "schema": "neon.fixed_total.observed_N_U_matched_pair_support.v1"
+    },
+    "schema": "neon.fixed_total.same_N_U_matched_source_observations.v1"
+  },
+  "interpretation": {
+    "literal_same_species_plot_calendar_month_N_U_pairs_under_baseline": 4,
+    "literal_same_species_plot_calendar_month_N_U_pairs_under_qualifier_conservative": 0,
+    "qualifier_cross_season_pairs_only": 1,
+    "rank_two_not_direct_matched_pair_evidence": true,
+    "cannot_prove_F_C_identity_effect_on_W_B": true,
+    "does_not_prove_mammal_ecological_null": true,
+    "retain_future_study_question": true,
+    "historical_data_adequate_for_literal_fixed_total_biological_confirmation": false,
+    "primary_Theta_spatial_effect": "NOT_FITTED_IN_THIS_SOURCE_AUDIT",
+    "next": "Use genuinely independent future sampling or a preregistered prospective design to obtain taxonomically verified same-total N/U, different F/C cases across multiple physical populations/seasons; do not call this historical rank-only pattern a directly observed composition substitution response.",
+    "original_cross_genus_generality": "FAILED_5_OF_8",
+    "provisional_temporal_Peromyscus": "NOT_REPLICATED_IMPRECISE",
+    "MOSA_WB": "SEALED"
+  }
+}

@@ -1,0 +1,40 @@
+name: multiscale-density-recent-pilot
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_multiscale_density_recent_pilot_v1.py"
+      - ".github/workflows/multiscale-density-recent-pilot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-recent-pilot-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Require NEON access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run recent structural pilot
+        run: python -m analysis.run_multiscale_density_recent_pilot_v1
+      - name: Upload recent pilot receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-recent-pilot-v1
+          path: build/multiscale_density_estimability_recent_pilot_v1.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,42 @@
+name: neon-nearby-baseplant-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_field_plant_source_support_v1.py'
+      - 'analysis/run_neon_nearby_baseplant_source_v1.py'
+      - 'tests/test_neon_field_plant_source_v1.py'
+      - 'docs/NEON_NEARBY_BASEPLOT_PLANT_SOURCE_20261028.md'
+      - '.github/workflows/neon-nearby-baseplant-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-baseplant-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-baseplot-ground-cover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original baseplot and mammal spatial-source tests
+        run: python -m unittest discover -s tests -p 'test_neon_field_plant_source_v1.py' -v
+      - name: Verify original source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Reconstruct original NEON mammal cohort and check nearby field plant covers
+        run: python -m analysis.run_neon_nearby_baseplant_source_v1
+      - name: Preserve anonymous field plant date and sample support
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-nearby-baseplant-mammal-source
+          path: build/neon_baseplot_cover_time_source_20261028.json
+          if-no-files-found: warn
+          retention-days: 45

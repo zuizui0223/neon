@@ -1,0 +1,37 @@
+name: neon-external-norway-two-detector-longitudinal
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_external_norway_two_detector_v1.py'
+      - 'tests/test_neon_external_norway_two_detector_v1.py'
+      - 'docs/NEON_EXTERNAL_NORWAY_TWO_DETECTOR_20261029.md'
+      - '.github/workflows/neon-external-norway-two-detector.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-norway-external-two-method-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  independently_observed_camera_vs_captured_species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate synthetic asymmetric camera and capture observations
+        run: python -m unittest discover -s tests -p 'test_neon_external_norway_two_detector_v1.py' -v
+      - name: Reanalyse verified original public Zenodo v5 source at fixed temporal grain
+        run: python -m analysis.neon_external_norway_two_detector_v1
+      - name: Archive only aggregate camera and capture temporal-observation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-norway-external-independent-camera-capture
+          path: build/neon_norway_external_two_detector_20261029.json
+          if-no-files-found: warn
+          retention-days: 45

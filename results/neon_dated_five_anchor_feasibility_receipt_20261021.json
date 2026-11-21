@@ -1,0 +1,108 @@
+{
+  "CHM_date_matched_to_capture_event": false,
+  "MOSA_W_B_effects": "SEALED",
+  "all_E5_dates_valid_seasonal_pairs": 58,
+  "all_five_anchors_valid_for_all_six_original_dates_pairs": 58,
+  "all_other_95_station_coordinates_verified": false,
+  "anchor_date_missing_or_ambiguous": 0,
+  "anchor_date_valid": 1740,
+  "coordinates_or_canopy_pixels_exported": false,
+  "decision": {
+    "MOSA_W_B_effects": "SEALED",
+    "all_four_documented_historical_geolocation_issue_plots_retained": true,
+    "measured_CHM_is_2022_2024_not_historical_2015_2026": true,
+    "next": "If source date-history coverage passes, retrieve full 100 exact named stations per original plot and evaluate time-specific CRS and geoNEON uncertainty as pre-effect source QA; do not fit habitat on E5 current positions.",
+    "no_density_W_B_effect_reopened": true,
+    "no_habitat_selection_detection_or_competition_effect_estimated": true,
+    "safe_to_expand_to_100_named_historical_stations_if_gate_passes": true,
+    "this_is_environmental_source_feasibility_only": true
+  },
+  "failure_categories": {},
+  "five_literally_named_stations_per_plot": 5,
+  "fixed_original_anchor_date_attempts": 1740,
+  "fixed_original_seasonal_pairs": 58,
+  "habitat_genus_trap_ecological_effect_opened": false,
+  "historical_capture_day_location_gate_passed": true,
+  "historical_source_record_count_distribution": {
+    "1": 150
+  },
+  "live_NEON_API_history_not_versioned_with_RELEASE_2026": true,
+  "no_original_site_plot_anchor_date_or_animal_ids_exported": true,
+  "original_capture_year_anchor_attempt_distribution": {
+    "2015": 390,
+    "2016": 240,
+    "2017": 240,
+    "2018": 60,
+    "2019": 60,
+    "2020": 90,
+    "2021": 120,
+    "2022": 120,
+    "2023": 60,
+    "2024": 360
+  },
+  "original_density_generality_status": "FAILED_5_OF_8",
+  "original_distinct_plot_date_keys": 339,
+  "physical_sites": 14,
+  "plots": 30,
+  "plots_fully_valid_for_all_included_capture_days": 30,
+  "preregistered_minimum_pairs_with_all_five_valid": 40,
+  "preregistered_minimum_physical_sites": 8,
+  "preregistered_minimum_plots_fully_valid": 20,
+  "reused_capture_dates_are_attempts_not_independent_animals": true,
+  "schema": "neon.historical_location.five_anchor_date_coverage.v1",
+  "sites_with_at_least_one_fully_valid_plot": 14,
+  "source_provenance": {
+    "NEON_capture_release": "RELEASE-2026",
+    "UTC_retrieved_at": "2026-10-20T15:39:54.677692+00:00",
+    "captured_animal_site_plot_station_date_or_coordinates_exported": false,
+    "history_payloads_returned": 150,
+    "live_location_API_not_pinned_to_capture_release": true,
+    "original_150_location_names_queried": 150,
+    "original_captured_genus_spatial_test_unchanged": true,
+    "original_source_checksum_verified": true,
+    "source_capture_cohort": {
+      "capture_files_without_required_namedLocation_schema": 0,
+      "downloaded_source_files_MD5_size_verified": 3480,
+      "manifest_files": 3547,
+      "perplotnight_files": 1773,
+      "pertrapnight_files": 1707,
+      "release": "RELEASE-2026",
+      "same_58_pairs_30_plots_14_sites_reproduced": true,
+      "source_plot_rows": 21363,
+      "source_trap_rows": 1505827
+    },
+    "source_document_SHA256_digest_set": "06a620cf0741512f48d188009fe8bf04a35c0fddd7d1ef78cefde75f662cfcc0",
+    "source_query_failure_categories": {}
+  },
+  "status": "HISTORICAL_FIVE_ANCHOR_CAPTURE_DATE_SOURCE_GO",
+  "used_current_coordinates_outside_historical_interval": false,
+  "valid_E5_source_capture_date_attempts": 348,
+  "record_date": "2026-10-21",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "workflow": "neon-dated-five-anchor-feasibility",
+    "run_id": 39449916202,
+    "job_id": 118721670169,
+    "commit": "846df06af50a886a29dd936c3c17244cb8a6b178",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "id": 12277572422,
+        "name": "neon-dated-five-anchor-source-coverage-v1",
+        "digest": "sha256:5a12a42fa16359a96dee2f8771e22bb38ec3aef495f765dfa9abb65d0a994e22"
+      }
+    ],
+    "url": "https://github.com/zuizui0223/neon/actions/runs/39449916202"
+  },
+  "interpretation": {
+    "source_1740_history_matches": true,
+    "all_150_named_documents_one_record_each": true,
+    "historical_position_not_measured_1m_precision": true,
+    "date_valid_not_same_as_CHM_capture_year": true,
+    "source_4_problem_grids_retained": true,
+    "no_new_habitat_or_detection_coefficient": true,
+    "no_old_density_WB_or_MOSA_effect_reopened": true,
+    "next": "Retrieve exact 100 publicly named station histories from each of 30 original plots; check raw projected values, source-specific UTM/uncertainty and true source capture-day validity without interpolation or discarding flagged grids."
+  }
+}

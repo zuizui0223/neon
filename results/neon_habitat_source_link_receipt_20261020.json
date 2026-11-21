@@ -1,0 +1,84 @@
+{
+  "schema": "neon.habitat_source_link.verified_aggregate_receipt.v1",
+  "date": "2026-10-20",
+  "status": "METADATA_AND_NAMED_ANCHORS_AVAILABLE_TRAP_HABITAT_ALIGNMENT_NOT_VALIDATED",
+  "provenance": {
+    "repository": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "head_commit_at_run": "1f0e3e8a3c90b2ffdd1dc65d575f15f039110e6f",
+    "workflow_run": 39374019564,
+    "job": 118467985636,
+    "workflow_conclusion": "success",
+    "artifact_id": 12243180311,
+    "artifact_json": "neon_habitat_source_link_v1.json",
+    "artifact_zip_bytes": 1800,
+    "artifact_zip_sha256": "03b4176f8b695f0ad529ba30611b091992536273154f58c562646dcbcfc577ac",
+    "downloaded_artifact_hash_verified_locally": true,
+    "source_retrieved_UTC": "2026-10-20T05:19:27.631732+00:00",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39374019564"
+  },
+  "original_cohort": {
+    "release": "RELEASE-2026",
+    "seasonal_pairs": 58,
+    "plots": 30,
+    "physical_sites": 14,
+    "source_cohort_reproduced": true,
+    "manifest_files": 3547,
+    "downloaded_MD5_and_size_verified_files": 3480,
+    "perplotnight_files": 1773,
+    "pertrapnight_files": 1707,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "environmental_metadata_availability": {
+    "canopy_height_DP3_30015_001_sites": 14,
+    "plant_cover_DP1_10058_001_sites": 14,
+    "vegetation_structure_DP1_10098_001_sites": 11,
+    "all_three_products_sites": 11,
+    "published_site_presence_not_actual_raster_or_plot_overlap": true
+  },
+  "historical_geolocation_issue": {
+    "cohort_plots_in_published_18_grid_issue": 4,
+    "cohort_sites_containing_these_grids": 2,
+    "cohort_TEAK_004_special_layout_grids": 0,
+    "affected_grid_not_entire_site_is_the_unit": true,
+    "nominal_trap_label_recurrence_not_invalidated_by_geospatial_issue_alone": true
+  },
+  "actual_named_location_link": {
+    "plots_with_exactly_one_source_namedLocation": 30,
+    "plots_missing_or_ambiguous_source_namedLocation": 0,
+    "anchor_labels": ["A1", "A10", "J1", "J10", "E5"],
+    "requested_and_parsed_anchor_documents": 150,
+    "anchor_query_or_parse_errors": 0,
+    "each_returned_anchor_has_one_history_record": true,
+    "plots_with_five_current_projected_anchors": 30,
+    "plots_with_rectangular_five_anchor_geometry": 30,
+    "plots_matching_A10_south_J1_west_check": 0,
+    "plots_with_all_five_reported_coordinate_uncertainties": 0,
+    "response_digest_set_sha256": "06a620cf0741512f48d188009fe8bf04a35c0fddd7d1ef78cefde75f662cfcc0",
+    "universal_orientation_check_failure_requires_diagnosis_not_a_30_grid_error_claim": true,
+    "missing_uncertainty_is_not_zero_uncertainty": true,
+    "all_100_stations_verified": false,
+    "historical_capture_date_alignment_verified": false,
+    "raster_pixels_extracted": false
+  },
+  "software_verification": {
+    "previously_missing_module_implemented": "analysis.audit_neon_lineage_environmental_source_coverage_v1",
+    "local_source_only_tests_passed": 12,
+    "dedicated_workflow_source_only_tests_passed": 12,
+    "repository_CI_run": 39374023289,
+    "repository_CI_job": 118467997943,
+    "repository_CI_conclusion": "success",
+    "same_code_head_as_source_audit": true
+  },
+  "scientific_boundary": {
+    "current_inference_source": "results/neon_uniform_null_correction_receipt_20261020.json",
+    "old_accepted_clock_inference_not_reinstated": true,
+    "corrected_recurrence_not_refitted": true,
+    "habitat_effect_or_detection_effect_estimated": false,
+    "observed_genus_spatial_pattern_does_not_identify_its_mechanism": true,
+    "live_named_locations_not_pinned_historical_release_coordinates": true,
+    "no_geographic_animal_or_raw_trap_identifiers_exported": true,
+    "next": "Diagnose source-coordinate orientation and uncertainty; match full station histories and actual dated raster tiles before estimating habitat associations. Do not equate this metadata/anchor audit with causal environmental evidence."
+  }
+}

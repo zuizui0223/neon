@@ -1,0 +1,77 @@
+{
+  "schema": "neon.multiscale_density.single_catch_null_result.v1",
+  "date": "2026-10-06",
+  "status": "SIMPLE_SINGLE_CATCH_SELECTION_NULL_INSUFFICIENT",
+  "programme": "multiscale_density_accommodation_v1",
+  "provenance": {
+    "workflow": "multiscale-density-single-catch-null",
+    "run_id": 37443183755,
+    "job_id": 112201613139,
+    "head_sha": "de4e87df2343e6e2465b38f1df83cc3bd7c0241a",
+    "artifact_id": 11402626081,
+    "artifact_name": "multiscale-density-single-catch-null-v1",
+    "artifact_digest": "sha256:4ca8f07525a0dde07323ed146227e50c7b922af164ac0edebe57eb9e6df69d27",
+    "replicates_per_N_cell": 500,
+    "single_catch_cells": 36
+  },
+  "observed_release2026": {
+    "beta_W": -4.394825896684285,
+    "beta_B_debiased": 4.976939575783388,
+    "beta_D": 9.37176547246767,
+    "repeat_supported_fraction_slope": -0.008288709569018633,
+    "capture_trap_night_fraction_slope": 0.00395472174740231
+  },
+  "broad_single_catch_null_envelope": {
+    "maximum_beta_D": 2.1345264941196396,
+    "minimum_beta_W": -0.47775541669844096,
+    "maximum_beta_B_debiased": 2.096961490842504,
+    "observed_beta_D_exceeds_all_cells": true,
+    "observed_beta_W_more_negative_than_all_cells": true,
+    "observed_to_max_null_D_ratio": 4.390559451140917,
+    "observed_abs_W_to_max_null_abs_W_ratio": 9.198903336470797,
+    "observed_B_to_max_null_B_ratio": 2.3734053283848264
+  },
+  "closest_observation_process_nulls": [
+    {
+      "scenario": "full_10x10",
+      "sigma_m": 20,
+      "p_capture": 0.4,
+      "repeat_supported_fraction_slope": -0.007655362142080322,
+      "capture_trap_night_fraction_slope": 0.003293834522307733,
+      "beta_W": 0.3557276460338692,
+      "beta_B": -0.07493917958669134,
+      "beta_D": -0.43066682562054937
+    },
+    {
+      "scenario": "central_8x8",
+      "sigma_m": 20,
+      "p_capture": 0.4,
+      "repeat_supported_fraction_slope": -0.007410222183601413,
+      "capture_trap_night_fraction_slope": 0.003223393905138721,
+      "beta_W": 0.455900766007616,
+      "beta_B": 0.7453293114334312,
+      "beta_D": 0.28942854542581126
+    },
+    {
+      "scenario": "central_8x8",
+      "sigma_m": 12.5,
+      "p_capture": 0.4,
+      "repeat_supported_fraction_slope": -0.007150794230510904,
+      "capture_trap_night_fraction_slope": 0.003254447676471052,
+      "beta_W": -0.35948018089173356,
+      "beta_B": 0.9605908871414518,
+      "beta_D": 1.3200710680331942
+    }
+  ],
+  "conclusion": {
+    "supported": "the simple single-catch competition mechanism can reproduce the direction and approximate magnitude of the declining repeat-supported fraction",
+    "not_supported": "the same simple mechanism cannot reproduce the magnitude of the observed negative W slope or positive cross-scale Delta slope over the broad prespecified simulation grid",
+    "claim_ceiling": "this falsifies one simple observation-process explanation but is not a complete single-catch detection model and does not establish causal density effects"
+  },
+  "primary_guard_boundary": {
+    "preregistered_6_of_8_generality_failure_remains": true,
+    "correction": "the generality guard remains FAILED; this null result does not alter it",
+    "genera_may_not_be_dropped": true,
+    "future_confirmation_still_required": true
+  }
+}

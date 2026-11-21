@@ -1,0 +1,60 @@
+{
+  "schema": "neon.external_mosa_author_toe_omission_receipt.v1",
+  "date": "2026-10-13",
+  "status": "STRUCTURAL_OMISSION_PARTLY_EXPLAINED_PUBLISHED_IDENTITY_STILL_HOLD",
+  "provenance": {
+    "source": "Zenodo DOI 10.5281/zenodo.10049811, frozen 2023 data",
+    "original_MD5": "md5:12c04902947b91922c3f6c98760ecb54",
+    "author_matrix_MD5": [
+      "md5:d16d26003f3df2ed139edc03f11b9ebd",
+      "md5:bf600b8136891e39c70e203a867e1ef1"
+    ],
+    "id_row_overlap_run": 38403719417,
+    "strict_capture_month_omission_run": 38404910124,
+    "strict_capture_month_omission_artifact": 11817213217,
+    "strict_capture_month_omission_digest": "sha256:c2a88110362d6e06dcc1c2cbb535b766299c31605ff371b5caf5e9271094d7ca",
+    "author_3night_matrix_date_rule_verified_exact": false
+  },
+  "source_counts": {
+    "raw_total_captures": 49216,
+    "raw_MN_captures": 45433,
+    "raw_MN_distinct_verbatim_TOE": 19818,
+    "published_MN_unique_individuals": 19850,
+    "unexplained_published_minus_raw_TOE_count": 32,
+    "author_MN_rows": 19692,
+    "author_MN_distinct_TOE": 19678,
+    "author_MN_duplicate_TOE_rows": 14,
+    "raw_MN_distinct_TOE_absent_from_author_MN": 140,
+    "author_NA_rows": 158,
+    "author_NA_distinct_TOE": 158,
+    "author_NA_TOE_found_in_raw_species_NA": 158,
+    "author_NA_TOE_found_in_raw_species_MN_as_well": 18,
+    "raw_MN_TOE_missing_from_MN_and_NA_author_matrix": 122
+  },
+  "effect_blind_strict_three_consecutive_MN_capture_month_screen": {
+    "months_with_exactly_3_consecutive_valid_station_MN_capture_dates": 182,
+    "original_MN_TOE_codes_absent_from_author_MN_matrix_with_only_non_strict_capture_months": 135,
+    "original_MN_TOE_codes_absent_from_author_MN_matrix_with_any_strict_month_capture": 5,
+    "missing_raw_MN_codes_with_2_distinct_nights_in_strict_3day_month": 1,
+    "missing_raw_MN_codes_with_only_1_capture_record_total": 123,
+    "missing_raw_MN_codes_with_any_flagged_capture": 12,
+    "unassigned_id_values": 0,
+    "individual_codes_disclosed": false
+  },
+  "conclusions": {
+    "why_raw_MN_vs_author_MN_rosters_differ": "The majority of raw MN codes absent from the author MN encounter matrix occur only in months that fail a conservative exact-three-consecutive-MN-capture-day screen. This is consistent with, but does NOT prove, authors' encounter-session filtering. Five codes remain present in such months and need further provenance.",
+    "why_author_NA_rows_exist": "All 158 NA matrix TOEs can be found with SPECIES=NA in the original CSV; 18 also have MN capture rows. They cannot simply be re-labelled as 158 additional M. natalensis animals.",
+    "published_19850_unique_vs_19818_TOE_gap_resolved": false,
+    "monthly_MNA_authorized": false,
+    "MOSA_W_B_slope_authorized": false,
+    "NEON_eight_genus_prior_failure": "FAILED_UNCHANGED",
+    "one_site_MOSA_rescues_future_five_genus_modes": false,
+    "rejected_rescues": [
+      "invent 32 new identities",
+      "turn NA species rows into MN animals",
+      "assume raw TOE strings are known unique biological animals despite potential reuse",
+      "exclude five missing codes based on favourable ecological slopes"
+    ],
+    "next_action": "Target precisely five codes absent from author MN matrix despite being observed in strictly complete months; compare author processing exclusion stages and per-bout inclusion without disclosing codes or opening MNA/WB effects. If no unambiguous provenance, obtain author reconciliation."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "neon.peromyscus_provisional_transportability_receipt_v1",
+  "date": "2026-10-10",
+  "state": "POST_RESULT_DIAGNOSTIC_NOT_CONFIRMATORY",
+  "source_provenance": {
+    "development_release": "RELEASE-2026",
+    "development_run": 37793401501,
+    "new_events_source": "2025-2026 PROVISIONAL non-overlapping with RELEASE-2026",
+    "new_metric_run": 38046250920,
+    "new_continuous_MNKA_run": 38046339017,
+    "initial_heldout_effect_run": 38046615310,
+    "transportability_audit_run": 38057952692,
+    "artifact_id": 11671799533,
+    "artifact_digest": "sha256:0986c566611c2856633a4eb42704acbbada4abb47b8a64d79bf67d4591e18fdb",
+    "test_status": "SUCCESS"
+  },
+  "scope": {
+    "development_peromyscus_sessions": 956,
+    "development_sites": 33,
+    "future_frozen_varying_sessions": 127,
+    "future_sites": 19,
+    "shared_sites_with_development": 19,
+    "matched_taxon_site_plot_series": 31,
+    "matched_dev_sessions": 362,
+    "matched_new_sessions": 124,
+    "dev_years": "2015-2024",
+    "new_years": "2025-2026",
+    "dev_mnka_range": [
+      5,
+      64
+    ],
+    "new_mnka_range": [
+      5,
+      56
+    ],
+    "note": "New-data candidate sites are represented in development data; the MNKA ranges overlap. Not individual-ID independent (230 tags cross release boundary)."
+  },
+  "contrast": {
+    "method": "Joint phase-specific site×taxon×plot, site×calendar-month and year fixed-effects with cluster-robust site covariance allowing old/new same-site correlation; t critical with df=site_count-1; after outcome exposure, descriptive only",
+    "unrestricted": {
+      "dev_beta": 15.930057069257355,
+      "new_beta": -7.07296493915022,
+      "new_minus_old": -23.003022008407576,
+      "site_cluster_se": 18.705329504823354,
+      "CI95": [
+        -61.10453137719029,
+        15.098487360375138
+      ],
+      "sites": 33
+    },
+    "common_sites": {
+      "dev_beta": 17.891675366622984,
+      "new_beta": -7.07296493915068,
+      "new_minus_old": -24.964640305773663,
+      "site_cluster_se": 17.362404371305814,
+      "CI95": [
+        -61.44169832102604,
+        11.512417709478711
+      ],
+      "sites": 19
+    },
+    "common_taxon_site_plot": {
+      "dev_beta": 19.637945451666656,
+      "new_beta": -7.0729649391498715,
+      "new_minus_old": -26.71091039081653,
+      "site_cluster_se": 19.83373114175978,
+      "CI95": [
+        -68.5564253202564,
+        15.134604538623336
+      ],
+      "sites": 18
+    }
+  },
+  "interpretation": {
+    "prospective_positive_delta_direction": "NOT_REPLICATED_IN_PROVISIONAL_NEW_EVENTS",
+    "difference_old_new_statistically_identified": "NO_ALL_CI_INCLUDE_ZERO",
+    "cannot_claim": "No verified temporal ecological regime shift, repulsion or territoriality. Original eight-genus generality guard failed at five of eight and fixed future five-genus mode test is inestimable. Cross-phase habitat and taxonomy compositional variation not fully excluded.",
+    "positive_scope": "Temporal event-heldout evaluation reveals inability to transport the original fixed Peromyscus Δ sign with present precision; explicit common-site and common-series matching do not restore the predicted direction.",
+    "future_needed": "Stable official NEON data release, independent detection calibrations / animal tracking or suitably powered repeated event observations without post-hoc grouping"
+  }
+}

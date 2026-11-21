@@ -1,0 +1,141 @@
+{
+  "headers_and_row_counts": {
+    "collar_ids.csv": {
+      "column_names": [
+        "__unnamed_source_row_index__",
+        "tag",
+        "collar",
+        "date_on",
+        "date_off"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 38,
+      "source_file_id": 50635479,
+      "source_unnamed_leading_row_index_header": true,
+      "verified_provider_MD5": "11c9ec94411df6553110101f6770c7b5",
+      "verified_size_bytes": 1550
+    },
+    "collar_success_long.csv": {
+      "column_names": [
+        "collar type",
+        "recovered",
+        "intact"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 48,
+      "source_file_id": 50637150,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "e2b5075c1ead340cdeb07d6a8b93d752",
+      "verified_size_bytes": 862
+    },
+    "full_voles_trap.csv": {
+      "column_names": [
+        "date",
+        "enclosure",
+        "stake.trap",
+        "tag",
+        "weight",
+        "sex",
+        "fate"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 4454,
+      "source_file_id": 50636346,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "8b6ac53786fae959ab0087d9c39b8e13",
+      "verified_size_bytes": 185698
+    },
+    "global_ids.csv": {
+      "column_names": [
+        "tag",
+        "sex"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 648,
+      "source_file_id": 50637252,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "4c353d8c131e99df46d98fb025709f98",
+      "verified_size_bytes": 7174
+    },
+    "prox_full_noduplicates.csv": {
+      "column_names": [
+        "c1",
+        "c2",
+        "date",
+        "datetime"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 50741,
+      "source_file_id": 50636655,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "29e1db3d6c0099822e1573267d9077c7",
+      "verified_size_bytes": 1973533
+    },
+    "proxlog_summary.csv": {
+      "column_names": [
+        "date",
+        "tag",
+        "collar on",
+        "collar off",
+        "collar download",
+        "file"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 76,
+      "source_file_id": 50636031,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "d9f1379ce162695496f223c5fddd0540",
+      "verified_size_bytes": 2378
+    },
+    "rfid_trap_network_data_method.csv": {
+      "column_names": [
+        "VertexFrom",
+        "VertexTo",
+        "TimeStart",
+        "TimeStop",
+        "DataType"
+      ],
+      "ragged_rows": 0,
+      "source_data_rows": 2588,
+      "source_file_id": 50636994,
+      "source_unnamed_leading_row_index_header": false,
+      "verified_provider_MD5": "a2f4000270ab7c88b74fa39e44c39baa",
+      "verified_size_bytes": 93557
+    }
+  },
+  "original_source_table_shape_all_uniform": true,
+  "retrieved_utc": "2026-11-15T08:39:14.366688+00:00",
+  "schema": "neon.prairie_vole_original_paired_detector_source_schema.v1",
+  "scientific_boundary": {
+    "NEON_Portal_Finland_Structural_original_effects_not_reopened": true,
+    "no_exact_PIT_tag_animal_ID_device_ID_date_or_coordinate_exported": true,
+    "one_NEON_manuscript_DRAFT_SUBMISSION_HOLD": true,
+    "published_2025_original_R2_0_02_is_prior_art": true,
+    "zero_original_animal_contact_or_trap_event_outcomes_scored": true
+  },
+  "source_metadata": {
+    "all_file_size_and_provider_MD5_verified": true,
+    "figshare_public_project_id": 228462,
+    "original_source_total_bytes": 2264752,
+    "original_study_DOI": "10.1093/jmammal/gyaf032",
+    "published_source_count": 7,
+    "schema_summary_SHA256": "cc6794dbc306ddce9e1716a4f514a27a2238d624b113e46cefb437e42c3248ed"
+  },
+  "source_next_gate": {
+    "device_losses_cannot_be_called_contact_absence": true,
+    "one_original_enclosed_vole_population_only": true,
+    "published_collar_PIT_ID_mapping_must_be_validated": true,
+    "raw_proximity_and_trapping_event_linkage_NOT_yet_verified": true,
+    "same_time_window_and_logger_operability_required": true
+  },
+  "status": "SOURCE_ORIGINAL_LOGGER_AND_TRAP_CSV_GO_HEADERS_ONLY",
+  "github_actions_provenance": {
+    "source_run": 43695339290,
+    "source_job": 132754491989,
+    "source_artifact_id": 14153523511,
+    "archive_zip_sha256": "sha256:d223d245013df7ab25c8982b179431499d913c1c9deba58204c5799f732172df",
+    "source_sha": "7b77c74e3a419af0b7bf92cd0300950f94b53c78",
+    "source_workflow_result": "success",
+    "original_event_biology_unopened": true
+  }
+}

@@ -1,0 +1,51 @@
+name: neon-five-anchor-chm-source
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_five_anchor_chm_source_v1.py'
+      - 'analysis/run_neon_five_anchor_chm_source_v1.py'
+      - 'analysis/neon_chm_monthly_source_v2.py'
+      - 'tests/test_neon_five_anchor_chm_source_v1.py'
+      - '.github/workflows/neon-five-anchor-chm-source.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-five-anchor-chm-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exact-source-five-anchor-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned source raster tools
+        run: python -m pip install numpy==2.1.1 rasterio==1.4.3
+      - name: Test exact 5-anchor canopy heterogeneity, nodata, and privacy
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_five_anchor_chm_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_e5_chm_monthly_v2.py' -v
+          python -m unittest discover -s tests -p 'test_neon_e5_chm_pilot_v1.py' -v
+      - name: Require authorized original immutable NEON release
+        run: test -n "$NEON_API_TOKEN"
+      - name: Read actual five source-named trap anchors from released CHM only
+        run: python -m analysis.run_neon_five_anchor_chm_source_v1
+      - name: Archive only anonymous canopy source coverage and five-anchor range totals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-five-anchor-chm-source-only
+          path: build/neon_five_anchor_chm_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45

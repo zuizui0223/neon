@@ -1,0 +1,61 @@
+{
+  "distinct_grids_represented_in_key_matched_events": 6,
+  "distinct_original_capture_PIT_GRID_year_source_keys": 0,
+  "distinct_valid_complete_original_station_night_keys_with_events": 136,
+  "event_and_station_exact_date_match_fraction_when_both_dates_parsed": 0.7558787128712872,
+  "no_offending_source_row_dropped_from_frozen_original_scientific_gate": true,
+  "no_operable_camera_absence_denominators_confirmed": true,
+  "no_original_PIT_GRID_Site_Date_or_seed_quantity_values_exported": true,
+  "no_rodent_seed_choice_search_predator_or_personality_effect_estimated": true,
+  "not_NEON_or_Portal_independent_spatial_niche_replication": true,
+  "one_NEON_Draft_SUBMISSION_HOLD": true,
+  "original_article_version": 2,
+  "original_figshare_article_id": 28207769,
+  "original_frozen_all_291_records_full_key_GO_requirement_failed": true,
+  "original_identified_PITs_among_matched_events": 47,
+  "original_mouse_and_vole_taxon_view_support": {
+    "mouse": {
+      "distinct_source_view_event_ID_keys": 544,
+      "original_source_rows": 883,
+      "source_rows_with_complete_original_event_ID": 883,
+      "source_view_rows_also_in_original_All_Foraging": 883,
+      "taxon_specific_views_NOT_independent_of_original_All_Foraging": true
+    },
+    "vole": {
+      "distinct_source_view_event_ID_keys": 596,
+      "original_source_rows": 951,
+      "source_rows_with_complete_original_event_ID": 951,
+      "source_view_rows_also_in_original_All_Foraging": 951,
+      "taxon_specific_views_NOT_independent_of_original_All_Foraging": true
+    }
+  },
+  "original_provider_metadata_sha256": "2dda7ba7f21d4bcc35b478145ed9bf10aabfd5e80686c9953a99fceffc93c58e",
+  "original_source_MD5_and_five_file_hashes_verified": true,
+  "original_total_station_night_rows_unchanged": 291,
+  "retrieved_utc": "2026-11-21T02:31:44.657464+00:00",
+  "same_original_forest_as_2023_individual_overlap_unchecked": true,
+  "schema": "neon.figshare2026_after_frozen_station_key_STOP_structural_diagnostic.v1",
+  "source_foraging_to_station_ID_seed_diagnostic": {
+    "foraging_rows_exact_matched_original_station_night_key": 3243,
+    "original_event_station_date_disagree": 789,
+    "original_event_station_date_exact_equal": 2443,
+    "original_matched_event_with_numeric_observed_seed_field": 3242,
+    "source_event_and_station_date_both_parseable": 3232,
+    "source_station_matched_events_with_original_PIT": 2182
+  },
+  "source_station_night_diagnostic": {
+    "missing_keys_with_other_original_nonempty_cells": 3,
+    "original_keyed_station_nights_both_WP_RO_seeds_set_numeric": 288,
+    "original_keyed_station_nights_with_Date": 136,
+    "original_station_night_rows_with_all_4_keys": 288,
+    "unresolved_station_night_rows_MUST_NOT_ENTER_GO": 3
+  },
+  "status": "ORIGINAL_SOURCE_STOP_KEYLESS_ROWS_RETAINED__SUPPORT_DIAGNOSTIC_ONLY",
+  "workflow_provenance": {
+    "github_run": "https://github.com/zuizui0223/neon/actions/runs/44856374191",
+    "job_id": 136699441129,
+    "original_provider_MD5_verified": true,
+    "source_only_no_ecological_response": true,
+    "recorded_from_GitHub_workflow_stdout": true
+  }
+}

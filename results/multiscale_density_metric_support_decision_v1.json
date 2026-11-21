@@ -1,0 +1,40 @@
+{
+  "schema": "neon.multiscale_density.metric_support_decision.v1",
+  "date": "2026-10-06",
+  "status": "FROZEN_BEFORE_REAL_SPATIAL_EFFECTS",
+  "simulation": {
+    "code": "analysis/simulate_multiscale_density_metric_support_v1.py",
+    "seed": 20261005,
+    "replicates_per_cell": 2000,
+    "primary_geometry": "standard NEON 10x10, 10 m spacing, 90 x 90 m",
+    "secondary_geometry": "SRER 7x7, 10 m spacing",
+    "detector_kernel_sigma_m": 12.5,
+    "observations_per_repeat_supported_individual": "discrete uniform 2..3 distinct-night-equivalent observations",
+    "acceptance_criteria": {
+      "max_abs_mean_bias_fraction_of_target": 0.05,
+      "max_fraction_debiased_b_nonpositive": 0.01,
+      "max_median_absolute_relative_error": 0.25,
+      "max_q90_absolute_relative_error": 0.5
+    }
+  },
+  "decision": {
+    "standard_10x10_minimum_repeat_supported_individuals": 5,
+    "srer_7x7_minimum_repeat_supported_individuals": 15,
+    "real_data_support_may_lower_threshold": false
+  },
+  "provenance": {
+    "workflow": "multiscale-density-standardized-era-parallel",
+    "run_id": 37400982144,
+    "job_id": 112067866941,
+    "synthetic_step_conclusion": "success",
+    "downstream_structural_step_conclusion": "failure_due_to_obsolete_sampling_type_filter",
+    "note": "The structural-step failure does not affect the synthetic support result; the bout-key problem was diagnosed independently from perplotnight metadata and fixed before real-effect access."
+  },
+  "effect_boundary": {
+    "biological_spatial_distances_opened": false,
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_slopes_opened": false,
+    "density_effects_opened": false
+  }
+}

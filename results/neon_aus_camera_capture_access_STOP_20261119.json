@@ -1,0 +1,49 @@
+{
+  "schema": "neon.australia_camera_capture_provider_access_checkpoint.v1",
+  "audit_date": "2026-11-19",
+  "status": "SOURCE_STOP_AUTHENTICATION_OR_PROVIDER_ACCESS_NO_ECOLOGICAL_EFFECT",
+  "original_source": {
+    "doi": "10.5061/dryad.18931zd8w",
+    "publication": "Gil-Fernandez et al. 2026",
+    "type": "paired Elliott live trap and camera observations at five urban and five forest sites",
+    "public_landing": "https://datadryad.org/dataset/doi:10.5061/dryad.18931zd8w",
+    "published_file_roles": [
+      "20250706_camera_trapping_sm_full_v2.csv",
+      "20250117_small_mammal_trapping.csv",
+      "20250208_visit_interaction_pa_v2.csv",
+      "20250121_camera_sampling_effort_persite.csv"
+    ],
+    "tagged_image_zip_excluded": true
+  },
+  "source_attempt": {
+    "run": "https://github.com/zuizui0223/neon/actions/runs/44308042680",
+    "job_id": 134814632344,
+    "provider_get_failure_phase": "ORIGINAL_FILE_METADATA",
+    "source_error": "AU_SOURCE_STOP_HTTP_OR_ANTIBOT",
+    "source_integrity_unit_tests_passed": 6,
+    "ecological_responses_opened": false,
+    "reason_interpretation": "GitHub runner could not retrieve original Dryad source at official REST file endpoint. This is an HTTP access failure; neither a missing biological data field nor a negative effect. Current code distinguishes 401/403 from 429/network errors. No anti-bot challenge solver or alternate unofficial scraped source accepted."
+  },
+  "followup_access_check": {
+    "run": "https://github.com/zuizui0223/neon/actions/runs/44429126440",
+    "workflow_conclusion": "success",
+    "success_means": "Effect-blind unit tests and scientific source-STOP receipt executed; this does NOT mean original four CSVs accessed.",
+    "source_gate_status": "SOURCE_STOP_DRYAD_TOKEN_NOT_CONFIGURED",
+    "source_download_step": "skipped",
+    "next_user_owned_authorized_input": "DRYAD_TOKEN GitHub Actions repository secret from authorized Dryad API account",
+    "token_not_collected_in_chat_or_logs": true,
+    "source_GO": false
+  },
+  "unresolved_alternative_sources": {
+    "Hopkins et al. 2024": "8-station × three-night same-grid camera/live-trap study, raw data described as available on request, not directly ingested",
+    "Thomas et al. 2020": "paired camera/Elliott detection study available through another Dryad DOI; same provider access barrier",
+    "Lindso et al. 2025 Norway": "separate original public Zenodo camera/trap source already analyzed under unequal effort/timing; not independent station-matched detector calibration"
+  },
+  "scientific_inference": {
+    "camera_visit_vs_capture_spatial_contrast": "NOT ESTIMATED",
+    "site_station_time_linkage": "NOT VERIFIED",
+    "trap_open_state": "NOT VERIFIED",
+    "original_NEON_Portal_Finland_Structural_results_unchanged": true,
+    "publication_HOLD": true
+  }
+}

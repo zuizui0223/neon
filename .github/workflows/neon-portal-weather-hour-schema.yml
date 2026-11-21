@@ -1,0 +1,39 @@
+name: neon-portal-weather-hour-format-diagnostic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_portal_weather_hour_format_v1.py'
+      - '.github/workflows/neon-portal-weather-hour-schema.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_portal_weather_hour_format_v1.py'
+      - '.github/workflows/neon-portal-weather-hour-schema.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-original-weather-hour-schema-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-weather-hour-label-and-timestamp-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Hash verify original weather and print ONLY hour label schema
+        run: python -m analysis.diagnose_portal_weather_hour_format_v1
+      - name: Archive diagnostic with no original climate values
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-hour-label-schema-not-environment-effect
+          path: build/neon_portal_weather_hour_schema_diag_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,149 @@
+{
+  "all_six_explicit_capture_or_no_capture_station_count_distribution": {
+    "max": 19,
+    "mean": 0.310126582278481,
+    "median": 0,
+    "min": 0
+  },
+  "all_six_recorded_station_count_distribution": {
+    "max": 100,
+    "mean": 99.9367088607595,
+    "median": 100,
+    "min": 93
+  },
+  "by_ecological_domain_source_only": {
+    "D01": {
+      "recorded_six_night_eligible_pairs": 16,
+      "source_pairs": 16
+    },
+    "D02": {
+      "recorded_six_night_eligible_pairs": 11,
+      "source_pairs": 11
+    },
+    "D03": {
+      "recorded_six_night_eligible_pairs": 25,
+      "source_pairs": 25
+    },
+    "D05": {
+      "recorded_six_night_eligible_pairs": 10,
+      "source_pairs": 10
+    },
+    "D06": {
+      "recorded_six_night_eligible_pairs": 18,
+      "source_pairs": 18
+    },
+    "D07": {
+      "recorded_six_night_eligible_pairs": 3,
+      "source_pairs": 3
+    },
+    "D09": {
+      "recorded_six_night_eligible_pairs": 17,
+      "source_pairs": 17
+    },
+    "D10": {
+      "recorded_six_night_eligible_pairs": 10,
+      "source_pairs": 10
+    },
+    "D11": {
+      "recorded_six_night_eligible_pairs": 4,
+      "source_pairs": 4
+    },
+    "D12": {
+      "recorded_six_night_eligible_pairs": 1,
+      "source_pairs": 1
+    },
+    "D13": {
+      "recorded_six_night_eligible_pairs": 5,
+      "source_pairs": 5
+    },
+    "D14": {
+      "recorded_six_night_eligible_pairs": 15,
+      "source_pairs": 15
+    },
+    "D15": {
+      "recorded_six_night_eligible_pairs": 7,
+      "source_pairs": 7
+    },
+    "D16": {
+      "recorded_six_night_eligible_pairs": 6,
+      "source_pairs": 6
+    },
+    "D17": {
+      "recorded_six_night_eligible_pairs": 10,
+      "source_pairs": 10
+    }
+  },
+  "distinct_original_three_night_bouts": 293,
+  "each_bout_original_meteorological_season_unchanged": true,
+  "effects_still_sealed": {
+    "actual_recurrence_A_cross_B_opened": false,
+    "density_W_B_climate_habitat_effect_opened": false,
+    "null_overlap_or_site_Z_opened": false,
+    "original_exact_two_positive_effect_preserved": true,
+    "site_animal_genus_station_or_dates_exported": false
+  },
+  "original_exact_two_genus_pairs": 158,
+  "original_exact_two_genus_sites": 30,
+  "predeclared_effect_blind_gate": {
+    "minimum_NEON_domains": 10,
+    "minimum_physical_sites": 18,
+    "minimum_recorded_all_six_stations": 90,
+    "minimum_retained_pairs": 80,
+    "passed": true
+  },
+  "required_separate_source_nights": 6,
+  "retained_NEON_ecological_domains": 15,
+  "retained_independent_physical_sites": 30,
+  "retained_pairs": 158,
+  "schema": "neon.macro.six_night_common_recorded_station_support.v1",
+  "scientific_scope": {
+    "cannot_exclude_genus_specific_catchability": true,
+    "no_density_or_thermal_or_habitat_effect_computed": true,
+    "no_genus_x_trap_temporal_overlap_computed": true,
+    "no_original_site_plot_tag_station_or_exact_dates_exported": true,
+    "original_capture_identification_cohort_or_tag_exclusion_unchanged": true,
+    "recorded_trap_not_proven_operable": true,
+    "unknown_trap_status_not_imputed": true
+  },
+  "source_provenance": {
+    "NEON_release": "RELEASE-2026",
+    "canonical_trap_observation_not_station_geolocation": true,
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "original_3plus_genus_58_cohort_unchanged": true,
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827,
+    "original_two_genus_source_receipt_revalidated": true
+  },
+  "source_six_night_station_retention_categories": {
+    "both_common90_and_two_genus_support": 158
+  },
+  "source_start_year_pair_counts": {
+    "2015": 12,
+    "2016": 25,
+    "2017": 33,
+    "2018": 31,
+    "2019": 18,
+    "2020": 4,
+    "2021": 7,
+    "2022": 3,
+    "2023": 17,
+    "2024": 8
+  },
+  "source_trap_row_status_classification_counts": {
+    "explicit_capture_or_no_capture": 13784,
+    "noncanonical_record": 18,
+    "status_does_not_show_capture_or_no_capture": 74132
+  },
+  "status": "SOURCE_COMMON_SIX_NIGHT_RECORDED_STATION_GO",
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "run_id": 40180174625,
+    "job_id": 121129364028,
+    "original_head_sha": "7d0e68bc4640173b3a63d82c751bad077f629312",
+    "conclusion": "success",
+    "run_url": "https://github.com/zuizui0223/neon/actions/runs/40180174625",
+    "new_ecological_outcome_opened": false
+  }
+}

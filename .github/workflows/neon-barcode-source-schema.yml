@@ -1,0 +1,44 @@
+name: neon-barcode-source-schema
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_neon_barcode_schema_v1.py"
+      - "tests/test_neon_barcode_schema_v1.py"
+      - ".github/workflows/neon-barcode-source-schema.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-barcoding-schema-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  barcode-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate source-file schema selection and no sample value export
+        run: python -m unittest discover -s tests -p 'test_neon_barcode_schema_v1.py' -v
+      - name: Require original release-access authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Query RELEASE-2026 barcode inventory and inspect checksum-verified CSV schemas
+        run: python -m analysis.audit_neon_barcode_schema_v1
+      - name: Archive aggregate schema only; no barcode animal matches or spatial outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-barcode-release2026-schema-only
+          path: build/neon_barcode_schema_inventory_v1.json
+          if-no-files-found: warn
+          retention-days: 45

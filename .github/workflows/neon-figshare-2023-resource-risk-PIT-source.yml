@@ -1,0 +1,45 @@
+name: neon-figshare-2023-resource-risk-PIT-source-only
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_2023_individual_resource_risk_join_v1.py'
+      - 'tests/test_neon_figshare_2023_individual_resource_risk_join_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_PIT_RESOURCE_RISK_SOURCE_JOIN_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-resource-risk-PIT-source.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_2023_individual_resource_risk_join_v1.py'
+      - 'tests/test_neon_figshare_2023_individual_resource_risk_join_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_PIT_RESOURCE_RISK_SOURCE_JOIN_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-resource-risk-PIT-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-original-vole-pit-seed-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-MD5-verified-2018-vole-PIT-seed-site-risk-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test exact PIT overlap, two seed fields, and ecological outcome isolation
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2023_individual_resource_risk_join_v1.py' -v
+      - name: Reverify all original checksum-pinned 2023 Figshare voles then source-link PITS without effects
+        run: python -m analysis.audit_neon_figshare_2023_individual_resource_risk_join_v1
+      - name: Archive only anonymous source support GO or exact STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-original-2023-vole-resource-risk-PIT-source-only
+          path: build/neon_figshare_2023_individual_resource_risk_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45

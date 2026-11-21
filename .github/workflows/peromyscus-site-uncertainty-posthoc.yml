@@ -1,0 +1,58 @@
+name: peromyscus-site-uncertainty-posthoc
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_peromyscus_site_uncertainty_v1.py"
+      - "tests/test_peromyscus_site_uncertainty_v1.py"
+      - ".github/workflows/peromyscus-site-uncertainty-posthoc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: peromyscus-site-uncertainty-posthoc-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  site-uncertainty:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install model dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Test post-result site covariance
+        run: python -m unittest discover -s tests -p 'test_peromyscus_site_uncertainty_v1.py' -v
+      - name: Retrieve immutable completed geometry artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: multiscale-density-centroid-geometry-v1
+          run-id: 37793401501
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build
+      - name: Validate artifact contents
+        run: |
+          test -s build/multiscale_density_centroid_session_diagnostics_v1.json
+          test -s build/multiscale_density_centroid_geometry_v1.json
+      - name: Compute post-result uncertainty without NEON API access
+        run: |
+          python -m analysis.audit_peromyscus_site_uncertainty_v1 \
+            --sessions build/multiscale_density_centroid_session_diagnostics_v1.json \
+            --output build/peromyscus_site_uncertainty_v1.json
+      - name: Archive uncertainty only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: peromyscus-site-uncertainty-posthoc-v1
+          path: build/peromyscus_site_uncertainty_v1.json
+          if-no-files-found: warn
+          retention-days: 45

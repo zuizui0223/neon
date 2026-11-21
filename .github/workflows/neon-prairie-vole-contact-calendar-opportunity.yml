@@ -1,0 +1,36 @@
+name: neon-prairie-vole-original-contact-calendar-opportunity
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_prairie_vole_calendar_opportunity_v1.py'
+      - 'tests/test_neon_prairie_vole_calendar_opportunity_v1.py'
+      - '.github/workflows/neon-prairie-vole-contact-calendar-opportunity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-vole-contact-calendar-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-only-dual-detector-time-opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test date parser and source calendar logic without original dyad effects
+        run: python -m unittest discover -s tests -p 'test_neon_prairie_vole_calendar_opportunity_v1.py' -v
+      - name: Reverify original 38 collar intervals, 50741 sensor event dates and 4454 trap capture dates
+        run: python -m analysis.neon_prairie_vole_calendar_opportunity_v1
+      - name: Archive only collar-source calendar and original test STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-vole-collar-calendar-source-only
+          path: build/neon_prairie_vole_original_contact_effort_gate_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

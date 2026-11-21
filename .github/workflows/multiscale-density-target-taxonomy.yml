@@ -1,0 +1,36 @@
+name: multiscale-density-target-taxonomy
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/lock_multiscale_density_target_taxa_v1.py"
+      - "tests/test_multiscale_density_target_taxon_lock_v1.py"
+      - "results/multiscale_density_primary_taxon_roster_v1.json"
+      - ".github/workflows/multiscale-density-target-taxonomy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test taxonomy lock logic
+        run: python -m unittest tests.test_multiscale_density_target_taxon_lock_v1 -v
+      - name: Lock current NEON target taxonomy
+        run: python -m analysis.lock_multiscale_density_target_taxa_v1
+      - name: Upload target taxonomy lock
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-target-taxonomy-v1
+          path: build/multiscale_density_target_taxon_lock_v1.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,67 @@
+{
+  "distinct_complete_original_foraging_keys_also_in_station_nights": 136,
+  "foraging_event_source_keys": {
+    "complete_station_night_key_collision_row_count": 3107,
+    "keyless_original_rows_other_fields_nonempty_count_histogram": {},
+    "number_of_missing_original_values_per_key_component": {},
+    "original_header_and_date_source_census": {
+      "complete_key_rows_with_parseable_Date": 3243,
+      "rows_with_complete_station_night_key": 3243,
+      "total_rows_with_parseable_Date": 3243
+    },
+    "source_distinct_complete_station_night_keys": 136,
+    "source_original_rows": 3243,
+    "source_unique_literal_value_count_per_key_component": {
+      "Grid": 6,
+      "Night": 7,
+      "Session": 3,
+      "Site": 53
+    }
+  },
+  "no_2023_data_or_biological_estimate_opened": true,
+  "no_change_to_frozen_original_zero_missing_station_key_gate": true,
+  "no_original_resource_outcome_or_TREAT_effect_opened": true,
+  "one_NEON_ecology_Draft_SUBMISSION_HOLD": true,
+  "original_MD5_and_five_file_byte_sources_reverified": true,
+  "original_figshare_article_id": 28207769,
+  "original_source_labels_and_PITs_not_exported": true,
+  "original_version": 2,
+  "retrieved_utc": "2026-11-21T02:30:37.663817+00:00",
+  "schema": "neon.figshare2026_station_night_original_missing_key_diagnostic.v1",
+  "source_metadata_sha256": "2dda7ba7f21d4bcc35b478145ed9bf10aabfd5e80686c9953a99fceffc93c58e",
+  "station_night_source_keys": {
+    "complete_station_night_key_collision_row_count": 0,
+    "keyless_original_rows_other_fields_nonempty_count_histogram": {
+      "2": 2,
+      "4": 1
+    },
+    "number_of_missing_original_values_per_key_component": {
+      "Grid": 3,
+      "Night": 3,
+      "Session": 3,
+      "Site": 3
+    },
+    "original_header_and_date_source_census": {
+      "complete_key_rows_with_parseable_Date": 136,
+      "rows_with_complete_station_night_key": 288,
+      "rows_with_missing_some_station_night_key": 3,
+      "total_rows_with_parseable_Date": 136
+    },
+    "source_distinct_complete_station_night_keys": 288,
+    "source_original_rows": 291,
+    "source_unique_literal_value_count_per_key_component": {
+      "Grid": 6,
+      "Night": 7,
+      "Session": 3,
+      "Site": 74
+    }
+  },
+  "status": "ORIGINAL_KEYS_ONLY_DIAGNOSED_AFTER_FROZEN_SOURCE_STOP",
+  "workflow_provenance": {
+    "github_run": "https://github.com/zuizui0223/neon/actions/runs/44856270587",
+    "job_id": 136699114259,
+    "original_provider_MD5_verified": true,
+    "source_only_no_ecological_response": true,
+    "recorded_from_GitHub_workflow_stdout": true
+  }
+}

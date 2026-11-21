@@ -1,0 +1,47 @@
+name: neon-historical-chm-pixel-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_historical_chm_source_support_v1.py'
+      - 'analysis/run_neon_historical_chm_pixel_source_v1.py'
+      - 'tests/test_neon_historical_chm_source_support_v1.py'
+      - 'docs/NEON_HISTORICAL_CHM_ACTUAL_PIXELS_20261028.md'
+      - '.github/workflows/neon-historical-chm-pixel-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-original-historical-chm-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  actual-month-and-station-historic-chm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pin original source raster dependencies
+        run: python -m pip install numpy==2.1.1 rasterio==1.4.3
+      - name: Validate exact original source and raster selection mathematics
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_historical_chm_source_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_3000_chm_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_dated_3000_graphql_source_v1.py' -v
+      - name: Require previously authorized NEON source access
+        run: test -n "$NEON_API_TOKEN"
+      - name: Read actual historical AOP CHM station pixels at capture-dated coordinates and fixed months
+        run: python -m analysis.run_neon_historical_chm_pixel_source_v1
+      - name: Save only aggregate source coverage or bounded STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-historical-multiyear-chm-actual-station-source
+          path: build/neon_historical_chm_actual_pixel_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45

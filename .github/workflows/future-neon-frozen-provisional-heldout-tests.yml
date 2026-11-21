@@ -1,0 +1,67 @@
+name: future-neon-frozen-provisional-heldout-tests
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_future_neon_provisional_holdout_v1.py"
+      - "tests/test_future_neon_provisional_holdout_v1.py"
+      - ".github/workflows/future-neon-frozen-provisional-heldout-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  once-only-heldout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pin scientific numeric dependency
+        run: python -m pip install numpy==2.1.1
+      - name: Validate blind joins, original FE and site bootstrap with synthetic outcomes
+        run: python -m unittest discover -s tests -p 'test_future_neon_provisional_holdout_v1.py' -v
+      - name: Download frozen future metric-only QC artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-WB-metric-only-QC-v1
+          run-id: 38046250920
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/metrics
+      - name: Download frozen continuous historical MNKA predictor artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: future-neon-continuous-MNKA-support-v1
+          run-id: 38046339017
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build/predictors
+      - name: Require exact two independently generated session files
+        run: |
+          test -s build/metrics/future_neon_metric_qc_v1.json
+          test -s build/metrics/future_neon_metric_session_values_v1.json
+          test -s build/predictors/future_neon_continuous_mnka_predictor_pairs_v1.json
+      - name: Open first future NEON abundance-spatial slopes under frozen gate
+        run: |
+          python -m analysis.run_future_neon_provisional_holdout_v1 \
+            --metric build/metrics/future_neon_metric_session_values_v1.json \
+            --mnka build/predictors/future_neon_continuous_mnka_predictor_pairs_v1.json \
+            --metric-qc build/metrics/future_neon_metric_qc_v1.json \
+            --output build/future_neon_provisional_holdout_v1.json
+      - name: Save scientific result or explicit STOP receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: future-neon-provisional-heldout-result-v1
+          path: build/future_neon_provisional_holdout_v1.json
+          if-no-files-found: warn
+          retention-days: 45

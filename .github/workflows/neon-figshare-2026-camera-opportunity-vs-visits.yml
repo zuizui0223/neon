@@ -1,0 +1,45 @@
+name: neon-figshare-2026-camera-opportunity-vs-visits-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_station_effort_vs_visits_v1.py'
+      - 'tests/test_neon_figshare_2026_station_effort_vs_visits_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_CAMERA_OPPORTUNITY_VS_VISITS_DESIGN_20261121.md'
+      - '.github/workflows/neon-figshare-2026-camera-opportunity-vs-visits.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_station_effort_vs_visits_v1.py'
+      - 'tests/test_neon_figshare_2026_station_effort_vs_visits_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_CAMERA_OPPORTUNITY_VS_VISITS_DESIGN_20261121.md'
+      - '.github/workflows/neon-figshare-2026-camera-opportunity-vs-visits.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare2026-camera-opportunity-vs-visits-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-source-camera-opportunity-check-after-SOURCE-STOP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify synthetic 291-row source semantics and protect previous STOP
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2026_station_effort_vs_visits_v1.py' -v
+      - name: Download five exact original Figshare CSVs then diagnose visited vs non-visited source metadata ONLY
+        run: python -m analysis.diagnose_neon_figshare_2026_station_effort_vs_visits_v1
+      - name: Preserve original MD5-verified effort diagnostic without ecological effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-camera-opportunity-vs-visits-source
+          path: build/neon_figshare_2026_camera_opportunity_vs_visits_source_v1.json
+          if-no-files-found: warn
+          retention-days: 45

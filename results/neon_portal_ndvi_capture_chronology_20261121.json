@@ -1,0 +1,84 @@
+{
+  "schema": "neon.portal_postresult_ndvi_capture_order_source.v1",
+  "date": "2026-11-21",
+  "status": "SOURCE_CHRONOLOGY_GO_MAJORITY_OF_2022_2023_MAMMAL_RESPONSES_PRECEDE_FULL_MONSOON_NDVI",
+  "original_source": {
+    "repository": "weecology/PortalData",
+    "commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "eight_original_git_blob_hashes_verified": true,
+    "preexisting_203_matched_plant_plot_year_month_pairs_reconstructed": true,
+    "old_69_ID_disjoint_species_source_pairs_verified_without_effects": true,
+    "old_114_model_pair_cohort_reconstructed_from_valid_original_ID_counts_without_Y_or_X": true
+  },
+  "provenance": {
+    "source_run": "https://github.com/zuizui0223/neon/actions/runs/44850363929",
+    "job_id": 136680037625,
+    "artifact_id": 14684453370,
+    "synthetic_unit_tests_passed": 3,
+    "workflow_source_step": "success",
+    "protocol": "docs/NEON_PORTAL_NDVI_CAPTURE_CHRONOLOGY_AUDIT_20261121.md"
+  },
+  "original_model_cohort_source_only": {
+    "plot_time_pairs": 114,
+    "original_physical_plots": 18,
+    "original_start_years": {
+      "2021": {
+        "pairs": 21,
+        "followup_capture_months": {
+          "10": 14,
+          "11": 7
+        }
+      },
+      "2022": {
+        "pairs": 65,
+        "followup_capture_months": {
+          "4": 8,
+          "5": 17,
+          "6": 18,
+          "10": 16,
+          "11": 6
+        }
+      },
+      "2023": {
+        "pairs": 28,
+        "followup_capture_months": {
+          "4": 9,
+          "5": 9,
+          "6": 8,
+          "10": 2
+        }
+      }
+    }
+  },
+  "original_2022_to_2023_year_source_date_partition": {
+    "n_pairs": 65,
+    "pre_monsoon_2023_01_01_to_06_30": 43,
+    "during_monsoon_07_01_to_09_30": 0,
+    "post_monsoon_10_01_to_12_31": 22,
+    "fraction_pre_monsoon": 0.6615384615384615,
+    "fraction_post_monsoon": 0.3384615384615385,
+    "original_plots_with_pre_monsoon_followup": 18,
+    "original_plots_with_post_monsoon_followup": 16,
+    "plant_survey_season_pre_and_followup": {
+      "winter_to_winter": 43,
+      "summer_to_summer": 22
+    },
+    "original_2022_and_2023_captures_both_after_sept30": 22
+  },
+  "prior_satellite_ndvi": {
+    "original_source_window": "July 1–September 30 each year (2022 and 2023)",
+    "fixed_2022_to_2023_site_level_NDVI_change": -0.1015584773279839,
+    "original_NDVI_unaltered": true
+  },
+  "interpretation": "The full July–September 2023 site-wide NDVI decline could not have been a pre-capture exposure for 43/65 already observed 2023 rodent comparisons in April–June. Only 22/65 autumn comparisons have that full NDVI window preceding their original follow-up capture, and temporal precedence alone cannot identify any resource/competition mechanism. The 2022-dominance and year-omission sign reversal remain. Early unmeasured changes in spring resources are possible but not estimated by the original summer NDVI contrast.",
+  "limits": {
+    "not_new_mammal_biological_coefficient": true,
+    "not_a_causal_effect_of_satellite_NDVI": true,
+    "post_result_chronology_check": true,
+    "one_geographic_Portal_landscape": true,
+    "food_biomass_seed_supply_and_learning_not_measured": true,
+    "original_2020_2025_capture_composition_coef_unchanged": true,
+    "original_NEON_Portal_1996_2019_Finland_Structural_outcomes_unchanged": true,
+    "single_unified_NEON_paper_DRAFT_SUBMISSION_HOLD": true
+  }
+}

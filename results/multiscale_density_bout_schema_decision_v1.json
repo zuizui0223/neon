@@ -1,0 +1,54 @@
+{
+  "schema": "neon.multiscale_density.bout_schema_decision.v1",
+  "date": "2026-10-06",
+  "status": "FROZEN_EFFECT_BLIND_BOUT_SCHEMA",
+  "source": {
+    "product": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "query_start": "2015-04",
+    "query_end": "2026-09",
+    "sites": 46,
+    "perplotnight_files": 1773,
+    "perplotnight_rows": 21363,
+    "workflow_run": 37400929966,
+    "artifact_id": 11385147675,
+    "artifact_digest": "sha256:076866edb0d9f9b7f27ac16e5dcccf848539070d9cb937290613a921c6770596"
+  },
+  "findings": {
+    "mammalGridSamplingType_basic_package": {
+      "nonblank_rows": 0,
+      "blank_rows": 21363,
+      "interpretation": "the RELEASE-2026 basic-package perplotnight files used by this audit do not expose a populated sampling-type value; do not filter primary support on this absent field"
+    },
+    "plot_event_nightuid_histogram": {
+      "1": 5635,
+      "2": 236,
+      "3": 5049,
+      "4": 23,
+      "5": 1,
+      "6": 2
+    },
+    "exact_three_night_plot_events": 5049,
+    "four_plus_night_protocol_qc_exceptions": 26,
+    "event_id_behaviour": "eventID does group sampling bouts; many plot x eventID combinations contain exactly three distinct nightuid values as expected"
+  },
+  "decision": {
+    "primary_bout_key": "site x plotID x eventID",
+    "primary_temporal_rule": "exactly 3 distinct nightuid values",
+    "era": "2015-04 onward",
+    "one_night_events": "excluded from primary W/B inference",
+    "two_night_events": "excluded from primary W/B inference",
+    "four_plus_night_events": "protocol/QC exceptions; excluded from primary and retained only for sensitivity/audit",
+    "sampling_type_string_required": false
+  },
+  "effect_boundary": {
+    "pertrapnight_opened": false,
+    "capture_rows_opened": false,
+    "taxa_opened": false,
+    "coordinates_opened": false,
+    "spatial_distances_calculated": false,
+    "W_opened": false,
+    "B_opened": false,
+    "density_effects_opened": false
+  }
+}

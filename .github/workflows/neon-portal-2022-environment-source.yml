@@ -1,0 +1,45 @@
+name: neon-portal-2022-monsoon-environment-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_portal_2022_site_climate_source_v1.py'
+      - 'tests/test_portal_2022_site_climate_source_v1.py'
+      - 'docs/NEON_PORTAL_2022_ENVIRONMENT_POSTRESULT_DESIGN_20261121.md'
+      - '.github/workflows/neon-portal-2022-environment-source.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_portal_2022_site_climate_source_v1.py'
+      - 'tests/test_portal_2022_site_climate_source_v1.py'
+      - 'docs/NEON_PORTAL_2022_ENVIRONMENT_POSTRESULT_DESIGN_20261121.md'
+      - '.github/workflows/neon-portal-2022-environment-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-2022-environment-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  frozen-source-monsoon-weather-and-landsat8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check immutable hourly rain and Landsat8 filters using synthetic data
+        run: python -m unittest discover -s tests -p 'test_portal_2022_site_climate_source_v1.py' -v
+      - name: Verify two immutable public original environmental files and source-year coverage only
+        run: python -m analysis.audit_portal_2022_site_climate_source_v1
+      - name: Preserve original source-only GO or scientific STOP without climate values
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-2022-environment-source-only
+          path: build/neon_portal_environment_2022_source_only_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

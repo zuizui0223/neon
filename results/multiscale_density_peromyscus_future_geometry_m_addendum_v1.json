@@ -1,0 +1,39 @@
+{
+  "schema": "neon.multiscale_density.peromyscus_future_geometry_m_addendum_v1",
+  "date": "2026-10-10",
+  "status": "POST_DISCOVERY_BEFORE_ANY_FUTURE_RESPONSE_ACCESS",
+  "parent_contract": "results/multiscale_density_peromyscus_future_geometry_contract_v1.json",
+  "why_added": "The October 10 post-result sensitivity showed both positive null-relative NN slopes lose positive 95% site-cluster lower bounds after adjusting repeat-supported cohort size m. Raw NN2 MNKA slope changes from -12.929 to +3.362 when m is controlled. m is positively associated with MNKA and its conditioning is not a causal mediation model.",
+  "source": {
+    "existing_release": "RELEASE-2026",
+    "existing_response_rows": 1326,
+    "peromyscus_rows": 956,
+    "source_artifact_run": 37793401501,
+    "posthoc_reanalysis": "analysis/audit_peromyscus_site_uncertainty_v1.py",
+    "sensitivity_ci_after_m": {
+      "nn_excess_xy_m2": {
+        "beta": 1.5906284691088715,
+        "site_cluster_CI95_normal": [
+          -1.555881176926866,
+          4.737138115144608
+        ]
+      },
+      "nn_excess_series_m2": {
+        "beta": 4.305545552451492,
+        "site_cluster_CI95_normal": [
+          -1.004215501377283,
+          9.615306606280267
+        ]
+      }
+    }
+  },
+  "prospective_boundary": {
+    "parent_criteria_unchanged": true,
+    "parent_result_may_pass_unadjusted_without_ecological_mechanism": true,
+    "added_required_report": "When new RELEASE-2026-excluded response becomes estimable, also estimate MNKA slopes for the same two NN excess metrics after controlling m and show separate m+B sensitivity, preserving the original fixed effects and null definitions.",
+    "ecological_claim_guard": "If unadjusted future gates pass but either m-adjusted slope has site-cluster interval including zero or negative point slope, classify as sampling-sensitive spatial pattern, not a robust density-specific local-spacing finding.",
+    "no_rescue": "This added diagnostic cannot rescue a failed original prospective gate, and cannot be declared original prespecification.",
+    "causal_warning": "m may represent detection intensity, organism availability, and real abundance simultaneously; conditioning does not prove or refute competition, territoriality, or habitat avoidance."
+  },
+  "next_independent_evidence": "Independent tag-specific detection model or external behavioral tracking with co-location/spacing measurement; no additional same-RELEASE subgroup selection."
+}

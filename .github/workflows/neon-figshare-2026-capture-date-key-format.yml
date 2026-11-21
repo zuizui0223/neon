@@ -1,0 +1,39 @@
+name: neon-figshare-2026-PIT-capture-date-key-format-diagnostic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_PIT_capture_date_key_format_v1.py'
+      - '.github/workflows/neon-figshare-2026-capture-date-key-format.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_PIT_capture_date_key_format_v1.py'
+      - '.github/workflows/neon-figshare-2026-capture-date-key-format.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2026-capture-date-key-format-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-source-PIT-grid-year-and-calendar-difference-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact Figshare original MD5 and report source join key formats, no animal effect
+        run: python -m analysis.diagnose_neon_figshare_2026_PIT_capture_date_key_format_v1
+      - name: Archive original source key-format diagnostics while scientific source STOP remains
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-capture-PIT-and-date-keys-only
+          path: build/neon_figshare_2026_PIT_capture_and_date_key_diagnostic_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

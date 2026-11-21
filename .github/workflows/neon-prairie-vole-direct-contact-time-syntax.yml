@@ -1,0 +1,36 @@
+name: neon-prairie-vole-direct-contact-time-syntax
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_prairie_vole_date_format_source_v1.py'
+      - 'tests/test_neon_prairie_vole_date_format_source_v1.py'
+      - '.github/workflows/neon-prairie-vole-direct-contact-time-syntax.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-prairie-vole-calendar-syntax-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-published-timestamp-format-no-observation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test source-date-format-only sanitization
+        run: python -m unittest discover -s tests -p 'test_neon_prairie_vole_date_format_source_v1.py' -v
+      - name: Audit Figshare original collared-date, raw logger event-date and trap-date STRING formats only
+        run: python -m analysis.neon_prairie_vole_date_format_source_v1
+      - name: Archive only anonymous timestamp pattern and row-count metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-prairie-vole-original-date-syntax
+          path: build/neon_prairie_vole_date_format_source_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

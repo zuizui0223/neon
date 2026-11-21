@@ -1,0 +1,47 @@
+{
+  "schema": "neon.mosa_author_first_retained_species_receipt.v1",
+  "date": "2026-10-15",
+  "type": "effect_blind_source_reconciliation_not_new_ecological_effect",
+  "provenance": {
+    "Zenodo": "10.5281/zenodo.10049811",
+    "original_capture_md5": "12c04902947b91922c3f6c98760ecb54",
+    "author_occasion_dates": 363,
+    "source_first_species_rule": "Joachimmarien/MOSA public 2_markdown Processing data.Rmd: ID=unique(MN$TOE); character=rbind(character,ID2[1,4:12]); then character$SPECIES!='MN' exclusion",
+    "first_species_run": 38673899018,
+    "first_species_artifact_id": 11945600751,
+    "first_species_artifact_sha256": "f92487f837e6f59b80d9351de231ea731a5991108bfa37a0ce0339901d256750"
+  },
+  "counts": {
+    "raw_MN_captures": 45433,
+    "raw_MN_unique_TOE_normalized": 19818,
+    "author_MN_rows": 19692,
+    "author_MN_distinct_TOE_normalized": 19678,
+    "author_NA_distinct_TOE": 158,
+    "original_MN_tags_missing_from_author_MN": 140,
+    "missing_first_retained": {
+      "no_record_on_authors_dates": 119,
+      "first_label_NA": 18,
+      "first_label_other_species": 2,
+      "first_label_MN": 1
+    },
+    "raw_MN_missing_with_MN_capture_on_authors_dates": 21,
+    "raw_MN_missing_also_present_in_author_NA": 18,
+    "author_NA_source_first_label_NA": 158,
+    "author_MN_source_first_label_MN": 19671,
+    "author_MN_without_raw_record_on_authors_retained_dates": 7,
+    "author_MN_exact_duplicate_rows": 0,
+    "author_MN_whitespace_normalization_collisions": 14,
+    "published_individual_number": 19850,
+    "raw_distinct_MN_toe_gap_to_published": 32
+  },
+  "interpretation": {
+    "main": "First-retained capture species plausibly explains why 18 raw MN codes are present as species unknown and two codes were initially assigned another species, without relabeling any animal.",
+    "whitespace": "Fourteen author encounter rows have different literal TOE text but collide after trimming whitespace. Matrix row count is not biological individual count.",
+    "unresolved": "One raw MN code remains missing from author MN despite a first retained MN label; seven author MN codes have no uncorrected author-date source record; exact published manual deletion/correction replay is necessary.",
+    "hold": "The displayed counts do not resolve published 19,850 individuals from 19,818 distinct raw MN TOE codes, nor prove tag-unique animals.",
+    "source_reuse_caveat": "The first-retained-date projection deliberately omitted the author's one 2004 date correction and explicit deleted-date series; a separate exact replay is underway.",
+    "MNA_W_B_density_effects_authorized": false,
+    "original_NEON_genus_guard": "FAILED_UNCHANGED",
+    "provisional_NEON_Peromyscus_replication": "FAILED_SIGN_RULE_BUT_TOO_IMPRECISE_TO_REJECT_OLD_EFFECT"
+  }
+}

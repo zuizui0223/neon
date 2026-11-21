@@ -1,0 +1,58 @@
+{
+  "schema": "neon.external_vole_dyad_individual_stationarity_js_crosscheck.v1",
+  "status": "INDEPENDENT_SOURCE_RECONSTRUCTION_EXPLORATORY_NOT_ACTION_VERIFIED",
+  "date": "2026-11-15",
+  "source": {
+    "repository": "jmistrick/vole-spatial-manuscript",
+    "git_commit": "47dc1e9b1f83ec2faaf7ba232e02e00f9e4cffb4",
+    "source_git_blob_sha_verified": {
+      "capture": "343de8c3846eea21d3f0648358e159bd61bb87a2",
+      "treatments": "b4059f818650ce844472a80f6caf38eee65bfffe"
+    },
+    "capture_rows": 2012,
+    "site_tag_keys": 742,
+    "eligible_two_catches_each_season": 51,
+    "original_sites": 12,
+    "original_unchanged_dyad_subset": {
+      "sites": 10,
+      "individuals": 47,
+      "dyads": 102,
+      "factorial_group_site_counts": {
+        "fed_control": 2,
+        "fed_deworm": 3,
+        "unfed_control": 3,
+        "unfed_deworm": 2
+      }
+    }
+  },
+  "null_model": "randomly reassign each tagged individual's pooled original capture locations to its observed summer/fall counts independently, 2000 draws per site; tie-aware same-tag dyad distance Spearman ranks",
+  "results": {
+    "site_equal_observed_rho": 0.4699868453661349,
+    "site_equal_within_individual_stationarity_null_mean_rho": 0.7137205232913992,
+    "site_equal_observed_minus_stationarity_null_rho": -0.2437336779252642,
+    "site_stratified_whole_site_bootstrap_95_descriptive": [
+      -0.49904891126795664,
+      -0.009455373616417578
+    ],
+    "sites_positive_residual": 3,
+    "sites_negative_residual": 7,
+    "max_degenerate_null_draws_per_site": 0
+  },
+  "computation": {
+    "implementation": "Independent JavaScript reimplementation using exact GitHub connector-provided CSV text; xorshift32 RNG, seed 2026111567",
+    "individual_within_site_draws": 2000,
+    "bootstrap_draws": 5000,
+    "python_GitHub_workflow_artefact_verified": false,
+    "python_workflow": "neon-bank-vole-individual-stationarity-null.yml",
+    "approximate_expected_cross_language_MC_variability": true
+  },
+  "interpretation": "Positive same-identity dyad-rank continuity compared to full-ID shuffle does not establish persistence beyond each individual's own station preferences. Observed capture-centroid pair ranks are lower than the within-individual stationary-capture baseline. Null is post-result exploratory, not evidence of pair contact, niche causation, displacement trajectories, competition or demographic fitness.",
+  "boundaries": {
+    "earlier_positive_identity_shuffle_result_unchanged": true,
+    "season_specific_trap_effort_not_preserved": true,
+    "observations_not_camera_or_telemetry": true,
+    "do_not_pool_with_NEON_or_Portal": true,
+    "do_not_claim_independent_replication": true,
+    "manuscript_submission_hold": true
+  }
+}

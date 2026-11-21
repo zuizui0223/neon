@@ -1,0 +1,128 @@
+{
+  "observed_capture_centroid_shift": {
+    "deworm_minus_control_bootstrap95": [
+      -0.46126808661607577,
+      0.35938564558835906
+    ],
+    "deworm_minus_control_site_equal_excess": -0.026413663740245896,
+    "finite_sample_adjusted_excess_individual_values": {
+      "max": 3.405208824818642,
+      "mean": 0.6875121661218737,
+      "median": 0.4189607678530294,
+      "min": -1.2826477165072108,
+      "n": 51,
+      "negative": 12,
+      "positive": 38,
+      "zero": 1
+    },
+    "food_fed_minus_unfed_bootstrap95": [
+      -0.2873190752766809,
+      0.532920988550128
+    ],
+    "food_fed_minus_unfed_site_equal_excess": 0.11117380989515957,
+    "four_factorial_cell_site_equal_excess": {
+      "fed__control": 0.46812997328066464,
+      "fed__deworm": 0.8744662733513653,
+      "unfed__control": 0.7897061271964515,
+      "unfed__deworm": 0.3305424996452591
+    },
+    "individuals_above_personal_reference_975": 3,
+    "no_p_values_or_posthoc_effect_selection": true,
+    "observed_individual_distance": {
+      "max": 6.77329690921697,
+      "mean": 2.1695406089299767,
+      "median": 1.716929178792376,
+      "min": 0.4714045207910325,
+      "n": 51,
+      "negative": 0,
+      "positive": 51,
+      "zero": 0
+    },
+    "original_Perm_per_individual": 2000,
+    "pooled_individual_random_reallocation_reference": {
+      "max": 4.1175359815395245,
+      "mean": 1.482028442808103,
+      "median": 1.3944591156088286,
+      "min": 0.5302076976290792,
+      "n": 51,
+      "negative": 0,
+      "positive": 51,
+      "zero": 0
+    },
+    "seed": 2026111501,
+    "site_equal_excess": 0.6157112183684351,
+    "site_equal_excess_bootstrap95": [
+      0.4207667054812675,
+      0.834222512385038
+    ],
+    "site_equal_expected_reallocation_shift": 1.5450172286420907,
+    "site_equal_observed_centroid_shift": 2.1607284470105257,
+    "site_stratified_bootstrap_draws": 5000,
+    "units": "original local x/y GRID COORDINATE UNITS, not verified metres"
+  },
+  "retrieved_utc": "2026-11-15T04:59:26.023330+00:00",
+  "sampling_source_support": {
+    "four_cell_individual_counts": {
+      "fed__control": 16,
+      "fed__deworm": 12,
+      "unfed__control": 15,
+      "unfed__deworm": 8
+    },
+    "original_group_sites_equal_three_each": true,
+    "original_sites_per_factorial_cell": {
+      "fed__control": 3,
+      "fed__deworm": 3,
+      "unfed__control": 3,
+      "unfed__deworm": 3
+    },
+    "source_output_anonymized_no_animal_ids_site_names_or_coordinates": true,
+    "source_same_site_and_trap_coordinate_consistent": true
+  },
+  "schema": "neon.external_bank_vole_seasonal_capture_centroid.v1",
+  "scientific_boundaries": {
+    "Structural_island_mammal_distribution_not_used": true,
+    "capture_centroid_not_telemetry_or_true_habitat_use": true,
+    "four_factorial_cells_have_only_three_sites_each": true,
+    "no_direct_independent_behavioral_detector": true,
+    "not_a_new_NEON_14_site_or_Portal_436_pair_response_fit": true,
+    "old_2024_paper_space_use_food_parasites_prior_art": true,
+    "one_NEON_manuscript_remains_SUBMISSION_HOLD": true,
+    "permutation_does_not_preserve_within_season_temporal_autocorrelation": true,
+    "pooled_capture_source_not_a_true_station_occupancy_process": true,
+    "season_reallocation_null_may_violate_effort_stationarity": true,
+    "two_different_capture_periods_not_equal_detection": true,
+    "within_individual_two_seasons_not_ID_replacement_test": true
+  },
+  "source_provenance": {
+    "both_seasons_observed_individuals": 120,
+    "frozen_protocol": "docs/NEON_BANK_VOLE_SEASONAL_CENTROID_FROZEN_20261115.md",
+    "original_2021_capture_records": 2012,
+    "original_742_individuals": 742,
+    "original_distinct_sites": 12,
+    "original_frozen_51_two_captures_per_season": 51,
+    "original_source_grid_trap_identities": 563,
+    "original_source_season_counts": {
+      "fall": 1107,
+      "summer": 905
+    },
+    "pinned_two_files_Git_blob_verified": true,
+    "repo": "jmistrick/vole-spatial-manuscript",
+    "source_2024_paper_DOI": "10.1111/1365-2656.14067",
+    "source_commit": "47dc1e9b1f83ec2faaf7ba232e02e00f9e4cffb4",
+    "source_study_previous_food_and_deworm_findings_prior_art": true,
+    "treatment_metadata_sites": 13,
+    "treatment_only_sites_without_capture_rows": 1
+  },
+  "status": "RETROSPECTIVE_VOLE_WITHIN_ANIMAL_SEASON_CAPTURE_CENTROIDS_NOT_NICHE_USE",
+  "github_actions_provenance": {
+    "source_run_id": 43679092353,
+    "job_id": 132705606310,
+    "artifact_id": 14147328553,
+    "archive_zip_sha256": "sha256:cc21e57f77706ee7c37a0f3324a4e7d7a31767e9c199278e2fc36f4987f7710b",
+    "commit_at_source_run": "c63276d79f8110553ee378379808298c26f006eb",
+    "workflow_conclusion": "success",
+    "protocol_committed_before_coordinate_response": true,
+    "all_original_51_included": true,
+    "original_NEON_and_Portal_response_unchanged": true
+  }
+}

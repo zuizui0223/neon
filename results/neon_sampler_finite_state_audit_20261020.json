@@ -1,0 +1,54 @@
+{
+  "schema": "neon.fixedmargin.finite_state_correctness_audit.v1",
+  "date": "2026-10-20",
+  "source_code_reviewed_at_commit": "93791a8b37f2062543d7b23f67f4617182bd3fe6",
+  "source_file": "analysis/neon_crossseason_template_null_v1.py",
+  "test_type": "Exact rational finite-state transition enumeration plus synthetic MCMC regression test",
+  "not_real_NEON_ecological_effect": true,
+  "binary_matrix_rows": 3,
+  "binary_matrix_columns": 4,
+  "row_sums": [2, 2, 2],
+  "column_sums": [1, 1, 2, 2],
+  "admissible_state_count": 15,
+  "uniform_probability_per_state": "1/15",
+  "accepted_only_stationary_distribution": {
+    "states_with_identical_row_pair": 3,
+    "probability_per_identical_row_pair_state": "1/21",
+    "other_states": 12,
+    "probability_per_other_state": "1/14"
+  },
+  "one_proposal_kernel_symmetric": true,
+  "one_proposal_kernel_uniform_stationary": true,
+  "accepted_only_kernel_uniform_stationary": false,
+  "lazy_proposal_kernel_uniform_stationary": true,
+  "example_observed_matrix": [[0,0,1,1],[0,0,1,1],[1,1,0,0]],
+  "same_matrix_overlap": 6,
+  "exact_uniform_probability_overlap_at_least_6": "1/15",
+  "accepted_only_stationary_probability_overlap_at_least_6": "1/21",
+  "both_null_overlap_means_in_this_example": "10/3",
+  "tail_distortion_not_inferred_from_mean_alone": true,
+  "local_RED_test": {
+    "old_clock_maximum_empirical_state_mass_error": 0.01989019607843137,
+    "tolerance": 0.004,
+    "failed_as_expected": true
+  },
+  "local_GREEN_tests": {
+    "count": 7,
+    "failed": 0,
+    "covered": ["exact rational stationary uniformity", "exact transition symmetry", "empirical state frequencies", "all proposals preserve margins", "two-chain recurrence diagnostics", "degenerate null", "no source IDs in output"]
+  },
+  "interpretation": {
+    "old_nonuniform_tail_can_cross_0_05_in_a_synthetic_example": true,
+    "NEON_bias_size_not_determined_by_this_example": true,
+    "all_earlier_site_null_calibrations_reused_the_old_unit_sampler": true,
+    "existing_old_NEON_p_values_must_not_be_called_validated_uniform_fixed_margin_p_values": true,
+    "fix": "Retain unsuccessful row-pair proposals and count all steps; add one-half laziness for aperiodicity",
+    "finite_time_MCMC_not_proven_exact": true,
+    "same_58_pairs_and_preexisting_12_site_exclusion_to_be_recomputed": true,
+    "original_density_W_B_failure_and_MOSA_seal_unchanged": true
+  },
+  "external_context": {
+    "Carstens_2015_DOI": "10.1103/PhysRevE.91.042812",
+    "scope": "Failed trades and uniform fixed-margin sampling; exact proof above is specific to this repository row-pair kernel"
+  }
+}

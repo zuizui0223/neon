@@ -1,0 +1,123 @@
+{
+  "schema": "neon.portal_2022_monsoon_environment_postresult_context.v1",
+  "date": "2026-11-21",
+  "status": "SITE_LANDSAT8_MONSOON_NDVI_GO_ORIGINAL_HOURLY_RAIN_QUALITY_STOP",
+  "source": {
+    "repository": "weecology/PortalData",
+    "commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "original_weather_blob": "bc9d999db496b55e04281c1317a98b3ff3304eed",
+    "original_ndvi_blob": "0a55a926712210ee786660517a1ae12285bb6303",
+    "site_weather_hour_schema": {
+      "labels": "100,200,...,2400",
+      "source_days": 368,
+      "source_rows": 8832,
+      "verified_original_timestamp_mapping": true,
+      "diagnostic_run": "https://github.com/zuizui0223/neon/actions/runs/44848725262"
+    },
+    "source_run": "https://github.com/zuizui0223/neon/actions/runs/44848797785",
+    "source_artifact_id": 14684427175,
+    "site_context_run": "https://github.com/zuizui0223/neon/actions/runs/44848797764",
+    "site_context_artifact_id": 14684831215
+  },
+  "fixed_window": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "months": [
+      7,
+      8,
+      9
+    ],
+    "one_site_monsoon_only": true,
+    "site_greenness_measure": "Landsat8 USGS image record NDVI, cloud<=30%; ~1 km radius not plant biomass or plot-level seed resources"
+  },
+  "NDVI": {
+    "annual_mean": {
+      "2021": 0.26739070663153924,
+      "2022": 0.28229655945449356,
+      "2023": 0.18073808212650966,
+      "2024": 0.1667780025965592
+    },
+    "valid_Landsat8_images": {
+      "2021": 8,
+      "2022": 9,
+      "2023": 6,
+      "2024": 5
+    },
+    "image_counts_by_month": {
+      "2021": {
+        "7": 3,
+        "8": 3,
+        "9": 2
+      },
+      "2022": {
+        "7": 4,
+        "8": 2,
+        "9": 3
+      },
+      "2023": {
+        "7": 3,
+        "8": 2,
+        "9": 1
+      },
+      "2024": {
+        "7": 2,
+        "8": 2,
+        "9": 1
+      }
+    },
+    "adjacent_year_changes": {
+      "2021_to_2022": 0.01490585282295432,
+      "2022_to_2023": -0.1015584773279839,
+      "2023_to_2024": -0.013960079529950459
+    },
+    "abs_2022_to_2023_largest_of_three": true,
+    "postresult_same_month_equal_weight_sensitivity": {
+      "2021": 0.27236904058238426,
+      "2022": 0.2895542593080481,
+      "2023": 0.18715131006359145,
+      "2024": 0.16735792950087433
+    },
+    "postresult_equal_month_2022_to_2023_change": -0.10240294924445667,
+    "all_four_years_have_Landsat8_imagery_in_all_three_months": true
+  },
+  "site_hourly_precipitation_QC": {
+    "required_valid_hour_coverage": 0.9,
+    "hours_per_year": 2208,
+    "actual_valid_hours": {
+      "2021": 1169,
+      "2022": 1354,
+      "2023": 2208,
+      "2024": 2208
+    },
+    "source_fraction": {
+      "2021": 0.5294384057971014,
+      "2022": 0.6132246376811594,
+      "2023": 1,
+      "2024": 1
+    },
+    "report_annual_monsoon_rainfall_mm": false,
+    "no_missing_hour_imputation": true,
+    "provider_replacement_for_primary_site_rainfall_disallowed": true
+  },
+  "previous_mammal_result": {
+    "frozen_full_model_pairs": 114,
+    "startyear_2022_pairs": 65,
+    "startyear_2022_fraction": 0.5701754385964912,
+    "startyear_2022_omission_flipped_control_and_interaction": true,
+    "not_refit": true
+  },
+  "inference_boundaries": {
+    "source_weather_hour_schema_failure_repaired_from_independent_metadata_not_guessed": true,
+    "only_site_level_environment_context": true,
+    "postresult_env_sensitivity_not_preregistered_ecology": true,
+    "NDVI_decline_not_identified_resource_intake_biomass_or_competition": true,
+    "site_greenness_cannot_identify_plot_treatment_interaction": true,
+    "startyear_2022_dominated_model_and_three_start_years_limited": true,
+    "portal_and_NEON_previous_outcomes_unchanged": true,
+    "ONE_Draft_SUBMISSION_HOLD": true
+  }
+}

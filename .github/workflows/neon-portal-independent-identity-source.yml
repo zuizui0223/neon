@@ -1,0 +1,37 @@
+name: neon-portal-independent-identity-niche-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/portal_external_id_niche_source_v1.py'
+      - 'tests/test_portal_external_id_niche_source_v1.py'
+      - 'docs/NEON_PORTAL_INDEPENDENT_NICHE_20261115.md'
+      - '.github/workflows/neon-portal-independent-identity-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-niche-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  immutable-portal-source-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate source-only stakes and fields on synthetic data
+        run: python -m unittest discover -s tests -p 'test_portal_external_id_niche_source_v1.py' -v
+      - name: Fetch six immutable original Portal files and audit observed individual identity and effort
+        run: python -m analysis.portal_external_id_niche_source_v1
+      - name: Save only anonymous original source feasibility or scientific STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-rodent-identity-stake-source
+          path: build/portal_identity_niche_source_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

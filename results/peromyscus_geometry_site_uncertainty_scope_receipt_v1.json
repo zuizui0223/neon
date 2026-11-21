@@ -1,0 +1,153 @@
+{
+  "schema": "neon.multiscale_density.peromyscus_site_uncertainty_and_species_scope_v1",
+  "date": "2026-10-08",
+  "classification": "POST_RESULT_DESCRIPTIVE_NOT_CONFIRMATORY",
+  "reproducibility": {
+    "analysis_source": "analysis/audit_peromyscus_site_uncertainty_v1.py",
+    "original_spatial_response_run": 37793401501,
+    "original_response_artifact": 11556939610,
+    "cross_platform_analytic_run": 37794768061,
+    "output_artifact": 11558272064,
+    "original_response_sessions": 1326,
+    "peromyscus_sessions": 956,
+    "sites": 33,
+    "series": 111,
+    "exact_beta_match": true
+  },
+  "site_cluster_cr1_normal_approx": {
+    "nn_excess_xy_m2": {
+      "beta": 2.557412765282904,
+      "se": 1.029815280651501,
+      "ci95": [
+        0.5389748152059619,
+        4.575850715359846
+      ],
+      "n": 956,
+      "sites": 33
+    },
+    "nn_excess_series_m2": {
+      "beta": 4.171580809688098,
+      "se": 1.9803703814951903,
+      "ci95": [
+        0.2900548619575254,
+        8.053106757418671
+      ],
+      "n": 951,
+      "sites": 33
+    },
+    "method": "same frozen series, site x month, year FEs; site-cluster CR1, normal-approx 1.96; exploratory only, no multiplicity correction"
+  },
+  "local_independent_software_check": {
+    "method": "statsmodels v0.14.6 OLS identical FEs, site-cluster robust covariance, Student-t degrees of freedom from sites",
+    "nn_excess_xy_ci95": [
+      0.409346,
+      4.705479
+    ],
+    "nn_excess_series_ci95": [
+      0.040041,
+      8.303121
+    ],
+    "result": "point betas identical to 1e-8, Student-t interval wider",
+    "source": "independently computed from original 1326-session workflow artifact, not future independent biological samples"
+  },
+  "matched_series_abundance_levels_event_weighted": {
+    "nn_excess_xy_m2": {
+      "lower_N": {
+        "n": 353,
+        "mean_excess_m2": -49.34618771956323,
+        "fraction_positive": 0.40226628895184136
+      },
+      "upper_N": {
+        "n": 339,
+        "mean_excess_m2": -2.3802414647455024,
+        "fraction_positive": 0.5309734513274337
+      }
+    },
+    "nn_excess_series_m2": {
+      "lower_N": {
+        "n": 353,
+        "mean_excess_m2": -78.79193004111595,
+        "fraction_positive": 0.36827195467422097
+      },
+      "upper_N": {
+        "n": 336,
+        "mean_excess_m2": 32.65368923873272,
+        "fraction_positive": 0.5535714285714286
+      }
+    },
+    "caveat": "Post-result descriptive levels using within-series MNKA categories, not adjusted for site-year covariates; positive slope does NOT imply NN-excess positive at any given N"
+  },
+  "selected_taxon_sensitivity_posthoc": {
+    "PELE": {
+      "n": 416,
+      "sites": 15,
+      "XY_beta": 4.465573912240587,
+      "series_beta": 6.356846287606596,
+      "XY_ci95_t": [
+        1.289,
+        7.642
+      ],
+      "series_ci95_t": [
+        2.138,
+        10.576
+      ]
+    },
+    "PEMA": {
+      "n": 400,
+      "sites": 22,
+      "XY_beta": 1.1986619648561614,
+      "series_beta": 0.6845687133016801,
+      "XY_ci95_t": [
+        -2.57,
+        4.967
+      ],
+      "series_ci95_t": [
+        -7.236,
+        8.605
+      ]
+    },
+    "PEGO": {
+      "n": 70,
+      "sites": 4,
+      "XY_beta": 3.5944663156616365,
+      "series_beta": 15.514116166513146,
+      "XY_ci95_t": [
+        -11.27,
+        18.459
+      ],
+      "series_ci95_t": [
+        -27.564,
+        58.592
+      ]
+    },
+    "source_method": "same fixed-effects formula and site cluster covariance on per-taxon subsets, exploratory; PEGO 4 site clusters far too few for dependable coverage"
+  },
+  "direct_species_comparison_support": {
+    "PELE_sites": 15,
+    "PEMA_sites": 22,
+    "shared_sites": 9,
+    "shared_site_plots": 13,
+    "exact_same_plot_event_with_both_repeat_supported": 25,
+    "exact_matched_events_sites": 7,
+    "claim_boundary": "Too sparse and observations selective to distinguish taxon behavioral effects from local habitat, capture probability or condition",
+    "matched_event_descriptive": {
+      "XY_PELE_minus_PEMA_mean": 40.041,
+      "series_PELE_minus_PEMA_mean": -73.999,
+      "interpretation": "contradictory reference contrast directions; no direct species-mechanism support"
+    }
+  },
+  "decision": {
+    "unchanged_primary_6_8_guard": "FAILED",
+    "genus_local_geometry_candidate": "EXPLORATORY",
+    "independent_confirmation": "NOT_AVAILABLE",
+    "species_mechanism": "HOLD",
+    "claim": "Greater relative local nearest-neighbor spacing compared with two geometry references as Peromyscus genus MNKA increases; absolute spacing still contracts, and no territoriality or overdispersion mechanism identified",
+    "forbidden": [
+      "claim genotypic species effect based on exploratory taxon split",
+      "select PELE only to reclassify genus confirmation",
+      "call the site-cluster CI prospectively valid after genus and null selection",
+      "claim adaptive segregation or social competition from 3-night trapping data"
+    ],
+    "recommended_next": "Hold additional same-release post-hoc subgroup search; use first new NEON release with frozen genus test, and ideally independent tracking or a trap-specific detection-control design."
+  }
+}

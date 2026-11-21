@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+<title id="title">14 independent NEON site means show positive genus trap-location recurrence after tagged-animal turnover</title>
+<desc id="desc">Site-level standardized Z means, sorted by magnitude without site identification. Eleven of fourteen are positive. Grand mean positive 0.801, exact site sign-flip p equals 0.00116. Individual analyses at 58 seasonal pairs are not counted as independent sites.</desc>
+<rect width="1200" height="690" fill="#ffffff"/>
+<text x="65" y="55" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#183247">Spatial signatures reappear beyond observed individual overlap</text>
+<text x="66" y="86" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#587080">Independent NEON sites · genus × trap recurrence · season-B fixed-fixed null</text>
+<line x1="120" y1="164" x2="120" y2="562" stroke="#8ba0af" stroke-width="1.3"/>
+<line x1="120" y1="552" x2="1120" y2="552" stroke="#455b69" stroke-width="2"/>
+<text x="104" y="557" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">0</text>
+<line x1="120" y1="492.3076923076923" x2="1120" y2="492.3076923076923" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="497.3076923076923" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+0.5</text>
+<line x1="120" y1="432.61538461538464" x2="1120" y2="432.61538461538464" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="437.61538461538464" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+1</text>
+<line x1="120" y1="372.9230769230769" x2="1120" y2="372.9230769230769" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="377.9230769230769" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+1.5</text>
+<line x1="120" y1="313.2307692307692" x2="1120" y2="313.2307692307692" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="318.2307692307692" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+2</text>
+<line x1="120" y1="253.53846153846155" x2="1120" y2="253.53846153846155" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="258.53846153846155" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+2.5</text>
+<line x1="120" y1="193.8461538461538" x2="1120" y2="193.8461538461538" stroke="#e4e9ed" stroke-width="1"/>
+<text x="104" y="198.8461538461538" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">+3</text>
+<line x1="120" y1="611.6923076923077" x2="1120" y2="611.6923076923077" stroke="#eef0f2"/>
+<text x="104" y="615.6923076923077" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5b707c">−0.5</text>
+<rect x="139.00" y="552.00" width="51.43" height="26.31" rx="2.5" fill="#c77e59"/>
+<text x="164.71" y="597.31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#c77e59" font-weight="600">-0.22</text>
+<text x="164.71" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">1</text>
+<rect x="208.43" y="552.00" width="51.43" height="21.66" rx="2.5" fill="#c77e59"/>
+<text x="234.14" y="592.66" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#c77e59" font-weight="600">-0.18</text>
+<text x="234.14" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">2</text>
+<rect x="277.86" y="552.00" width="51.43" height="5.74" rx="2.5" fill="#c77e59"/>
+<text x="303.57" y="576.74" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#c77e59" font-weight="600">-0.05</text>
+<text x="303.57" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">3</text>
+<rect x="347.29" y="526.19" width="51.43" height="25.81" rx="2.5" fill="#366f8b"/>
+<text x="373.00" y="517.19" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.22</text>
+<text x="373.00" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">4</text>
+<rect x="416.71" y="519.01" width="51.43" height="32.99" rx="2.5" fill="#366f8b"/>
+<text x="442.43" y="510.01" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.28</text>
+<text x="442.43" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">5</text>
+<rect x="486.14" y="518.60" width="51.43" height="33.40" rx="2.5" fill="#366f8b"/>
+<text x="511.86" y="509.60" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.28</text>
+<text x="511.86" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">6</text>
+<rect x="555.57" y="509.15" width="51.43" height="42.85" rx="2.5" fill="#366f8b"/>
+<text x="581.29" y="500.15" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.36</text>
+<text x="581.29" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">7</text>
+<rect x="625.00" y="468.39" width="51.43" height="83.61" rx="2.5" fill="#366f8b"/>
+<text x="650.71" y="459.39" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.70</text>
+<text x="650.71" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">8</text>
+<rect x="694.43" y="465.85" width="51.43" height="86.15" rx="2.5" fill="#366f8b"/>
+<text x="720.14" y="456.85" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.72</text>
+<text x="720.14" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">9</text>
+<rect x="763.86" y="446.29" width="51.43" height="105.71" rx="2.5" fill="#366f8b"/>
+<text x="789.57" y="437.29" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+0.89</text>
+<text x="789.57" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">10</text>
+<rect x="833.29" y="409.39" width="51.43" height="142.61" rx="2.5" fill="#366f8b"/>
+<text x="859.00" y="400.39" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+1.19</text>
+<text x="859.00" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">11</text>
+<rect x="902.71" y="311.49" width="51.43" height="240.51" rx="2.5" fill="#366f8b"/>
+<text x="928.43" y="302.49" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+2.01</text>
+<text x="928.43" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">12</text>
+<rect x="972.14" y="277.94" width="51.43" height="274.06" rx="2.5" fill="#366f8b"/>
+<text x="997.86" y="268.94" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+2.30</text>
+<text x="997.86" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">13</text>
+<rect x="1041.57" y="227.64" width="51.43" height="324.36" rx="2.5" fill="#366f8b"/>
+<text x="1067.29" y="218.64" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#366f8b" font-weight="600">+2.72</text>
+<text x="1067.29" y="622" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#536574">14</text>
+<line x1="120" y1="456.40" x2="1120" y2="456.40" stroke="#86608d" stroke-width="2.3" stroke-dasharray="10 6"/>
+<text x="1117" y="447.40" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#795181" font-weight="700">Mean across sites +0.801</text>
+<rect x="120" y="120" width="390" height="42" fill="#f4f6f8" rx="6"/>
+<text x="136" y="148" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#234a66" font-weight="600">11/14 positive · exact p = 0.00116</text>
+<text x="590" y="654" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#566c7a">Anonymized independent site rank (sorted by observed standardized Z)</text>
+<text x="63" y="673" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#6b7e87">58 total seasonal pairs nested in 14 sites; source: frozen RELEASE-2026 ecological receipt, Actions 39208798076</text>
+</svg>

@@ -1,0 +1,45 @@
+name: neon-crossseason-genus-template-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_neon_crossseason_genus_support_v1.py"
+      - "analysis/run_neon_crossseason_genus_template_support_v1.py"
+      - "tests/test_neon_crossseason_genus_support_v1.py"
+      - ".github/workflows/neon-crossseason-genus-template-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-genus-crossseason-template-support-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  independent-genus-season-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synthetic frozen independent-season and replacement identity gate
+        run: python -m unittest discover -s tests -p 'test_neon_crossseason_genus_support_v1.py' -v
+      - name: Confirm versioned source access exists
+        run: test -n "$NEON_API_TOKEN"
+      - name: Original NEON source support only without genus spatial-recurrence outcome
+        run: python -m analysis.run_neon_crossseason_genus_template_support_v1
+      - name: Archive only site/count support and original source provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-crossseason-genus-template-source-support
+          path: build/neon_crossseason_genus_template_support_v1.json
+          if-no-files-found: warn
+          retention-days: 40

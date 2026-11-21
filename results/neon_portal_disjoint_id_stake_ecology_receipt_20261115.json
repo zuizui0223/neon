@@ -1,0 +1,118 @@
+{
+  "observed_species_stake_collision": {
+    "all_species_census_specific_station_reference": "dot product of plot-year all-target-granivore capture-station shares, INCLUDING focal species; a conservative observed-source reference",
+    "definition": "probability two observed ID-disjoint same-species individuals from adjacent-year same-month censuses are recorded at the exact same Portal stake",
+    "equal_original_plot_speciesblind_mean_excess": -0.00006438873188252336,
+    "equal_original_plot_uniform_mean_excess": 0.001908166997509569,
+    "equal_plot_exclosure_minus_control_bootstrap95": [
+      -0.004691605679721465,
+      0.0034864943585353842
+    ],
+    "equal_plot_exclosure_minus_control_speciesblind": -0.0005224137381471439,
+    "equal_plot_exclosure_minus_control_uniform": 0.0018813475411821184,
+    "equal_plot_speciesblind_bootstrap95": [
+      -0.0015468789689407117,
+      0.001400965085417213
+    ],
+    "equal_plot_speciesblind_by_treatment": {
+      "control": 0.0008301938127006381,
+      "exclosure": 0.0003077800745534942
+    },
+    "equal_plot_uniform_by_treatment": {
+      "control": 0.0012508756188110716,
+      "exclosure": 0.00313222315999319
+    },
+    "no_p_values_computed": true,
+    "plot_cluster_bootstrap_draws": 10000,
+    "plot_cluster_seed": 2026111514,
+    "raw_pair_speciesblind_excess_summary": {
+      "max": 0.06666666666666668,
+      "mean": 0.0008845687145343099,
+      "median": 0,
+      "min": -0.046153846153846156,
+      "negative": 177,
+      "positive": 208,
+      "zero": 51
+    },
+    "species_code_source_counts_and_exploratory_effects": {
+      "DM": {
+        "plot_clusters": 12,
+        "raw_pair_mean_speciesblind_excess": 0.0013632550315399838,
+        "raw_pair_mean_uniform_excess": 0.0014763848654826114,
+        "source_pairs": 95
+      },
+      "DO": {
+        "plot_clusters": 2,
+        "raw_pair_mean_speciesblind_excess": 0.003062315038801285,
+        "raw_pair_mean_uniform_excess": 0.0011467444120505353,
+        "source_pairs": 7
+      },
+      "PB": {
+        "plot_clusters": 11,
+        "raw_pair_mean_speciesblind_excess": 0.001195997248078289,
+        "raw_pair_mean_uniform_excess": 0.0029761010360413493,
+        "source_pairs": 137
+      },
+      "PF": {
+        "plot_clusters": 2,
+        "raw_pair_mean_speciesblind_excess": -0.015476190476190475,
+        "raw_pair_mean_uniform_excess": -0.02040816326530612,
+        "source_pairs": 2
+      },
+      "PP": {
+        "plot_clusters": 20,
+        "raw_pair_mean_speciesblind_excess": 0.0005221912012036258,
+        "raw_pair_mean_uniform_excess": 0.002663759780705616,
+        "source_pairs": 195
+      }
+    },
+    "uniform_49_stake_baseline_collision": 0.02040816326530612
+  },
+  "retrieved_utc": "2026-11-15T04:39:23.703838+00:00",
+  "schema": "neon.portal_individual_disjoint_stake_ecology.v1",
+  "scientific_interpretation": {
+    "2019_Portal_Chaetodipus_patch_prior_art_and_2022_rodent_spatial_niche_prior_art": true,
+    "NEON_original_corrected_14site_Z_and_failure_gates_UNCHANGED": true,
+    "Structural_529_ultrarare_island_maps_not_used": true,
+    "bait_trap_location_and_species_specific_detectability_unmeasured": true,
+    "long_term_competitor_exclosure_vs_control_not_repeated_randomized_event_effect": true,
+    "measured_only_observed_species_capture_station_recurrence": true,
+    "one_geographical_Portal_field_system_with_many_corrrelated_plot_years": true,
+    "this_is_retrospective_independent_source_not_preregistered_external_confirmation": true,
+    "true_niche_realized_resource_selection_or_individual_survival_NOT_identified": true
+  },
+  "source_provenance": {
+    "ecological_test_protocol_precommitted": "docs/NEON_PORTAL_INDIVIDUAL_DISJOINT_SPATIAL_ECOLOGY_PROTOCOL_20261115.md",
+    "original_github_source_file_blobs_verified": true,
+    "original_portal_git_commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "original_preoutcome_source_436_pairs_go": true,
+    "portal_is_one_physical_landscape": true,
+    "source_preoutcome_action_run": 43677338828
+  },
+  "status": "EXTERNAL_PORTAL_OBSERVED_STAKE_RECURRENCE_EXPLORATORY_NOT_NICHE_CAUSATION",
+  "unit_and_support": {
+    "ambiguous_same_census_multistake_IDs_removed": {},
+    "control_comparisons": 227,
+    "exclosure_comparisons": 209,
+    "original_Neon_and_Structural_response_not_read": true,
+    "original_plot_clusters_by_treatment": {
+      "control": 13,
+      "exclosure": 11
+    },
+    "original_unique_plot_clusters_total": 20,
+    "retained_source_individual_disjoint_species_plot_year_pairs": 436,
+    "shared_observed_ID_removal_count_by_source": {
+      "removed_shared_observed_identifiers": 1794
+    }
+  },
+  "github_actions_provenance": {
+    "source_run_id": 43677687501,
+    "job_id": 132701318430,
+    "artifact_id": 14146996768,
+    "artifact_zip_digest": "sha256:9161ea03c98bd0398b6236dcf34ce565d1164ea2fdbf6ec2f550ddb54ced7859",
+    "source_commit": "334449c976605021b9fab90097bc68b95ef0ed3d",
+    "conclusion": "success",
+    "preoutcome_protocol_committed_before_ecological_scores": true,
+    "observed_source_comparisons_original_not_reselected": true
+  }
+}

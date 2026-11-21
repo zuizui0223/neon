@@ -1,0 +1,102 @@
+{
+  "downloaded_raster_sha256_digest_set": "0c36dd1614f0c55d3feb306546a8c67f9664621ea75181698d42268f5f8ad2dc",
+  "executed_UTC": "2026-10-20T07:15:47.576369+00:00",
+  "fixed_original_plots": 30,
+  "fixed_original_sites": 14,
+  "live_reference_location_digest_set_sha256": "235ecb4dccaf044584c64e01c43bbc7bcedafb9488602c500959c06070bbcc99",
+  "local_SHA256_not_misrepresented_as_provider_MD5": true,
+  "location_datum_status": {
+    "explicit_supported": 30
+  },
+  "locations_successfully_parsed": 30,
+  "manifest_response_digest_set_sha256": "77649a933a3d7a76429d2d953a1cb077bb857697ac0461bac18c414f7b221ccc",
+  "plots_with_unique_filename_candidate_tile": 30,
+  "product_metadata_canonical_sha256": "68c2e2d3fa19a3f96992fbfbcb9e37777aa0c11144a02b345908b994def17944",
+  "provider_checksum_algorithm_tile_counts": {
+    "crc32c": 29
+  },
+  "reference_pixel_status_counts": {
+    "VALID_REFERENCE_PIXEL": 30
+  },
+  "released_CHM_manifest_tile_count": 2796,
+  "request_or_read_errors_by_class": {},
+  "requested_exact_release": "RELEASE-2026",
+  "schema": "neon.E5_CHM_reference_pixel_access.v2",
+  "scientific_boundary": {
+    "E5_is_reference_only_not_100_station_substitute": true,
+    "MOSA_W_B": "SEALED",
+    "all_station_orientation_resolved": false,
+    "coordinates_rotated_relabelled_or_synthesized": false,
+    "corrected_recurrence_result_refitted": false,
+    "habitat_or_detection_effect_estimated": false,
+    "height_zero_treated_as_absent_vegetation": false,
+    "historical_location_dates_and_capture_events_matched": false,
+    "latest_canopy_flight_assumed_contemporaneous_with_all_captures": false,
+    "original_density_W_B_status": "FAILED_5_OF_8",
+    "raw_locations_animal_IDs_or_raster_tiles_exported": false
+  },
+  "selected_acquisition_year_site_counts": {
+    "2022": 1,
+    "2023": 5,
+    "2024": 8
+  },
+  "selected_tile_bytes": 36305674,
+  "selection": "unchanged latest advertised month in 2015 through 2025 per original site; no alternative month/year substitution",
+  "sites_with_valid_reference_pixel": 14,
+  "source_cohort": {
+    "capture_files_without_required_namedLocation_schema": 0,
+    "downloaded_source_files_MD5_size_verified": 3480,
+    "manifest_files": 3547,
+    "perplotnight_files": 1773,
+    "pertrapnight_files": 1707,
+    "release": "RELEASE-2026",
+    "same_58_pairs_30_plots_14_sites_reproduced": true,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "source_endpoint": "literal NEON product availableDataUrls monthly endpoint, with exact release/product/site/month verified",
+  "status": "ACTUAL_REFERENCE_PIXELS_READ_NOT_TRAP_HABITAT_EVIDENCE",
+  "tiles_downloaded_and_provider_checksum_size_verified": 29,
+  "uncertainty_window_valid_fraction_minimum": 1,
+  "unique_selected_tiles": 29,
+  "valid_reference_height_m_summary": {
+    "maximum": 23.10700035095215,
+    "median": 0,
+    "minimum": 0,
+    "negative_values_flagged": 0,
+    "zero_values": 19
+  },
+  "valid_reference_pixels": 30,
+  "valid_reference_pixels_with_known_coordinate_uncertainty": 30,
+  "record_date": "2026-10-20",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 39384927081,
+    "job_id": 118502388727,
+    "head_commit_at_run": "6e6f352c53d222a2cf2fe6ecee6f42a0b84ae051",
+    "run_conclusion": "success",
+    "artifacts": [
+      {
+        "id": 12247380656,
+        "name": "neon-e5-chm-reference-pixel-access-v1",
+        "digest": "sha256:484e0421cb2e3f128519232be2bba19546344e3d139549f1f7df9ca05e91c73b"
+      }
+    ],
+    "url": "https://github.com/zuizui0223/neon/actions/runs/39384927081"
+  },
+  "interpretation": {
+    "source_E5_raster_link_verified": true,
+    "source_30_E5_valid": true,
+    "source_29_CHM_tiles_with_provider_crc32c_pass": true,
+    "source_total_tiles_checked_bytes": 36305674,
+    "CHM_zero_m_does_not_prove_no_understory": true,
+    "NEON_14sites_not_full_trap_grid_validation": true,
+    "date_aligned_historical_habitat": false,
+    "cannot_estimate_genus_microhabitat_response_from_E5_only": true,
+    "original_corrected_genus_recurrence_unmodified": true,
+    "old_density_eight_genus_status": "FAILED_5_OF_8",
+    "MOSA_space_effects": "SEALED",
+    "next": "Check all five original named-location anchors (A1,A10,J1,J10,E5) with each plot's same source-verified CHM tile and explicit geographic uncertainty; do not infer any missing station coordinate or regress positive recurrence on reference-only heights."
+  }
+}

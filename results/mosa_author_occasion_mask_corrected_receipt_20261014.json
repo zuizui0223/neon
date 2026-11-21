@@ -1,0 +1,66 @@
+{
+  "schema": "neon.external_MOSA_author_occasion_mask_corrected_receipt.v1",
+  "date": "2026-10-14",
+  "classification": "EFFECT_BLIND_STRUCTURAL_REVISED_INTERPRETATION_IDENTITY_HOLD",
+  "source": {
+    "published_article": "Leirs et al. 2023 Scientific Data doi:10.1038/s41597-023-02700-3",
+    "zenodo_record": "10.5281/zenodo.10049811",
+    "raw_MD5": "md5:12c04902947b91922c3f6c98760ecb54",
+    "author_time_table_MD5": "md5:ca051ba1fafee9f384be976730a5e84e",
+    "author_encounter_matrix_MD5": [
+      "md5:d16d26003f3df2ed139edc03f11b9ebd",
+      "md5:bf600b8136891e39c70e203a867e1ef1"
+    ],
+    "github_run": 38421811063,
+    "github_job": 115380798040,
+    "artifact_id": 11826529201,
+    "artifact_digest": "sha256:e8896a7436b67bb512c558bc306bd98018eb139e7b0e2a4193de28e1b49ce147"
+  },
+  "published_schedule": {
+    "primary_three_consecutive_night_occasions": 363,
+    "total_author_three_night_days": 1089,
+    "primary_occasions_crossing_calendar_month": 59,
+    "earliest": "1994-03-15",
+    "latest": "2023-02-23",
+    "original_previous_proxy": "182 calendar-months with exactly 3 consecutive MN capture-bearing dates",
+    "previous_proxy_not_equivalent_to_author_sessions": true
+  },
+  "identity_counts": {
+    "raw_MN_captures": 45433,
+    "raw_MN_distinct_TOE": 19818,
+    "author_MN_unique_TOE": 19678,
+    "raw_MN_distinct_TOE_absent_author_MN": 140,
+    "raw_MN_missing_only_off_author_days": 119,
+    "raw_MN_missing_with_some_author_day_capture": 21,
+    "raw_MN_missing_with_valid_station_on_author_days": 11,
+    "raw_MN_missing_with_ge2_distinct_author_days": 7,
+    "missing_MN_raw_capture_rows_on_author_days": 68,
+    "missing_MN_valid_station_capture_rows_on_author_days": 25,
+    "raw_MN_missing_TOE_also_in_author_NA": 18,
+    "author_MN_rows": 19692,
+    "author_duplicate_MN_TOE_rows": 14,
+    "author_NA_rows": 158,
+    "published_MN_individual_count": 19850,
+    "unexplained_unique_individual_count_gap": 32,
+    "numeric_row_accounting": "19818-140+14+158=19850",
+    "numeric_row_accounting_is_not_individual_reconciliation": true
+  },
+  "correction": {
+    "prior_run": 38404910124,
+    "prior_result": "135 of 140 missing codes only observed outside exact within-calendar-month 3-MN-capture-day proxy",
+    "updated_decision": "The previous 135/140 proxy count is valid only as a conservative MN-capture-day screen, not proof of author occasion exclusion. Actual author retained 363 primary sessions yield 119/140 with no same-day capture and 21/140 with at least one same-day capture.",
+    "raw_valid_station_cannot_be_assumed_in_authored_matrix": false,
+    "hardcoded_author_date_exclusions_and_date_corrections_present": true,
+    "full_author_preprocessing_reproduced": false,
+    "author_matrix_direct_TOE_row_correspondence_certain": false
+  },
+  "decision": {
+    "external_MOSA_MNA_authorized": false,
+    "MOSA_W_B_or_density_effect_authorized": false,
+    "original_NEON_eight_genus_general_guard": "FAILED_UNCHANGED",
+    "new_NEON_five_genus_mode_test": "NOT_ESTIMABLE",
+    "future_Peromyscus_positive_D": "FAILED_IMPRECISE",
+    "biological_interpretation": "Unresolved published animal identities and occasion filtering remain upstream of any external-space use or abundance inference. Original Mastomys data cannot be claimed to replicate mammal spatial ecology yet.",
+    "next_action": "Effect-blind cross-tab of 21 residual missing MN source TOE codes by valid station, species NA matrix overlap, flag, 2-night support and published RMarkdown manual date deletions; if IDs remain irreconcilable obtain author clarification. Never invent split TOE IDs."
+  }
+}
