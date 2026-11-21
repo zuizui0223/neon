@@ -55,7 +55,7 @@ def diagnostic():
         if yr and day:
             c["original_capture_DATE_and_YEAR_literal_text_equal"]+=int(
                 yr==str(day.year))
-            if re.fullmatch(r"d{2}",yr) and int(yr)==day.year%100 and tag and grid:
+            if re.fullmatch(r"\d{2}",yr) and int(yr)==day.year%100 and tag and grid:
                 capture_tuples_two_digit_YEAR_verified_against_DATE.add((tag,grid,day.year))
     ep=set();eg=set();ept=set();eptg=set()
     event_count=Counter();event_year_parse=Counter()
