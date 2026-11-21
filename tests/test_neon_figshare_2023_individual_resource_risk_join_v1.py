@@ -47,7 +47,7 @@ class TestFigshareVoleResourceRiskSourceOnly(unittest.TestCase):
             "Vole BLUPS.csv":[{"PIT":f"Other{i}"} for i in range(1069)],
             "Vole Personality Data.csv":[{"PIT":f"A{j%8:02d}"} for j in range(3712)]
         },{},"synthetic")
-        self.assertEqual(report["status"],"SOURCE_JOIN_STOP_ID_PATCH_SEED_OR_RISK_SUPPORT")
+        self.assertEqual(report["status"],"SOURCE_JOIN_STOP_ID_PATCH_SEED_OR_FOREST_STRATUM_SUPPORT")
         self.assertEqual(report["eligible_exact_PIT_intersection_all_three_source_count"],0)
 
 if __name__=="__main__":
