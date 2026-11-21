@@ -1,0 +1,45 @@
+name: neon-portal-2022-regional-rain-context
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_portal_2022_regional_rain_context_v1.py'
+      - 'tests/test_portal_2022_regional_rain_context_v1.py'
+      - 'docs/NEON_PORTAL_2022_REGIONAL_RAIN_CONTEXT_POSTRESULT_20261121.md'
+      - '.github/workflows/neon-portal-2022-regional-rain.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_portal_2022_regional_rain_context_v1.py'
+      - 'tests/test_portal_2022_regional_rain_context_v1.py'
+      - 'docs/NEON_PORTAL_2022_REGIONAL_RAIN_CONTEXT_POSTRESULT_20261121.md'
+      - '.github/workflows/neon-portal-2022-regional-rain.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-original-region-rain-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  two-original-noaa-regional-weather-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check NOAA daily 92-day and original file parsing invariants
+        run: python -m unittest discover -s tests -p 'test_portal_2022_regional_rain_context_v1.py' -v
+      - name: Read exactly two pinned original GHCN regional rain sources; no Portal on-site gap filling
+        run: python -m analysis.audit_portal_2022_regional_rain_context_v1
+      - name: Archive regional site context or original-source STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-2022-regional-GHCN-rain-context
+          path: build/neon_portal_2022_regional_rain_20261121.json
+          if-no-files-found: warn
+          retention-days: 45
