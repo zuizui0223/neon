@@ -1,0 +1,98 @@
+{
+  "schema": "neon.portal_postresult_precapture_febmar_ndvi_context.v1",
+  "date": "2026-11-21",
+  "status": "ORIGINAL_SOURCE_VERIFIED_PRESPRING_NDVI_NO_2022_2023_DECLINE_UNDER_FIXED_EQUAL_MONTH_COMPARISON",
+  "source": {
+    "repository": "weecology/PortalData",
+    "git_commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+    "path": "NDVI/ndvi.csv",
+    "original_git_blob_sha": "0a55a926712210ee786660517a1ae12285bb6303",
+    "source_SHA256": "3f043603693c53a92eff1376d51f07e16678e19a56142fc2f5b7f4ff4df5910c",
+    "source_bytes": 252370,
+    "original_filter": "Landsat8 USGS, February 1–March 31, original cloud percent <=30, finite NDVI, 2021–2024",
+    "post_result_source_coverage_informed_window": true
+  },
+  "execution": {
+    "original_github_workflow_url": "https://github.com/zuizui0223/neon/actions/runs/44853409600",
+    "job_id": 136689845511,
+    "artifact_id": 14686132857,
+    "unit_tests": 5,
+    "unit_test_status": "passed",
+    "original_source_runner_status": "success",
+    "independent_JS_original_source_numeric_reconstruction": "matching all four year means and all three changes",
+    "frozen_protocol": "docs/NEON_PORTAL_PRECAPTURE_FEBMAR_NDVI_CONTEXT_FROZEN_20261121.md",
+    "analysis_code": "analysis/run_portal_precapture_febmar_ndvi_context_v1.py"
+  },
+  "observations": {
+    "annual_equal_month_feb_mar_NDVI": {
+      "2021": 0.14509642469136183,
+      "2022": 0.1453085960353635,
+      "2023": 0.14827557690693777,
+      "2024": 0.15545575621138852
+    },
+    "monthly_mean_NDVI": {
+      "2021": {
+        "february": 0.144777551283329,
+        "march": 0.14541529809939466
+      },
+      "2022": {
+        "february": 0.147947360682107,
+        "march": 0.14266983138862
+      },
+      "2023": {
+        "february": 0.141086781384467,
+        "march": 0.1554643724294085
+      },
+      "2024": {
+        "february": 0.147328819712003,
+        "march": 0.163582692710774
+      }
+    },
+    "image_counts": {
+      "2021": {
+        "february": 3,
+        "march": 3
+      },
+      "2022": {
+        "february": 2,
+        "march": 4
+      },
+      "2023": {
+        "february": 1,
+        "march": 2
+      },
+      "2024": {
+        "february": 2,
+        "march": 1
+      }
+    },
+    "all_adjacent_year_changes": {
+      "2021_to_2022": 0.00021217134400167148,
+      "2022_to_2023": 0.002966980871574265,
+      "2023_to_2024": 0.007180179304450751
+    },
+    "early_greenness_direction_2022_to_2023": "positive, not a measured decline",
+    "rank_2022_to_2023_abs_change_largest_first": 2,
+    "quality_gate": "one or more valid original Landsat8 image for both February and March of each of four years PASSED"
+  },
+  "context": {
+    "original_ndvi_Jul_to_Sep_2022_to_2023_change": -0.1015584773279839,
+    "contrast": "Early-Feb-Mar greenness slightly rises 2022→23, full summer Jul-Sep greenness falls. These characterize different observation periods, not a causal mechanism.",
+    "original_portal_2022_to_2023_capture_pairs": 65,
+    "original_followup_2023_Apr_to_Jun_pairs": 43,
+    "original_followup_2023_Oct_to_Nov_pairs": 22,
+    "no_new_mammal_coefficient_calculated": true
+  },
+  "interpretation": {
+    "no_observed_early_greenness_decline_2022_to_2023": true,
+    "early_2023_ndvi_image_count_small": true,
+    "not_a_test_of_seed_food_biomass_or_energy": true,
+    "not_a_general_test_of_competition_or_learning": true,
+    "post_result_post_source_coverage_window_choice": true,
+    "only_one_landscape_and_four_calendar_years": true,
+    "early_green_not_declining_does_not_refute_unmeasured_rodent_food_changes": true,
+    "site_wide_image_mean_not_plot_treatment_context": true,
+    "original_Portal_114model_and_NEON_Finland_Structural_effects_unchanged": true,
+    "NEON_unified_manuscript_stays_Draft_SUBMISSION_HOLD": true
+  }
+}
