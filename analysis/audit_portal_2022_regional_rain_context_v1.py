@@ -118,14 +118,26 @@ def changes(totals):
 def station_report(name,metadata):
     path,sha,station,cap=metadata
     raw=pinned_bytes(path,sha,cap)
-    d,valid=parse_original_station(raw,station)
     report={
         "original_file":path,"original_Git_blob_SHA_verified":sha,
         "original_sha256":sha256(raw).hexdigest(),
         "original_bytes":len(raw),"original_station_id":station,
-        "source_QC":valid,
         "not_colocated_with_Portal_20ha_experiment":True,
     }
+    try:
+        d,valid=parse_original_station(raw,station)
+    except ValueError as error:
+        if str(error)=="PORTAL_REGIONAL_RAIN_STOP_ORIGINAL_DAILY_RAIN_SCHEMA":
+            # Rodeo original is a Wunderground PWS hourly file with
+            # 'stationid', 'hour', 'preciptotal', not frozen daily GHCN
+            # 'station' and 'prcp'. Never sum preciptotal as daily PRCP.
+            report["status"]="REGIONAL_SOURCE_SCHEMA_STOP_HOURLY_PWS_NOT_DAILY_GHCN"
+            report["source_QC"]={"original_daily_prcp_schema_present":False}
+            report["observed_monsoon_rain_mm_by_year"]=None
+            report["year_changes"]=None
+            return report
+        raise
+    report["source_QC"]=valid
     if valid["original_data_eligible_all_four_years"]:
         annual={y:sum(z for z in d[y].values() if z is not None)
                 for y in YEARS}
