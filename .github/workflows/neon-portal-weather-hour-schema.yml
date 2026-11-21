@@ -6,6 +6,12 @@ on:
     paths:
       - 'analysis/diagnose_portal_weather_hour_format_v1.py'
       - '.github/workflows/neon-portal-weather-hour-schema.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_portal_weather_hour_format_v1.py'
+      - '.github/workflows/neon-portal-weather-hour-schema.yml'
   workflow_dispatch:
 permissions:
   contents: read
