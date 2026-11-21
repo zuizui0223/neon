@@ -1,0 +1,45 @@
+name: neon-figshare-2023-original-csv-source-only
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_2023_original_csv_schema_v1.py'
+      - 'tests/test_neon_figshare_2023_original_csv_schema_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_ORIGINAL_CSV_SCHEMA_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-original-csv-schema.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_2023_original_csv_schema_v1.py'
+      - 'tests/test_neon_figshare_2023_original_csv_schema_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_ORIGINAL_CSV_SCHEMA_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-original-csv-schema.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2023-source-only-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checksum-verify-three-original-2023-behavioral-csv-headers-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original Figshare source identities and outcome-blind CSV grammar
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2023_original_csv_schema_v1.py' -v
+      - name: Download only exact three original public Figshare CSV bytes and report schema, not biology
+        run: python -m analysis.audit_neon_figshare_2023_original_csv_schema_v1
+      - name: Preserve verified original CSV header ledger or strict STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2023-original-csv-schema-source-only
+          path: build/neon_figshare_2023_original_csv_schema_v1.json
+          if-no-files-found: warn
+          retention-days: 45
