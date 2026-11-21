@@ -1,0 +1,11 @@
+# Figshare 2023 vole seed study: treatment category ontology check
+
+21 November 2026. **Source-only diagnosis after original 603-event/43-PIT/599 matched event GO**, before any seed choice, risk preference, resource interaction, learning or trait outcome has been estimated in NEON.
+
+The article describes *safe covered* and *risky exposed* seed-tray treatments, but original data's `TREAT` source has **THREE** nonempty categorical labels across 603 original event rows. This discrepancy needs explanation BEFORE assigning binary risk categories. Do not silently collapse a third category, choose only two favorable groups or attribute its meaning from intuition.
+
+Download original file `2018 Vole Seed Data.csv` EXACT Figshare article **21512436 v1**, file ID 38217891, size **66667** bytes and MD5 `5c58051b71eaa55cd888c87b6494a00c`, via official provider metadata HTTPS only, as source gate `analysis/audit_neon_figshare_2023_original_csv_schema_v1.py`. Export only the exact literal `TREAT` category labels with row counts, number of original `GRID` categories with each category, number of `SESSION` categories with each category, and unique `GRID×SITE_ID` keys for each category, NOT individual IDs, exact grid/site labels, seed quantity, observed preference/choice/consumption, or environmental effects. It is permissible to report categorical source labels as they are prerequisite to identifying experimental manipulations, not effect outcomes. Never reclassify without original study documentation.
+
+If all 3 levels can be unambiguously interpreted using only original published methods/source code as 2 treatments plus a documented third non-comparable status, a separate, newly frozen design may evaluate source comparability; otherwise **TREATMENT_ONTOLOGY_STOP** prevents treating the source as an experimental risk contrast. Any source-only category audit GO does **not** show risk or learning effects, nor does it validate NEON spatial memory.
+
+Output `analysis/diagnose_neon_figshare_2023_treatment_ontology_v1.py`, corresponding GitHub workflow and `build/neon_figshare_2023_treatment_ontology_v1.json`. Original NEON/Portal/Finnish results unchanged; one Draft manuscript SUBMISSION HOLD.
