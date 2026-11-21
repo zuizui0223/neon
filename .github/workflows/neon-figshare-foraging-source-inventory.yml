@@ -1,0 +1,45 @@
+name: neon-figshare-original-foraging-source-inventory
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_foraging_source_inventory_v1.py'
+      - 'tests/test_neon_figshare_foraging_source_inventory_v1.py'
+      - 'docs/NEON_INDEPENDENT_FORAGING_RFID_SEED_SOURCE_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-foraging-source-inventory.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_foraging_source_inventory_v1.py'
+      - 'tests/test_neon_figshare_foraging_source_inventory_v1.py'
+      - 'docs/NEON_INDEPENDENT_FORAGING_RFID_SEED_SOURCE_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-foraging-source-inventory.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-rfid-resource-source-only-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  official-figshare-public-article-source-metadata-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify no-ecological-effect Figshare metadata and provenance parser
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_foraging_source_inventory_v1.py' -v
+      - name: Query only the two pinned original provider article metadata API endpoints
+        run: python -m analysis.audit_neon_figshare_foraging_source_inventory_v1
+      - name: Archive public provider file names, IDs and digests or source STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-seed-RFID-source-inventory-only
+          path: build/neon_figshare_foraging_source_inventory_v1.json
+          if-no-files-found: warn
+          retention-days: 45
