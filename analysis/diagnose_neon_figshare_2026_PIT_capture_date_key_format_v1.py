@@ -22,7 +22,7 @@ def diagnostic():
     capt=data["2016-2023 Capture Data.csv"]
     events=data["All Foraging Clean.csv"]
     stations=data["All Station Nights.csv"]
-    c=Counter();unique_pit=set();unique_grid=set();year_labels=Counter()
+    c=Counter();unique_pit=set();unique_grid=set();year_labels=Counter();literal_YEAR_by_original_DATE_year=Counter()
     capture_tuples=set();capture_tag_grid=set()
     for row in capt:
         tag=original_tag(row.get("PIT"))
@@ -37,6 +37,8 @@ def diagnostic():
         if tag:unique_pit.add(tag)
         if grid:unique_grid.add(grid)
         if tag and grid:capture_tag_grid.add((tag,grid))
+        if yr and day:
+            literal_YEAR_by_original_DATE_year[f"{yr}__DATE_calendar_{day.year}"]+=1
         if yr:
             if re.fullmatch(r"\d{4}",yr):
                 year_labels["four_digits"]+=1
@@ -97,6 +99,8 @@ def diagnostic():
       "version":2,"source_original_md5_and_metadata_reverified":True,
       "original_capture_field_presence_source_counts":dict(sorted(c.items())),
       "original_capture_year_literal_format_counts":dict(sorted(year_labels.items())),
+      "literal_original_YEAR_code_to_original_DATE_calendar_year_source_census":
+          dict(sorted(literal_YEAR_by_original_DATE_year.items())),
       "unique_original_capture_literal_PIT_count":len(unique_pit),
       "unique_original_capture_literal_GRID_count":len(unique_grid),
       "distinct_original_capture_PIT_GRID_keys":len(capture_tag_grid),
