@@ -17,6 +17,14 @@ class TestPortalSiteClimateSource(unittest.TestCase):
         self.assertEqual(report["per_year"]["2022"]["total_expected_hour_slots"],EXPECTED_HOURLY)
         self.assertFalse(report["all_years_rain_quality_pass"])
 
+    def test_documented_end_of_day_24hour_label(self):
+        raw=("year,month,day,hour,precipitation\n"
+             "2022,7,1,23,0\n2022,7,1,24,1.5\n").encode()
+        series,report=weather_support(raw)
+        self.assertEqual(series[2022][(7,1,24)],1.5)
+        self.assertEqual(report["source_label_hour_24_row_count"],1)
+        self.assertTrue(report["source_hour_24_preserved_without_date_shift"])
+
     def test_negative_precip_never_reclassified_as_meteorological_null(self):
         raw=("year,month,day,hour,precipitation\n"
              "2022,7,1,0,-0.1\n").encode()
