@@ -20,6 +20,7 @@ FIELDS=("Grid","Site","Session","Night")
 
 def source_key_census(rows):
     miss=Counter();seen=Counter();dates=Counter();vary=defaultdict(set)
+    original_keyless_source_record_other_field_presence=Counter()
     for row in rows:
         for field in FIELDS:
             if token(row.get(field)) is None:
@@ -34,6 +35,9 @@ def source_key_census(rows):
                 dates["complete_key_rows_with_parseable_Date"]+=1
         else:
             dates["rows_with_missing_some_station_night_key"]+=1
+            other_populated=sum(bool((val or "").strip()) for field,val in row.items()
+                                if field not in FIELDS)
+            original_keyless_source_record_other_field_presence[other_populated]+=1
         if original_day(row.get("Date")) is not None:
             dates["total_rows_with_parseable_Date"]+=1
     return {
@@ -42,6 +46,8 @@ def source_key_census(rows):
         "source_unique_literal_value_count_per_key_component":
             {field:len(vary[field]) for field in FIELDS},
         "source_distinct_complete_station_night_keys":len(seen),
+        "keyless_original_rows_other_fields_nonempty_count_histogram":
+            dict(sorted(original_keyless_source_record_other_field_presence.items())),
         "complete_station_night_key_collision_row_count":
             sum(n-1 for n in seen.values() if n>1),
         "original_header_and_date_source_census":dict(sorted(dates.items())),
