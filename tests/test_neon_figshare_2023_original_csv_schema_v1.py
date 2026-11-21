@@ -52,6 +52,20 @@ class TestFigshareOriginal2023CSVGate(unittest.TestCase):
         ):
             self.assertFalse(exact_file_href(x,38217891))
 
+    def test_MD5_verified_BLUPS_has_only_one_unlabeled_first_column(self):
+        raw=b",PIT,bl_ms,bl_rr\n1,voleA,.5,.2\n"
+        v=original_header_and_row_count(raw,"Vole BLUPS.csv")
+        self.assertEqual(v["source_unlabeled_header_positions"],[0])
+        self.assertEqual(
+            v["scientific_column_names_excluding_any_source_unlabeled_first"],
+            ["PIT","bl_ms","bl_rr"]
+        )
+        with self.assertRaisesRegex(ValueError,"SOURCE_EMPTY_HEADER_LABEL"):
+            original_header_and_row_count(raw,"2018 Vole Seed Data.csv")
+        with self.assertRaisesRegex(ValueError,"SOURCE_EMPTY_HEADER_LABEL"):
+            original_header_and_row_count(b",PIT,,bl_rr\n1,voleA,2,3\n",
+                                          "Vole BLUPS.csv")
+
     def test_header_only_and_original_row_count(self):
         parsed=original_header_and_row_count(
             b'\xef\xbb\xbf"Grid","Tag","Seed offered"\n"a","rabbit","5"\n')
