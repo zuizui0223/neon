@@ -24,6 +24,12 @@ class TestPortalRegionalRainContext(unittest.TestCase):
         self.assertEqual(len(vals[2022]),92)
         self.assertAlmostEqual(sum(vals[2022].values()),110.4)
 
+    def test_original_Rodeo_hourly_schema_not_converted_to_GHCN_daily(self):
+        raw=("year,month,day,hour,timestamp,stationid,preciptotal\n"
+             "2022,7,1,100,2022-07-01 01:00:00,RODEO,2\n").encode()
+        with self.assertRaisesRegex(ValueError,"ORIGINAL_DAILY_RAIN_SCHEMA"):
+            parse_original_station(raw,"USC00026716")
+
     def test_missing_is_never_zero_filled(self):
         raw=("year,month,day,station,prcp\n"
              "2022,7,1,USC00026716,\n").encode()
