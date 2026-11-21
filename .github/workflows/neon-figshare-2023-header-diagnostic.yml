@@ -1,0 +1,39 @@
+name: neon-figshare-2023-original-csv-header-diagnostic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_neon_figshare_2023_original_csv_headers_v1.py'
+      - '.github/workflows/neon-figshare-2023-header-diagnostic.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_neon_figshare_2023_original_csv_headers_v1.py'
+      - '.github/workflows/neon-figshare-2023-header-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2023-header-diagnosis-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-three-Figshare-CSV-header-shapes-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source metadata and original CSV MD5 then print header gaps ONLY
+        run: python -m analysis.diagnose_neon_figshare_2023_original_csv_headers_v1
+      - name: Preserve source-only CSV-header diagnosis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2023-original-csv-header-only
+          path: build/neon_figshare_2023_original_header_diagnosis_v1.json
+          if-no-files-found: warn
+          retention-days: 45
