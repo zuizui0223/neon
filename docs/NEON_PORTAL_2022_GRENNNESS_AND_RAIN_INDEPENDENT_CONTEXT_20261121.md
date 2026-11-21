@@ -2,6 +2,22 @@
 
 **Status:** New verified site-environment context only; no new mammal response, competition or biomass effect. ONE NEON unified Draft PR #23 and **SUBMISSION HOLD**.
 
+## CRITICAL chronological correction — 21 November source-only capture-date audit
+
+The previous 2022→2023 summer NDVI decline **must NOT be used as an antecedent environmental explanation for the entire 2022-start-year mammal response**. An explicitly post-result source-only audit recreated the SAME 114 original Portal plot×year×month model-entry comparisons at 18 physical plots and the SAME 65/114 pairs indexed to start-year 2022, without recalculating any plant-abundance count or rodent species-composition outcome. Original raw 8-file Git blob hashes and ID eligibility checks passed [Actions run 44850363929](https://github.com/zuizui0223/neon/actions/runs/44850363929).
+
+Of the 65 original 2022→2023 matched capture pairs:
+
+| Original followup capture in 2023 | Number of pairs | Source plant survey season | Temporal validity of the FULL 2023 Jul–Sep NDVI window |
+|---|---:|---|---|
+| **April–June, before NDVI window** | **43 (66.2%)** | winter→winter | **NOT an antecedent**: this year's full summer NDVI was observed after the captured community |
+| July–September | 0 | — | not sampled in this fixed cohort |
+| **October–November, after NDVI window** | **22 (33.8%)** | summer→summer | ordering compatible with an earlier environment measurement, but no causal or plot-level exposure attribution |
+
+All 22 autumn original pairs have both the 2022 and 2023 full July–September NDVI windows before their respective capture dates; for the other 43, the July–September 2023 NDVI cannot have caused the earlier 2023 captured-community endpoint as a *pre-exposure*. No spring green-up, winter seed supply, earlier resource state, temperature or predator dynamics was measured here. **An unmeasured earlier ecological change could exist; it is not established by later imagery.**
+
+Consequently the satellite result supports a large site-scale greenness **decline in its own observation period**, NOT direct timing evidence for the majority of the 2022-dominated mammal associations. It further weakens the resource–competition mechanistic interpretation and adds a temporal-ordering failure on top of year-omission sign reversal. The original correlation and observational nulls are unchanged. Detailed analysis and machine receipt: `docs/NEON_PORTAL_NDVI_CAPTURE_CHRONOLOGY_AUDIT_20261121.md`, `results/neon_portal_ndvi_capture_chronology_20261121.json`. Remains DRAFT/SUBMISSION HOLD.
+
 ## Biological question inherited from immutable ecological result
 
 The original pre-frozen Portal 2020–25 plot-level captured-community analysis had 114 same-month adjacent-year plot pairs, with **65/114 (57.0%) indexed to start-year 2022→2023**. At full data, plot/month/year-adjusted association between plant-count change and captured rodent composition distance was negative in control (−0.11064) and almost zero in kangaroo-rat exclusion (+0.01890), so exclusion×resource interaction +0.12954. When start-year 2022 is omitted, control becomes +0.16391 and interaction −0.66466 (49/114 remain). **This is not temporally general and may reflect sample support**, as already frozen 20 November. No model is refit here.
