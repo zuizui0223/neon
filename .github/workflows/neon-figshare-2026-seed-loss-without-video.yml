@@ -1,0 +1,45 @@
+name: neon-figshare-2026-seed-disappearance-without-video-descriptive
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_2026_seed_loss_without_video_v1.py'
+      - 'tests/test_neon_figshare_2026_seed_loss_without_video_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_SEED_LOSS_WITHOUT_VIDEO_FROZEN_DESCRIPTIVE_20261121.md'
+      - '.github/workflows/neon-figshare-2026-seed-loss-without-video.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_2026_seed_loss_without_video_v1.py'
+      - 'tests/test_neon_figshare_2026_seed_loss_without_video_v1.py'
+      - 'docs/NEON_FIGSHARE_2026_SEED_LOSS_WITHOUT_VIDEO_FROZEN_DESCRIPTIVE_20261121.md'
+      - '.github/workflows/neon-figshare-2026-seed-loss-without-video.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare2026-unseen-seed-loss-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-pinned-seed-disappearance-not-recorded-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original source QA and no animal inference on synthetic station-nights
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2026_seed_loss_without_video_v1.py' -v
+      - name: Reverify original Figshare MD5 and evaluate one fixed descriptive seed loss contrast
+        run: python -m analysis.audit_neon_figshare_2026_seed_loss_without_video_v1
+      - name: Preserve source-only station-night seed census or scientific STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-retrospective-unattributed-seed-loss
+          path: build/neon_figshare_2026_seed_loss_no_video_v1.json
+          if-no-files-found: warn
+          retention-days: 45
