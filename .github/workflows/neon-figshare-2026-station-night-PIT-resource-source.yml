@@ -1,21 +1,11 @@
-name: neon-figshare-2026-station-night-PIT-resource-source-only
+# ARCHIVED HISTORICAL V1. Original source recorded 288 station nights + 3
+# exact arithmetic footer rows, while this immutable old scientific source
+# gate required 291 keyed station nights. It predictably FAILS by design.
+# Original source FAIL run 44856095291 and historical code are preserved.
+# Corrected numeric-threshold-preserving v2 is now continuously validated by:
+# .github/workflows/neon-figshare-2026-station-event-source-v2.yml
+name: neon-figshare-2026-station-night-PIT-ARCHIVED-v1
 on:
-  push:
-    branches:
-      - design/multiscale-density-accommodation-v1
-    paths:
-      - 'analysis/audit_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
-      - 'tests/test_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
-      - 'docs/NEON_FIGSHARE_2026_STATION_NIGHT_ID_SEED_SOURCE_GATE_20261121.md'
-      - '.github/workflows/neon-figshare-2026-station-night-PIT-resource-source.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'analysis/audit_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
-      - 'tests/test_neon_figshare_2026_foraging_station_effort_ID_source_v1.py'
-      - 'docs/NEON_FIGSHARE_2026_STATION_NIGHT_ID_SEED_SOURCE_GATE_20261121.md'
-      - '.github/workflows/neon-figshare-2026-station-night-PIT-resource-source.yml'
   workflow_dispatch:
 permissions:
   contents: read
