@@ -67,7 +67,15 @@ def describe_one(counts):
     known=n-missing
     guard(n>0 and known>0 and counts.get("blank",0)==0,
           "SPECIES_UNKNOWN_OR_BLANK_DENOMINATOR")
+    eaten=counts.get("EAR",0)+counts.get("EIS",0)
+    max_possible_shi=hoard+missing
     return {
+       "original_confirmed_eaten_EAR_plus_EIS":eaten,
+       "max_possible_primary_SHI_if_all_missing_M_are_scatter_hoarded":max_possible_shi,
+       "consumption_outnumbers_max_possible_primary_SHI_among_record_rows":
+           eaten>max_possible_shi,
+       "confirmed_eaten_minus_max_possible_primary_SHI_rows":
+           eaten-max_possible_shi,
        "original_species_assigned_row_count":n,
        "original_SHI_record_count":hoard,
        "original_M_unknown_fate_rows":missing,
@@ -95,7 +103,23 @@ def compute(data):
         Fraction(37,159)-Fraction(118,373)
     )
     guard(0<shared_p<1,"SENSITIVITY_TIPPING_OUTSIDE_0_1")
+    eat=sum(cats[s].get("EAR",0)+cats[s].get("EIS",0) for s in SPECIES)
+    possible_shi=sum(cats[s].get("SHI",0)+cats[s].get("M",0) for s in SPECIES)
+    guard(eat+possible_shi==536,"ORIGINAL_ASSIGNED_SEED_FATE_PARTITION")
+    # Three duplicated raw seed codes produce at most three duplicate ROWS.
+    # Dropping any one row per duplicated code can reduce the difference
+    # (eaten-max-SHI) by at most 3. This is a strict lower bound only, never
+    # a claimed deduplicated seed-level estimate.
+    guard(eat-possible_shi>3,"CONSUMPTION_NO_LONGER_ROBUST_TO_DUPLICATE_ROWS")
     return {
+      "assigned_species_all_original_rows":536,
+      "assigned_species_confirmed_EAR_or_EIS":eat,
+      "assigned_species_max_possible_SHI_including_every_missing_M":possible_shi,
+      "confirmed_eating_exceeds_even_all_M_as_SHI":eat>possible_shi,
+      "robust_positive_count_margin_original_rows":eat-possible_shi,
+      "minimum_positive_margin_after_any_three_duplicate_rows_removed":
+          eat-possible_shi-3,
+      "duplicate_ID_sensitivity_is_only_count_bound_not_seed_level_reconstruction":True,
       "schema":"neon.gu2025_scatter_hoarding_partial_ID_from_pinned_source_receipt.v1",
       "status":"RETROSPECTIVE_ARCHIVE_ROW_BOUND_ONLY_NOT_SEED_LEVEL_ECOLOGY",
       "original_published_article_doi":"10.1002/ece3.72409",
