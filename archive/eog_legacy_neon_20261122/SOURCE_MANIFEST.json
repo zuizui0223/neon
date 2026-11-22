@@ -1,0 +1,489 @@
+{
+  "schema": "neon.legacy_eog_archive_manifest.v1",
+  "source_repo": "zuizui0223/eog",
+  "source_commit": "91240104f9816459cd9555a63555664aff60760b",
+  "archive_date": "2026-11-22",
+  "status": "historical-only_not_active_not_submission_ready",
+  "files": [
+    {
+      "source": ".github/workflows/neon-metacommunity-fresh-roster-v1.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-metacommunity-fresh-roster-v1.yml",
+      "blob_sha": "aaba73db2ff0390809be10eda95224d74a4d71cd",
+      "size_bytes": 2968
+    },
+    {
+      "source": ".github/workflows/neon-metacommunity-response-v1.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-metacommunity-response-v1.yml",
+      "blob_sha": "6c7e3373ba3d66be4ceedc84cc6bf44a020dfe0c",
+      "size_bytes": 5505
+    },
+    {
+      "source": ".github/workflows/neon-oikos-ceiling-editorial-author-review-v3.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-oikos-ceiling-editorial-author-review-v3.yml",
+      "blob_sha": "7037a32c5f03d371a5b3316273f5d7e1799649c1",
+      "size_bytes": 6817
+    },
+    {
+      "source": ".github/workflows/neon-oikos-ceiling-review-v1.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-oikos-ceiling-review-v1.yml",
+      "blob_sha": "6df7373e48ee065a75aaff5d128bc1846ab45b02",
+      "size_bytes": 5640
+    },
+    {
+      "source": ".github/workflows/neon-small-mammal-continuity-paper-assets.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-small-mammal-continuity-paper-assets.yml",
+      "blob_sha": "4145e0b9a6f1a2165d566eabbc28913c8c60e19f",
+      "size_bytes": 3655
+    },
+    {
+      "source": ".github/workflows/neon-small-mammal-oikos-initial-policy-v2.yml",
+      "target": "archive/eog_legacy_neon_20261122/.github/workflows/neon-small-mammal-oikos-initial-policy-v2.yml",
+      "blob_sha": "b14845502235b621cd02624564d313c3c2a1c8f6",
+      "size_bytes": 4959
+    },
+    {
+      "source": "docs/eog_neon_oikos_ceiling_and_null_review_2026_10_28.md",
+      "target": "archive/eog_legacy_neon_20261122/docs/eog_neon_oikos_ceiling_and_null_review_2026_10_28.md",
+      "blob_sha": "0aaee3dc11fda5d208c685864937c94c4660d9d3",
+      "size_bytes": 12133
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/CLAIM_MATRIX_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/CLAIM_MATRIX_V1.json",
+      "blob_sha": "e39a93824fb56e9ba3fd64b480f2fd6c49015bf0",
+      "size_bytes": 2229
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/COVER_LETTER_OIKOS_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/COVER_LETTER_OIKOS_V1.md",
+      "blob_sha": "3fbf55177062ca684f39ddd1ad36813200f9db9e",
+      "size_bytes": 1969
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/JOURNAL_FIT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/JOURNAL_FIT_V1.md",
+      "blob_sha": "b0293d91201b47f614d765e6b047bb8ea8dbae5b",
+      "size_bytes": 1971
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/LITERATURE_POSITIONING_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/LITERATURE_POSITIONING_V1.md",
+      "blob_sha": "6e0a7763f31f7323b684d6977e6f097272a4b23e",
+      "size_bytes": 3703
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/MANUSCRIPT_V1.md",
+      "blob_sha": "7d488e7ee04466484d0e4c05ef83f56b10e05e49",
+      "size_bytes": 18879
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/SUBMISSION_BOUNDARY_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/SUBMISSION_BOUNDARY_V1.json",
+      "blob_sha": "7924487a78a660218e27e140359d8b22f82aadd2",
+      "size_bytes": 1932
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/SUBMISSION_HANDOFF_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/SUBMISSION_HANDOFF_V1.md",
+      "blob_sha": "3175ba699af2f811c850a89c8837e89b63818a2a",
+      "size_bytes": 2464
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/VERIFIED_REFERENCES_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/VERIFIED_REFERENCES_V1.md",
+      "blob_sha": "b756c1b8668b150eb599d9be428384fe7d1318b1",
+      "size_bytes": 1426
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/best_species_frequency_v1.csv",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/best_species_frequency_v1.csv",
+      "blob_sha": "c2dd34dbd142f43b35d6f4136a94b8a95877d415",
+      "size_bytes": 747
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/build_paper_assets.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/build_paper_assets.py",
+      "blob_sha": "a5327ac10c2ad8815c5c5350f2354e186e421b68",
+      "size_bytes": 17125
+    },
+    {
+      "source": "manuscript/neon_metacommunity_redundancy/site_metrics_v1.csv",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_metacommunity_redundancy/site_metrics_v1.csv",
+      "blob_sha": "c3a89797785aaf68e128b91272e6e58a544cde3f",
+      "size_bytes": 2469
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/AI_USE_STATEMENT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/AI_USE_STATEMENT_V1.md",
+      "blob_sha": "8a98e2712922a5e7051b504ab0a16ee21618c168",
+      "size_bytes": 894
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/ANONYMOUS_REVIEW_BUNDLE_RECEIPT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/ANONYMOUS_REVIEW_BUNDLE_RECEIPT_V1.json",
+      "blob_sha": "01df8092fbd2d701be252d451663312d00ca3fe5",
+      "size_bytes": 1234
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/ANONYMOUS_REVIEW_PACKAGE_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/ANONYMOUS_REVIEW_PACKAGE_V1.md",
+      "blob_sha": "11cfdf3bf1556378f17ba022e216e8949cf73649",
+      "size_bytes": 932
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/ASSET_RECEIPT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/ASSET_RECEIPT_V1.json",
+      "blob_sha": "717f8bbc6277d5ebe5b54b949293864e370171b7",
+      "size_bytes": 1806
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/CLAIM_MATRIX_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/CLAIM_MATRIX_V1.json",
+      "blob_sha": "51fc3b9184c904fac586b98be29825129e6b0c44",
+      "size_bytes": 1366
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/COVER_LETTER_OIKOS_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/COVER_LETTER_OIKOS_V1.md",
+      "blob_sha": "e175d08fb77ac4dfcd6e7435c5f6609dd72ae791",
+      "size_bytes": 2209
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/DATA_CODE_AVAILABILITY_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/DATA_CODE_AVAILABILITY_V1.md",
+      "blob_sha": "77cd103ab7e3943c838fdb42ec97b9e897d726ab",
+      "size_bytes": 2362
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/FIGURE_CAPTIONS_ACCESSIBILITY_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/FIGURE_CAPTIONS_ACCESSIBILITY_V1.md",
+      "blob_sha": "7f2bd7f7f6ec7340b4e17b125f771fae363cdbc7",
+      "size_bytes": 4554
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/IDENTITY_REDUNDANCY_AUDIT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/IDENTITY_REDUNDANCY_AUDIT_V1.json",
+      "blob_sha": "f4a7df0b6b51e4d789e8b573c85f054266044ae7",
+      "size_bytes": 2651
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/JOURNAL_FIT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/JOURNAL_FIT_V1.md",
+      "blob_sha": "2d831590d461bc1127f8849d9121863478d28754",
+      "size_bytes": 1983
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/LITERATURE_POSITIONING_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/LITERATURE_POSITIONING_V1.md",
+      "blob_sha": "2cc4128e1c9102aa7e655b080212872a6f489f37",
+      "size_bytes": 3853
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/MAINLINE_PORT_REPRODUCIBILITY_RECEIPT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/MAINLINE_PORT_REPRODUCIBILITY_RECEIPT_V1.json",
+      "blob_sha": "9878cf6a045f45bcd9e58aacb6c984d53edc9736",
+      "size_bytes": 9695
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/MANUSCRIPT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/MANUSCRIPT_V1.md",
+      "blob_sha": "ada5a84d3b862e122b1d6895c47ed3511de05854",
+      "size_bytes": 20151
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_AI_AUTHOR_APPROVAL_TEMPLATE_V2.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_AI_AUTHOR_APPROVAL_TEMPLATE_V2.json",
+      "blob_sha": "9a1752bdbd602b15edc443a90b941a4f8e14fed1",
+      "size_bytes": 1565
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_BLINDED_MAIN_RECEIPT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_BLINDED_MAIN_RECEIPT_V1.json",
+      "blob_sha": "3ae681ddb7197260e301ca3a943af606a263582f",
+      "size_bytes": 1111
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_CEILING_AUTHOR_INTERPRETATION_HANDOFF_V3.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_CEILING_AUTHOR_INTERPRETATION_HANDOFF_V3.md",
+      "blob_sha": "b55c1f1903945939fbdb003e0a43bf058b98f8c7",
+      "size_bytes": 6661
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_CEILING_AUTHOR_REVIEW_RECEIPT_VERIFIED_V3.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_CEILING_AUTHOR_REVIEW_RECEIPT_VERIFIED_V3.json",
+      "blob_sha": "ac1a8d6e12309e98612d3ac5bce9c6882b181a42",
+      "size_bytes": 2748
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_DECLARATIONS_PACKET_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_DECLARATIONS_PACKET_V1.md",
+      "blob_sha": "db01a1cdc2df7e8931e5affbf34e9c10c0a8b81c",
+      "size_bytes": 2000
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_INITIAL_SUBMISSION_AUDIT_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_INITIAL_SUBMISSION_AUDIT_V1.json",
+      "blob_sha": "8e7ac2eab70122cc6ca401908ef58e83def76b54",
+      "size_bytes": 3700
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_POLICY_2026_10_27_AUTHOR_HANDOFF_V2.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_POLICY_2026_10_27_AUTHOR_HANDOFF_V2.md",
+      "blob_sha": "1b3feda36264a3599640834e4f0e58423adf48a1",
+      "size_bytes": 8562
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_POLICY_V2_PREFLIGHT_VERIFIED_2026_10_27.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_POLICY_V2_PREFLIGHT_VERIFIED_2026_10_27.json",
+      "blob_sha": "fb879ed6a78d450c4850e6eb41b881beba936d63",
+      "size_bytes": 2902
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_SIGNIFICANCE_STATEMENT_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_SIGNIFICANCE_STATEMENT_V1.md",
+      "blob_sha": "f1b223d9a159de37d5ab5ebe2da69266fb3da099",
+      "size_bytes": 1258
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_TITLE_PAGE_TEMPLATE_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_TITLE_PAGE_TEMPLATE_V1.md",
+      "blob_sha": "ddfd4b0d548f437b9f4940cf4146d65d676b4272",
+      "size_bytes": 710
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/OIKOS_UPLOAD_MAP_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/OIKOS_UPLOAD_MAP_V1.md",
+      "blob_sha": "f80a5964f8d30f6932cc8984c424675df15d1397",
+      "size_bytes": 2345
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/SUBMISSION_BOUNDARY_V1.json",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/SUBMISSION_BOUNDARY_V1.json",
+      "blob_sha": "dbd648d2154935484cd64f4c78e319c8d4906b5c",
+      "size_bytes": 2517
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/SUBMISSION_CHECKLIST_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/SUBMISSION_CHECKLIST_V1.md",
+      "blob_sha": "eff0833a87baee1e724a6e6a4d63a5e62feeb777",
+      "size_bytes": 3271
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/SUBMISSION_HANDOFF_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/SUBMISSION_HANDOFF_V1.md",
+      "blob_sha": "a1a28dd6833ba8f3aa0ffb8eb216b80022cc1310",
+      "size_bytes": 2604
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/VERIFIED_REFERENCES_V1.md",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/VERIFIED_REFERENCES_V1.md",
+      "blob_sha": "b756c1b8668b150eb599d9be428384fe7d1318b1",
+      "size_bytes": 1426
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/best_species_frequency_v1.csv",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/best_species_frequency_v1.csv",
+      "blob_sha": "c2dd34dbd142f43b35d6f4136a94b8a95877d415",
+      "size_bytes": 747
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/build_anonymous_review_bundle.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/build_anonymous_review_bundle.py",
+      "blob_sha": "57713c9c0125111b374d39db4823a524f6312184",
+      "size_bytes": 5769
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/build_oikos_blinded_pdf.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/build_oikos_blinded_pdf.py",
+      "blob_sha": "07767f9ed6ce6f86b924dd257c3adb5ef6a03437",
+      "size_bytes": 4240
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/build_oikos_ceiling_interpretation_review_v3.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/build_oikos_ceiling_interpretation_review_v3.py",
+      "blob_sha": "e7aa26bb998490500834f4fc475e0b006f80dfc1",
+      "size_bytes": 20393
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/build_oikos_initial_submission_policy_v2.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/build_oikos_initial_submission_policy_v2.py",
+      "blob_sha": "0656881bb48a74fa1b922adaae975cb970eff4ae",
+      "size_bytes": 15717
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/build_paper_assets.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/build_paper_assets.py",
+      "blob_sha": "7b155ef8f8f5ae2954cc09c322d4d0883bb39161",
+      "size_bytes": 17125
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/export_oikos_figures.py",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/export_oikos_figures.py",
+      "blob_sha": "8550e6750ab9fa34eff2898624704efa4ec8e8de",
+      "size_bytes": 837
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/site_metrics_v1.csv",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/site_metrics_v1.csv",
+      "blob_sha": "c3a89797785aaf68e128b91272e6e58a544cde3f",
+      "size_bytes": 2469
+    },
+    {
+      "source": "manuscript/neon_small_mammal_continuity/site_summary_v1.csv",
+      "target": "archive/eog_legacy_neon_20261122/manuscript/neon_small_mammal_continuity/site_summary_v1.csv",
+      "blob_sha": "a5d23fb36123d3977f30f4125e8a4d6d073fbb8e",
+      "size_bytes": 1464
+    },
+    {
+      "source": "scripts/audit_neon_continuity_ceiling_v1.py",
+      "target": "archive/eog_legacy_neon_20261122/scripts/audit_neon_continuity_ceiling_v1.py",
+      "blob_sha": "61a1106895b9ad357f81808ea60cc74fd73a77d0",
+      "size_bytes": 16366
+    },
+    {
+      "source": "tests/test_neon_continuity_ceiling_review_v1.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_continuity_ceiling_review_v1.py",
+      "blob_sha": "3aea71e5ffab87d2a349bdd45700a2416c1089d2",
+      "size_bytes": 8607
+    },
+    {
+      "source": "tests/test_neon_mammal_source_gate_v1.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_mammal_source_gate_v1.py",
+      "blob_sha": "474498daf43c7fea3994b1c2fb7f37ba4fb5d253",
+      "size_bytes": 1743
+    },
+    {
+      "source": "tests/test_neon_metacommunity_response_runner.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_metacommunity_response_runner.py",
+      "blob_sha": "253534846b39f6d923e4856be6fc650df9dee796",
+      "size_bytes": 3730
+    },
+    {
+      "source": "tests/test_neon_small_mammal_continuity_mainline_port_v1.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_small_mammal_continuity_mainline_port_v1.py",
+      "blob_sha": "f15bad459cf62cd5198c968b84850964c3d78a5a",
+      "size_bytes": 7741
+    },
+    {
+      "source": "tests/test_neon_small_mammal_continuity_oikos_submission.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_small_mammal_continuity_oikos_submission.py",
+      "blob_sha": "26f736460236f9091a65ead5a400c3a332680819",
+      "size_bytes": 2958
+    },
+    {
+      "source": "tests/test_neon_small_mammal_continuity_paper_assets.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_small_mammal_continuity_paper_assets.py",
+      "blob_sha": "08d6595cbe4da88f8565b81848efe97061a52fc4",
+      "size_bytes": 2557
+    },
+    {
+      "source": "tests/test_neon_small_mammal_oikos_ceiling_interpretation_v3.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_small_mammal_oikos_ceiling_interpretation_v3.py",
+      "blob_sha": "d57d2319c9fc43d9fc42c6b57e0ac23c7b9e07b7",
+      "size_bytes": 10221
+    },
+    {
+      "source": "tests/test_neon_small_mammal_oikos_policy_v2.py",
+      "target": "archive/eog_legacy_neon_20261122/tests/test_neon_small_mammal_oikos_policy_v2.py",
+      "blob_sha": "7a933e87940814fe91eec6d78e42a9faed402ba2",
+      "size_bytes": 11969
+    },
+    {
+      "source": "validation/neon_mammal_ceiling_review_v1/protocol_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_mammal_ceiling_review_v1/protocol_v1.json",
+      "blob_sha": "3726f754ca31ee630dd7c07aec21022021b261bc",
+      "size_bytes": 4554
+    },
+    {
+      "source": "validation/neon_mammal_ceiling_review_v1/result_frozen_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_mammal_ceiling_review_v1/result_frozen_v1.json",
+      "blob_sha": "d9f26d5455469b201546121dadb102dbdf5abf31",
+      "size_bytes": 2502
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/analysis_contract_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/analysis_contract_v1.json",
+      "blob_sha": "73bdf49bb22c720a09828d1759514e7bad72e145",
+      "size_bytes": 4166
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/analysis_implementation_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/analysis_implementation_v1.json",
+      "blob_sha": "b7da808e0f25038cac1a4f5a0aceaeb2bd767211",
+      "size_bytes": 1749
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/capture_fresh_roster.py",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/capture_fresh_roster.py",
+      "blob_sha": "929e52f94642908ce91c6df7bfa4aac6d562ebda",
+      "size_bytes": 14247
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/fresh_roster_lock_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/fresh_roster_lock_v1.json",
+      "blob_sha": "77b4549b2fc365124f6e395f6a127f1318c7cd02",
+      "size_bytes": 5638
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/posthoc_redundancy_audit_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/posthoc_redundancy_audit_v1.json",
+      "blob_sha": "39816383ec79bc1495fefa84223102f78cfabd23",
+      "size_bytes": 1682
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/programme_closure_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/programme_closure_v1.json",
+      "blob_sha": "4d96630dbf8f4c312609a4efe157776585386e4c",
+      "size_bytes": 3719
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/protocol_lock_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/protocol_lock_v1.json",
+      "blob_sha": "bf80d8af313de44db4a5afd098e68ec84d38c2e2",
+      "size_bytes": 573
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/protocol_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/protocol_v1.json",
+      "blob_sha": "4f6771a56aae5e18ca6d1109dcd0f66b844b238e",
+      "size_bytes": 8813
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/response_arm_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/response_arm_v1.json",
+      "blob_sha": "44f648528a14cf9749bcfd9f6e76f4814f702635",
+      "size_bytes": 793
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/response_authorization_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/response_authorization_v1.json",
+      "blob_sha": "53fc1f015e459cb8e2f28f0aaa60b3b1865225e0",
+      "size_bytes": 1228
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/response_lock_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/response_lock_v1.json",
+      "blob_sha": "2805b90e6ce567d1e71f1e753ba371e2732dcfcb",
+      "size_bytes": 3786
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/response_protocol_lock_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/response_protocol_lock_v1.json",
+      "blob_sha": "ab948cd250089662c08bafd27c9672300eb85f25",
+      "size_bytes": 629
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/response_protocol_v1.json",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/response_protocol_v1.json",
+      "blob_sha": "8b5e74b5640a142120222c7b6873392d5afaaac7",
+      "size_bytes": 4227
+    },
+    {
+      "source": "validation/neon_metacommunity_connectivity_v1/run_response_once.py",
+      "target": "archive/eog_legacy_neon_20261122/validation/neon_metacommunity_connectivity_v1/run_response_once.py",
+      "blob_sha": "f2d450411e82458c08a73d160d3eb53ff7cc337c",
+      "size_bytes": 27822
+    }
+  ]
+}
