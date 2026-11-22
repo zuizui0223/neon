@@ -41,6 +41,12 @@ The original manipulated-site use fell **−26.089 percentage points** from befo
 
 Machine receipt: `results/neon_ranc2021_original_resource_closure_positive_control_20261122.json`, frozen plan `docs/NEON_ROE_DEER_RESOURCE_CLOSURE_POSITIVE_CONTROL_FROZEN_20261122.md`, original-source script `analysis/reproduce_ranc_2021_resource_closure_state_use_v1.py`.
 
+## 2b. Original publication's fitted MEMORY model scores were independently reproduced (source C++, prior art)
+
+The original pinned PNAS 2021 author `Code/*.cpp` C++ model, original author optimized best-parameter text configurations and both original 25-animal-year source files were rebuilt and executed in [GitHub Action 45013361817](https://github.com/zuizui0223/neon/actions/runs/45013361817). All original fitted configuration numerical fields were unchanged, with only output/input absolute paths patched in temporary copies. Source exact Git commit, original model config blob hashes and all original 26,841 hourly state-probability rows were verified separately for **each** model.
+
+Original fixed-parameter model log-likelihoods from exact author executable: memory (spatial+attribute, type 3) **−10,120.2669944**, omniscience (type 0) **−10,537.1780702**, perception (type 1) **−10,669.7566681**; memory exceeds perception by **+549.49 log-likelihood units** and omniscience by **+416.91**. This is an in-sample reproduction of already optimized authors' model scores, without new AIC/BIC, parameter-count adjustment, optimized parameter selection or held-out model prediction. The experiment's **published** inference of animal memory relied on resource/cue manipulation plus original mechanistic model comparison; the NEON small-mammal original `Visit.ID` sequence source is still below its precommitted 80% consistency gate and has no such experiment. This provides a legitimate **positive comparator**, NOT a learned individual stationarity effect in NEON. No meta pooling. Original result `results/neon_ranc2021_original_memory_model_likelihoods_20261122.json` and reproduction protocol `docs/NEON_ROE_DEER_ORIGINAL_MEMORY_MODEL_REPRO_FROZEN_20261122.md`; all original NEON/Portal/Finland biological outputs unaffected.
+
 ## 3. Correct research decision for the three candidate mechanisms
 
 | Hypothesis | What actually holds | What is NOT established for NEON |
