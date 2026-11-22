@@ -19,7 +19,7 @@ Original public Figshare article `28207769 v2`: same original *five* MD5/byte-pi
 4. >=50% of matched records with both original event and station Date parseable have EXACT source dates equal. NEVER recode ±1-day disagreements as matches.
 5. Source camera-view mouse and vole subset files each contain ≥1 exact `Grid,Site,Session,Night,Visit.ID` key occurring in the combined All Foraging original events.
 
-The original supplemental station summary check `(5280? no: WP=4280 offered, 2049 left; RO=955 offered, 605 left; differences 2231/350)` is numeric arithmetic. ALL 3 original footer rows must reproduce exactly with the strict validator, rather than trusting a given row count and dropping unknown observations.
+The original supplemental station summary check (WP 4,280 offered and 2,049 left; RO 955 offered and 605 left; corresponding differences 2,231 and 350) is exact numeric arithmetic. ALL 3 original footer rows must reproduce exactly with the strict validator, rather than trusting a given row count and dropping unknown observations.
 
 ## Corrected source-only interpretation
 
