@@ -1,0 +1,47 @@
+name: neon-portal-2022-ndvi-capture-source-chronology
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_portal_2022_ndvi_capture_chronology_v1.py'
+      - 'tests/test_portal_2022_ndvi_capture_chronology_v1.py'
+      - 'docs/NEON_PORTAL_NDVI_CAPTURE_CHRONOLOGY_AUDIT_20261121.md'
+      - '.github/workflows/neon-portal-ndvi-capture-chronology.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_portal_2022_ndvi_capture_chronology_v1.py'
+      - 'tests/test_portal_2022_ndvi_capture_chronology_v1.py'
+      - 'docs/NEON_PORTAL_NDVI_CAPTURE_CHRONOLOGY_AUDIT_20261121.md'
+      - '.github/workflows/neon-portal-ndvi-capture-chronology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-ndvi-capture-chronology-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-frozen-captured-community-source-calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned dependency for source-helper import
+        run: python -m pip install numpy==2.2.6
+      - name: Verify capture versus full-season satellite chronology with synthetic records
+        run: python -m unittest discover -s tests -p 'test_portal_2022_ndvi_capture_chronology_v1.py' -v
+      - name: Source-verify original eight immutable public Portal CSVs, recover old 114 pairs and audit dates only
+        run: python -m analysis.audit_portal_2022_ndvi_capture_chronology_v1
+      - name: Archive exact-source chronology or scientific STOP with no biological effect estimates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-2022-ndvi-capture-chronology
+          path: build/neon_portal_2022_ndvi_capture_chronology_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

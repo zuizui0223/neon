@@ -1,0 +1,158 @@
+{
+  "all_six_verified_status_456_stations": {
+    "maximum": 97,
+    "mean": 57.98101265822785,
+    "median": 60,
+    "minimum": 1
+  },
+  "design": "docs/NEON_ALL_SIX_NIGHT_OPERABLE_TRAPSTATUS_GATE_20261026.md",
+  "effects_sealed": {
+    "no_new_observed_genus_A_cross_B_trap_overlap": true,
+    "no_original_animal_site_genus_station_or_exact_capture_dates_exported": true,
+    "no_source_averaged_new_Z_or_p_value": true,
+    "original_14_site_three_plus_Z_unmodified": true,
+    "original_30_site_exact_two_Z_unmodified": true,
+    "original_density_genus_5of8_FAIL_unmodified": true,
+    "source_only_stage": true
+  },
+  "inference_limits": {
+    "all_operable_status_categories_from_NEON_code4_5_6": true,
+    "missing_or_uncoded_status_never_imputed": true,
+    "no_mammal_Z_or_density_habitat_or_10m_patch_effect_computed": true,
+    "no_original_genus_exact_trap_overlap_opened": true,
+    "source_identifiers_station_genus_animal_and_dates_not_exported": true,
+    "source_six_night_recorded_presence_alone_not_enough": true,
+    "source_station_operability_is_not_capture_detection_probability": true
+  },
+  "original_canonical_trap_status_rows": 87916,
+  "original_source_rule": {
+    "minimum_all_six_status456_stations": 90,
+    "minimum_domains": 10,
+    "minimum_physical_sites": 18,
+    "minimum_retained_pairs": 80,
+    "new_post_result_feasibility_gate_not_prior_14site_preregistration": true,
+    "passed": false
+  },
+  "pair_genus_station_retention_reason_counts": {
+    "all_six_code456_and_genus_station_support": 18,
+    "fewer_than_90_all_six_operability_coded_stations": 140
+  },
+  "provenance": {
+    "checksum_verified_original_source": true,
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "official_NEON_trapStatus_category_semantics": "0_1_2_3_EXCLUDE__4_5_6_OPERABLE",
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_threeplus_source_58_invariant": true,
+    "original_trap_rows": 1505827,
+    "release": "RELEASE-2026"
+  },
+  "retained_NEON_domains": 7,
+  "retained_pairs": 18,
+  "retained_physical_sites": 8,
+  "schema": "neon.macro.six_night_neon_operable_456_source_v1",
+  "source_0_1_2_3_including_disturbed_or_not_set_excluded": true,
+  "source_4_5_6_explicit_operability_evidence": true,
+  "source_canonical_station_night_keys": 87890,
+  "source_original_physical_sites": 30,
+  "source_original_three_night_events": 293,
+  "source_region_counts": {
+    "D01": {
+      "original_pairs": 16,
+      "source_qualifying_pairs": 0
+    },
+    "D02": {
+      "original_pairs": 11,
+      "source_qualifying_pairs": 0
+    },
+    "D03": {
+      "original_pairs": 25,
+      "source_qualifying_pairs": 2
+    },
+    "D05": {
+      "original_pairs": 10,
+      "source_qualifying_pairs": 0
+    },
+    "D06": {
+      "original_pairs": 18,
+      "source_qualifying_pairs": 0
+    },
+    "D07": {
+      "original_pairs": 3,
+      "source_qualifying_pairs": 0
+    },
+    "D09": {
+      "original_pairs": 17,
+      "source_qualifying_pairs": 2
+    },
+    "D10": {
+      "original_pairs": 10,
+      "source_qualifying_pairs": 2
+    },
+    "D11": {
+      "original_pairs": 4,
+      "source_qualifying_pairs": 1
+    },
+    "D12": {
+      "original_pairs": 1,
+      "source_qualifying_pairs": 0
+    },
+    "D13": {
+      "original_pairs": 5,
+      "source_qualifying_pairs": 2
+    },
+    "D14": {
+      "original_pairs": 15,
+      "source_qualifying_pairs": 0
+    },
+    "D15": {
+      "original_pairs": 7,
+      "source_qualifying_pairs": 5
+    },
+    "D16": {
+      "original_pairs": 6,
+      "source_qualifying_pairs": 0
+    },
+    "D17": {
+      "original_pairs": 10,
+      "source_qualifying_pairs": 4
+    }
+  },
+  "source_status_code_row_counts": {
+    "1": 1275,
+    "2": 3494,
+    "3": 4938,
+    "4": 57,
+    "5": 13727,
+    "6": 64425
+  },
+  "source_status_duplicates_and_unknown_location": {
+    "duplicate_original_station_night_row": 26,
+    "noncanonical_original_source_station": 18
+  },
+  "source_two_genus_original_pairs": 158,
+  "source_year_counts": {
+    "2015": 12,
+    "2016": 25,
+    "2017": 33,
+    "2018": 31,
+    "2019": 18,
+    "2020": 4,
+    "2021": 7,
+    "2022": 3,
+    "2023": 17,
+    "2024": 8
+  },
+  "status": "STOP_OPERABLE_456_SIX_NIGHT_SOURCE_SUPPORT",
+  "unclassified_numeric_or_semantic_status_rows": 0,
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "run_id": 40211504923,
+    "job_id": 121223519365,
+    "source_commit_sha": "03341239261fc7d87539f9e75fa79013841beb34",
+    "workflow_conclusion": "success_SOURCE_EFFECT_STOP",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40211504923",
+    "ecological_effect_opened": false
+  }
+}

@@ -1,0 +1,96 @@
+# NEON × Structural island-mammal cross-scale ecological bridge — evidence-limited design (7 November 2026)
+
+## Decision and scope
+
+**The two projects can connect through a falsifiable cross-scale ecological question, but they are NOT independent replications and their old results must not be pooled.** This note is a cross-repository scientific design handoff, NOT a newly estimated empirical effect, manuscript merger, or method-only publication. Keep the one unified NEON small-mammal macroecology manuscript in Draft/SUBMISSION HOLD and the Structural global-mammal scientific HOLD intact.
+
+> When organism/population identity, local occupancy state, or source availability changes, under what conditions does the spatial arrangement of ecological opportunity retain predictive information, and when can replacements preserve an apparent spatial role?
+
+Key reason for the bridge: NEON documents an observational taxon-to-capture-station recurrence despite nonshared tagged individuals; Structural shows conditional source-configuration information for sparse mapped island-mammal species but does not validate temporal rescue, a realized dispersal graph or irreplaceable donor territories. These are different manifestations of **reference-conditioned spatial organization**, not equivalent causal mechanisms.
+
+## Exact empirical comparisons and boundaries
+
+| Evidence class | NEON local small mammals | Structural global island mammals |
+| --- | --- | --- |
+| Space | 90×90m grid, 100 official named live traps | 5,401 island units; 1,275 pilot and 4,126 heldout island units |
+| Source/response | Three-night NEON original RELEASE-2026 individual capture records; station×genus apparent structure | IUCN-2017 range polygons mapped to island polygons with manual revisions and some historical/now-extirpated native labels, not independently surveyed current animal occurrence |
+| Positive original conditional pattern | 58 strict adjacent-season comparisons / 30 plots / 14 independent physical sites; fixed-margin corrected mean genus-associated same-station Z=+0.794664; 11/14 site means positive; nonshared observed animal tags | 529 ultrarare species (1–4 pilot-positive island cells); presence-specific heldout C−R3 log-loss = −0.596259, block CI [−0.743855,−0.464457]; geography-derived original kNN graph better than 20/20 matched rewired graphs, original−rewired C = −0.058525 |
+| Independent/exploratory breadth | Exactly-two genus group 150 informative pairs/30 sites, exploratory Z=+0.614711 and 25/30 positive site means; not new biological detector | 96 mapped rare (5–12 pilot cells) did not replicate overall source-network effect or topology specificity; 79 higher-occupancy species have exploratory overall source-context gain without specific observed kNN advantage |
+| Important negative correction | Beyond exact same trap, 10m neighboring-station recurrence after season-key reused-site exclusion Z=+0.182589, p=0.220539; true habitat use and genus-dependent station catchability remain unseparated | Mean rewired C accounts for ~90.18% of original C-vs-R3 *point-estimate* improvement; only ~9.82% is original-graph-specific under this matched-null family. This is **not** a causal variance decomposition. |
+| Spatial source redundancy | Individual turnover without loss of taxon-specific *recorded* trap association. DO NOT call individual animal a dispersal source or source-island node. | Response-free v1.181 source-identity turnover alpha/beta analysis mean actual-minus-null beta = −0.2620, 95% CI [−0.3167,−0.2076], i.e. source influence is more overlapping than matched-null placements, NOT demonstrated distinct irreplaceable source territories |
+| Direct mechanism validation | 30/58 original season comparisons have both actual dated CHM pixel support and two field-plant visits (12 sites, 19 grids), but plant base plots generally ~150±50m offset from mammal traps; 53/58 comparisons use the same aerial source month across seasons. Camera observations near original trap stations in the published external source had ZERO simultaneous original trapping-day matches; independent genus-detection p remains unknown. | Source-adjacent constructed kNN graph is **not an observed movement network**. The mapped mammal response contains shared polygon provenance, and external species×island independent field validation is not admitted (v1.196 scientific HOLD). Temporal BALA arthropod test for source-loss consequence C−R2 = +0.000674, CI [−0.02130,+0.02558], did NOT support the prespecified claim; different taxa/system. |
+
+Evidence authority:
+- NEON: results/neon_uniform_null_correction_receipt_20261020.json; results/neon_exact_two_genus_ecological_receipt_20261025.json; results/neon_macro_10m_patch_conditional_20261025.json; results/neon_exact_joint_chm_plant_source_receipt_20261028.json; results/neon_zenodo_camera_independent_source_receipt_20261029.json
+- Structural: https://github.com/zuizui0223/Structural/blob/main/docs/OCCUPANCY_REGIME_ISLAND_ECOLOGY_SYNTHESIS_V1_119.md
+- Structural graph and polygon semantics: https://github.com/zuizui0223/Structural/blob/main/development/global_mammals_graph_semantics_audit_v1_185.json and https://github.com/zuizui0223/Structural/blob/main/development/global_mammals_response_ontology_audit_v1_187.json
+- Graph effect accounting: https://github.com/zuizui0223/Structural/blob/main/development/global_mammals_graph_gain_accounting_v1_197.json
+- Redundancy/target-space turnover: https://github.com/zuizui0223/Structural/blob/main/development/global_mammals_distributed_irreplaceability_freeze_v1_181.json
+- Independent biological admission: https://github.com/zuizui0223/Structural/blob/main/development/independent_biological_evidence_admissibility_v1_196.json
+
+## New independent rodent field-boundary result — 15 November 2026
+
+The original cross-scale hypothesis now has an additional **independent field system that does NOT show a robust exact-stake increment after conditioning on an adequate observation reference**. Original PortalData source (pinned 2026-11-12 Git blobs) contributed 436 same-plot, same-month adjacent-year 7x7-stake rodent comparisons using only individuals not ID-shared between censuses. Across 20 unique experimental plots in ONE Arizona field landscape, the plot-equal excess cross-year exact-stake collision was **−0.00006439** against a plot×year all-granivore observed-station source reference (whole-plot bootstrap CI **[−0.00154688,+0.00140097]**), although the naive 49-uniform-stake comparator yielded +0.001908. Source-specific competitor exclusion-versus-control contrast was −0.000522 (CI [−0.004692,+0.003486]); no general treatment direction resolved. This is retrospective exploration, not fresh confirmatory data or true niche measurement.
+
+The result **weakens**, rather than supports, a blanket assertion that species-specific exact-location organization persists after observed individual turnover. It does not mean species lack spatial niches: strong reference captures species-blind capture opportunities and may conservatively absorb some focal habitat associations, while actual trap-specific detection probabilities and spatial habitat use remain unknown. Previous Portal competitor-release and microhabitat literature already covers simpler niche questions.
+
+Hence do NOT use positive NEON genus×capture trap station Z plus Structural rare-species heldout mapped-island log-loss to infer a universal spatial-role-substitution principle. These are different estimands under different geographic, taxonomic and observation conditions. The new empirical cross-system pattern is narrower: **apparent spatial regularity is reference-sensitive and not guaranteed to recur at the same exact spatial resolution across small-mammal field systems**. This is an exploratory caution, not a novel ecological law. See [source-verified analysis](results/neon_portal_disjoint_id_stake_ecology_receipt_20261115.json) and [full empirical interpretation](docs/NEON_PORTAL_INDIVIDUAL_DISJOINT_STAKE_ECOLOGY_RESULT_20261115.md); results remain in NEON PR #23 only.
+
+## Additional independent observation grain: within-individual seasonal change (15 November 2026)
+
+In another geographic field system, 2021 Finland bank voles under resource addition and helminth-treatment factorial designs produced a source-frozen 51-individual, 12-site summer-to-autumn CAPTURE-centroid comparison. Site-equal observed centroid displacement exceeded the shuffled-season finite-capture expectation by +0.616 original local grid coordinate units (95% descriptive interval [+0.421,+0.834]), with food and deworm treatment contrasts unresolved. The study's original 2024 published seasonal home-range and overlap findings are prior art. This does not identify movement, direct habitat use or replacement of dead/immigrant individuals; site and trap observation are still confounded.
+
+The three mammal results therefore **do not form a single universal spatial niche persistence effect**: original NEON genus capture-location consistency across nonshared IDs, Portal species capture-location non-support after a stronger species-blind reference, and Finland modest individual-level seasonal centroid displacement under a within-animal capture sample null are different targets. Structural island occurrences are mapped range-overlap cells, not measured colonization. The honest biology is that spatial patterns can change differently by biological level and sampling reference; the conditions controlling true resource-niche dynamics and population turnover remain open.
+
+## New within-cohort vole dyad identity result, 15 November 2026
+
+The already-inspected Finland 2021 bank vole source was examined with an additional pre-frozen retrospective individual-pair question: are the *same* animal pairs relatively close in summer and autumn beyond season-specific spatial point patterns? Among 47 repeat-observed animals in ten original physical forest sites (102 same-site pairs), the site-equal Spearman distance-rank association above an autumn-animal-ID-shuffle null was **+0.4694** (whole-site descriptive bootstrap 95% [+0.1076,+0.8191], eight positive sites). Co-directional group displacement after rotating individual vectors was not clearly supported: +0.1182 with CI [−0.0342,+0.2557]. Thus stable relative capture-centroid proximity can coexist with seasonal displacement without an identified common directional translation. Original authors already published monthly spatial-overlap networks and mean weighted degrees; the new same-tag inter-season dyad statistic is exploratory, not a new movement/contact/network discovery.
+
+This does not rescue a universal mammal niche memory law. NEON's 14-site original genus×capture-station signal remains conditional and could reflect station catchability. Portal's different-ID species-stake result is not robust to a species-blind station-capture background. The Finnish study identifies neither direct dyad encounter/parasite transmission nor alternative animal observation opportunities; its 10 sites are in one field experiment and the individual dyad subset differs from the original 51-animal centroid set. Structural is a map-derived ISLAND species-source prediction, not a population-level instantiation of these rodents' partner relationships. The biologically interesting bridge now concerns when spatial STRUCTURE of a group can persist while individual positions change, but this remains an open mechanism question.
+
+## Independent direct-contact detector boundary from prairie voles (15 November 2026)
+
+Direct encounter measurement is not interchangeable with baited-trap spatial positions. Davidson et al. (2025; DOI 10.1093/jmammal/gyaf032) previously reported positive but weak shared-animal trap network vs 5–6cm proximity-logger correspondence (original QAP r=0.148, R²=0.02). We verified nine original Figshare files, 50,741 event records, exact 27 logger device identities and 26 tag-linked animals; the source-based dated collar crosswalk aligned 50,737 positives, but an original inverted collar interval (1/38) and a concurrent device ID assignment to different animals (1 overlap) violate the complete-source gate. Ten distinct original dates had some trapping and some logger records; exact synchronized functioning dyad/non-contact exposure remains unvalidated. No new contact preference or habitat result was estimated.
+
+This is a DISTINCT prairie-vole population and a PRIOR-PUBLISHED network comparison, not biological confirmation of Finnish vole summer/fall same-individual pair-distance-rank persistence, NEON genus×station patterns or Structural mapped island mammal connectivity. The ecologically meaningful divide remains between observed space-location organization, relative neighbor position, actual encounter/contact networks and demographic movement/dispersal. No cross-scale causal unification is yet justified.
+
+## Main cross-scale ecological model: identity turnover versus spatial-role redundancy
+
+The interesting tension is **NOT** that island sources and NEON trap stations are the same biological unit: they are not. Rather:
+
+- At NEON's *organism identity* level, nonshared recorded animal identities can coexist with genus-specific recurring capture locations. A taxon's apparent spatial role persists despite turnover in observed individuals. But the observation process or persistent habitat may generate this.
+- At Structural's *population-source position* level, source placement carries more mapped occurrence information when pilot positives are very sparse; individual island sources also show overlapping modelled target-space access, not uniquely irreplaceable territories. But this does not show observed present-day source populations or demographic rescue.
+- A nontrivial future explanation is **spatial role substitutability**: spatial organization can remain stable across replacement of carriers if alternate carriers or sources cover the same functional opportunities; dependence on exact position rises when effective alternatives are limited. Crucially, functional substitution and temporal rescue are currently hypotheses in both systems.
+
+### Candidate hypotheses for genuinely unseen datasets
+
+**H1 — Role substitution under turnover.** After holding total taxon detections, station operability, habitat, regional conditions and observation method fixed, *newly observed individuals* retain a taxon-specific station-use distribution when suitable habitat opportunities are stable. A confirmatory independent detection stream must distinguish true use from repeated trap catchability; NEON historical observation alone is insufficient.
+
+**H2 — Opportunity scarcity changes dependence on configuration.** The predictive increment from a specific source/opportunity configuration over a strong conditional reference is larger when the number of genuinely available alternative source populations or habitat patches is smaller; this is NONMONOTONIC until shown otherwise. NEON cannot import Structural's 1–4/5–12/≥13 island-species thresholds or infer habitat-patch counts from camera/trap encounters. The first such local test would be on a *prospectively fixed NEW cohort*, with sample-size-conditioned genus/trap station nulls and independent detection effort.
+
+**H3 — Spatial-role signal must survive a stronger observation/geometry reference.** Constructed graph proximity plus shared range polygon provenance may inflate Structural's apparent island role signal; stable local trap catchability may inflate NEON's exact-station recurrence. The new nulls must preserve biological sampling opportunities appropriate to each system (source-aware geography/rewired kNN for Structural versus six-night functioning/source-season/site conditioned station opportunities for NEON). A cross-system prediction is that nominal structural signals can disappear when an adequate observation/reference layer is added. This is a falsifiable possibility, NOT a confirmed finding.
+
+## Non-equivalence and cross-paper comparison plan
+
+Do not pool or compare raw Z with log loss. Define only a *conceptual* common test: does a prespecified spatial representation add independent or heldout information beyond the strongest feasible appropriate reference? The estimands are distinct:
+
+1. NEON: conditional genus×station **capture** recurrence across heldout seasons; standardized fixed-margin Z; independent field detector effort and true local habitat use required for mechanism attribution.
+2. Structural: source-aware R3 vs constructed C incremental heldout binary log loss on **map-derived** island-species occurrence labels, and original kNN C vs degree/length-matched surrogates. Independent species-by-island field observations required for biological occupancy confirmation.
+3. Temporal ecological consequence is a **third endpoint**: newly lost source positions and independent later 0→1/1→0 field-state transitions with repeated detection; this cannot be inferred from either dataset's static or same-visit association.
+
+The two empirical denominators are independent but the biological evidence is NOT a validation pair: local within-site NEON trap captures versus global derived island species range labels; ecology, sampling effort and observation process differ. NEON's unrelated 2018–2020 Norway external camera study has different 30-day pre-capture versus three-day trap windows and is not a rescue of the missing same-date detector source.
+
+## Action and scope decision
+
+**NOW:** preserve this crosswalk as the common higher-level hypothesis only. Keep separate single primary paper per repository, do not create an additional methods paper, do not refit the already-inspected NEON 58/158 seasonal comparisons or Structural 529/96/79 species heldout outcomes, do not reopen Structural's pristine 5,592-island mammal response, and do not retune previously failed density/10m/operability/weather/source-loss/eBird controls.
+
+**FUTURE:** before seeking another p-value, freeze a dataset-independent joint admission rubric:
+- own observation denominator and evidence class;
+- time-resolved true animal occupancy/use versus protocol-positive detection;
+- measured source identity/habitat availability and explicit spatial support;
+- spatially independent heldout blocks, enough positive and negative response opportunities;
+- strong conditionally sufficient reference and original null family specified before outcome;
+- separate tests for source opportunity structure, organism-level role substitution and later temporal persistence;
+- stop the causal claim if direct field evidence or independent detection channel is missing.
+
+A future cross-system synthesis might then ask: **When do interchangeable carriers preserve ecological spatial organization, and when do noninterchangeable source positions make configuration matter?** That is a potentially original macroecological paper question, but NOT something the two historical results have yet established.

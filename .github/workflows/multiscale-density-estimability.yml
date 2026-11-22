@@ -1,0 +1,100 @@
+name: multiscale-density-estimability
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_multiscale_density_estimability_v1.py"
+      - "analysis/run_multiscale_density_estimability_release2026_v1.py"
+      - "analysis/validate_multiscale_density_metrics_v1.py"
+      - "analysis/simulate_multiscale_density_metric_support_v1.py"
+      - "tests/test_multiscale_density_estimability_v1.py"
+      - "tests/test_multiscale_density_metric_mechanics_v1.py"
+      - "tests/test_multiscale_density_release2026_runner_v1.py"
+      - "tests/test_multiscale_density_metric_support_simulation_v1.py"
+      - "validation/multiscale_density_accommodation_v1/**"
+      - ".github/workflows/multiscale-density-estimability.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: multiscale-density-estimability-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install mechanical-audit dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Verify effect-blind audit and metric mechanics
+        run: |
+          python -m unittest \
+            tests.test_multiscale_density_estimability_v1 \
+            tests.test_multiscale_density_metric_mechanics_v1 \
+            tests.test_multiscale_density_release2026_runner_v1 \
+            tests.test_multiscale_density_metric_support_simulation_v1 \
+            -v
+
+      - name: Run synthetic metric-support audit
+        run: |
+          python -m analysis.simulate_multiscale_density_metric_support_v1
+
+      - name: Resolve NEON data-access state
+        id: neon_access
+        shell: bash
+        run: |
+          if [ -n "$NEON_API_TOKEN" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            mkdir -p build
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          receipt = {
+              "schema": "neon.multiscale_density_accommodation.estimability_block.v1",
+              "status": "BLOCKED_BEFORE_RELEASE2026_DATA_ACCESS",
+              "reason": "NEON_API_TOKEN is not configured in the GitHub Actions environment",
+              "biological_response_bytes_opened": 0,
+              "spatial_distances_calculated": False,
+              "density_effects_calculated": False,
+              "next_action": (
+                  "configure the repository Actions secret NEON_API_TOKEN and "
+                  "rerun this unchanged workflow"
+              ),
+          }
+          Path("build/multiscale_density_estimability_release2026_v1.json").write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+          fi
+
+      - name: Run RELEASE-2026 structural audit
+        if: steps.neon_access.outputs.available == 'true'
+        run: |
+          python -m analysis.run_multiscale_density_estimability_release2026_v1
+
+      - name: Upload structural support receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: multiscale-density-estimability-release2026-v1
+          path: |
+            build/multiscale_density_estimability_release2026_v1.json
+            build/multiscale_density_metric_support_v1.json
+          if-no-files-found: error
+          retention-days: 30

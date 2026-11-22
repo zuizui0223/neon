@@ -1,0 +1,25 @@
+{
+  "invalid_original_reverse_date_intervals": 1,
+  "no_collar_tag_identity_or_original_dates_exported": true,
+  "no_original_NEON_Portal_Finland_Structural_effect_changed": true,
+  "original_collar_source_rows": 38,
+  "original_same_day_on_off_intervals": 0,
+  "precommitted_source_original_interval_gate_not_relaxed": true,
+  "remaining_source_row_counts_not_promoted_to_paired_exposure": true,
+  "schema": "neon.prairie_vole_contact_calendar_opportunity.v1",
+  "source_provider_original_MD5_verified": true,
+  "status": "STOP_ORIGINAL_COLLAR_INTERVALS_SOURCE_INTEGRITY",
+  "zero_proximity_dyad_contact_or_trapping_outcomes_scored": true,
+  "original_source_provenance": {
+    "original_figshare_project_id": 228462,
+    "original_paper_DOI": "10.1093/jmammal/gyaf032",
+    "original_schema_receipt": "results/neon_prairie_vole_verified_raw_schema_20261115.json",
+    "source_audit_run_id": 43696359435,
+    "source_job_id": 132757651263,
+    "original_source_commit": "c233adcd2aa04555524885a4741a41a8f881ad20",
+    "archived_artifact_id": 14154313086,
+    "archive_SHA256": "sha256:06abbbce5c3a262dd222406b3dee94450a6e888a7c870c5bf6ad9013d8fa3e94",
+    "workflow_success_scientific_stop": true,
+    "original_logger_dyad_and_trap_capture_values_unscored": true
+  }
+}

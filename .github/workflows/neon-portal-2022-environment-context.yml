@@ -1,0 +1,48 @@
+name: neon-portal-2022-postresult-environment-context
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_portal_2022_site_climate_source_v1.py'
+      - 'analysis/run_portal_2022_environment_context_v1.py'
+      - 'tests/test_portal_2022_environment_context_v1.py'
+      - 'docs/NEON_PORTAL_2022_ENVIRONMENT_POSTRESULT_DESIGN_20261121.md'
+      - '.github/workflows/neon-portal-2022-environment-context.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/run_portal_2022_environment_context_v1.py'
+      - 'tests/test_portal_2022_environment_context_v1.py'
+      - 'docs/NEON_PORTAL_2022_ENVIRONMENT_POSTRESULT_DESIGN_20261121.md'
+      - '.github/workflows/neon-portal-2022-environment-context.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-postresult-environment-context-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  immutable-portal-site-monsoon-context-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check exact-year change ranking and original source QC synthetic tests
+        run: |
+          python -m unittest discover -s tests -p 'test_portal_2022_site_climate_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_portal_2022_environment_context_v1.py' -v
+      - name: Reverify site weather and NDVI original Git blobs then report fixed three transitions
+        run: python -m analysis.run_portal_2022_environment_context_v1
+      - name: Archive site-level environmental context and source stop as appropriate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-monsoon-2022-independent-environmental-context
+          path: build/neon_portal_2022_environment_context_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,38 @@
+{
+  "schema": "neon.external_SEV8_source_access_stop.v1",
+  "date": "2026-10-13",
+  "status": "STOP_SEV8_UNVERIFIED_SOURCE_BYTES_NO_ECOLOGICAL_EFFECTS",
+  "source": {
+    "name": "Sevilleta LTER small mammal mark-recapture core research sites",
+    "doi": "10.6073/pasta/142d2a1c7a1a6397fb56a47b5817bf1d",
+    "package": "knb-lter-sev.8.297972",
+    "pinned_mirrored_version": "sev008_rodentpopns_20151022.txt",
+    "documented_temporal_coverage": "1989-05-30 to 2015-09-17",
+    "documented_design": "8 sites, 3 radial trapping webs per site, 3 consecutive nights in spring and fall, 145 stakes/web",
+    "source_metadata": "https://digitalrepository.unm.edu/lter_sev_data/281/",
+    "source_intended_scope": "Independent multi-site, multi-genus structural candidate. Radial-web geometry is NOT NEON square-grid 10x10; never numerically pool unstandardized spatial slopes."
+  },
+  "attempt": {
+    "run_id": 38405532951,
+    "tested_HTML_and_ragged_rejection": true,
+    "source_url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1280&context=lter_sev_data&filename=3&type=additional",
+    "result": "HTTP 403 Forbidden from GitHub Actions",
+    "scientific_data_verified": false,
+    "tag_id_or_station_layout_verified": false
+  },
+  "additional_source_access": {
+    "EDI_PASTA_API_public_access_as_of_2026_07_30": "EDI requires authenticated API access for REST endpoints; no key was supplied/used.",
+    "reference": "https://ropensci.r-universe.dev/EDIutils/doc/retrieve_downloads.html",
+    "no_api_auth_bypass_attempted": true
+  },
+  "scientific_decision": {
+    "source_go": false,
+    "structural_support_go": false,
+    "ecological_abundance_spatial_slopes_opened": false,
+    "original_eight_genus_NEON_guard": "FAILED_UNCHANGED",
+    "new_event_five_genus_NEON_result": "NOT_ESTIMABLE",
+    "MOSA_individual_mapping_blocker_unrelated": true,
+    "next_step": "Obtain authorized official EDI dataset access and immutable entity checksum plus stake-to-XY mapping before any individual-level SEV8 test. Do not infer geometry from vague spokes/stakes description.",
+    "no_data_access_means_no_reproducibility_claim": true
+  }
+}

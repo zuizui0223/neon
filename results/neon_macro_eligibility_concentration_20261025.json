@@ -1,0 +1,37 @@
+{
+  "schema": "neon.unified_macro.source_eligibility_domain_concentration.v1",
+  "record_date": "2026-10-25",
+  "status": "SOURCE_ONLY_GEOGRAPHIC_REPRESENTATIVENESS_DESCRIBED",
+  "source": "results/neon_macro_biogeographic_selection_receipt_20261025.json",
+  "all_candidate_pairs": {
+    "sample_pairs": 803,
+    "domains_with_positive_pairs": 18,
+    "shannon_entropy_nats": 2.713129915208954,
+    "effective_shannon_domains": 15.076389565919214,
+    "inverse_simpson_effective_domains": 13.516024902005999,
+    "largest_single_domain_fraction": 0.11955168119551682,
+    "weights_are_nested_pairs_not_independent_sites": true
+  },
+  "strict_eligible_pairs": {
+    "sample_pairs": 58,
+    "domains_with_positive_pairs": 10,
+    "shannon_entropy_nats": 2.0222503666146534,
+    "effective_shannon_domains": 7.55530803035287,
+    "inverse_simpson_effective_domains": 6.444444444444445,
+    "largest_single_domain_fraction": 0.22413793103448276,
+    "weights_are_nested_pairs_not_independent_sites": true
+  },
+  "eligible_fraction_of_original_candidate_pairs": 0.0722291407222914,
+  "strict_to_candidate_effective_shannon_domain_ratio": 0.501135102493766,
+  "effective_shannon_domain_loss": 7.521081535566345,
+  "scientific_scope": {
+    "original_source_response_sampling_only": true,
+    "number_of_physical_sites_with_candidate_seasons": 42,
+    "number_of_physical_sites_with_strict_pairs": 14,
+    "no_ecological_recurrence_effect_for_nonqualified_sites": true,
+    "no_random_sample_assumption_for_pairs": true,
+    "descriptive_no_clustered_p_value": true,
+    "no_biological_competition_habitat_or_climate_effect": true,
+    "interpretation": "effective number of source domains represented by weighted pair counts, not number of independent biological ecosystems or taxon-level ecological persistence"
+  }
+}

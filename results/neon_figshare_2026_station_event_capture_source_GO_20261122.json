@@ -1,0 +1,122 @@
+{
+  "capture_source_identity_census": {
+    "all_11614_capture_YEAR_2DIGIT_DATE_verified": 11614,
+    "capture_rows_missing_PIT_or_GRID": 1366,
+    "capture_rows_with_original_PIT_GRID_YEAR_verified": 10248
+  },
+  "distinct_original_source_PITs_not_independent_animal_population": 47,
+  "five_original_file_sha_receipts": {
+    "2016-2023 Capture Data.csv": {
+      "MD5_verified": "d9b8cd69378a98c520b10172b80f2c23",
+      "original_SHA256": "ffeaf011ae2f71206bab2ae6f45c3a607c2e2aab2f8de2714e7bc146f0635a91",
+      "original_provider_file_id": 51682214,
+      "verified_original_rows": 11614
+    },
+    "All Foraging Clean.csv": {
+      "MD5_verified": "5f823a01c8751bd360dab723f3d49faa",
+      "original_SHA256": "c4b27c2c4dd9cb723fff0a4fc1bf482eb891cc10d3c9df5f6ca4b188761bc869",
+      "original_provider_file_id": 51682217,
+      "verified_original_rows": 3243
+    },
+    "All Station Nights.csv": {
+      "MD5_verified": "1cc4f0c66043c9a96955bed1c66408e3",
+      "original_SHA256": "683a932405b777d80e88f27681850da9142499a126506b9ff359fd0c2574e2e5",
+      "original_provider_file_id": 51682220,
+      "verified_original_rows": 291
+    },
+    "Mouse Foraging Data Clean.csv": {
+      "MD5_verified": "63adc6b8f232e423fefc2d802d25904d",
+      "original_SHA256": "48684c5d4a4e28a7f7eed4ddf0389fb478a1b0edbfea4129f9ecad4e1b283a22",
+      "original_provider_file_id": 51682229,
+      "verified_original_rows": 883
+    },
+    "Vole Foraging Data Clean.csv": {
+      "MD5_verified": "e05cb082df82286672f49a39df4585b2",
+      "original_SHA256": "10065f8548339942cef1207b55987051c2b062a7261506e52d57925aa3f191aa",
+      "original_provider_file_id": 51682232,
+      "verified_original_rows": 951
+    }
+  },
+  "fixed_source_v2_protocol": "docs/NEON_FIGSHARE_2026_CORRECTED_STATION_SOURCE_V2_20261122.md",
+  "grids_with_source_foraging_events": 6,
+  "historical_v1_all_291_rows_keyed_gate_result": "FAIL_PRESERVED_IN_ORIGINAL_V1",
+  "mouse_view_is_subset_source": {
+    "original_complete_event_identifier_source_rows": 883,
+    "original_view_source_rows": 883,
+    "original_view_unique_identifiers": 544,
+    "overlapping_view_NOT_independent_observation_set": true,
+    "rows_existing_in_original_All_Foraging": 883
+  },
+  "no_spatial_occupancy_or_mammal_niche_resource_learning_model": true,
+  "one_NEON_ecological_manuscript_Draft_SUBMISSION_HOLD": true,
+  "original_all_station_csv_rows_including_summaries": 291,
+  "original_figshare_article_id": 28207769,
+  "original_figshare_article_version": 2,
+  "original_foraging_event_source_census": {
+    "all_foraging_rows_with_exact_source_station_night": 3243,
+    "event_and_station_dates_both_parseable": 3232,
+    "event_or_station_original_date_missing": 11,
+    "foraging_rows_at_least_one_numeric_observed_seed_availability": 3242,
+    "foraging_rows_exact_capture_PIT_GRID_DATE_YEAR_match": 2077,
+    "original_foraging_rows_with_literal_PIT": 2182,
+    "source_event_and_station_dates_NOT_EQUAL": 789,
+    "source_event_and_station_dates_equal": 2443
+  },
+  "original_neon_portal_finland_and_density_results_unchanged": true,
+  "original_publisher_FiveFiles_MD5_SHA256_verified": true,
+  "original_repeated_composite_visit_identifiers": 1164,
+  "original_source_mismatched_dates_NOT_shifted": true,
+  "original_station_rows_with_video_event_key": 136,
+  "original_station_rows_without_video_event_key": 152,
+  "original_v1_numerical_support_gates_unchanged": true,
+  "original_verified_experimental_station_night_rows": 288,
+  "original_verified_summary_rows_not_observations": 3,
+  "positive_event_table_NOT_all_cameras_or_all_visits": true,
+  "provider_metadata_sha256": "2dda7ba7f21d4bcc35b478145ed9bf10aabfd5e80686c9953a99fceffc93c58e",
+  "retrieved_utc": "2026-11-22T09:54:27.301938+00:00",
+  "same_forest_as_2018_Penobscot_seed_study_NOT_independent_geographic_system": true,
+  "schema": "neon.figshare2026_original_station_event_capture_SOURCE_v2",
+  "seed_fate_or_seed_consumption_or_finding_outcomes_NOT_computed": true,
+  "source_date_exact_equality_ratio": 0.7558787128712872,
+  "source_setup_morning_dates_NOT_continuous_camera_operability": true,
+  "station_source_census": {
+    "original_288_verified_station_nights": 288,
+    "source_setup_and_morning_fields_both_nonmissing": 288,
+    "with_both_numeric_original_WP_RO_offered": 288,
+    "with_source_parseable_Date": 136
+  },
+  "status": "CORRECTED_SOURCE_JOIN_GO_NOT_DETECTOR_OPERATION_OR_BIOLOGICAL_EFFECT",
+  "v1_capture_year_failure_cause": "two_digit_year_16_to_23_matches_2016_to_2023_original_DATE",
+  "v1_failure_cause": "last_3_verified_arithmetic_summary_rows_not_stations",
+  "v2_original_source_only_admission_checks": {
+    "at_least_100_exact_station_night_matched_events": true,
+    "at_least_100_unique_original_source_dated_station_nights": true,
+    "at_least_30_exact_capture_PIT_GRID_calendar_YEAR_matched_event_rows": true,
+    "at_least_30_matched_foraging_rows_with_numeric_observed_seed_offer": true,
+    "at_least_60_station_nights_with_both_original_seed_offerings_numeric": true,
+    "at_least_half_of_parseable_event_station_dates_exactly_equal": true,
+    "matched_events_in_at_least_3_original_grids": true,
+    "mouse_and_vole_taxon_views_each_overlap_combined_source": true,
+    "original_288_station_footer_and_summary_validation": true
+  },
+  "verified_original_summary_types": [
+    "set_and_left_totals",
+    "differences",
+    "fractions"
+  ],
+  "vole_view_is_subset_source": {
+    "original_complete_event_identifier_source_rows": 951,
+    "original_view_source_rows": 951,
+    "original_view_unique_identifiers": 596,
+    "overlapping_view_NOT_independent_observation_set": true,
+    "rows_existing_in_original_All_Foraging": 951
+  },
+  "workflow_provenance": {
+    "original_source_recomputed_in": "https://github.com/zuizui0223/neon/actions/runs/45009787639",
+    "job_id": 137169347033,
+    "original_five_byte_MD5_verification": true,
+    "source_v1_numeric_eligibility_thresholds_unchanged": true,
+    "original_v1_failure_preserved": true,
+    "nine_synthetic_tests_passed": true
+  }
+}

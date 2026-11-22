@@ -1,0 +1,93 @@
+{
+  "MOSA_spatial_effects": "SEALED",
+  "W_B_density_effects_opened": false,
+  "ambiguous_same_night_tag_event_combinations": 26,
+  "approved_original_three_night_sessions": 2757,
+  "bridge_tag_histories_excluded": 3607,
+  "candidate_adjacent_season_pairs_after_effort": 803,
+  "capture_source_exclusion_categories": {
+    "capture_without_target_genus_or_tag": 9986,
+    "noncanonical_station_rows": 177
+  },
+  "cross_genus_identity_conflicts": 95,
+  "crossseason_permutation_null_opened": false,
+  "crossseason_spatial_overlap_opened": false,
+  "ecological_recurrence_claim_authorized": false,
+  "eligible_2genus_diagnostic_pairs": 216,
+  "eligible_distinct_selected_events": 113,
+  "eligible_primary_pairs": 58,
+  "eligible_primary_season_year_combinations": 10,
+  "eligible_primary_site_plot_units": 30,
+  "eligible_primary_sites": 14,
+  "event_source_exclusion_categories": {
+    "alternative_bouts_in_same_season": 918,
+    "not_complete_events": 2054,
+    "not_exact_three_night_events": 5735,
+    "not_three_protocol_calendar_dates": 37,
+    "selected_event_effort_lt_90_one_or_more_nights": 1,
+    "special_nonsquare_site_sessions": 307,
+    "straddles_meteorological_season_events": 56
+  },
+  "known_individuals_shared_betweenseason_excluded": true,
+  "no_source_individual_or_geographic_ids_exported": true,
+  "original_NEON_source_provenance": {
+    "end": "2026-09",
+    "perplotnight_files_MD5_verified": 1773,
+    "pertrapnight_files_MD5_verified": 1707,
+    "product": "DP1.10072.001",
+    "release": "RELEASE-2026",
+    "same_original_source_as_historical_F_C_U_predictor_audits": true,
+    "source_files_MD5_and_size_verified": 3547,
+    "source_plot_rows_loaded": 21363,
+    "source_trap_rows_loaded": 1505827,
+    "start": "2015-04",
+    "target_taxonomy_ids_in_public_lookup": 201,
+    "valid_candidate_nightUIDs": 15147
+  },
+  "original_density_generality": "FAILED_5_OF_8",
+  "primary_shared_genus_count_distribution": {
+    "3": 47,
+    "4": 9,
+    "5": 2
+  },
+  "schema": "neon.crossseason_genus_individual_replacement_support.v1",
+  "selected_bouts_with_trap_effort_ge90_per_night": 1838,
+  "selected_one_bout_per_season_sessions": 1839,
+  "source_genus_trap_occupancy_A_B_calculated": false,
+  "source_target_taxonomic_rank": "genus",
+  "status": "SOURCE_STRUCTURAL_GO_OUTCOME_SEALED",
+  "study_claim": {
+    "MOSA_effects": "SEALED",
+    "San_Jacinto_positive_prior_seen_before_design": true,
+    "W_B_or_density_spatial_results_reused": false,
+    "individual_turnover_exclusion": true,
+    "mammal_genus_not_equivalent_to_species_ecology": true,
+    "original_F_C_fixed_total_comparisons": "QUALIFIER_CONSERVATIVE_0_SAME_SEASON_PAIRS",
+    "original_multigenus_density_claim": "FAILED_5_OF_8",
+    "precommit": "docs/NEON_CROSS_SEASON_GENUS_SPATIAL_TEMPLATE_DESIGN_20261019.md",
+    "source_canonical_genus_may_group_cryptic_species": true,
+    "study": "NEON genus-level across-season template occurrence, distinct from source San Jacinto species-level signal",
+    "this_support_not_null_model": true
+  },
+  "three_night_complete_bouts_only": true,
+  "record_date": "2026-10-19",
+  "provenance": {
+    "run_id": 39207748433,
+    "job_id": 117914170181,
+    "head_commit_at_run": "c8be060842e9c5246ba9751ec676071e44d61eac",
+    "conclusion": "success",
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/39207748433",
+    "artifacts": [
+      {
+        "id": 12166168813,
+        "name": "neon-crossseason-genus-template-source-support",
+        "digest": "sha256:5ab0aa2fb8d34f559ba84bb06e4676feffbeda2c635e5bfb2a19b8f5e0cb36b1"
+      }
+    ]
+  },
+  "decision": {
+    "ecological_effect_unsealed": false,
+    "structural_support_pass": true,
+    "description": "Precommitted 58 seasonal units across 14 independent NEON physical sites and 30 plots. Re-open the same source only after freezing fixed-fixed null and site-level inference; previous San Jacinto genus/species distinction preserved."
+  }
+}

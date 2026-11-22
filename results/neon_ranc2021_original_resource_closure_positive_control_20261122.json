@@ -1,0 +1,77 @@
+{
+  "NEON_unified_ecological_manuscript_DRAFT_SUBMISSION_HOLD": true,
+  "cannot_meta_pool_roe_deer_state_fraction_and_NEON_genus_trap_Z": true,
+  "does_not_by_itself_distinguish_memory_from_perception_or_omniscience": true,
+  "frozen_protocol": "docs/NEON_ROE_DEER_RESOURCE_CLOSURE_POSITIVE_CONTROL_FROZEN_20261122.md",
+  "mean_within_original_animal_year_differences_M_fraction": {
+    "closure_minus_before": -0.26088629911491273,
+    "reopen_minus_before": -0.11705133004111568,
+    "reopen_minus_closure": 0.1438349690737971
+  },
+  "no_animal_ID_or_original_individual_trajectory_exported": true,
+  "not_a_test_of_populations_replacing_individuals_or_competitor_exclusion": true,
+  "original_animal_year_count_where_M_declines_during_closure": 25,
+  "original_animal_year_count_where_M_rises_after_reopening": 22,
+  "original_git_blob_source_checksums": {
+    "Ranc_et_al_2021_PNAS_data_population_ts.txt": {
+      "git_blob_sha1": "18bebe5527828a9ff975d3f35c6b7553d67a3064",
+      "original_file_sha256": "d30c7d09a7cdad503d5bd8c78002355dd187a02ace4e9f7928f253c6cb904c1a",
+      "source_file_bytes": 1022925
+    },
+    "Ranc_et_al_2021_PNAS_data_population_tslv.txt": {
+      "git_blob_sha1": "918f5b981b4dc55c71347549d72815cf0b8db497",
+      "original_file_sha256": "11a8f40df3f4d537897c1c6ce5adf75b6fc5ee986c8e7c570bc1b1537b3b40fe",
+      "source_file_bytes": 387
+    }
+  },
+  "original_github_git_commit": "58cd85c863d50346df0c7b0d3ecfde97f8a5dfdb",
+  "original_github_repo": "ranc-n/Ranc-et-al.-PNAS-2021",
+  "original_individual_ANIMAL_YEAR_not_independent_ANIMAL": true,
+  "original_paper_memory_model_and_half_lives_ALREADY_PUBLISHED_NOT_REFITTED": true,
+  "original_published_paper": "Ranc et al. 2021 PNAS 10.1073/pnas.2014856118",
+  "original_source_zenodo_doi": "10.5281/zenodo.4609649",
+  "retrieved_utc": "2026-11-22T10:30:55.042690+00:00",
+  "schema": "neon.ranc2021_original_experimental_resource_closure_state_reproduction.v1",
+  "source_accessibility_manipulated_at_a_food_station_not_natural_resource_biomass": true,
+  "source_animal_year_experimental_sequences": 25,
+  "source_hourly_missing_recorded_state_rows": 109,
+  "source_hourly_rows": 26841,
+  "source_three_phase_state_use": {
+    "before_accessible": {
+      "animal_year_equal_weighted_fraction_alternative_A": 0.029640091735889634,
+      "animal_year_equal_weighted_fraction_manipulated_M": 0.31262073131369134,
+      "animal_year_equal_weighted_fraction_vegetation_V": 0.6577391769504191,
+      "pooled_observed_hour_fraction_M_not_independent_sample": 0.3143266791662071,
+      "source_missing_state_hours_minus9999": 22,
+      "source_observed_valid_hours": 9067
+    },
+    "closed_inaccessible": {
+      "animal_year_equal_weighted_fraction_alternative_A": 0.15239212568403407,
+      "animal_year_equal_weighted_fraction_manipulated_M": 0.05173443219877859,
+      "animal_year_equal_weighted_fraction_vegetation_V": 0.7958734421171872,
+      "pooled_observed_hour_fraction_M_not_independent_sample": 0.0509761388286334,
+      "source_missing_state_hours_minus9999": 59,
+      "source_observed_valid_hours": 9220
+    },
+    "reopened_accessible": {
+      "animal_year_equal_weighted_fraction_alternative_A": 0.08202574156877565,
+      "animal_year_equal_weighted_fraction_manipulated_M": 0.19556940127257566,
+      "animal_year_equal_weighted_fraction_vegetation_V": 0.7224048571586487,
+      "pooled_observed_hour_fraction_M_not_independent_sample": 0.18934280639431617,
+      "source_missing_state_hours_minus9999": 28,
+      "source_observed_valid_hours": 8445
+    }
+  },
+  "state_1_means_at_station_not_successful_eating_when_closed": true,
+  "status": "ORIGINAL_PNAS_RESOURCE_MANIPULATION_PRIOR_ART_REPRODUCED_NOT_NEON_MECHANISM",
+  "this_is_method_positive_control_not_NEW_NEON_ecological_discovery": true,
+  "three_original_phases_1_access_0_closed_1_reopen_verified_for_all": true,
+  "workflow_provenance": {
+    "repository": "zuizui0223/neon",
+    "run": "https://github.com/zuizui0223/neon/actions/runs/45012781533",
+    "job_id": 137178546370,
+    "synthetic_tests": "7 passed",
+    "original_public_Git_commit_and_blobs_verified": true,
+    "original_author_C_plus_plus_memory_model_not_executed": true
+  }
+}

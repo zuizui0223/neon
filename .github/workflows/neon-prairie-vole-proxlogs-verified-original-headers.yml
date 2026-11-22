@@ -1,0 +1,38 @@
+name: neon-prairie-vole-proxlogs-verified-original-headers
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_neon_prairie_vole_figshare_file_headers_v1.py'
+      - 'tests/test_neon_prairie_vole_figshare_file_headers_v1.py'
+      - '.github/workflows/neon-prairie-vole-proxlogs-verified-original-headers.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-prairie-vole-original-file-headers-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-proximity-and-trap-schemas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original pinned file IDs sizes and CSV schema errors
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_prairie_vole_figshare_file_headers_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_prairie_vole_figshare_source_preflight_v1.py' -v
+      - name: Verify original nine file bytes MD5 and public file headers
+        run: python -m analysis.run_neon_prairie_vole_figshare_file_headers_v1
+      - name: Archive metadata-only original headers or source STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-prairie-vole-logger-trapping-original-file-headers
+          path: build/neon_prairie_vole_logger_figshare_file_headers_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

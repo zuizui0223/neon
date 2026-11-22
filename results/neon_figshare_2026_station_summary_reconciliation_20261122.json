@@ -1,0 +1,120 @@
+{
+  "station_source_rows": 291,
+  "station_nights": 288,
+  "verified_tail_summaries": [
+    {
+      "summary_type": "set_and_left_totals",
+      "source_values": {
+        "WP.seeds.set": 4280,
+        "WP.seeds.left": 2049,
+        "RO.seeds.set": 955,
+        "RO.seeds.left": 605
+      }
+    },
+    {
+      "summary_type": "differences",
+      "source_values": {
+        "WP.seeds.set": 2231,
+        "RO.seeds.set": 350
+      }
+    },
+    {
+      "summary_type": "fractions",
+      "source_values": {
+        "WP.seeds.set": "0.521261682",
+        "RO.seeds.set": "0.366492147"
+      }
+    }
+  ],
+  "event_rows": 3243,
+  "station_nights_with_event_rows": 136,
+  "coverage": [
+    {
+      "event_row_present": true,
+      "station_visitor_label": "Visitors",
+      "station_nights": 136,
+      "WP_offered": 1962,
+      "WP_missing": 1564,
+      "RO_offered": 440,
+      "RO_missing": 211,
+      "nights_with_any_missing": 131
+    },
+    {
+      "event_row_present": true,
+      "station_visitor_label": "None",
+      "station_nights": 0,
+      "WP_offered": 0,
+      "WP_missing": 0,
+      "RO_offered": 0,
+      "RO_missing": 0,
+      "nights_with_any_missing": 0
+    },
+    {
+      "event_row_present": true,
+      "station_visitor_label": "NA",
+      "station_nights": 0,
+      "WP_offered": 0,
+      "WP_missing": 0,
+      "RO_offered": 0,
+      "RO_missing": 0,
+      "nights_with_any_missing": 0
+    },
+    {
+      "event_row_present": false,
+      "station_visitor_label": "Visitors",
+      "station_nights": 53,
+      "WP_offered": 739,
+      "WP_missing": 447,
+      "RO_offered": 165,
+      "RO_missing": 109,
+      "nights_with_any_missing": 51
+    },
+    {
+      "event_row_present": false,
+      "station_visitor_label": "None",
+      "station_nights": 98,
+      "WP_offered": 1556,
+      "WP_missing": 212,
+      "RO_offered": 345,
+      "RO_missing": 30,
+      "nights_with_any_missing": 68
+    },
+    {
+      "event_row_present": false,
+      "station_visitor_label": "NA",
+      "station_nights": 1,
+      "WP_offered": 23,
+      "WP_missing": 8,
+      "RO_offered": 5,
+      "RO_missing": 0,
+      "nights_with_any_missing": 1
+    }
+  ],
+  "source_doi": "10.6084/m9.figshare.28207769.v2",
+  "source_metadata_url": "https://api.figshare.com/v2/articles/28207769/versions/2",
+  "sources": [
+    {
+      "file": "All Station Nights.csv",
+      "file_id": 51682220,
+      "md5": "1cc4f0c66043c9a96955bed1c66408e3",
+      "sha256": "683a932405b777d80e88f27681850da9142499a126506b9ff359fd0c2574e2e5",
+      "download_url": "https://ndownloader.figshare.com/files/51682220"
+    },
+    {
+      "file": "All Foraging Clean.csv",
+      "file_id": 51682217,
+      "md5": "5f823a01c8751bd360dab723f3d49faa",
+      "sha256": "c4b27c2c4dd9cb723fff0a4fc1bf482eb891cc10d3c9df5f6ca4b188761bc869",
+      "download_url": "https://ndownloader.figshare.com/files/51682217"
+    },
+    {
+      "file": "Main Analysis - Clean.R",
+      "file_id": 51823913,
+      "md5": "b5f99bfd6b800cdecb435dfb23f6e6b9",
+      "sha256": "dec26e275b749cf7ba7e20ef8a36cc26a693305a647a4f9c4090bdb8cd43fd0a",
+      "download_url": "https://ndownloader.figshare.com/files/51823913"
+    }
+  ],
+  "historical_all_291_station_rows_gate": "FAILED",
+  "historical_gate_diagnosis": "The strict gate treated three verified summary records as station-nights."
+}

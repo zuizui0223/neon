@@ -1,0 +1,76 @@
+{
+  "schema": "neon.MOSA_text_extractor_preliminary_effect_blind_support.v1",
+  "date": "2026-10-11",
+  "status": "PRELIMINARY_SUPPORT_PASS_SOURCE_MD5_UNVERIFIED",
+  "source": {
+    "record": "https://zenodo.org/records/10049811",
+    "source_url": "https://zenodo.org/api/records/10049811/files/mosa_Feb2023_flags.csv/content",
+    "version": 10049811,
+    "published_bytes": 2849668,
+    "published_md5": "12c04902947b91922c3f6c98760ecb54",
+    "read_method": "public full-text content extraction returned complete delimited text, not raw original bytes",
+    "cryptographic_raw_source_verified_by_this_method": false,
+    "published_record_count": 49216,
+    "extracted_row_count": 49216,
+    "published_Mastomys_natalensis_capture_count": 45433,
+    "observed_MN_capture_count": 45433,
+    "fields": [
+      "NUMBER",
+      "DATE",
+      "GRID",
+      "SPECIES",
+      "X",
+      "Y",
+      "WEIGHT",
+      "TOE",
+      "SX",
+      "SEXCON",
+      "FLAGS"
+    ],
+    "delimiter": "SEMICOLON",
+    "date_format": "DD/MM/YYYY",
+    "all_row_field_counts_11": true
+  },
+  "structural_support": {
+    "one_grid": "MOSA",
+    "calendar_months_with_MN_capture_rows": 329,
+    "calendar_months_with_more_than_three_distinct_capture_days": 78,
+    "calendar_months_with_exact_three_consecutive_capture_days": 182,
+    "calendar_months_with_at_least_five_MN_tags_each_on_two_distinct_nights": 145,
+    "years_with_eligible_support": 27,
+    "frozen_minimums": {
+      "eligible_months": 60,
+      "years": 10,
+      "distinct_repeat_supported_individuals": 5
+    },
+    "candidate_support_meets_minimums": true,
+    "coordinate_missing_or_out_of_bounds_MN_records_excluded": 145,
+    "MN_rows_missing_tag": 0,
+    "MN_rows_invalid_date": 0,
+    "strict_rule": "Do not merge multiple separated three-night capture runs within one calendar month, even where the original protocol contains more than three observed capture days.",
+    "no_abundance_index_or_WB_or_movement_estimates_opened": true,
+    "annual_sampling_balance": {
+      "strict_eligible_months_1994_through_2011": 128,
+      "strict_eligible_months_2012_through_2023": 17,
+      "fraction_of_eligible_months_in_1994_through_2011": 0.8827586206896552,
+      "years_with_ge3_eligible_months": 19,
+      "empty_eligibility_years": [
+        2013,
+        2016,
+        2018
+      ],
+      "risk": "The 29-year archive has severely unbalanced effect-blind 3-night matched-cohort coverage, concentrated in the earlier period studied by prior spatial-behavior ecology. Claiming 29 years of evenly supported independent effects or a novel temporal-regime shift would be invalid.",
+      "direct_2014_study": "Borremans et al. Population Ecology 56:109-118, DOI 10.1007/s10144-013-0393-2, used roughly 17 years of MOSA captures; early period substantially overlaps prior literature, not newly independent 29 years of unstudied spatial data."
+    }
+  },
+  "qualification": {
+    "source_digest_verification_pending": true,
+    "formal_GitHub_checksum_workflow": "https://github.com/zuizui0223/neon/actions/workflows/external-MOSA-Zenodo-schema-only.yml",
+    "formal_effect_blind_structure_workflow": "https://github.com/zuizui0223/neon/actions/workflows/external-MOSA-effect-blind-structure.yml",
+    "no_formal_GO_until_same_result_reproduced_on_MD5_verified_original": true,
+    "single_site_cannot_confirm_NEON_multi_genus_generality": true,
+    "pre_existing_territoriality_overlap_studies": "Borremans et al. Population Ecology 2014, DOI 10.1007/s10144-013-0393-2",
+    "no_ecological_density_effect_or_mechanistic_claim": true,
+    "no_adjustment_of_predeclared_eligibility_from_annual_pattern": true
+  }
+}

@@ -1,0 +1,54 @@
+name: multiscale-density-cohort-size-posthoc
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_multiscale_density_cohort_size_v1.py"
+      - "tests/test_multiscale_density_cohort_size_v1.py"
+      - ".github/workflows/multiscale-density-cohort-size-posthoc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: multiscale-density-cohort-size-posthoc-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cohort-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy==2.1.1
+      - name: Test independent cohort-size W/B estimator
+        run: python -m unittest discover -s tests -p 'test_multiscale_density_cohort_size_v1.py' -v
+      - name: Retrieve frozen derived geometry artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: multiscale-density-centroid-geometry-v1
+          run-id: 37793401501
+          repository: zuizui0223/neon
+          github-token: ${{ github.token }}
+          path: build
+      - name: Verify immutable 1326-session cohort and fit posthoc sensitivity
+        run: |
+          python -m analysis.audit_multiscale_density_cohort_size_v1 \
+            --sessions build/multiscale_density_centroid_session_diagnostics_v1.json \
+            --output build/multiscale_density_cohort_size_sensitivity_v1.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: multiscale-density-cohort-size-posthoc-v1
+          path: build/multiscale_density_cohort_size_sensitivity_v1.json
+          if-no-files-found: warn
+          retention-days: 45

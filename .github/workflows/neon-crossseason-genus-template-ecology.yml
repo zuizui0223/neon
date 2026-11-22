@@ -1,0 +1,47 @@
+name: neon-crossseason-genus-template-ecology
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_crossseason_genus_template_ecology_v1.py"
+      - "analysis/neon_crossseason_template_null_v1.py"
+      - "tests/test_neon_crossseason_template_null_v1.py"
+      - ".github/workflows/neon-crossseason-genus-template-ecology.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-crossseason-genus-ecology-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prospective-independent-neon-genus-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify original ecological null is fixed-fixed and site-blocked
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_crossseason_template_null_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_crossseason_genus_support_v1.py' -v
+      - name: Require versioned NEON release credential
+        run: test -n "$NEON_API_TOKEN"
+      - name: Run pre-frozen independent NEON genus cross-season ecological contrast
+        run: python -m analysis.run_neon_crossseason_genus_template_ecology_v1
+      - name: Archive aggregate ecological estimates and source-QC receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-crossseason-genus-spatial-template-ecology-v1
+          path: build/neon_crossseason_genus_template_ecology_v1.json
+          if-no-files-found: warn
+          retention-days: 45

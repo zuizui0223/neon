@@ -1,0 +1,217 @@
+{
+  "exactly_two_genera_source": {
+    "actual_original_captures_dates_not_exported": true,
+    "any_single_consistent_precip_product_months_pairs": 123,
+    "both_air_temperature_and_a_single_consistent_precip_product_pairs": 123,
+    "calendar_gap_days_source_only": {
+      "max": 148,
+      "mean": 74.19620253164557,
+      "median": 82.5,
+      "min": 26,
+      "n": 158
+    },
+    "ecological_domains": 15,
+    "no_daily_temperature_or_precipitation_value_downloaded": true,
+    "original_start_year_counts": {
+      "2015": 12,
+      "2016": 25,
+      "2017": 34,
+      "2018": 30,
+      "2019": 18,
+      "2020": 4,
+      "2021": 7,
+      "2022": 3,
+      "2023": 17,
+      "2024": 8
+    },
+    "pairs": 158,
+    "physical_sites": 30,
+    "season_transition_q_mod4_counts": {
+      "0": 2,
+      "1": 46,
+      "2": 107,
+      "3": 3
+    },
+    "sites_with_air_temperature_and_consistent_precip_pairs": 28,
+    "sites_with_at_least_two_pairs_and_30day_plus_lag_range": 18,
+    "sites_with_at_least_two_pairs_and_nonconstant_lag": 25,
+    "source_weather_month_coverage": {
+      "precip_old_retired": {
+        "code": "DP1.00006.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 0,
+        "source_pair_fraction": 0,
+        "source_physical_sites_with_at_least_one_complete_pair": 0
+      },
+      "precip_tipping": {
+        "code": "DP1.00045.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 111,
+        "source_pair_fraction": 0.7025316455696202,
+        "source_physical_sites_with_at_least_one_complete_pair": 21
+      },
+      "precip_weighing": {
+        "code": "DP1.00044.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 39,
+        "source_pair_fraction": 0.2468354430379747,
+        "source_physical_sites_with_at_least_one_complete_pair": 12
+      },
+      "single_air_temperature": {
+        "code": "DP1.00002.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 144,
+        "source_pair_fraction": 0.9113924050632911,
+        "source_physical_sites_with_at_least_one_complete_pair": 28
+      },
+      "summary_weather": {
+        "code": "DP4.00001.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 59,
+        "source_pair_fraction": 0.37341772151898733,
+        "source_physical_sites_with_at_least_one_complete_pair": 12
+      }
+    },
+    "within_site_gap_range_days_for_sites_with_two_plus_pairs": {
+      "max": 121,
+      "mean": 58.12,
+      "median": 62,
+      "min": 1,
+      "n": 25
+    }
+  },
+  "lag_effect_source_precheck": {
+    "min_distinct_transition_categories": 3,
+    "min_informative_original_two_genus_pairs": 100,
+    "min_sites_with_lag_range_30plus_days": 8,
+    "min_sites_with_two_plus_distinct_lags": 15,
+    "no_effect_opened": true,
+    "original_transition_categories": 4,
+    "source_only_non_effect_prerequisites_pass": true,
+    "source_sites_with_30plus_day_lag_range": 18,
+    "source_sites_with_distinct_lag": 25,
+    "two_genus_original_pairs": 158
+  },
+  "original_source_window": "RELEASE-2026 2015-04..2026-09",
+  "original_three_plus_genera_source": {
+    "actual_original_captures_dates_not_exported": true,
+    "any_single_consistent_precip_product_months_pairs": 43,
+    "both_air_temperature_and_a_single_consistent_precip_product_pairs": 43,
+    "calendar_gap_days_source_only": {
+      "max": 148,
+      "mean": 72.27586206896552,
+      "median": 62.5,
+      "min": 24,
+      "n": 58
+    },
+    "ecological_domains": 10,
+    "no_daily_temperature_or_precipitation_value_downloaded": true,
+    "original_start_year_counts": {
+      "2015": 13,
+      "2016": 8,
+      "2017": 8,
+      "2018": 2,
+      "2019": 2,
+      "2020": 3,
+      "2021": 4,
+      "2022": 4,
+      "2023": 2,
+      "2024": 12
+    },
+    "pairs": 58,
+    "physical_sites": 14,
+    "season_transition_q_mod4_counts": {
+      "1": 22,
+      "2": 36
+    },
+    "sites_with_air_temperature_and_consistent_precip_pairs": 13,
+    "sites_with_at_least_two_pairs_and_30day_plus_lag_range": 9,
+    "sites_with_at_least_two_pairs_and_nonconstant_lag": 9,
+    "source_weather_month_coverage": {
+      "precip_old_retired": {
+        "code": "DP1.00006.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 0,
+        "source_pair_fraction": 0,
+        "source_physical_sites_with_at_least_one_complete_pair": 0
+      },
+      "precip_tipping": {
+        "code": "DP1.00045.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 30,
+        "source_pair_fraction": 0.5172413793103449,
+        "source_physical_sites_with_at_least_one_complete_pair": 10
+      },
+      "precip_weighing": {
+        "code": "DP1.00044.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 14,
+        "source_pair_fraction": 0.2413793103448276,
+        "source_physical_sites_with_at_least_one_complete_pair": 4
+      },
+      "single_air_temperature": {
+        "code": "DP1.00002.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 55,
+        "source_pair_fraction": 0.9482758620689655,
+        "source_physical_sites_with_at_least_one_complete_pair": 13
+      },
+      "summary_weather": {
+        "code": "DP4.00001.001",
+        "source_pair_availability_is_not_climate_measurement": true,
+        "source_pair_complete_month_availability": 25,
+        "source_pair_fraction": 0.43103448275862066,
+        "source_physical_sites_with_at_least_one_complete_pair": 4
+      }
+    },
+    "within_site_gap_range_days_for_sites_with_two_plus_pairs": {
+      "max": 123,
+      "mean": 50,
+      "median": 46.5,
+      "min": 0,
+      "n": 12
+    }
+  },
+  "schema": "neon.macro.elapsed_time_weather_original_source.v1",
+  "scientific_scope": {
+    "new_climate_by_R_or_gap_by_R_effect_computed": false,
+    "old_primary_effect_or_new_exact_two_R_Z_refitted": false,
+    "original_density_generality_5of8_failure_unchanged": true,
+    "original_source_identification_and_effort_unchanged": true,
+    "product_availability_is_not_captured_microhabitat": true,
+    "source_original_exactly_two_pairs": 158,
+    "source_original_three_plus_pairs": 58,
+    "source_site_capture_dates_lat_lon_site_ID_animal_IDs_exported": false,
+    "total_original_2plus_pairs": 216,
+    "weather_months_do_not_imply_QC_pass_or_causal_exposure": true
+  },
+  "source_provenance": {
+    "downloaded_checksum_verified_capture_files": 3480,
+    "manifest_files_original_verified": 3547,
+    "no_source_location_or_animal_identity_exported": true,
+    "official_NEON_sites_availability_release": "RELEASE-2026",
+    "original_plot_rows": 21363,
+    "original_three_genus_source_support_verification": true,
+    "original_trap_rows": 1505827,
+    "source_rebuilt_2plus_original_216_pairs": true
+  },
+  "status": "SOURCE_ONLY_LAG_AND_TOWER_WEATHER_AVAILABILITY_AUDITED",
+  "tower_weather_release_month_availability_gate": {
+    "availability_not_quality_control_or_actual_site_grid_weather": true,
+    "minimum_independent_physical_sites": 20,
+    "source_pair_temperature_and_precip_coverage": 123,
+    "source_physical_site_weather_coverage": 28,
+    "temperature_and_one_consistent_precip_source_min_original_pairs": 100,
+    "weather_availability_sufficient_to_plan_external_original_month_download": true
+  },
+  "workflow_provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 40174234446,
+    "job_id": 121111366822,
+    "source_commit": "5c7325d79598a04d54757ff98d51cb94dd89306e",
+    "conclusion": "success",
+    "url": "https://github.com/zuizui0223/neon/actions/runs/40174234446",
+    "outcome_opened": false
+  }
+}

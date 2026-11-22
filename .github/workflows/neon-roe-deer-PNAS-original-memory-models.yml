@@ -1,0 +1,55 @@
+name: neon-roe-deer-PNAS-original-memory-perception-omniscience
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/reproduce_ranc_2021_published_memory_models_v1.py'
+      - 'tests/test_ranc_2021_published_memory_models_v1.py'
+      - 'docs/NEON_ROE_DEER_ORIGINAL_MEMORY_MODEL_REPRO_FROZEN_20261122.md'
+      - '.github/workflows/neon-roe-deer-PNAS-original-memory-models.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/reproduce_ranc_2021_published_memory_models_v1.py'
+      - 'tests/test_ranc_2021_published_memory_models_v1.py'
+      - 'docs/NEON_ROE_DEER_ORIGINAL_MEMORY_MODEL_REPRO_FROZEN_20261122.md'
+      - '.github/workflows/neon-roe-deer-PNAS-original-memory-models.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-original-PNAS-published-cognitive-models-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-published-25-trajectories-three-fitted-model-objectives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clone published original PNAS C++ source and fitted configs by exact commit
+        uses: actions/checkout@v4
+        with:
+          repository: ranc-n/Ranc-et-al.-PNAS-2021
+          ref: 58cd85c863d50346df0c7b0d3ecfde97f8a5dfdb
+          path: external/ranc_original_2021
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original model type, source fitted parameters and paths-only config adaptation
+        run: python -m unittest discover -s tests -p 'test_ranc_2021_published_memory_models_v1.py' -v
+      - name: Compile exact original published author C++ and calculate 3 original fitted model objective scores
+        run: |
+          python -m analysis.reproduce_ranc_2021_published_memory_models_v1 \
+            --repo-dir external/ranc_original_2021 \
+            --work-dir build/original_ranc_published_models
+      - name: Archive anonymous published-model score reproduction, never raw trajectories or code outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-ranc2021-published-original-memory-perception-omniscience
+          path: build/neon_ranc2021_original_memory_model_scores_20261122.json
+          if-no-files-found: warn
+          retention-days: 45

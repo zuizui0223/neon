@@ -1,0 +1,39 @@
+name: neon-bank-vole-identity-pair-geometry
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_neon_bank_vole_dyad_geometry_v1.py'
+      - 'tests/test_neon_bank_vole_dyad_geometry_v1.py'
+      - 'docs/NEON_BANK_VOLE_DYAD_PERSISTENCE_FROZEN_20261115.md'
+      - '.github/workflows/neon-bank-vole-identity-pair-geometry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-bank-vole-dyads-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-vole-retrospective-pair-identity-geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test within-site matched-dyad distance ranks and distinct nulls
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_bank_vole_dyad_geometry_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_external_bank_vole_centroid_v1.py' -v
+      - name: Reverify frozen 51 original vole identities and execute paired rank and collective-translation contrasts
+        run: python -m analysis.run_neon_bank_vole_dyad_geometry_v1
+      - name: Preserve anonymous group-level dyad source result or scientific STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-frozen-vole-pair-identity-season-geometry
+          path: build/neon_bank_vole_partner_geometry_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

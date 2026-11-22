@@ -1,0 +1,18 @@
+# Original prairie-vole paired contact and trap source: MD5-pinned files
+
+Source-only [Figshare project 228462](https://figshare.com/projects/Journal_of_Mammalogy_-_Methods_for_measuring_fine-scale_social_proximity_in_small_mammals/228462), discovered by public official metadata Action #43694580921. Paper Davidson et al. 2025 Journal of Mammalogy DOI 10.1093/jmammal/gyaf032. One 0.1-ha semi-natural enclosure; n=24 animals in original paired network. ProxLogs can detect within ~5–6cm; devices frequently fail or are lost. The paper already reported a live-trap vs logger proximity QAP correlation 0.148 and MRQAP R² 0.02. These ORIGINAL AUTHOR results are prior art, not new NEON findings. They imply trap co-capture topology is a poor proxy for actual very-close proximity, and do NOT validate actual contacts in the earlier Finland dataset.
+
+The preceding official Figshare metadata source audit verified 9 published article/files. We froze 7 necessary original public CSV file ids, exact declared byte lengths and provider MD5 from the official project. Stage 2 fetches only these files by Figshare original file IDs, verifies MD5 and byte length, and reports original source headers and row counts; it does NOT open or export individual mouse IDs, dyad event times, trap spatial positions, or statistical association outcomes. Pins:
+- collar_ids.csv — 50635479 — 1550 — MD5 11c9ec94411df6553110101f6770c7b5
+- proxlog_summary.csv — 50636031 — 2378 — MD5 d9f1379ce162695496f223c5fddd0540
+- full_voles_trap.csv — 50636346 — 185698 — MD5 8b6ac53786fae959ab0087d9c39b8e13
+- prox_full_noduplicates.csv — 50636655 — 1973533 — MD5 29e1db3d6c0099822e1573267d9077c7
+- rfid_trap_network_data_method.csv — 50636994 — 93557 — MD5 a2f4000270ab7c88b74fa39e44c39baa
+- collar_success_long.csv — 50637150 — 862 — MD5 e2b5075c1ead340cdeb07d6a8b93d752
+- global_ids.csv — 50637252 — 7174 — MD5 4c353d8c131e99df46d98fb025709f98
+
+After this source-only gate passes, a completely separate **time-aligned animal pair association protocol** must first freeze: the available raw dates, PIT tag/collar maps, logger uptime and loss, 24 included network individuals, trap census opportunity, split of observation windows with enough repeated loggers in both windows, and the null/sample unit. A robust biological contrast would test whether matched original vole-pair trap distances (or co-captures) predict **observed logger within-6cm contact rates** in heldout time blocks beyond the opportunity and coverage reference. Null within-6cm events are not verified absences without active collar exposure. Raw event records and movement are not yet accessed. No new ecological effect or causal interaction is claimed. Old NEON/Portal/Finland/Structural results remain untouched and one ecology paper remains Draft/SUBMISSION HOLD.
+
+## 15 November 2026: actual source-integrity gate result
+
+Public original-source file headers and provider MD5 verified; collar assignment source calendar check identified **1 out of 38** reversed source start/end dates. The frozen, before-biological-effect gate STOPPED and no dyad/event effect or zero-contact indicator was scored. See [machine-verified STOP receipt](../results/neon_prairie_vole_collar_original_calendar_STOP_receipt_20261115.json) and [source methods](NEON_PRAIRIE_VOLE_COLLAR_CALENDAR_SOURCE_STOP_20261115.md). Keep the already published 2025 MRQAP R²≈0.02 as PRIOR ART and do not call this absent evidence for NEON/Finland contacts.

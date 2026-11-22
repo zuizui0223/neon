@@ -1,0 +1,36 @@
+name: external-MOSA-Zenodo-schema-only
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_zenodo_source_schema_v1.py"
+      - "tests/test_mosa_zenodo_source_schema_v1.py"
+      - ".github/workflows/external-MOSA-Zenodo-schema-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test checksum, anti-bot HTML and synthetic capture structure
+        run: python -m unittest discover -s tests -p 'test_mosa_zenodo_source_schema_v1.py' -v
+      - name: Retrieve independently published MOSA metadata and raw CSV
+        run: python -m analysis.audit_mosa_zenodo_source_schema_v1
+      - name: Archive verified schema or strict STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-Zenodo-schema-v1
+          path: build/mosa_external_schema_v1.json
+          if-no-files-found: warn
+          retention-days: 45

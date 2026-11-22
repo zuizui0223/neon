@@ -1,0 +1,109 @@
+{
+  "CHM_raster_read_error_categories": {},
+  "CHM_tile_download_error_categories": {},
+  "CHM_zero_means_no_understory": false,
+  "MOSA_W_B_effects": "SEALED",
+  "all_100_trap_station_habitat_verified": false,
+  "anchors_with_known_coordinate_uncertainty": 30,
+  "anchors_with_unknown_coordinate_uncertainty": 120,
+  "current_anchor_location_errors": {},
+  "earlier_E5_30_valid_19_zero_reproduced": true,
+  "ecological_genus_habitat_effect_computed": false,
+  "five_anchor_range_m_summary": {
+    "maximum": 36.90399932861328,
+    "median": 0,
+    "minimum": 0
+  },
+  "frozen_58_unit_30_plot_14_site_cohort_reproduced": true,
+  "historical_capture_date_alignment_proven": false,
+  "masked_or_unavailable_anchors": 0,
+  "no_source_site_plot_coordinate_or_plot_height_values_exported": true,
+  "original_anchor_attempts": 150,
+  "original_density_W_B_claim_reclassified": false,
+  "original_plots": 30,
+  "original_source": {
+    "capture_files_without_required_namedLocation_schema": 0,
+    "downloaded_source_files_MD5_size_verified": 3480,
+    "manifest_files": 3547,
+    "perplotnight_files": 1773,
+    "pertrapnight_files": 1707,
+    "release": "RELEASE-2026",
+    "same_58_pairs_30_plots_14_sites_reproduced": true,
+    "source_plot_rows": 21363,
+    "source_trap_rows": 1505827
+  },
+  "plots_E5_zero_other_anchor_positive": 3,
+  "plots_with_all_five_valid_anchors": 30,
+  "plots_with_all_five_valid_and_zero_canopy": 16,
+  "plots_with_nonzero_five_anchor_canopy_range": 14,
+  "plots_with_published_geolocation_issue": 4,
+  "plots_with_two_or_more_valid_anchors": 30,
+  "provider_checksum_types": {
+    "crc32c": 34
+  },
+  "raster_acquisition_site_year_counts": {
+    "2022": 1,
+    "2023": 5,
+    "2024": 8
+  },
+  "raster_point_status_counts": {
+    "VALID_REFERENCE_PIXEL": 150
+  },
+  "retrieved_UTC": "2026-10-20T07:27:50.591353+00:00",
+  "schema": "neon.CHMRaster.five_named_anchor_source.pilot.v1",
+  "source_current_anchor_coordinate_digest_set_SHA256": "06a620cf0741512f48d188009fe8bf04a35c0fddd7d1ef78cefde75f662cfcc0",
+  "source_effect_scope": {
+    "MOSA_W_B_effects": "SEALED",
+    "all_100_station_locations_verified": false,
+    "current_named_locations_are_not_historical_capture_date_crosswalk": true,
+    "no_genus_trap_recurrence_or_habitat_regression_computed": true,
+    "no_plant_ground_shrub_cover_from_zero_CHM": true,
+    "no_source_plot_coords_or_individual_heights_exported": true,
+    "only_five_literal_station_anchors_evaluated": true,
+    "original_corrected_genus_spatial_recurrence_unchanged": true,
+    "original_density_genus_generality": "FAILED_5_OF_8"
+  },
+  "source_monthly_URL_selection": "unchanged official advertised month in latest 2015–2025 per site",
+  "source_monthly_manifest_digest_set_SHA256": "c9872d78ceb1736cf60d53cffb22e8464ee909cead9b0ce9d371d1a6d521f862",
+  "source_monthly_manifest_error_class_counts": {},
+  "source_selected_tiles_total_bytes": 40330780,
+  "source_sites_with_suppressed_month_manifest": 0,
+  "source_verified_tile_SHA256_set_digest": "ac453e076e6d2a83b7cefe70a3d3bb554528e1c3eabfba9b8cb3355a69c019f7",
+  "status": "FIVE_NAMED_CHM_REFERENCE_ANCHORS_AUDITED_NOT_HABITAT_EFFECT",
+  "unique_provider_size_and_checksum_verified_CHM_tiles": 34,
+  "unique_selected_CHM_tiles": 34,
+  "unknown_coordinate_uncertainty_was_treated_as_zero": false,
+  "valid_E5_reference_anchors": 30,
+  "valid_anchors": 150,
+  "valid_negative_canopy_anchors_flagged": 0,
+  "valid_zero_canopy_anchors": 93,
+  "zero_E5_reference_heights": 19,
+  "record_date": "2026-10-20",
+  "provenance": {
+    "repo": "zuizui0223/neon",
+    "branch": "design/multiscale-density-accommodation-v1",
+    "workflow": "neon-five-anchor-chm-source",
+    "run_id": 39386226483,
+    "job_id": 118506608939,
+    "head_commit_at_run": "f015de32b91a607cd85156abae77a37b0a97f44c",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "id": 12246954974,
+        "name": "neon-five-anchor-chm-source-only",
+        "digest": "sha256:e1d3392279263e52c411a73881d99f87d2ab12c687ec07647887d4c3ce988306"
+      }
+    ],
+    "run_url": "https://github.com/zuizui0223/neon/actions/runs/39386226483"
+  },
+  "biological_interpretation": {
+    "observed": "Four explicitly source-geolocated corner stations plus E5 have within-plot CHM heterogeneity in 14 of 30 plot-level five-point subsamples; E5 height alone misses positive-canopy cells among other named anchors in 3 plots.",
+    "unidentified": "120 non-E5 anchor coordinates lack published uncertainty and the latest CHM acquisitions are not synchronized to all 2015–2026 seasonal captures, so exact trap habitat exposure and temporal persistence are NOT identified.",
+    "understory": "16/30 plots have zero CHM at all five anchors, which does not imply understory or shrub-free habitat; CHM is incomplete for low vegetation and cannot test microhabitat niches alone.",
+    "ecology_status": "SOURCE_HETEROGENEITY_DOCUMENTED_NO_GENUS_HABITAT_MODEL",
+    "original_genus_seasonal_recurrence": "CORRECTED_UNIFORM_NULL_POSITIVE_CONDITIONAL_UNCHANGED",
+    "old_density_multigenus": "FAILED_5_OF_8",
+    "MOSA_space_effects": "SEALED",
+    "next": "Do not fit a genotype/genus canopy preference to current five-point/source-unsynchronized heights. Obtain historical effective-date, source-specific uncertainty and all 100 named station positions; assess vegetation ground cover and species-specific detection independently."
+  }
+}

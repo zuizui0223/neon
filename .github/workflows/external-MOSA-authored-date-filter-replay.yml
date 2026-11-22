@@ -1,0 +1,42 @@
+name: external-MOSA-authored-date-filter-replay
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_author_exact_filter_v1.py"
+      - "tests/test_mosa_author_exact_filter_v1.py"
+      - ".github/workflows/external-MOSA-authored-date-filter-replay.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-authored-filter-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  authored-filter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test exact authored date filtering and first-species identity
+        run: |
+          python -m unittest discover -s tests -p 'test_mosa_author_exact_filter_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_author_first_species_v1.py' -v
+      - name: Reproduce authors' checksum-verified raw date exclusion and correction
+        run: python -m analysis.audit_mosa_author_exact_filter_v1
+      - name: Archive effect-blind exact replay or clear stop receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-authored-date-filter-v1
+          path: build/mosa_author_exact_filter_v1.json
+          if-no-files-found: warn
+          retention-days: 40

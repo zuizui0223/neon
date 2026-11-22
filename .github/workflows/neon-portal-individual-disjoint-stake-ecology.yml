@@ -1,0 +1,39 @@
+name: neon-portal-individual-disjoint-stake-ecology
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_portal_disjoint_id_stake_ecology_v1.py'
+      - 'tests/test_portal_disjoint_id_stake_ecology_v1.py'
+      - 'docs/NEON_PORTAL_INDIVIDUAL_DISJOINT_SPATIAL_ECOLOGY_PROTOCOL_20261115.md'
+      - '.github/workflows/neon-portal-individual-disjoint-stake-ecology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-disjoint-id-ecology-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-frozen-external-mammal-station-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test original source and disjoint-ID ecology arithmetic
+        run: |
+          python -m unittest discover -s tests -p 'test_portal_external_id_niche_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_portal_disjoint_id_stake_ecology_v1.py' -v
+      - name: Reverify public Portal original SHA, 436 original eligible source pairs and execute fixed ecology protocol
+        run: python -m analysis.run_portal_disjoint_id_stake_ecology_v1
+      - name: Archive aggregate species-stake ecology results or structural source STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-external-portal-stake-disjoint-id-ecology
+          path: build/portal_identity_disjoint_stake_ecology_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

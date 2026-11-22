@@ -1,0 +1,39 @@
+name: neon-figshare-2026-author-R-visit-ontology-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/inspect_figshare_2026_published_R_visit_ontology_v1.py'
+      - '.github/workflows/neon-figshare-2026-original-R-visit-ontology.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/inspect_figshare_2026_published_R_visit_ontology_v1.py'
+      - '.github/workflows/neon-figshare-2026-original-R-visit-ontology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2026-published-R-visit-ontology-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  exact-original-R-source-Visit-ID-semantics-no-behavior:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original public R MD5 and inspect visit-ID/Time.start static source ONLY
+        run: python -m analysis.inspect_figshare_2026_published_R_visit_ontology_v1
+      - name: Keep original author method source diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-original-R-visit-time-ontology
+          path: build/neon_figshare_2026_original_R_visit_ID_ontology_20261122.json
+          if-no-files-found: warn
+          retention-days: 45

@@ -1,0 +1,45 @@
+name: neon-portal-precapture-febmar-ndvi-context
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_portal_precapture_febmar_ndvi_context_v1.py'
+      - 'tests/test_portal_precapture_febmar_ndvi_context_v1.py'
+      - 'docs/NEON_PORTAL_PRECAPTURE_FEBMAR_NDVI_CONTEXT_FROZEN_20261121.md'
+      - '.github/workflows/neon-portal-precapture-febmar-ndvi.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/run_portal_precapture_febmar_ndvi_context_v1.py'
+      - 'tests/test_portal_precapture_febmar_ndvi_context_v1.py'
+      - 'docs/NEON_PORTAL_PRECAPTURE_FEBMAR_NDVI_CONTEXT_FROZEN_20261121.md'
+      - '.github/workflows/neon-portal-precapture-febmar-ndvi.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-portal-original-precapture-febmar-ndvi-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  immutable-February-March-Landsat8-pre-capture-context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Synthetic tests of source coverage and same-month balance
+        run: python -m unittest discover -s tests -p 'test_portal_precapture_febmar_ndvi_context_v1.py' -v
+      - name: Verify original Git blob and evaluate all four source-year Feb-Mar satellite contexts
+        run: python -m analysis.run_portal_precapture_febmar_ndvi_context_v1
+      - name: Archive source-verified environmental context, not mammal effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-portal-original-precapture-FebMar-site-greenness
+          path: build/neon_portal_precapture_febmar_ndvi_context_20261121.json
+          if-no-files-found: warn
+          retention-days: 45

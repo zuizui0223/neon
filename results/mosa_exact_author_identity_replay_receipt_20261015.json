@@ -1,0 +1,64 @@
+{
+  "schema": "neon.mosa_exact_author_schedule_and_label_replay_receipt.v1",
+  "date": "2026-10-15",
+  "status": "AUTHOR_363_OCCASION_DATES_AND_MN_NA_TOE_LABELS_EXACTLY_REPRODUCED_ANIMAL_IDENTITY_LIMITS_RETAINED",
+  "origin": {
+    "doi": "10.5281/zenodo.10049811",
+    "article": "Leirs et al. Scientific Data 2023, doi:10.1038/s41597-023-02700-3",
+    "raw_md5": "12c04902947b91922c3f6c98760ecb54",
+    "author_processing_Rmd_md5": "23555c736b2e835997ec3a7dba231073",
+    "author_processing_Rmd_GitHub_blob_byte_identical": false,
+    "all_55_authored_date_deletion_commands_agree": true,
+    "manual_date_index": 469,
+    "manual_corrected_date": "2004-04-13",
+    "first_species_run_id": 38673899018,
+    "exact_schedule_replay_run_id": 38674585189,
+    "exact_schedule_replay_artifact_id": 11945069652,
+    "exact_schedule_replay_artifact_digest": "sha256:165792758d2faad711af645ff05f48ca67821778b7c7d49811bacadcf3f83893"
+  },
+  "source_replay": {
+    "original_capture_records": 49216,
+    "original_unique_dates": 1145,
+    "explicit_deleted_dates": 55,
+    "source_rows_remaining": 48194,
+    "corrected_capture_rows": 9,
+    "authored_exact_retained_dates": 1089,
+    "published_primary_sessions": 363,
+    "published_three_nights_per_primary": 3,
+    "date_set_equal_exactly": true,
+    "author_MN_unique_normalized_toe": 19678,
+    "predicted_source_first_MN_toe": 19678,
+    "first_label_MN_roster_match_exact": true,
+    "author_NA_unique_normalized_toe": 158,
+    "predicted_first_NA_toe": 158,
+    "first_label_NA_roster_match_exact": true,
+    "raw_species_MN_unique_toe": 19818,
+    "raw_MN_absent_author_MN": 140,
+    "missing_after_exact_filter": {
+      "removed_entirely_by_authors_calendar": 120,
+      "initial_species_NA": 18,
+      "initial_species_other_TA": 2,
+      "initial_species_MN_but_absent_author_MN": 0
+    },
+    "author_MN_rows": 19692,
+    "MN_verbatim_exact_duplicate_toe_rows": 0,
+    "MN_whitespace_normalization_collisions": 14,
+    "author_total_encounter_rows": 19850,
+    "row_count_not_proof_of_19850_unique_MN_animals": true
+  },
+  "scientific_boundary": {
+    "source_first_capture_species_and_session_date_provenance": "PASSED",
+    "biological_individual_reuse_or_toe_code_collision_resolved": false,
+    "published_unique_species_individual_count_19850_reconciled": false,
+    "no_reassignment_unknown_species": true,
+    "no_invented_animal_identity": true,
+    "monthly_MNA_or_spatial_W_B_effects_opened": false,
+    "next": "Perform effect-blind MNA and repeated-night cohort SUPPORT audit using fixed author-verified target species and row-identities, preserve source toe-code collisions and avoid any new W/B effects until sufficient independent year-level and animal identity support. Single MOSA grid cannot repair original failed NEON 6/8 genus generality."
+  },
+  "original_NEON_ecological_boundary": {
+    "development_general_guard": "FAILED_5_OF_8",
+    "future_five_genus_mode": "NOT_ESTIMABLE",
+    "future_Peromyscus_direction": "NOT_REPLICATED_POINT_SIGN_BUT_IMPRECISE",
+    "claim": "No supported universal mammal density spatial packing law or territorial mechanism."
+  }
+}

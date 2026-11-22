@@ -1,0 +1,40 @@
+{
+  "schema": "neon.multiscale_density_accommodation.portal_structural_stop.v1",
+  "date": "2026-10-06",
+  "status": "STOP_BEFORE_SPATIAL_EFFECTS",
+  "programme": "multiscale_density_accommodation_v1",
+  "source": {
+    "repository": "weecology/PortalData",
+    "pinned_commit": "72d7ff8568052763bf6899dc462e285684cf20f6",
+    "methods_file": "SiteandMethods/Methods.md"
+  },
+  "frozen_question": "Can Portal support the same within-session W/B estimand as the NEON three-night design without redefining the temporal session?",
+  "structural_facts": {
+    "plots": 24,
+    "rodent_grid": "7x7 permanent stakes, 6.25 m spacing, 49 stations per plot",
+    "survey_frequency": "approximately monthly around the new moon",
+    "survey_duration": "two nights across the experiment",
+    "plot_level_duration": "each plot is trapped for one night per survey",
+    "unique_individual_field": "id is documented as unique across the full time series"
+  },
+  "decision": {
+    "portal_same_session_W_estimable": false,
+    "portal_same_session_B_only_possible": true,
+    "cross_scale_W_B_joint_estimable": false,
+    "action": "close Portal as an independent same-session discovery/triangulation route"
+  },
+  "rationale": [
+    "The focal W estimand requires repeated coordinate-bearing observations of the same individual within one standardized session.",
+    "Under the standard Portal monthly protocol each plot is trapped for only one night in a survey, so within-plot repeated-night W is not identified at that session scale.",
+    "Linking captures across monthly surveys would redefine the temporal estimand from within-bout spatial variance to between-month movement/state change.",
+    "Changing session scale only to make Portal estimable would violate the frozen no-rescue principle and destroy comparability with the NEON pathogen three-night primary design."
+  ],
+  "effect_boundary": {
+    "portal_spatial_distances_opened": false,
+    "portal_W_opened": false,
+    "portal_B_opened": false,
+    "portal_abundance_slopes_opened": false,
+    "portal_density_effects_opened": false
+  },
+  "allowed_future_use": "Portal may motivate a separate between-month movement/density question under a new preregistration, but it is not evidence for the current W/B programme."
+}

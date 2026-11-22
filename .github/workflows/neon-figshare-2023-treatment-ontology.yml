@@ -1,0 +1,41 @@
+name: neon-figshare-2023-risk-treatment-source-ontology
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_neon_figshare_2023_treatment_ontology_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_TREATMENT_ONTOLOGY_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-treatment-ontology.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_neon_figshare_2023_treatment_ontology_v1.py'
+      - 'docs/NEON_FIGSHARE_2023_TREATMENT_ONTOLOGY_GATE_20261121.md'
+      - '.github/workflows/neon-figshare-2023-treatment-ontology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2023-original-treatment-labels-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-risk-cover-treatment-source-codebook-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original 603 rows and report TREAT labels without a foraging response
+        run: python -m analysis.diagnose_neon_figshare_2023_treatment_ontology_v1
+      - name: Archive only the source ontology audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2023-original-treatment-codes-only
+          path: build/neon_figshare_2023_treatment_ontology_v1.json
+          if-no-files-found: warn
+          retention-days: 45

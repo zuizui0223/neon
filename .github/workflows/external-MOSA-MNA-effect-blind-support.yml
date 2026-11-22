@@ -1,0 +1,42 @@
+name: external-MOSA-MNA-effect-blind-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_mna_support_v1.py"
+      - "tests/test_mosa_mna_support_v1.py"
+      - ".github/workflows/external-MOSA-MNA-effect-blind-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mosa-mna-structural-support-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  MNA-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test TOE code prefix identity and MNA interpolation without spatial effects
+        run: python -m unittest discover -s tests -p 'test_mosa_mna_support_v1.py' -v
+      - name: Verify published Zenodo source and count year-level MNA variability only
+        run: python -m analysis.audit_mosa_mna_support_v1
+      - name: Archive effect-blind support or explicit STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-MNA-effect-blind-support-v1
+          path: |
+            build/mosa_mna_effect_blind_support_v1.json
+            build/mosa_mna_predictor_only_v1.json
+          if-no-files-found: warn
+          retention-days: 45

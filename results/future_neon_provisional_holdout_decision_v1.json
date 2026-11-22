@@ -1,0 +1,126 @@
+{
+  "schema": "neon.future_provisional_holdout_decision.v1",
+  "date": "2026-10-10",
+  "status": "PROSPECTIVE_EVENT_DISJOINT_DIRECTIONAL_NONREPLICATION_PROVISIONAL",
+  "verification": {
+    "release_event_identity_disjoint_run": 38045366599,
+    "historical_MNKA_continuity_run": 38045587044,
+    "prospective_denom_null_B_screen_run": 38045853917,
+    "predictor_manifest_run": 38046339017,
+    "metric_only_QC_run": 38046250920,
+    "first_future_ecological_effect_run": 38046615310,
+    "first_future_ecological_effect_artifact_id": 11668255138,
+    "first_future_ecological_effect_digest": "sha256:b1e271e2649e82ce37d9aa0abc860b03c863fd23fa4225ca6d96316e4756b30f",
+    "post_result_sensitivity_run": 38046723852,
+    "post_result_sensitivity_artifact_id": 11666844516,
+    "post_result_sensitivity_digest": "sha256:ce7e5bde9b8d21274d41b397edae49d2e860b3b3e1f8eaf6bdf5cb1d5a40b00a"
+  },
+  "new_data_scope": {
+    "source": "PROVISIONAL full site-months absent RELEASE-2026, as of 2026-10-10",
+    "old_frozen_event_ID_overlap": 0,
+    "old_frozen_nightuid_overlap": 0,
+    "eligible_m_ge5_saturation_le030_sessions": 287,
+    "metric_QC_scored_sessions": 287,
+    "nonpositive_B_debiased_fraction": 0.006968641114982578,
+    "fixed_five_genus_temporal_mnka_varying_sessions": 166,
+    "individual_history_overlap_across_old_and_new_tags": 230,
+    "new_data_immutable_release": false
+  },
+  "mode_replicability": {
+    "full_five_genus_result": "NOT_ESTIMABLE_ALL_FIVE_FROZEN_GENERA",
+    "original_six_of_eight_development_guard": "FAILED_UNCHANGED",
+    "Peromyscus": {
+      "n": 127,
+      "sites": 19,
+      "series": 32,
+      "development_beta_W": -8.347833713815255,
+      "development_beta_B": 7.582223355442094,
+      "development_beta_D": 15.93005706925735,
+      "future_beta_W": -2.246436271749609,
+      "future_beta_B": -9.319401210900125,
+      "future_beta_D": -7.072964939150511,
+      "future_D_site_cluster_CI95_normal": [
+        -46.952813244411196,
+        32.80688336611018
+      ],
+      "future_D_leave_one_site_out_min": -17.711525145982492,
+      "future_D_leave_one_site_out_max": -0.7247330958588385,
+      "future_D_leave_one_site_out_negative_count": 19,
+      "future_D_m_adjusted_beta": -8.665096138214803,
+      "future_D_m_adjusted_CI95": [
+        -46.646744605161516,
+        29.316552328731913
+      ],
+      "directional_prediction": ">0",
+      "direction_matched": false
+    },
+    "Dipodomys": {
+      "n": 25,
+      "sites": 3,
+      "series": 5,
+      "development_beta_D": -1.3752879902781707,
+      "future_beta_W": -19.096116831750734,
+      "future_beta_B": 8.097757909021789,
+      "future_beta_D": 27.19387474077252,
+      "future_D_leave_one_site_out_positive_count": 3,
+      "future_D_leave_one_site_out_min": 14.420087766254126,
+      "future_D_leave_one_site_out_max": 27.738650288018114,
+      "directional_prediction": "<0",
+      "direction_matched": false,
+      "cluster_uncertainty": "TOO_FEW_SITES"
+    },
+    "Chaetodipus": {
+      "n": 0,
+      "status": "NOT_ESTIMABLE"
+    },
+    "Myodes": {
+      "n": 7,
+      "sites": 1,
+      "status": "NOT_RELIABLY_ESTIMABLE"
+    },
+    "Sigmodon": {
+      "n": 7,
+      "sites": 2,
+      "status": "NOT_RELIABLY_ESTIMABLE"
+    }
+  },
+  "Peromyscus_frozen_local_geometry": {
+    "complete_future_analysis_sessions": 127,
+    "two_null_scored_sessions": 123,
+    "actual_two_null_fraction": 0.968503937007874,
+    "original_min_fraction": 0.9,
+    "null_A_XY_shuffle_beta": 5.209831534398128,
+    "null_A_site_bootstrap_percentile95": [
+      0.11631195065196018,
+      8.784543665800175
+    ],
+    "null_B_other_event_beta": -5.311642624033721,
+    "null_B_site_bootstrap_percentile95": [
+      -15.904440386834978,
+      7.611910055579281
+    ],
+    "frozen_primary_success": "FAILED_TWO_PRIMARY_POSITIVE_DIRECTIONS_NOT_MET",
+    "post_discovery_m_adjusted_A_beta": 4.190577720589998,
+    "post_discovery_m_adjusted_A_CI95": [
+      -1.3575460038412057,
+      9.738701445021201
+    ],
+    "post_discovery_m_adjusted_B_beta": -10.758693205403006,
+    "post_discovery_m_adjusted_B_CI95": [
+      -34.81508138098225,
+      13.297694970176238
+    ],
+    "secondary_raw_NN2_beta": -22.23842655076575,
+    "secondary_B_observed_beta": -7.535910334671668,
+    "territorial_mechanism_inferred": false
+  },
+  "scientific_decision": {
+    "new_five_genus_mode_confirmed": false,
+    "peromyscus_prospective_local_geometry_confirmed": false,
+    "peromyscus_WB_positive_D_direction_replicated": false,
+    "negative_beta_D_sign_in_new_data_proven": false,
+    "interpretation": "New event-heldout provisional data do not reproduce the prespecified Peromyscus positive B-minus-W density response nor the two-null local-spacing claim. Precision is limited, with wide site-cluster intervals. Dipodomys also reverses its point sign but has only 3 sites. Biological temporal-regime change, competition and social spacing mechanisms are not identified.",
+    "publication_gate": "HOLD ecology manuscript as a confirmed general density-accommodation mechanism. Treat as an instructive negative/heterogeneous replication and retain frozen failures.",
+    "what_next": "Await fixed official future NEON release to verify provisional responses; do not posthoc select taxa/years/traits to rescue effects; external behavioral/detection data needed for mechanisms."
+  }
+}

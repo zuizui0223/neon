@@ -1,0 +1,52 @@
+name: neon-macro-original-tower-thermal-ecology
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_tower_thermal_contrast_v1.py"
+      - "analysis/run_neon_macro_original_tower_thermal_ecology_v1.py"
+      - "tests/test_neon_macro_tower_thermal_contrast_v1.py"
+      - "tests/test_neon_macro_tower_exact_month_query_v1.py"
+      - ".github/workflows/neon-macro-original-tower-thermal-ecology.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-macro-original-tower-thermal-ecology-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-month-thermal-recurrence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install frozen site-balanced model runtime
+        run: python -m pip install numpy==2.1.1
+      - name: Check prespecified weather QC, source-month and site model gates
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_macro_tower_thermal_contrast_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_tower_exact_month_query_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_macro_temporal_weather_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_row_fixedmargin_v1.py' -v
+      - name: Require original NEON release source permission
+        run: test -n "$NEON_API_TOKEN"
+      - name: Verify original tower temperature months and evaluate frozen macrothermal association
+        run: python -m analysis.run_neon_macro_original_tower_thermal_ecology_v1
+      - name: Archive verified climate or honest STOP without identifiers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-macro-original-tower-thermal-ecology-v1
+          path: build/neon_macro_original_month_thermal_recurrence_v1.json
+          if-no-files-found: warn
+          retention-days: 45

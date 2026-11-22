@@ -1,0 +1,74 @@
+{
+  "NEON_unified_Draft_SUBMISSION_HOLD": true,
+  "difference_in_original_log_likelihood_memory_minus_omniscience": 416.9110757999988,
+  "difference_in_original_log_likelihood_memory_minus_perception": 549.4896736999999,
+  "frozen_protocol": "docs/NEON_ROE_DEER_ORIGINAL_MEMORY_MODEL_REPRO_FROZEN_20261122.md",
+  "higher_original_fitted_objective_value_is_better_within_same_input": true,
+  "model_parameter_counts_and_cognitive_half_lives_NOT_reestimated": true,
+  "model_score_ranking_is_prior_published_in_PNAS_not_new_NEON_discovery": true,
+  "no_new_optimization_AIC_BIC_or_independent_holdout_scoring": true,
+  "not_a_resource_competition_learning_model_fit_to_NEON_small_mammals": true,
+  "original_25_animal_years_and_26841_hourly_states_verified": true,
+  "original_PNAS_DOI": "10.1073/pnas.2014856118",
+  "original_Zenodo_DOI": "10.5281/zenodo.4609649",
+  "original_cpp_compiled_and_executed_from_pinned_public_code": true,
+  "original_public_Git_commit": "58cd85c863d50346df0c7b0d3ecfde97f8a5dfdb",
+  "original_published_fitted_objectives_by_model": {
+    "memory": -10120.2669944,
+    "omniscience": -10537.1780702,
+    "perception": -10669.7566681
+  },
+  "original_source_time_data_git_sha1": {
+    "Ranc_et_al_2021_PNAS_data_population_ts.txt": {
+      "git_blob_sha1": "18bebe5527828a9ff975d3f35c6b7553d67a3064",
+      "original_file_sha256": "d30c7d09a7cdad503d5bd8c78002355dd187a02ace4e9f7928f253c6cb904c1a",
+      "source_file_bytes": 1022925
+    },
+    "Ranc_et_al_2021_PNAS_data_population_tslv.txt": {
+      "git_blob_sha1": "918f5b981b4dc55c71347549d72815cf0b8db497",
+      "original_file_sha256": "11a8f40df3f4d537897c1c6ce5adf75b6fc5ee986c8e7c570bc1b1537b3b40fe",
+      "source_file_bytes": 387
+    }
+  },
+  "original_three_published_best_model_fit_configs": {
+    "memory": {
+      "no_original_output_probabilities_published": true,
+      "original_Git_blob_SHA1": "f7da45032f81013c17e04bb63c9549cb65da1eab",
+      "original_config_raw_SHA256": "1d352bfa3f28aaed02ca0af4774f783cf87a9a0e1a6a54d0fd5ca730489014d0",
+      "original_fitted_parameter_values_unchanged": true,
+      "original_model_type": "3",
+      "original_public_config": "config_memory_best.txt",
+      "output_source_state_probability_rows_checked": 26841
+    },
+    "omniscience": {
+      "no_original_output_probabilities_published": true,
+      "original_Git_blob_SHA1": "5578459a7ee89b4222bce884f377aecc6a0f2b5e",
+      "original_config_raw_SHA256": "31f66782c360f341fa90d71c5df7b933879be4d8c6093ad925a46f5a66f09ffe",
+      "original_fitted_parameter_values_unchanged": true,
+      "original_model_type": "0",
+      "original_public_config": "config_omniscience_best.txt",
+      "output_source_state_probability_rows_checked": 26841
+    },
+    "perception": {
+      "no_original_output_probabilities_published": true,
+      "original_Git_blob_SHA1": "02fe4c97cdae83eb0b32faf1931ba23b97d96c3f",
+      "original_config_raw_SHA256": "5bde80d566c245e293f31c3e6897e6eacbd6789ee7be670329056959ad6b331c",
+      "original_fitted_parameter_values_unchanged": true,
+      "original_model_type": "1",
+      "original_public_config": "config_perception_best.txt",
+      "output_source_state_probability_rows_checked": 26841
+    }
+  },
+  "retrieved_utc": "2026-11-22T10:37:54.144233+00:00",
+  "schema": "neon.ranc2021_original_published_memory_perception_omniscience_loglikelihood.v1",
+  "source_individual_year_ids_and_state_probabilities_NOT_exported": true,
+  "status": "ORIGINAL_PUBLISHED_PNAS_MODEL_OBJECTIVES_REPRODUCED_PRIOR_ART",
+  "workflow_provenance": {
+    "action": "https://github.com/zuizui0223/neon/actions/runs/45013361817",
+    "job_id": 137180310251,
+    "synthetic_tests": "8 passed",
+    "original_cpp_compile": "success",
+    "original_three_fitted_models_executed": "success",
+    "published_config_initial_fail_due_to_terminal_blanks_fixed_without_numeric_refitting": true
+  }
+}

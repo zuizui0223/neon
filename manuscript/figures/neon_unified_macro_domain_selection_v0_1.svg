@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="725" viewBox="0 0 1110 725" role="img" aria-labelledby="ttl ds">
+<title id="ttl">NEON source-only geographic selection: qualified mammal genus transitions among all adjacent season candidates</title>
+<desc id="ds">Across original 42 candidate physical sites, 803 adjacent season candidate pairs occur in 18 NEON ecological domains but only 58 qualified three-genus pairs at 14 sites across 10 domains. Bars by domain show denominator candidates and qualifying pairs; values do not indicate absence of spatial recurrence. D18 has zero original adjacent-season candidate pairs and is excluded from the plotted conditional fraction.</desc>
+<rect width="1110" height="725" fill="#ffffff"/>
+<text x="42" y="42" font-family="Arial" font-size="24" font-weight="bold" fill="#1e3646">Geographic support limits the NEON recurrence estimand</text>
+<text x="42" y="68" font-family="Arial" font-size="15" fill="#466074">Source-only, effort-verified adjacent seasons: 803 candidates · 58 qualify (7.2%) · 14 of 42 candidate sites</text>
+<text x="42" y="92" font-family="Arial" font-size="13" fill="#556a77">18 candidate ecological domains; only 10 contain at least one primary qualifying pair</text>
+<rect x="42" y="112" width="14" height="10" fill="#d3dde4"/><text x="63" y="122" font-family="Arial" font-size="12" fill="#455864">All candidate pairs</text>
+<rect x="222" y="112" width="14" height="10" fill="#25698a"/><text x="243" y="122" font-family="Arial" font-size="12" fill="#455864">Strict three-genus eligible subset</text>
+<line x1="395" y1="142" x2="395" y2="591" stroke="#788997" stroke-width="1"/>
+<text x="395" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">0</text>
+<line x1="493" y1="142" x2="493" y2="591" stroke="#e5eaee" stroke-width="1"/>
+<text x="493" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">20</text>
+<line x1="591" y1="142" x2="591" y2="591" stroke="#e5eaee" stroke-width="1"/>
+<text x="591" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">40</text>
+<line x1="689" y1="142" x2="689" y2="591" stroke="#e5eaee" stroke-width="1"/>
+<text x="689" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">60</text>
+<line x1="787" y1="142" x2="787" y2="591" stroke="#e5eaee" stroke-width="1"/>
+<text x="787" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">80</text>
+<line x1="885" y1="142" x2="885" y2="591" stroke="#e5eaee" stroke-width="1"/>
+<text x="885" y="612" text-anchor="middle" font-size="12" font-family="Arial" fill="#546875">100</text>
+<text x="42" y="172" font-family="Arial" font-size="13" fill="#2b4556">D01</text>
+<text x="91" y="172" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="160" width="225.40" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="160" width="9.80" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="172" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">2/46</text>
+<text x="981" y="172" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="196" font-family="Arial" font-size="13" fill="#2b4556">D02</text>
+<text x="91" y="196" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="184" width="416.50" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="184" width="4.90" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="196" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">1/85</text>
+<text x="981" y="196" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="220" font-family="Arial" font-size="13" fill="#2b4556">D03</text>
+<text x="91" y="220" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="208" width="303.80" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="220" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/62</text>
+<text x="981" y="220" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="244" font-family="Arial" font-size="13" fill="#2b4556">D04</text>
+<text x="91" y="244" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="232" width="39.20" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="244" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/8</text>
+<text x="981" y="244" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="268" font-family="Arial" font-size="13" fill="#2b4556">D05</text>
+<text x="91" y="268" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="256" width="274.40" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="268" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/56</text>
+<text x="981" y="268" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="292" font-family="Arial" font-size="13" fill="#2b4556">D06</text>
+<text x="91" y="292" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="280" width="470.40" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="280" width="63.70" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="292" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">13/96</text>
+<text x="981" y="292" font-family="Arial" font-size="12" fill="#627583">(3 qualified sites)</text>
+<text x="42" y="316" font-family="Arial" font-size="13" fill="#2b4556">D07</text>
+<text x="91" y="316" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="304" width="396.90" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="304" width="9.80" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="316" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">2/81</text>
+<text x="981" y="316" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="340" font-family="Arial" font-size="13" fill="#2b4556">D08</text>
+<text x="91" y="340" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="328" width="254.80" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="340" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/52</text>
+<text x="981" y="340" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="364" font-family="Arial" font-size="13" fill="#2b4556">D09</text>
+<text x="91" y="364" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="352" width="294.00" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="352" width="14.70" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="364" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">3/60</text>
+<text x="981" y="364" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="388" font-family="Arial" font-size="13" fill="#2b4556">D10</text>
+<text x="91" y="388" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="376" width="294.00" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="376" width="58.80" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="388" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">12/60</text>
+<text x="981" y="388" font-family="Arial" font-size="12" fill="#627583">(2 qualified sites)</text>
+<text x="42" y="412" font-family="Arial" font-size="13" fill="#2b4556">D11</text>
+<text x="91" y="412" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="400" width="171.50" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="400" width="44.10" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="412" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">9/35</text>
+<text x="981" y="412" font-family="Arial" font-size="12" fill="#627583">(2 qualified sites)</text>
+<text x="42" y="436" font-family="Arial" font-size="13" fill="#2b4556">D12</text>
+<text x="91" y="436" font-family="Arial" font-size="12" fill="#607482">1 candidate sites</text>
+<rect x="395" y="424" width="58.80" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="436" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/12</text>
+<text x="981" y="436" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="460" font-family="Arial" font-size="13" fill="#2b4556">D13</text>
+<text x="91" y="460" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="448" width="151.90" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="460" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/31</text>
+<text x="981" y="460" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="484" font-family="Arial" font-size="13" fill="#2b4556">D14</text>
+<text x="91" y="484" font-family="Arial" font-size="12" fill="#607482">1 candidate sites</text>
+<rect x="395" y="472" width="151.90" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="472" width="24.50" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="484" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">5/31</text>
+<text x="981" y="484" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="508" font-family="Arial" font-size="13" fill="#2b4556">D15</text>
+<text x="91" y="508" font-family="Arial" font-size="12" fill="#607482">1 candidate sites</text>
+<rect x="395" y="496" width="83.30" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="496" width="44.10" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="508" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">9/17</text>
+<text x="981" y="508" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="532" font-family="Arial" font-size="13" fill="#2b4556">D16</text>
+<text x="91" y="532" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="520" width="142.10" height="14" fill="#d3dde4" rx="2"/>
+<rect x="395" y="520" width="9.80" height="14" fill="#25698a" rx="2"/>
+<text x="912" y="532" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">2/29</text>
+<text x="981" y="532" font-family="Arial" font-size="12" fill="#627583">(1 qualified sites)</text>
+<text x="42" y="556" font-family="Arial" font-size="13" fill="#2b4556">D17</text>
+<text x="91" y="556" font-family="Arial" font-size="12" fill="#607482">3 candidate sites</text>
+<rect x="395" y="544" width="166.60" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="556" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/34</text>
+<text x="981" y="556" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="580" font-family="Arial" font-size="13" fill="#2b4556">D19</text>
+<text x="91" y="580" font-family="Arial" font-size="12" fill="#607482">2 candidate sites</text>
+<rect x="395" y="568" width="39.20" height="14" fill="#d3dde4" rx="2"/>
+<text x="912" y="580" font-family="Arial" font-size="12" font-weight="600" fill="#33576e">0/8</text>
+<text x="981" y="580" font-family="Arial" font-size="12" fill="#627583">(0 qualified sites)</text>
+<text x="42" y="642" font-family="Arial" font-size="13" fill="#324d5e">CORE: 27 / 373 pairs (7.24%)    ·    GRADIENT: 31 / 430 pairs (7.21%)</text>
+<text x="42" y="664" font-family="Arial" font-size="12" fill="#566d7b">These are availability/selection fractions, NOT genus recurrence probabilities or biological effect sizes.</text>
+<text x="42" y="683" font-family="Arial" font-size="11" fill="#667b87">D18 had 0 eligible adjacent-season comparisons and is not a negative-recurrence domain.</text>
+<text x="42" y="701" font-family="Arial" font-size="11" fill="#667b87">Source: results/neon_macro_biogeographic_selection_receipt_20261025.json · Actions 40163416566 · RELEASE-2026</text>
+</svg>

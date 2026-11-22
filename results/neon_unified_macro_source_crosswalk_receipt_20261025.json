@@ -1,0 +1,57 @@
+{
+  "exact_pair_crosswalk": {
+    "distinct_matched_genera": 6,
+    "distinct_original_plots_with_matched_pairs": 10,
+    "distinct_physical_sites_with_matched_pairs": 8,
+    "genera_with_matched_pairs_across_at_least_two_sites": 1,
+    "matched_genus_pair_opportunities": 14,
+    "pairs_with_no_same_genus_repeat_support": 46,
+    "pairs_with_repeat_supported_taxon_genus_in_both_events_any_genus": 18,
+    "pairs_with_same_original_recurrence_genus_repeat_supported_in_both_events": 12
+  },
+  "limitations": {
+    "actual_W_B_m2_calculated": false,
+    "all_tests_are_source_only": true,
+    "complete_historical_W_B_analysis_session_joined": false,
+    "interpretation": "source-only candidate exact same-population event overlap; does not identify joint ecological effects or reproduce frozen W/B outcome-population membership",
+    "joint_spatial_recurrence_density_effect_computed": false,
+    "no_biotic_interaction_habitat_or_detection_mechanism_claimed": true,
+    "old_eight_genus_density_generalization_still_failed": true,
+    "recurrence_Z_recomputed": false,
+    "site_genus_or_animal_identity_exported": false
+  },
+  "new_post_result_source_feasibility_gates": {
+    "minimum_independent_sites": 8,
+    "minimum_original_matched_season_pairs": 20,
+    "minimum_replicated_genera": 3,
+    "not_retroactive_original_preregistration": true,
+    "pass": false
+  },
+  "original_source": {
+    "distinct_season_events": 113,
+    "frozen_season_pairs": 58,
+    "genera_per_pair_at_least_three": true,
+    "plots": 30,
+    "sites": 14
+  },
+  "provenance": {
+    "downloaded_checksum_size_verified_capture_files": 3480,
+    "linked_observational_effects_opened": false,
+    "manifest_files_verified": 3547,
+    "original_2026_release_already_consumed": true,
+    "original_source_support_recomputed_and_frozen_check_passed": true,
+    "release": "RELEASE-2026"
+  },
+  "schema": "neon.unified_macro.source_only_joint_eligibility.v1",
+  "status": "STOP_MATCHED_RESPONSES_NOT_STRUCTURALLY_GENERAL",
+  "w_b_structural_opportunity": {
+    "events_passing_saturation": 74,
+    "events_with_one_or_more_repeated_target_genera": 56,
+    "genus_mnka_across_time_not_computed": true,
+    "max_all_capture_trap_night_fraction": 0.3,
+    "min_repeated_tagged_individuals_per_taxon_event": 5,
+    "not_the_historical_full_1326_session_W_B_fit": true,
+    "qualifying_target_taxon_event_units": 80,
+    "taxon_concepts_considered_from_original_lock": 35
+  }
+}

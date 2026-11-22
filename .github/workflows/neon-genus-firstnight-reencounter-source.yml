@@ -1,0 +1,47 @@
+name: neon-genus-firstnight-reencounter-source
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/neon_macro_firstnight_reencounter_source_v1.py"
+      - "analysis/run_neon_genus_firstnight_reencounter_source_v1.py"
+      - "tests/test_neon_macro_firstnight_reencounter_source_v1.py"
+      - ".github/workflows/neon-genus-firstnight-reencounter-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-genus-firstnight-reencounter-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-firstnight-marked-genus-comparator-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify no later-night recapture outcomes are accessed by first-night source support
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_macro_firstnight_reencounter_source_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_genus_source_v1.py' -v
+      - name: Require source checksum verified NEON release permission
+        run: test -n "$NEON_API_TOKEN"
+      - name: Audit actual first-night marked-animal genus/site support without re-encounter outcomes
+        run: python -m analysis.run_neon_genus_firstnight_reencounter_source_v1
+      - name: Preserve source cohort coverage and honest genotype-comparator STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-genus-firstnight-reencounter-source-only
+          path: build/neon_genus_firstnight_reencounter_source_20261026.json
+          if-no-files-found: warn
+          retention-days: 45

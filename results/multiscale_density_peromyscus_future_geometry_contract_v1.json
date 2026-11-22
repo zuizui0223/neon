@@ -1,0 +1,70 @@
+{
+  "schema": "neon.multiscale_density.peromyscus.future_geometry_contract.v1",
+  "date": "2026-10-08",
+  "state": "FROZEN_AFTER_RELEASE2026_DISCOVERY_BEFORE_FUTURE_SPATIAL_GEOMETRY_RESPONSE",
+  "origin": {
+    "development_result": "results/multiscale_density_centroid_geometry_exploratory_result_v1.json",
+    "development_run": 37792053440,
+    "development_sessions": 956,
+    "development_sites": 33,
+    "observed_signs": {
+      "raw_nearest_neighbor_squared_mnka": "negative",
+      "XY_permutation_excess_mnka": "positive",
+      "within_series_other_event_excess_mnka": "positive"
+    },
+    "status": "HYPOTHESIS_GENERATING_NOT_CONFIRMATORY"
+  },
+  "question": "Within Peromyscus populations, does higher same-genus MNKA produce smaller raw nearest-neighbor trap-centroid spacing but more positive local-spacing excess than expected from geometry and repeat-supported cohort sampling?",
+  "new_response": {
+    "source": "NEON small mammal standardized three-night plot-events NOT present in RELEASE-2026",
+    "no_development_spatial_response_reuse": true,
+    "taxon": "Peromyscus (same protocol target taxon concepts, original genus-MNKA rules)",
+    "geometry": "same 10 x 10 lattice, coordinates A1..J10; three nights; >=5 repeat-supported individuals",
+    "saturation": "all-small-mammal occupied capture trap-night fraction <= 0.30",
+    "period": "first future release(s) attaining the fixed estimability gate; stop and report support-only if not estimable",
+    "null_A": "199 fixed-seed x-y reassignment replicates per session preserving m and B_observed exactly",
+    "null_B": "199 without-replacement draws of m other-event same-taxon-plot centroids, using future-only sessions; no reuse of RELEASE-2026 centroids in response or null reference",
+    "reproducibility": "exact same nearest-neighbor squared metric and unaltered centroid cohort, frozen seed 20261008"
+  },
+  "effect_blind_support_gate": {
+    "min_future_sessions": 80,
+    "min_sites": 10,
+    "min_taxon_plot_series": 20,
+    "min_series_with_three_events_and_two_MNKA_values": 15,
+    "min_two_null_complete_fraction": 0.9,
+    "all_frozen_before_future_response": true,
+    "if_failed": "INCONCLUSIVE_SUPPORT_STOP, do not lower thresholds or append RELEASE-2026 response"
+  },
+  "prospective_tests": {
+    "primary": [
+      "beta(NN_squared - XY_null_expected_NN_squared ~ genus MNKA)>0",
+      "beta(NN_squared - future_other_event_null_expected_NN_squared ~ genus MNKA)>0"
+    ],
+    "secondary": [
+      "raw NN_squared slope < 0",
+      "B_observed slope > 0",
+      "effect signs stable after leave-one-site-out"
+    ],
+    "model": "taxon x plot fixed effects, site x calendar-month fixed effects and calendar-year fixed effects where identifiable in the frozen future data",
+    "weighting": "equal session weights within Peromyscus genus; report heterogeneity across taxon concepts",
+    "decision": "require both primary slope coefficients positive, and site-cluster bootstrap lower 95% interval above zero for both; bootstrap fixed B=2000, seeded, resample sites",
+    "bootstrap_cluster_count": "at least 10 independent sites"
+  },
+  "causal_boundary": {
+    "claim_if_passed": "prospectively replicated, observation-conditioned local spatial regularity association with genus-level MNKA in Peromyscus",
+    "not_claimed": [
+      "territoriality",
+      "active repulsion",
+      "social behavior",
+      "true undisturbed nearest-neighbor spacing",
+      "universal small mammal law"
+    ],
+    "exclude_rescues": [
+      "switch to other genus after Peromyscus failure",
+      "lower m or saturation criteria",
+      "select null simulations conditional on future sign",
+      "reinterpret previous 6/8 failure"
+    ]
+  },
+  "relationship": "This is an additional future Peromyscus spatial geometry test; does NOT replace existing 5-genus mode or 7-taxon future contracts."
+}

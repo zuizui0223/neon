@@ -1,0 +1,46 @@
+name: neon-exact-two-new-sites-geographic-sensitivity
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/run_neon_exact_two_new_site_sensitivity_v1.py"
+      - "tests/test_neon_exact_two_new_site_sensitivity_v1.py"
+      - ".github/workflows/neon-exact-two-new-sites-geographic-sensitivity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-exact-two-geographic-new-sites-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-release-geographic-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify geographical source split and non-effect source eligibility
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_exact_two_row_fixedmargin_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_exact_two_new_site_sensitivity_v1.py' -v
+      - name: Require original checksum-verified RELEASE-2026 NEON authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Test 17 originally unstudied sites under exact fixed-margin conditional null
+        run: python -m analysis.run_neon_exact_two_new_site_sensitivity_v1
+      - name: Archive source-safe full biological and honest STOP receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-exact-two-geographically-new-sites-v1
+          path: build/neon_exact_two_new_site_geographic_sensitivity_v1.json
+          if-no-files-found: warn
+          retention-days: 45

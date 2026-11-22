@@ -1,0 +1,26 @@
+name: future-neon-null-B-structural-unit-check
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_future_neon_null_b_support_v1.py"
+      - "tests/test_future_neon_null_b_support_v1.py"
+      - ".github/workflows/future-neon-null-B-structural-unit-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pure-structural-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test candidate cohort denominator and null-B upper-bound
+        run: python -m unittest discover -s tests -p 'test_future_neon_null_b_support_v1.py' -v

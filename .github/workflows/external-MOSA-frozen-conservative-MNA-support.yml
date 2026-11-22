@@ -1,0 +1,44 @@
+name: external-MOSA-frozen-conservative-MNA-support
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_frozen_conservative_mna_support_v1.py"
+      - "tests/test_mosa_frozen_conservative_mna_support_v1.py"
+      - ".github/workflows/external-MOSA-frozen-conservative-MNA-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-frozen-conservative-mna-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frozen-MNA-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify strict month and frozen MNA structural gates on synthetic data
+        run: |
+          python -m unittest discover -s tests -p 'test_mosa_frozen_conservative_mna_support_v1.py' -v
+          python -m unittest discover -s tests -p 'test_mosa_author_exact_filter_v1.py' -v
+      - name: Assess verified author original 3-day-month MNA structural support only
+        run: python -m analysis.audit_mosa_frozen_conservative_mna_support_v1
+      - name: Archive GO or exact STOP result without ecological spatial effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-frozen-conservative-MNA-support-v1
+          path: |
+            build/mosa_conservative_mna_support_v1.json
+            build/mosa_conservative_mna_predictor_only_v1.json
+          if-no-files-found: warn
+          retention-days: 40

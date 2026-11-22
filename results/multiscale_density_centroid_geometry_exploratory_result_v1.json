@@ -1,0 +1,83 @@
+{
+  "schema": "neon.multiscale_density.centroid_geometry_exploratory_result_v1",
+  "date": "2026-10-08",
+  "state": "POST_RESULT_EXPLORATORY_DO_NOT_PROMOTE_TO_CONFIRMATION",
+  "provenance": {
+    "branch": "design/multiscale-density-accommodation-v1",
+    "run_id": 37792053440,
+    "job_id": 113361732234,
+    "head_sha": "0b86b45536cf608d65d04f23cad527421a605e62",
+    "artifact_id": 11557416037,
+    "artifact_digest": "sha256:3515d7e73524d608bcc8cfb08cfa3aaa28efec97d2a6338f7ed5c2ca3bf86c17",
+    "workflow_conclusion": "success"
+  },
+  "integrity": {
+    "sessions": 1326,
+    "series": 167,
+    "sites": 40,
+    "reproduced_original_delta_beta": 9.37176547246767,
+    "geometry_match": "ALL_CENTROID_B_OBS_AND_COHORT_COUNTS_MATCH",
+    "null_B_session_coverage": 1319,
+    "null_replicates_per_session": 199,
+    "seed": 20261008
+  },
+  "genera": {
+    "Chaetodipus": {
+      "sessions": 45,
+      "sites": 3,
+      "beta_B_obs": 19.778157975064666,
+      "beta_NN2": -14.161224872944038,
+      "beta_NN2_excess_XY": -1.0501228440058332,
+      "beta_NN2_excess_series": 12.322650708546997,
+      "dual_positive": false
+    },
+    "Myodes": {
+      "sessions": 75,
+      "sites": 5,
+      "beta_B_obs": 11.918496339357462,
+      "beta_NN2": -18.65212076084802,
+      "beta_NN2_excess_XY": -3.2975093140720877,
+      "beta_NN2_excess_series": -4.49593738183984,
+      "dual_positive": false
+    },
+    "Peromyscus": {
+      "sessions": 956,
+      "sites": 33,
+      "beta_B_obs": 4.1404774360930094,
+      "beta_NN2": -12.929318618989171,
+      "beta_NN2_excess_XY": 2.5574127652829035,
+      "beta_NN2_excess_series": 4.1715808096880975,
+      "series_null_sessions": 951,
+      "dual_positive": true
+    },
+    "Dipodomys": {
+      "sessions": 129,
+      "sites": 4,
+      "beta_B_obs": -11.338411282412144,
+      "beta_NN2": -20.47943583668402,
+      "beta_NN2_excess_XY": -2.117859043577275,
+      "beta_NN2_excess_series": -10.223745118370399,
+      "dual_positive": false
+    },
+    "Sigmodon": {
+      "sessions": 65,
+      "sites": 7,
+      "beta_B_obs": -17.97668330773434,
+      "beta_NN2": -35.15182520499702,
+      "beta_NN2_excess_XY": -2.2192357588705605,
+      "beta_NN2_excess_series": -16.84432039942044,
+      "series_null_sessions": 64,
+      "dual_positive": false
+    }
+  },
+  "interpretation": {
+    "eligible": "Exploratory descriptive positive local-spacing excess for Peromyscus relative to both geometry references despite raw nearest-neighbour distance contraction; other multi-site genera fail dual-positive criterion",
+    "not_allowed": [
+      "Treat Peromyscus as independent confirmatory replication after mode discovery from RELEASE-2026",
+      "Claim territoriality, repulsion, adaptive defense or direct interactions",
+      "Reclassify original failed six-of-eight genus generality guard",
+      "Ignore selection into repeat-supported capture cohort or detection differences"
+    ],
+    "next_step": "post-result leave-one-site-out and independent future-data test; thresholds cannot retrospectively convert exploration into confirmation"
+  }
+}

@@ -1,0 +1,39 @@
+name: neon-figshare-2026-after-station-key-STOP-structural-diagnostic
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_after_source_STOP_join_support_v1.py'
+      - '.github/workflows/neon-figshare-2026-after-source-STOP-diagnostic.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/diagnose_neon_figshare_2026_after_source_STOP_join_support_v1.py'
+      - '.github/workflows/neon-figshare-2026-after-source-STOP-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2026-post-source-STOP-source-diagnostic-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  diagnostic-exact-join-coverage-with-original-STATION-STOP-retained:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original provider MD5 and diagnose source structural PIT x camera-night links without biological effects
+        run: python -m analysis.diagnose_neon_figshare_2026_after_source_STOP_join_support_v1
+      - name: Preserve aggregate diagnostic, never scientific source GO
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-post-source-stop-structural-join-diagnostic
+          path: build/neon_figshare_2026_after_stop_structural_join_diagnostic_v1.json
+          if-no-files-found: warn
+          retention-days: 45

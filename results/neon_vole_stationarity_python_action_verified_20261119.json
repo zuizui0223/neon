@@ -1,0 +1,71 @@
+{
+  "schema": "neon.external_vole_dyad_stationarity_python_action_verified.v1",
+  "audit_date": "2026-11-19",
+  "source_run_utc": "2026-11-18T13:00:13Z",
+  "status": "GITHUB_ACTIONS_SUCCESS_PYTHON_FIXED_SOURCE_RETROSPECTIVE_NOT_BIOLOGICAL_REPLICATION",
+  "github": {
+    "repo": "zuizui0223/neon",
+    "commit_sha": "a7c68c159e115b566f8172f9e49ad05fa47b53e8",
+    "workflow_run_id": 44308042696,
+    "workflow_url": "https://github.com/zuizui0223/neon/actions/runs/44308042696",
+    "job_id": 134814631326,
+    "artifact_id": 14429985474,
+    "artifact_name": "neon-vole-individual-stationarity-null",
+    "artifact_zip_sha256_from_log": "c81694743fa91a6e6e1e3487028f5e64ec466689b02431c5b288ac095dcaafcf",
+    "workflow_conclusion": "success",
+    "unit_tests_passed": 4,
+    "original_python_source_test_status": "success",
+    "observed_result_transcribed_from_immutable_GitHub_job_stdout": true
+  },
+  "source": {
+    "repo": "jmistrick/vole-spatial-manuscript",
+    "source_commit": "47dc1e9b1f83ec2faaf7ba232e02e00f9e4cffb4",
+    "capture_original_git_blob_sha": "343de8c3846eea21d3f0648358e159bd61bb87a2",
+    "trt_original_git_blob_sha": "b4059f818650ce844472a80f6caf38eee65bfffe",
+    "captures": 2012,
+    "site_tag_animal_keys": 742,
+    "original_sites": 12,
+    "frozen_original_repeat_individuals": 51,
+    "frozen_rank_cohort": {
+      "physical_sites": 10,
+      "animals": 47,
+      "nonindependent_animal_pairs": 102
+    },
+    "source_verified_against_original_git_sha": true
+  },
+  "python_outcome": {
+    "observed_same_tag_distance_rank_rho_site_equal": 0.469986845366135,
+    "expected_same_tag_rho_under_own_stationary_capture_location_null": 0.7125725957150196,
+    "observed_minus_own_stationarity_null_rho": -0.2425857503488847,
+    "treatment_stratified_site_bootstrap95_descriptive": [
+      -0.4962810224564101,
+      -0.015885773367845878
+    ],
+    "positive_site_residuals": 3,
+    "negative_site_residuals": 7,
+    "minimum_valid_null_simulations_per_site": 2000,
+    "maximum_invalid_null_draws_per_site": 0,
+    "draws_per_site": 2000,
+    "bootstrap_draws": 5000,
+    "rng_seed": 2026111567
+  },
+  "independent_JS_source_reconstruction_comparison": {
+    "comparison_receipt": "results/neon_bank_vole_stationarity_js_crosscheck_20261115.json",
+    "JS_observed_minus_null": -0.2437336779252642,
+    "JS_bootstrap95": [
+      -0.49904891126795664,
+      -0.009455373616417578
+    ],
+    "Python_minus_JS_residual_difference": 0.0011481775763795,
+    "interpretation": "Close agreement across implementations and independent pseudo-random streams, not identical Monte Carlo draws and not independent field replication."
+  },
+  "limits": {
+    "new_null_post_original_favorable_dyad_result": true,
+    "source_original_published_seasonal_spatial_ecology_prior_art": true,
+    "does_not_measure_actual_social_contact_movement_or_niche": true,
+    "season_specific_operable_traps_and_effort_not_observed": true,
+    "ten_sites_uncertainty_may_be_fragile": true,
+    "original_NEON_and_Portal_and_Structural_results_unchanged": true,
+    "single_NEON_ecology_manuscript_submission_HOLD": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "neon.multiscale_density.target_taxon_lock.v1",
+  "date": "2026-10-06",
+  "status": "FROZEN_PUBLIC_TAXONOMY_METADATA_ONLY",
+  "source_roster": "results/multiscale_density_primary_taxon_roster_v1.json",
+  "taxonomy_url": "https://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=SMALL_MAMMAL&verbose=true&offset=0&limit=1000",
+  "taxonomy_fingerprint": "9f249c9ee66393ed1e06bbf1ac91fc26dbc3c471ebfb66a199bfa9cb2574238a",
+  "workflow_provenance": {
+    "run_id": 37419623932,
+    "job_id": 112125848945,
+    "artifact_id": 11392850577,
+    "artifact_name": "multiscale-density-target-taxonomy-v1",
+    "artifact_digest": "sha256:c360fdeb90cebdec2d058865f765f7c2fab269bfb14284a33e9a39d31a971d60"
+  },
+  "requested_taxon_count": 44,
+  "matched_taxon_count": 44,
+  "target_taxon_count": 35,
+  "target_rank_counts": {
+    "species": 31,
+    "speciesGroup": 4
+  },
+  "target_taxon_ids": [
+    "CHER",
+    "CHHI",
+    "CHIN",
+    "CHPE",
+    "DIME",
+    "DIMI",
+    "DIOR",
+    "DIORDIMI",
+    "MIOC",
+    "MIOR",
+    "MIPE",
+    "MIXA",
+    "MUMU",
+    "MYGA",
+    "MYRU",
+    "NAIN",
+    "NEFL",
+    "ONLE",
+    "PEBO",
+    "PEFL",
+    "PEGO",
+    "PEGOPELE",
+    "PEKE",
+    "PEKEPEMA",
+    "PELE",
+    "PELEPEMA",
+    "PEMA",
+    "PEPA",
+    "PEPO",
+    "PETR",
+    "POFL",
+    "RARA",
+    "REME",
+    "REMO",
+    "SIHI"
+  ],
+  "non_target_taxon_concepts": [
+    {
+      "taxon_id": "GLVO",
+      "scientific_name": "Glaucomys volans",
+      "protocol_category": "non-target"
+    },
+    {
+      "taxon_id": "ICTR",
+      "scientific_name": "Ictidomys tridecemlineatus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "SPRI",
+      "scientific_name": "Spermophilus richardsonii",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TAAM",
+      "scientific_name": "Tamias amoenus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TAMI",
+      "scientific_name": "Tamias minimus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TAQD",
+      "scientific_name": "Tamias quadrimaculatus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TASP",
+      "scientific_name": "Tamias speciosus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TAST",
+      "scientific_name": "Tamias striatus",
+      "protocol_category": "opportunistic"
+    },
+    {
+      "taxon_id": "TATO",
+      "scientific_name": "Tamias townsendii",
+      "protocol_category": "opportunistic"
+    }
+  ],
+  "missing_taxon_ids": [],
+  "ambiguous_taxon_ids": [],
+  "primary_rule": "retain structurally supported published NEON taxon concepts when taxonProtocolCategory == target; retain speciesGroup concepts as published and do not force species resolution",
+  "effect_boundary": {
+    "biological_response_files_opened": false,
+    "spatial_distances_calculated": false,
+    "W_opened": false,
+    "B_opened": false,
+    "abundance_response_opened": false
+  }
+}

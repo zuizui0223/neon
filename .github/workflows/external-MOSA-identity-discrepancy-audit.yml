@@ -1,0 +1,40 @@
+name: external-MOSA-identity-discrepancy-audit
+
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - "analysis/audit_mosa_identity_discrepancy_v1.py"
+      - "tests/test_mosa_identity_discrepancy_v1.py"
+      - ".github/workflows/external-MOSA-identity-discrepancy-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-mosa-identity-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  explain-but-do-not-rescue-mismatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify identity-collision diagnostic on synthetic public CMR records
+        run: python -m unittest discover -s tests -p 'test_mosa_identity_discrepancy_v1.py' -v
+      - name: Count identity anomalies in SHA-verified original MOSA archive
+        run: python -m analysis.audit_mosa_identity_discrepancy_v1
+      - name: Archive unresolved published individual count STOP evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-MOSA-identity-discrepancy-v1
+          path: build/mosa_identity_discrepancy_v1.json
+          if-no-files-found: error
+          retention-days: 45

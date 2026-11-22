@@ -1,0 +1,45 @@
+name: neon-bank-vole-individual-stationarity-falsification
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/run_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'tests/test_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'docs/NEON_VOLE_DYAD_INDIVIDUAL_STATIONARITY_NULL_FROZEN_20261115.md'
+      - '.github/workflows/neon-bank-vole-individual-stationarity-null.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/run_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'tests/test_neon_bank_vole_individual_stationarity_null_v1.py'
+      - 'docs/NEON_VOLE_DYAD_INDIVIDUAL_STATIONARITY_NULL_FROZEN_20261115.md'
+      - '.github/workflows/neon-bank-vole-individual-stationarity-null.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: vole-stationarity-falsification-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-finnish-vole-fixed-cohort-stationarity-falsification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run identity and rank null invariance unit tests
+        run: python -m unittest discover -s tests -p 'test_neon_bank_vole_individual_stationarity_null_v1.py' -v
+      - name: Execute checksum-pinned original 51-animal stationarity null with unchanged 47/10 dyad cohort
+        run: python -m analysis.run_neon_bank_vole_individual_stationarity_null_v1
+      - name: Preserve anonymous site-equal null contrasts or fail-closed receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-vole-individual-stationarity-null
+          path: build/neon_bank_vole_individual_stationarity_20261115.json
+          if-no-files-found: warn
+          retention-days: 45

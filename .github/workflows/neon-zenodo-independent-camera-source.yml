@@ -1,0 +1,46 @@
+name: neon-zenodo-independent-camera-source
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/neon_camera_independent_source_gate_v1.py'
+      - 'analysis/run_neon_camera_independent_source_v1.py'
+      - 'tests/test_neon_camera_independent_source_gate_v1.py'
+      - 'docs/NEON_INDEPENDENT_CAMERA_SOURCE_CANDIDATE_20261029.md'
+      - '.github/workflows/neon-zenodo-independent-camera-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-independent-camera-original-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  original-neon-external-camera-hardware:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned geodesy only
+        run: python -m pip install pyproj==3.7.2
+      - name: Validate camera genus identification and actual station proximity source rules
+        run: |
+          python -m unittest discover -s tests -p 'test_neon_camera_independent_source_gate_v1.py' -v
+          python -m unittest discover -s tests -p 'test_neon_dated_station_location_v1.py' -v
+      - name: Require original NEON mammal source authorization
+        run: test -n "$NEON_API_TOKEN"
+      - name: Retrieve pinned Zenodo independent camera source and test verified original NEON station/date overlap
+        run: python -m analysis.run_neon_camera_independent_source_v1
+      - name: Preserve only anonymous external hardware source coverage result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-zenodo-camera-independent-original-source
+          path: build/neon_zenodo_camera_independent_source_gate_v1.json
+          if-no-files-found: warn
+          retention-days: 45

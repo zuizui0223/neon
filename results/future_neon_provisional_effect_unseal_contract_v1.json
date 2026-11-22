@@ -1,0 +1,69 @@
+{
+  "schema": "neon.future_provisional_ecological_unseal_contract.v1",
+  "date": "2026-10-10",
+  "state": "FROZEN_BEFORE_FIRST_NEW_MNKA_X_W_B_OR_NN_SLOPE",
+  "unseal_preconditions": [
+    "RELEASE-2026 and PROVISIONAL 505 candidate complete events / 1515 nightuids have zero ID overlap (passed run 38045366599)",
+    "History-continuous genus MNKA support includes all 287 provisional eligible sessions and Peromyscus 32 varying series/127 sessions/19 sites (passed run 38045587044)",
+    "Matched-cohort future W/B QC scores all 287 and nonpositive corrected B is 2/287 <= 1% (passed run 38046250920)",
+    "Two-reference future Peromyscus structural upper-bound is 123/127 = 96.85%, exceeding fixed 90% (passed run 38045853917)",
+    "Exact stored immutable derived metric session and continuous-MNKA predictor artifacts must match 287 event-taxon keys one-to-one",
+    "Actual scored centroid two-null availability must be >=90% in future Peromyscus MNKA-varying cohort; check before opening any future NN~MNKA result"
+  ],
+  "original_contracts_unchanged": [
+    "results/multiscale_density_future_mode_confirmation_contract_v1.json",
+    "results/multiscale_density_future_taxon_mode_contract_v1.json",
+    "results/multiscale_density_peromyscus_future_geometry_contract_v1.json",
+    "results/multiscale_density_peromyscus_future_geometry_m_addendum_v1.json"
+  ],
+  "independent_response_scope": "first disjoint new NEON provisional site×plot×3night events absent from RELEASE-2026; not necessarily independent animal IDs",
+  "fixed_response_session_rule": {
+    "taxon_category": "frozen 35 protocol target IDs",
+    "geometry": "nominal 10x10 A1..J10 10-m spacing",
+    "bout": "exact 3night, grid completion complete, exclude SRER",
+    "repeat_supported_individuals_min": 5,
+    "all_small_mammal_trap_saturation_max": 0.3,
+    "genus_abundance": "MNKA built with continuous historical+future target tag histories; 78 ambiguous cross-genus tags excluded",
+    "temporal_series_min_sessions": 3,
+    "temporal_series_min_distinct_mnka": 2
+  },
+  "W_B_model": {
+    "W": "half mean pairwise squared coordinate distance across distinct 2-3 nights",
+    "B": "centroid between-individual covariance trace minus mean W_i/k_i",
+    "D": "B-W",
+    "covariates": [
+      "taxon x plot series FE",
+      "site x calendar-month FE",
+      "year FE"
+    ],
+    "weights": "equal session weights within each frozen genus",
+    "effect_scope": "report each of fixed 5 genus directional tests when structurally estimable, but do NOT reclassify five-genus success if any fixed genus lacks estimable response"
+  },
+  "Peromyscus_local_geometry": {
+    "use_contract": "results/multiscale_density_peromyscus_future_geometry_contract_v1.json",
+    "repeated_reference": "same future taxon×site×plot other event centroids, no historical RELEASE2026 centroid reuse",
+    "x_y_null_repetitions": 199,
+    "seed": 20261008,
+    "original_primary": "both null-relative NN2 ~ genus MNKA slopes positive with site bootstrap lower 95 bounds positive",
+    "bootstrap_B": 2000,
+    "bootstrap_resample_unit": "site, with independent pseudo-site FE identifiers for repeated draws",
+    "local_actual_null_B_coverage_min": 0.9,
+    "raw_NN2_negative": "secondary",
+    "B_observed_positive": "secondary",
+    "post_discovery_addendum": "report m and m+B adjusted slopes; a provisional unadjusted success without m-supported effect cannot be promoted to robust ecological density-specific local spacing"
+  },
+  "provenance": {
+    "future_metric_only_run": 38046250920,
+    "future_metric_only_artifact_id": 11667394798,
+    "continuous_MNKA_pair_manifest_run": "pending final successful run from frozen code 3af7fe2865f8b6907232d30b47f3c62ce794dbf9",
+    "frozen_development_6_of_8_guard": "FAILED_UNCHANGED"
+  },
+  "prohibited": [
+    "using original development RELEASE-2026 W/B or centroids in prospective response",
+    "altering frozen genus modes or the seven taxon predictions",
+    "adjusting m<5 or raising saturation cutoffs",
+    "dropping low-support genera after observing slopes to call five-genus generality",
+    "claiming territoriality, repulsion or density causation from live-trap centroids",
+    "promoting PROVISIONAL-only findings to immutable official-release confirmation"
+  ]
+}

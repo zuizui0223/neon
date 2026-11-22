@@ -1,0 +1,113 @@
+{
+  "schema": "neon.multiscale_density.cohort_size_sensitivity_receipt_v1",
+  "date": "2026-10-10",
+  "status": "POST_RESULT_ASSOCIATIONAL_SENSITIVITY_ONLY",
+  "provenance": {
+    "workflow_run_id": 38012102414,
+    "job_id": 114094171317,
+    "artifact_id": 11653487383,
+    "artifact_digest": "sha256:23ae3e307132fe77eb1d6613c3e7ca9c5b33febe9d4d8bf0ad1e560534d82e5b",
+    "source_geometry_run": 37793401501,
+    "source_release": "RELEASE-2026",
+    "new_NEON_data": false,
+    "synthetic_test_passed": true
+  },
+  "scope": {
+    "sessions": 1326,
+    "sites": 40,
+    "series": 167,
+    "original_delta_beta": 9.37176547246767,
+    "original_6_of_8_general_guard": "FAILED_UNCHANGED"
+  },
+  "pooled_genus_equal_weight": {
+    "W": {
+      "beta_N_original": -4.394825896684284,
+      "beta_N_with_m": -3.273849312312522,
+      "beta_m": -4.15065611244042,
+      "cluster_se_N_unadjusted": 2.07999955117422
+    },
+    "B_debiased": {
+      "beta_N_original": 4.976939575783389,
+      "beta_N_with_m": 3.4376582827087923,
+      "beta_m": 5.69951897027886,
+      "cluster_se_N_unadjusted": 3.6909418682424016
+    },
+    "D_B_minus_W": {
+      "beta_N_original": 9.37176547246767,
+      "beta_N_with_m": 6.71150759502131,
+      "beta_m": 9.850175082719314,
+      "cluster_se_N_unadjusted": 5.136877683018986
+    },
+    "D_adjusted_identity_verified": true,
+    "cluster_inference_warning": "two-way genus/site sandwich uncorrected; 8 genera, limited clusters, no confirmatory interval or significance statement"
+  },
+  "descriptive_genus_delta": {
+    "Chaetodipus": {
+      "original": 27.329656408661243,
+      "m_adjusted": 35.16832148927056,
+      "n": 45,
+      "sites": 3
+    },
+    "Dipodomys": {
+      "original": -1.3752879902781707,
+      "m_adjusted": -13.473201929440489,
+      "n": 129,
+      "sites": 4
+    },
+    "Microtus": {
+      "original": 7.741869363443582,
+      "m_adjusted": 8.250093913799837,
+      "n": 30,
+      "sites": 5
+    },
+    "Myodes": {
+      "original": 24.70019922825358,
+      "m_adjusted": 27.31493060376831,
+      "n": 75,
+      "sites": 5
+    },
+    "Peromyscus": {
+      "original": 15.93005706925735,
+      "m_adjusted": 14.048413611474254,
+      "n": 956,
+      "sites": 33
+    },
+    "Sigmodon": {
+      "original": -16.395181869286695,
+      "m_adjusted": -29.941092584707885,
+      "n": 65,
+      "sites": 7
+    },
+    "Napaeozapus": {
+      "status": "INSUFFICIENT_MULTISITE_SUPPORT",
+      "n": 8
+    },
+    "Onychomys": {
+      "status": "INSUFFICIENT_MULTISITE_SUPPORT",
+      "n": 18
+    }
+  },
+  "peromyscus_local_nn_fragility": {
+    "posthoc_source_run": 38011892648,
+    "unadjusted_raw_NN2_beta": -12.929318618989168,
+    "m_adjusted_raw_NN2_beta": 3.3616233785004352,
+    "null_XY_beta_after_m": 1.5906284691088715,
+    "null_XY_CI95_after_m": [
+      -1.555881176926866,
+      4.737138115144608
+    ],
+    "null_series_beta_after_m": 4.305545552451492,
+    "null_series_CI95_after_m": [
+      -1.004215501377283,
+      9.615306606280267
+    ],
+    "claim": "Both local-spacing residual site-cluster 95% normal-approx intervals overlap zero after adding m; raw NN2 slope reverses sign"
+  },
+  "scientific_decision": {
+    "still_allowed": "Exploratory population-level reallocation of captured centroid variance between within- and among-individual scales. Positive genus-balanced sign pair remains after m adjustment.",
+    "no_longer_supported": "Density-specific actively maintained local neighbor spacing or social territorial regularization from same RELEASE-2026 live-trap data.",
+    "no_generalization": "Do not claim universal mammalian response: frozen 6/8 preregistered generality gate failed.",
+    "no_causality": "m may be capture-selected, so conditioning can induce collider bias; sensitivity is neither proof of observation artifact nor proof of biology.",
+    "next": "Stop same-release moderator rescue; verify with independent NEON release and, for behavioral mechanisms, independent animal position/detection observations."
+  }
+}
