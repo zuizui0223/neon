@@ -84,6 +84,8 @@ def corrected_paths_only(original_text,new_paths,model_type):
     original_nonpaths={k:v for k,v in values.items() if k not in PARAMS}
     new_values={}
     for line in patched.splitlines()[1:]:
+        if not line.strip():
+            continue  # source's exact terminal blank lines; never a parameter
         k,v=line.split(";",1)
         new_values[k]=v
     require({k:v for k,v in new_values.items() if k not in PARAMS}==original_nonpaths,
