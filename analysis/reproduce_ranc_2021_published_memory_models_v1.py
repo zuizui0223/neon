@@ -53,6 +53,14 @@ def corrected_paths_only(original_text,new_paths,model_type):
     revised=[]
     for row in rows[1:]:
         body=row.rstrip("\r\n")
+        # The pinned original author configs have TWO terminal blank lines.
+        # They are part of the source file, not an extra model parameter.
+        # Preserve them exactly without relaxing numeric parameter checks.
+        if not body.strip():
+            require(not values or "att_decay_rate" in values,
+                    "NONTERMINAL_CONFIG_BLANK")
+            revised.append((None,None,row))
+            continue
         require(";" in body,"FITTED_CONFIG_GRAMMAR")
         k,v=body.split(";",1)
         require(k not in values,"DUPLICATE_ORIGINAL_CONFIG_KEY")
@@ -65,6 +73,9 @@ def corrected_paths_only(original_text,new_paths,model_type):
     require(len(values)==15,"ORIGINAL_15_CONFIG_PARAMS_CHANGED")
     final=[rows[0]]
     for k,v,sep in revised:
+        if k is None:
+            final.append(sep)
+            continue
         newval=new_paths[k] if k in new_paths else v
         require(isinstance(newval,str) and "\n" not in newval and ";" not in newval,
                 "INVALID_NEW_LOCAL_PATH")
