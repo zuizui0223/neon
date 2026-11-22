@@ -1,22 +1,9 @@
+# Current source-admission path. Exact original 288 station-night observations
+# plus 3 verified arithmetic footer records; source year 16..23 checked against
+# original DATE; all original numeric v1 admission thresholds preserved.
+# Old known-defective all-291-row v1 is archived manual-only, not erased.
 name: neon-figshare-2026-corrected-station-event-source-v2
-on:
-  push:
-    branches:
-      - design/multiscale-density-accommodation-v1
-    paths:
-      - 'analysis/audit_neon_figshare_2026_station_event_capture_source_v2.py'
-      - 'tests/test_neon_figshare_2026_station_event_capture_source_v2.py'
-      - 'docs/NEON_FIGSHARE_2026_CORRECTED_STATION_SOURCE_V2_20261122.md'
-      - '.github/workflows/neon-figshare-2026-station-event-source-v2.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'analysis/audit_neon_figshare_2026_station_event_capture_source_v2.py'
-      - 'tests/test_neon_figshare_2026_station_event_capture_source_v2.py'
-      - 'docs/NEON_FIGSHARE_2026_CORRECTED_STATION_SOURCE_V2_20261122.md'
-      - '.github/workflows/neon-figshare-2026-station-event-source-v2.yml'
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 concurrency:
