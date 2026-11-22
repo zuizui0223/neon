@@ -1,5 +1,13 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-22: consuming seeds dominates even worst-case primary caching in source-labelled rodent records — species contrast unidentified
+
+The [Gu et al. (2025) independent China Figshare v2 archive](https://doi.org/10.6084/m9.figshare.29815622.v2) was reanalyzed ONLY at its already MD5/SHA-verified **record-row** grain. In the 536 rows with an assigned rodent species, **333** original records unambiguously record seeds eaten after removal/in situ (`EAR/EIS`), while **46** record primary scatter-hoarding (`SHI`) and **157** have unknown seed fate (`M`). Even assigning **every unknown M** to caching, **333 eaten > 46+157=203 maximum caching**; the 130-row difference remains at least 127 under removal of one extra source row from each of the three repeated seed codes. For the two dominant rodent species separately, confirmed eating is **227 vs maximum 146 cache rows** (*Apodemus draco*) and **104 vs maximum 55** (*Niviventer confucianus*). This is a bounded observational finding about the source's primary seed-fate labels, not a recruitment or ecosystem biomass estimate.
+
+However, the *between-species* complete-case SHI fractions (11.0% vs 14.8%) do **NOT** establish a robust preference: the full-data `N. confucianus − A. draco` possible difference spans **−27.8 to +27.1 percentage points** when unresolved `M` fates are allowed to vary. This is **not a statistical CI**, and 738 sheet rows correspond to 735 literal seed codes; original study models, trait-specific findings and pit-tag pilferage associations are PRIOR ART. No actor PIT is supplied in the seed sheet, and natural resource abundance, learning and an NEON site mechanism remain unidentified.
+
+**Verified source arithmetic:** [GitHub Actions run 45009326008](https://github.com/zuizui0223/neon/actions/runs/45009326008) (10 unit tests), [aggregate result](results/neon_gu2025_scatter_hoarding_partial_ID_20261122.json), [biological interpretation and exact bounds](docs/NEON_GU2025_SCATTER_HOARDING_PARTIAL_IDENTIFICATION_20261122.md). This is a limited ecological supplement, NOT an independent validation of genus-associated NEON capture-station persistence. One unified ecology Draft / **SUBMISSION HOLD**; no NEON/Portal/Finland estimated effects refitted.
+
 ## 2026-11-22: station summaries resolved; consumer records and seed fate separated
 
 **The Merz source has 288 station-nights plus three verified summary rows.** Exact sums, differences and rounded fractions identify the footer, agreeing with the original [Ecology paper](https://doi.org/10.1002/ecy.70312). The older test that demanded 291 keyed observations failed on a mistaken row-type assumption; its historical result is retained.
