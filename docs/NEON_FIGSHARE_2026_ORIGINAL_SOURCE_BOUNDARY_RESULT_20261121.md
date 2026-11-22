@@ -1,5 +1,8 @@
 # NEON × Figshare 2026: measured seed-use observations versus field-capture histories — source audit verdict
 
+> **22 November 2026 correction.** The three trailing keyless records have now been verified as totals, differences and rounded fractions, matching the 288 actual station-nights and the published paper. The old all-291-observation gate failure remains historical; it is not evidence for three missing station observations. Moreover, 53 of the 152 nights absent from All Foraging are labeled Visitors in the station file and account for 556 of the 806 missing seed units. Absence from the deposited event table does not establish absence of footage. See the [current reconciliation, independent seed-fate comparison and reproducible results](NEON_SEED_EVENT_FATE_RECONCILIATION_20261122.md). The material below preserves the 21 November interpretation for provenance.
+
+
 **Date: 21 November 2026. Source-only original-data audit, NOT a newly discovered mammal mechanism. Single integrated NEON PR #23 Draft, SUBMISSION HOLD.** Original article Merz, Record & Mortelliti (2026), *Ecology*, DOI `10.1002/ecy.70312`, Figshare article `28207769 v2`. Same Penobscot Experimental Forest as the 2018 experiment published in 2023; **NOT an independent geographic replication**.
 
 ## Completed source originals

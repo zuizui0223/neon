@@ -1,0 +1,69 @@
+{
+  "date_jst": "2026-11-22",
+  "gu_detailed_receipt": "results/neon_gu2025_seed_fate_archive_20261122.json",
+  "no_raw_seed_animal_or_station_identifiers_or_coordinates_exported": true,
+  "not_an_exhaustive_inventory_of_public_research_data": true,
+  "schema": "neon.seed_fate_source_screen.v1",
+  "sources": [
+    {
+      "article_doi": "10.1098/rsbl.2024.0586",
+      "columns": [
+        "TRIAL",
+        "FATE",
+        "INEXSITU",
+        "NTOTAL",
+        "N"
+      ],
+      "dataset_doi": "10.6084/m9.figshare.28054281.v1",
+      "download_url": "https://ndownloader.figshare.com/files/51278298",
+      "file": "rsbl20240586_si_005.docx",
+      "file_id": 51278298,
+      "md5": "1b87c72edf9784097218c59b2816e7c4",
+      "rows_excluding_header": 32,
+      "seed_or_dish_id_column_present": false,
+      "sha256": "51c138ffa2698cd4ffe6f786784fe8e2a2b018d5e1891b0ec7281661183e624f",
+      "size_bytes": 20710,
+      "sum_of_trial_fate_counts_matches_denominators": true,
+      "trial_totals": {
+        "2012/13": 99,
+        "2018/19": 180,
+        "2019/20": 180,
+        "2020/21": 180
+      },
+      "use": "cohort-level fate summaries; no seed/dish-to-camera linkage in this table"
+    },
+    {
+      "bitstream_id": "7ee5e326-944d-45c0-b73a-615376283a19",
+      "columns": [
+        "event-id",
+        "timestamp",
+        "location-long",
+        "location-lat",
+        "sensor-type",
+        "individual-taxon-canonical-name",
+        "taxon-detail",
+        "tag-local-identifier",
+        "individual-local-identifier",
+        "study-name",
+        "utm-easting",
+        "utm-northing",
+        "utm-zone",
+        "study-timezone",
+        "study-local-timestamp"
+      ],
+      "dataset_doi": "10.5441/001/1.9t0m888q",
+      "distinct_seed_identifiers": 224,
+      "download_url": "https://datarepository.movebank.org/server/api/core/bitstreams/7ee5e326-944d-45c0-b73a-615376283a19/content",
+      "file": "Astrocaryum standleyanum Roland Kays BCI Panama.csv",
+      "location_rows": 1649,
+      "md5": "818c1b4fa0d813684021335e779d9753",
+      "sha256": "ab4308fb3b2d1e042dc94a5e0508dd5003227124ee7dd9ebc9c691d463b77244",
+      "size_bytes": 404041,
+      "tracked_taxon_labels": [
+        "Arecaceae"
+      ],
+      "use": "seed trajectories; no transporting mammal identity or per-record fate field in this movement table"
+    }
+  ],
+  "status": "BOUNDED_SOURCE_SCREEN_NO_MECHANISM_TEST"
+}

@@ -1,0 +1,135 @@
+{
+  "archive_rows": 738,
+  "columns": {
+    "Dispersal": [
+      "Code",
+      "Seed",
+      "Weight (g)",
+      "Date of first dispersal",
+      "Date of second dispersal",
+      "Fate",
+      "Dispersers",
+      "Cache depth (cm)",
+      "Cache size",
+      "Substrate",
+      "Microbabitat of cache sites"
+    ],
+    "Rodent survey": [
+      "Date",
+      "Rodent",
+      "PIT",
+      "Recapture",
+      "Body mass",
+      "Number of cape captures"
+    ]
+  },
+  "distinct_seed_codes": 735,
+  "fate_definitions_from_readme": {
+    "EAR": "eaten after removal",
+    "EIS": "eaten in situ",
+    "IIS": "intact in situ",
+    "M": "missing",
+    "SHI": "scatter-hoarded during primary dispersal"
+  },
+  "interpretation": [
+    "All cell counts describe Dispersal worksheet rows. Repeated seed codes are retained.",
+    "Not triggered is the literal Dispersers value. Its sensor channel is unspecified. It does not establish the absence of an animal.",
+    "M denotes an unknown seed fate. Blank denotes an empty cell. An assigned disperser species does not resolve a missing fate.",
+    "The published study describes 736 seeds. The archive contains nonidentical rows sharing seed codes. The published R script uses explicit count vectors. Its mapping from workbook rows to the article's analysis population is undocumented in these files."
+  ],
+  "manifest": {
+    "doi": "10.6084/m9.figshare.29815622.v2",
+    "files": [
+      {
+        "download_url": "https://ndownloader.figshare.com/files/56869019",
+        "id": 56869019,
+        "md5": "d6fca6133f60fdd0971557f8ab4c9b7e",
+        "name": "Raw data.xlsx",
+        "sha256": "9424cc40bab0ad1d498abb91c0a961ff6aa81a1a04946d1515a14b4d6baadfcb",
+        "size_bytes": 51056
+      },
+      {
+        "download_url": "https://ndownloader.figshare.com/files/57701641",
+        "id": 57701641,
+        "md5": "5de4b92c120a8c35b072737d9344185c",
+        "name": "Gu_code.R",
+        "sha256": "5eecc18f698ef54f865945798e15e36428fab7fb2aa2a89625c738f53d3d28df",
+        "size_bytes": 8533
+      },
+      {
+        "download_url": "https://ndownloader.figshare.com/files/57701638",
+        "id": 57701638,
+        "md5": "da65fb22331ee45f1bb7d50feec1002b",
+        "name": "README.txt",
+        "sha256": "2a56e36eb3caf2774ed52583aec93354a9dbe1cc9dddc3a73e8c0f28991677a6",
+        "size_bytes": 1413
+      }
+    ],
+    "license": "CC BY 4.0",
+    "metadata": {
+      "name": "Gu_v2_metadata.json",
+      "sha256": "67f71afd08d27fe3840afc25ac1c7c678d3822772ffb57ee188907af227602b1",
+      "size_bytes": 4933,
+      "url": "https://api.figshare.com/v2/articles/29815622/versions/2"
+    },
+    "provider": "Figshare",
+    "version": 2
+  },
+  "nonidentical_repeated_code_groups": 3,
+  "pit_column_present": {
+    "Dispersal": false,
+    "Rodent survey": true
+  },
+  "repeated_code_groups": 3,
+  "rodent_individual_join_performed": false,
+  "rows_by_assigned_species_and_fate": {
+    "Apodemus draco": {
+      "EAR": 227,
+      "M": 118,
+      "SHI": 28
+    },
+    "Niviventer confucianus": {
+      "EAR": 83,
+      "EIS": 21,
+      "M": 37,
+      "SHI": 18
+    },
+    "Niviventer fulvescens": {
+      "EIS": 2,
+      "M": 2
+    }
+  },
+  "rows_by_disperser_class_and_fate": {
+    "blank": {
+      "IIS": 106,
+      "blank": 13
+    },
+    "literal_not_triggered": {
+      "EAR": 54,
+      "EIS": 2,
+      "M": 23,
+      "SHI": 4
+    },
+    "other": {},
+    "species_assigned": {
+      "EAR": 310,
+      "EIS": 23,
+      "M": 157,
+      "SHI": 46
+    }
+  },
+  "rows_by_fate": {
+    "EAR": 364,
+    "EIS": 25,
+    "IIS": 106,
+    "M": 180,
+    "SHI": 50,
+    "blank": 13
+  },
+  "sheets": [
+    "Dispersal",
+    "Rodent survey",
+    "note"
+  ],
+  "status": "ARCHIVE_ROW_DESCRIPTION_ONLY"
+}

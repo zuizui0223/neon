@@ -1,5 +1,8 @@
 # Unattributed seed disappearance at baited field stations without deposited video events — original descriptive result
 
+> **22 November 2026 correction.** The three trailing keyless records have now been verified as totals, differences and rounded fractions, matching the 288 actual station-nights and the published paper. The old all-291-observation gate failure remains historical; it is not evidence for three missing station observations. Moreover, 53 of the 152 nights absent from All Foraging are labeled Visitors in the station file and account for 556 of the 806 missing seed units. Absence from the deposited event table does not establish absence of footage. See the [current reconciliation, independent seed-fate comparison and reproducible results](NEON_SEED_EVENT_FATE_RECONCILIATION_20261122.md). The material below preserves the 21 November interpretation for provenance.
+
+
 **Date: 21 November 2026. POST-RESULT, one NEON ecology manuscript Draft/SUBMISSION HOLD.**
 This is a direct original-source descriptive quantification of **experimental seed disappearance** not paired with **recorded video foraging events**, *not* a novel, replicated, causal mammal process. The original Merz, Record & Mortelliti (2026) *Ecology* paper (DOI `10.1002/ecy.70312`) already acknowledged that seeds may go missing from stations without supporting video footage and included these missing seeds in their community-level response. **This study and basic observation type are PRIOR ART.** We make no new article-level claim about seed dispersal or animal causation.
 
