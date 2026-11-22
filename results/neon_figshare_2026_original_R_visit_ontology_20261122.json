@@ -1,0 +1,138 @@
+{
+  "limited_source_method_snippets_for_inhouse_diagnosis": [
+    {
+      "bounded_original_method_code": "MG_data_pers$First.Visit.Avail.WP.OBS <- as.numeric(MG_data_pers$First.Visit.Avail.WP.OBS)",
+      "source_line_number": 169,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MG_data_pers$First.Visit.Avail.WP.PRED <- as.numeric(MG_data_pers$First.Visit.Avail.WP.PRED)",
+      "source_line_number": 170,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MG_data_pers$First.Visit.Avail.RO.OBS <- as.numeric(MG_data_pers$First.Visit.Avail.RO.OBS)",
+      "source_line_number": 171,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MG_data_pers$First.Visit.Avail.RO.PRED <- as.numeric(MG_data_pers$First.Visit.Avail.RO.PRED)",
+      "source_line_number": 172,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "PM_data_pers$First.Visit.Avail.WP.OBS <- as.numeric(PM_data_pers$First.Visit.Avail.WP.OBS)",
+      "source_line_number": 178,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "PM_data_pers$First.Visit.Avail.WP.PRED <- as.numeric(PM_data_pers$First.Visit.Avail.WP.PRED)",
+      "source_line_number": 179,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "PM_data_pers$First.Visit.Avail.RO.OBS <- as.numeric(PM_data_pers$First.Visit.Avail.RO.OBS)",
+      "source_line_number": 180,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "PM_data_pers$First.Visit.Avail.RO.PRED <- as.numeric(PM_data_pers$First.Visit.Avail.RO.PRED)",
+      "source_line_number": 181,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "group_by(Unique_station_ind_ID,Seed_INFO) %>%",
+      "source_line_number": 202,
+      "source_variable_mentions": [
+        "Unique_station_ind_ID"
+      ]
+    },
+    {
+      "bounded_original_method_code": "group_by(Unique_station_ind_ID) %>%",
+      "source_line_number": 210,
+      "source_variable_mentions": [
+        "Unique_station_ind_ID"
+      ]
+    },
+    {
+      "bounded_original_method_code": "colnames(count)[1] = \"Unique_station_ind_ID\"",
+      "source_line_number": 214,
+      "source_variable_mentions": [
+        "Unique_station_ind_ID"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MG_data_pers <- merge(MG_data_pers, count, by = 'Unique_station_ind_ID', all.x = T)",
+      "source_line_number": 218,
+      "source_variable_mentions": [
+        "Unique_station_ind_ID"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MG_data_pers$prop_WPfound <- (MG_data_pers$WP_Found / MG_data_pers$First.Visit.Avail.WP.OBS)",
+      "source_line_number": 222,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MGpropWP_found <- subset(MG_data_pers, !duplicated(MG_data_pers$Unique_station_ind_ID)",
+      "source_line_number": 226,
+      "source_variable_mentions": [
+        "Unique_station_ind_ID"
+      ]
+    },
+    {
+      "bounded_original_method_code": "MGpropWP_found$First.Visit.Avail.WP.OBS <- scale(MGpropWP_found$First.Visit.Avail.WP.OBS)",
+      "source_line_number": 236,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    },
+    {
+      "bounded_original_method_code": "availability <- lmer(boxcox_propWP ~ First.Visit.Avail.WP.OBS + (1|PIT),data =MGpropWP_found, REML =",
+      "source_line_number": 246,
+      "source_variable_mentions": [
+        "First.Visit"
+      ]
+    }
+  ],
+  "no_original_R_executed": true,
+  "no_original_animal_observation_rows_read": true,
+  "no_resource_learning_competition_or_visit_effect_estimated": true,
+  "original_R_script_SHA256": "dec26e275b749cf7ba7e20ef8a36cc26a693305a647a4f9c4090bdb8cd43fd0a",
+  "original_R_script_byte_size_MD5_verified": 68819,
+  "original_R_script_line_count": 1491,
+  "original_R_script_publisher_file_ID": 51823913,
+  "original_figshare_article_id": 28207769,
+  "original_figshare_version": 2,
+  "original_method_topic_line_counts": {
+    "First.Visit": 54,
+    "Unique_station_ind_ID": 24
+  },
+  "prior_2026_Figshare_visit_consistency_STOP_unchanged": true,
+  "schema": "neon.figshare2026_original_author_R_visit_identity_source.v1",
+  "single_NEON_Draft_SUBMISSION_HOLD": true,
+  "status": "PUBLISHED_ORIGINAL_R_VISIT_ONTOLOGY_SOURCE_ONLY",
+  "workflow_provenance": {
+    "github_action": "https://github.com/zuizui0223/neon/actions/runs/45012422647",
+    "job_id": 137177433493,
+    "original_checksum_source_run_completed": true
+  }
+}
