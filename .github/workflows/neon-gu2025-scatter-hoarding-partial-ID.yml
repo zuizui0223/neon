@@ -1,0 +1,45 @@
+name: neon-gu2025-scatter-hoarding-partial-identification
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/gu2025_scatter_hoarding_partial_ID_v1.py'
+      - 'tests/test_gu2025_scatter_hoarding_partial_ID_v1.py'
+      - 'results/neon_gu2025_seed_fate_archive_20261122.json'
+      - '.github/workflows/neon-gu2025-scatter-hoarding-partial-ID.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/gu2025_scatter_hoarding_partial_ID_v1.py'
+      - 'tests/test_gu2025_scatter_hoarding_partial_ID_v1.py'
+      - 'results/neon_gu2025_seed_fate_archive_20261122.json'
+      - '.github/workflows/neon-gu2025-scatter-hoarding-partial-ID.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-gu2025-partial-ID-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  fixed-source-row-grain-bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test source-verification and nonindependent-seed restrictions
+        run: python -m unittest discover -s tests -p 'test_gu2025_scatter_hoarding_partial_ID_v1.py' -v
+      - name: Compute exact missing fate bounds from pinned provider-verified archive receipt
+        run: python -m analysis.gu2025_scatter_hoarding_partial_ID_v1
+      - name: Preserve anonymous and bounded row-grain effect-restriction result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-gu2025-scatter-hoarding-unknown-fate-sharp-bounds
+          path: build/neon_gu2025_scatter_hoarding_partial_identification_20261122.json
+          if-no-files-found: warn
+          retention-days: 45
