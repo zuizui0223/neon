@@ -46,6 +46,26 @@ class GuArchivePartialIdentificationTests(unittest.TestCase):
         self.assertEqual(rare["original_M_unknown_fate_rows"],2)
         self.assertEqual(rare["partial_ID_max_SHI_fraction_if_all_M_SHI"],0.5)
 
+    def test_confirmed_consumption_dominates_worst_case_scatter_hoarding(self):
+        z=compute(self.source)
+        self.assertEqual(z["assigned_species_confirmed_EAR_or_EIS"],333)
+        self.assertEqual(z["assigned_species_max_possible_SHI_including_every_missing_M"],203)
+        self.assertEqual(z["robust_positive_count_margin_original_rows"],130)
+        self.assertEqual(z["minimum_positive_margin_after_any_three_duplicate_rows_removed"],127)
+        self.assertTrue(z["confirmed_eating_exceeds_even_all_M_as_SHI"])
+        expected={
+            "Apodemus draco":(227,146,81),
+            "Niviventer confucianus":(104,55,49),
+            "Niviventer fulvescens":(2,2,0)
+        }
+        for name,(eaten,max_shi,margin) in expected.items():
+            x=z["source_species_row_metrics"][name]
+            self.assertEqual(x["original_confirmed_eaten_EAR_plus_EIS"],eaten)
+            self.assertEqual(x["max_possible_primary_SHI_if_all_missing_M_are_scatter_hoarded"],max_shi)
+            self.assertEqual(x["confirmed_eaten_minus_max_possible_primary_SHI_rows"],margin)
+            self.assertEqual(x["consumption_outnumbers_max_possible_primary_SHI_among_record_rows"],
+                             margin>0)
+
     def test_shared_missing_fate_tipping_point_is_hypothetical_not_mar(self):
         z=compute(self.source)
         self.assertEqual(z["common_hypothetical_missing_M_tipping_exact_fraction"],
