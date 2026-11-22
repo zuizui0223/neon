@@ -1,0 +1,45 @@
+name: neon-figshare-2026-corrected-station-event-source-v2
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/audit_neon_figshare_2026_station_event_capture_source_v2.py'
+      - 'tests/test_neon_figshare_2026_station_event_capture_source_v2.py'
+      - 'docs/NEON_FIGSHARE_2026_CORRECTED_STATION_SOURCE_V2_20261122.md'
+      - '.github/workflows/neon-figshare-2026-station-event-source-v2.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/audit_neon_figshare_2026_station_event_capture_source_v2.py'
+      - 'tests/test_neon_figshare_2026_station_event_capture_source_v2.py'
+      - 'docs/NEON_FIGSHARE_2026_CORRECTED_STATION_SOURCE_V2_20261122.md'
+      - '.github/workflows/neon-figshare-2026-station-event-source-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-figshare-2026-source-v2-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reconstruct-original-288-plus-three-summaries-and-source-only-PIT-join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify nine source-ontology tests and immutable old v1 scientific stop
+        run: python -m unittest discover -s tests -p 'test_neon_figshare_2026_station_event_capture_source_v2.py' -v
+      - name: Reverify five publisher MD5 inputs and v2 exact station-PIT-date-availability source gates
+        run: python -m analysis.audit_neon_figshare_2026_station_event_capture_source_v2
+      - name: Preserve v2 source GO or explicit STOP without biological behavior outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-figshare-2026-corrected-station-event-capture-source-v2
+          path: build/neon_figshare_2026_station_event_capture_source_v2.json
+          if-no-files-found: warn
+          retention-days: 45
