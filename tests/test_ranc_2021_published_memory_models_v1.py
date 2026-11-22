@@ -40,6 +40,13 @@ class OriginalPNASFittedModelPositiveControlTests(unittest.TestCase):
             self.assertIn(";"+val+"\n",patched)
         self.assertNotEqual(orig,patched)
 
+    def test_exact_author_terminal_blank_lines_preserved(self):
+        original=fake_original("3")+"\n"
+        patched=corrected_paths_only(original,paths(),"3")
+        self.assertTrue(patched.endswith("att_decay_rate;0.048\n\n"))
+        self.assertEqual(len(patched.splitlines(keepends=True)),
+                         len(original.splitlines(keepends=True)))
+
     def test_model_type_not_relabelled_memory_as_perception(self):
         with self.assertRaisesRegex(ValueError,"SOURCE_STOP"):
             corrected_paths_only(fake_original("1"),paths(),"3")
