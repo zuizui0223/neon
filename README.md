@@ -1,5 +1,7 @@
 # NEON small-mammal ecology
 
+> **2026-11-22 archival consolidation:** The complete historical EOG small-mammal manuscript/continuity programme has been copied into [`archive/eog_legacy_neon_20261122/`](archive/eog_legacy_neon_20261122/README.md). This is historical provenance, **not** a new positive result or an active submission. The validity audit and **SUBMISSION HOLD** below remain controlling.
+
 Independent repository for the NEON small-mammal ecological programme.
 
 ## Current status: SUBMISSION HOLD
