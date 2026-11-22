@@ -27,3 +27,17 @@ Primary reported **previously fitted source quantity**: original three log-likel
 If memory's original fitted log likelihood is higher than perception and omniscience this reproduces the ordering of previously reported fits, but DOES NOT itself establish out-of-sample superior inference, model complexity adjustment or mechanistic identifiability from NEON. The original article's experimental loss of food access while sensory cues remained and its model comparisons already supported learning. Our current NEON small-mammal `Visit.ID` temporal consistency source gate remains STOP (62.5% versus frozen 80%), so we do NOT transfer a numeric learning coefficient to small mammals or claim a universal mammal law.
 
 The compiled original code and analysis can be audited with `analysis/reproduce_ranc_2021_published_memory_models_v1.py`, tests and GitHub Action. Keep one NEON Draft / SUBMISSION HOLD.
+
+## Actual author-code reproduction result, after original source/design freeze
+
+Original [GitHub Actions run 45013361817](https://github.com/zuizui0223/neon/actions/runs/45013361817) PASSED **8 synthetic integrity tests**, compilation of original immutable v1.0 PNAS C++ and all THREE original best-parameter model executions (each outputs 26,841 original-state probabilities; these large original outputs are NOT committed). The first run [45013195629](https://github.com/zuizui0223/neon/actions/runs/45013195629) SOURCE STOPPED before any model score because the original three config files have terminal blank lines that the strict local parser rejected. The correction preserves those original blank lines exactly; no numeric parameters, original data, model type or target cohort were changed.
+
+| Original published author fitted configuration | Same original time-series log-likelihood (`objective_function.csv`) |
+|---|---:|
+| `config_memory_best.txt`, original model type 3 | **−10,120.2669944** |
+| `config_omniscience_best.txt`, original model type 0 | −10,537.1780702 |
+| `config_perception_best.txt`, original model type 1 | −10,669.7566681 |
+
+Raw original optimized model log-likelihood **memory − perception = +549.4896737**, **memory − omniscience = +416.9110758**. Scores are on the identical input and use original fitted parameters; they are NOT new optimizations or out-of-sample predictions, and the three model families differ in complexity. We did NOT calculate AIC, BIC, Bayes factors or p-values, nor rerun author parameter uncertainty or claimed cognitive half-lives. Any adjusted model comparison remains the published paper's responsibility; current code only independently checks the original author C++ and configured log-likelihood outputs.
+
+The originally observed **31.26% → 5.17% → 19.56%** manipulated-site occupancy across 25 animal-year sources is reproduced separately under `results/neon_ranc2021_original_resource_closure_positive_control_20261122.json`. The original model comparison establishes **published mechanistic memory evidence in roe deer**, NOT direct learning or resource causation in NEON small-mammal genus capture-station recurrence. Complete source receipt `results/neon_ranc2021_original_memory_model_likelihoods_20261122.json`. Same one NEON paper Draft/SUBMISSION HOLD; no abstract promotion.
