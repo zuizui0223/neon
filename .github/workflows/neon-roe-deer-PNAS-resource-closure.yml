@@ -1,0 +1,55 @@
+name: neon-roe-deer-PNAS-2021-resource-closure-positive-control
+on:
+  push:
+    branches:
+      - design/multiscale-density-accommodation-v1
+    paths:
+      - 'analysis/reproduce_ranc_2021_resource_closure_state_use_v1.py'
+      - 'tests/test_ranc_2021_resource_closure_state_use_v1.py'
+      - 'docs/NEON_ROE_DEER_RESOURCE_CLOSURE_POSITIVE_CONTROL_FROZEN_20261122.md'
+      - '.github/workflows/neon-roe-deer-PNAS-resource-closure.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/reproduce_ranc_2021_resource_closure_state_use_v1.py'
+      - 'tests/test_ranc_2021_resource_closure_state_use_v1.py'
+      - 'docs/NEON_ROE_DEER_RESOURCE_CLOSURE_POSITIVE_CONTROL_FROZEN_20261122.md'
+      - '.github/workflows/neon-roe-deer-PNAS-resource-closure.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-published-roe-deer-positive-resource-control-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reproducible-original-25-animal-year-food-accessibility-manipulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read exact original PNAS 2021 public source, pinned to author Git commit
+        uses: actions/checkout@v4
+        with:
+          repository: ranc-n/Ranc-et-al.-PNAS-2021
+          ref: 58cd85c863d50346df0c7b0d3ecfde97f8a5dfdb
+          path: external/ranc_original_2021
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test resource-closure periods, unknown state, source SHA and no pseudoreplication
+        run: python -m unittest discover -s tests -p 'test_ranc_2021_resource_closure_state_use_v1.py' -v
+      - name: Verify original public Git commit + two original Git blob SHAs and reproduce published time-state pattern
+        run: |
+          python -m analysis.reproduce_ranc_2021_resource_closure_state_use_v1 \
+            --source-dir external/ranc_original_2021 \
+            --repo-dir external/ranc_original_2021
+      - name: Archive only anonymous aggregate prior-art positive comparator
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neon-ranc2021-original-food-access-M-state-positive-prior-control
+          path: build/neon_ranc2021_resource_closure_positive_control_20261122.json
+          if-no-files-found: warn
+          retention-days: 45
