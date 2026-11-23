@@ -11,7 +11,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install submission build dependencies
-        run: python -m pip install python-docx==1.1.2 cairosvg==2.7.1 numpy==2.1.1
+        run: python -m pip install python-docx==1.1.2 cairosvg==2.7.1 numpy==2.1.1 scipy==1.18.1
 
       - name: Recompute exploratory carrier turnover
         run: python analysis/carrier_turnover_v1.py

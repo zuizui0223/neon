@@ -1,0 +1,24 @@
+{
+  "schema": "neon.heteromyid_high_information_movement_validation.estimability_run_selection.v1",
+  "frozen_date": "2026-09-29",
+  "authoritative_run": {
+    "run_id": 36482981483,
+    "run_number": 3,
+    "head_sha": "f5cfb5419004ab211dbb43a1158175e2f6b49eb1",
+    "rationale": "latest pre-outcome design lock including recapture-selection boundary"
+  },
+  "non_authoritative_runs": [
+    {
+      "run_id": 36481956685,
+      "run_number": 1,
+      "reason": "superseded by pre-outcome claim-boundary amendments"
+    },
+    {
+      "run_id": 36482976439,
+      "run_number": 2,
+      "reason": "superseded by latest pre-outcome design lock"
+    }
+  ],
+  "movement_outcomes_inspected_at_selection": false,
+  "rule": "Only authoritative run 3 may freeze the estimability gate; earlier concurrent runs cannot authorize effect extraction even if they complete first."
+}

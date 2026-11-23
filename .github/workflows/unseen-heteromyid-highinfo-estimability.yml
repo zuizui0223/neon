@@ -1,0 +1,119 @@
+name: unseen-heteromyid-highinfo-estimability
+
+on:
+  push:
+    branches:
+      - design/heteromyid-high-info-movement-validation-v1
+    paths:
+      - docs/superpowers/specs/2026-09-29-unseen-heteromyid-highinfo-movement-validation.md
+      - validation/heteromyid_highinfo_movement_v1/design_lock_v1.json
+      - analysis/mammal_spatial_packing_v1.py
+      - analysis/build_neon_space_use_sessions_v1.py
+      - analysis/run_neon_space_use_development_v1.py
+      - analysis/mammal_sex_packing_estimability_v1.py
+      - analysis/neon_unseen_heteromyid_highinfo_estimability_v1.py
+      - tests/test_neon_unseen_heteromyid_highinfo_estimability.py
+      - .github/workflows/unseen-heteromyid-highinfo-estimability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  estimability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/heteromyid-high-info-movement-validation-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: python -m pip install numpy==2.1.1
+
+      - name: Verify frozen design and tests
+        run: |
+          python -m unittest tests.test_neon_unseen_heteromyid_highinfo_estimability -v
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("validation/heteromyid_highinfo_movement_v1/design_lock_v1.json").read_text()
+          )
+          assert p["state"] == "frozen_before_unseen_species_movement_outcomes"
+          assert p["primary_threshold_per_sex"] == 5
+          assert p["validation_species_movement_magnitudes_inspected"] is False
+          assert p["movement_effect_models_fit"] == 0
+          PY
+
+      - name: Require NEON token
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          if [ -z "$NEON_API_TOKEN" ]; then
+            echo "::error::NEON_API_TOKEN repository secret is required."
+            exit 3
+          fi
+
+      - name: Audit unseen heteromyid estimability across RELEASE-2026
+        env:
+          NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python analysis/neon_unseen_heteromyid_highinfo_estimability_v1.py \
+            --output-dir results/generated/unseen_heteromyid_highinfo
+
+      - name: Assert effect-blind gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(
+              Path("results/generated/unseen_heteromyid_highinfo/unseen_heteromyid_highinfo_estimability_v1.json").read_text()
+          )
+          assert p["validation_species_movement_magnitudes_inspected"] is False
+          assert p["movement_effect_models_fit"] == 0
+          assert p["gate"]["decision"] in {
+              "authorize_unseen_species_movement_effects",
+              "stop_unseen_species_not_estimable",
+          }
+          discovery={
+              "Chaetodipus penicillatus",
+              "Dipodomys merriami",
+              "Dipodomys ordii",
+          }
+          assert not (set(p["gate"]["qualifying_species"]) & discovery)
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist unseen-species estimability gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/heteromyid-high-info-movement-validation-v1
+
+          mkdir -p validation/heteromyid_highinfo_movement_v1
+          cp results/generated/unseen_heteromyid_highinfo/unseen_heteromyid_highinfo_estimability_v1.json \
+             validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json
+
+          git add validation/heteromyid_highinfo_movement_v1/estimability_gate_v1.json
+          if git diff --cached --quiet; then
+            echo "estimability gate unchanged"
+          else
+            git commit -m "Freeze unseen heteromyid high-information estimability gate"
+            git push origin HEAD:design/heteromyid-high-info-movement-validation-v1
+          fi
+
+      - name: Upload effect-blind event counts
+        uses: actions/upload-artifact@v4
+        with:
+          name: unseen-heteromyid-highinfo-estimability-v1
+          path: |
+            results/generated/unseen_heteromyid_highinfo/unseen_heteromyid_highinfo_estimability_events_v1.csv
+            results/generated/unseen_heteromyid_highinfo/unseen_heteromyid_highinfo_estimability_v1.json
+          if-no-files-found: error
+          retention-days: 30
