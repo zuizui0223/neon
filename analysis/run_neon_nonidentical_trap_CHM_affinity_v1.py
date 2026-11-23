@@ -67,6 +67,61 @@ def _phase(text):
     if text not in PHASES:raise AssertionError("Unrecognized source phase")
     PHASE=text
 
+class OriginalRESTHistoryStop(RuntimeError):
+    """A source stop with anonymous, aggregate REST failure provenance."""
+
+    def __init__(self, counts, requested, valid):
+        super().__init__("Original 3000 REST station histories not intact")
+        self.counts=dict(sorted(counts.items()))
+        self.requested=requested
+        self.valid=valid
+
+
+def _rest_job_audited(job, token):
+    """Return anonymous failure categories; never export a private station ID."""
+    try:
+        return fetch_rest_station(job, token)
+    except RuntimeError as exc:
+        message=str(exc)
+        if message=="Official REST station HTTP transport failed":
+            category="HTTP_TRANSPORT_RETRIES_EXHAUSTED"
+        elif message in ("Official REST station transient exhausted",
+                         "Official REST retry count exhausted"):
+            category="TRANSIENT_TRANSPORT_RETRIES_EXHAUSTED"
+        elif "Original official REST station identity mismatch" in message:
+            category="ORIGINAL_STATION_IDENTITY_MISMATCH"
+        else:
+            category="OTHER_SOURCE_RUNTIME_ERROR"
+        return job[0],None,None,category
+    except Exception as exc:
+        # Unexpected failures also stop the entire fixed cohort; no retry by
+        # selecting good plots, and no private URL, coordinate or station ID.
+        return job[0],None,None,"UNEXPECTED_"+type(exc).__name__
+
+
+def _audit_rest_history_rows(rows, expected):
+    """Reject incomplete, duplicated and failed station histories as a unit."""
+    documents={}
+    history_sha=[]
+    errors=Counter()
+    requested=0
+    for key,doc,sha,error in rows:
+        requested+=1
+        if doc is not None and sha is not None and error is None:
+            if key in documents:
+                errors["DUPLICATE_ORIGINAL_STATION_KEY"]+=1
+            else:
+                documents[key]=doc
+                history_sha.append(sha)
+        else:
+            errors[error or "INCOMPLETE_ORIGINAL_SOURCE_RESPONSE"]+=1
+    if requested!=expected or len(documents)!=expected or errors:
+        if requested!=expected:
+            errors["ORIGINAL_STATION_RESPONSE_COUNT_MISMATCH"]+=1
+        raise OriginalRESTHistoryStop(errors,requested,len(documents))
+    return documents,history_sha
+
+
 def run():
     token=os.environ.get(TOKEN_ENV,"").strip()
     require(bool(token),"NEON authorized source token unavailable")
@@ -114,14 +169,11 @@ def run():
     require(len(jobs)==3000 and len({n for key,n in jobs})==3000,
             "Private original named mammal stations drifted")
     _phase("ORIGINAL_REST_NAMED_STATIONS")
-    documents={};history_sha=[]
     with ThreadPoolExecutor(max_workers=8) as pool:
-        for key,doc,sha,err in pool.map(
-            lambda j:fetch_rest_station(j,token),jobs
-        ):
-            if doc is not None: documents[key]=doc
-            if sha is not None:history_sha.append(sha)
-    require(len(documents)==3000,"Original canonical REST 3000 stations incomplete")
+        documents,history_sha=_audit_rest_history_rows(
+            pool.map(lambda j:_rest_job_audited(j,token),jobs),
+            expected=3000
+        )
     flagged={(s,p) for s,p in plots if p in GEO_LOCATION_ISSUE_GRIDS}
     require(len(flagged)==4,"Four original geolocation issue grids changed")
     _phase("ORIGINAL_CAPTURE_DATE_LOCATIONS")
@@ -380,6 +432,15 @@ def main():
             "status":"STOP_SOURCE_INFRASTRUCTURE_OR_ORIGINAL_COHORT",
             "failure_stage":PHASE if PHASE in PHASES else "UNKNOWN_PHASE",
             "error_class":type(exc).__name__,
+            "original_rest_anonymous_error_counts": (
+                exc.counts if isinstance(exc,OriginalRESTHistoryStop) else {}
+            ),
+            "original_rest_requested_responses": (
+                exc.requested if isinstance(exc,OriginalRESTHistoryStop) else None
+            ),
+            "original_rest_valid_responses": (
+                exc.valid if isinstance(exc,OriginalRESTHistoryStop) else None
+            ),
             "no_original_animal_station_geolocation_dates_or_tile_urls_exported":True,
             "original_neon_spatial_ecological_results_not_refitted":True,
         }
