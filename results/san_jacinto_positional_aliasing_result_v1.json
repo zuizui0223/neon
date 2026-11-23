@@ -1,0 +1,149 @@
+{
+  "ecological_model_fits": 0,
+  "heldout_change_outcomes_inspected": true,
+  "heldout_first_last_distances_inspected": true,
+  "programme_gate": {
+    "decision": "authorize_live_trap_positional_aliasing_result",
+    "passed": true,
+    "species_passing": [
+      "PEMA",
+      "PEER"
+    ]
+  },
+  "schema": "neon.san_jacinto_positional_aliasing.result.v1",
+  "species": {
+    "PEER": {
+      "any_flag_change_count": 74,
+      "any_flag_change_fraction": 0.6915887850467289,
+      "grid_results": {
+        "1": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 28,
+          "one_spacing_shift_fraction": 0.7777777777777778,
+          "repeat_capture_nights": 36
+        },
+        "2": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 33,
+          "one_spacing_shift_fraction": 0.673469387755102,
+          "repeat_capture_nights": 49
+        },
+        "6": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 13,
+          "one_spacing_shift_fraction": 0.5909090909090909,
+          "repeat_capture_nights": 22
+        }
+      },
+      "material_fraction_threshold": 0.25,
+      "max_first_last_distance_m": 39.528470752104745,
+      "median_elapsed_hours": 3.0666666666666664,
+      "median_first_last_distance_m": 6.25,
+      "one_spacing_shift_count": 74,
+      "one_spacing_shift_fraction": 0.6915887850467289,
+      "q75_first_last_distance_m": 13.975424859373685,
+      "q90_elapsed_hours": 6.1033333333333335,
+      "q90_first_last_distance_m": 19.764235376052373,
+      "repeat_capture_nights": 107,
+      "scientific_name": "Peromyscus eremicus",
+      "spatial_replication_passing_grid_count": 3,
+      "spatial_replication_passing_grids": [
+        "1",
+        "2",
+        "6"
+      ],
+      "species_gate_passed": true,
+      "wilson95_high": 0.7711826025212977,
+      "wilson95_low": 0.5987150913219855
+    },
+    "PEMA": {
+      "any_flag_change_count": 352,
+      "any_flag_change_fraction": 0.7257731958762886,
+      "grid_results": {
+        "1": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 74,
+          "one_spacing_shift_fraction": 0.8705882352941177,
+          "repeat_capture_nights": 85
+        },
+        "2": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 62,
+          "one_spacing_shift_fraction": 0.7560975609756098,
+          "repeat_capture_nights": 82
+        },
+        "3": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 22,
+          "one_spacing_shift_fraction": 0.8461538461538461,
+          "repeat_capture_nights": 26
+        },
+        "4": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 60,
+          "one_spacing_shift_fraction": 0.6593406593406593,
+          "repeat_capture_nights": 91
+        },
+        "5": {
+          "eligible_for_spatial_replication": false,
+          "grid_replication_passed": false,
+          "one_spacing_shift_count": 3,
+          "one_spacing_shift_fraction": 0.375,
+          "repeat_capture_nights": 8
+        },
+        "6": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 73,
+          "one_spacing_shift_fraction": 0.6822429906542056,
+          "repeat_capture_nights": 107
+        },
+        "7": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 33,
+          "one_spacing_shift_fraction": 0.717391304347826,
+          "repeat_capture_nights": 46
+        },
+        "8": {
+          "eligible_for_spatial_replication": true,
+          "grid_replication_passed": true,
+          "one_spacing_shift_count": 25,
+          "one_spacing_shift_fraction": 0.625,
+          "repeat_capture_nights": 40
+        }
+      },
+      "material_fraction_threshold": 0.25,
+      "max_first_last_distance_m": 53.033008588991066,
+      "median_elapsed_hours": 4.383333333333333,
+      "median_first_last_distance_m": 8.838834764831844,
+      "one_spacing_shift_count": 352,
+      "one_spacing_shift_fraction": 0.7257731958762886,
+      "q75_first_last_distance_m": 17.67766952966369,
+      "q90_elapsed_hours": 6.873333333333335,
+      "q90_first_last_distance_m": 25.0,
+      "repeat_capture_nights": 485,
+      "scientific_name": "Peromyscus maniculatus",
+      "spatial_replication_passing_grid_count": 7,
+      "spatial_replication_passing_grids": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8"
+      ],
+      "species_gate_passed": true,
+      "wilson95_high": 0.7635863226940263,
+      "wilson95_low": 0.6844116857570708
+    }
+  }
+}

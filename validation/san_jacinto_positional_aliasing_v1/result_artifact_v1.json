@@ -1,0 +1,18 @@
+{
+  "schema": "neon.san_jacinto_positional_aliasing.result_artifact.v1",
+  "frozen_date": "2026-09-29",
+  "workflow": {
+    "run_id": 36580451294,
+    "workflow_name": "san-jacinto-positional-aliasing",
+    "workflow_head_sha": "4d51f0403a9bb2a74e0c7419596d0e79c6192073",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "artifact_id": 11040165514,
+    "name": "san-jacinto-positional-aliasing-v1",
+    "digest": "sha256:65b60354049c4e174b434a7468f1792ba44c63ec92e7fe5b1cb60a4fbac8708e",
+    "size_in_bytes": 7900
+  },
+  "result_commit": "e45db30d434fc4508306b90a6b90b290acf9ad89",
+  "programme_decision": "authorize_live_trap_positional_aliasing_result"
+}
