@@ -1,0 +1,651 @@
+{
+  "available_site_count": 46,
+  "crossscale_slope_fitted": false,
+  "data_query_requests": 46,
+  "downloaded_required_bytes": 889641211,
+  "downloaded_required_file_count": 3717,
+  "ecological_effect_models_fit": 0,
+  "excluded_species": [
+    "Chaetodipus baileyi",
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii",
+    "Peromyscus leucopus",
+    "Peromyscus maniculatus"
+  ],
+  "movement_eligible_events": 390,
+  "movement_sex_effects_inspected": false,
+  "packing_eligible_sessions": 172,
+  "packing_sex_effects_inspected": false,
+  "primary_threshold_per_sex": 3,
+  "processed_movement_sites": 35,
+  "processed_packing_sites": 29,
+  "product_code": "DP1.10072.001",
+  "programme_gate": {
+    "conditions": {
+      "minimum_sites": true,
+      "minimum_species": true,
+      "minimum_species_site_strata": true,
+      "minimum_species_with_two_or_more_sites": false
+    },
+    "decision": "stop_crossscale_transfer_not_estimable",
+    "passed": false,
+    "qualifying_site_count": 10,
+    "qualifying_sites": [
+      "BONA",
+      "CLBJ",
+      "DEJU",
+      "JERC",
+      "JORN",
+      "OAES",
+      "ONAQ",
+      "SJER",
+      "STER",
+      "UKFS"
+    ],
+    "qualifying_species": [
+      "Chaetodipus eremicus",
+      "Myodes rutilus",
+      "Onychomys leucogaster",
+      "Perognathus parvus",
+      "Peromyscus boylii",
+      "Peromyscus gossypinus",
+      "Sigmodon hispidus"
+    ],
+    "qualifying_species_count": 7,
+    "qualifying_species_site_strata": 10,
+    "species_with_two_or_more_sites": [
+      "Myodes rutilus",
+      "Sigmodon hispidus"
+    ],
+    "species_with_two_or_more_sites_count": 2
+  },
+  "release": "RELEASE-2026",
+  "schema": "neon.sex_bias_crossscale_transfer.estimability.v1",
+  "site_stops": [],
+  "strata": [
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "TOOL",
+      "species": "Alexandromys oeconomus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "CLBJ",
+      "species": "Baiomys taylori"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 2,
+      "site": "SJER",
+      "species": "Chaetodipus californicus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 9,
+      "packing_sessions": 6,
+      "site": "JORN",
+      "species": "Chaetodipus eremicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "KONZ",
+      "species": "Chaetodipus hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 4,
+      "site": "OAES",
+      "species": "Chaetodipus hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 6,
+      "packing_sessions": 2,
+      "site": "STER",
+      "species": "Chaetodipus hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 17,
+      "packing_sessions": 2,
+      "site": "KONZ",
+      "species": "Microtus ochrogaster"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "ABBY",
+      "species": "Microtus oregoni"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 2,
+      "site": "BLAN",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 6,
+      "packing_sessions": 1,
+      "site": "DCFS",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 1,
+      "site": "NOGP",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "UNDE",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 26,
+      "packing_sessions": 4,
+      "site": "WOOD",
+      "species": "Microtus pennsylvanicus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 2,
+      "site": "JERC",
+      "species": "Mus musculus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 3,
+      "site": "LAJA",
+      "species": "Mus musculus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "SCBI",
+      "species": "Mus musculus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 3,
+      "site": "BART",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 8,
+      "packing_sessions": 1,
+      "site": "HARV",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "NIWO",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "RMNP",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "STEI",
+      "species": "Myodes gapperi"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 21,
+      "packing_sessions": 14,
+      "site": "BONA",
+      "species": "Myodes rutilus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 18,
+      "packing_sessions": 8,
+      "site": "DEJU",
+      "species": "Myodes rutilus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 6,
+      "packing_sessions": 4,
+      "site": "HEAL",
+      "species": "Myodes rutilus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 6,
+      "packing_sessions": 2,
+      "site": "BART",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "HARV",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "STEI",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "UNDE",
+      "species": "Napaeozapus insignis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "SRER",
+      "species": "Neotoma albigula"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 1,
+      "site": "JERC",
+      "species": "Neotoma floridana"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "UKFS",
+      "species": "Neotoma floridana"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "MOAB",
+      "species": "Onychomys leucogaster"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 4,
+      "site": "OAES",
+      "species": "Onychomys leucogaster"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 21,
+      "packing_sessions": 8,
+      "site": "STER",
+      "species": "Onychomys leucogaster"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "SRER",
+      "species": "Onychomys torridus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 1,
+      "packing_sessions": 0,
+      "site": "JORN",
+      "species": "Perognathus flavus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 44,
+      "packing_sessions": 11,
+      "site": "ONAQ",
+      "species": "Perognathus parvus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 11,
+      "packing_sessions": 16,
+      "site": "SJER",
+      "species": "Peromyscus boylii"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 14,
+      "packing_sessions": 0,
+      "site": "SOAP",
+      "species": "Peromyscus boylii"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "DELA",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 25,
+      "packing_sessions": 10,
+      "site": "JERC",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "OSBS",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 3,
+      "packing_sessions": 0,
+      "site": "TALL",
+      "species": "Peromyscus gossypinus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "ABBY",
+      "species": "Peromyscus keeni"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "WREF",
+      "species": "Peromyscus keeni"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 6,
+      "site": "JERC",
+      "species": "Peromyscus polionotus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 12,
+      "packing_sessions": 0,
+      "site": "MOAB",
+      "species": "Peromyscus truei"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 3,
+      "packing_sessions": 1,
+      "site": "ONAQ",
+      "species": "Peromyscus truei"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "SJER",
+      "species": "Peromyscus truei"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 4,
+      "packing_sessions": 0,
+      "site": "OSBS",
+      "species": "Podomys floridanus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 3,
+      "packing_sessions": 2,
+      "site": "GUAN",
+      "species": "Rattus rattus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "NOGP",
+      "species": "Reithrodontomys megalotis"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 7,
+      "packing_sessions": 4,
+      "site": "SJER",
+      "species": "Reithrodontomys megalotis"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 7,
+      "packing_sessions": 6,
+      "site": "CLBJ",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 1,
+      "site": "DSNY",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 14,
+      "packing_sessions": 1,
+      "site": "JERC",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 5,
+      "packing_sessions": 2,
+      "site": "KONA",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 14,
+      "packing_sessions": 4,
+      "site": "KONZ",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 15,
+      "packing_sessions": 10,
+      "site": "OAES",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 6,
+      "site": "ORNL",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 0,
+      "packing_sessions": 1,
+      "site": "OSBS",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": true,
+      "movement_events": 9,
+      "packing_sessions": 6,
+      "site": "UKFS",
+      "species": "Sigmodon hispidus"
+    },
+    {
+      "crossscale_estimable": false,
+      "movement_events": 2,
+      "packing_sessions": 0,
+      "site": "WOOD",
+      "species": "Zapus princeps"
+    }
+  ],
+  "stratum_gate": {
+    "minimum_movement_events": 5,
+    "minimum_packing_sessions": 5
+  },
+  "target_taxa": {
+    "ALOE": "Alexandromys oeconomus",
+    "ARAL": "Arborimus albipes",
+    "ARLO": "Arborimus longicaudus",
+    "ARPO": "Arborimus pomo",
+    "BATA": "Baiomys taylori",
+    "CHCA": "Chaetodipus californicus",
+    "CHER": "Chaetodipus eremicus",
+    "CHFA": "Chaetodipus fallax",
+    "CHFO": "Chaetodipus formosus",
+    "CHHI": "Chaetodipus hispidus",
+    "CHIN": "Chaetodipus intermedius",
+    "CHNE": "Chaetodipus nelsoni",
+    "CHRU": "Chaetodipus rudinoris",
+    "CHSN": "Chaetodipus spinatus",
+    "CLGA": "Clethrionomys gapperi",
+    "CLRU": "Clethrionomys rutilus",
+    "DIAG": "Dipodomys agilis",
+    "DICA": "Dipodomys californicus",
+    "DICO": "Dipodomys compactus",
+    "DIDE": "Dipodomys deserti",
+    "DIEL": "Dipodomys elator",
+    "DIGR": "Dicrostonyx groenlandicus",
+    "DIHE": "Dipodomys heermanni",
+    "DIIN": "Dipodomys ingens",
+    "DIMI": "Dipodomys microps",
+    "DINE": "Dicrostonyx nelsoni",
+    "DINI": "Dipodomys nitratoides",
+    "DIPA": "Dipodomys panamintinus",
+    "DISI": "Dipodomys simulans",
+    "DISP": "Dipodomys spectabilis",
+    "DIST": "Dipodomys stephensi",
+    "DIVE": "Dipodomys venustus",
+    "LECU": "Lemmiscus curtatus",
+    "LETR": "Lemmus trimucronatus",
+    "LIIR": "Liomys irroratus",
+    "MIBO": "Mictomys borealis",
+    "MICA": "Microtus californicus",
+    "MICC": "Microtus canicaudus",
+    "MICH": "Microtus chrotorrhinus",
+    "MILO": "Microtus longicaudus",
+    "MIME": "Microdipodops megacephalus",
+    "MIMI": "Microtus miurus",
+    "MIMO": "Microtus montanus",
+    "MIOC": "Microtus ochrogaster",
+    "MIOE": "Microtus oeconomus",
+    "MIOR": "Microtus oregoni",
+    "MIPA": "Microdipodops pallidus",
+    "MIPE": "Microtus pennsylvanicus",
+    "MIPI": "Microtus pinetorum",
+    "MIRI": "Microtus richardsoni",
+    "MITO": "Microtus townsendii",
+    "MIXA": "Microtus xanthognathus",
+    "MUMU": "Mus musculus",
+    "MYCA": "Myodes californicus",
+    "MYGA": "Myodes gapperi",
+    "MYRU": "Myodes rutilus",
+    "NAAB": "Napaeozapus abietorum",
+    "NAIN": "Napaeozapus insignis",
+    "NEAL": "Neotoma albigula",
+    "NEAN": "Neofiber alleni",
+    "NECI": "Neotoma cinerea",
+    "NEDE": "Neotoma devia",
+    "NEFL": "Neotoma floridana",
+    "NEFU": "Neotoma fuscipes",
+    "NELC": "Neotoma leucodon",
+    "NELE": "Neotoma lepida",
+    "NEMA": "Neotoma magister",
+    "NEMC": "Neotoma macrotis",
+    "NEME": "Neotoma mexicana",
+    "NEMI": "Neotoma micropus",
+    "NEST": "Neotoma stephensi",
+    "OCNU": "Ochrotomys nuttalli",
+    "ONAR": "Onychomys arenicola",
+    "ONLE": "Onychomys leucogaster",
+    "ONTO": "Onychomys torridus",
+    "ONZI": "Ondatra zibethicus",
+    "ORCO": "Oryzomys couesi",
+    "ORPA": "Oryzomys palustris",
+    "PEAL": "Perognathus alticolus",
+    "PEAM": "Perognathus amplus",
+    "PEAT": "Peromyscus attwateri",
+    "PEBO": "Peromyscus boylii",
+    "PECA": "Peromyscus californicus",
+    "PECR": "Peromyscus crinitus",
+    "PEER": "Peromyscus eremicus",
+    "PEFA": "Perognathus fasciatus",
+    "PEFL": "Perognathus flavus",
+    "PEFR": "Peromyscus fraterculus",
+    "PEFV": "Perognathus flavescens",
+    "PEGO": "Peromyscus gossypinus",
+    "PEGR": "Peromyscus gratus",
+    "PEIN": "Perognathus inornatus",
+    "PEKE": "Peromyscus keeni",
+    "PELO": "Perognathus longimembris",
+    "PEME": "Peromyscus merriami",
+    "PEML": "Peromyscus melanotis",
+    "PEMO": "Perognathus mollipilosus",
+    "PEMR": "Perognathus merriami",
+    "PENA": "Peromyscus nasutus",
+    "PEPA": "Perognathus parvus",
+    "PEPE": "Peromyscus pectoralis",
+    "PEPO": "Peromyscus polionotus",
+    "PETR": "Peromyscus truei",
+    "PHIN": "Phenacomys intermedius",
+    "PHUN": "Phenacomys ungava",
+    "POFL": "Podomys floridanus",
+    "RAEX": "Rattus exulans",
+    "RANO": "Rattus norvegicus",
+    "RARA": "Rattus rattus",
+    "REFU": "Reithrodontomys fulvescens",
+    "REHU": "Reithrodontomys humulis",
+    "REME": "Reithrodontomys megalotis",
+    "REMO": "Reithrodontomys montanus",
+    "RERA": "Reithrodontomys raviventris",
+    "SIAR": "Sigmodon arizonae",
+    "SIFU": "Sigmodon fulviventer",
+    "SIHI": "Sigmodon hispidus",
+    "SIOC": "Sigmodon ochrognathus",
+    "SYBO": "Synaptomys borealis",
+    "SYCO": "Synaptomys cooperi",
+    "ZAHU": "Zapus hudsonius",
+    "ZALU": "Zapus luteus",
+    "ZAMO": "Zapus montanus",
+    "ZAOR": "Zapus oregonus",
+    "ZAPA": "Zapus pacificus",
+    "ZAPR": "Zapus princeps",
+    "ZASA": "Zapus saltator",
+    "ZATR": "Zapus trinotatus"
+  },
+  "target_taxon_count": 128
+}

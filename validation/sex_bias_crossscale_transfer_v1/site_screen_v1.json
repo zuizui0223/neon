@@ -1,0 +1,43 @@
+{
+  "schema": "neon.sex_bias_crossscale_transfer.site_screen.v1",
+  "frozen_date": "2026-09-29",
+  "rule": "retain every site containing at least one included species-site with >=5 valid diversity sessions having total captured N>=6; this is a necessary condition for >=5 sex-balanced N>=3/sex packing sessions",
+  "source": {
+    "artifact_id": 10931291060,
+    "artifact_name": "public-mammal-neon-development-v1",
+    "session_file": "neon_diversity_space_use_sessions_v1.csv",
+    "session_file_sha256": "e2df9577c354c182a803df4a59f1c26309cfbc31f6f3a0bb75fafa5d5cf2346e",
+    "inventory_file_sha256": "0ae56ff7039876256d29d965eb088a9eb510915d3cb1d58c1bced1d7c0f30fa2",
+    "available_site_count": 46,
+    "processed_site_count": 45,
+    "site_stops": []
+  },
+  "excluded_species": [
+    "Chaetodipus baileyi",
+    "Chaetodipus penicillatus",
+    "Dipodomys merriami",
+    "Dipodomys ordii",
+    "Peromyscus maniculatus",
+    "Peromyscus leucopus"
+  ],
+  "sites": [
+    "BART",
+    "BONA",
+    "CLBJ",
+    "DEJU",
+    "HEAL",
+    "JERC",
+    "JORN",
+    "KONZ",
+    "OAES",
+    "ONAQ",
+    "ORNL",
+    "SJER",
+    "STER",
+    "UKFS",
+    "WOOD"
+  ],
+  "site_count": 15,
+  "sex_specific_effects_inspected": false,
+  "rationale": "Sites outside this set cannot produce a cross-scale qualifying species-site stratum because they fail a necessary packing sample-count condition before sex is considered."
+}
