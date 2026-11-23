@@ -5,6 +5,9 @@ import unittest
 from analysis.neon_nonidentical_trap_CHM_affinity_v1 import (
     TRAPS,rank100,exclusive_score,original_unit_test,summarize_original_sites
 )
+from analysis.run_neon_nonidentical_trap_CHM_affinity_v1 import (
+    OriginalRESTHistoryStop,_audit_rest_history_rows
+)
 
 def height_gradient():
     return {x:float(ord(x[0])-65) for x in TRAPS}
@@ -86,6 +89,36 @@ class TestOtherTrapCanopyAssociation(unittest.TestCase):
         self.assertEqual(o["status"],
             "STOP_CANOPY_AFFINITY_TOO_FEW_INFORMATIVE_SITES_OR_PAIRS")
         self.assertIsNone(o["site_level_canopy_ecological_effect"])
+
+class TestOriginalRESTSourceAudit(unittest.TestCase):
+    def test_anonymous_rest_error_is_a_cohort_stop(self):
+        source_station=("PRIVATE_SITE","PRIVATE_PLOT","PRIVATE_STATION")
+        good_station=("OTHER_PRIVATE_SITE","PRIVATE_PLOT","PRIVATE_STATION")
+        rows=[
+            (source_station,{"locationHistory":[{"synthetic":True}]},"sha1",None),
+            (good_station,None,None,"HTTP_TRANSPORT_RETRIES_EXHAUSTED"),
+        ]
+        with self.assertRaises(OriginalRESTHistoryStop) as ctx:
+            _audit_rest_history_rows(rows,expected=2)
+        error=ctx.exception
+        self.assertEqual(error.requested,2)
+        self.assertEqual(error.valid,1)
+        self.assertEqual(error.counts,{"HTTP_TRANSPORT_RETRIES_EXHAUSTED":1})
+        self.assertNotIn("PRIVATE_SITE",str(error))
+        self.assertNotIn("PRIVATE_SITE",str(error.counts))
+
+    def test_complete_original_rest_source_has_no_selective_replacement(self):
+        rows=[
+            (("A",1),{"source":"first"},"first_sha",None),
+            (("B",2),{"source":"second"},"second_sha",None),
+        ]
+        documents,source_shas=_audit_rest_history_rows(rows,expected=2)
+        self.assertEqual(len(documents),2)
+        self.assertEqual(source_shas,["first_sha","second_sha"])
+        with self.assertRaises(OriginalRESTHistoryStop) as ctx:
+            _audit_rest_history_rows(rows+[rows[0]],expected=3)
+        self.assertEqual(ctx.exception.counts,{"DUPLICATE_ORIGINAL_STATION_KEY":1})
+
 
 if __name__=="__main__":
     unittest.main()
