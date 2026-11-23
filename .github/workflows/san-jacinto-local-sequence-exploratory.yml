@@ -1,0 +1,39 @@
+name: Exploratory San Jacinto local sequence
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/exploratory_san_jacinto_local_sequence_v1.py
+      - tests/test_exploratory_san_jacinto_local_sequence_v1.py
+      - docs/SAN_JACINTO_LOCAL_SEQUENCE_EXPLORATORY_V1.md
+      - .github/workflows/san-jacinto-local-sequence-exploratory.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-sequence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Synthetic scientific checks
+        run: python -m unittest discover -s tests -p 'test_exploratory_san_jacinto_local_sequence_v1.py' -v
+      - name: Checksum-locked real-data exploratory run
+        run: |
+          PYTHONPATH=. python analysis/exploratory_san_jacinto_local_sequence_v1.py \
+            --download-source \
+            --output build/san_jacinto_local_sequence_exploratory_v1.json
+      - name: Upload derived result only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-local-sequence-exploratory
+          path: build/san_jacinto_local_sequence_exploratory_v1.json
+          if-no-files-found: warn

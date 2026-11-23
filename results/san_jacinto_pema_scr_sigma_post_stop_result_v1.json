@@ -1,0 +1,38 @@
+{
+  "schema": "neon.san_jacinto_scr_sigma_pema_post_stop.result.v1",
+  "status": "post_stop_exploratory",
+  "binding_confirmatory_programme_decision": "stop_scr_sigma_sensitivity_not_estimable",
+  "species": "PEMA",
+  "scientific_name": "Peromyscus maniculatus",
+  "support": {
+    "eligible_sessions": 19,
+    "eligible_grids": 5,
+    "first_observations": 525,
+    "last_observations": 525,
+    "first_last_keys_identical": true
+  },
+  "primary_model": {
+    "formula": "g0 ~ b + grid + bout; sigma ~ 1",
+    "first": {
+      "sigma_m": 8.8515,
+      "SE": 0.4396,
+      "lcl95_m": 8.0310,
+      "ucl95_m": 9.7559
+    },
+    "last": {
+      "sigma_m": 8.5625,
+      "SE": 0.4186,
+      "lcl95_m": 7.7806,
+      "ucl95_m": 9.4229
+    },
+    "sigma_ratio_last_first": 0.9673,
+    "relative_change": -0.0327,
+    "contextual_10pct_threshold_exceeded": false
+  },
+  "claim_boundary": {
+    "replaces_failed_confirmatory_gate": false,
+    "determines_correct_representative_location": false,
+    "universal_bias_direction": false,
+    "equivalence_test": false
+  }
+}

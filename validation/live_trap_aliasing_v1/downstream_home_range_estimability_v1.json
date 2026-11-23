@@ -1,0 +1,4636 @@
+{
+  "area_differences_inspected": false,
+  "candidate_individuals": {
+    "PEER": 89,
+    "PEMA": 372
+  },
+  "ecological_model_fits": 0,
+  "eligible_individuals": {
+    "PEER": 6,
+    "PEMA": 17
+  },
+  "first_area_inspected": false,
+  "last_area_inspected": false,
+  "programme_gate": {
+    "decision": "stop_downstream_home_range_not_estimable",
+    "passed": false
+  },
+  "rms_radius_differences_inspected": false,
+  "schema": "neon.live_trap_aliasing.downstream_home_range_estimability.v1",
+  "species_details": {
+    "PEER": [
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1222",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1273",
+        "unique_flags_first": 8,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12891288",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13111306",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13861389",
+        "unique_flags_first": 6,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1390",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13931394",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14751454",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19741975",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19821992",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 13,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "332857",
+        "unique_flags_first": 8,
+        "unique_flags_last": 9
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "341342",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "376377",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "4273M",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "503551",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "555554",
+        "unique_flags_first": 7,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "630629",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 23,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "792723",
+        "unique_flags_first": 10,
+        "unique_flags_last": 9
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "bluepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "greenblue",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orange under tail",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purple orange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purpleorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "yellow purple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "yellowpurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11161138",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1463",
+        "unique_flags_first": 6,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14781479",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14811480",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1565",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "19061929",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19531954",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "19971998",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "515516",
+        "unique_flags_first": 7,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 14,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "564565",
+        "unique_flags_first": 10,
+        "unique_flags_last": 11
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "579580",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "582581",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "602601",
+        "unique_flags_first": 5,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 14,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "616",
+        "unique_flags_first": 10,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "617",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "618619",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "850849",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "greenmissing",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing576",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "no taghad tag",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangegreen",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purple purple",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "redyellow",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "752751",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1119",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11531152",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "13561268",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "14591457",
+        "unique_flags_first": 3,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14821407",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14881487",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14901489",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19101909",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19231922",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19301931",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19501969",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "307306",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "336335",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "563562",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "576577",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "579575",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "597596",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "633634",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "729730",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "732731",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "738737",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "739740",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "757",
+        "unique_flags_first": 5,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "773772",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "797798",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing1919",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "none1491",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "red tail",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "tail purple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "no tag1922",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      }
+    ],
+    "PEMA": [
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10111012",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "10641065",
+        "unique_flags_first": 2,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11461145",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "11501149",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11611162",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "11631164",
+        "unique_flags_first": 5,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11731137",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 12,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12131218",
+        "unique_flags_first": 9,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12161217",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 12,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12261227",
+        "unique_flags_first": 9,
+        "unique_flags_last": 9
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12301231",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12361237",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12941293",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1354missing",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13601369",
+        "unique_flags_first": 7,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1384",
+        "unique_flags_first": 8,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13991400",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14531454",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "14681467",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "14691470",
+        "unique_flags_first": 5,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1932",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19451944",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19951996",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "314313",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "330331",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "378379",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "388389",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "458457",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "521501",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 17,
+        "eligible": true,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "776784",
+        "unique_flags_first": 12,
+        "unique_flags_last": 15
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "836835",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "838837",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "858859",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "GREENGREEN",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "OrangeOrange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "YellowYellow",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueyellow",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "green tail",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing484",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 9,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "redorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "redred",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "1",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "yellowyellow",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10311032",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10391040",
+        "unique_flags_first": 6,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10441045",
+        "unique_flags_first": 3,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10701071",
+        "unique_flags_first": 8,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10761077",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10861087",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10901091",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11111197",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11191120",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "11431144",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12001199",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12491250",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13221323",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13991400",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14651466",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14831416",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14991500",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19171918",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "1933",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19581959",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19801981",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "322321",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "395396",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "515516",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "520519",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "557556",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 13,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "559558",
+        "unique_flags_first": 5,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "649650",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "707708",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "727726",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 19,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "766767",
+        "unique_flags_first": 12,
+        "unique_flags_last": 15
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "785",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "808809",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "814815",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "878879",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "888889",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 17,
+        "eligible": true,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "967966",
+        "unique_flags_first": 10,
+        "unique_flags_last": 13
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "GG",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "green",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "greengreen",
+        "unique_flags_first": 5,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing518",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orange at base",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "2",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "redred",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 12,
+        "eligible": true,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10531054",
+        "unique_flags_first": 12,
+        "unique_flags_last": 10
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10601061",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10841085",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10951096",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11421127",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12231224",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12701313",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12741302",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 14,
+        "eligible": true,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "512511",
+        "unique_flags_first": 11,
+        "unique_flags_last": 11
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "513514",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "788787",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "791790",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "greengreen",
+        "unique_flags_first": 2,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "left earnone",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "3",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10131014",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10351036",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10371038",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1048missing",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10511052",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10571058",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10721073",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11081176",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "11891188",
+        "unique_flags_first": 7,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12051206",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12071208",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12191220",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12421243",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12511252",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12651266",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12751089",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12951296",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13431344",
+        "unique_flags_first": 2,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13541353",
+        "unique_flags_first": 7,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13551356",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13571370",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14261427",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14291428",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14461445",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14551456",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "19241925",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "19461947",
+        "unique_flags_first": 4,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19571967",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19651966",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "320319",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "346345",
+        "unique_flags_first": 5,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "359360",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "385384",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "392393",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "400394",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "451",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 17,
+        "eligible": true,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "466",
+        "unique_flags_first": 11,
+        "unique_flags_last": 12
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "488",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "502508",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "503505",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "504505",
+        "unique_flags_first": 5,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "506",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "509510",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "680681",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "713714",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "716715",
+        "unique_flags_first": 2,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "717718",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "719720",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "722721",
+        "unique_flags_first": 1,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "728725",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "750",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "760761",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "771770",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "777778",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "813812",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "852851",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "864865",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "880881",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "886887",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "899900",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "999none",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blue",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "green",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "greengreen",
+        "unique_flags_first": 9,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing48",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing598",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing688",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "4",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 7,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10821083",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10931094",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11021112",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1113",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11301185",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11341110",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "11591160",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1182317",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12281229",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12631264",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13451344",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "356355",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "368369",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "494495",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "603none",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "605604",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "653654",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "666679",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "765764",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "861860",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "bluered",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing880",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "none866",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "nonenone",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "5",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10091010",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10171018",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 14,
+        "eligible": true,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "10331041",
+        "unique_flags_first": 10,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "10681069",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "11321106",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11561155",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11681169",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11781140",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "11791180",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12011202",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12041203",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12091210",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12211225",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12321233",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12401241",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12441245",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12531254",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 12,
+        "eligible": true,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12571258",
+        "unique_flags_first": 8,
+        "unique_flags_last": 10
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12791282",
+        "unique_flags_first": 1,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12861285",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13121314",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13181319",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 11,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13251324",
+        "unique_flags_first": 5,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13351334",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13411342",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13481347",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "13591387",
+        "unique_flags_first": 3,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13881381",
+        "unique_flags_first": 4,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14021401",
+        "unique_flags_first": 4,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14321430",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1446missing",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14471448",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "14581412",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19371936",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1938",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "19611971",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19761977",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "312311",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "351352",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "362361",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "386387",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "510511",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "567568",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "570571",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "572573",
+        "unique_flags_first": 3,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "577578",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "598599",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "600",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "606605",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "608607",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "641644",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "677678",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "730729",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "741",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": false,
+        "unique_ID": "753754",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 13,
+        "eligible": true,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "756755",
+        "unique_flags_first": 7,
+        "unique_flags_last": 9
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "804805",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "819830",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "841842",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "845846",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "866867",
+        "unique_flags_first": 2,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "PPL PPL",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blue tail",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "bot fly",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing955",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "orangeorange",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 5,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurpleorange",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "redorangepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "6",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "redred",
+        "unique_flags_first": 6,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 10,
+        "eligible": true,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1022",
+        "unique_flags_first": 7,
+        "unique_flags_last": 8
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10421043",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10461047",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10551056",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10661067",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10991088",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11151118",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "11281103",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11361104",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11411171",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11911190",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11931192",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12121211",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12321233",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12341235",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 13,
+        "eligible": true,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "12381239",
+        "unique_flags_first": 9,
+        "unique_flags_last": 7
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1260",
+        "unique_flags_first": 4,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12711303",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13051301",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13081329",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13201321",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13261310",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13621363",
+        "unique_flags_first": 5,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13661365",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "13761377",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13791367",
+        "unique_flags_first": 5,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "13961395",
+        "unique_flags_first": 3,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14221423",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14241425",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14951496",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19891988",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "340339",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "348347",
+        "unique_flags_first": 6,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "350349",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 8,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "358357",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "587",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "590591",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "592593",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "594595",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "609",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "643638",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "646645",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "651652",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "742744",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "758757",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "799800",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "854853",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "876877",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "LRRR",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "green",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "greengreen",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missing1903",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "7",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "10491059",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11211122",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "11841170",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12611262",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "12881291",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "13301484",
+        "unique_flags_first": 6,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "1391",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "14841330",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "1874",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19021901",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "19261927",
+        "unique_flags_first": 3,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "328329",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "330484",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "343344",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "503963RRYR",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 3,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": true,
+        "unique_ID": "550",
+        "unique_flags_first": 2,
+        "unique_flags_last": 3
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "583584",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 7,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "585586",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "611610",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "655656",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "671631",
+        "unique_flags_first": 4,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "703704",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "705789",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "709710",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "711712",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "733734",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "736735",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "780779",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 9,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "781782",
+        "unique_flags_first": 7,
+        "unique_flags_last": 6
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "840839",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 2,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "895896",
+        "unique_flags_first": 2,
+        "unique_flags_last": 2
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "blueblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "green at base",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "greenblue",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 6,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "greengreen",
+        "unique_flags_first": 3,
+        "unique_flags_last": 5
+      },
+      {
+        "capture_nights": 4,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "missingmissing",
+        "unique_flags_first": 3,
+        "unique_flags_last": 4
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplegreengreen",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 1,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": false,
+        "noncollinear_last": false,
+        "unique_ID": "purplepurple",
+        "unique_flags_first": 1,
+        "unique_flags_last": 1
+      },
+      {
+        "capture_nights": 5,
+        "eligible": false,
+        "grid": "8",
+        "noncollinear_first": true,
+        "noncollinear_last": true,
+        "unique_ID": "redred",
+        "unique_flags_first": 4,
+        "unique_flags_last": 4
+      }
+    ]
+  }
+}

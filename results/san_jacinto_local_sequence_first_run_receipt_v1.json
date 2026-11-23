@@ -1,0 +1,58 @@
+{
+  "schema": "neon.san_jacinto.local_sequence.first_real_data_receipt.v1",
+  "classification": "POST_RESULT_EXPLORATORY_NOT_CONFIRMATORY",
+  "branch": "paper/live-trap-aliasing-v1",
+  "source": "Figshare raw CSV, SHA256 ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301",
+  "first_run": {
+    "run_id": 37783229362,
+    "commit": "6246896518fb4fad19ac5d0fc215095b873da55e",
+    "conclusion": "success",
+    "synthetic_tests": "passed",
+    "eligible_grid_nights": 248,
+    "capture_cells": 8590,
+    "invalid_capture_rows": 146,
+    "ambiguous_cells": 106,
+    "matched_cases": 889,
+    "grid_bout_clusters": 79,
+    "grids": 8,
+    "observed_same_species_fraction": 0.5061867266591676,
+    "reference_same_species_fraction": 0.4602549681289838,
+    "difference": 0.04593175853018383,
+    "exploratory_cluster_bootstrap95": [
+      0.015288544358311802,
+      0.0761904761904762
+    ],
+    "early_middle": {
+      "n": 419,
+      "difference": 0.046141607000795504,
+      "ci": [
+        0.008021390374331552,
+        0.08369883040935672
+      ]
+    },
+    "middle_late": {
+      "n": 470,
+      "difference": 0.04574468085106381,
+      "ci": [
+        0.0037105751391465678,
+        0.09011627906976744
+      ]
+    }
+  },
+  "post_result_sensitivity": {
+    "run_id": 37783534701,
+    "commit": "6c36c9a5c11c8b376f568c2f6bddb57fc9aa23d8",
+    "conclusion": "success",
+    "pooled_leave_one_grid_out_difference_min": 0.03922902494331066,
+    "pooled_leave_one_grid_out_difference_max": 0.0537712895377129,
+    "same_night_adjacent_trap_n": 733,
+    "observed_minus_adjacent_trap_same_species": 0.09362047684012213,
+    "label": "added AFTER first effect was observed; not confirmation"
+  },
+  "claim_boundary": "Association in capture sequences, not direct interactions in nature; same-species prior-occupant trap cue is established prior art. Source is capture-only, and conditioning on complete-bin and repeat-capture histories can select a nonrepresentative subset.",
+  "literature": [
+    "10.1007/s00442-021-05104-5",
+    "10.1371/journal.pone.0145006"
+  ],
+  "decision": "ECOLOGICAL_MECHANISM_HOLD; no novel mechanism claim and no incorporation into MEE manuscript"
+}

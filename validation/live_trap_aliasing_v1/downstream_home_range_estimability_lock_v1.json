@@ -1,0 +1,38 @@
+{
+  "schema": "neon.live_trap_aliasing.downstream_home_range_estimability_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_home_range_support_counts",
+  "species": {
+    "PEMA": "Peromyscus maniculatus",
+    "PEER": "Peromyscus eremicus"
+  },
+  "identity_key": [
+    "grid",
+    "species",
+    "unique_ID"
+  ],
+  "nightly_representations": {
+    "first": "earliest valid nocturnal capture",
+    "last": "latest valid nocturnal capture"
+  },
+  "eligibility": {
+    "distinct_capture_nights_min": 10,
+    "unique_flags_first_min": 5,
+    "unique_flags_last_min": 5,
+    "require_noncollinear_first": true,
+    "require_noncollinear_last": true
+  },
+  "species_support_gate": {
+    "PEMA_min_individuals": 20,
+    "PEER_min_individuals": 15
+  },
+  "pass_decision": "authorize_downstream_home_range_effect_lock",
+  "fail_decision": "stop_downstream_home_range_not_estimable",
+  "planned_primary_metric": "100% MCP area",
+  "planned_secondary_metric": "RMS radius from centroid",
+  "first_area_inspected": false,
+  "last_area_inspected": false,
+  "area_differences_inspected": false,
+  "rms_radius_differences_inspected": false,
+  "ecological_model_fits": 0
+}

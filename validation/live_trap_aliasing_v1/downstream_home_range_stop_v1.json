@@ -1,0 +1,37 @@
+{
+  "schema": "neon.live_trap_aliasing.downstream_home_range_stop.v1",
+  "frozen_date": "2026-09-29",
+  "estimability": {
+    "PEMA": {
+      "eligible_individuals": 17,
+      "required_minimum": 20
+    },
+    "PEER": {
+      "eligible_individuals": 6,
+      "required_minimum": 15
+    },
+    "decision": "stop_downstream_home_range_not_estimable",
+    "passed": false
+  },
+  "unauthorized_effect_workflow_runs": [
+    {
+      "run_id": 36587397079,
+      "conclusion": "failure",
+      "failure_point": "support gate check before MCP calculation",
+      "effect_values_persisted": false
+    },
+    {
+      "run_id": 36587437888,
+      "conclusion": "failure",
+      "failure_point": "support gate check before MCP calculation",
+      "effect_values_persisted": false
+    }
+  ],
+  "effect_lock_status": "not_authorized_by_support_gate",
+  "mcp_areas_inspected": false,
+  "mcp_area_ratios_inspected": false,
+  "rms_radius_differences_inspected": false,
+  "ruling": "Downstream home-range sensitivity is not estimable under the prospectively frozen high-information support thresholds and cannot be used to strengthen or weaken the paper.",
+  "paper_consequence": "retain positional-aliasing diagnostic, deterministic bounds, held-out validation, denominator audit, and simulation benchmark; report home-range downstream test as pre-specified but non-estimable if mentioned.",
+  "can_change_primary_positional_aliasing_result": false
+}

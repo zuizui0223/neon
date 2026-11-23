@@ -1,0 +1,61 @@
+name: live-trap-night-label-semantics-audit
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/audit_live_trap_night_label_semantics_v1.py
+      - tests/test_live_trap_night_label_semantics_v1.py
+      - .github/workflows/live-trap-night-label-semantics-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify night-label audit tests
+        run: python -m unittest tests.test_live_trap_night_label_semantics_v1 -v
+
+      - name: Audit source date/time grouping
+        run: |
+          python analysis/audit_live_trap_night_label_semantics_v1.py \
+            --output /tmp/night_label_semantics_audit_v1.json
+
+      - name: Require raw source date to match trapping-night semantics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/night_label_semantics_audit_v1.json").read_text())
+          assert p["raw_date_supported_as_trapping_night_label"] is True
+          assert p["ecological_effects_inspected"] is False
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist structural audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p validation/live_trap_aliasing_v1
+          cp /tmp/night_label_semantics_audit_v1.json \
+             validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json
+          git add validation/live_trap_aliasing_v1/night_label_semantics_audit_v1.json
+          if git diff --cached --quiet; then
+            echo "night-label audit unchanged"
+          else
+            git commit -m "Freeze live-trap night-label semantics audit"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi

@@ -1,0 +1,117 @@
+name: temporal-aliasing-paper-validation
+
+on:
+  push:
+    branches:
+      - paper/live-trap-aliasing-v1
+    paths:
+      - analysis/simulate_temporal_aliasing_diagnostic_v1.py
+      - analysis/temporal_aliasing_diagnostic_v1.py
+      - analysis/plot_live_trap_aliasing_figures_v1.py
+      - tests/test_temporal_aliasing_simulation.py
+      - tests/test_temporal_aliasing_diagnostic.py
+      - tests/test_temporal_aliasing_example.py
+      - examples/repeated_locations_example.csv
+      - examples/repeated_locations_example_expected.json
+      - docs/SIMULATION_BENCHMARK_PLAN_V1.md
+      - results/san_jacinto_positional_aliasing_result_v1.json
+      - validation/live_trap_aliasing_v1/denominator_audit_v1.json
+      - .github/workflows/temporal-aliasing-simulation-benchmark.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-paper-method:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/live-trap-aliasing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install method and figure dependencies
+        run: python -m pip install numpy==2.1.1 matplotlib==3.10.6
+
+      - name: Verify generic diagnostic, example, and simulation tests
+        run: |
+          python -m unittest             tests.test_temporal_aliasing_diagnostic             tests.test_temporal_aliasing_example             tests.test_temporal_aliasing_simulation -v
+
+      - name: Run generic CLI example end to end
+        run: |
+          python analysis/temporal_aliasing_diagnostic_v1.py             --input examples/repeated_locations_example.csv             --individual-col animal_id             --night-col night_id             --time-col time_hours             --coordinate-col x_m             --coordinate-col y_m             --material-scale 5             --output /tmp/example_aliasing.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          got=json.loads(Path("/tmp/example_aliasing.json").read_text())
+          exp=json.loads(Path("examples/repeated_locations_example_expected.json").read_text())
+          assert got["qc"]["input_rows"] == exp["input_rows"]
+          assert got["qc"]["individual_nights"] == exp["individual_nights"]
+          assert got["qc"]["repeat_observation_individual_nights"] == exp["repeat_observation_individual_nights"]
+          assert got["qc"]["single_observation_individual_nights"] == exp["single_observation_individual_nights"]
+          assert got["span_summary"]["material_shift_count"] == exp["material_shift_count"]
+          assert abs(got["span_summary"]["material_shift_fraction"] - exp["material_shift_fraction"]) < 1e-12
+          print(json.dumps(got,indent=2,sort_keys=True))
+          PY
+
+      - name: Run frozen simulation benchmark
+        run: |
+          python analysis/simulate_temporal_aliasing_diagnostic_v1.py             --replicates 400             --output /tmp/temporal_aliasing_simulation_benchmark_v1.json
+
+      - name: Assert benchmark contracts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/temporal_aliasing_simulation_benchmark_v1.json").read_text())
+          s=p["summary"]
+          assert s["mcar_mean_abs_bias"] < 0.02
+          assert s["mcar_mean_wilson_coverage"] > 0.90
+          assert s["span_enriched_mean_bias"] > 0
+          assert s["span_depleted_mean_bias"] < 0
+          assert s["total_lower_bound_violations"] == 0
+          print(json.dumps(s,indent=2,sort_keys=True))
+          PY
+
+      - name: Render manuscript figures
+        run: |
+          python analysis/plot_live_trap_aliasing_figures_v1.py             --simulation /tmp/temporal_aliasing_simulation_benchmark_v1.json             --validation results/san_jacinto_positional_aliasing_result_v1.json             --denominator validation/live_trap_aliasing_v1/denominator_audit_v1.json             --outdir /tmp/figures
+
+          test -s /tmp/figures/figure1_observation_process.png
+          test -s /tmp/figures/figure2_simulation_benchmark.png
+          test -s /tmp/figures/figure3_heldout_validation.png
+          test -s /tmp/figures/figure4_denominator_and_span.png
+
+      - name: Persist benchmark and manuscript figures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+
+          mkdir -p results figures
+          cp /tmp/temporal_aliasing_simulation_benchmark_v1.json              results/temporal_aliasing_simulation_benchmark_v1.json
+          cp /tmp/figures/* figures/
+
+          git add results/temporal_aliasing_simulation_benchmark_v1.json figures
+          if git diff --cached --quiet; then
+            echo "paper validation outputs unchanged"
+          else
+            git commit -m "Freeze paper validation benchmark and figures"
+            git push origin HEAD:paper/live-trap-aliasing-v1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: temporal-aliasing-paper-validation-v1
+          path: |
+            /tmp/example_aliasing.json
+            /tmp/temporal_aliasing_simulation_benchmark_v1.json
+            /tmp/figures/*
+          if-no-files-found: error
+          retention-days: 30

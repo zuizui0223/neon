@@ -1,0 +1,44 @@
+name: live-trap-home-range-support
+# Triggered after frozen estimability lock; no effect values are read here.
+on:
+  push:
+    branches: [paper/live-trap-aliasing-v1]
+    paths:
+      - docs/DOWNSTREAM_HOME_RANGE_ESTIMABILITY_LOCK_V1.md
+      - validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json
+      - analysis/live_trap_home_range_support_v1.py
+      - tests/test_live_trap_home_range_support.py
+      - .github/workflows/live-trap-home-range-support.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: paper/live-trap-aliasing-v1}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m unittest tests.test_live_trap_home_range_support -v
+      - run: |
+          python analysis/live_trap_home_range_support_v1.py \
+            --lock validation/live_trap_aliasing_v1/downstream_home_range_estimability_lock_v1.json \
+            --output /tmp/home_range_support_v1.json
+      - run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/home_range_support_v1.json").read_text())
+          assert p["area_differences_inspected"] is False
+          print(json.dumps({"eligible_individuals":p["eligible_individuals"],"programme_gate":p["programme_gate"]},indent=2))
+          PY
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin paper/live-trap-aliasing-v1
+          mkdir -p validation/live_trap_aliasing_v1
+          cp /tmp/home_range_support_v1.json validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
+          git add validation/live_trap_aliasing_v1/downstream_home_range_estimability_v1.json
+          if git diff --cached --quiet; then echo unchanged; else git commit -m "Freeze downstream home-range estimability"; git push origin HEAD:paper/live-trap-aliasing-v1; fi

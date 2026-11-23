@@ -1,0 +1,51 @@
+{
+  "schema": "neon.san_jacinto_positional_aliasing.effect_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_holdout_positional_outcomes",
+  "species": {
+    "PEMA": {
+      "scientific_name": "Peromyscus maniculatus",
+      "support_repeat_capture_nights": 485,
+      "support_grids": 8,
+      "support_bouts": 12
+    },
+    "PEER": {
+      "scientific_name": "Peromyscus eremicus",
+      "support_repeat_capture_nights": 107,
+      "support_grids": 3,
+      "support_bouts": 10
+    }
+  },
+  "source": {
+    "figshare_article_id": 18295520,
+    "file_id": 33058799,
+    "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "geometry": {
+    "spacing_m": 6.25,
+    "flags": "A1-G7"
+  },
+  "primary": {
+    "outcome": "one_spacing_shift = d_first_last >= 6.25 m",
+    "material_fraction": 0.25,
+    "interval": "two-sided 95% Wilson",
+    "species_pass": "Wilson lower bound > 0.25"
+  },
+  "spatial_replication": {
+    "grid_repeat_night_min": 20,
+    "grid_shift_fraction_min_exclusive": 0.25,
+    "grids_passing_min": 2
+  },
+  "programme": {
+    "required_species": [
+      "PEMA",
+      "PEER"
+    ],
+    "pass": "authorize_live_trap_positional_aliasing_result",
+    "fail": "stop_positional_aliasing_not_replicated"
+  },
+  "heldout_first_last_distances_inspected": false,
+  "heldout_change_outcomes_inspected": false,
+  "heldout_grid_shift_fractions_inspected": false,
+  "ecological_model_fits": 0
+}
