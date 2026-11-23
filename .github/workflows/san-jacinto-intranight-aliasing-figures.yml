@@ -1,0 +1,72 @@
+name: san-jacinto-intranight-aliasing-figures
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-intranight-aliasing-v1
+    paths:
+      - results/san_jacinto_intranight_aliasing_result_v1.json
+      - analysis/san_jacinto_intranight_aliasing_v1.py
+      - analysis/build_san_jacinto_aliasing_figures_v1.py
+      - .github/workflows/san-jacinto-intranight-aliasing-figures.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  figures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-intranight-aliasing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install figure dependency
+        run: python -m pip install matplotlib==3.10.6
+
+      - name: Reconstruct locked night-level table
+        run: |
+          python analysis/san_jacinto_intranight_aliasing_v1.py \
+            --lock validation/san_jacinto_intranight_aliasing_v1/effect_lock_v1.json \
+            --support-provenance validation/san_jacinto_intranight_aliasing_v1/support_provenance_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-json /tmp/aliasing_result.json \
+            --output-csv /tmp/aliasing_nights.csv
+
+          cmp /tmp/aliasing_result.json results/san_jacinto_intranight_aliasing_result_v1.json
+
+      - name: Build deterministic SVG figures
+        run: |
+          python analysis/build_san_jacinto_aliasing_figures_v1.py \
+            --result results/san_jacinto_intranight_aliasing_result_v1.json \
+            --nights /tmp/aliasing_nights.csv \
+            --output-dir /tmp/aliasing_figures
+
+      - name: Persist figure set
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-intranight-aliasing-v1
+          mkdir -p figures/intranight_aliasing
+          cp /tmp/aliasing_figures/*.svg figures/intranight_aliasing/
+          git add figures/intranight_aliasing/*.svg
+          if git diff --cached --quiet; then
+            echo "figures unchanged"
+          else
+            git commit -m "Build confirmed intra-night aliasing figures"
+            git push origin HEAD:design/san-jacinto-intranight-aliasing-v1
+          fi
+
+      - name: Upload figure artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-intranight-aliasing-figures-v1
+          path: /tmp/aliasing_figures/*.svg
+          if-no-files-found: error
+          retention-days: 30

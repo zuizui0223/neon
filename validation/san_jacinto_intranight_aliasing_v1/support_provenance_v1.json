@@ -1,0 +1,20 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.support_provenance.v1",
+  "frozen_date": "2026-09-29",
+  "source_branch": "design/san-jacinto-temporal-aliasing-holdout-v1",
+  "source_estimability_commit": "0ab2fb4cc8d73b0edeeeda05ac3ecce448e9dd67",
+  "source_estimability_decision": "stop_temporal_aliasing_holdout_not_estimable",
+  "heldout_species_support": {
+    "PEMA": {
+      "repeat_capture_individual_nights": 485,
+      "repeat_capture_grids": 8,
+      "repeat_capture_bouts": 12
+    },
+    "PEER": {
+      "repeat_capture_individual_nights": 107,
+      "repeat_capture_grids": 3,
+      "repeat_capture_bouts": 10
+    }
+  },
+  "outcomes_inspected": false
+}

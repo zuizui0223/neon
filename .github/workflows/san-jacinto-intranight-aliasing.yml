@@ -1,0 +1,107 @@
+name: san-jacinto-intranight-aliasing
+
+on:
+  push:
+    branches:
+      - design/san-jacinto-intranight-aliasing-v1
+    paths:
+      - docs/SAN_JACINTO_INTRANIGHT_ALIASING_EFFECT_LOCK_V1.md
+      - validation/san_jacinto_intranight_aliasing_v1/effect_lock_v1.json
+      - validation/san_jacinto_intranight_aliasing_v1/support_provenance_v1.json
+      - analysis/san_jacinto_intranight_aliasing_v1.py
+      - tests/test_san_jacinto_intranight_aliasing.py
+      - .github/workflows/san-jacinto-intranight-aliasing.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test-heldout-aliasing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/san-jacinto-intranight-aliasing-v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify pre-outcome lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lock=json.loads(
+              Path("validation/san_jacinto_intranight_aliasing_v1/effect_lock_v1.json").read_text()
+          )
+          support=json.loads(
+              Path("validation/san_jacinto_intranight_aliasing_v1/support_provenance_v1.json").read_text()
+          )
+          assert lock["state"]=="frozen_before_holdout_aliasing_outcomes"
+          assert lock["pema_outcomes_inspected"] is False
+          assert lock["peer_outcomes_inspected"] is False
+          assert lock["distance_values_inspected"] is False
+          assert lock["changed_values_inspected"] is False
+          assert support["outcomes_inspected"] is False
+          assert support["heldout_species_support"]["PEMA"]["repeat_capture_individual_nights"] == 485
+          assert support["heldout_species_support"]["PEER"]["repeat_capture_individual_nights"] == 107
+          print("INTRANIGHT_ALIASING_AUTHORIZED")
+          PY
+
+      - name: Verify frozen tests
+        run: python -m unittest tests.test_san_jacinto_intranight_aliasing -v
+
+      - name: Open held-out first-vs-last outcomes
+        run: |
+          python analysis/san_jacinto_intranight_aliasing_v1.py \
+            --lock validation/san_jacinto_intranight_aliasing_v1/effect_lock_v1.json \
+            --support-provenance validation/san_jacinto_intranight_aliasing_v1/support_provenance_v1.json \
+            --cache data/cache/san_jacinto/year_round_trap_data.csv \
+            --output-json /tmp/san_jacinto_intranight_aliasing_result_v1.json \
+            --output-csv /tmp/san_jacinto_intranight_aliasing_nights_v1.csv
+
+      - name: Validate frozen programme decision
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/san_jacinto_intranight_aliasing_result_v1.json").read_text())
+          assert p["programme_gate"]["decision"] in {
+              "confirm_intranight_positional_aliasing_across_cricetids",
+              "stop_intranight_aliasing_not_replicated",
+          }
+          assert p["species"]["PEMA"]["repeat_capture_nights"] == 485
+          assert p["species"]["PEER"]["repeat_capture_nights"] == 107
+          assert p["distance_values_inspected"] is True
+          assert p["changed_values_inspected"] is True
+          print(json.dumps(p,indent=2,sort_keys=True))
+          PY
+
+      - name: Persist compact result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin design/san-jacinto-intranight-aliasing-v1
+          mkdir -p results
+          cp /tmp/san_jacinto_intranight_aliasing_result_v1.json \
+             results/san_jacinto_intranight_aliasing_result_v1.json
+          git add results/san_jacinto_intranight_aliasing_result_v1.json
+          if git diff --cached --quiet; then
+            echo "aliasing result unchanged"
+          else
+            git commit -m "Freeze held-out intra-night aliasing result"
+            git push origin HEAD:design/san-jacinto-intranight-aliasing-v1
+          fi
+
+      - name: Upload night-level audit table
+        uses: actions/upload-artifact@v4
+        with:
+          name: san-jacinto-intranight-aliasing-v1
+          path: |
+            /tmp/san_jacinto_intranight_aliasing_result_v1.json
+            /tmp/san_jacinto_intranight_aliasing_nights_v1.csv
+          if-no-files-found: error
+          retention-days: 30

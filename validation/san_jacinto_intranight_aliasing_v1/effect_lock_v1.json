@@ -1,0 +1,43 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.effect_lock.v1",
+  "frozen_date": "2026-09-29",
+  "state": "frozen_before_holdout_aliasing_outcomes",
+  "heldout_species": {
+    "PEMA": "Peromyscus maniculatus",
+    "PEER": "Peromyscus eremicus"
+  },
+  "excluded_support_failure_species": [
+    "REME"
+  ],
+  "source": {
+    "figshare_article_id": 18295520,
+    "file_id": 33058799,
+    "sha256": "ec70b40fdcc66a3f9c07a3fda64b5eda06d251a899b9bc99cc5c5dff8c4ab301"
+  },
+  "primary": {
+    "changed_fraction_threshold": 0.25,
+    "wilson_ci_level": 0.95,
+    "wilson_lower_must_exceed": 0.25,
+    "changed_night_median_distance_min_m": 6.25,
+    "repeat_capture_nights_min": 100,
+    "grids_min": 2,
+    "bouts_min": 6,
+    "require_both_species": true
+  },
+  "decisions": {
+    "pass": "confirm_intranight_positional_aliasing_across_cricetids",
+    "fail": "stop_intranight_aliasing_not_replicated"
+  },
+  "secondary_non_rescuing": [
+    "all-night distance summaries",
+    "distance thresholds in trap spacings",
+    "grid and bout stratification",
+    "individual repeatability",
+    "leave-one-grid-out"
+  ],
+  "pema_outcomes_inspected": false,
+  "peer_outcomes_inspected": false,
+  "distance_values_inspected": false,
+  "changed_values_inspected": false,
+  "ecological_model_fits": 0
+}

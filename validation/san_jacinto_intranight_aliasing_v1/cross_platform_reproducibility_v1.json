@@ -1,0 +1,28 @@
+{
+  "schema": "neon.san_jacinto_intranight_aliasing.cross_platform_reproducibility.v1",
+  "frozen_date": "2026-09-29",
+  "ubuntu": {
+    "workflow_run_id": 36581223875,
+    "artifact_id": 11040206808,
+    "artifact_name": "san-jacinto-intranight-aliasing-v1",
+    "artifact_digest": "sha256:00c4e11d43608052400194b972f04ff618cc1de03aae6375ed962285da9b81c7"
+  },
+  "macos": {
+    "workflow_run_id": 36583011904,
+    "artifact_id": 11040301827,
+    "artifact_name": "san-jacinto-intranight-aliasing-macos-v1",
+    "artifact_digest": "sha256:5657af991ff7f66a302767ae5749c470680e27944bd5d16a006aadeddaa3d1bc"
+  },
+  "extracted_files": {
+    "san_jacinto_intranight_aliasing_result_v1.json": {
+      "sha256": "61a3afbd548da12182cd76ac6831e6d004d0bdb7cfd2e6ff74846856bd9783a4",
+      "byte_identical": true
+    },
+    "san_jacinto_intranight_aliasing_nights_v1.csv": {
+      "sha256": "29628e62adbb336e629a3d44026b8d567d7f878beddf338812e1aee1083ee158",
+      "byte_identical": true
+    }
+  },
+  "artifact_zip_digests_differ_because_archive_metadata_may_differ": true,
+  "scientific_outputs_identical": true
+}
