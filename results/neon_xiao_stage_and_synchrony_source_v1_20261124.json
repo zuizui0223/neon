@@ -1,0 +1,152 @@
+{
+  "schema": "neon.xiao2016.seed_stage_bound_and_synchrony_source.v1.log_receipt",
+  "provenance": {
+    "run_id": 45384846430,
+    "job_id": 138412992136,
+    "head_sha": "786ea3e2f506979a61623773ff7ae79495c448ff",
+    "artifact_id": 14916200340,
+    "artifact_zip_sha256_reported_by_github": "7a53a899ddd0049f00386aa1f69067bbd0507c1f4697f2622091beab39209dc4",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "Holt_closed": true,
+    "primary": {
+      "effect": null,
+      "source_diagnostics": {
+        "author_note": [
+          "Sheet1 - seed encounter data for each station",
+          "Sheet2 -seed fate data once encountered",
+          "species",
+          "CH =Castanea henryi; QV=Quercus variabilis)"
+        ],
+        "author_note_confirms_binary": false,
+        "literal_treatment_species_group_sizes": [
+          {
+            "group_size_histogram": {
+              "30": 9
+            },
+            "species": "CH",
+            "treatment": "mixed"
+          },
+          {
+            "group_size_histogram": {
+              "30": 9
+            },
+            "species": "QV",
+            "treatment": "mixed"
+          },
+          {
+            "group_size_histogram": {
+              "30": 18
+            },
+            "species": "CH",
+            "treatment": "one"
+          },
+          {
+            "group_size_histogram": {
+              "30": 18
+            },
+            "species": "QV",
+            "treatment": "one"
+          }
+        ],
+        "rows": 1620,
+        "site_count": 3,
+        "site_station_count": 18,
+        "stage_literal_counts": {
+          "Removal": {
+            "0": 879,
+            "1": 741
+          },
+          "dispersal": {
+            "0": 1101,
+            "1": 304,
+            "NA": 215
+          },
+          "harvest": {
+            "0": 664,
+            "1": 956
+          },
+          "hoard": {
+            "0": 1302,
+            "1": 318
+          }
+        }
+      },
+      "status": "STOP_BINARY_CODE_NOT_EXPLICITLY_DOCUMENTED"
+    },
+    "retrieved_utc": "2026-11-24T11:32:09.550268+00:00",
+    "schema": "neon.xiao2016.seed_stage_bound_and_synchrony_source.v1",
+    "submission_hold": true,
+    "synchrony_source": {
+      "article_id": 9896078,
+      "article_title": "Data from: Interspecific synchrony of seed rain shapes rodent-mediated indirect seed-seed interactions of sympatric tree species in a subtropical forest",
+      "doi": "10.6084/m9.figshare.9896078.v1",
+      "files": [
+        {
+          "candidate": true,
+          "id": 17783663,
+          "md5": "0512754403790273d877b07bf2ae7537",
+          "name": "Yang et al. _Ecology Letters_data.xlsx",
+          "size": 10021976
+        }
+      ],
+      "metadata_sha256": "abc1150485b59f761f37d039fcefe4a51546d4e8e335dc5729bb8555f2eaa82d",
+      "paper": "Yang et al Ecology Letters 2020; PMC6916184",
+      "role": "source_inventory_only_paper_linked_doi",
+      "source_receipts": [
+        {
+          "file_id": 17783663,
+          "name": "Yang et al. _Ecology Letters_data.xlsx",
+          "schema": {
+            "sheets": [
+              {
+                "candidate_headers": [
+                  "year",
+                  "patch_code",
+                  "seed_station",
+                  "treatment",
+                  "seed_species",
+                  "seed_removal",
+                  "scatter-hoarding",
+                  "overwinter_survival"
+                ],
+                "columns": 8,
+                "rows": 21601,
+                "sheet": "Seed_fate_data"
+              },
+              {
+                "candidate_headers": [
+                  "year",
+                  "month",
+                  "patch_code",
+                  "seed_trap_code",
+                  "seed_species",
+                  "seed_crops"
+                ],
+                "columns": 6,
+                "rows": 1048097,
+                "sheet": "Seed_rain"
+              },
+              {
+                "candidate_headers": [
+                  "Sheet1-Seed fate data once dispersal by sympatric rodent dispersers in monospecific and mixed stations",
+                  null
+                ],
+                "columns": 2,
+                "rows": 11,
+                "sheet": "Note"
+              }
+            ]
+          },
+          "sha256": "c1c00e8b261e82fddd0b4dd3657f3b14d35cd45f8f8f996b46c54819d1fdb13e",
+          "verified_md5": "0512754403790273d877b07bf2ae7537",
+          "verified_size": 10021976
+        }
+      ],
+      "status": "CHECKSUM_SOURCE_GO_SCHEMA_ONLY",
+      "version": 1
+    }
+  }
+}

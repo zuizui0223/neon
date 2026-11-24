@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: Yang direct seed-fate source acquired; freeze recorded stage direction across years
+
+[Run 45384846430](https://github.com/zuizui0223/neon/actions/runs/45384846430): original Yang v1 checksum GO, 21,600 seed fate rows, Seed_rain sheet extent 1,048,097 (actual nonblank records unverified). Xiao 2016 code/18-station ontology STOP, no effect. [Receipt](results/neon_xiao_stage_and_synchrony_source_v1_20261124.json). New Yang exact Table 1 45 patch-year/540 station release roster gate, published positive total checks, 12 directed species-pair stage risk contrasts and strict leave-one-year/explicit-NA-only reversal criterion. No crop model yet, stream actual seed-rain key support. [Fixed design](docs/NEON_YANG_STAGE_RETENTION_FROZEN_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: direct seed experiment workbook verified; full-release stage analysis and seasonal source
 
 [Run 45384239614](https://github.com/zuizui0223/neon/actions/runs/45384239614) recovered original Xiao workbook 1,620 fate rows, 36 encounter rows, note sheet; secondary original RTFs confirm separate exposure/seedling experiments. [Receipt](results/neon_seed_fate_stage_ontology_v2_20261124.json). Primary frozen release-stage analysis checks author coding and 9-station design, then bounds known cache/embryo-intact effects using rowwise unresolved fates if all 18 published missing acorns reconcile, otherwise a conservative global missing budget. No result yet. Independently inventory Yang et al 2020 Ecology Letters original Figshare 9896078 (21,600 tracked seeds in original publication; seasonal/yearly seed rain synchrony is already prior art). [Design](docs/NEON_XIAO_STAGE_AND_SYNCHRONY_SOURCE_20261124.md). DRAFT / SUBMISSION HOLD.
