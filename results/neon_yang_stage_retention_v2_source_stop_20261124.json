@@ -1,0 +1,1145 @@
+{
+  "schema": "neon.yang.stage_retention.v2.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45389852986,
+    "job_id": 138430368651,
+    "head_sha": "de3d18c6e9212394d2100768e8048880eeccfa24",
+    "artifact_id": 14918870877,
+    "artifact_zip_sha256_reported_by_github": "80d4dd56a36cb7c74ae7a6755a38190278b28508f14e77efea0bcf4f63f352cc",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "effect": null,
+    "no_new_seasonal_effect": true,
+    "original_v1_stop_preserved": true,
+    "rain_source": {
+      "counts": {
+        "distinct_keys": 1252,
+        "explicit_zero_rows": 1170,
+        "nonblank": 1809,
+        "repeated_key_excess": 557,
+        "repeated_keys_all_equal": 232,
+        "repeated_keys_different_values": 236
+      },
+      "month_coverage_histogram_by_patch_year_species": {
+        "1": 40,
+        "2": 23,
+        "3": 27,
+        "4": 35,
+        "5": 34
+      },
+      "multiplicity_histogram": {
+        "1": 784,
+        "2": 386,
+        "3": 78,
+        "4": 2,
+        "5": 1,
+        "6": 1
+      },
+      "no_deduplication_no_sums_no_missing_month_imputation": true,
+      "species_coverage_by_patch_year": [
+        {
+          "patch_label": "A",
+          "species": [
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "B1",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "B2",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "C",
+          "species": [
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "D",
+          "species": [
+            "CA",
+            "CF",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "F",
+          "species": [
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "H",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "K",
+          "species": [
+            "CA",
+            "QS",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "L",
+          "species": [
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "M",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "R",
+          "species": [
+            "CA",
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "S",
+          "species": [
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "U",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "V",
+          "species": [
+            "CF",
+            "QV"
+          ],
+          "year": 2015
+        },
+        {
+          "patch_label": "A",
+          "species": [
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "B1",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "B2",
+          "species": [
+            "CA",
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "C",
+          "species": [
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "D",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "F",
+          "species": [
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "H",
+          "species": [
+            "QS"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "K",
+          "species": [
+            "CA",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "L",
+          "species": [
+            "QS"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "M",
+          "species": [
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "R",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "S",
+          "species": [
+            "QS"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "U",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "V",
+          "species": [
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2016
+        },
+        {
+          "patch_label": "A",
+          "species": [
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "B1",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "B2",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "C",
+          "species": [
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "D",
+          "species": [
+            "CA",
+            "CF",
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "F",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "H",
+          "species": [
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "K",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "L",
+          "species": [
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "M",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "R",
+          "species": [
+            "CA",
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "S",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "U",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "V",
+          "species": [
+            "QS",
+            "QV"
+          ],
+          "year": 2017
+        },
+        {
+          "patch_label": "A",
+          "species": [
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "B1",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "B2",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "C",
+          "species": [
+            "CO",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "D",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "F",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "H",
+          "species": [
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "K",
+          "species": [
+            "CA",
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "L",
+          "species": [
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "M",
+          "species": [
+            "CF",
+            "CG",
+            "CO",
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "R",
+          "species": [
+            "CA",
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "S",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "U",
+          "species": [
+            "CF",
+            "QS"
+          ],
+          "year": 2018
+        },
+        {
+          "patch_label": "V",
+          "species": [
+            "CF",
+            "QS",
+            "QV"
+          ],
+          "year": 2018
+        }
+      ]
+    },
+    "reason": "CACHE_WITHOUT_CONFIRMED_REMOVAL",
+    "retrieved_utc": "2026-11-24T12:08:32.188799+00:00",
+    "schema": "neon.yang.stage_retention.v2",
+    "source_label_support": [
+      {
+        "patch": "A",
+        "species_counts": {
+          "Co": 240,
+          "Qs": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "B12",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "B22",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "D",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "F",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "H",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "L",
+        "species_counts": {
+          "Co": 240,
+          "Qs": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "M",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "O",
+        "species_counts": {
+          "Co": 240,
+          "Qs": 240
+        },
+        "year": 2015
+      },
+      {
+        "patch": "A",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "B11",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "B12",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "B22",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "C",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "D",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "F",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "H",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "L",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2016
+      },
+      {
+        "patch": "A",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "B11",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "B12",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "B21",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "B22",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "C",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "D",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "F",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "H",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "K",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "L",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "M",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2017
+      },
+      {
+        "patch": "A",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "B11",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "B12",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "B21",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "B22",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "C",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "D",
+        "species_counts": {
+          "Qs": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "F",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "H",
+        "species_counts": {
+          "Co": 240,
+          "Qv": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "K",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "L",
+        "species_counts": {
+          "Cg": 240,
+          "Co": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "M",
+        "species_counts": {
+          "Cg": 240,
+          "Qs": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "R",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "S",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2018
+      },
+      {
+        "patch": "V",
+        "species_counts": {
+          "Ca": 240,
+          "Cf": 240
+        },
+        "year": 2018
+      }
+    ],
+    "source_sha256": "c1c00e8b261e82fddd0b4dd3657f3b14d35cd45f8f8f996b46c54819d1fdb13e",
+    "status": "STOP_RELEASE_ARCHITECTURE",
+    "structure": {
+      "geographic_identity_not_inferred_from_label": true,
+      "literal_table1_patch_roster_match": false,
+      "pair_patch_year_blocks": 45,
+      "pair_year_source_patch_labels": [
+        {
+          "pair": 1,
+          "source_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "table1_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "year": 2015
+        },
+        {
+          "pair": 1,
+          "source_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "table1_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "year": 2016
+        },
+        {
+          "pair": 1,
+          "source_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "table1_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "year": 2017
+        },
+        {
+          "pair": 1,
+          "source_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "table1_labels": [
+            "B12",
+            "F",
+            "H"
+          ],
+          "year": 2018
+        },
+        {
+          "pair": 2,
+          "source_labels": [
+            "B21",
+            "K",
+            "M"
+          ],
+          "table1_labels": [
+            "B21",
+            "K",
+            "M"
+          ],
+          "year": 2017
+        },
+        {
+          "pair": 2,
+          "source_labels": [
+            "B21",
+            "K",
+            "M"
+          ],
+          "table1_labels": [
+            "B21",
+            "K",
+            "M"
+          ],
+          "year": 2018
+        },
+        {
+          "pair": 3,
+          "source_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "table1_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "year": 2016
+        },
+        {
+          "pair": 3,
+          "source_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "table1_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "year": 2017
+        },
+        {
+          "pair": 3,
+          "source_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "table1_labels": [
+            "A",
+            "B11",
+            "D"
+          ],
+          "year": 2018
+        },
+        {
+          "pair": 4,
+          "source_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "table1_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "year": 2016
+        },
+        {
+          "pair": 4,
+          "source_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "table1_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "year": 2017
+        },
+        {
+          "pair": 4,
+          "source_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "table1_labels": [
+            "B22",
+            "C",
+            "L"
+          ],
+          "year": 2018
+        },
+        {
+          "pair": 5,
+          "source_labels": [
+            "A",
+            "L",
+            "O"
+          ],
+          "table1_labels": [
+            "A",
+            "B11",
+            "L"
+          ],
+          "year": 2015
+        },
+        {
+          "pair": 6,
+          "source_labels": [
+            "B22",
+            "D",
+            "M"
+          ],
+          "table1_labels": [
+            "B22",
+            "D",
+            "M"
+          ],
+          "year": 2015
+        },
+        {
+          "pair": 6,
+          "source_labels": [
+            "R",
+            "S",
+            "V"
+          ],
+          "table1_labels": [
+            "B22",
+            "D",
+            "M"
+          ],
+          "year": 2018
+        }
+      ],
+      "source_patch_labels": [
+        "A",
+        "B11",
+        "B12",
+        "B21",
+        "B22",
+        "C",
+        "D",
+        "F",
+        "H",
+        "K",
+        "L",
+        "M",
+        "O",
+        "R",
+        "S",
+        "V"
+      ],
+      "source_physical_patch_year_labels": 45,
+      "station_blocks": 540
+    },
+    "submission_hold": true
+  }
+}

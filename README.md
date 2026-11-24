@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: Yang complete release structure; nested stage STOP and distinct marginal flag audit
+
+[Run 45389852986](https://github.com/zuizui0223/neon/actions/runs/45389852986) reconstructed all 45 recorded pair-patch-year blocks, 540 stations, 21,600 rows. Physical Table 1 labels differ for two pair-years. Source stage nesting failed CACHE_WITHOUT_CONFIRMED_REMOVAL; no v2 effect. [Receipt](results/neon_yang_stage_retention_v2_source_stop_20261124.json). Rain 468 repeated keys (236 differing values), 1,170 explicit zeros, only 34/159 patch-year-species groups five-month coverage. No season fit. Separate final marginal flag diagnostic computes recorded positive-risk contrasts and worst-case bounds treating any anomalous row as unknown, preserving original group architecture and nested STOP. No causal transition or biological sign reversal inferred. [Protocol](docs/NEON_YANG_MARGINAL_FLAG_AUDIT_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: Yang source stage totals reproduced, recorded-block architecture repair
 
 [Run 45387929094](https://github.com/zuizui0223/neon/actions/runs/45387929094) verified 21,600 rows, original 13,870 removals/3,806 hoards/407 winter survivors and author binary definitions, but grouped effect STOP on treatment identity (literal monspecific). Actual Seed_rain 1,809 nonblank rows, 1,252 nominal keys, 557 repeated excess, 157 trap keys, not a million observations. [Receipt](results/neon_yang_stage_retention_v1_source_stop_20261124.json). Final pre-effect structural reconstruction requires all original release cells by source patch/year and unique mixed species-pair composition. If physical Table 1 labels differ, any estimable contrast explicitly remains archive-block descriptive only; no geographic inference. No seasonal fit. [Design](docs/NEON_YANG_STAGE_RETENTION_SOURCE_REPAIR_20261124.md). DRAFT / SUBMISSION HOLD.
