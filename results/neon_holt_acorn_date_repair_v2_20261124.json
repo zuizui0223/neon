@@ -1,0 +1,128 @@
+{
+  "schema": "neon.holt.date_repair.v2.log_receipt",
+  "provenance": {
+    "run_id": 45332273822,
+    "job_id": 138235986033,
+    "head_sha": "3a364ef534cd82cdff662ec2d92bea7d0a7bebd9",
+    "artifact_id": 14892725977,
+    "artifact_zip_sha256_reported_by_github": "ea27774152a8ef2aa9f3279d7a1ef2388a5bc256ce6cfeabe13e654f2a7f8fce",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "author_date_code_inventory": {
+      "Data_and_code/R codes/1_kriging.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      },
+      "Data_and_code/R codes/2_kriging.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      },
+      "Data_and_code/R codes/3_survival.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      },
+      "Data_and_code/R codes/5_Habitat_selection_trap_data.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      },
+      "Data_and_code/R codes/6_Habitat_selection_HRanalysis.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      },
+      "Data_and_code/R codes/7_Seed_variability.R": {
+        "date_or_session_code_line_count": 0,
+        "explicit_date_format_strings": []
+      }
+    },
+    "date_source_diagnosis": {
+      "counts": {
+        "original_used_rows": 1168,
+        "unresolved_used_dates": 1168,
+        "used_rows_with_exact_history_ID_station_year_date_literal": 295
+      },
+      "matched_history_date2_literal_shapes": {
+        "D2A3_D5": 295
+      },
+      "original_used_date_literal_shapes": {
+        "D3": 1167,
+        "D4": 1
+      },
+      "resolution_by_year": {
+        "1999": {
+          "UNRESOLVED_OR_AMBIGUOUS": 21
+        },
+        "2000": {
+          "UNRESOLVED_OR_AMBIGUOUS": 19
+        },
+        "2001": {
+          "UNRESOLVED_OR_AMBIGUOUS": 76
+        },
+        "2002": {
+          "UNRESOLVED_OR_AMBIGUOUS": 167
+        },
+        "2003": {
+          "UNRESOLVED_OR_AMBIGUOUS": 63
+        },
+        "2004": {
+          "UNRESOLVED_OR_AMBIGUOUS": 26
+        },
+        "2005": {
+          "UNRESOLVED_OR_AMBIGUOUS": 103
+        },
+        "2006": {
+          "UNRESOLVED_OR_AMBIGUOUS": 180
+        },
+        "2007": {
+          "UNRESOLVED_OR_AMBIGUOUS": 22
+        },
+        "2008": {
+          "UNRESOLVED_OR_AMBIGUOUS": 73
+        },
+        "2009": {
+          "UNRESOLVED_OR_AMBIGUOUS": 137
+        },
+        "2010": {
+          "UNRESOLVED_OR_AMBIGUOUS": 170
+        },
+        "2011": {
+          "UNRESOLVED_OR_AMBIGUOUS": 18
+        },
+        "2012": {
+          "UNRESOLVED_OR_AMBIGUOUS": 10
+        },
+        "2013": {
+          "UNRESOLVED_OR_AMBIGUOUS": 83
+        }
+      },
+      "resolution_method_counts": {
+        "UNRESOLVED_OR_AMBIGUOUS": 1168
+      },
+      "resolved_month_counts": {}
+    },
+    "direct_station_years": 3744,
+    "effect": null,
+    "historical_v1_status": "STOP_ORIGINAL_SUMMER_DATE_ONTOLOGY",
+    "not_seed_dispersal_or_net_recruitment": true,
+    "original_source_window": [
+      1988,
+      2013
+    ],
+    "reference_resource_years": [
+      1988,
+      1997
+    ],
+    "retrieved_utc": "2026-11-24T05:17:51.635029+00:00",
+    "schema": "neon.holt.preceding_upcoming_acorn_spatial_use.date_repair.v2",
+    "source_SHA256": "0c4dcc8cebbc968c768e7d30fd8bb4cf66207bb026659c7c0dd0aa42c827f29a",
+    "source_date_fix_only_no_new_hypothesis": true,
+    "source_used_rows_expected": 1168,
+    "status": "STOP_DATE_SOURCE_UNRESOLVED_OR_OUTSIDE_FROZEN_WINDOW",
+    "submission_hold": true,
+    "target_capture_years": [
+      1999,
+      2013
+    ]
+  }
+}

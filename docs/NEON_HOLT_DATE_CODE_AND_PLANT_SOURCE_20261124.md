@@ -1,0 +1,17 @@
+# 24 November 2026 — Holt date code diagnosis and actual plant census source
+
+V2 STOP: all 1,168 original used dates are numeric (1,167 three-digit, one four-digit); 295 used rows matched literal original history ID/station/year/date. History date2 shape is two digits + three letters + underscore + five digits. No effect estimated. Preserve [v2 receipt](../results/neon_holt_acorn_date_repair_v2_20261124.json) and unchanged v1 design. No guessing from typical summer months.
+
+## Date code v3 (source-only calibration, same frozen outcome)
+
+The two prespecified numeric representations are MMDD (without leading zero) and day of year. A named calendar anchor is admissible only when literal date2 is DDMon_YYYYd, with the first four suffix digits exactly equal to the original explicit year; last digit is opaque, not interpreted as a session. Verify only in original capture-history rows in 1999–2013, with numeric date and valid explicit year/month/day. Require every numeric history row in target window to have a valid anchor, >=100 anchor rows, all 15 years, and exactly one of the two numeric decoders matching **all** anchors. Report alternative mismatch counts, months, and coverage, not animal/position identifiers. If this fails, STOP; do not adjust a format from the desired season. Every used row must then have a matching year+numeric-date anchor and decoded date, with no contradictions and 100% June–August. If any genuine non-summer date occurs, preserve the frozen STOP, do not exclude rows. Only then execute original v1 resource, ID-year, station, reference, support and descriptive contrast unchanged. No new hypothesis, no result-based selection. This is the last numeric-code attempt for this endpoint; any further action requires independently documented source semantics.
+
+## Plant response: fixed FEMC original versions, separate source-only lane
+
+Official version pages:
+- https://www.uvm.edu/femc/data/archive/project/hrfseeds/dataset/seedtrapss1/version/859 (DOI 10.18125/859tIK; seed counts 1988–2013, 7,012 records, 120 traps at 10m along S1).
+- https://www.uvm.edu/femc/data/archive/project/hrfSeedlings/dataset/s1seedling/version/1074 (DOI 10.18125/1074H2J; annual July seedling counts 1986–2019, 16,021 records). 
+
+Both explicitly offer anonymous downloads; respect FEMC data-use terms and CC BY-NC-SA, noncommercial academic source audit only, no raw redistribution. Attempt official version-page download control in a normal browser, optional personal details left blank. If access blocked, stop; do not circumvent. Capture bytes and local SHA256, exact record counts, field schema, LINE/PLOT/YEAR key support and year overlap. No plant counts analyzed, no source absence imputed. Seedling 1m² plots span two 600m lines; all surveyed 1986, every fifth plot thereafter (official EML). Seedfall and seedling share S1 LINE/PLOT units; test exact nominal join only, no arbitrary distance choice. Note FIASP species code and size classes; HT1 is not a verified new-germination cohort. Mammal transect identity remains distinct and must be independently georeferenced before connecting plant and animal records.
+
+Also inventory public Figshare 27152484 (Dri 2025 JAE, DOI 10.1111/1365-2656.70114): same forest, not independent replication. Published annual abundance/body mass effects are prior art; inspect exact file inventory for date/effort sources only. No new ecological effect from source discovery. Draft / SUBMISSION HOLD.

@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: date-code diagnosis and actual plant-response source acquisition
+
+[Holt v2](https://github.com/zuizui0223/neon/actions/runs/45332273822) stopped with all 1,168 numeric used dates unresolved (1,167 three-digit, 1 four-digit; 295 exact history date matches). No ecological estimate. [Archived v2 result](results/neon_holt_acorn_date_repair_v2_20261124.json). V3 tests MMDD versus day-of-year against every original named-month history anchor; no season-based decoding and no relaxation of June–August. Separately, FEMC original versioned S1 seedfall and seedling data (10.18125/859tIK and 10.18125/1074H2J) explicitly allow anonymous downloads; run a source-only schema/key crosswalk under their noncommercial license. Seed and seedling nominal plot keys potentially align; mammal positions and census effort require further evidence. Same-forest 2025 Figshare source inventory only, not independent replication. [Design](docs/NEON_HOLT_DATE_CODE_AND_PLANT_SOURCE_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: original Holt acorn contrast source STOP; strict date-only correction
 
 Original [run 45330833121](https://github.com/zuizui0223/neon/actions/runs/45330833121) verified 3,744 direct station-years and 2,975 target use/availability rows, but all 1,168 used dates failed the frozen summer ontology; no effect estimated. [Archived original receipt](results/neon_holt_acorn_preceding_upcoming_v1_20261124.json). V2 diagnoses literal date formats and exact author capture-history date2 crosswalk; only if all original used dates resolve inside the unchanged June–August window will it run the same frozen contrast. [Correction contract](docs/NEON_HOLT_ACORN_DATE_REPAIR_20261124.md). Official FEMC 1986–2019 July seedling census (10.18125/1074H2J) is a future plant-response source candidate, not a joined outcome or dispersal estimate. DRAFT / SUBMISSION HOLD.
