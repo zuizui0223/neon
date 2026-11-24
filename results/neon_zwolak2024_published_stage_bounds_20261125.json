@@ -1,0 +1,26 @@
+{
+  "schema": "neon.zwolak2024.published_stage_bounds.v1",
+  "mouse_removed": 2986,
+  "mouse_missing_after_removal": 1243,
+  "mouse_known_cached_per_all_offered": 0.07924581797561667,
+  "mouse_known_cached_per_mouse_removed": 0.1872069658405894,
+  "mouse_known_cached_per_mouse_recovered": 0.3207114170969593,
+  "mouse_cache_per_all_offered_bounds": [
+    0.07924581797561667,
+    0.2554578962290899
+  ],
+  "mouse_consumed_per_all_offered_bounds": [
+    0.1267366033456195,
+    0.3029486815990927
+  ],
+  "mouse_known_cache_per_mouse_removed_bounds": [
+    0.1872069658405894,
+    0.6034829202947086
+  ],
+  "mouse_known_positive_per_mouse_removed_bounds": [
+    0.28432685867381113,
+    0.7006028131279304
+  ],
+  "bounds_condition": "All unlocated mouse-harvested seeds may be assigned to each endpoint separately. Recorded other outcomes held fixed. Not sampling intervals or causal recruitment.",
+  "density_contrast_estimated": false
+}

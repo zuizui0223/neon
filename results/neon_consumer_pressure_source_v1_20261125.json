@@ -1,0 +1,95 @@
+{
+  "schema": "neon.consumer_pressure.source_inventory.v1.log_receipt",
+  "provenance": {
+    "run_id": 45423109521,
+    "job_id": 138547682538,
+    "head_sha": "01830ef3d9151975c21baabf1794db172cc78a08",
+    "artifact_id": 14934647111,
+    "artifact_zip_sha256_reported_by_github": "eed5a303a5e7adff944bc6566d4e03e2810b1922a55997bb3c02e94503f0b92c",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "no_effect_fitted": true,
+    "poland_osf": {
+      "files": [
+        {
+          "file_id": "65c22b0f435c45096dda7403",
+          "modified": "2024-02-06T12:50:23.587573",
+          "name": "dispersal & abundance data.csv",
+          "provider_digest_available": true,
+          "provider_hashes": {
+            "md5": "10c60e03edcb1b53f1cc70d4a87c6072",
+            "sha256": "b9ce41fdbb32c5f2e03267583e731a9c00a86e2868cee832ceb5c5f00f3eb5db"
+          },
+          "schema": {
+            "candidate_headers": null,
+            "row_count": 7055,
+            "row_width_counts": {
+              "1": 1082,
+              "2": 4442,
+              "3": 1374,
+              "4": 157
+            }
+          },
+          "sha256": "b9ce41fdbb32c5f2e03267583e731a9c00a86e2868cee832ceb5c5f00f3eb5db",
+          "size": 777522,
+          "verified_size": 777522
+        },
+        {
+          "file_id": "65c22c481a30ef0a01c3477a",
+          "modified": "2024-02-06T12:55:36.900274",
+          "name": "Seedlings - all.csv",
+          "provider_digest_available": true,
+          "provider_hashes": {
+            "md5": "93b192260015f9fd9f94af8ce76cf297",
+            "sha256": "ebf19226feb1efbb1de61f4d54aaf9659e416ca430cfab6c7d7c059965f840f8"
+          },
+          "schema": {
+            "candidate_headers": null,
+            "row_count": 250,
+            "row_width_counts": {
+              "1": 250
+            }
+          },
+          "sha256": "ebf19226feb1efbb1de61f4d54aaf9659e416ca430cfab6c7d7c059965f840f8",
+          "size": 7751,
+          "verified_size": 7751
+        },
+        {
+          "file_id": "65c22c8e435c450972da7454",
+          "modified": "2024-02-06T12:56:46.342634",
+          "name": "abundances and interactions 25.12.2023.csv",
+          "provider_digest_available": true,
+          "provider_hashes": {
+            "md5": "3d7cbcad0a7105954599f5656d08449c",
+            "sha256": "72c64305695978a7324dea138ad8fe9ec38864246946d1e261f96cd65f9ed057"
+          },
+          "schema": {
+            "candidate_headers": null,
+            "row_count": 77,
+            "row_width_counts": {
+              "3": 6,
+              "5": 3,
+              "7": 68
+            }
+          },
+          "sha256": "72c64305695978a7324dea138ad8fe9ec38864246946d1e261f96cd65f9ed057",
+          "size": 7316,
+          "verified_size": 7316
+        }
+      ],
+      "node_id": "56m2n",
+      "status": "SOURCE_BYTES_GO_SCHEMA_ONLY",
+      "title": "Scatterhoarder abundance and advantages of seed burial  drive dynamics of a tree-rodent interaction"
+    },
+    "qinling_publisher": {
+      "error_class": "ValueError",
+      "reason": "PUBLISHER_ATTACHMENT_NOT_XLSX",
+      "status": "SOURCE_STOP"
+    },
+    "retrieved_utc": "2026-11-24T15:14:42.485926+00:00",
+    "schema": "neon.consumer_pressure.source_inventory.v1",
+    "submission_hold": true
+  }
+}

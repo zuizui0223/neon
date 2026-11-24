@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Poland source bytes verified; total-cache vs conditional-cache density contrast
+
+[Run 45423109521](https://github.com/zuizui0223/neon/actions/runs/45423109521) verified all 3 OSF CSVs, comma schema unresolved; Qinling publisher response not XLSX, STOP. Published Polish pooled counts: 559 documented mouse caches among 7,054 offers / 2,986 mouse harvests / 1,743 recovered, 1,243 missing. Distinct source-denominator bounds and pre-outcome source-gated within-site-year decomposition of harvest and post-harvest cache allocation implemented; original density associations are prior art. No grouped result yet. [Protocol](docs/NEON_POLAND_DENSITY_STAGE_DECOMPOSITION_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: resource-state comparison and independent consumer-pressure data
 
 Lu prior CI passed 931 tests (3 skipped). Li & Zhang 2007 (same Donglingshan site group, distinct years) reports 344 vs 89 recorded caches and 3 vs 3 observed next-spring germinations in equal 2,400-release annual cohorts. Seasonal peak shifts August→May; no causal inference or independent geography. [Evidence and new source plan](docs/NEON_CONSUMER_PRESSURE_SOURCE_BRIDGE_20261125.md). Primary new author-linked Poland OSF 56m2n source (controlled seed abundance and varying mouse density); secondary Qinling 2026 public supplement, season confounded with period. Source-only, no new fitted effect. DRAFT / SUBMISSION HOLD.

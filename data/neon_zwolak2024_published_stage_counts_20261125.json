@@ -1,0 +1,16 @@
+{
+  "schema": "neon.zwolak2024.published_stage_counts.v1",
+  "source": {
+    "doi": "10.1111/1365-2745.14356",
+    "url": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2745.14356",
+    "sections": "2.3, 3.2, 3.3",
+    "note": "Printed counts, not data-derived grouped estimates."
+  },
+  "offered_all": 7054,
+  "removed_all": 2999,
+  "bank_vole_removed": 13,
+  "mouse_recovered": 1743,
+  "mouse_cached": 559,
+  "mouse_consumed": 894,
+  "mouse_surface": 290
+}

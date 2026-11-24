@@ -81,18 +81,20 @@
       "doi": "10.1111/1365-2745.14356",
       "region": "Puszcza Zielonka, Poland",
       "site_group": "puszcza_zielonka",
-      "status": "AUTHOR_LINKED_PUBLIC_DATA_SOURCE_PENDING",
+      "status": "CHECKSUM_ORIGINAL_DATA_GO_DELIMITER_PENDING",
       "data_doi": "10.17605/osf.io/56m2n",
-      "restriction": "Within growing season 2020–2022, controlled offered seeds, separately measured burial and emergence; not a spring/autumn release contrast or true cohort emergence join until verified."
+      "restriction": "Within growing season 2020–2022, controlled offered seeds, separately measured burial and emergence; not a spring/autumn release contrast or true cohort emergence join until verified.",
+      "data_receipt": "results/neon_consumer_pressure_source_v1_20261125.json"
     },
     {
       "study": "Wang et al 2026",
       "doi": "10.1002/ece3.74453",
       "region": "Qinling, China",
       "site_group": "qinling_wang",
-      "status": "PUBLISHER_SUPPLEMENT_SOURCE_PENDING",
+      "status": "PUBLISHER_ATTACHMENT_NOT_XLSX_STOP",
       "data_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13635484/bin/ECE3-16-e74453-s002.xlsx",
-      "restriction": "Autumn 2016–2021 vs spring 2022–2024 are disjoint year ranges; season confounded with period; per-capita seed availability requires original data; rodent abundance missing 2018."
+      "restriction": "Autumn 2016–2021 vs spring 2022–2024 are disjoint year ranges; season confounded with period; per-capita seed availability requires original data; rodent abundance missing 2018.",
+      "data_receipt": "results/neon_consumer_pressure_source_v1_20261125.json"
     }
   ],
   "next_gate": "Verify actual release cohort, matched followup, denominators, fate definitions and site dependence. Resource phase only from independent measurements. No meta-analysis yet."
