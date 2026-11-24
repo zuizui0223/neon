@@ -6,12 +6,16 @@ on:
       - 'analysis/run_neon_holt_numeric_date_v3.py'
       - 'tests/test_neon_holt_numeric_date_v3.py'
       - 'analysis/audit_neon_holt_plant_sources_v1.py'
+      - 'analysis/audit_neon_holt_2025_capture_source_v1.py'
+      - 'tests/test_neon_holt_2025_capture_source_v1.py'
       - '.github/workflows/neon-holt-calendar-and-plant-source.yml'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   calendar:
+    # v3 completed with unresolved date ontology; no automatic retries.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -27,7 +31,7 @@ jobs:
           path: build/neon_holt_numeric_date_v3_20261124.json
           if-no-files-found: error
   plant-source:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -41,4 +45,19 @@ jobs:
         with:
           name: neon-holt-plant-source
           path: build/neon_holt_plant_sources_20261124.json
+          if-no-files-found: error
+  independent-capture-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_holt_2025_capture_source_v1.py' -v
+      - run: python -m analysis.audit_neon_holt_2025_capture_source_v1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-holt-2025-capture-source
+          path: build/neon_holt_2025_capture_source_20261124.json
           if-no-files-found: error

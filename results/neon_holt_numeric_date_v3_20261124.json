@@ -1,0 +1,35 @@
+{
+  "schema": "neon.holt.numeric_date.v3.log_receipt",
+  "provenance": {
+    "run_id": 45359171864,
+    "job_id": 138324511484,
+    "head_sha": "3fe54e77cbb938ab72993ec41fe8f0912453d1ad",
+    "artifact_id": 14903766929,
+    "artifact_zip_sha256_reported_by_github": "62d8d8ab1a46ca1d4ea3d171245bf3aa6daf125e58ca8ffd87ec6cb048c2af5b",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "direct_station_years": 3744,
+    "effect": null,
+    "history_date_diagnosis": {
+      "anchor_month_counts": {},
+      "anchor_year_counts": {},
+      "candidate_mismatches": {},
+      "contradictory_year_code_keys": 0,
+      "distinct_year_code_keys": 0,
+      "history_counts": {
+        "history_rows": 1745,
+        "missing_or_invalid_named_anchor": 1745,
+        "numeric_history_rows": 1745
+      },
+      "unique_all_anchor_decoder": null
+    },
+    "retrieved_utc": "2026-11-24T08:47:23.203799+00:00",
+    "same_frozen_v1_contrast": true,
+    "schema": "neon.holt.date_code_anchor.v3",
+    "source_SHA256": "0c4dcc8cebbc968c768e7d30fd8bb4cf66207bb026659c7c0dd0aa42c827f29a",
+    "status": "STOP_UNVERIFIED_NUMERIC_DATE_ONTOLOGY",
+    "submission_hold": true
+  }
+}
