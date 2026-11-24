@@ -1,0 +1,73 @@
+{
+  "schema": "neon.li2021.seasonal_published_fate_bounds.v1",
+  "source_doi": "10.3897/zookeys.1025.60972",
+  "units": "integer hundredths of one percentage point; 10000 = 100%",
+  "analysis_unit": "one published study, two pooled season samples; no seed-level inference",
+  "season_bounds": {
+    "spring": {
+      "predation": [
+        5511,
+        7328
+      ],
+      "cache": [
+        1107,
+        2924
+      ],
+      "intact_moved": [
+        1252,
+        3069
+      ],
+      "predation_minus_cache": [
+        2587,
+        6221
+      ]
+    },
+    "autumn": {
+      "predation": [
+        1639,
+        5000
+      ],
+      "cache": [
+        1958,
+        5319
+      ],
+      "intact_moved": [
+        2486,
+        5847
+      ],
+      "predation_minus_cache": [
+        -3680,
+        3042
+      ]
+    }
+  },
+  "contrasts": {
+    "spring_minus_autumn_predation": [
+      511,
+      5689
+    ],
+    "autumn_minus_spring_cache": [
+      -966,
+      4212
+    ],
+    "autumn_minus_spring_intact_moved": [
+      -583,
+      4595
+    ],
+    "spring_minus_autumn_predation_minus_cache": [
+      -455,
+      9901
+    ]
+  },
+  "no_raw_seed_counts_reconstructed": true,
+  "bounds_not_sampling_intervals": true,
+  "seasonal_causal_effect_not_identified": true,
+  "recorded_point_differences": {
+    "spring_minus_autumn_predation": 3872,
+    "autumn_minus_spring_cache": 851,
+    "autumn_minus_spring_intact_moved": 1234
+  },
+  "rounding_conservative_padding_each_difference_endpoint": 3,
+  "predation_difference_positive_even_with_rounding": true,
+  "cache_difference_sign_identified": false
+}

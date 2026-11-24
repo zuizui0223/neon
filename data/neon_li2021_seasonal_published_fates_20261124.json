@@ -1,0 +1,49 @@
+{
+  "schema": "neon.li2021.seasonal_published_fates.v1",
+  "source": {
+    "doi": "10.3897/zookeys.1025.60972",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7997858/",
+    "section": "Results: Seed fate; Fig. 4; Methods: Release and investigation and Definition of seed fate",
+    "license": "CC BY 4.0",
+    "authors": "Li et al. 2021",
+    "source_type": "published rounded aggregate percentages; not original individual data"
+  },
+  "units": "integer hundredths of one percentage point; 10000 = 100%",
+  "release_design_reported": {
+    "spring": {
+      "stations": 15,
+      "seeds": 1200
+    },
+    "autumn": {
+      "stations": 9,
+      "seeds": 720
+    },
+    "species": 4
+  },
+  "fates": {
+    "spring": {
+      "IS": 1420,
+      "PS": 4152,
+      "PR": 1359,
+      "IR": 145,
+      "HR": 1107,
+      "MR": 1817
+    },
+    "autumn": {
+      "IS": 2514,
+      "PS": 847,
+      "PR": 792,
+      "IR": 528,
+      "HR": 1958,
+      "MR": 3361
+    }
+  },
+  "fate_definitions": {
+    "IS": "intact at station",
+    "PS": "eaten at station",
+    "PR": "eaten after removal",
+    "IR": "intact after removal",
+    "HR": "buried after removal",
+    "MR": "missing after removal"
+  }
+}
