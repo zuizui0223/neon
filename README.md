@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Poland original source STOP; fixed all-rodent recorded outcome contrast
+
+[Run 45424548399](https://github.com/zuizui0223/neon/actions/runs/45424548399) resolved semicolon dialect, 7055 rows (2999 removed/4055 not/1 NA), 77 aggregate records, no explicit actor species. Mouse-specific original STOP preserved. Separate all-rodent descriptive contrast freezes 7054 binary-removal rows, exact date/day/session structure and mutually exclusive source flags before the same extreme-abundance harvest/allocation decomposition. No imputation of 13 vole identities. [Protocol](docs/NEON_POLAND_ALL_RODENT_STAGE_SOURCE_CONTRAST_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: Poland source bytes verified; total-cache vs conditional-cache density contrast
 
 [Run 45423109521](https://github.com/zuizui0223/neon/actions/runs/45423109521) verified all 3 OSF CSVs, comma schema unresolved; Qinling publisher response not XLSX, STOP. Published Polish pooled counts: 559 documented mouse caches among 7,054 offers / 2,986 mouse harvests / 1,743 recovered, 1,243 missing. Distinct source-denominator bounds and pre-outcome source-gated within-site-year decomposition of harvest and post-harvest cache allocation implemented; original density associations are prior art. No grouped result yet. [Protocol](docs/NEON_POLAND_DENSITY_STAGE_DECOMPOSITION_20261125.md). DRAFT / SUBMISSION HOLD.

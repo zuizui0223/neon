@@ -1,0 +1,448 @@
+{
+  "schema": "neon.poland.density_stage.v1.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45424548399,
+    "job_id": 138552823203,
+    "head_sha": "029f8e4fe388a91443a4388c538b8b018c4268a8",
+    "artifact_id": 14935987586,
+    "artifact_zip_sha256_reported_by_github": "1329f3cb8d15ff75a2e5f3d8ba4c4133e8abfaf05d471f08813376051984aadb",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "effect": null,
+    "new_stage_model_not_original_published_effect": true,
+    "qinling_source_stop_preserved": true,
+    "reason": "PUBLISHED_RELEASE_ROW_COUNT_MISMATCH",
+    "retrieved_utc": "2026-11-24T15:21:51.449979+00:00",
+    "schema": "neon.poland.density_stage_decomposition.v1",
+    "source_schema": {
+      "Seedlings - all.csv": {
+        "column_profiles": [
+          {
+            "blank_count": 0,
+            "column": "plot",
+            "distinct_literal_count": 6
+          },
+          {
+            "blank_count": 0,
+            "column": "station_number",
+            "distinct_literal_count": 33
+          },
+          {
+            "blank_count": 0,
+            "column": "station",
+            "distinct_literal_count": 103
+          },
+          {
+            "blank_count": 0,
+            "column": "seedlings",
+            "distinct_literal_count": 6
+          },
+          {
+            "blank_count": 0,
+            "column": "buried",
+            "distinct_literal_count": 2
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "2021": 134,
+              "2022": 116
+            },
+            "column": "year",
+            "distinct_literal_count": 2
+          }
+        ],
+        "data_rows": 250,
+        "delimiter": "';'",
+        "header": [
+          "plot",
+          "station_number",
+          "station",
+          "seedlings",
+          "buried",
+          "year"
+        ],
+        "unambiguous_candidate_roles": {
+          "site": "plot",
+          "year": "year"
+        }
+      },
+      "abundances and interactions 25.12.2023.csv": {
+        "column_profiles": [
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "2020": 30,
+              "2021": 18,
+              "2022": 29
+            },
+            "column": "Year",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "Date",
+            "distinct_literal_count": 44
+          },
+          {
+            "blank_count": 0,
+            "column": "Day",
+            "distinct_literal_count": 44
+          },
+          {
+            "blank_count": 0,
+            "column": "Site",
+            "distinct_literal_count": 6
+          },
+          {
+            "blank_count": 0,
+            "column": "Abundance",
+            "distinct_literal_count": 45
+          },
+          {
+            "blank_count": 1,
+            "column": "Date2",
+            "distinct_literal_count": 44
+          },
+          {
+            "blank_count": 1,
+            "column": "Date3",
+            "distinct_literal_count": 44
+          },
+          {
+            "blank_count": 0,
+            "column": "Positive",
+            "distinct_literal_count": 29
+          },
+          {
+            "blank_count": 0,
+            "column": "Negative",
+            "distinct_literal_count": 29
+          },
+          {
+            "blank_count": 0,
+            "column": "Missing",
+            "distinct_literal_count": 33
+          },
+          {
+            "blank_count": 0,
+            "column": "Negative2",
+            "distinct_literal_count": 47
+          },
+          {
+            "blank_count": 0,
+            "column": "IS",
+            "distinct_literal_count": 52
+          },
+          {
+            "blank_count": 0,
+            "column": "No. of seeds",
+            "distinct_literal_count": 9
+          },
+          {
+            "blank_count": 0,
+            "column": "Removed",
+            "distinct_literal_count": 50
+          },
+          {
+            "blank_count": 0,
+            "column": "N",
+            "distinct_literal_count": 40
+          },
+          {
+            "blank_count": 0,
+            "column": "PropPositive",
+            "distinct_literal_count": 46
+          },
+          {
+            "blank_count": 0,
+            "column": "PropNegative",
+            "distinct_literal_count": 47
+          },
+          {
+            "blank_count": 0,
+            "column": "Score",
+            "distinct_literal_count": 60
+          },
+          {
+            "blank_count": 0,
+            "column": "N2",
+            "distinct_literal_count": 50
+          },
+          {
+            "blank_count": 0,
+            "column": "PropPositive2",
+            "distinct_literal_count": 44
+          },
+          {
+            "blank_count": 0,
+            "column": "PropNegative2",
+            "distinct_literal_count": 40
+          },
+          {
+            "blank_count": 0,
+            "column": "Score2",
+            "distinct_literal_count": 55
+          }
+        ],
+        "data_rows": 77,
+        "delimiter": "';'",
+        "header": [
+          "Year",
+          "Date",
+          "Day",
+          "Site",
+          "Abundance",
+          "Date2",
+          "Date3",
+          "Positive",
+          "Negative",
+          "Missing",
+          "Negative2",
+          "IS",
+          "No. of seeds",
+          "Removed",
+          "N",
+          "PropPositive",
+          "PropNegative",
+          "Score",
+          "N2",
+          "PropPositive2",
+          "PropNegative2",
+          "Score2"
+        ],
+        "unambiguous_candidate_roles": {
+          "abundance": "Abundance",
+          "removed": "Removed",
+          "site": "Site",
+          "year": "Year"
+        }
+      },
+      "dispersal & abundance data.csv": {
+        "column_profiles": [
+          {
+            "blank_count": 0,
+            "column": "",
+            "distinct_literal_count": 7055
+          },
+          {
+            "blank_count": 0,
+            "column": "date",
+            "distinct_literal_count": 180
+          },
+          {
+            "blank_count": 0,
+            "column": "day",
+            "distinct_literal_count": 70
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "2020": 2401,
+              "2021": 2305,
+              "2022": 2349
+            },
+            "column": "year",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "time",
+            "distinct_literal_count": 1111
+          },
+          {
+            "blank_count": 0,
+            "column": "plot",
+            "distinct_literal_count": 6
+          },
+          {
+            "blank_count": 0,
+            "column": "abundance",
+            "distinct_literal_count": 46
+          },
+          {
+            "blank_count": 0,
+            "column": "trap",
+            "distinct_literal_count": 106
+          },
+          {
+            "blank_count": 0,
+            "column": "station",
+            "distinct_literal_count": 536
+          },
+          {
+            "blank_count": 0,
+            "column": "biomark",
+            "distinct_literal_count": 8
+          },
+          {
+            "blank_count": 0,
+            "column": "seed_number",
+            "distinct_literal_count": 5
+          },
+          {
+            "blank_count": 0,
+            "column": "seed_weight",
+            "distinct_literal_count": 3438
+          },
+          {
+            "blank_count": 0,
+            "column": "eartag",
+            "distinct_literal_count": 228
+          },
+          {
+            "blank_count": 0,
+            "column": "PIT_tag",
+            "distinct_literal_count": 237
+          },
+          {
+            "blank_count": 0,
+            "column": "sex",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "mass",
+            "distinct_literal_count": 69
+          },
+          {
+            "blank_count": 0,
+            "column": "reproductive_state",
+            "distinct_literal_count": 8
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "CAR": 560,
+              "EAR": 882,
+              "EIS": 20,
+              "IS": 4055,
+              "M": 1253,
+              "NA": 1,
+              "RS": 284
+            },
+            "column": "seed_status",
+            "distinct_literal_count": 7
+          },
+          {
+            "blank_count": 4069,
+            "category_counts": {
+              "0": 1442,
+              "1": 290,
+              "": 4069,
+              "NA": 1254
+            },
+            "column": "surface",
+            "distinct_literal_count": 4
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "0": 4055,
+              "1": 2999,
+              "NA": 1
+            },
+            "column": "removal",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "intact",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "missing",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "partiallyeaten",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "0": 850,
+              "1": 896,
+              "NA": 5309
+            },
+            "column": "eaten",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "category_counts": {
+              "0": 1186,
+              "1": 560,
+              "NA": 5309
+            },
+            "column": "cached",
+            "distinct_literal_count": 3
+          },
+          {
+            "blank_count": 0,
+            "column": "distance",
+            "distinct_literal_count": 1024
+          },
+          {
+            "blank_count": 0,
+            "column": "perc_eaten",
+            "distinct_literal_count": 25
+          },
+          {
+            "blank_count": 0,
+            "column": "hidden",
+            "distinct_literal_count": 9
+          }
+        ],
+        "data_rows": 7055,
+        "delimiter": "';'",
+        "header": [
+          "",
+          "date",
+          "day",
+          "year",
+          "time",
+          "plot",
+          "abundance",
+          "trap",
+          "station",
+          "biomark",
+          "seed_number",
+          "seed_weight",
+          "eartag",
+          "PIT_tag",
+          "sex",
+          "mass",
+          "reproductive_state",
+          "seed_status",
+          "surface",
+          "removal",
+          "intact",
+          "missing",
+          "partiallyeaten",
+          "eaten",
+          "cached",
+          "distance",
+          "perc_eaten",
+          "hidden"
+        ],
+        "unambiguous_candidate_roles": {
+          "abundance": "abundance",
+          "cache": "cached",
+          "consumed": "eaten",
+          "fate": "seed_status",
+          "removed": "removal",
+          "site": "plot",
+          "surface": "surface",
+          "year": "year"
+        }
+      }
+    },
+    "status": "STOP_SOURCE_SEMANTICS_OR_DESIGN",
+    "submission_hold": true
+  }
+}

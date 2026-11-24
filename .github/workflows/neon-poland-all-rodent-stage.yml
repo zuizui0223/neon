@@ -1,0 +1,27 @@
+name: neon-poland-all-rodent-stage
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/run_neon_poland_all_rodent_stage_v1.py'
+      - 'tests/test_neon_poland_all_rodent_stage_v1.py'
+      - '.github/workflows/neon-poland-all-rodent-stage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-all-rodent-stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_poland_all_rodent_stage_v1.py' -v
+      - run: python -m analysis.run_neon_poland_all_rodent_stage_v1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-poland-all-rodent-stage
+          path: build/neon_poland_all_rodent_stage_20261125.json
+          if-no-files-found: error
