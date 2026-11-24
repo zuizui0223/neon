@@ -24,7 +24,18 @@ DESIGN={
  5:(("CO","QS"),(2015,),("B11","L","A")),
  6:(("CA","CF"),(2015,2018),("B22","D","M")),
 }
-EXPECTED={(y,p):g for g,(_,ys,ps) in DESIGN.items() for y in ys for p in ps}
+EXPECTED={(g,y,p) for g,(_,ys,ps) in DESIGN.items() for y in ys for p in ps}
+PHYSICAL={(y,p) for g,y,p in EXPECTED}
+# At shared physical patch-years, the Table 1 pairs contain disjoint species.
+# Assign by exact species identity and Table 1, never by outcome or station number.
+PAIR_LOOKUP=defaultdict(list)
+for g,y,p in sorted(EXPECTED):
+    for sp in DESIGN[g][0]:PAIR_LOOKUP[y,p,sp].append(g)
+
+def resolve_pair(y,p,sp):
+    options=PAIR_LOOKUP.get((y,p,sp),[])
+    if len(options)!=1:raise ValueError('PAIR_IDENTITY_NOT_UNIQUE')
+    return options[0]
 PUBLISHED=(13870,3806,407)
 
 def req(x,code):
@@ -58,10 +69,11 @@ def aggregate(rows):
     totals=Counter();cross=Counter()
     for x in rows:
         y=int(token(x[0]));p=token(x[1]).upper();s=token(x[2])
-        t=treatment(x[3]);sp=species(x[4]);g=EXPECTED.get((y,p))
-        req(g is not None and s and t is not None and sp in DESIGN[g][0],"TABLE1_ROW_IDENTITY_MISMATCH")
+        t=treatment(x[3]);sp=species(x[4])
+        req(s and t is not None and sp is not None,"TABLE1_ROW_IDENTITY_MISMATCH")
+        g=resolve_pair(y,p,sp)
         z=tuple(flag(v) for v in x[5:8])
-        stations[y,p,s].append((t,sp,z))
+        stations[g,y,p,s].append((t,sp,z))
         for j,v in enumerate(z):
             totals[j]+=int(v==1)
         cross[z]+=1
@@ -72,16 +84,16 @@ def aggregate(rows):
     req(all(z[2]!=1 or z[0]==1 for z in cross),"SURVIVAL_WITHOUT_CONFIRMED_REMOVAL")
     survival_without_cache=sum(n for z,n in cross.items() if z[2]==1 and z[1]!=1)
     blocks=defaultdict(dict);station_kinds=defaultdict(Counter)
-    for (y,p,s),v in stations.items():
+    for (g,y,p,s),v in stations.items():
         req(len(v)==40,"STATION_RELEASE_COUNT_MISMATCH")
         kinds={t for t,sp,z in v};req(len(kinds)==1,"STATION_TREATMENT_MIXED")
         t=next(iter(kinds));by=Counter(sp for _,sp,_ in v)
-        pair=DESIGN[EXPECTED[y,p]][0]
+        pair=DESIGN[g][0]
         if t=="mixed":req(by==Counter({pair[0]:20,pair[1]:20}),"MIXED_COMPOSITION_MISMATCH")
         else:req(len(by)==1 and next(iter(by.values()))==40,"MONO_COMPOSITION_MISMATCH")
-        station_kinds[y,p][(t,tuple(sorted(by)))]+=1
+        station_kinds[g,y,p][(t,tuple(sorted(by)))]+=1
         for sp,n in by.items():
-            k=(y,p,sp)
+            k=(g,y,p,sp)
             if t not in blocks[k]:blocks[k][t]=Counter()
             cnt=blocks[k][t];cnt["released"]+=n
             for _,sp2,z in v:
@@ -89,12 +101,12 @@ def aggregate(rows):
                 for j,name in ((0,"removed"),(1,"cache"),(2,"winter")):
                     cnt[name]+=int(z[j]==1);cnt[name+"_NA"]+=int(z[j] is None)
     req(set(station_kinds)==set(EXPECTED),"PATCH_YEAR_ROSTER_MISMATCH")
-    for (y,p),d in station_kinds.items():
-        a,b=DESIGN[EXPECTED[y,p]][0]
+    for (g,y,p),d in station_kinds.items():
+        a,b=DESIGN[g][0]
         req(d==Counter({("mono",(a,)):3,("mono",(b,)):3,("mixed",tuple(sorted((a,b)))):6}),"TABLE1_STATION_ROSTER_MISMATCH")
     req(len(stations)==540 and len(blocks)==90,"TOTAL_STATION_BLOCK_MISMATCH")
     for x in blocks.values():req(set(x)=={"mono","mixed"} and all(v["released"]==120 for v in x.values()),"SPECIES_ARM_RELEASE_COUNT_MISMATCH")
-    return blocks,{"published_positive_totals_verified":list(PUBLISHED),"station_count":len(stations),"patch_year_count":len(EXPECTED),
+    return blocks,{"published_positive_totals_verified":list(PUBLISHED),"station_count":len(stations),"pair_patch_year_count":len(EXPECTED),"physical_patch_year_count":len(PHYSICAL),
         "species_patch_year_count":len(blocks),"positive_winter_without_positive_cache":survival_without_cache,
         "joint_stage_flag_counts":{"/".join("NA" if v is None else str(v) for v in k):n for k,n in sorted(cross.items(),key=lambda v:str(v[0]))}}
 
@@ -113,7 +125,7 @@ def summarize(blocks):
     edges=[]
     for g,(spp,years,patches) in DESIGN.items():
         for sp in spp:
-            byyear={y:{stage:average_triplet([bounds(blocks[y,p,sp],stage) for p in patches]) for stage in ("removed","cache","winter")} for y in years}
+            byyear={y:{stage:average_triplet([bounds(blocks[g,y,p,sp],stage) for p in patches]) for stage in ("removed","cache","winter")} for y in years}
             totals={stage:average_triplet([v[stage] for v in byyear.values()]) for stage in ("removed","cache","winter")}
             sc,sw=sign(totals["cache"][0]),sign(totals["winter"][0])
             bsc,bsw=interval_sign(totals["cache"]),interval_sign(totals["winter"])
@@ -128,7 +140,7 @@ def summarize(blocks):
                     loo.append((interval_sign(a),interval_sign(b)))
             robust=(bsc*bsw==-1 and len(years)>=2 and all(a==bsc and b==bsw for a,b in loo))
             edges.append({"pair":g,"focal_species":sp,"neighbor_species":next(x for x in spp if x!=sp),"years":list(years),
-                "patch_years":len(years)*3,
+                "pair_patch_years":len(years)*3,
                 "stage_effects":{k:{"recorded_risk_difference":float(v[0]),"explicit_NA_only_bounds":[float(v[1]),float(v[2])]} for k,v in totals.items()},
                 "classification":classification,"robust_opposite_signs_under_explicit_NA_and_leave_one_year":robust,
                 "leave_one_year_checks":len(loo)})

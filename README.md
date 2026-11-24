@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: Yang pre-effect experiment-key correction
+
+Original [run 45386096026](https://github.com/zuizui0223/neon/actions/runs/45386096026) stopped on synthetic tests (no original effects). Table 1 defines 45 pair-patch-years but 42 physical patch-years: three 2018 overlaps with pair 6. Correct only pair identity and grouping keys using disjoint Table 1 species; same 540 stations, 21,600 release rows and frozen stage contrasts. [Correction](docs/NEON_YANG_PAIR_PATCH_YEAR_KEY_CORRECTION_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: Yang direct seed-fate source acquired; freeze recorded stage direction across years
 
 [Run 45384846430](https://github.com/zuizui0223/neon/actions/runs/45384846430): original Yang v1 checksum GO, 21,600 seed fate rows, Seed_rain sheet extent 1,048,097 (actual nonblank records unverified). Xiao 2016 code/18-station ontology STOP, no effect. [Receipt](results/neon_xiao_stage_and_synchrony_source_v1_20261124.json). New Yang exact Table 1 45 patch-year/540 station release roster gate, published positive total checks, 12 directed species-pair stage risk contrasts and strict leave-one-year/explicit-NA-only reversal criterion. No crop model yet, stream actual seed-rain key support. [Fixed design](docs/NEON_YANG_STAGE_RETENTION_FROZEN_20261124.md). DRAFT / SUBMISSION HOLD.
