@@ -1,0 +1,47 @@
+{
+  "schema": "neon.holt.preceding_upcoming_acorn.v1.log_receipt",
+  "provenance": {
+    "run_id": 45330833121,
+    "job_id": 138231374289,
+    "head_sha": "a3ebb7faca7f0661c5ed5f7725ede30b143b748e",
+    "artifact_id": 14892160954,
+    "artifact_zip_sha256_reported_by_github": "285cbbb6de89b949baad4ce0616cad7a7a1e9e1cdd47ae5cae9545bb677f4401",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "direct_resource_window": [
+      1988,
+      2013
+    ],
+    "direct_station_years": 3744,
+    "effect": null,
+    "not_seed_dispersal_or_remaining_food_or_detection_corrected": true,
+    "original_NEON_effects_unchanged": true,
+    "reference_resource_years": [
+      1988,
+      1997
+    ],
+    "retrieved_utc": "2026-11-24T05:05:43.325009+00:00",
+    "same_station_year_acorn_crosscheck_pass": true,
+    "schema": "neon.holt.preceding_upcoming_acorn_spatial_use.v1",
+    "source_SHA256": "0c4dcc8cebbc968c768e7d30fd8bb4cf66207bb026659c7c0dd0aa42c827f29a",
+    "source_ontology_counts": {
+      "history_exact_ID_year_groups": 451,
+      "original_ID_year_groups": 466,
+      "repeated_ID_across_target_years": 4,
+      "source_available_rows": 1807,
+      "source_rows_in_capture_window": 2975,
+      "source_used_rows": 1168,
+      "station_rows_without_direct_resource": 318,
+      "used_date_unverified": 1168
+    },
+    "station_roster_size": 144,
+    "status": "STOP_ORIGINAL_SUMMER_DATE_ONTOLOGY",
+    "submission_hold": true,
+    "target_capture_years": [
+      1999,
+      2013
+    ]
+  }
+}

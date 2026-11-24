@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: original Holt acorn contrast source STOP; strict date-only correction
+
+Original [run 45330833121](https://github.com/zuizui0223/neon/actions/runs/45330833121) verified 3,744 direct station-years and 2,975 target use/availability rows, but all 1,168 used dates failed the frozen summer ontology; no effect estimated. [Archived original receipt](results/neon_holt_acorn_preceding_upcoming_v1_20261124.json). V2 diagnoses literal date formats and exact author capture-history date2 crosswalk; only if all original used dates resolve inside the unchanged June–August window will it run the same frozen contrast. [Correction contract](docs/NEON_HOLT_ACORN_DATE_REPAIR_20261124.md). Official FEMC 1986–2019 July seedling census (10.18125/1074H2J) is a future plant-response source candidate, not a joined outcome or dispersal estimate. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: measured seed chronology / frozen past-vs-upcoming acorn spatial contrast
 
 Seasonal source audit [45328389543](https://github.com/zuizui0223/neon/actions/runs/45328389543) verified Dri annual seed station and use/availability schemas. Gu seed fate dates: 566 first, 33 second parseable, zero same-row paired dates; no release/final-fate date or stage-specific actor. No seasonal seed survival or functional handoff estimate. [Archived aggregate](results/neon_seasonal_seed_role_source_20261124.json). The new single Holt exploratory contrast compares preceding vs upcoming annual red-oak crop spatial rank anomalies in the same original used/available mouse station sets. Direct 1988–2013 documented source window, fixed historical resource baseline 1988–97, capture years 1999–2013, source and sample-support gates. No new biological effect yet. [Frozen design](docs/NEON_HOLT_ACORN_TEMPORAL_SPATIAL_CONTRAST_20261124.md). DRAFT / SUBMISSION HOLD.
