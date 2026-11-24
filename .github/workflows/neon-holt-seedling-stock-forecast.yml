@@ -1,0 +1,30 @@
+name: neon-holt-seedling-stock-forecast
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/run_neon_holt_seedling_stock_forecast_v1.py'
+      - 'tests/test_neon_holt_seedling_stock_forecast_v1.py'
+      - 'docs/NEON_HOLT_SEEDLING_STOCK_FORECAST_FROZEN_20261124.md'
+      - '.github/workflows/neon-holt-seedling-stock-forecast.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-stock-and-past-trained-stress:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.1.1 playwright==1.51.0
+      - run: python -m unittest discover -s tests -p 'test_neon_holt_seedling_stock_forecast_v1.py' -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m analysis.run_neon_holt_seedling_stock_forecast_v1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-holt-seedling-stock-forecast
+          path: build/neon_holt_seedling_stock_forecast_20261124.json
+          if-no-files-found: error

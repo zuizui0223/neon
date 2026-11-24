@@ -1,0 +1,166 @@
+{
+  "schema": "neon.holt.oak_seedling.annual_consumer_bridge.v1.log_receipt",
+  "provenance": {
+    "run_id": 45378672304,
+    "job_id": 138391630299,
+    "head_sha": "bc76e632d6dfda327a029c6e701f321e87ae8ee8",
+    "artifact_id": 14911254820,
+    "artifact_zip_sha256_reported_by_github": "ff8d2e33c7fd3d567d31938608cb2f14db149932103b4a34560a8f5e67bc591f",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "capture_SHA256": "ca47ac53e0f5b91fedaad3d7a6c3ba0be3efc918cbe280729c06818e35c768e5",
+    "climate_controls": "calendar year, spring minimum temperature and spring precipitation",
+    "effect": {
+      "all_coefficients_log1p_recorded_count_scale": [
+        1.7506312200426115,
+        0.024499241092785562,
+        0.6036664929007769,
+        0.17871912683306065,
+        0.0324362908126923,
+        -0.1283903474302599,
+        0.5256814415114087
+      ],
+      "baseline_blocked_RMSE": 1.62057105827183,
+      "high_seed_mouse_slope_at_plus_1SD": 0.3972910940811488,
+      "improved_time_blocks": 2,
+      "loo_interaction_range": [
+        0.19504324972147113,
+        0.7687219666972429
+      ],
+      "loo_low_seed_mouse_slope_range": [
+        -1.0395013594209475,
+        -0.3085551603879366
+      ],
+      "low_seed_mouse_slope_at_minus_1SD": -0.6540717889416686,
+      "mouse_by_seed_interaction": 0.5256814415114087,
+      "mouse_interaction_blocked_RMSE": 1.4013360196949571,
+      "no_p_value_or_causal_claim": true,
+      "time_blocks": [
+        {
+          "baseline_mse": 3.7121273789245377,
+          "mouse_interaction_mse": 2.0008013411021315,
+          "test_n": 8,
+          "test_year_interval": [
+            1988,
+            1995
+          ]
+        },
+        {
+          "baseline_mse": 0.47038544755461065,
+          "mouse_interaction_mse": 0.9662996456170184,
+          "test_n": 5,
+          "test_year_interval": [
+            1996,
+            2004
+          ]
+        },
+        {
+          "baseline_mse": 2.8877894229880643,
+          "mouse_interaction_mse": 2.5500858106353093,
+          "test_n": 8,
+          "test_year_interval": [
+            2005,
+            2013
+          ]
+        }
+      ]
+    },
+    "eligible_years": [
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1999,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2013
+    ],
+    "eligible_years_n": 21,
+    "mouse_predictor": "observed unique tagged mice in August t-1",
+    "not_independent_geographic_replication": true,
+    "not_net_seed_dispersal_or_causal_predation": true,
+    "outcome": "July t recorded oak HT1 on fixed S1 plots",
+    "plant_SHA256": {
+      "seedfall": "64d8cab3e85bafe321b6a43543b04fec877fe9f2244ab54421301e6ddd63a2f4",
+      "seedling": "a1f1939184446348dcbe9641f061fd6dba11f0b5dce27bfec73fa4f55bacbd5f"
+    },
+    "plant_source": {
+      "alternative_SPEC_rows_with_FIASP_833": {
+        "5.1": 5
+      },
+      "excluded_entire_plots_duplicate_oak_key": 2,
+      "explicit_oak_rows_by_year": {
+        "1988": 16,
+        "1989": 17,
+        "1990": 12,
+        "1991": 15,
+        "1992": 16,
+        "1993": 17,
+        "1994": 42,
+        "1995": 34,
+        "1996": 31,
+        "1997": 18,
+        "1999": 14,
+        "2001": 10,
+        "2004": 5,
+        "2005": 8,
+        "2006": 3,
+        "2007": 2,
+        "2008": 4,
+        "2009": 6,
+        "2010": 4,
+        "2011": 64,
+        "2013": 31
+      },
+      "fixed_common_plots_before_duplicate_guard": 118,
+      "fixed_surveyed_plots": 116,
+      "not_new_germinants_or_seed_fate": true,
+      "outcome_definition": "recorded literal SPEC 5 FIASP 833 HT1 counts per 100 fixed surveyed nominal plots",
+      "unlisted_species_not_asserted_true_absent": true
+    },
+    "predeclared_years": [
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1999,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2013
+    ],
+    "retrieved_utc": "2026-11-24T10:55:01.315364+00:00",
+    "same_year_august_not_used": true,
+    "schema": "neon.holt.oak_seedling.annual_consumer_bridge.v1",
+    "source_crop_label_used": "author RO annual label t-1; exact field collection calendar not asserted",
+    "status": "DESCRIPTIVE_DELAYED_CONSUMER_PATTERN_SUPPORTED",
+    "submission_hold": true
+  }
+}
