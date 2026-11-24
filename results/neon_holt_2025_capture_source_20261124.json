@@ -1,0 +1,406 @@
+{
+  "schema": "neon.holt.source.log_receipt.v1",
+  "provenance": {
+    "run_id": 45372652182,
+    "job_id": 138370582946,
+    "head_sha": "06968614f811c76dfdde3e3d72c1692125a48a57",
+    "artifact_id": 14910091013,
+    "artifact_zip_sha256_reported_by_github": "81d7d732d1f6c9e065f152ff2530a6be7017dcf78c804dcd03431b6a04728ae4",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "article": "Coupled effects of forest growth and climate change on small mammal abundance and body weight: results of a 39-year field study",
+    "doi": "10.6084/m9.figshare.27152484.v2",
+    "files": [
+      {
+        "id": 50529696,
+        "name": "Data and code.zip",
+        "provider_md5": "750f8d669a890e3450c4a61a2794c223",
+        "schema": {
+          "csv_schema": {
+            "Data and code/Data/mice83_21_tr_aug.csv": {
+              "columns": [
+                "",
+                "id_new",
+                "year",
+                "date",
+                "STRAPSTAT",
+                "trapsess",
+                "recapture",
+                "sex",
+                "age",
+                "escape",
+                "life",
+                "weight",
+                "line",
+                "meanBodyMass",
+                "sex_new",
+                "age_new",
+                "Tick",
+                "PREG",
+                "BOTFLY",
+                "preg_new",
+                "preg_new2",
+                "month"
+              ],
+              "row_width_counts": {
+                "22": 11549
+              },
+              "rows": 11549,
+              "year_counts_by_column_index": {
+                "2": {
+                  "1983": 1,
+                  "1984": 113,
+                  "1985": 192,
+                  "1986": 602,
+                  "1987": 123,
+                  "1988": 54,
+                  "1989": 39,
+                  "1990": 314,
+                  "1991": 331,
+                  "1992": 92,
+                  "1993": 94,
+                  "1994": 607,
+                  "1995": 796,
+                  "1996": 229,
+                  "1997": 505,
+                  "1998": 309,
+                  "1999": 60,
+                  "2000": 38,
+                  "2001": 405,
+                  "2002": 543,
+                  "2003": 381,
+                  "2004": 65,
+                  "2005": 227,
+                  "2006": 485,
+                  "2007": 38,
+                  "2008": 166,
+                  "2009": 315,
+                  "2010": 606,
+                  "2011": 705,
+                  "2012": 19,
+                  "2013": 162,
+                  "2014": 346,
+                  "2015": 553,
+                  "2016": 78,
+                  "2017": 513,
+                  "2018": 649,
+                  "2019": 12,
+                  "2020": 533,
+                  "2021": 249
+                }
+              }
+            },
+            "Data and code/Data/mice83_21_tr_bm_aug.csv": {
+              "columns": [
+                "year",
+                "month",
+                "trapsess",
+                "bmass_mean",
+                "nind",
+                "bmass_mean_male",
+                "nind_male",
+                "bmass_mean_female",
+                "nind_female",
+                "bmass_mean_unk",
+                "nind_unk"
+              ],
+              "row_width_counts": {
+                "11": 39
+              },
+              "rows": 39,
+              "year_counts_by_column_index": {
+                "0": {
+                  "1983": 1,
+                  "1984": 1,
+                  "1985": 1,
+                  "1986": 1,
+                  "1987": 1,
+                  "1988": 1,
+                  "1989": 1,
+                  "1990": 1,
+                  "1991": 1,
+                  "1992": 1,
+                  "1993": 1,
+                  "1994": 1,
+                  "1995": 1,
+                  "1996": 1,
+                  "1997": 1,
+                  "1998": 1,
+                  "1999": 1,
+                  "2000": 1,
+                  "2001": 1,
+                  "2002": 1,
+                  "2003": 1,
+                  "2004": 1,
+                  "2005": 1,
+                  "2006": 1,
+                  "2007": 1,
+                  "2008": 1,
+                  "2009": 1,
+                  "2010": 1,
+                  "2011": 1,
+                  "2012": 1,
+                  "2013": 1,
+                  "2014": 1,
+                  "2015": 1,
+                  "2016": 1,
+                  "2017": 1,
+                  "2018": 1,
+                  "2019": 1,
+                  "2020": 1,
+                  "2021": 1
+                }
+              }
+            },
+            "Data and code/Data/redoak_year.csv": {
+              "columns": [
+                "year",
+                "mean_DBH"
+              ],
+              "row_width_counts": {
+                "2": 39
+              },
+              "rows": 39,
+              "year_counts_by_column_index": {
+                "0": {
+                  "1983": 1,
+                  "1984": 1,
+                  "1985": 1,
+                  "1986": 1,
+                  "1987": 1,
+                  "1988": 1,
+                  "1989": 1,
+                  "1990": 1,
+                  "1991": 1,
+                  "1992": 1,
+                  "1993": 1,
+                  "1994": 1,
+                  "1995": 1,
+                  "1996": 1,
+                  "1997": 1,
+                  "1998": 1,
+                  "1999": 1,
+                  "2000": 1,
+                  "2001": 1,
+                  "2002": 1,
+                  "2003": 1,
+                  "2004": 1,
+                  "2005": 1,
+                  "2006": 1,
+                  "2007": 1,
+                  "2008": 1,
+                  "2009": 1,
+                  "2010": 1,
+                  "2011": 1,
+                  "2012": 1,
+                  "2013": 1,
+                  "2014": 1,
+                  "2015": 1,
+                  "2016": 1,
+                  "2017": 1,
+                  "2018": 1,
+                  "2019": 1,
+                  "2020": 1,
+                  "2021": 1
+                }
+              }
+            },
+            "Data and code/Data/seeds83_20_year_sp_wide2.csv": {
+              "columns": [
+                "year",
+                "RO"
+              ],
+              "row_width_counts": {
+                "2": 37
+              },
+              "rows": 37,
+              "year_counts_by_column_index": {
+                "0": {
+                  "1983": 1,
+                  "1984": 1,
+                  "1985": 1,
+                  "1986": 1,
+                  "1987": 1,
+                  "1988": 1,
+                  "1989": 1,
+                  "1990": 1,
+                  "1991": 1,
+                  "1992": 1,
+                  "1993": 1,
+                  "1994": 1,
+                  "1995": 1,
+                  "1996": 1,
+                  "1997": 1,
+                  "1998": 1,
+                  "1999": 1,
+                  "2000": 1,
+                  "2001": 1,
+                  "2002": 1,
+                  "2003": 1,
+                  "2004": 1,
+                  "2005": 1,
+                  "2006": 1,
+                  "2007": 1,
+                  "2008": 1,
+                  "2009": 1,
+                  "2010": 1,
+                  "2011": 1,
+                  "2012": 1,
+                  "2013": 1,
+                  "2015": 1,
+                  "2016": 1,
+                  "2017": 1,
+                  "2018": 1,
+                  "2019": 1,
+                  "2020": 1
+                }
+              }
+            },
+            "Data and code/Data/weather82_21.csv": {
+              "columns": [
+                "YEAR",
+                "Max.Temp_C.AVG",
+                "Min.Temp_C.AVG",
+                "Prec_mm.AVG",
+                "Snowfall_mm.AVG",
+                "Snow.Depth_mm.AVG",
+                "Max.Temp_C.AVG.FALL",
+                "Min.Temp_C.AVG.FALL",
+                "Prec_mm.AVG.FALL",
+                "Snowfall_mm.AVG.FALL",
+                "Snow.Depth_mm.AVG.FALL",
+                "Max.Temp_C.AVG.SPRING",
+                "Min.Temp_C.AVG.SPRING",
+                "Prec_mm.AVG.SPRING",
+                "Snowfall_mm.AVG.SPRING",
+                "Snow.Depth_mm.AVG.SPRING",
+                "Max.Temp_C.AVG.SUMMER",
+                "Min.Temp_C.AVG.SUMMER",
+                "Prec_mm.AVG.SUMMER",
+                "Snowfall_mm.AVG.SUMMER",
+                "Snow.Depth_mm.AVG.SUMMER",
+                "Max.Temp_C.AVG.WINTER",
+                "Min.Temp_C.AVG.WINTER",
+                "Prec_mm.AVG.WINTER",
+                "Snowfall_mm.AVG.WINTER",
+                "Snow.Depth_mm.AVG.WINTER"
+              ],
+              "row_width_counts": {
+                "26": 40
+              },
+              "rows": 40,
+              "year_counts_by_column_index": {
+                "0": {
+                  "1982": 1,
+                  "1983": 1,
+                  "1984": 1,
+                  "1985": 1,
+                  "1986": 1,
+                  "1987": 1,
+                  "1988": 1,
+                  "1989": 1,
+                  "1990": 1,
+                  "1991": 1,
+                  "1992": 1,
+                  "1993": 1,
+                  "1994": 1,
+                  "1995": 1,
+                  "1996": 1,
+                  "1997": 1,
+                  "1998": 1,
+                  "1999": 1,
+                  "2000": 1,
+                  "2001": 1,
+                  "2002": 1,
+                  "2003": 1,
+                  "2004": 1,
+                  "2005": 1,
+                  "2006": 1,
+                  "2007": 1,
+                  "2008": 1,
+                  "2009": 1,
+                  "2010": 1,
+                  "2011": 1,
+                  "2012": 1,
+                  "2013": 1,
+                  "2014": 1,
+                  "2015": 1,
+                  "2016": 1,
+                  "2017": 1,
+                  "2018": 1,
+                  "2019": 1,
+                  "2020": 1,
+                  "2021": 1
+                }
+              }
+            }
+          },
+          "members": [
+            {
+              "name": "Data and code/",
+              "size": 0
+            },
+            {
+              "name": "Data and code/1_DataOrg.R",
+              "size": 24114
+            },
+            {
+              "name": "Data and code/2_DataAnalysis.R",
+              "size": 7880
+            },
+            {
+              "name": "Data and code/3_SurvivalDataOrg.R",
+              "size": 9195
+            },
+            {
+              "name": "Data and code/4_SurvivalAnalysis.R",
+              "size": 6842
+            },
+            {
+              "name": "Data and code/Data/",
+              "size": 0
+            },
+            {
+              "name": "Data and code/Data/mice83_21_tr_aug.csv",
+              "size": 1101421
+            },
+            {
+              "name": "Data and code/Data/mice83_21_tr_bm_aug.csv",
+              "size": 2818
+            },
+            {
+              "name": "Data and code/Data/redoak_year.csv",
+              "size": 658
+            },
+            {
+              "name": "Data and code/Data/seeds83_20_year_sp_wide2.csv",
+              "size": 343
+            },
+            {
+              "name": "Data and code/Data/weather82_21.csv",
+              "size": 11460
+            },
+            {
+              "name": "Data and code/README.txt",
+              "size": 287
+            }
+          ]
+        },
+        "sha256": "ca47ac53e0f5b91fedaad3d7a6c3ba0be3efc918cbe280729c06818e35c768e5",
+        "size": 131218,
+        "verified_size": 131218
+      }
+    ],
+    "historical_2022_date_code_stop_unchanged": true,
+    "metadata_sha256": "093b9425d8d59714bc5ef49405a1841bf5e57fcee5bc3be3a8651794740244a4",
+    "no_ecological_effect_fitted": true,
+    "retrieved_utc": "2026-11-24T10:13:25.137949+00:00",
+    "same_forest_not_independent_replication": true,
+    "schema": "neon.holt.2025.capture_source.v1",
+    "status": "CHECKSUM_SOURCE_GO_SCHEMA_ONLY",
+    "submission_hold": true,
+    "version": 2
+  }
+}

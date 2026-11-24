@@ -1,0 +1,138 @@
+{
+  "schema": "neon.holt.source.log_receipt.v1",
+  "provenance": {
+    "run_id": 45372652182,
+    "job_id": 138370583348,
+    "head_sha": "06968614f811c76dfdde3e3d72c1692125a48a57",
+    "artifact_id": 14910735410,
+    "artifact_zip_sha256_reported_by_github": "fab1fbd6b888a2f15f4deba9a55b92c4cdd4befe5393e27877b818f64fe1f98a",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "license": "CC BY-NC-SA 4.0 for FEMC; source audit only, no raw redistribution",
+    "no_plant_or_animal_effect_fitted": true,
+    "retrieved_utc": "2026-11-24T10:13:43.306925+00:00",
+    "same_forest_2025_source": {
+      "article": "Coupled effects of forest growth and climate change on small mammal abundance and body weight: results of a 39-year field study",
+      "doi": "10.6084/m9.figshare.27152484.v2",
+      "files": [
+        {
+          "computed_md5": "750f8d669a890e3450c4a61a2794c223",
+          "id": 50529696,
+          "name": "Data and code.zip",
+          "size": 131218
+        }
+      ],
+      "metadata_SHA256": "44599147fc8148108380e52c66898702ef895562ebfa5775d0d69e63d1524755",
+      "status": "METADATA_ONLY",
+      "version": 2
+    },
+    "schema": "neon.holt.plant_census_source.v1",
+    "source_results": {
+      "seedfall": {
+        "distinct_FIASP_codes": 20,
+        "distinct_nominal_plots": 119,
+        "download_SHA256": "64d8cab3e85bafe321b6a43543b04fec877fe9f2244ab54421301e6ddd63a2f4",
+        "download_bytes": 216882,
+        "expected_records": 7012,
+        "invalid_key_rows": 119,
+        "member_name": "download.csv",
+        "original_columns": [
+          "YEAR",
+          "LINE",
+          "PLOT",
+          "SPEC",
+          "FIASP",
+          "COUNT"
+        ],
+        "record_count": 7012,
+        "row_counts_by_year": {
+          "1988": 210,
+          "1989": 327,
+          "1990": 185,
+          "1991": 260,
+          "1992": 345,
+          "1993": 297,
+          "1994": 362,
+          "1995": 261,
+          "1996": 449,
+          "1997": 185,
+          "1998": 482,
+          "1999": 156,
+          "2000": 543,
+          "2001": 211,
+          "2002": 363,
+          "2003": 218,
+          "2004": 322,
+          "2005": 173,
+          "2006": 285,
+          "2007": 126,
+          "2008": 351,
+          "2009": 209,
+          "2010": 142,
+          "2011": 138,
+          "2012": 138,
+          "2013": 155
+        },
+        "status": "STOP_SOURCE_COUNT_OR_KEYS",
+        "valid_year_line_plot_keys": 3069
+      },
+      "seedling": {
+        "distinct_FIASP_codes": 22,
+        "distinct_nominal_plots": 1200,
+        "download_SHA256": "a1f1939184446348dcbe9641f061fd6dba11f0b5dce27bfec73fa4f55bacbd5f",
+        "download_bytes": 688872,
+        "expected_records": 16021,
+        "invalid_key_rows": 4,
+        "member_name": "download.csv",
+        "original_columns": [
+          "YEAR",
+          "LINE",
+          "PLOT",
+          "SPEC",
+          "FIASP",
+          "HT1",
+          "HT2",
+          "HT3",
+          "HT4"
+        ],
+        "record_count": 16021,
+        "row_counts_by_year": {
+          "1986": 2267,
+          "1987": 445,
+          "1988": 429,
+          "1989": 413,
+          "1990": 418,
+          "1991": 383,
+          "1992": 471,
+          "1993": 438,
+          "1994": 545,
+          "1995": 497,
+          "1996": 458,
+          "1997": 520,
+          "1999": 457,
+          "2001": 638,
+          "2004": 419,
+          "2005": 500,
+          "2006": 447,
+          "2007": 509,
+          "2008": 464,
+          "2009": 629,
+          "2010": 546,
+          "2011": 570,
+          "2013": 537,
+          "2014": 498,
+          "2015": 569,
+          "2016": 452,
+          "2017": 452,
+          "2018": 532,
+          "2019": 514
+        },
+        "status": "STOP_SOURCE_COUNT_OR_KEYS",
+        "valid_year_line_plot_keys": 7922
+      }
+    },
+    "submission_hold": true
+  }
+}

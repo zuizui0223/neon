@@ -1,0 +1,43 @@
+name: neon-holt-annual-bridge-source
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/audit_neon_holt_annual_bridge_v1.py'
+      - 'tests/test_neon_holt_annual_bridge_v1.py'
+      - '.github/workflows/neon-holt-annual-bridge-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_holt_annual_bridge_v1.py' -v
+      - run: python -m analysis.audit_neon_holt_annual_bridge_v1 capture
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-holt-annual-bridge-capture
+          path: build/neon_holt_annual_bridge_source_20261124_capture.json
+          if-no-files-found: error
+  source-plant:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m analysis.audit_neon_holt_annual_bridge_v1 plant
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-holt-annual-bridge-plant
+          path: build/neon_holt_annual_bridge_source_20261124_plant.json
+          if-no-files-found: error
