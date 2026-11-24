@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: measured seed chronology / frozen past-vs-upcoming acorn spatial contrast
+
+Seasonal source audit [45328389543](https://github.com/zuizui0223/neon/actions/runs/45328389543) verified Dri annual seed station and use/availability schemas. Gu seed fate dates: 566 first, 33 second parseable, zero same-row paired dates; no release/final-fate date or stage-specific actor. No seasonal seed survival or functional handoff estimate. [Archived aggregate](results/neon_seasonal_seed_role_source_20261124.json). The new single Holt exploratory contrast compares preceding vs upcoming annual red-oak crop spatial rank anomalies in the same original used/available mouse station sets. Direct 1988–2013 documented source window, fixed historical resource baseline 1988–97, capture years 1999–2013, source and sample-support gates. No new biological effect yet. [Frozen design](docs/NEON_HOLT_ACORN_TEMPORAL_SPATIAL_CONTRAST_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: direct measured-resource inventory verified; seasonal seed-fate role feasibility
 
 Both primary Dri (15029247) and secondary Brehm & Mortelliti (14488626) original Figshare v1 ZIPs passed provider size/MD5 checks ([run 45312323517](https://github.com/zuizui0223/neon/actions/runs/45312323517)). Dri contains seed-trap coordinates, seed measurements, capture histories and author R code; Brehm contains trap-scale microhabitat and occupation inputs. No biological effect fitted. The next source-only step checks Dri's actual CSV/year ontology and Gu's existing first/second dispersal date chronology, motivated by whether taxon-specific contributions to seed fate shift across seasonal encounter, cache, retrieval and germination stages. Published seasonal caching effects and stage-specific theory are prior art; no new mechanism claimed. [Design and source boundary](docs/NEON_SEASONAL_SEED_ROLE_SOURCE_20261124.md). DRAFT / SUBMISSION HOLD.
