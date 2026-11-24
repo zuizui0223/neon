@@ -1,0 +1,227 @@
+{
+  "schema": "neon.holt.seedling_stock_forecast_stress.v1.log_receipt",
+  "provenance": {
+    "run_id": 45380336938,
+    "job_id": 138397402446,
+    "head_sha": "13533077174063f5808ca70c2a694a359e76649e",
+    "artifact_id": 14914725613,
+    "artifact_zip_sha256_reported_by_github": "274a4f6dc0cf9f21ab087d52febcd8939c63e2c03aba2eea79a4831af88aeef9",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "capture_SHA256": "ca47ac53e0f5b91fedaad3d7a6c3ba0be3efc918cbe280729c06818e35c768e5",
+    "conditional_on_observed_spring_weather_and_retrospective_panel": true,
+    "effect": {
+      "augmented_past_trained_RMSE": 1.5751807934393853,
+      "baseline_past_trained_RMSE": 1.516981930278912,
+      "era_RMSE": [
+        {
+          "augmented_RMSE": 0.8942035917726708,
+          "baseline_RMSE": 0.9403887485569429,
+          "n": 3,
+          "persistence_RMSE": 0.5711300445605023,
+          "years": [
+            1999,
+            2004
+          ]
+        },
+        {
+          "augmented_RMSE": 1.7640273404062583,
+          "baseline_RMSE": 1.6830249162401973,
+          "n": 8,
+          "persistence_RMSE": 1.691713197511363,
+          "years": [
+            2005,
+            2013
+          ]
+        }
+      ],
+      "gates": {
+        "beats_persistence": false,
+        "beats_stock_baseline": false,
+        "both_eras_improve": false,
+        "interaction_positive": true,
+        "low_seed_negative": true
+      },
+      "mouse_high_seed_slope": 0.4867542394347555,
+      "mouse_low_seed_slope": -0.4760093075370264,
+      "mouse_seed_interaction": 0.48138177348589095,
+      "no_p_value_or_causal_claim": true,
+      "persistence_RMSE": 1.4732066732895042,
+      "ridge_lambda": 1
+    },
+    "eligible_years": [
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1999,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2013
+    ],
+    "initial_training_years": [
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997
+    ],
+    "not_germination_or_seed_fate": true,
+    "only_past_response_years_used_for_prediction": true,
+    "plant_SHA256": {
+      "seedfall": "64d8cab3e85bafe321b6a43543b04fec877fe9f2244ab54421301e6ddd63a2f4",
+      "seedling": "a1f1939184446348dcbe9641f061fd6dba11f0b5dce27bfec73fa4f55bacbd5f"
+    },
+    "post_result_same_source_stress": true,
+    "prediction_era_counts": [
+      3,
+      8
+    ],
+    "prediction_years": [
+      1999,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2013
+    ],
+    "primary_original_result_unchanged": true,
+    "primary_panel": 116,
+    "prior_census_support": {
+      "1988": {
+        "gap": 1,
+        "previous_year": 1987,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1989": {
+        "gap": 1,
+        "previous_year": 1988,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1990": {
+        "gap": 1,
+        "previous_year": 1989,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1991": {
+        "gap": 1,
+        "previous_year": 1990,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1992": {
+        "gap": 1,
+        "previous_year": 1991,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1993": {
+        "gap": 1,
+        "previous_year": 1992,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1994": {
+        "gap": 1,
+        "previous_year": 1993,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1995": {
+        "gap": 1,
+        "previous_year": 1994,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1996": {
+        "gap": 1,
+        "previous_year": 1995,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1997": {
+        "gap": 1,
+        "previous_year": 1996,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "1999": {
+        "gap": 2,
+        "previous_year": 1997,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2001": {
+        "gap": 2,
+        "previous_year": 1999,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2004": {
+        "gap": 3,
+        "previous_year": 2001,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2005": {
+        "gap": 1,
+        "previous_year": 2004,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2006": {
+        "gap": 1,
+        "previous_year": 2005,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2007": {
+        "gap": 1,
+        "previous_year": 2006,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2008": {
+        "gap": 1,
+        "previous_year": 2007,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2009": {
+        "gap": 1,
+        "previous_year": 2008,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2010": {
+        "gap": 1,
+        "previous_year": 2009,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2011": {
+        "gap": 1,
+        "previous_year": 2010,
+        "status": "PRIOR_STOCK_GO"
+      },
+      "2013": {
+        "gap": 2,
+        "previous_year": 2011,
+        "status": "PRIOR_STOCK_GO"
+      }
+    },
+    "retrieved_utc": "2026-11-24T11:02:53.515307+00:00",
+    "schema": "neon.holt.seedling_stock_forecast_stress.v1",
+    "status": "POST_RESULT_STOCK_FORECAST_STRESS_NOT_SUPPORTED",
+    "submission_hold": true
+  }
+}
