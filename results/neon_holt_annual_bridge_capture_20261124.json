@@ -1,0 +1,174 @@
+{
+  "schema": "neon.holt.annual_bridge.log_receipt.v1",
+  "provenance": {
+    "run_id": 45376258477,
+    "job_id": 138383240673,
+    "head_sha": "20ead95604b516f89d92bcc0ab75d33ae61958d0",
+    "artifact_id": 14911137344,
+    "artifact_zip_sha256_reported_by_github": "9ab53285a249d522ba311ef91738b684298a34fc589f63113b5084cb5960b644",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "no_effect_fitted": true,
+    "part": "capture",
+    "result": {
+      "annual_nind_crosscheck_counts": {
+        "summary_equals_unique_ID": 39
+      },
+      "author_code_selected_time_and_count_lines": {
+        "Data and code/1_DataOrg.R": [
+          "seeds83_20_year_sp_wide<-read.csv(\"seeds83_20_year_sp_wide2.csv\")"
+        ],
+        "Data and code/2_DataAnalysis.R": []
+      },
+      "capture_rows": 11549,
+      "capture_years": [
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "duplicate_summary_years": 0,
+      "identity_quality_counts": {},
+      "literal_month_counts": {
+        "AUG": 11549
+      },
+      "no_new_date_decoding_or_effect": true,
+      "old_2022_target_used_exact_crosswalk": {
+        "exact_match_all_explicit_august": 1132,
+        "no_exact_match": 36
+      },
+      "old_crosswalk_counts_by_year": {
+        "1999": {
+          "exact_match_all_explicit_august": 21
+        },
+        "2000": {
+          "exact_match_all_explicit_august": 19
+        },
+        "2001": {
+          "exact_match_all_explicit_august": 76
+        },
+        "2002": {
+          "exact_match_all_explicit_august": 145,
+          "no_exact_match": 22
+        },
+        "2003": {
+          "exact_match_all_explicit_august": 63
+        },
+        "2004": {
+          "exact_match_all_explicit_august": 26
+        },
+        "2005": {
+          "exact_match_all_explicit_august": 103
+        },
+        "2006": {
+          "exact_match_all_explicit_august": 180
+        },
+        "2007": {
+          "exact_match_all_explicit_august": 22
+        },
+        "2008": {
+          "exact_match_all_explicit_august": 73
+        },
+        "2009": {
+          "exact_match_all_explicit_august": 137
+        },
+        "2010": {
+          "exact_match_all_explicit_august": 170
+        },
+        "2011": {
+          "exact_match_all_explicit_august": 18
+        },
+        "2012": {
+          "exact_match_all_explicit_august": 8,
+          "no_exact_match": 2
+        },
+        "2013": {
+          "exact_match_all_explicit_august": 71,
+          "no_exact_match": 12
+        }
+      },
+      "summary_rows": 39,
+      "summary_years": [
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ]
+    },
+    "retrieved_utc": "2026-11-24T10:35:55.102602+00:00",
+    "schema": "neon.holt.annual_bridge_source.v1",
+    "submission_hold": true
+  }
+}

@@ -1,0 +1,30 @@
+name: neon-holt-oak-seedling-annual
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/run_neon_holt_oak_seedling_annual_v1.py'
+      - 'tests/test_neon_holt_oak_seedling_annual_v1.py'
+      - 'docs/NEON_HOLT_OAK_SEEDLING_ANNUAL_FROZEN_20261124.md'
+      - '.github/workflows/neon-holt-oak-seedling-annual.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-annual-ecology:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.1.1 playwright==1.51.0
+      - run: python -m unittest discover -s tests -p 'test_neon_holt_oak_seedling_annual_v1.py' -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m analysis.run_neon_holt_oak_seedling_annual_v1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-holt-oak-seedling-annual-ecology
+          path: build/neon_holt_oak_seedling_annual_v1_20261124.json
+          if-no-files-found: error
