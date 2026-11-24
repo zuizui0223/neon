@@ -22,11 +22,12 @@
     },
     {
       "doi": "10.1016/j.foreco.2007.01.063",
-      "study": "Donglingshan mast study 2007",
+      "study": "Li & Zhang 2007",
       "region": "Donglingshan Beijing",
-      "status": "CANDIDATE_SAME_SITE_GROUP_NOT_POOLED",
+      "status": "PUBLISHED_ANNUAL_CACHE_GERMINATION_COUNTS",
       "site_group": "donglingshan",
-      "restriction": "2000/2001 seasons, resource and rodent abundance measured; verify cohort and table denominators"
+      "restriction": "Same Donglingshan site group; 2000/2001 distinct from 2002; six releases, 2/3-month observation windows; sparse recorded germination, missing fates not classified.",
+      "source": "https://bandicoot.nri.org/images/documents/rat-floods/mast_seeding_and_rodent_abundance.pdf"
     },
     {
       "doi": "10.1111/1749-4877.12912",
@@ -74,6 +75,24 @@
       "study": "Dri et al 2022 / Holt",
       "status": "EXCLUDED_DIRECT_SEED_FATE",
       "restriction": "annual seed/capture data not tracked fate"
+    },
+    {
+      "study": "Zwolak et al 2024",
+      "doi": "10.1111/1365-2745.14356",
+      "region": "Puszcza Zielonka, Poland",
+      "site_group": "puszcza_zielonka",
+      "status": "AUTHOR_LINKED_PUBLIC_DATA_SOURCE_PENDING",
+      "data_doi": "10.17605/osf.io/56m2n",
+      "restriction": "Within growing season 2020–2022, controlled offered seeds, separately measured burial and emergence; not a spring/autumn release contrast or true cohort emergence join until verified."
+    },
+    {
+      "study": "Wang et al 2026",
+      "doi": "10.1002/ece3.74453",
+      "region": "Qinling, China",
+      "site_group": "qinling_wang",
+      "status": "PUBLISHER_SUPPLEMENT_SOURCE_PENDING",
+      "data_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13635484/bin/ECE3-16-e74453-s002.xlsx",
+      "restriction": "Autumn 2016–2021 vs spring 2022–2024 are disjoint year ranges; season confounded with period; per-capita seed availability requires original data; rodent abundance missing 2018."
     }
   ],
   "next_gate": "Verify actual release cohort, matched followup, denominators, fate definitions and site dependence. Resource phase only from independent measurements. No meta-analysis yet."

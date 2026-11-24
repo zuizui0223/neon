@@ -1,0 +1,25 @@
+{
+  "schema": "neon.li_zhang2007.recorded_stage_arithmetic.v1",
+  "source_doi": "10.1016/j.foreco.2007.01.063",
+  "annual": [
+    {
+      "year": 2000,
+      "removal_rate": 0.9841666666666666,
+      "recorded_cache_rate": 0.14333333333333334,
+      "recorded_germination_rate": 0.00125,
+      "recorded_germinations_per_recorded_cache": 0.00872093023255814
+    },
+    {
+      "year": 2001,
+      "removal_rate": 0.9970833333333333,
+      "recorded_cache_rate": 0.037083333333333336,
+      "recorded_germination_rate": 0.00125,
+      "recorded_germinations_per_recorded_cache": 0.033707865168539325
+    }
+  ],
+  "mast_to_nonmast_recorded_cache_ratio": 3.865168539325843,
+  "mast_to_nonmast_recorded_germination_ratio": 1,
+  "mast_to_nonmast_recorded_germination_per_cache_ratio": 0.25872093023255816,
+  "stage_ratios_not_causal_or_missing_fate_corrected": true,
+  "not_independent_geographic_replication": true
+}

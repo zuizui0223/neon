@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: resource-state comparison and independent consumer-pressure data
+
+Lu prior CI passed 931 tests (3 skipped). Li & Zhang 2007 (same Donglingshan site group, distinct years) reports 344 vs 89 recorded caches and 3 vs 3 observed next-spring germinations in equal 2,400-release annual cohorts. Seasonal peak shifts August→May; no causal inference or independent geography. [Evidence and new source plan](docs/NEON_CONSUMER_PRESSURE_SOURCE_BRIDGE_20261125.md). Primary new author-linked Poland OSF 56m2n source (controlled seed abundance and varying mouse density); secondary Qinling 2026 public supplement, season confounded with period. Source-only, no new fitted effect. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: independent seasonal cache comparison (Lu & Zhang 2004)
 
 Published 3,600-release study, 16-day window, four Table 4 fate-partition mismatches preserved. Conditional on printed removal/hoard counts, spring-minus-summer cache difference >=2.167 pp and autumn-minus-summer >=12.25 pp; both positive in each habitat. Autumn-minus-spring unresolved. No pooled estimate or recruitment inference. Prior Li CI 929 tests (3 skipped). [Source and calculations](docs/NEON_LU2004_SEASONAL_CACHE_AND_STUDY_REGISTER_20261124.md). DRAFT / SUBMISSION HOLD.
