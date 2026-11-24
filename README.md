@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: Yang source stage totals reproduced, recorded-block architecture repair
+
+[Run 45387929094](https://github.com/zuizui0223/neon/actions/runs/45387929094) verified 21,600 rows, original 13,870 removals/3,806 hoards/407 winter survivors and author binary definitions, but grouped effect STOP on treatment identity (literal monspecific). Actual Seed_rain 1,809 nonblank rows, 1,252 nominal keys, 557 repeated excess, 157 trap keys, not a million observations. [Receipt](results/neon_yang_stage_retention_v1_source_stop_20261124.json). Final pre-effect structural reconstruction requires all original release cells by source patch/year and unique mixed species-pair composition. If physical Table 1 labels differ, any estimable contrast explicitly remains archive-block descriptive only; no geographic inference. No seasonal fit. [Design](docs/NEON_YANG_STAGE_RETENTION_SOURCE_REPAIR_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: Yang pre-effect experiment-key correction
 
 Original [run 45386096026](https://github.com/zuizui0223/neon/actions/runs/45386096026) stopped on synthetic tests (no original effects). Table 1 defines 45 pair-patch-years but 42 physical patch-years: three 2018 overlaps with pair 6. Correct only pair identity and grouping keys using disjoint Table 1 species; same 540 stations, 21,600 release rows and frozen stage contrasts. [Correction](docs/NEON_YANG_PAIR_PATCH_YEAR_KEY_CORRECTION_20261124.md). DRAFT / SUBMISSION HOLD.

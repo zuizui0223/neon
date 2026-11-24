@@ -1,0 +1,115 @@
+{
+  "schema": "neon.yang.stage_retention.v1.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45387929094,
+    "job_id": 138423647943,
+    "head_sha": "086c86260e8a83a23554a176a7c3206b9e4f7aa0",
+    "artifact_id": 14917401389,
+    "artifact_zip_sha256_reported_by_github": "7abd7acf949061b15e9ae31dd992cf177d3e2f19677e192b3b2d4585da90553c",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "Xiao_source_stop_preserved": true,
+    "fate": {
+      "effect": null,
+      "reason": "TABLE1_ROW_IDENTITY_MISMATCH",
+      "source_diagnostics": {
+        "literal_patch_count": 16,
+        "literal_species_counts": {
+          "Ca": 1440,
+          "Cf": 1440,
+          "Cg": 3600,
+          "Co": 5760,
+          "Qs": 4320,
+          "Qv": 5040
+        },
+        "literal_stage_counts": {
+          "overwinter_survival": {
+            "0": 21193,
+            "1": 407
+          },
+          "scatter-hoarding": {
+            "0": 17794,
+            "1": 3806
+          },
+          "seed_removal": {
+            "0": 7730,
+            "1": 13870
+          }
+        },
+        "literal_treatment_counts": {
+          "mixed": 10800,
+          "monspecific": 10800
+        },
+        "literal_year_counts": {
+          "2015": 4320,
+          "2016": 4320,
+          "2017": 5760,
+          "2018": 7200
+        },
+        "note": [
+          "Sheet1-Seed fate data once dispersal by sympatric rodent dispersers in monospecific and mixed stations",
+          "Sheet2-Seed rain data from 2015 to 2018",
+          "species:",
+          "Qv=Quercus variabilis",
+          "Ca= Choerospondias axillaris",
+          "Co= Camellia oleifera",
+          "Qs= Quercus serrata",
+          "Cg= Cyclobalanopsis glauca",
+          "Cf= Castanopsis fargesii",
+          "In sheet 1: 1 for success and  0 for failure."
+        ],
+        "row_count": 21600
+      },
+      "status": "STOP_FATE_ONTOLOGY_OR_DESIGN"
+    },
+    "no_new_seasonal_model": true,
+    "rain_source": {
+      "distinct_observation_keys": 1252,
+      "no_crop_values_aggregated": true,
+      "repeated_key_excess": 557,
+      "rows_by_literal_seed_species": {
+        "Ca": 94,
+        "Cf": 341,
+        "Cg": 77,
+        "Co": 172,
+        "Qs": 978,
+        "Qv": 147
+      },
+      "rows_by_literal_year_month": {
+        "2015/10": 124,
+        "2015/11": 59,
+        "2015/12": 15,
+        "2015/8": 37,
+        "2015/9": 102,
+        "2016/10": 204,
+        "2016/11": 75,
+        "2016/12": 30,
+        "2016/8": 91,
+        "2016/9": 107,
+        "2017/10": 96,
+        "2017/11": 74,
+        "2017/12": 29,
+        "2017/9": 17,
+        "2018/10": 187,
+        "2018/11": 131,
+        "2018/12": 124,
+        "2018/8": 69,
+        "2018/9": 238
+      },
+      "source_row_counts": {
+        "complete_key_rows": 1809,
+        "entirely_blank_rows": 1046287,
+        "nonblank_rows": 1809,
+        "sheet_rows_iterated": 1048096
+      },
+      "unique_trap_keys": 157,
+      "worksheet_extent_rows_including_header": 1048097
+    },
+    "retrieved_utc": "2026-11-24T11:51:57.424774+00:00",
+    "schema": "neon.yang.stage_retention.v1",
+    "source_sha256": "c1c00e8b261e82fddd0b4dd3657f3b14d35cd45f8f8f996b46c54819d1fdb13e",
+    "submission_hold": true
+  }
+}
