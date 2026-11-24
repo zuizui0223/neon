@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Polish all-rodent date/day STOP; independent calendar and author-summary diagnosis
+
+[Run 45425305209](https://github.com/zuizui0223/neon/actions/runs/45425305209) stopped DAY_DATE_NOT_UNIQUE before grouped effects. [Receipt](results/neon_poland_all_rodent_stage_v1_source_stop_20261125.json). Original paper documents actual four-day intervals and numeric seasonal Day covariate. Final pre-effect diagnosis uses only explicit unambiguous calendar dates with original year, then independent author 77-row aggregate anchors/denominators. Original cohort, 90-session architecture, stage partition and effect criteria unchanged; no new seasonal fit or actor imputation. Theoretical seasonal density/harvest/cache trade-off already published (10.1111/nph.19443). [Protocol](docs/NEON_POLAND_CALENDAR_SESSION_DIAGNOSIS_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: Poland original source STOP; fixed all-rodent recorded outcome contrast
 
 [Run 45424548399](https://github.com/zuizui0223/neon/actions/runs/45424548399) resolved semicolon dialect, 7055 rows (2999 removed/4055 not/1 NA), 77 aggregate records, no explicit actor species. Mouse-specific original STOP preserved. Separate all-rodent descriptive contrast freezes 7054 binary-removal rows, exact date/day/session structure and mutually exclusive source flags before the same extreme-abundance harvest/allocation decomposition. No imputation of 13 vole identities. [Protocol](docs/NEON_POLAND_ALL_RODENT_STAGE_SOURCE_CONTRAST_20261125.md). DRAFT / SUBMISSION HOLD.

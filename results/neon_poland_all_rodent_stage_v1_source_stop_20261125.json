@@ -1,0 +1,23 @@
+{
+  "schema": "neon.poland.all_rodent_stage.v1.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45425305209,
+    "job_id": 138555548886,
+    "head_sha": "591f62e05192c6e6400afdd67e8dde2215dfdf28",
+    "artifact_id": 14934913682,
+    "artifact_zip_sha256_reported_by_github": "a0642e177e4abfde575408694cc33b64b4eea32905f824dd14654659d4f097ba",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "effect": null,
+    "error_class": "ValueError",
+    "no_seasonal_fit": true,
+    "original_mouse_only_v1_stop_preserved": true,
+    "reason": "DAY_DATE_NOT_UNIQUE",
+    "retrieved_utc": "2026-11-24T15:25:35.327508+00:00",
+    "schema": "neon.poland.all_rodent_stage_decomposition.v1",
+    "status": "STOP_SOURCE_OR_ONTOLOGY",
+    "submission_hold": true
+  }
+}
