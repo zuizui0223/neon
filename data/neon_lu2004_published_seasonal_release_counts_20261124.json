@@ -1,0 +1,106 @@
+{
+  "schema": "neon.lu2004.published_seasonal_release_counts.v1",
+  "source": {
+    "authors": "Lu Ji-Qi and Zhang Zhi-Bin",
+    "doi": "10.1016/j.actao.2004.08.002",
+    "url": "https://www5.zzu.edu.cn/__local/8/90/B5/1315C626729A36D860B207F8835_6C257828_48430.pdf",
+    "table": "Table 4, printed page 251 (PDF page 5); cross-check Table 3; methods p.249",
+    "retrieval": "PDF text and visual table checked 2026-11-24",
+    "source_type": "published aggregate counts, not individual data"
+  },
+  "location": "Donglingshan near Liyuanling, Beijing, China",
+  "plant": "Prunus armeniaca",
+  "year": 2002,
+  "followup_days": 16,
+  "release_dates": {
+    "spring": "2002-04-14",
+    "summer": "2002-07-07",
+    "autumn": "2002-10-10"
+  },
+  "columns": [
+    "habitat",
+    "season",
+    "released",
+    "removed",
+    "surface",
+    "hoarded",
+    "eaten_after_removal",
+    "missing"
+  ],
+  "rows": [
+    [
+      "low",
+      "spring",
+      600,
+      220,
+      15,
+      44,
+      1,
+      159
+    ],
+    [
+      "low",
+      "summer",
+      600,
+      27,
+      8,
+      8,
+      0,
+      11
+    ],
+    [
+      "low",
+      "autumn",
+      600,
+      503,
+      75,
+      85,
+      0,
+      352
+    ],
+    [
+      "high",
+      "spring",
+      600,
+      114,
+      8,
+      44,
+      0,
+      62
+    ],
+    [
+      "high",
+      "summer",
+      600,
+      35,
+      12,
+      7,
+      1,
+      14
+    ],
+    [
+      "high",
+      "autumn",
+      600,
+      475,
+      40,
+      124,
+      3,
+      305
+    ]
+  ],
+  "table3_hoarded_sample_counts": [
+    44,
+    8,
+    85,
+    44,
+    7,
+    124
+  ],
+  "reported_seedlings_next_spring": {
+    "total": 3,
+    "release_season": "spring",
+    "habitat": "high",
+    "note": "Reported origin, not a complete recruitment comparison."
+  }
+}

@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: independent seasonal cache comparison (Lu & Zhang 2004)
+
+Published 3,600-release study, 16-day window, four Table 4 fate-partition mismatches preserved. Conditional on printed removal/hoard counts, spring-minus-summer cache difference >=2.167 pp and autumn-minus-summer >=12.25 pp; both positive in each habitat. Autumn-minus-spring unresolved. No pooled estimate or recruitment inference. Prior Li CI 929 tests (3 skipped). [Source and calculations](docs/NEON_LU2004_SEASONAL_CACHE_AND_STUDY_REGISTER_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: Yang stage audit closed; independent published seasonal fate bounds
 
 **24 November 2026 — direct seed fate ecological boundary.** Yang 2020 original archive reconstructed all 21,600 releases and 540 stations, but physical patch identity and nested stage endpoint remain STOP (five nonnested records). Marginal source audit: 10/12 directed pair means same nonzero cache/winter signs, two zero at a stage, no strict reversal; published stage consistency is prior art. Separate Li et al. 2021 printed seasonal fate percentages yield spring-minus-autumn predation bounds +5.11 to +56.89 pp after adversarial allocation of missing fates, whereas autumn-minus-spring cache bounds −9.66 to +42.12 pp. These are source-specific descriptive identification intervals, not statistical confidence intervals, new field data, causal predation or effective dispersal, or NEON mechanistic validation. [Closure and calculations](docs/NEON_YANG_CLOSURE_LI_SEASONAL_BOUNDS_20261124.md). No pooled study effect or seasonal synchrony fit. DRAFT / SUBMISSION HOLD.

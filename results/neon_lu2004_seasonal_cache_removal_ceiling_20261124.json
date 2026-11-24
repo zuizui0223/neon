@@ -1,0 +1,100 @@
+{
+  "schema": "neon.lu2004.seasonal_cache_removal_ceiling.v1",
+  "source_doi": "10.1016/j.actao.2004.08.002",
+  "table_partition_mismatches": [
+    {
+      "habitat": "low",
+      "season": "spring",
+      "removed_minus_listed_fate_sum": 1
+    },
+    {
+      "habitat": "low",
+      "season": "autumn",
+      "removed_minus_listed_fate_sum": -9
+    },
+    {
+      "habitat": "high",
+      "season": "summer",
+      "removed_minus_listed_fate_sum": 1
+    },
+    {
+      "habitat": "high",
+      "season": "autumn",
+      "removed_minus_listed_fate_sum": 3
+    }
+  ],
+  "season_counts": {
+    "spring": {
+      "released": 1200,
+      "removed": 334,
+      "hoarded": 88
+    },
+    "summer": {
+      "released": 1200,
+      "removed": 62,
+      "hoarded": 15
+    },
+    "autumn": {
+      "released": 1200,
+      "removed": 978,
+      "hoarded": 209
+    }
+  },
+  "comparisons": {
+    "spring_minus_summer": {
+      "lower_numerator": 26,
+      "upper_numerator": 319,
+      "denominator": 1200
+    },
+    "autumn_minus_summer": {
+      "lower_numerator": 147,
+      "upper_numerator": 963,
+      "denominator": 1200
+    },
+    "autumn_minus_spring": {
+      "lower_numerator": -125,
+      "upper_numerator": 890,
+      "denominator": 1200
+    }
+  },
+  "habitat_comparisons": {
+    "low": {
+      "spring_minus_summer": {
+        "lower_numerator": 17,
+        "upper_numerator": 212,
+        "denominator": 600
+      },
+      "autumn_minus_summer": {
+        "lower_numerator": 58,
+        "upper_numerator": 495,
+        "denominator": 600
+      },
+      "autumn_minus_spring": {
+        "lower_numerator": -135,
+        "upper_numerator": 459,
+        "denominator": 600
+      }
+    },
+    "high": {
+      "spring_minus_summer": {
+        "lower_numerator": 9,
+        "upper_numerator": 107,
+        "denominator": 600
+      },
+      "autumn_minus_summer": {
+        "lower_numerator": 89,
+        "upper_numerator": 468,
+        "denominator": 600
+      },
+      "autumn_minus_spring": {
+        "lower_numerator": 10,
+        "upper_numerator": 431,
+        "denominator": 600
+      }
+    }
+  },
+  "conditional_on_reported_removed_and_hoarded_counts": true,
+  "not_complete_fate_partition": true,
+  "not_total_predation_or_recruitment": true,
+  "bounds_not_sampling_intervals": true
+}

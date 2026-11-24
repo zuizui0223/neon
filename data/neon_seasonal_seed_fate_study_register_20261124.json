@@ -1,0 +1,80 @@
+{
+  "schema": "neon.seasonal_seed_fate.study_register.v1",
+  "scope": "bounded literature screen 2026-11-24; not systematic, no pooled effect",
+  "studies": [
+    {
+      "doi": "10.3897/zookeys.1025.60972",
+      "study": "Li et al 2021",
+      "region": "Northeast China",
+      "status": "PUBLISHED_AGGREGATE_BOUNDS",
+      "followup_days": 60,
+      "site_group": "northeast_china_li2021",
+      "restriction": "rounded rates, different station numbers, missing fates"
+    },
+    {
+      "doi": "10.1016/j.actao.2004.08.002",
+      "study": "Lu and Zhang 2004",
+      "region": "Donglingshan Beijing",
+      "status": "PUBLISHED_CACHE_REMOVAL_CEILING",
+      "followup_days": 16,
+      "site_group": "donglingshan",
+      "restriction": "four Table 4 partition mismatches; after-removal eaten not total predation"
+    },
+    {
+      "doi": "10.1016/j.foreco.2007.01.063",
+      "study": "Donglingshan mast study 2007",
+      "region": "Donglingshan Beijing",
+      "status": "CANDIDATE_SAME_SITE_GROUP_NOT_POOLED",
+      "site_group": "donglingshan",
+      "restriction": "2000/2001 seasons, resource and rodent abundance measured; verify cohort and table denominators"
+    },
+    {
+      "doi": "10.1111/1749-4877.12912",
+      "study": "Lai et al 2025",
+      "region": "Southwest China",
+      "status": "ABSTRACT_ONLY_NO_MISSING_BOUNDS",
+      "site_group": "southwest_china_lai",
+      "reported": {
+        "releases": 7800,
+        "predation_pct": {
+          "summer": 62.08,
+          "winter": 3.8
+        },
+        "cache_pct": {
+          "summer": 4.18,
+          "winter": 15.4
+        }
+      },
+      "restriction": "missing fate partition and matched duration unverified"
+    },
+    {
+      "doi": "10.1016/j.sajb.2014.04.011",
+      "study": "Rusch et al 2014",
+      "region": "South Africa fynbos",
+      "status": "ABSTRACT_ONLY_DIFFERENT_ENDPOINT",
+      "site_group": "fynbos_rusch",
+      "restriction": "artificial cache fate and diet, comparable release denominator and follow-up unverified"
+    },
+    {
+      "pmid": "20707107",
+      "study": "Ma et al 2010",
+      "region": "Jiyuan Henan",
+      "status": "ABSTRACT_ONLY_DUPLICATE_CHECK",
+      "site_group": "jiyuan_ma2008",
+      "restriction": "1800 releases; possible overlapping 2010 Zhengzhou report, full fate table unavailable"
+    },
+    {
+      "doi": "10.1111/ele.13405",
+      "study": "Yang et al 2020",
+      "status": "EXCLUDED_SEASON_CONTRAST",
+      "restriction": "mixed vs mono; not release seasons; source crosswalk and effort STOP"
+    },
+    {
+      "doi": "10.1111/oik.09551",
+      "study": "Dri et al 2022 / Holt",
+      "status": "EXCLUDED_DIRECT_SEED_FATE",
+      "restriction": "annual seed/capture data not tracked fate"
+    }
+  ],
+  "next_gate": "Verify actual release cohort, matched followup, denominators, fate definitions and site dependence. Resource phase only from independent measurements. No meta-analysis yet."
+}
