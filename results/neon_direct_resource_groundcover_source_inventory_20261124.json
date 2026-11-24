@@ -1,0 +1,305 @@
+{
+  "schema": "neon.external.direct_measured_resource_groundcover.inventory.log_receipt.v1",
+  "provenance": {
+    "run_id": 45312323517,
+    "job_id": 138170823970,
+    "head_sha": "5ae8d5e28d5b090e476caa5ac39aae6bf8da481f",
+    "artifact_id": 14883059620,
+    "artifact_zip_sha256_reported_by_github": "2c96e0a857e72d25c363b5d0e0c3a12360fcdc39e60f44dbdc03114b08c6b9d7",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "biological_response_rows_not_analyzed": true,
+    "manuscript_SUBMISSION_HOLD": true,
+    "no_NEON_reanalysis": true,
+    "no_ecological_effects_fitted": true,
+    "primary_article": 15029247,
+    "retrieved_utc": "2026-11-24T02:29:09.106856+00:00",
+    "schema": "neon.external.direct_measured_resource_groundcover.source_inventory.v1",
+    "secondary_inventory_only": 14488626,
+    "source_GO_does_not_establish_patch_time_or_ID_join": true,
+    "source_results": {
+      "14488626": {
+        "article_id": 14488626,
+        "article_title": "Data and code for \"Land-use change alters associations between personality and microhabitat selection\"",
+        "candidate_total_bytes": 692526,
+        "files": [
+          {
+            "candidate_data_file": true,
+            "file_id": 27847659,
+            "md5": "0a240dff244d72b41ecb3789b339abb6",
+            "name": "DataS1.zip",
+            "size": 692526
+          }
+        ],
+        "metadata_sha256": "0092c170feb56ac3bed1a06eff9f9c46bf4e5b2869a2f5f7e70914727f7f235b",
+        "paper_doi": "10.1002/eap.2443",
+        "provider_doi": "10.6084/m9.figshare.14488626.v1",
+        "public_version": 1,
+        "role": "secondary_groundcover_inventory_only",
+        "schema_receipts": [
+          {
+            "file_id": 27847659,
+            "members": [
+              {
+                "name": "DataS1/",
+                "uncompressed_bytes": 0
+              },
+              {
+                "name": "DataS1/16_19_GRID_occup.csv",
+                "uncompressed_bytes": 630843
+              },
+              {
+                "name": "DataS1/calculating_selection_variables.R",
+                "uncompressed_bytes": 8390
+              },
+              {
+                "name": "DataS1/GRID_trap_dist.csv",
+                "uncompressed_bytes": 1624569
+              },
+              {
+                "name": "DataS1/mcmc_main_analysis.R",
+                "uncompressed_bytes": 320289
+              },
+              {
+                "name": "DataS1/Metadata.txt",
+                "uncompressed_bytes": 6754
+              },
+              {
+                "name": "DataS1/mg.csv",
+                "uncompressed_bytes": 285280
+              },
+              {
+                "name": "DataS1/mg_personalitydata.csv",
+                "uncompressed_bytes": 66624
+              },
+              {
+                "name": "DataS1/microhabitat.csv",
+                "uncompressed_bytes": 45870
+              },
+              {
+                "name": "DataS1/pm.csv",
+                "uncompressed_bytes": 346065
+              },
+              {
+                "name": "DataS1/pm_personalitydata.csv",
+                "uncompressed_bytes": 88521
+              },
+              {
+                "name": "DataS1/rpt_pm_mg.R",
+                "uncompressed_bytes": 5792
+              }
+            ],
+            "name": "DataS1.zip",
+            "schema_status": "ZIP_CENTRAL_DIRECTORY_ONLY_NO_EXTRACTION",
+            "sha256": "d043fd84be754d77deb8397124f635ec6e301a4d0a5490360274e4e0b42a0705",
+            "verified_md5": "0a240dff244d72b41ecb3789b339abb6",
+            "verified_size": 692526
+          }
+        ],
+        "status": "CHECKSUM_SOURCE_GO_SCHEMA_ONLY"
+      },
+      "15029247": {
+        "article_id": 15029247,
+        "article_title": "Pulsed resources and the resource-prediction strategy: a field-test using a 36-year study of small mammals",
+        "candidate_total_bytes": 2277102,
+        "files": [
+          {
+            "candidate_data_file": true,
+            "file_id": 36110309,
+            "md5": "5f5263ba55a2d72c886d170ec5d38c43",
+            "name": "Data_and_code.zip",
+            "size": 2277102
+          }
+        ],
+        "metadata_sha256": "393b83cba6f237163ca7903ef96a2e2f9f165b31c2567d99cc286e4609a51b35",
+        "paper_doi": "10.1111/oik.09551",
+        "provider_doi": "10.6084/m9.figshare.15029247.v1",
+        "public_version": 1,
+        "role": "primary_measured_food_resource",
+        "schema_receipts": [
+          {
+            "file_id": 36110309,
+            "members": [
+              {
+                "name": "Data_and_code/",
+                "uncompressed_bytes": 0
+              },
+              {
+                "name": "Data_and_code/Data/",
+                "uncompressed_bytes": 0
+              },
+              {
+                "name": "Data_and_code/Data/bflitter.csv",
+                "uncompressed_bytes": 1191
+              },
+              {
+                "name": "Data_and_code/Data/bf_year.csv",
+                "uncompressed_bytes": 18281
+              },
+              {
+                "name": "Data_and_code/Data/ChiphistAG_group.csv",
+                "uncompressed_bytes": 277571
+              },
+              {
+                "name": "Data_and_code/Data/chipUS_AV_AG.csv",
+                "uncompressed_bytes": 326289
+              },
+              {
+                "name": "Data_and_code/Data/hmlitter.csv",
+                "uncompressed_bytes": 1215
+              },
+              {
+                "name": "Data_and_code/Data/hm_year.csv",
+                "uncompressed_bytes": 18680
+              },
+              {
+                "name": "Data_and_code/Data/mast.csv",
+                "uncompressed_bytes": 1054
+              },
+              {
+                "name": "Data_and_code/Data/MyohistAG_group.csv",
+                "uncompressed_bytes": 1122196
+              },
+              {
+                "name": "Data_and_code/Data/myoHRus_av75AG.csv",
+                "uncompressed_bytes": 75295
+              },
+              {
+                "name": "Data_and_code/Data/myoUS_AV_AG.csv",
+                "uncompressed_bytes": 221339
+              },
+              {
+                "name": "Data_and_code/Data/pblitter.csv",
+                "uncompressed_bytes": 1319
+              },
+              {
+                "name": "Data_and_code/Data/pb_year.csv",
+                "uncompressed_bytes": 19449
+              },
+              {
+                "name": "Data_and_code/Data/PerohistAG_group.csv",
+                "uncompressed_bytes": 3640881
+              },
+              {
+                "name": "Data_and_code/Data/peroHRus_av75AG.csv",
+                "uncompressed_bytes": 1255108
+              },
+              {
+                "name": "Data_and_code/Data/peroUS_AV_AG.csv",
+                "uncompressed_bytes": 2932990
+              },
+              {
+                "name": "Data_and_code/Data/rolitter.csv",
+                "uncompressed_bytes": 1184
+              },
+              {
+                "name": "Data_and_code/Data/ro_year.csv",
+                "uncompressed_bytes": 18256
+              },
+              {
+                "name": "Data_and_code/Data/rslitter.csv",
+                "uncompressed_bytes": 1204
+              },
+              {
+                "name": "Data_and_code/Data/rs_year.csv",
+                "uncompressed_bytes": 18492
+              },
+              {
+                "name": "Data_and_code/Data/seeds_sm.csv",
+                "uncompressed_bytes": 199285
+              },
+              {
+                "name": "Data_and_code/Data/seedtraps_xy.csv",
+                "uncompressed_bytes": 7966
+              },
+              {
+                "name": "Data_and_code/Data/seed_traps.csv",
+                "uncompressed_bytes": 315982
+              },
+              {
+                "name": "Data_and_code/Data/seed_trapsXY.csv",
+                "uncompressed_bytes": 620306
+              },
+              {
+                "name": "Data_and_code/Data/squir.hist.group.cjs.csv",
+                "uncompressed_bytes": 84815
+              },
+              {
+                "name": "Data_and_code/Data/squirHRus_av75AG.csv",
+                "uncompressed_bytes": 202744
+              },
+              {
+                "name": "Data_and_code/Data/tamiasHRus_av75AG.csv",
+                "uncompressed_bytes": 154334
+              },
+              {
+                "name": "Data_and_code/Data/wolitter.csv",
+                "uncompressed_bytes": 1180
+              },
+              {
+                "name": "Data_and_code/Data/wo_year.csv",
+                "uncompressed_bytes": 18253
+              },
+              {
+                "name": "Data_and_code/Data/wplitter.csv",
+                "uncompressed_bytes": 1206
+              },
+              {
+                "name": "Data_and_code/Data/wp_year.csv",
+                "uncompressed_bytes": 18435
+              },
+              {
+                "name": "Data_and_code/Data/xy_alltraps.csv",
+                "uncompressed_bytes": 9359
+              },
+              {
+                "name": "Data_and_code/R codes/",
+                "uncompressed_bytes": 0
+              },
+              {
+                "name": "Data_and_code/R codes/.Rhistory",
+                "uncompressed_bytes": 0
+              },
+              {
+                "name": "Data_and_code/R codes/1_kriging.R",
+                "uncompressed_bytes": 34736
+              },
+              {
+                "name": "Data_and_code/R codes/2_kriging.R",
+                "uncompressed_bytes": 20332
+              },
+              {
+                "name": "Data_and_code/R codes/3_survival.R",
+                "uncompressed_bytes": 36653
+              },
+              {
+                "name": "Data_and_code/R codes/5_Habitat_selection_trap_data.R",
+                "uncompressed_bytes": 63520
+              },
+              {
+                "name": "Data_and_code/R codes/6_Habitat_selection_HRanalysis.R",
+                "uncompressed_bytes": 15324
+              },
+              {
+                "name": "Data_and_code/R codes/7_Seed_variability.R",
+                "uncompressed_bytes": 4328
+              },
+              {
+                "name": "Data_and_code/Read_me.txt",
+                "uncompressed_bytes": 447
+              }
+            ],
+            "name": "Data_and_code.zip",
+            "schema_status": "ZIP_CENTRAL_DIRECTORY_ONLY_NO_EXTRACTION",
+            "sha256": "0c4dcc8cebbc968c768e7d30fd8bb4cf66207bb026659c7c0dd0aa42c827f29a",
+            "verified_md5": "5f5263ba55a2d72c886d170ec5d38c43",
+            "verified_size": 2277102
+          }
+        ],
+        "status": "CHECKSUM_SOURCE_GO_SCHEMA_ONLY"
+      }
+    }
+  }
+}

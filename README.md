@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: direct measured-resource inventory verified; seasonal seed-fate role feasibility
+
+Both primary Dri (15029247) and secondary Brehm & Mortelliti (14488626) original Figshare v1 ZIPs passed provider size/MD5 checks ([run 45312323517](https://github.com/zuizui0223/neon/actions/runs/45312323517)). Dri contains seed-trap coordinates, seed measurements, capture histories and author R code; Brehm contains trap-scale microhabitat and occupation inputs. No biological effect fitted. The next source-only step checks Dri's actual CSV/year ontology and Gu's existing first/second dispersal date chronology, motivated by whether taxon-specific contributions to seed fate shift across seasonal encounter, cache, retrieval and germination stages. Published seasonal caching effects and stage-specific theory are prior art; no new mechanism claimed. [Design and source boundary](docs/NEON_SEASONAL_SEED_ROLE_SOURCE_20261124.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-24: corrected canopy result closed; direct resource / ground-cover source gate
 
 **Corrected canopy NONSUPPORT:** [run 45310729767](https://github.com/zuizui0223/neon/actions/runs/45310729767) recovered all 51 original rasters, 24,600 valid pixels, 36 original pairs; 20 informative at 8 physical sites, 5/8 positive, equal-site mean Z **+0.480548**, descriptive one-sided signflip **p=0.20703125**. Historical v1 Z=+0.49547/p=0.1875 preserved. No further same-data canopy rescue. [Closure and result](docs/NEON_CANOPY_AFFINITY_UNIFORM_CLOCK_RESULT_20261124.md) / [aggregate receipt](results/neon_canopy_affinity_uniform_v2_20261124.json). Dedicated 14 tests and full CI 879 tests (3 skipped) passed. This is not evidence of absence of ground-cover selection.
