@@ -1,0 +1,108 @@
+{
+  "schema": "neon.seed_fate_stage_ontology.v2.log_receipt",
+  "provenance": {
+    "run_id": 45384239614,
+    "job_id": 138410891250,
+    "head_sha": "dea97bdd4025db9705a779a45bbda55b013f2769",
+    "artifact_id": 14914898060,
+    "artifact_zip_sha256_reported_by_github": "98473d9e291b826f76ac0b9337e074f7ef009c1c80d9335ef0772246d6d9d6fd",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "no_effect_fitted": true,
+    "retrieved_utc": "2026-11-24T11:27:12.516757+00:00",
+    "schema": "neon.seed_fate_stage_ontology.v2",
+    "source_results": {
+      "primary": {
+        "doi": "10.6084/m9.figshare.3189775.v1",
+        "file_id": 4993375,
+        "filename": "QCSsquirelindirecteffctFigshare.xlsx",
+        "metadata_sha256": "95a618dae7983891b1302c758afde78dac70edf01f42f1d22e006d5a649ef7ad",
+        "provider_md5": "37f045d36dc897bf390b1dac4cc9a2bd",
+        "sha256": "71d1de98d6ea7af0620eda71610af35415fa2b2a0fb32e8fe8d30bd3121b5953",
+        "sheets": [
+          {
+            "candidate_first_row_headers": [
+              "site",
+              "treatment",
+              "species",
+              "station",
+              "Encounter"
+            ],
+            "max_columns": 5,
+            "max_rows": 37,
+            "nonblank_cell_counts_by_row": {
+              "5": 36
+            },
+            "sheet": "seedoncounter"
+          },
+          {
+            "candidate_first_row_headers": [
+              "site",
+              "treatment",
+              "species",
+              "station",
+              "harvest",
+              "Removal",
+              "hoard",
+              "dispersal",
+              "distance"
+            ],
+            "max_columns": 9,
+            "max_rows": 1621,
+            "nonblank_cell_counts_by_row": {
+              "9": 1620
+            },
+            "sheet": "seedfatedata"
+          },
+          {
+            "candidate_first_row_headers": [
+              "Sheet1 - seed encounter data for each station",
+              null,
+              null
+            ],
+            "max_columns": 3,
+            "max_rows": 9,
+            "nonblank_cell_counts_by_row": {
+              "0": 6,
+              "1": 1,
+              "2": 1
+            },
+            "sheet": "note"
+          }
+        ],
+        "status": "AUTHOR_CITED_WORKBOOK_SOURCE_GO_SCHEMA_ONLY",
+        "title": "QCSsquirelindirecteffctFigshare.xlsx",
+        "verified_size": 70432
+      },
+      "secondary_documentation": {
+        "documentation": {
+          "ReadME_hoardingdata.rtf": {
+            "file_id": 3250772,
+            "provider_md5": "3e9500e098e5e6d26c7a1c135d90ec55",
+            "sha256": "8b8b183288f6e9785cc70678d4dff59f520b23cae8e0de42bb14b4f30d560b67",
+            "text": "Data set owner:\n\nDr. Erin K. Kuprewicz\nDepartment of Botany\nNational Museum of Natural History\nSmithsonian Institution\nWashington, DC USA\n\n—and—\n\nRed de Interacciones Multitroficas\nInstituto de Ecología\nXalapa, México\n\nerinkuprewicz@gmail.com\n\nKey Words:\nAgouti\nDasyprocta punctata\nplant-animal interactions\npost-dispersal seed predation\nScolytinae\nseed cache\n\nGeographic coverage:\nEstación Biológica La Selva\nPuerto Viejo Sarapiquí, Heredia, Costa Rica\nOrganización para Estudios Tropicales (OET)\nCoordinates: 10 degrees 26’ NORTH; 83 degrees 59’ WEST\n\nTemporal coverage:\nBegin: November 2006\nEnd: March 2009\n\nProject info:\nTitle: Scatter hoarding of seeds confers survival advantages and disadvantages to large-seeded tropical plants at different life stages\nFunding: Organization for Tropical Studies, University of Miami Department of Biology\nFile: Seed_hoarding_infestation&removal.csv\n\nDescription: Data on seed survival, infestation by insects, and removal by mammals after artificial hoarding or not (mimicking agouti seed caches) in northeastern Costa Rica (La Selva Biological Station).\n\nMethods: From November 2006 to March 2009, at La Selva Biological Station, Costa Rica, I recorded individual seed survival, infestation by insects, removal by mammals, and germination for four seed species that were either artificially hoarded (in single underground caches simulating those made by agoutis, Dasyprocta punctata) or exposed on the soil surface. Species used in hoarding experiments: Astrocaryum alatum, Dipteryx panamensis, Iriartea deltoidea, and Socratea exorrhiza. Hoarded and non-hoarded seeds were included at each depot and either covered in a metal mesh exclosure (invertebrate treatment) or left open (vertebrate treatment) for 36 d of exposure. For details on the study site and species, please see: Kuprewicz, E. K. 2013. Mammal abundances ad seed traits control the seed dispersal and predation roles of terrestrial mammals in a Costa Rican forest. Biotropica 45(3) 333-342.\n\nColumn headings:\n(1) - SP: Species code for one of four seed species used in experiments; SO = Socratea exorrhiza;DX = Dipteryx panamensis ;AS = Astrocaryum alarm; IR = Iriartea deltoidea\t\n\n(2) - DEP: Code given to each individual depot used in the study\n\n(3) - TREATMENT: Corresponds to treatment for each depot; CAGED = exclosure treatment where seeds are exposed to invertebrates only (excluding vertebrates); EXP = exposed/open treatment with no exclosure and open to vertebrates\n\n(4) - BUR/INF: For caged treatments: number of seeds at each depot that were experimentally buried and subsequently infested after 36 d of exposure\n\n(5) - BUR/UNINF: For caged treatments: number of seeds at each depot that were experimentally buried and not infested after 36 d of exposure\n\n(6) - EXP/INF: For caged treatments: number of seeds at each depot that were exposed on the soil surface and subsequently infested after 36 d of exposure\n\n(7) - EXP/UNINF: For caged treatments: number of seeds at each depot that were exposed on the soil surface and not infested after 36 d of exposure\n\n(8) - BUR/REM: For exposed treatments: number of seeds at each depot that were experimentally buried and subsequently removed by vertebrates after 36 d of exposure\n\n(9) - BUR/NOTREM: For exposed treatments: number of seeds at each depot that were experimentally buried and not removed by vertebrates after 36 d of exposure\n\n(10) - EXP/REM: For exposed treatments: number of seeds at each depot that were exposed on the soil surface and subsequently removed by vertebrates after 36 d of exposure\n\n(11) - EXP/NOTREM: For exposed treatments: number of seeds at each depot that were exposed on the soil surface and not removed by vertebrates after 36 d of exposure\n"
+          },
+          "ReadME_seedlingheightdata.rtf": {
+            "file_id": 3250778,
+            "provider_md5": "3d3a17262a2629a50ef6de9bd627b47d",
+            "sha256": "a4ee9fa7ca513e08a96512e4fee727d7ed1e6277a5a10e4007fa19eec3169f23",
+            "text": "Data set owner:\n\nDr. Erin K. Kuprewicz\nDepartment of Botany\nNational Museum of Natural History\nSmithsonian Institution\nWashington, DC USA\n\n—and—\n\nRed de Interacciones Multitroficas\nInstituto de Ecología\nXalapa, México\n\nerinkuprewicz@gmail.com\n\nKey Words:\nAgouti\nDasyprocta punctata\nplant-animal interactions\npost-dispersal seed predation\nScolytinae\nseed cache\n\nGeographic coverage:\nEstación Biológica La Selva\nPuerto Viejo Sarapiquí, Heredia, Costa Rica\nOrganización para Estudios Tropicales (OET)\nCoordinates: 10 degrees 26’ NORTH; 83 degrees 59’ WEST\n\nTemporal coverage:\nBegin: November 2006\nEnd: March 2009\n\nProject info:\nTitle: Scatter hoarding of seeds confers survival advantages and disadvantages to large-seeded tropical plants at different life stages\nFunding: Organization for Tropical Studies, University of Miami Department of Biology\nFile: Seed_hoarding_infestation&removal.csv\n\nDescription: Data on seed survival, infestation by insects, and removal by mammals after artificial hoarding or not (mimicking agouti seed caches) in northeastern Costa Rica (La Selva Biological Station).\n\nMethods: From November 2006 to March 2009, at La Selva Biological Station, Costa Rica, I recorded individual seedling height (and germination) after 120 of growth for seeds that were infested by scolytine beetles or sound. Species used in hoarding experiments: Astrocaryum alatum, Iriartea deltoidea, and Socratea exorrhiza. For details on the study site and species, please see: Kuprewicz, E. K. 2013. Mammal abundances ad seed traits control the seed dispersal and predation roles of terrestrial mammals in a Costa Rican forest. Biotropica 45(3) 333-342.\n\nColumn headings:\n(1) - SP: Species code for one of four seed species used in experiments; SO = Socratea exorrhiza; IR = Iriartea deltoidea; AS = Astrocaryum alatum\n\n(2) - ID: Unique identifying number assigned to each individual\n\n(3) - COND: Condition of seed prior to being planted; I = infested by scolytine beetles; N = not infested (sound)\n\n(4) - HEIGHT: Seedling height (cm) measured 120 d after planting\n"
+          },
+          "ReadME_seedlingsurvivaldata.rtf": {
+            "file_id": 3250790,
+            "provider_md5": "f3bab8b606dabda3011d65afe45df653",
+            "sha256": "ffdfebeb41b080bb1f210d932d587b0b3c2f04edb22e0520d0720d87100d5c84",
+            "text": "Data set owner:\n\nDr. Erin K. Kuprewicz\nDepartment of Botany\nNational Museum of Natural History\nSmithsonian Institution\nWashington, DC USA\n\n—and—\n\nRed de Interacciones Multitroficas\nInstituto de Ecología\nXalapa, México\n\nerinkuprewicz@gmail.com\n\nKey Words:\nAgouti\nDasyprocta punctata\nplant-animal interactions\npost-dispersal seed predation\nScolytinae\nseed cache\n\nGeographic coverage:\nEstación Biológica La Selva\nPuerto Viejo Sarapiquí, Heredia, Costa Rica\nOrganización para Estudios Tropicales (OET)\nCoordinates: 10 degrees 26’ NORTH; 83 degrees 59’ WEST\n\nTemporal coverage:\nBegin: November 2006\nEnd: March 2009\n\nProject info:\nTitle: Scatter hoarding of seeds confers survival advantages and disadvantages to large-seeded tropical plants at different life stages\nFunding: Organization for Tropical Studies, University of Miami Department of Biology\nFile: Seed_hoarding_infestation&removal.csv\n\nDescription: Data on seed survival, infestation by insects, and removal by mammals after artificial hoarding or not (mimicking agouti seed caches) in northeastern Costa Rica (La Selva Biological Station).\n\nMethods: From November 2006 to March 2009, at La Selva Biological Station, Costa Rica, I recorded seedling survival for pairs (caged and not caged) of seedlings of single plant spp. Species used in seedling survival experiments: Astrocaryum alatum, Dipteryx panamensis, Iriartea deltoidea, and Socratea exorrhiza. Hoarded and non-hoarded seeds were included at each depot and either covered in a metal mesh exclosure (invertebrate treatment) or left open (vertebrate treatment) for 36 d of exposure. For details on the study site and species, please see: Kuprewicz, E. K. 2013. Mammal abundances ad seed traits control the seed dispersal and predation roles of terrestrial mammals in a Costa Rican forest. Biotropica 45(3) 333-342.\n\nColumn headings:\n\n(1) - SP: Species code for one of four seed species used in experiments; SO = Socratea exorrhiza; DX = Dipteryx panamensis; AS = Astrocaryum alatum; IR = Iriartea deltoidea\t\n\n(2) - DEP: Code given to each depot used in the study\n\n(3) - TREATMENT: Corresponds to treatment for each depot; C = caged/exclosure treatment where seedlings cannot be accessed by vertebrates; U = open treatment with no exclosure and seedling is open to vertebrates\n\n(4) - STATUS: Condition of seedling: alive or dead\n\n(5) - DAY: Days after placement in the field when seedling pair survival was assessed\n"
+          }
+        },
+        "doi": "10.6084/m9.figshare.1256359.v1",
+        "not_same_seed_cohort_join_established": true,
+        "status": "ORIGINAL_DOCUMENTATION_GO"
+      }
+    },
+    "submission_hold": true,
+    "v1_stop_preserved": true
+  }
+}
