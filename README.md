@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-24: canopy source replay completed; v1 non-support archived, uniform-clock calibration pending
+
+The [actual source and ecology run 45245953902](https://github.com/zuizui0223/neon/actions/runs/45245953902) recovered all 51 rasters / 24,600 valid pixels and 36 pairs / 12 sites. Of these, 15 pairs had flat canopy, one zero null variance, 20 informative at 8 sites; 5/8 positive, mean Z +0.49547, descriptive signflip p=0.1875. **Original v1 non-support is historical, not a calibrated uniform-null inference:** the accepted-swap-only clock repeats a previously identified jump-chain defect. A distinct same-source, same-score uniform proposal-clock correction is now specified; no changes to ecological response, source cohort, site weights or support gate, no result-dependent rescue or publication promotion. [Historical result and correction contract](docs/NEON_CANOPY_AFFINITY_UNIFORM_CLOCK_CORRECTION_20261124.md). One paper DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-22: one frozen trap-level canopy affinity test at different original stations — outcome not yet verified
 
 **Current main goal:** test one actual mammal ecological correlate inside NEON, not add another external prior-art study. The original source cohort for NEON 3+ genus spatial recurrence is **58 seasonal comparisons / 30 original mammal plots / 14 physical NEON sites**. Already source-verified historical **1m AOP canopy-height CHM** covers **36 original comparisons / 21 original mammal grids / 12 independent sites** at all 100 original trap stations within a ±12-calendar-month CHM acquisition window (51 original checksum-validated raster tiles and 24,600 station×date canopy pixels). Strict acquisition no later than capture supports only 18 comparisons / 6 sites; **CHM can postdate capture**, and canopy is structural habitat, not consumable food biomass. Ground 1m² vegetation cover is ~150±50m away, NOT at traps.

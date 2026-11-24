@@ -122,7 +122,7 @@ def _audit_rest_history_rows(rows, expected):
     return documents,history_sha
 
 
-def run():
+def run(*, unit_test=original_unit_test, sampler_metadata=None):
     token=os.environ.get(TOKEN_ENV,"").strip()
     require(bool(token),"NEON authorized source token unavailable")
     prev=json.loads(SOURCE_MONTH.read_text())
@@ -360,22 +360,22 @@ def run():
                  for t in stations}
         heightB={t:mean([observed[(plot,d,t)]["height_m"] for d in cb])
                  for t in stations}
-        effect=original_unit_test(item["A"],item["B"],heightA,heightB,
-            seed=SEED+index,n_draws=DRAWS,burnin=BURNIN,swaps=SWAPS,
-            min_ess=MIN_ESS)
+        effect=unit_test(item["A"],item["B"],heightA,heightB,seed=SEED+index)
         summaries.append(effect)
         statuses[effect["status"]]+=1
         if effect["status"]=="INFORMATIVE_NONIDENTICAL_TRAP_CANOPY_NULL":
             site_z[item["site"]].append(effect["z"])
     ecological=summarize_original_sites(
         summaries,site_z,source_pairs=36,source_sites=12,source_plots=21)
-    ecological.update({
+    ecological.update(sampler_metadata if sampler_metadata is not None else {
         "null_algorithm":"original fixed genus row and station column 2x2 swap",
         "source_pair_rng_seed":SEED,
         "null_draws_per_unit":DRAWS,
         "accepted_burnin_swaps":BURNIN,
         "accepted_between_draw_swaps":SWAPS,
         "approx_null_minimum_ESS":MIN_ESS,
+    })
+    ecological.update({
         "capture_station_canopy_not_food_biomass":True,
         "future_CHM_flight_months_can_follow_rodent_captures":True,
         "canopy_shape_not_direct_competition_or_memory":True,

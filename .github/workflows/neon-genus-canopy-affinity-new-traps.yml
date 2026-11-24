@@ -1,10 +1,14 @@
-name: neon-genus-canopy-affinity-at-new-traps
+name: neon-genus-canopy-affinity-uniform-clock-v2
 on:
   push:
     branches:
       - design/multiscale-density-accommodation-v1
     paths:
       - 'analysis/neon_nonidentical_trap_CHM_affinity_v1.py'
+      - 'analysis/neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'analysis/run_neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'tests/test_neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'docs/NEON_CANOPY_AFFINITY_UNIFORM_CLOCK_CORRECTION_20261124.md'
       - 'analysis/run_neon_nonidentical_trap_CHM_affinity_v1.py'
       - 'tests/test_neon_nonidentical_trap_CHM_affinity_v1.py'
       - 'docs/NEON_CANOPY_AFFINITY_NOVEL_STATIONS_FROZEN_20261122.md'
@@ -14,6 +18,10 @@ on:
       - main
     paths:
       - 'analysis/neon_nonidentical_trap_CHM_affinity_v1.py'
+      - 'analysis/neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'analysis/run_neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'tests/test_neon_nonidentical_trap_CHM_affinity_v2.py'
+      - 'docs/NEON_CANOPY_AFFINITY_UNIFORM_CLOCK_CORRECTION_20261124.md'
       - 'analysis/run_neon_nonidentical_trap_CHM_affinity_v1.py'
       - 'tests/test_neon_nonidentical_trap_CHM_affinity_v1.py'
       - 'docs/NEON_CANOPY_AFFINITY_NOVEL_STATIONS_FROZEN_20261122.md'
@@ -38,18 +46,18 @@ jobs:
       - name: Pin previously verified AOP raster numerical stack
         run: python -m pip install numpy==2.1.1 rasterio==1.4.3
       - name: Check canopy rank tie handling, novel B trap exclusion, fixed margin null and physical site inference
-        run: python -m unittest discover -s tests -p 'test_neon_nonidentical_trap_CHM_affinity_v1.py' -v
+        run: python -m unittest discover -s tests -p 'test_neon_nonidentical_trap_CHM_affinity_v*.py' -v
       - name: Verify authorized original NEON source and immutable prior source receipt
         run: |
           test -n "$NEON_API_TOKEN"
           test -f results/neon_historical_chm_actual_pixel_source_receipt_20261028.json
       - name: Re-fetch exact original source checksums 51 AOP CHM raster tiles and freeze source selected 36 season pairs
-        run: python -m analysis.run_neon_nonidentical_trap_CHM_affinity_v1
+        run: python -m analysis.run_neon_nonidentical_trap_CHM_affinity_v2
       - name: Archive anonymous ecological exploratory GO or scientific STOP without site/genus/station labels
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: neon-canopy-new-trap-genus-habitat-association-original
-          path: build/neon_nonidentical_trap_CHM_affinity_20261122.json
+          name: neon-canopy-new-trap-genus-habitat-uniform-clock-v2
+          path: build/neon_nonidentical_trap_CHM_affinity_uniform_v2_20261124.json
           if-no-files-found: warn
           retention-days: 45
