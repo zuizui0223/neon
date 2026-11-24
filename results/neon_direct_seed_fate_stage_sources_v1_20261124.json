@@ -1,0 +1,141 @@
+{
+  "schema": "neon.direct_seed_fate_stage_sources.v1.log_receipt",
+  "provenance": {
+    "run_id": 45383874967,
+    "job_id": 138409636200,
+    "head_sha": "2f0abb68615f006eef20937922bc5e063d5cf6db",
+    "artifact_id": 14915082378,
+    "artifact_zip_sha256_reported_by_github": "01324cbf848cf56298206804eee3f780a043a22ddfdcd466a614cbe4bda22df8",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "Holt_annual_forecast_lane_closed": true,
+    "no_biological_effect_fitted": true,
+    "no_seasonal_effect_estimated": true,
+    "retrieved_utc": "2026-11-24T11:25:26.437419+00:00",
+    "schema": "neon.direct_seed_fate_stage_sources.v1",
+    "source_results": {
+      "1256359": {
+        "article_id": 1256359,
+        "article_title": "Scatter hoarding of seeds confers survival advantages and disadvantages to large-seeded tropical plants at different life stages",
+        "doi": "10.6084/m9.figshare.1256359.v1",
+        "files": [
+          {
+            "candidate": true,
+            "id": 3250769,
+            "md5": "7a4114dc050a118453d0c855194621b0",
+            "name": "Seed_hoarding_infestation&removal.csv",
+            "size": 3162
+          },
+          {
+            "candidate": false,
+            "id": 3250772,
+            "md5": "3e9500e098e5e6d26c7a1c135d90ec55",
+            "name": "ReadME_hoardingdata.rtf",
+            "size": 4140
+          },
+          {
+            "candidate": true,
+            "id": 3250775,
+            "md5": "02f8935ebf77e1d3242b90af9eb0cfad",
+            "name": "Seedling_height.csv",
+            "size": 3869
+          },
+          {
+            "candidate": false,
+            "id": 3250778,
+            "md5": "3d3a17262a2629a50ef6de9bd627b47d",
+            "name": "ReadME_seedlingheightdata.rtf",
+            "size": 2451
+          },
+          {
+            "candidate": true,
+            "id": 3250784,
+            "md5": "f4d0063872853ac7d6428799f18edcc2",
+            "name": "Seedling_survival_caged&non.csv",
+            "size": 14939
+          },
+          {
+            "candidate": false,
+            "id": 3250790,
+            "md5": "f3bab8b606dabda3011d65afe45df653",
+            "name": "ReadME_seedlingsurvivaldata.rtf",
+            "size": 2818
+          }
+        ],
+        "metadata_sha256": "80a0b9a78b9d65f39348fc521ecbdd8ceab41ab23b46a175fbc52a19e287593d",
+        "paper": "10.1371/journal.pone.0124932",
+        "role": "secondary_life_stage_inventory_only",
+        "source_receipts": [
+          {
+            "file_id": 3250769,
+            "name": "Seed_hoarding_infestation&removal.csv",
+            "schema": {
+              "candidate_headers": [
+                "SP",
+                "DEP",
+                "TREATMENT",
+                "BUR/INF",
+                "BUR/UNINF",
+                "EXP/INF",
+                "EXP/UNINF",
+                "BUR/REM",
+                "BUR/NOTREM",
+                "EXP/REM",
+                "EXP/NOTREM"
+              ],
+              "column_count": 11,
+              "header_not_confirmed_as_semantic_definition": true
+            },
+            "sha256": "60c318c95c7009f608a4a5458644c1df6b1925bd484185b1aaa16028883a8fcb",
+            "verified_md5": "7a4114dc050a118453d0c855194621b0",
+            "verified_size": 3162
+          },
+          {
+            "file_id": 3250775,
+            "name": "Seedling_height.csv",
+            "schema": {
+              "candidate_headers": [
+                "SP",
+                "ID",
+                "COND",
+                "HEIGHT"
+              ],
+              "column_count": 4,
+              "header_not_confirmed_as_semantic_definition": true
+            },
+            "sha256": "e770d9ff64a7001727d645c4a48270239cf448c58dd1aa3500ebd3ac3d2619fa",
+            "verified_md5": "02f8935ebf77e1d3242b90af9eb0cfad",
+            "verified_size": 3869
+          },
+          {
+            "file_id": 3250784,
+            "name": "Seedling_survival_caged&non.csv",
+            "schema": {
+              "candidate_headers": [
+                "SP",
+                "DEP",
+                "TREATMENT",
+                "STATUS",
+                "DAY"
+              ],
+              "column_count": 5,
+              "header_not_confirmed_as_semantic_definition": true
+            },
+            "sha256": "4d09ee3028b8df23c055c2bf0a25bbae50e07f37efaaedde20bca0af5ec19d8d",
+            "verified_md5": "f4d0063872853ac7d6428799f18edcc2",
+            "verified_size": 14939
+          }
+        ],
+        "status": "CHECKSUM_SOURCE_GO_SCHEMA_ONLY",
+        "version": 1
+      },
+      "3189775": {
+        "error_class": "ValueError",
+        "status": "STOP_METADATA_OR_PROVIDER"
+      }
+    },
+    "submission_hold": true
+  }
+}

@@ -1,0 +1,29 @@
+name: neon-seed-fate-stage-ontology-v2
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/audit_neon_seed_fate_stage_ontology_v2.py'
+      - 'analysis/neon_seed_stage_attenuation_bounds_v1.py'
+      - 'tests/test_neon_seed_fate_stage_ontology_v2.py'
+      - '.github/workflows/neon-seed-fate-stage-ontology-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-source-ontology:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 striprtf==0.0.29
+      - run: python -m unittest discover -s tests -p 'test_neon_seed_fate_stage_ontology_v2.py' -v
+      - run: python -m analysis.audit_neon_seed_fate_stage_ontology_v2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-seed-fate-stage-ontology-v2
+          path: build/neon_seed_fate_stage_ontology_v2_20261124.json
+          if-no-files-found: error
