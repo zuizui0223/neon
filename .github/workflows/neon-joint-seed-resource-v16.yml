@@ -1,0 +1,20 @@
+name: NEON joint seed resource evidence V16
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-joint-seed-resource-v16.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m analysis.audit_neon_joint_seed_resource_v16
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-joint-seed-resource-v16
+          path: build/neon_joint_seed_resource_source_v16.json
+          if-no-files-found: error
