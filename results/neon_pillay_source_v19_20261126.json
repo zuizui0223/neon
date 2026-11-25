@@ -1,0 +1,997 @@
+{
+  "bytes": 401998,
+  "effect_opened": false,
+  "exclosure_chronology_support": {
+    "age_disagrees_elapsed": 684,
+    "age_noninteger": 525,
+    "negative_dates": 0,
+    "start_range": [
+      "2014-09-09",
+      "2014-09-18"
+    ],
+    "start_unparsed": 0,
+    "stop_unparsed": 0
+  },
+  "exclosure_group_support": [
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL01-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL01-T1",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL01-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL01-T2",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL01-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL01-T4",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL01-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL01-T4",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL02-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T1",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL02-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T1",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL02-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T1",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL02-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T2",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL02-2-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T2",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL02-2-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T2",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL02-2-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T3",
+      "treatment": "logged-ctrl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL02-2-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-09"
+      ],
+      "transect": "DL02-T4",
+      "treatment": "logged-excl",
+      "tree": "DL02",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL03-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL03-T1",
+      "treatment": "logged-excl",
+      "tree": "DL03",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL03-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL03-T3",
+      "treatment": "logged-excl",
+      "tree": "DL03",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL03-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL03-T3",
+      "treatment": "logged-ctrl",
+      "tree": "DL03",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL03-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL03-T4",
+      "treatment": "logged-ctrl",
+      "tree": "DL03",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL11-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL11-T1",
+      "treatment": "logged-excl",
+      "tree": "DL11",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL11-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL11-T1",
+      "treatment": "logged-ctrl",
+      "tree": "DL11",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL11-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL11-T2",
+      "treatment": "logged-ctrl",
+      "tree": "DL11",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL11-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL11-T4",
+      "treatment": "logged-excl",
+      "tree": "DL11",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL12-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL12-T1",
+      "treatment": "logged-ctrl",
+      "tree": "DL12",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL12-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL12-T1",
+      "treatment": "logged-excl",
+      "tree": "DL12",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL12-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL12-T1",
+      "treatment": "logged-ctrl",
+      "tree": "DL12",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL12-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL12-T4",
+      "treatment": "logged-excl",
+      "tree": "DL12",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL13-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL13-T1",
+      "treatment": "logged-excl",
+      "tree": "DL13",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL13-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL13-T1",
+      "treatment": "logged-excl",
+      "tree": "DL13",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Logged",
+      "plot": "DL13-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL13-T1",
+      "treatment": "logged-ctrl",
+      "tree": "DL13",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Logged",
+      "plot": "DL13-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-11"
+      ],
+      "transect": "DL13-T2",
+      "treatment": "logged-ctrl",
+      "tree": "DL13",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL04-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL04-T1",
+      "treatment": "primary-excl",
+      "tree": "DL04",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL04-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL04-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL04",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL04-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL04-T2",
+      "treatment": "primary-ctrl",
+      "tree": "DL04",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL04-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL04-T3",
+      "treatment": "primary-excl",
+      "tree": "DL04",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL05-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL05-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL05",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL05-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL05-T2",
+      "treatment": "primary-excl",
+      "tree": "DL05",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL05-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL05-T2",
+      "treatment": "primary-ctrl",
+      "tree": "DL05",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL05-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-16"
+      ],
+      "transect": "DL05-T3",
+      "treatment": "primary-excl",
+      "tree": "DL05",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL06-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL06-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL06",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL06-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL06-T4",
+      "treatment": "primary-excl",
+      "tree": "DL06",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL06-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL06-T4",
+      "treatment": "primary-excl",
+      "tree": "DL06",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL06-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL06-T4",
+      "treatment": "primary-ctrl",
+      "tree": "DL06",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL07-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL07-T1",
+      "treatment": "primary-excl",
+      "tree": "DL07",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL07-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL07-T3",
+      "treatment": "primary-excl",
+      "tree": "DL07",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL07-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL07-T3",
+      "treatment": "primary-ctrl",
+      "tree": "DL07",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL07-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-17"
+      ],
+      "transect": "DL07-T4",
+      "treatment": "primary-ctrl",
+      "tree": "DL07",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL08-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL08-T1",
+      "treatment": "primary-excl",
+      "tree": "DL08",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL08-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL08-T3",
+      "treatment": "primary-ctrl",
+      "tree": "DL08",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL08-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL08-T3",
+      "treatment": "primary-excl",
+      "tree": "DL08",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL08-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL08-T3",
+      "treatment": "primary-ctrl",
+      "tree": "DL08",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL09-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL09-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL09",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL09-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL09-T1",
+      "treatment": "primary-excl",
+      "tree": "DL09",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL09-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL09-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL09",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL09-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL09-T2",
+      "treatment": "primary-excl",
+      "tree": "DL09",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL10-02-LC",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL10-T1",
+      "treatment": "primary-excl",
+      "tree": "DL10",
+      "unique_nonblank_seed_IDs": 5
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL10-32-HC",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL10-T1",
+      "treatment": "primary-excl",
+      "tree": "DL10",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "50",
+      "distance": "32",
+      "forest": "Unlogged",
+      "plot": "DL10-32-HO",
+      "rows": 50,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL10-T1",
+      "treatment": "primary-ctrl",
+      "tree": "DL10",
+      "unique_nonblank_seed_IDs": 50
+    },
+    {
+      "density": "5",
+      "distance": "2",
+      "forest": "Unlogged",
+      "plot": "DL10-02-LO",
+      "rows": 5,
+      "start_date_labels": [
+        "2014-09-18"
+      ],
+      "transect": "DL10-T4",
+      "treatment": "primary-ctrl",
+      "tree": "DL10",
+      "unique_nonblank_seed_IDs": 5
+    }
+  ],
+  "exclosure_source_labels": {
+    "DENS.TRT": [
+      "5",
+      "50"
+    ],
+    "DISTANCE": [
+      "2",
+      "32"
+    ],
+    "FTYPE": [
+      "Logged",
+      "Unlogged"
+    ],
+    "STAGE": [
+      "germinated",
+      "intact",
+      "seedling",
+      "ungerminated"
+    ],
+    "SURV": [
+      "0",
+      "1"
+    ],
+    "TRT": [
+      "logged-ctrl",
+      "logged-excl",
+      "primary-ctrl",
+      "primary-excl"
+    ]
+  },
+  "natural_chronology_support": {
+    "age_disagrees_elapsed": 405,
+    "age_noninteger": 258,
+    "negative_dates": 0,
+    "start_range": [
+      "2014-08-12",
+      "2014-10-22"
+    ],
+    "start_unparsed": 0,
+    "stop_unparsed": 0
+  },
+  "natural_plot_keys": 178,
+  "natural_source_labels": {
+    "DISTANCE": [
+      "16",
+      "2",
+      "32",
+      "4",
+      "8"
+    ],
+    "FTYPE": [
+      "Logged",
+      "Unlogged"
+    ],
+    "GERM": [
+      "0",
+      "1",
+      "NA"
+    ],
+    "STAGE": [
+      "germinated",
+      "intact",
+      "seedling",
+      "ungerminated"
+    ],
+    "SURV": [
+      "0",
+      "1"
+    ]
+  },
+  "natural_unique_analysis_seed_IDs": 2069,
+  "provider_md5": "4f5b6f4c58b43f488f43aab675562d9c",
+  "scope": "source-only support; no biological fate counts or treatment estimates",
+  "sha256": "25caef9e57be78484d5dd50d4021aca66eaae3256b274c93dbc90037cd9c5e14",
+  "sheets": [
+    {
+      "max_column": 9,
+      "max_row": 15,
+      "name": "Summary"
+    },
+    {
+      "max_column": 5,
+      "max_row": 14,
+      "name": "Locations"
+    },
+    {
+      "max_column": 7,
+      "max_row": 2,
+      "name": "Taxa"
+    },
+    {
+      "max_column": 9,
+      "max_row": 23,
+      "name": "TreeSize"
+    },
+    {
+      "max_column": 10,
+      "max_row": 322,
+      "name": "SeedfallTrapByDist"
+    },
+    {
+      "max_column": 24,
+      "max_row": 2079,
+      "name": "NaturalPlotsSingleRec-Seed"
+    },
+    {
+      "max_column": 18,
+      "max_row": 1550,
+      "name": "ExclosureSingleRec-Seed"
+    }
+  ],
+  "source_doi": "10.5281/zenodo.2020340",
+  "status": "VERIFIED_SOURCE_SUPPORT_ONLY",
+  "tables": {
+    "ExclosureSingleRec-Seed": {
+      "headers": [
+        "field_name",
+        "FTYPE",
+        "TREE.ID",
+        "Species",
+        "TRANSECT",
+        "BEARING",
+        "PLOT",
+        "DISTANCE",
+        "SEED.ID",
+        "DENS.TRT",
+        "TRT",
+        "START",
+        "STOP",
+        "STAGE",
+        "SURV",
+        "AGE",
+        "MORTALITY",
+        "PREDATOR"
+      ],
+      "rows": 1540
+    },
+    "NaturalPlotsSingleRec-Seed": {
+      "headers": [
+        "field_name",
+        "FTYPE",
+        "TREE.ID",
+        "Species",
+        "TRANSECT",
+        "BEARING",
+        "PLOT",
+        "DISTANCE",
+        "SEED.ID.FIELD",
+        "SEED.ID.ANALYSES",
+        "START",
+        "STOP",
+        "STAGE",
+        "GERM",
+        "SURV",
+        "AGE",
+        "CANOPY.COV",
+        "PC1",
+        "TOTAL.SEEDTRAP",
+        "TOTALDENS.SEEDTRAP",
+        "CONSP.ALL",
+        "CONSP.ALIVE",
+        "AGENT.CATEGORY.MORTALITY",
+        "PREDATOR"
+      ],
+      "rows": 2069
+    },
+    "SeedfallTrapByDist": {
+      "headers": [
+        "field_name",
+        "ftype",
+        "tree.id",
+        "Species",
+        "transect",
+        "bearing",
+        "trap",
+        "distance",
+        "PC1",
+        "seeds"
+      ],
+      "rows": 312
+    },
+    "TreeSize": {
+      "headers": [
+        "field_name",
+        "ftype",
+        "tree.id",
+        "Species",
+        "dbh_cm",
+        "measured_height_m",
+        "researcher_height_m",
+        "height_m",
+        "crown_diameter_m"
+      ],
+      "rows": 13
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "all_context_terminal_counts": [
+    {
+      "N": 35,
+      "alive_fraction": 0.14285714285714285,
+      "alive_per_m2": 0.7142857142857143,
+      "alive_seedling_fraction": 0.14285714285714285,
+      "alive_seedling_per_m2": 0.7142857142857143,
+      "arm": "open",
+      "censor_dates": [
+        "2014-10-30",
+        "2014-11-03"
+      ],
+      "density": 5,
+      "distance": 2,
+      "ever_seedling_recorded": 8,
+      "forest": "Logged",
+      "plots": 7,
+      "terminal_alive": 5,
+      "terminal_alive_seedling": 5
+    },
+    {
+      "N": 35,
+      "alive_fraction": 0.4,
+      "alive_per_m2": 2,
+      "alive_seedling_fraction": 0.4,
+      "alive_seedling_per_m2": 2,
+      "arm": "exclosure",
+      "censor_dates": [
+        "2014-10-30",
+        "2014-11-03"
+      ],
+      "density": 5,
+      "distance": 2,
+      "ever_seedling_recorded": 14,
+      "forest": "Logged",
+      "plots": 7,
+      "terminal_alive": 14,
+      "terminal_alive_seedling": 14
+    },
+    {
+      "N": 350,
+      "alive_fraction": 0.10857142857142857,
+      "alive_per_m2": 5.428571428571429,
+      "alive_seedling_fraction": 0.10857142857142857,
+      "alive_seedling_per_m2": 5.428571428571429,
+      "arm": "open",
+      "censor_dates": [
+        "2014-10-30",
+        "2014-11-03"
+      ],
+      "density": 50,
+      "distance": 32,
+      "ever_seedling_recorded": 51,
+      "forest": "Logged",
+      "plots": 7,
+      "terminal_alive": 38,
+      "terminal_alive_seedling": 38
+    },
+    {
+      "N": 350,
+      "alive_fraction": 0.38285714285714284,
+      "alive_per_m2": 19.142857142857142,
+      "alive_seedling_fraction": 0.38285714285714284,
+      "alive_seedling_per_m2": 19.142857142857142,
+      "arm": "exclosure",
+      "censor_dates": [
+        "2014-10-30",
+        "2014-11-03"
+      ],
+      "density": 50,
+      "distance": 32,
+      "ever_seedling_recorded": 139,
+      "forest": "Logged",
+      "plots": 7,
+      "terminal_alive": 134,
+      "terminal_alive_seedling": 134
+    },
+    {
+      "N": 35,
+      "alive_fraction": 0.2,
+      "alive_per_m2": 1,
+      "alive_seedling_fraction": 0.2,
+      "alive_seedling_per_m2": 1,
+      "arm": "open",
+      "censor_dates": [
+        "2014-10-19",
+        "2014-10-22"
+      ],
+      "density": 5,
+      "distance": 2,
+      "ever_seedling_recorded": 8,
+      "forest": "Unlogged",
+      "plots": 7,
+      "terminal_alive": 7,
+      "terminal_alive_seedling": 7
+    },
+    {
+      "N": 35,
+      "alive_fraction": 0.22857142857142856,
+      "alive_per_m2": 1.1428571428571428,
+      "alive_seedling_fraction": 0.22857142857142856,
+      "alive_seedling_per_m2": 1.1428571428571428,
+      "arm": "exclosure",
+      "censor_dates": [
+        "2014-10-19",
+        "2014-10-22"
+      ],
+      "density": 5,
+      "distance": 2,
+      "ever_seedling_recorded": 8,
+      "forest": "Unlogged",
+      "plots": 7,
+      "terminal_alive": 8,
+      "terminal_alive_seedling": 8
+    },
+    {
+      "N": 350,
+      "alive_fraction": 0.20285714285714285,
+      "alive_per_m2": 10.142857142857142,
+      "alive_seedling_fraction": 0.20285714285714285,
+      "alive_seedling_per_m2": 10.142857142857142,
+      "arm": "open",
+      "censor_dates": [
+        "2014-10-19",
+        "2014-10-20",
+        "2014-10-21",
+        "2014-10-22"
+      ],
+      "density": 50,
+      "distance": 32,
+      "ever_seedling_recorded": 86,
+      "forest": "Unlogged",
+      "plots": 7,
+      "terminal_alive": 71,
+      "terminal_alive_seedling": 71
+    },
+    {
+      "N": 350,
+      "alive_fraction": 0.21142857142857144,
+      "alive_per_m2": 10.571428571428571,
+      "alive_seedling_fraction": 0.21142857142857144,
+      "alive_seedling_per_m2": 10.571428571428571,
+      "arm": "exclosure",
+      "censor_dates": [
+        "2014-10-19",
+        "2014-10-21",
+        "2014-10-22"
+      ],
+      "density": 50,
+      "distance": 32,
+      "ever_seedling_recorded": 100,
+      "forest": "Unlogged",
+      "plots": 7,
+      "terminal_alive": 74,
+      "terminal_alive_seedling": 74
+    }
+  ],
+  "interpretation": "Treatment comparisons within matched contexts concern recorded terminal fate and exclusion of vertebrates (and potential cage effects), not taxon-specific predation or dispersal. No causal density-distance contrast. No cross-season or geographic inference.",
+  "locked_primary": "All 56 plots; terminal alive seedling = SURV 0 and STAGE seedling, separately terminal alive (any stage). Use complete original seeds. Pair at source tree × distance/density × start-date block, equal replicate plots each arm. Source tree grouping rather than guessed transect pair. Equal tree-weighted contrast, no p-value. Verify terminal censor dates within block, deaths no later than censor date where known. Do not infer exact death time from STOP or AGE. Cross-density contrast only where all four arms have same start and censor date within tree where known. Require all blocks, no outcome-based removal.",
+  "paired_block_support": {
+    "matched_duration_range": [
+      32,
+      53
+    ],
+    "source_tree_blocks": 24,
+    "source_trees": 12,
+    "time_issues": {
+      "block_final_censor_date_not_unique_or_absent": 8
+    },
+    "time_matched_blocks": 16
+  },
+  "scope": "Terminal recorded fate only, not 30-day survival, actual recruitment to adulthood or direct mammal dispersal. Density 5 vs 50 perfectly confounded with distance 2 vs 32 m. One 2014 mast event.",
+  "source_doi": "10.5281/zenodo.2020340",
+  "status": "TERMINAL_COUNTS_ONLY_PAIRED_TIMING_STOP",
+  "strict_30d_status": "STOP_AGE_DATE_MISMATCH_UNRESOLVED",
+  "provenance": {
+    "analysis_commit": "43993a0fc662688c456f5474c1b0876824831cf4",
+    "run_id": 45659783233,
+    "job_id": 139366207325,
+    "artifact_id": 15043943454,
+    "artifact_zip_sha256_reported": "9755d1ed9a5f9c9d511f6d0f832058541d82fc8e3025b7b0274b8893829bd192",
+    "workbook_sha256": "25caef9e57be78484d5dd50d4021aca66eaae3256b274c93dbc90037cd9c5e14",
+    "source_audit_run": 45659544821,
+    "source_audit_artifact": 15042814999,
+    "source_audit_zip_sha256_reported": "6963ffc1db0cef15c0fe5d84d80d86d0de49b0d20b37e21dff3a25eaf1782904"
+  },
+  "descriptive_unmatched_context_contrasts": [
+    {
+      "forest": "Logged",
+      "arm": "open",
+      "low": {
+        "seedlings": 5,
+        "N": 35,
+        "fraction": 0.14285714285714285,
+        "per_m2": 0.7142857142857143
+      },
+      "high": {
+        "seedlings": 38,
+        "N": 350,
+        "fraction": 0.10857142857142857,
+        "per_m2": 5.428571428571429
+      },
+      "fraction_difference": -0.03428571428571428,
+      "ratio": 7.6000000000000005,
+      "rate_ratio": 0.76,
+      "opposing_direction": true
+    },
+    {
+      "forest": "Logged",
+      "arm": "exclosure",
+      "low": {
+        "seedlings": 14,
+        "N": 35,
+        "fraction": 0.4,
+        "per_m2": 2
+      },
+      "high": {
+        "seedlings": 134,
+        "N": 350,
+        "fraction": 0.38285714285714284,
+        "per_m2": 19.142857142857142
+      },
+      "fraction_difference": -0.017142857142857182,
+      "ratio": 9.571428571428571,
+      "rate_ratio": 0.9571428571428571,
+      "opposing_direction": true
+    },
+    {
+      "forest": "Unlogged",
+      "arm": "open",
+      "low": {
+        "seedlings": 7,
+        "N": 35,
+        "fraction": 0.2,
+        "per_m2": 1
+      },
+      "high": {
+        "seedlings": 71,
+        "N": 350,
+        "fraction": 0.20285714285714285,
+        "per_m2": 10.142857142857142
+      },
+      "fraction_difference": 0.002857142857142836,
+      "ratio": 10.142857142857142,
+      "rate_ratio": 1.0142857142857142,
+      "opposing_direction": false
+    },
+    {
+      "forest": "Unlogged",
+      "arm": "exclosure",
+      "low": {
+        "seedlings": 8,
+        "N": 35,
+        "fraction": 0.22857142857142856,
+        "per_m2": 1.1428571428571428
+      },
+      "high": {
+        "seedlings": 74,
+        "N": 350,
+        "fraction": 0.21142857142857144,
+        "per_m2": 10.571428571428571
+      },
+      "fraction_difference": -0.017142857142857126,
+      "ratio": 9.25,
+      "rate_ratio": 0.925,
+      "opposing_direction": true
+    }
+  ],
+  "claim_ceiling": "Actual recorded terminal living seedling counts per nominal experimental 1m² plot. Pooled descriptive context comparisons only, not equal-tree or common-duration effects; 8/24 matched timing blocks failed, so no paired effects opened. No inferred vertebrate or causal density effect. Counts are artificial seed addition not natural seedling density."
+}
