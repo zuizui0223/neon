@@ -1,4 +1,4 @@
-name: NEON Merz terminal seed identity V8
+name: NEON Merz terminal seed identity V8 fixed iteration
 on:
   push:
     branches: [analysis/seasonal-seed-fate-stage-v1-20261125]

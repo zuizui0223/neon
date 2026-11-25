@@ -11,7 +11,7 @@ def main():
     valid={k:r for k,r in stations.items() if r['Treatment'] in ('high density','low density') and integer(r['WP.seeds.set'])>0}
     cells=C.defaultdict(list)
     for k,r in valid.items(): cells[k[0],r['Treatment'],k[2]].append(k)
-    shared=sorted({(g,t) for g,t,p in cells if all(len(cells[g,t,m])>=2 for m in ('3','5'))})
+    shared=sorted({(g,t) for g,t,p in cells if all(len(cells.get((g,t,m),[]))>=2 for m in ('3','5'))})
     target={k for g,t in shared for p in ('3','5') for k in cells[g,t,p]}
     assert len(target)==159
     rows=[r for r in a if keys(r,SK) in target and r['Seed.SPP']=='WP' and r['Seed.Found..Y.N.']=='Y' and r[FATE] in ('D','E')]
