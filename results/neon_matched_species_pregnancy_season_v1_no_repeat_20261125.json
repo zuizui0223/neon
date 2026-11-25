@@ -1,0 +1,105 @@
+{
+  "schema": "neon.matched_species_pregnancy_season.v1.no_repeat.log_receipt",
+  "provenance": {
+    "run_id": 45531386731,
+    "job_id": 138928379523,
+    "head_sha": "05e08188f3efc856501a813621eb9f783ad5ff02",
+    "artifact_id": 14985006807,
+    "artifact_zip_sha256_reported_by_github": "36f1a6db0797dc3d41def407768cea8b124c029e2ceb5d5adee2752e69b99c88",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "effect": null,
+    "eligible_pair_site_years": 3,
+    "heldout_evaluable_sites": 0,
+    "heldout_site_pair_count": 0,
+    "issues": {
+      "ambiguous_or_replaced_tag": 1147,
+      "capture_noncanonical_trap": 6,
+      "event_alternative_bouts_in_same_season": 152,
+      "event_not_complete_events": 774,
+      "event_not_exact_three_night_events": 2188,
+      "event_not_three_protocol_calendar_dates": 5,
+      "event_special_nonsquare_site_sessions": 126,
+      "event_straddles_meteorological_season_events": 19,
+      "not_exact_target_binomial": 967
+    },
+    "no_resource_or_coexistence_mechanism_estimated": true,
+    "prior_seedfall_effect_lane_closed": true,
+    "repeated_site_pair_count": 0,
+    "retrieved_utc": "2026-11-25T02:16:26.263188+00:00",
+    "schema": "neon.matched_species_pregnancy_season.v1",
+    "selected_bouts": 755,
+    "sites_with_any_eligible_pair": 2,
+    "species_pairs_with_at_least_three_repeated_sites": 0,
+    "status": "NO_CROSS_SITE_REPEAT_SUPPORT",
+    "submission_hold": true,
+    "support": {
+      "eligible_pair_site_years": 3,
+      "insufficient_known_status": 91,
+      "observed_pair_site_years": 94,
+      "paired_plot_years": 244,
+      "site_years_with_paired_plot_windows": 114
+    },
+    "verified_mammal_files": 1760
+  },
+  "anonymous_eligible_local_examples": [
+    {
+      "pairs": [
+        {
+          "mean_D": 0.509090909090909,
+          "negative_years": 0,
+          "positive_years": 1,
+          "species_a": [
+            "MIOR",
+            "Microtus oregoni"
+          ],
+          "species_b": [
+            "PEMA",
+            "Peromyscus maniculatus"
+          ],
+          "unknown_hi": 0.5757575757575758,
+          "unknown_lo": 0.2840909090909091,
+          "years": 1
+        },
+        {
+          "mean_D": 0,
+          "negative_years": 0,
+          "positive_years": 0,
+          "species_a": [
+            "PEMA",
+            "Peromyscus maniculatus"
+          ],
+          "species_b": [
+            "ZATR",
+            "Zapus trinotatus"
+          ],
+          "unknown_hi": 0,
+          "unknown_lo": 0,
+          "years": 1
+        }
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "mean_D": 0.06512820512820512,
+          "negative_years": 0,
+          "positive_years": 1,
+          "species_a": [
+            "PELE",
+            "Peromyscus leucopus"
+          ],
+          "species_b": [
+            "PEMA",
+            "Peromyscus maniculatus"
+          ],
+          "unknown_hi": 0.25828460038986356,
+          "unknown_lo": -0.13157894736842105,
+          "years": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+name: neon-observed-rank-reversal-recurrence
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/run_neon_observed_rank_reversal_recurrence_v1.py'
+      - 'tests/test_neon_observed_rank_reversal_recurrence_v1.py'
+      - '.github/workflows/neon-observed-rank-reversal-recurrence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recurrence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_observed_rank_reversal_recurrence_v1.py' -v
+      - run: python -m analysis.run_neon_observed_rank_reversal_recurrence_v1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-observed-rank-reversal-recurrence
+          path: build/neon_observed_rank_reversal_recurrence_20261125.json
+          if-no-files-found: warn

@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: reproductive-season transfer STOP; return to spatial recurrence under observed capture rank reversal
+
+[Run 45531386731](https://github.com/zuizui0223/neon/actions/runs/45531386731): 94 observed pair-site-years, three eligible at two sites, zero repeated. No transferable reproductive contrast. [Receipt](results/neon_matched_species_pregnancy_season_v1_no_repeat_20261125.json). New post-result exploratory question on original 158 exact-two pairs: capture-count rank reversal before and after shared-tag removal, original exact station null and whole-site source-reuse sensitivity. [Protocol](docs/NEON_OBSERVED_RANK_REVERSAL_RECURRENCE_20261125.md). No ecological mechanism or independent confirmation; DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: native seedfall-pregnancy endpoint closed; direct relative reproductive seasonality
 
 [Run 45530502934](https://github.com/zuizui0223/neon/actions/runs/45530502934) completed 7,009 verified files: 19 matched resource year-pairs, two with matched spring plots/dates, zero eligible pregnancy comparisons. No effect, no threshold relaxation. Separate prospective matched species pregnancy contrast (May–June vs Aug–Sep) within observed shared plots, held-out-site transfer vs zero contrast, fixed 1,760-file mammal source and all 32 sites. [Protocol](docs/NEON_MATCHED_SPECIES_PREGNANCY_SEASON_20261125.md). No causal resource, competition or coexistence inference. DRAFT / SUBMISSION HOLD.
