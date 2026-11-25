@@ -1,0 +1,300 @@
+{
+  "status": "DESCRIPTIVE_STAGE_SYNTHESIS_NOT_META_ANALYSIS",
+  "definition": "Conversion ratio = (downstream1/upstream1)/(downstream0/upstream0); distinct nested observation endpoints, no across-stage pooling or universal direction; intervals are conservative marginal envelopes, not CIs.",
+  "rows": [
+    {
+      "study": "Lu & Zhang 2004",
+      "context": "low",
+      "contrast": "summer→autumn",
+      "upstream": "removed",
+      "downstream": "recorded hoarded",
+      "upstream_ratio": [
+        18.62962962962963,
+        18.62962962962963
+      ],
+      "downstream_ratio": [
+        10.624999999999998,
+        10.624999999999998
+      ],
+      "conversion_ratio": [
+        0.570328031809145,
+        0.570328031809145
+      ],
+      "log2_conversion_ratio": [
+        -0.810136151504357,
+        -0.810136151504357
+      ],
+      "observed_propagation": "attenuation",
+      "scope": "published counts; some other fate columns inconsistent; unknown caching not identified"
+    },
+    {
+      "study": "Lu & Zhang 2004",
+      "context": "high",
+      "contrast": "summer→autumn",
+      "upstream": "removed",
+      "downstream": "recorded hoarded",
+      "upstream_ratio": [
+        13.571428571428571,
+        13.571428571428571
+      ],
+      "downstream_ratio": [
+        17.71428571428571,
+        17.71428571428571
+      ],
+      "conversion_ratio": [
+        1.3052631578947367,
+        1.3052631578947367
+      ],
+      "log2_conversion_ratio": [
+        0.3843407020559272,
+        0.3843407020559272
+      ],
+      "observed_propagation": "amplification",
+      "scope": "published counts; some other fate columns inconsistent; unknown caching not identified"
+    },
+    {
+      "study": "Li et al. 2021",
+      "context": "four seed species pooled",
+      "contrast": "spring→autumn",
+      "upstream": "removed or eaten in situ",
+      "downstream": "removed",
+      "upstream_ratio": [
+        0.8724941724941726,
+        0.8724941724941726
+      ],
+      "downstream_ratio": [
+        1.4993224932249323,
+        1.4993224932249323
+      ],
+      "conversion_ratio": [
+        1.718432673239369,
+        1.718432673239369
+      ],
+      "log2_conversion_ratio": [
+        0.7810933292275616,
+        0.7810933292275616
+      ],
+      "observed_propagation": "reversal",
+      "scope": "rounded published proportions; unequal stations and unknown mixture; handling definition is recorded removal or on-site eating"
+    },
+    {
+      "study": "Li et al. 2021",
+      "context": "four seed species pooled",
+      "contrast": "spring→autumn",
+      "upstream": "removed",
+      "downstream": "recorded hoarded",
+      "upstream_ratio": [
+        1.4993224932249323,
+        1.4993224932249323
+      ],
+      "downstream_ratio": [
+        1.7687443541102077,
+        1.7687443541102077
+      ],
+      "conversion_ratio": [
+        1.1796957373098358,
+        1.1796957373098358
+      ],
+      "log2_conversion_ratio": [
+        0.23841481308152718,
+        0.23841481308152718
+      ],
+      "observed_propagation": "amplification",
+      "scope": "rounded published proportions; true hoarding direction unresolved with missing fates"
+    },
+    {
+      "study": "Vavra & Guiden 2025",
+      "context": "maple, all recorded actors",
+      "contrast": "Dec→Jan",
+      "upstream": "handled",
+      "downstream": "carried whole",
+      "upstream_ratio": [
+        0.17142857142857143,
+        0.17142857142857143
+      ],
+      "downstream_ratio": [
+        1.25,
+        1.25
+      ],
+      "conversion_ratio": [
+        7.291666666666667,
+        7.291666666666667
+      ],
+      "log2_conversion_ratio": [
+        2.8662486111111725,
+        2.8662486111111725
+      ],
+      "observed_propagation": "reversal",
+      "scope": "verified original data; one forest, January six seeds; not equivalence or annual inference"
+    },
+    {
+      "study": "Haugaasen et al. 2010",
+      "context": "Brazil nut",
+      "contrast": "dry→wet",
+      "upstream": "recorded primary burial",
+      "downstream": "recorded relocation",
+      "upstream_ratio": [
+        2.610655737704918,
+        2.610655737704918
+      ],
+      "downstream_ratio": [
+        12.666666666666666,
+        12.666666666666666
+      ],
+      "conversion_ratio": [
+        4.851909994767138,
+        4.851909994767138
+      ],
+      "log2_conversion_ratio": [
+        2.2785527880290153,
+        2.2785527880290153
+      ],
+      "observed_propagation": "amplification",
+      "scope": "published aggregate; relocation and persistence are separate outcomes; latent primary burial direction unresolved"
+    },
+    {
+      "study": "Haugaasen et al. 2010",
+      "context": "Brazil nut",
+      "contrast": "dry→wet",
+      "upstream": "recorded primary burial",
+      "downstream": "original cache persistence",
+      "upstream_ratio": [
+        2.610655737704918,
+        2.610655737704918
+      ],
+      "downstream_ratio": [
+        1.5,
+        1.5
+      ],
+      "conversion_ratio": [
+        0.574568288854003,
+        0.574568288854003
+      ],
+      "log2_conversion_ratio": [
+        -0.7994497239722582,
+        -0.7994497239722582
+      ],
+      "observed_propagation": "attenuation",
+      "scope": "published aggregate; rare recorded persistence, not total survival or establishment"
+    },
+    {
+      "study": "Merz et al. 2026",
+      "context": "pooled density",
+      "contrast": "Aug→Oct",
+      "upstream": "recorded focal D/E handling",
+      "downstream": "recorded focal D carriage",
+      "upstream_ratio": [
+        0.5099915564311849,
+        0.5305614523094941
+      ],
+      "downstream_ratio": [
+        0.2102812898167206,
+        0.21447493377317942
+      ],
+      "conversion_ratio": [
+        0.398266612301191,
+        0.41857825271640586
+      ],
+      "log2_conversion_ratio": [
+        -1.3281935548952206,
+        -1.2564307367414662
+      ],
+      "observed_propagation": "amplification",
+      "scope": "V8 ambiguity scenarios, singleton assumption; equal matched effort weights; not all animals or true carriage"
+    },
+    {
+      "study": "Merz et al. 2026",
+      "context": "low density",
+      "contrast": "Aug→Oct",
+      "upstream": "recorded focal D/E handling",
+      "downstream": "recorded focal D carriage",
+      "upstream_ratio": [
+        0.5969353764157227,
+        0.6273777570311585
+      ],
+      "downstream_ratio": [
+        0.4521531100478469,
+        0.6631578947368422
+      ],
+      "conversion_ratio": [
+        0.7318892045454549,
+        1.0945312500000004
+      ],
+      "log2_conversion_ratio": [
+        -0.4503028290980402,
+        0.13031314554345627
+      ],
+      "observed_propagation": "unresolved_or_flat",
+      "scope": "V8 ambiguity scenarios, singleton assumption; equal matched effort weights; not all animals or true carriage"
+    },
+    {
+      "study": "Merz et al. 2026",
+      "context": "high density",
+      "contrast": "Aug→Oct",
+      "upstream": "recorded focal D/E handling",
+      "downstream": "recorded focal D carriage",
+      "upstream_ratio": [
+        0.46966731898238767,
+        0.4863221884498482
+      ],
+      "downstream_ratio": [
+        0.19444444444444442,
+        0.19444444444444442
+      ],
+      "conversion_ratio": [
+        0.3998263888888887,
+        0.4140046296296295
+      ],
+      "log2_conversion_ratio": [
+        -1.3225544005368297,
+        -1.272281194055606
+      ],
+      "observed_propagation": "amplification",
+      "scope": "V8 ambiguity scenarios, singleton assumption; equal matched effort weights; not all animals or true carriage"
+    }
+  ],
+  "beech": {
+    "contrast": "2018/19→2020/21",
+    "first": {
+      "ex_situ_fraction": [
+        0.2,
+        0.2722222222222222
+      ],
+      "total_germination_fraction": [
+        0.2222222222222222,
+        0.29444444444444445
+      ]
+    },
+    "second": {
+      "ex_situ_fraction": [
+        0.3611111111111111,
+        0.45555555555555555
+      ],
+      "total_germination_fraction": [
+        0.011111111111111112,
+        0.10555555555555556
+      ]
+    },
+    "ex_situ_change": [
+      0.0888888888888889,
+      0.25555555555555554
+    ],
+    "total_germination_change": [
+      -0.2833333333333333,
+      -0.11666666666666665
+    ],
+    "scope": "separate year contrast; ex-situ location and total germination not nested; no causal or seasonal inference; worst-case missing assignments only"
+  },
+  "provenance": {
+    "source_commit": "fa05d2f595cf9a33b4e98cd6262470d7991ae4f6",
+    "source_blobs": {
+      "data/neon_lu2004_published_seasonal_release_counts_20261124.json": "955451b6d0b1c5e000a7dd0aec435ce206d37967",
+      "data/neon_li2021_seasonal_published_fates_20261124.json": "91f979fed0e59c446d3054e33201a72d176b6585",
+      "docs/NEON_VAVRA_ACTOR_SEASONAL_V5_20261125.md": "635caf7574c8f6a7cac3b2bc55fc76c98e5cf375",
+      "docs/NEON_AMAZON_SEASONAL_STAGE_V4_20261125.md": "f9a931dad81a9244feba657f8735672b69abaa39",
+      "results/neon_merz_ambiguity_envelope_v8_20261125.json": "682df8d07c05e3710971999e13e1c87e3ba73179",
+      "results/neon_merz_density_seed_v9_20261125.json": "e2f06c75a4ee7024ca4ad566b0237a469fd483a6",
+      "results/neon_sachser_downstream_fate_v11_20261125.json": "19c6472d126ddb8660e44c78053c7a219bc0d171"
+    }
+  }
+}
