@@ -1,0 +1,21 @@
+name: NEON Merz matched seasonal stage V7
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-matched-stage-v7.yml'
+permissions:
+  contents: read
+jobs:
+  matched:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run frozen station-night reconciliation and descriptive comparison
+        run: python3 analysis/neon_merz_matched_stage_v7.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-matched-stage-v7
+          path: merz_matched_stage.json
+          if-no-files-found: error
