@@ -1,0 +1,205 @@
+{
+  "ambiguous_groups": 5,
+  "assumption": "Singleton terminal label/action records correctly identify distinct physical seeds. Every ambiguous group can contribute neither, either, or both records; no choice based on effects. Bounds address five identified groups, not arbitrary misclassification.",
+  "decision": {
+    "all_disappearance_carriage_fraction_direction_identified": false,
+    "complete_compensation_all": false,
+    "composition_negative_all": false,
+    "composition_positive_all": true,
+    "partial_attenuation_all": false
+  },
+  "decision_rule": "complete compensation if H1<H0 and Y1>=Y0 for every feasible scenario; partial if 0<Y1/Y0<1 and H1/H0<Y1/Y0 across every scenario; positive composition term only if its lower endpoint >0. No equivalence, CI, or causal test.",
+  "enumerated": 1024,
+  "estimand": "SENSITIVITY_ONLY; recorded PM/MG WP terminal carriage and consumption per station-night",
+  "feasible": 1024,
+  "frozen_V7_strict_status": "STOP_UNCHANGED",
+  "grid_direction_counts": {
+    "grid_H_decrease": [
+      3,
+      3
+    ],
+    "grid_Y_non_decrease": [
+      2,
+      2
+    ]
+  },
+  "matched_cells": 8,
+  "matched_grids": 4,
+  "matched_nights": {
+    "3": 63,
+    "5": 96
+  },
+  "metric_ranges": {
+    "H0": [
+      3.209821428571429,
+      3.3392857142857144
+    ],
+    "H1": [
+      1.7030075187969924,
+      1.7030075187969924
+    ],
+    "H_ratio": [
+      0.5099915564311849,
+      0.5305614523094941
+    ],
+    "Y0": [
+      0.7834821428571428,
+      0.7991071428571428
+    ],
+    "Y1": [
+      0.1680372807017544,
+      0.1680372807017544
+    ],
+    "Y_per_offer0": [
+      0.05409153952843273,
+      0.05517028817999691
+    ],
+    "Y_per_offer1": [
+      0.011966412613954215,
+      0.011966412613954215
+    ],
+    "Y_ratio": [
+      0.2102812898167206,
+      0.21447493377317942
+    ],
+    "all_disappearance_carriage_delta_hi": [
+      0.742955286807529,
+      0.7444258750428231
+    ],
+    "all_disappearance_carriage_delta_lo": [
+      -0.7517327342508509,
+      -0.7410184485365651
+    ],
+    "allocation": [
+      -0.3673668767379201,
+      -0.34447199251509514
+    ],
+    "composition_hi": [
+      0.11261211854302404,
+      0.12349236790029723
+    ],
+    "composition_lo": [
+      0.11261211854302404,
+      0.12349236790029723
+    ],
+    "delta_H": [
+      -1.636278195488722,
+      -1.5068139097744364
+    ],
+    "delta_Y": [
+      -0.6310698621553884,
+      -0.6154448621553884
+    ],
+    "delta_q": [
+      -0.1490799673329921,
+      -0.13705777924549464
+    ],
+    "intensity": [
+      -0.2765111428914516,
+      -0.25823770022854414
+    ],
+    "q0": [
+      0.2357286769644056,
+      0.24775086505190308
+    ],
+    "q1": [
+      0.09867089771891097,
+      0.09867089771891097
+    ],
+    "rate_3_MG_D": [
+      0.65625,
+      0.671875
+    ],
+    "rate_3_MG_E": [
+      0.5625,
+      0.5625
+    ],
+    "rate_3_PM_D": [
+      0.12723214285714285,
+      0.12723214285714285
+    ],
+    "rate_3_PM_E": [
+      1.863839285714286,
+      1.9776785714285716
+    ],
+    "rate_5_MG_D": [
+      0.07428728070175439,
+      0.07428728070175439
+    ],
+    "rate_5_MG_E": [
+      0.9555921052631576,
+      0.9555921052631576
+    ],
+    "rate_5_PM_D": [
+      0.09375,
+      0.09375
+    ],
+    "rate_5_PM_E": [
+      0.5793781328320805,
+      0.5793781328320805
+    ],
+    "raw_3_MG_D": [
+      42,
+      43
+    ],
+    "raw_3_MG_E": [
+      36,
+      36
+    ],
+    "raw_3_PM_D": [
+      8,
+      8
+    ],
+    "raw_3_PM_E": [
+      117,
+      124
+    ],
+    "raw_5_MG_D": [
+      10,
+      10
+    ],
+    "raw_5_MG_E": [
+      108,
+      108
+    ],
+    "raw_5_PM_D": [
+      6,
+      6
+    ],
+    "raw_5_PM_E": [
+      50,
+      50
+    ],
+    "relative_attenuation_ratio_difference": [
+      -0.3177099686061532,
+      -0.29791416523357184
+    ],
+    "within_hi": [
+      -0.480427053876074,
+      -0.46738578242983725
+    ],
+    "within_lo": [
+      -0.480427053876074,
+      -0.46738578242983725
+    ]
+  },
+  "rejected_cap": 0,
+  "singleton_groups": 552,
+  "source_doi": "10.6084/m9.figshare.28207769.v2",
+  "status": "DESCRIPTIVE_AMBIGUITY_ENVELOPE",
+  "weighted_field_disappearance": {
+    "3": 10.625,
+    "5": 8.44157268170426
+  },
+  "weighted_offered": {
+    "3": 14.484375,
+    "5": 14.042410714285714
+  },
+  "provenance": {
+    "run_id": 45583966401,
+    "job_id": 139100707827,
+    "artifact_id": 15007727249,
+    "artifact_zip_sha256": "b9e9084a0a7605310183729767fef676a3ef8044f4d3b134f7c31a1282b74698",
+    "frozen_analysis_commit": "a480ebfa53750ac0d6f465a8333415e68f904ec1"
+  }
+}
