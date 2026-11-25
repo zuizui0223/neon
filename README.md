@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: native NEON resource-to-breeding bridge; external cohort source STOP
+
+[Run 45528338340](https://github.com/zuizui0223/neon/actions/runs/45528338340): Huang Dryad HTTPError; Lichti Figshare appendices and verified R code only, no cohort data. Prior art Stephens 2024 shows species-specific 24–79-day breeding offsets (two Peromyscus differ by 55 days). New native same-release NEON seed litterfall DP1.10033.001 × small mammals DP1.10072.001 support workflow (2017–2025). Site-level measured deposition proxy, not edible food/cache stocks. Calendar and source keys only before effect; no inferred zero, no causal mechanism or new result. [Protocol](docs/NEON_NATIVE_SEEDFALL_MAMMAL_BREEDING_BRIDGE_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: Poland session reconstruction closed; independent resource-pulse fraction vs loss-density example
 
 [Run 45426233617](https://github.com/zuizui0223/neon/actions/runs/45426233617) date-only reconstruction 83/90 sessions, 13/18 full site-year rosters; eight over-80 groups, two nonconstant abundance, STOP before effects. No further calendar regrouping. Huang 2021 printed extremes: rodent loss fraction 61.12→46.15%, but implied loss density 15.77→145.51 seeds/m² under original reported normalization (not directly measured intake). New public-source inventory: six-year Huang annual Dryad summary, North American Lichti publisher Figshare collection. [Closure and evidence](docs/NEON_INDEPENDENT_RESOURCE_STAGE_SOURCE_BRIDGE_20261125.md). No density fit, pooling or causal NEON link. DRAFT / SUBMISSION HOLD.

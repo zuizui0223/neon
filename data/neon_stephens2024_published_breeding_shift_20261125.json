@@ -1,0 +1,21 @@
+{
+  "schema": "neon.stephens2024.published_breeding_shift.v1",
+  "doi": "10.1111/1365-2656.14148",
+  "url": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.14148",
+  "source_sections": "Results, Figure 6 and discussion",
+  "n_years": 12,
+  "n_masting_events": 6,
+  "n_species": 5,
+  "early_vs_late_reported_mean_lactation_advance_days": {
+    "Peromyscus_leucopus": 24,
+    "Napaeozapus_insignis": 37,
+    "Blarina_brevicauda": 51,
+    "Peromyscus_maniculatus": 79,
+    "Myodes_gapperi": null
+  },
+  "myodes_note": "Different pattern with two breeding periods in early-availability years; no invented single shift.",
+  "within_peromyscus_reported_shift_difference_days": 55,
+  "descriptive_only": true,
+  "no_species_level_causal_comparison": true,
+  "scope": "Published prior art, not NEON or a newly estimated biological effect."
+}

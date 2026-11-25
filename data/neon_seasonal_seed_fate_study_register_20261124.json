@@ -102,18 +102,27 @@
       "doi": "10.1111/1365-2745.13722",
       "region": "Jinyunshan, Chongqing",
       "site_group": "jinyunshan",
-      "status": "PUBLISHED_EXTREME_FRACTION_DENSITY_ARITHMETIC",
+      "status": "PUBLISHED_EXTREME_ARITHMETIC_ONLY_DRYAD_HTTP_STOP",
       "data_doi": "10.5061/dryad.4qrfj6q9m",
-      "restriction": "Natural annual seed rain, adjacent seed bank and seedling quadrats; no individual tracked cohort; no rodent abundance, no observed consumption biomass."
+      "restriction": "Original six-year CSV provider HTTP error; no six-year analysis. Keep published extreme contrast only."
     },
     {
       "study": "Lichti et al. 2014",
       "doi": "10.1890/13-1657.1",
       "region": "North American temperate hardwoods",
       "site_group": "lichti_north_america",
-      "status": "PUBLISHER_LINKED_FIGSHARE_COLLECTION_INVENTORY_PENDING",
+      "status": "APPENDICES_AND_CODE_ONLY_NO_RAW_COHORT_VERIFIED",
       "data_doi": "10.6084/m9.figshare.c.3306858",
-      "restriction": "Tagged seed pairwise combinations, dormancy and relative supply; no direct calendar season test. Actual file types and cohort-level endpoints not yet established."
+      "restriction": "Collection contains four appendices and R analysis code; individual cohort data not verified. No further raw data inference."
+    },
+    {
+      "study": "Stephens et al. 2024",
+      "doi": "10.1111/1365-2656.14148",
+      "data_doi": "10.5061/dryad.nvx0k6f0t",
+      "region": "Bartlett Experimental Forest, northeastern USA",
+      "site_group": "bartlett",
+      "status": "PUBLISHED_MAMMAL_BREEDING_PRIOR_ART",
+      "restriction": "12 years, five species; current versus cached seed supply and species-dependent lactation timing already reported. Do not claim novel. No original bytes retrieved."
     }
   ],
   "next_gate": "Verify actual release cohort, matched followup, denominators, fate definitions and site dependence. Resource phase only from independent measurements. No meta-analysis yet."

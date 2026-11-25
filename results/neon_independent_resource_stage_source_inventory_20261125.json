@@ -1,0 +1,115 @@
+{
+  "schema": "neon.independent.resource_stage.source_inventory.v1.log_receipt",
+  "provenance": {
+    "run_id": 45528338340,
+    "job_id": 138917132671,
+    "head_sha": "56bf641a5d36b20179f7ca57fe28757212636cad",
+    "artifact_id": 14982259447,
+    "artifact_zip_sha256_reported_by_github": "ab4c69d7621c85c0362b07190f03462f8c096cd436e02326baf9d384836ed911",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "huang_dryad": {
+      "error_class": "HTTPError",
+      "reason": "UNEXPORTED_ERROR",
+      "status": "SOURCE_STOP"
+    },
+    "lichti_figshare": {
+      "articles": [
+        {
+          "doi": "10.6084/m9.figshare.3559608.v1",
+          "files": [
+            {
+              "id": 5630769,
+              "name": "appendix-A.htm",
+              "size": 26970
+            }
+          ],
+          "id": 3559608,
+          "title": "Appendix A. Search area descriptions.",
+          "version": 1
+        },
+        {
+          "doi": "10.6084/m9.figshare.3559605.v1",
+          "files": [
+            {
+              "id": 5630763,
+              "name": "appendix-B.htm",
+              "size": 3100
+            },
+            {
+              "id": 5630766,
+              "name": "appendix-B.pdf",
+              "size": 173910
+            }
+          ],
+          "id": 3559605,
+          "title": "Appendix B. Modeling seed dispersal with imperfect detection.",
+          "version": 1
+        },
+        {
+          "doi": "10.6084/m9.figshare.3559602.v1",
+          "files": [
+            {
+              "id": 5630760,
+              "name": "appendix-C.htm",
+              "size": 204164
+            }
+          ],
+          "id": 3559602,
+          "title": "Appendix C. Log-linear analysis of tag recovery and maximum-likelihood estimates for seed removal, survival, and dispersal.",
+          "version": 1
+        },
+        {
+          "doi": "10.6084/m9.figshare.3559599.v1",
+          "files": [
+            {
+              "id": 5630754,
+              "name": "appendix-D.htm",
+              "size": 3165
+            },
+            {
+              "id": 5630757,
+              "name": "appendix-D.pdf",
+              "size": 789858
+            }
+          ],
+          "id": 3559599,
+          "title": "Appendix D. Analysis of a theoretical model of scatter-hoarder-mediated seed dispersal effectiveness with multiple seed types.",
+          "version": 1
+        },
+        {
+          "doi": "10.6084/m9.figshare.3559596.v1",
+          "files": [
+            {
+              "id": 5630748,
+              "name": "suppl-1.htm",
+              "size": 45555
+            },
+            {
+              "id": 5630751,
+              "name": "MCEM_analysis_of_seed_fate.R",
+              "sha256": "e6d9a85d837101734f00ab579d7a95faf2848fdefd46d954272ecddfaa8ae132",
+              "size": 110071,
+              "verified_md5": "f22e6f0fe39d55b7e7f0b67c45eede55",
+              "verified_size": 110071
+            }
+          ],
+          "id": 3559596,
+          "title": "Supplement 1. R code for analysis of seed fate.",
+          "version": 1
+        }
+      ],
+      "collection_id": 3306858,
+      "seed_cohort_data_verified": false,
+      "status": "PUBLISHER_LINKED_COLLECTION_INVENTORY_ONLY",
+      "title": "Mast species composition alters seed fate in North American rodent-dispersed hardwoods"
+    },
+    "no_new_individual_effect": true,
+    "poland_session_lane_closed": true,
+    "retrieved_utc": "2026-11-25T01:48:38.078139+00:00",
+    "schema": "neon.independent.resource_stage.source_inventory.v1",
+    "submission_hold": true
+  }
+}

@@ -1,0 +1,30 @@
+name: neon-seedfall-mammal-breeding-support
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/audit_neon_seedfall_mammal_breeding_support_v1.py'
+      - 'tests/test_neon_seedfall_mammal_breeding_support_v1.py'
+      - '.github/workflows/neon-seedfall-mammal-breeding-support.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-release-calendar-support:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_seedfall_mammal_breeding_support_v1.py' -v
+      - run: python -m analysis.audit_neon_seedfall_mammal_breeding_support_v1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-seedfall-mammal-breeding-support
+          path: build/neon_seedfall_mammal_breeding_support_20261125.json
+          if-no-files-found: warn
