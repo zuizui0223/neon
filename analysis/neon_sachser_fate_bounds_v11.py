@@ -53,7 +53,7 @@ def main():
         out['literal_levels']={k:sorted({r[j] for r in t[1:]}) for j,k in enumerate(t[0][:3])}
         # Explicitly match meanings only from labels. Stop if unexpected, no inferred counts.
         fates={'predated':'predated','missing':'missing','intact':'intact','germinated':'germinated'}
-        locs={'insitu':'in','exsitu':'ex'}
+        locs={'in':'in','ex':'ex'} # Literal source S5 labels verified by first parser stop
         rows=C.defaultdict(dict);nt={}
         for r in t[1:]:
             if len(r)!=5:raise ValueError('row width')

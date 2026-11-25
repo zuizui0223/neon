@@ -1,4 +1,4 @@
-name: NEON Sachser downstream fate bounds V11
+name: NEON Sachser downstream fate bounds V11 verified labels
 on:
   push:
     branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
