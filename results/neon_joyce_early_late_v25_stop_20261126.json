@@ -1,0 +1,74 @@
+{
+  "boundary": "Same sowing quadrats, not individual seed histories. Species and sowing season confounded; one landscape. Early retention deficit not confirmed mortality. Vertebrate exclusion includes birds and cage effects. Species/forest baseline only, not resource or independent consumer baseline. No causal or seasonal inference.",
+  "doi": "10.5061/dryad.05qfttfb9",
+  "downloads": {
+    "seed_predator_detections.csv": {
+      "reason": "HTTPError: HTTP Error 403: Forbidden",
+      "status": "STOP",
+      "url": "https://datadryad.org/downloads/file_stream/3523085"
+    },
+    "seed_removal.csv": {
+      "reason": "HTTPError: HTTP Error 403: Forbidden",
+      "status": "STOP",
+      "url": "https://datadryad.org/downloads/file_stream/3523087"
+    },
+    "seedling_establishment.csv": {
+      "reason": "HTTPError: HTTP Error 403: Forbidden",
+      "status": "STOP",
+      "url": "https://datadryad.org/downloads/file_stream/3523086"
+    }
+  },
+  "outcome_opened": false,
+  "paper": "10.1111/btp.13381",
+  "provider_files": [
+    {
+      "digest": "2e1a6a9cc8f6cfe1b1795767c66b1d281452b78f2377e664198a2f2b263bd5dc",
+      "digestType": "sha-256",
+      "path": "litter_depth.csv",
+      "size": 6918
+    },
+    {
+      "digest": "c5eec604c20449c697da6674acd5dd674ea32a9922faf2d4d5bdbf756bb1a7c5",
+      "digestType": "sha-256",
+      "path": "README.md",
+      "size": 7483
+    },
+    {
+      "digest": "9306def6d93b620a54d815ad5589d4688d54c46d38212359230d25077a079302",
+      "digestType": "sha-256",
+      "path": "seed_predator_detections.csv",
+      "size": 12967
+    },
+    {
+      "digest": "0a9fe6484953b591bb03fca3d0a20cfbf2fff553cbed28f4c12dfeb4a8be15c2",
+      "digestType": "sha-256",
+      "path": "seed_removal.csv",
+      "size": 13364
+    },
+    {
+      "digest": "b475eb7c30f1701f05906cb4bd318eeb3cbf47ea6ae06972d4cdd784ffd812e9",
+      "digestType": "sha-256",
+      "path": "seed_tagging.csv",
+      "size": 60891
+    },
+    {
+      "digest": "a1b34061fb5703fe32b31bff15e0b165dcde28943c5e036a8f86d736c3cee183",
+      "digestType": "sha-256",
+      "path": "seedling_establishment.csv",
+      "size": 12754
+    }
+  ],
+  "reason": "ValueError: required original tables not verified",
+  "status": "STOP_SOURCE_OR_SUPPORT",
+  "title": "Data from: Vertebrate seed predation can limit recruitment of later-successional species in tropical forest restoration",
+  "version": 3,
+  "provenance": {
+    "analysis_commit": "1fc333fb059ee840c2e2a9b3e3266e5d20263692",
+    "run_id": 45719995840,
+    "job_id": 139575612001,
+    "artifact_id": 15071472172,
+    "artifact_zip_sha256_reported": "d47906aa2873d2aaae6dea5ae962da5f972f7543b90903a34645fc7ef2a3934c",
+    "extracted_from_stdout": true,
+    "zip_bytes_independently_verified": false
+  }
+}
