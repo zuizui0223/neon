@@ -1,0 +1,30 @@
+{
+  "eligible_site_years": 0,
+  "focal": null,
+  "focal_sites": 0,
+  "issues": {
+    "event_alternative_bouts_in_same_season": 152,
+    "event_not_complete_events": 774,
+    "event_not_exact_three_night_events": 2188,
+    "event_not_three_protocol_calendar_dates": 5,
+    "event_special_nonsquare_site_sessions": 126,
+    "event_straddles_meteorological_season_events": 19,
+    "noncanonical_capture": 60
+  },
+  "primary": null,
+  "primary_sites": 0,
+  "roster_sites": 32,
+  "schema": "neon.capture.composition.season.v13",
+  "scope": "Captured target genus composition in matched recorded trap opportunities; not true abundance, diet, seed dispersal or recruitment. Same-site temporal transfer only. Prior resource-link and seed prediction stops unchanged.",
+  "sites_any_eligible": 0,
+  "status": "DESCRIPTIVE_SUPPORT_ONLY",
+  "verified_files": 1760,
+  "provenance": {
+    "run_id": 45589854343,
+    "job_id": 139122543874,
+    "artifact_id": 15011315375,
+    "artifact_zip_sha256_reported": "debbd2d88889968c2652510a8179a7e1bfbe4b3fb29a5b6997421cdbdd4c2233",
+    "original_analysis_commit": "b1b43ce95dc35bdb737d940b985a948fcde04d9c",
+    "source_gate_invalid_due_to_status_parser": true
+  }
+}

@@ -1,0 +1,53 @@
+name: NEON captured composition seasonal transfer V13b corrected status456
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-capture-composition-season-v13b.yml'
+permissions:
+  contents: read
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        index: [0, 1, 2, 3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_capture_composition_season_v13b.py' -v
+      - run: python -m analysis.run_neon_capture_composition_season_v13b shard ${{ matrix.index }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-composition-v13b-shard-${{ matrix.index }}
+          path: build/neon_composition_v13b_shard_${{ matrix.index }}.json
+          if-no-files-found: error
+  combine:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: neon-composition-v13b-shard-*
+          path: build/shards
+      - run: python -m analysis.run_neon_capture_composition_season_v13b combine build/shards
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-composition-v13b
+          path: build/neon_composition_v13b.json
+          if-no-files-found: error
