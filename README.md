@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: focused V1.0 manuscript; rank-reversal closure
+
+[Run 45536108603](https://github.com/zuizui0223/neon/actions/runs/45536108603): all 158 matrices reconciled, reversal 27/16, Z=.351, 11/16 positive, p=.075; source-reuse exclusion six/four STOP. Retained rank 81/28, Z=.552, p=.00095. No direct group difference. [Result](docs/NEON_OBSERVED_RANK_REVERSAL_RECURRENCE_RESULT_20261125.md). [Focused manuscript V1.0](manuscript/NEON_CAPTURE_SPACE_RECURRENCE_V1_0.md) and [source-linked evidence ledger](results/neon_core_ecological_evidence_20261125.json) organize the core evidence; V0.9 remains archival. No new fitting, independent replication or mechanism. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: reproductive-season transfer STOP; return to spatial recurrence under observed capture rank reversal
 
 [Run 45531386731](https://github.com/zuizui0223/neon/actions/runs/45531386731): 94 observed pair-site-years, three eligible at two sites, zero repeated. No transferable reproductive contrast. [Receipt](results/neon_matched_species_pregnancy_season_v1_no_repeat_20261125.json). New post-result exploratory question on original 158 exact-two pairs: capture-count rank reversal before and after shared-tag removal, original exact station null and whole-site source-reuse sensitivity. [Protocol](docs/NEON_OBSERVED_RANK_REVERSAL_RECURRENCE_20261125.md). No ecological mechanism or independent confirmation; DRAFT / SUBMISSION HOLD.

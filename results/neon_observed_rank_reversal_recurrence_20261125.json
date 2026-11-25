@@ -1,0 +1,144 @@
+{
+  "schema": "neon.observed_rank_reversal.recurrence.v1.log_receipt",
+  "provenance": {
+    "run_id": 45536108603,
+    "job_id": 138942977383,
+    "head_sha": "110df218a91d5c01db55ac0dd65ecb5093ef0f46",
+    "artifact_id": 14986878865,
+    "artifact_zip_sha256_reported_by_github": "633ec2c61eef431d24f908265e1725fc0c5b87cb4e86d418aa30b11583399a6a",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false,
+    "global_ci_run_id": 45536108626,
+    "global_ci_conclusion": "success"
+  },
+  "scientific_disposition": "NON_SUPPORT_CLOSE_RANK_REVERSAL_SUBGROUP_NO_RESCUE",
+  "original_stdout_json": {
+    "informative_rank_categories": {
+      "strict_retained_rank": 81,
+      "strict_reversal": 27,
+      "tie_or_disagreement": 42
+    },
+    "no_direct_between_group_test": true,
+    "no_new_independent_replication": true,
+    "not_true_density_dominance_or_ecological_mechanism": true,
+    "observed_rank_categories": {
+      "strict_retained_rank": 84,
+      "strict_reversal": 27,
+      "tie_or_disagreement": 47
+    },
+    "original_full_cohort_effect_unchanged": true,
+    "original_informative_units": 150,
+    "original_matrices_reconciled": 158,
+    "post_result_exploratory": true,
+    "pregnancy_lane_closed": true,
+    "retained_rank_context_only": {
+      "effect": {
+        "conditional_null": {
+          "comonotone_not_a_proven_worst_case_bound": true,
+          "independent_unit_exact_marginal_null": {
+            "draws": 20000,
+            "exceedances": 0,
+            "monte_carlo_p_is_post_result_exploratory_not_independent_replication": true,
+            "null_mean": 0.00016265951993433872,
+            "null_q025": -0.2808273868731958,
+            "null_q975": 0.27582037591190833,
+            "null_sd": 0.1429850045675885,
+            "null_value_is_conditional_not_universal_site_dependence_bound": true,
+            "one_sided_plus_one_p": 0.00004999750012499375
+          },
+          "not_an_actual_joint_site_ecological_null": true,
+          "observed_equal_site_mean_z": 0.5521095886233908,
+          "rank_comonotone_within_site_exact_marginal_stress": {
+            "draws": 20000,
+            "exceedances": 18,
+            "monte_carlo_p_is_post_result_exploratory_not_independent_replication": true,
+            "null_mean": -0.001670673773067488,
+            "null_q025": -0.3619421328603456,
+            "null_q975": 0.351275193740761,
+            "null_sd": 0.18158126875260178,
+            "null_value_is_conditional_not_universal_site_dependence_bound": true,
+            "one_sided_plus_one_p": 0.0009499525023748813
+          },
+          "seasonal_pairs": 81,
+          "site_ids_or_genus_names_exported": false,
+          "sites": 28,
+          "two_row_unit_nulls_mathematically_exact": true
+        },
+        "equal_site_excess_same_genus_station_fraction": 0.01953554707622202,
+        "equal_site_mean_Z": 0.5521095886233908,
+        "positive_sites": 22
+      },
+      "informative_pairs": 81,
+      "minimum_pairs": 20,
+      "minimum_sites": 8,
+      "sites": 28,
+      "status": "DESCRIPTIVE_RECURRENCE_SUPPORTED"
+    },
+    "schema": "neon.observed_rank_reversal.recurrence.v1",
+    "source": {
+      "downloaded_checksum_verified_capture_files": 3480,
+      "manifest_files_original_verified": 3547,
+      "original_plot_rows": 21363,
+      "original_three_genus_source_support_verification": true,
+      "original_trap_rows": 1505827
+    },
+    "status": "REVERSAL_RECURRENCE_NOT_ESTABLISHED",
+    "strict_rank_reversal": {
+      "effect": {
+        "conditional_null": {
+          "comonotone_not_a_proven_worst_case_bound": true,
+          "independent_unit_exact_marginal_null": {
+            "draws": 20000,
+            "exceedances": 978,
+            "monte_carlo_p_is_post_result_exploratory_not_independent_replication": true,
+            "null_mean": -0.0009527668806669466,
+            "null_q025": -0.41184067708771527,
+            "null_q975": 0.4109837004832939,
+            "null_sd": 0.21097866792486947,
+            "null_value_is_conditional_not_universal_site_dependence_bound": true,
+            "one_sided_plus_one_p": 0.048947552622368884
+          },
+          "not_an_actual_joint_site_ecological_null": true,
+          "observed_equal_site_mean_z": 0.3507847193275596,
+          "rank_comonotone_within_site_exact_marginal_stress": {
+            "draws": 20000,
+            "exceedances": 1499,
+            "monte_carlo_p_is_post_result_exploratory_not_independent_replication": true,
+            "null_mean": -0.0007983181258596642,
+            "null_q025": -0.48063083412555485,
+            "null_q975": 0.4749192281732382,
+            "null_sd": 0.24360197097402836,
+            "null_value_is_conditional_not_universal_site_dependence_bound": true,
+            "one_sided_plus_one_p": 0.07499625018749062
+          },
+          "seasonal_pairs": 27,
+          "site_ids_or_genus_names_exported": false,
+          "sites": 16,
+          "two_row_unit_nulls_mathematically_exact": true
+        },
+        "equal_site_excess_same_genus_station_fraction": 0.022990680864609578,
+        "equal_site_mean_Z": 0.3507847193275596,
+        "positive_sites": 11
+      },
+      "informative_pairs": 27,
+      "minimum_pairs": 20,
+      "minimum_sites": 8,
+      "sites": 16,
+      "status": "DESCRIPTIVE_RECURRENCE_NOT_SUPPORTED"
+    },
+    "strict_rank_reversal_no_reused_season_sites": {
+      "effect": null,
+      "informative_pairs": 6,
+      "minimum_pairs": 12,
+      "minimum_sites": 6,
+      "sites": 4,
+      "status": "STOP_SUBGROUP_SUPPORT"
+    },
+    "submission_hold": true,
+    "whole_site_no_reuse_rank_categories": {
+      "strict_retained_rank": 33,
+      "strict_reversal": 6,
+      "tie_or_disagreement": 13
+    }
+  }
+}
