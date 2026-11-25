@@ -1,0 +1,851 @@
+{
+  "seed_rain": [
+    {
+      "year": 2012,
+      "taxon": "B",
+      "mean": 7.15,
+      "sd": 18.9,
+      "median": 0
+    },
+    {
+      "year": 2012,
+      "taxon": "S",
+      "mean": 2.01,
+      "sd": 6.22,
+      "median": 0
+    },
+    {
+      "year": 2012,
+      "taxon": "F",
+      "mean": 0.566,
+      "sd": 1.83,
+      "median": 0
+    },
+    {
+      "year": 2018,
+      "taxon": "B",
+      "mean": 59.2,
+      "sd": 59.2,
+      "median": 41.7
+    },
+    {
+      "year": 2018,
+      "taxon": "S",
+      "mean": 56.9,
+      "sd": 41.6,
+      "median": 45.8
+    },
+    {
+      "year": 2018,
+      "taxon": "F",
+      "mean": 39.1,
+      "sd": 25.1,
+      "median": 37.5
+    },
+    {
+      "year": 2019,
+      "taxon": "B",
+      "mean": 0,
+      "sd": 0,
+      "median": 0
+    },
+    {
+      "year": 2019,
+      "taxon": "S",
+      "mean": 0,
+      "sd": 0,
+      "median": 0
+    },
+    {
+      "year": 2019,
+      "taxon": "F",
+      "mean": 0,
+      "sd": 0,
+      "median": 0
+    },
+    {
+      "year": 2020,
+      "taxon": "B",
+      "mean": 543,
+      "sd": 366,
+      "median": 502
+    },
+    {
+      "year": 2020,
+      "taxon": "S",
+      "mean": 0.0772,
+      "sd": 0.563,
+      "median": 0
+    },
+    {
+      "year": 2020,
+      "taxon": "F",
+      "mean": 4.37,
+      "sd": 6.14,
+      "median": 0
+    }
+  ],
+  "captures": [
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-21",
+      "family": "cricetidae",
+      "count": 21
+    },
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-21",
+      "family": "muridae",
+      "count": 1
+    },
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-22",
+      "family": "cricetidae",
+      "count": 9
+    },
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-22",
+      "family": "muridae",
+      "count": 2
+    },
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-23",
+      "family": "cricetidae",
+      "count": 8
+    },
+    {
+      "trial": "2012/13",
+      "site": "basin",
+      "date": "2012-08-23",
+      "family": "muridae",
+      "count": 2
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-17",
+      "family": "cricetidae",
+      "count": 18
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-17",
+      "family": "muridae",
+      "count": 6
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-18",
+      "family": "cricetidae",
+      "count": 19
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-18",
+      "family": "gliridae",
+      "count": 1
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-18",
+      "family": "muridae",
+      "count": 9
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-19",
+      "family": "cricetidae",
+      "count": 11
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-19",
+      "family": "gliridae",
+      "count": 1
+    },
+    {
+      "trial": "2012/13",
+      "site": "slope",
+      "date": "2012-08-19",
+      "family": "muridae",
+      "count": 7
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-15",
+      "family": "gliridae",
+      "count": 3
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-15",
+      "family": "muridae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-16",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-16",
+      "family": "muridae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-17",
+      "family": "gliridae",
+      "count": 4
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-17",
+      "family": "muridae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-18",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-18",
+      "family": "gliridae",
+      "count": 3
+    },
+    {
+      "trial": "2018/19",
+      "site": "basin",
+      "date": "2018-08-19",
+      "family": "gliridae",
+      "count": 5
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-10",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-10",
+      "family": "gliridae",
+      "count": 6
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-11",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-12",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-13",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-13",
+      "family": "gliridae",
+      "count": 6
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-14",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2018/19",
+      "site": "slope",
+      "date": "2018-08-14",
+      "family": "gliridae",
+      "count": 4
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-09",
+      "family": "cricetidae",
+      "count": 9
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-09",
+      "family": "muridae",
+      "count": 9
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-10",
+      "family": "cricetidae",
+      "count": 4
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-10",
+      "family": "muridae",
+      "count": 9
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-11",
+      "family": "cricetidae",
+      "count": 3
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-11",
+      "family": "muridae",
+      "count": 13
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-12",
+      "family": "cricetidae",
+      "count": 3
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-12",
+      "family": "muridae",
+      "count": 14
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-13",
+      "family": "cricetidae",
+      "count": 6
+    },
+    {
+      "trial": "2019/20",
+      "site": "basin",
+      "date": "2019-08-13",
+      "family": "muridae",
+      "count": 23
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-09",
+      "family": "cricetidae",
+      "count": 7
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-09",
+      "family": "muridae",
+      "count": 6
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-10",
+      "family": "cricetidae",
+      "count": 8
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-10",
+      "family": "muridae",
+      "count": 7
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-11",
+      "family": "cricetidae",
+      "count": 4
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-11",
+      "family": "muridae",
+      "count": 12
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-12",
+      "family": "cricetidae",
+      "count": 6
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-12",
+      "family": "muridae",
+      "count": 10
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-13",
+      "family": "cricetidae",
+      "count": 7
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-13",
+      "family": "gliridae",
+      "count": 1
+    },
+    {
+      "trial": "2019/20",
+      "site": "slope",
+      "date": "2019-08-13",
+      "family": "muridae",
+      "count": 22
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-21",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-21",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-22",
+      "family": "cricetidae",
+      "count": 4
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-22",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-23",
+      "family": "cricetidae",
+      "count": 8
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-23",
+      "family": "gliridae",
+      "count": 2
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-24",
+      "family": "cricetidae",
+      "count": 6
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-24",
+      "family": "gliridae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-25",
+      "family": "cricetidae",
+      "count": 8
+    },
+    {
+      "trial": "2020/21",
+      "site": "basin",
+      "date": "2020-08-25",
+      "family": "gliridae",
+      "count": 3
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-07",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-08",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-08",
+      "family": "gliridae",
+      "count": 3
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-09",
+      "family": "cricetidae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-09",
+      "family": "gliridae",
+      "count": 4
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-10",
+      "family": "gliridae",
+      "count": 4
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-10",
+      "family": "muridae",
+      "count": 1
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-11",
+      "family": "cricetidae",
+      "count": 3
+    },
+    {
+      "trial": "2020/21",
+      "site": "slope",
+      "date": "2020-08-11",
+      "family": "gliridae",
+      "count": 4
+    }
+  ],
+  "lab": [
+    [
+      "2018/19",
+      "1",
+      "15",
+      "0",
+      "0",
+      "15"
+    ],
+    [
+      "",
+      "2",
+      "17",
+      "0",
+      "0",
+      "17"
+    ],
+    [
+      "",
+      "3",
+      "19",
+      "0",
+      "0",
+      "19"
+    ],
+    [
+      "",
+      "4",
+      "13",
+      "0",
+      "0",
+      "13"
+    ],
+    [
+      "2020/21",
+      "1",
+      "19",
+      "2",
+      "6",
+      "27"
+    ],
+    [
+      "",
+      "2",
+      "15",
+      "3",
+      "0",
+      "18"
+    ],
+    [
+      "",
+      "3",
+      "19",
+      "7",
+      "1",
+      "27"
+    ],
+    [
+      "",
+      "4",
+      "12",
+      "0",
+      "3",
+      "15"
+    ],
+    [
+      "",
+      "5",
+      "26",
+      "2",
+      "0",
+      "28"
+    ],
+    [
+      "",
+      "6",
+      "21",
+      "7",
+      "1",
+      "29"
+    ],
+    [
+      "",
+      "7",
+      "17",
+      "2",
+      "3",
+      "22"
+    ],
+    [
+      "",
+      "8",
+      "33",
+      "1",
+      "6",
+      "40"
+    ]
+  ],
+  "fates": {
+    "2012/13": {
+      "N": 99,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.5897435897435898,
+        0.6865671641791045
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.46464646464646464,
+        0.46464646464646464
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.46464646464646464
+      ],
+      "in_situ_germination_per_release_bound": [
+        0,
+        0.46464646464646464
+      ],
+      "located_ex_situ": 21,
+      "located_in_situ": 32,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 0,
+      "recorded_ex_situ_including_missing": 32,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 11,
+          "predated": 21
+        },
+        "in": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 35,
+          "predated": 32
+        }
+      },
+      "unresolved": 46,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 0
+    },
+    "2018/19": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": true,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.3680555555555556,
+        -0.04003738900140208
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.29444444444444445,
+        -0.15
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.07222222222222222
+      ],
+      "in_situ_germination_per_release_bound": [
+        0.2222222222222222,
+        0.29444444444444445
+      ],
+      "located_ex_situ": 36,
+      "located_in_situ": 131,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 40,
+      "recorded_ex_situ_including_missing": 36,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 0,
+          "predated": 36
+        },
+        "in": {
+          "germinated": 40,
+          "intact": 29,
+          "missing": 13,
+          "predated": 62
+        }
+      },
+      "unresolved": 13,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 40
+    },
+    "2019/20": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.4153846153846154,
+        0.19014084507042253
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.15,
+        0.15
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.15
+      ],
+      "in_situ_germination_per_release_bound": [
+        0,
+        0.15
+      ],
+      "located_ex_situ": 115,
+      "located_in_situ": 38,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 0,
+      "recorded_ex_situ_including_missing": 127,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 12,
+          "predated": 115
+        },
+        "in": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 15,
+          "predated": 38
+        }
+      },
+      "unresolved": 27,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 0
+    },
+    "2020/21": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.16521739130434782,
+        0.18690890990542558
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.10555555555555556,
+        0.08333333333333333
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.09444444444444444
+      ],
+      "in_situ_germination_per_release_bound": [
+        0.011111111111111112,
+        0.10555555555555556
+      ],
+      "located_ex_situ": 65,
+      "located_in_situ": 98,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 2,
+      "recorded_ex_situ_including_missing": 68,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 14,
+          "missing": 3,
+          "predated": 51
+        },
+        "in": {
+          "germinated": 2,
+          "intact": 43,
+          "missing": 14,
+          "predated": 53
+        }
+      },
+      "unresolved": 17,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 2
+    }
+  }
+}

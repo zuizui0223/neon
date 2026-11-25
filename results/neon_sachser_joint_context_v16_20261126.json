@@ -1,0 +1,319 @@
+{
+  "status": "JOINT_ANNUAL_CONTEXT_DESCRIPTIVE",
+  "cohorts": {
+    "2012/13": {
+      "rain_beech_per_m2": 7.15,
+      "rain_other_two_per_m2": 2.5759999999999996,
+      "rain_three_species_per_m2": 9.726,
+      "beech_fraction_of_three": 0.7351429158955377,
+      "capture_counts": 115,
+      "nominal_trap_nights": 300,
+      "captures_per_100_nominal_trap_nights": 38.333333333333336,
+      "capture_family_counts": {
+        "cricetidae": 86,
+        "muridae": 27,
+        "gliridae": 2
+      },
+      "capture_family_shares": {
+        "cricetidae": 0.7478260869565218,
+        "muridae": 0.23478260869565218,
+        "gliridae": 0.017391304347826087
+      },
+      "by_site": {
+        "basin": {
+          "reported_date_count": 3,
+          "count": 43,
+          "families": {
+            "cricetidae": 38,
+            "muridae": 5,
+            "gliridae": 0
+          }
+        },
+        "slope": {
+          "reported_date_count": 3,
+          "count": 72,
+          "families": {
+            "cricetidae": 48,
+            "muridae": 22,
+            "gliridae": 2
+          }
+        }
+      },
+      "lab_germination_mean": null,
+      "lab_batch_n": 0,
+      "field_assessed": 99,
+      "field_fate_counts": {
+        "germinated": 0,
+        "intact": 0,
+        "predated": 53,
+        "missing": 46
+      },
+      "field_germination_bounds": [
+        0,
+        0.46464646464646464
+      ],
+      "field_intact_or_germinated_bounds": [
+        0,
+        0.46464646464646464
+      ],
+      "field_predation_bounds": [
+        0.5353535353535354,
+        1
+      ],
+      "recorded_ex_situ_location_bounds": [
+        0.21212121212121213,
+        0.6767676767676768
+      ]
+    },
+    "2018/19": {
+      "rain_beech_per_m2": 59.2,
+      "rain_other_two_per_m2": 96,
+      "rain_three_species_per_m2": 155.2,
+      "beech_fraction_of_three": 0.3814432989690722,
+      "capture_counts": 44,
+      "nominal_trap_nights": 500,
+      "captures_per_100_nominal_trap_nights": 8.799999999999999,
+      "capture_family_counts": {
+        "cricetidae": 4,
+        "muridae": 3,
+        "gliridae": 37
+      },
+      "capture_family_shares": {
+        "cricetidae": 0.09090909090909091,
+        "muridae": 0.06818181818181818,
+        "gliridae": 0.8409090909090909
+      },
+      "by_site": {
+        "basin": {
+          "reported_date_count": 5,
+          "count": 21,
+          "families": {
+            "cricetidae": 1,
+            "muridae": 3,
+            "gliridae": 17
+          }
+        },
+        "slope": {
+          "reported_date_count": 5,
+          "count": 23,
+          "families": {
+            "cricetidae": 3,
+            "muridae": 0,
+            "gliridae": 20
+          }
+        }
+      },
+      "lab_germination_mean": 0.16,
+      "lab_batch_n": 4,
+      "field_assessed": 180,
+      "field_fate_counts": {
+        "germinated": 40,
+        "intact": 29,
+        "predated": 98,
+        "missing": 13
+      },
+      "field_germination_bounds": [
+        0.2222222222222222,
+        0.29444444444444445
+      ],
+      "field_intact_or_germinated_bounds": [
+        0.38333333333333336,
+        0.45555555555555555
+      ],
+      "field_predation_bounds": [
+        0.5444444444444444,
+        0.6166666666666667
+      ],
+      "recorded_ex_situ_location_bounds": [
+        0.2,
+        0.2722222222222222
+      ]
+    },
+    "2019/20": {
+      "rain_beech_per_m2": 0,
+      "rain_other_two_per_m2": 0,
+      "rain_three_species_per_m2": 0,
+      "beech_fraction_of_three": null,
+      "capture_counts": 183,
+      "nominal_trap_nights": 500,
+      "captures_per_100_nominal_trap_nights": 36.6,
+      "capture_family_counts": {
+        "cricetidae": 57,
+        "muridae": 125,
+        "gliridae": 1
+      },
+      "capture_family_shares": {
+        "cricetidae": 0.3114754098360656,
+        "muridae": 0.6830601092896175,
+        "gliridae": 0.00546448087431694
+      },
+      "by_site": {
+        "basin": {
+          "reported_date_count": 5,
+          "count": 93,
+          "families": {
+            "cricetidae": 25,
+            "muridae": 68,
+            "gliridae": 0
+          }
+        },
+        "slope": {
+          "reported_date_count": 5,
+          "count": 90,
+          "families": {
+            "cricetidae": 32,
+            "muridae": 57,
+            "gliridae": 1
+          }
+        }
+      },
+      "lab_germination_mean": null,
+      "lab_batch_n": 0,
+      "field_assessed": 180,
+      "field_fate_counts": {
+        "germinated": 0,
+        "intact": 0,
+        "predated": 153,
+        "missing": 27
+      },
+      "field_germination_bounds": [
+        0,
+        0.15
+      ],
+      "field_intact_or_germinated_bounds": [
+        0,
+        0.15
+      ],
+      "field_predation_bounds": [
+        0.85,
+        1
+      ],
+      "recorded_ex_situ_location_bounds": [
+        0.6388888888888888,
+        0.7888888888888889
+      ]
+    },
+    "2020/21": {
+      "rain_beech_per_m2": 543,
+      "rain_other_two_per_m2": 4.4472000000000005,
+      "rain_three_species_per_m2": 547.4472,
+      "beech_fraction_of_three": 0.9918764768547543,
+      "capture_counts": 59,
+      "nominal_trap_nights": 500,
+      "captures_per_100_nominal_trap_nights": 11.799999999999999,
+      "capture_family_counts": {
+        "cricetidae": 33,
+        "muridae": 1,
+        "gliridae": 25
+      },
+      "capture_family_shares": {
+        "cricetidae": 0.559322033898305,
+        "muridae": 0.01694915254237288,
+        "gliridae": 0.423728813559322
+      },
+      "by_site": {
+        "basin": {
+          "reported_date_count": 5,
+          "count": 37,
+          "families": {
+            "cricetidae": 27,
+            "muridae": 0,
+            "gliridae": 10
+          }
+        },
+        "slope": {
+          "reported_date_count": 5,
+          "count": 22,
+          "families": {
+            "cricetidae": 6,
+            "muridae": 1,
+            "gliridae": 15
+          }
+        }
+      },
+      "lab_germination_mean": 0.2575,
+      "lab_batch_n": 8,
+      "field_assessed": 180,
+      "field_fate_counts": {
+        "germinated": 2,
+        "intact": 57,
+        "predated": 104,
+        "missing": 17
+      },
+      "field_germination_bounds": [
+        0.011111111111111112,
+        0.10555555555555556
+      ],
+      "field_intact_or_germinated_bounds": [
+        0.3277777777777778,
+        0.4222222222222222
+      ],
+      "field_predation_bounds": [
+        0.5777777777777777,
+        0.6722222222222223
+      ],
+      "recorded_ex_situ_location_bounds": [
+        0.3611111111111111,
+        0.45555555555555555
+      ]
+    }
+  },
+  "contrast_2020_vs_2018": {
+    "beech_rain_ratio": 9.172297297297296,
+    "three_species_rain_ratio": 3.527365979381443,
+    "capture_rate_ratio": 1.340909090909091,
+    "beech_rain_to_capture_index_ratio": 6.840357306459,
+    "three_species_rain_to_capture_index_ratio": 2.6305780185217538,
+    "beech_seed_rain_fraction_change": 0.6104331778856822,
+    "gliridae_capture_share_change": -0.4171802773497689,
+    "cricetidae_capture_share_change": 0.4684129429892141,
+    "lab_germination_change": 0.0975,
+    "field_germination_change_bounds": [
+      -0.2833333333333333,
+      -0.11666666666666665
+    ],
+    "field_intact_or_germinated_change_bounds": [
+      -0.12777777777777777,
+      0.03888888888888886
+    ],
+    "field_predation_change_bounds": [
+      -0.03888888888888897,
+      0.12777777777777788
+    ],
+    "ex_situ_location_change_bounds": [
+      0.0888888888888889,
+      0.25555555555555554
+    ]
+  },
+  "boundary": "Two comparable local-seed years, one landscape; August recorded capture counts per nominal effort may include repeated individuals; annual seed rain per area and capture index are different units, not food per animal or causal resource pressure. Diet/accessibility not known; family composition not seed handling actor attribution. Lab batches are separate from field seeds and not an experimental counterfactual. Fate uncertainty ranges allocate all missing freely, not sampling CIs. Intact may remain viable or fail later; no recruitment or seasonal replication.",
+  "provenance": {
+    "run_id": 45643169652,
+    "job_id": 139306970697,
+    "artifact_id": 15035359702,
+    "artifact_zip_sha256_reported": "bd14e8c5edb3acb4f7a66335f1eb4aabd130b08f03ea3ff8c0aafc4657c045e7",
+    "source_commit": "a9c799fabae018b67c9811735f719062bf15e3c5",
+    "prior_fate_blob": "19c6472d126ddb8660e44c78053c7a219bc0d171",
+    "source_items": {
+      "S2": "10.6084/m9.figshare.28054293.v1",
+      "S3": "10.6084/m9.figshare.28054284.v1",
+      "S7": "10.6084/m9.figshare.28054287.v1"
+    },
+    "sunyer": {
+      "doi": "10.5061/dryad.c030b",
+      "status": "STOP_SOURCE",
+      "effect_opened": false,
+      "title": "Data from: The interplay among acorn abundance and rodent behavior drives the spatial pattern of seedling recruitment in mature Mediterranean oak forests",
+      "version": 1,
+      "files": [
+        {
+          "path": "DATA.xlsx",
+          "size": 27365,
+          "digest": "3ee3e5018160201d6be3eeda7ede822c",
+          "digestType": "md5"
+        }
+      ],
+      "reason": "HTTPError: HTTP Error 401: Unauthorized"
+    },
+    "first_failed_run": 45643111162
+  }
+}
