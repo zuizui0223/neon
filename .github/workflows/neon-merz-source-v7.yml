@@ -1,0 +1,21 @@
+name: NEON Merz seed interaction source V7
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-source-v7.yml'
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public Figshare metadata, bytes and file schemas
+        run: python3 analysis/audit_neon_merz_source_v7.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-source-v7
+          path: merz_source_receipt.json
+          if-no-files-found: error
