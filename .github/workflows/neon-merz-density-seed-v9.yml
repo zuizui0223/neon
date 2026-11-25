@@ -1,0 +1,20 @@
+name: NEON Merz seed and density context V9
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-density-seed-v9.yml'
+permissions:
+  contents: read
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/neon_merz_density_seed_v9.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-density-seed-v9
+          path: merz_density_seed_v9.json
+          if-no-files-found: error
