@@ -1,0 +1,42 @@
+{
+  "boundary": "No sampling CI, causal mechanism or independent geographic replication. One Portal landscape. Same-source earlier work means heldout years are not virgin source data. No seed fate or seed availability measured in this analysis. Changing plot membership across years is a limitation; same four sessions within year are matched. Invalid captures excluded not corrected; source-defined granivore label is not measured seed use.",
+  "design": "Portal source-defined granivorous census-target rodents, control plots, 1996-2019 training, 2020-2025 heldout calendar years. Same plots with exactly one sampled QC 48/49-trap positive-period session in each of May, June, August, September; each phase counts unique tagged individuals per session, weighted 49/effort; repeat capture in different months is a separate animal-session. No annual population estimates. At least 3 matched control plots, 20 valid target animal-sessions per phase, <=10% unresolved target capture rows. Fixed seasonal additive composition shift, compare with persistence and mean historical late composition; >=8 train years and >=4 test years. Mean equal-year TV gain and majority-year improvement. Previously used source, retrospective holdout, one desert landscape, no confirmatory evidence.",
+  "source_commit": "afd75933249ae60f3a5e9dab00b354f219e5e045",
+  "status": "STOP_TOO_FEW_YEARS",
+  "support": {
+    "candidate_matched_plot_years": 91,
+    "candidate_sessions": 364,
+    "candidate_years": 13,
+    "eligible_matched_plot_years": 86,
+    "eligible_test_years": [
+      2024
+    ],
+    "eligible_train_years": [
+      1996,
+      2001,
+      2004,
+      2005,
+      2006,
+      2007,
+      2012,
+      2015,
+      2016,
+      2017,
+      2018
+    ],
+    "excluded_years": {
+      "low_count_or_unresolved": 1
+    },
+    "qualified_monthly_sessions": 1002,
+    "source_target_granivore_species": 15
+  },
+  "provenance": {
+    "run_id": 45601133435,
+    "job_id": 139160031202,
+    "artifact_id": 15015517323,
+    "artifact_zip_sha256_reported": "051d43615442119d6ff938d645de7e94f591dc736bde3f063b5e61cad3340fc3",
+    "analysis_commit": "b5361d39e49f9b13f5d2e420c7cfd2b2ed0f13ec",
+    "extracted_from_stdout": true,
+    "zip_bytes_independently_verified": false
+  }
+}
