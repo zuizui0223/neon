@@ -1,0 +1,425 @@
+{
+  "source": "10.6084/m9.figshare.28207769.v2",
+  "status": "V10_PREDICTION_SOURCE_GATE_FAILED",
+  "support_receipt": {
+    "run_id": 45586894194,
+    "job_id": 139110673715,
+    "artifact_id": 15009720600,
+    "zip_sha256": "40dff92b8b143c40566cf5daf351dda5156c8abd85a7337da17dd91bc416b0f1"
+  },
+  "frozen_prediction_run": 45587086687,
+  "reason": "All original four grids required. Grid 6 September lacks observed camera date, grid 7B has focal capture rows with missing PIT in August and September. These independently violate the frozen gate before seed action scoring.",
+  "source_counts_only": true,
+  "heldout_september_fate_counts_opened": false,
+  "grid_capture_index": [
+    {
+      "grid": "10",
+      "aug": {
+        "known_mg_share": 0.7,
+        "mg_share_bound": [
+          0.7,
+          0.7
+        ],
+        "known_mg": 7,
+        "known_pm": 3,
+        "missing_pit_rows": 0
+      },
+      "sep": {
+        "known_mg_share": 0.5714285714285714,
+        "mg_share_bound": [
+          0.5714285714285714,
+          0.5714285714285714
+        ],
+        "known_mg": 4,
+        "known_pm": 3,
+        "missing_pit_rows": 0
+      },
+      "delta_bound": [
+        -0.12857142857142856,
+        -0.12857142857142856
+      ]
+    },
+    {
+      "grid": "6",
+      "aug": {
+        "known_mg_share": 0.5384615384615384,
+        "mg_share_bound": [
+          0.5384615384615384,
+          0.5384615384615384
+        ],
+        "known_mg": 7,
+        "known_pm": 6,
+        "missing_pit_rows": 0
+      },
+      "sep": {
+        "known_mg_share": 0.5,
+        "mg_share_bound": [
+          0.5,
+          0.5
+        ],
+        "known_mg": 3,
+        "known_pm": 3,
+        "missing_pit_rows": 0
+      },
+      "delta_bound": [
+        -0.038461538461538436,
+        -0.038461538461538436
+      ]
+    },
+    {
+      "grid": "7A",
+      "aug": {
+        "known_mg_share": 0.55,
+        "mg_share_bound": [
+          0.55,
+          0.55
+        ],
+        "known_mg": 11,
+        "known_pm": 9,
+        "missing_pit_rows": 0
+      },
+      "sep": {
+        "known_mg_share": 0.5,
+        "mg_share_bound": [
+          0.5,
+          0.5
+        ],
+        "known_mg": 6,
+        "known_pm": 6,
+        "missing_pit_rows": 0
+      },
+      "delta_bound": [
+        -0.050000000000000044,
+        -0.050000000000000044
+      ]
+    },
+    {
+      "grid": "7B",
+      "aug": {
+        "known_mg_share": 0.7142857142857143,
+        "mg_share_bound": [
+          0.625,
+          0.75
+        ],
+        "known_mg": 10,
+        "known_pm": 4,
+        "missing_pit_rows": 2
+      },
+      "sep": {
+        "known_mg_share": 0.625,
+        "mg_share_bound": [
+          0.5555555555555556,
+          0.6666666666666666
+        ],
+        "known_mg": 5,
+        "known_pm": 3,
+        "missing_pit_rows": 1
+      },
+      "delta_bound": [
+        -0.19444444444444442,
+        0.04166666666666663
+      ]
+    }
+  ],
+  "capture_support": [
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-08-15",
+      "capture_calendar_months": [
+        "2023-08"
+      ],
+      "capture_counts": {
+        "MG": 7,
+        "PM": 3
+      },
+      "capture_date_max": "2023-08-10",
+      "capture_date_min": "2023-08-08",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "10",
+      "session": "3",
+      "station_date_min": "2023-08-15",
+      "station_date_parsed": 5,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-09-17",
+      "capture_calendar_months": [
+        "2023-09"
+      ],
+      "capture_counts": {
+        "MG": 4,
+        "PM": 3
+      },
+      "capture_date_max": "2023-09-10",
+      "capture_date_min": "2023-09-08",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "10",
+      "session": "4",
+      "station_date_min": "2023-09-17",
+      "station_date_parsed": 4,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-10-16",
+      "capture_calendar_months": [
+        "2023-10"
+      ],
+      "capture_counts": {
+        "MG": 3,
+        "PM": 4
+      },
+      "capture_date_max": "2023-10-11",
+      "capture_date_min": "2023-10-09",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 1,
+      "grid": "10",
+      "session": "5",
+      "station_date_min": "2023-10-16",
+      "station_date_parsed": 23,
+      "station_nights_by_density": {
+        "high density": 24,
+        "low density": 19
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-08-16",
+      "capture_calendar_months": [
+        "2023-08"
+      ],
+      "capture_counts": {
+        "MG": 7,
+        "PM": 6
+      },
+      "capture_date_max": "2023-08-10",
+      "capture_date_min": "2023-08-08",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "6",
+      "session": "3",
+      "station_date_min": "2023-08-16",
+      "station_date_parsed": 12,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": false,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": null,
+      "capture_calendar_months": [
+        "2023-09"
+      ],
+      "capture_counts": {
+        "MG": 3,
+        "PM": 3
+      },
+      "capture_date_max": "2023-09-10",
+      "capture_date_min": "2023-09-08",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "6",
+      "session": "4",
+      "station_date_min": null,
+      "station_date_parsed": 0,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-10-17",
+      "capture_calendar_months": [
+        "2023-10"
+      ],
+      "capture_counts": {
+        "MG": 2,
+        "PM": 7
+      },
+      "capture_date_max": "2023-10-10",
+      "capture_date_min": "2023-10-07",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "6",
+      "session": "5",
+      "station_date_min": "2023-10-17",
+      "station_date_parsed": 10,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-08-10",
+      "capture_calendar_months": [
+        "2023-08"
+      ],
+      "capture_counts": {
+        "MG": 11,
+        "PM": 9
+      },
+      "capture_date_max": "2023-08-04",
+      "capture_date_min": "2023-08-02",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "7A",
+      "session": "3",
+      "station_date_min": "2023-08-10",
+      "station_date_parsed": 12,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 7
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-09-10",
+      "capture_calendar_months": [
+        "2023-09"
+      ],
+      "capture_counts": {
+        "MG": 6,
+        "PM": 6
+      },
+      "capture_date_max": "2023-09-04",
+      "capture_date_min": "2023-09-02",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "7A",
+      "session": "4",
+      "station_date_min": "2023-09-10",
+      "station_date_parsed": 15,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-10-11",
+      "capture_calendar_months": [
+        "2023-09",
+        "2023-10"
+      ],
+      "capture_counts": {
+        "MG": 3,
+        "PM": 6
+      },
+      "capture_date_max": "2023-10-03",
+      "capture_date_min": "2023-09-30",
+      "capture_distinct_dates": 4,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "7A",
+      "session": "5",
+      "station_date_min": "2023-10-11",
+      "station_date_parsed": 14,
+      "station_nights_by_density": {
+        "high density": 14,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": true,
+      "camera_date_min": "2023-08-11",
+      "capture_calendar_months": [
+        "2023-08"
+      ],
+      "capture_counts": {
+        "MG": 10,
+        "PM": 4
+      },
+      "capture_date_max": "2023-08-04",
+      "capture_date_min": "2023-08-02",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 2,
+      "grid": "7B",
+      "session": "3",
+      "station_date_min": "2023-08-12",
+      "station_date_parsed": 16,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-09-11",
+      "capture_calendar_months": [
+        "2023-09"
+      ],
+      "capture_counts": {
+        "MG": 5,
+        "PM": 3
+      },
+      "capture_date_max": "2023-09-04",
+      "capture_date_min": "2023-09-02",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 1,
+      "grid": "7B",
+      "session": "4",
+      "station_date_min": "2023-09-11",
+      "station_date_parsed": 7,
+      "station_nights_by_density": {
+        "high density": 8,
+        "low density": 8
+      }
+    },
+    {
+      "all_capture_before_first_camera_date": true,
+      "all_capture_before_first_station_date": false,
+      "camera_date_min": "2023-10-12",
+      "capture_calendar_months": [
+        "2023-10"
+      ],
+      "capture_counts": {
+        "MG": 2,
+        "PM": 2
+      },
+      "capture_date_max": "2023-10-03",
+      "capture_date_min": "2023-10-01",
+      "capture_distinct_dates": 3,
+      "focal_capture_rows_missing_PIT": 0,
+      "grid": "7B",
+      "session": "5",
+      "station_date_min": "2023-10-12",
+      "station_date_parsed": 5,
+      "station_nights_by_density": {
+        "high density": 7,
+        "low density": 8
+      }
+    }
+  ],
+  "equal_grid_delta_bound": [
+    -0.10286935286935286,
+    -0.0438415750915751
+  ],
+  "boundary": "Missing-PIT sensitivity assumes known PIT labels valid, each missing row could be an additional distinct individual of either focal taxon or a duplicate; no unknown uncaptured animals, capture effort or detection correction. Captured-tag composition is not population abundance or seed interaction composition. No predictive model score.",
+  "prediction_job_observed": {
+    "id": 139111323724,
+    "status": "queued",
+    "conclusion": null
+  }
+}

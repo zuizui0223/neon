@@ -1,0 +1,15 @@
+# V10 closure: capture predictor support, September response remains unopened
+2026-11-25. Merz source, DOI 10.1002/ecy.70312, Figshare 10.6084/m9.figshare.28207769.v2. Original V8/V9 and strict STOP unchanged. [Support run](https://github.com/zuizui0223/neon/actions/runs/45586894194) verified capture/foraging/station source and date support. [Locked prediction](NEON_MERZ_CAPTURE_PREDICTION_LOCK_V10_20261125.md) fixes all four original grids and their eight density cells, not a selected subset.
+
+All 652 2023 capture record dates parse. In Aug/Sep, all eight grid-months have both PM and MG represented by known captured IDs and both density arms have ≥2 offered station nights. However grid 6 September has no camera date in original matched positive-offer station cohort; grid 7B has two August and one September focal capture rows lacking PIT. Station Date has mixed representations (136/288 parse with original full-date parser; others day-month) and cannot supply missing camera observation. Source capture IDs have zero focal species conflicts. These violations make the fixed all-four-grid prediction gate impossible without changing it. No response-based selection, no relaxing, no September behavior prediction evaluated. Prediction run 45587086687 status at closure: queued, conclusion null. This source-gate determination is based on the completed support audit, not a completed prediction job.
+
+## Source-only candidate predictor magnitude
+Unique known captured MG/(MG+PM), not actual abundance or interaction share:
+- Grid 10: August 7/10, September 4/7; missing PIT rows 0/0; conservative change -12.857 to -12.857 percentage points.
+- Grid 6: August 7/13, September 3/6; missing PIT rows 0/0; conservative change -3.846 to -3.846 percentage points.
+- Grid 7A: August 11/20, September 6/12; missing PIT rows 0/0; conservative change -5.000 to -5.000 percentage points.
+- Grid 7B: August 10/14, September 5/8; missing PIT rows 2/1; conservative change -19.444 to 4.167 percentage points.
+Equal-grid captured composition change envelope -10.287 to -4.384 percentage points. Each missing row can be an additional distinct captured individual of either species or a repeat of a known individual; this is a source-index sensitivity, not a detection-corrected population estimate or confidence interval. The 4 grids are within one landscape. Candidate predictor moves in all four known-ID comparisons, sign remains negative in three after missing-ID sensitivity, fourth unresolved. No claim that the predictor explains seed carriage; no correlation or regression using September outcomes.
+
+## Decision
+STOP this all-grid temporal prediction. Do not use post-gate subsets to rescue it. Avoid additional subdivisions of consumed V8/V9 source. Next independent cohort must record species-resolved capture/availability independently before matched seed D/E or linked fate observations, with season or repeated periods and complete denominator. Historical capture data alone can characterize seasonal potential-consumer turnover but cannot confirm its relationship to seed handling. No pooled meta-analysis, no submission/merge.
