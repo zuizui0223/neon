@@ -1,0 +1,29 @@
+name: neon-cambodia-independent-source
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/audit_neon_cambodia_independent_source_v1.py'
+      - 'tests/test_neon_cambodia_independent_source_v1.py'
+      - '.github/workflows/neon-cambodia-independent-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p 'test_neon_cambodia_independent_source_v1.py' -v
+      - run: python -m unittest discover -s tests -p 'test_neon_core_ecological_evidence_20261125.py' -v
+      - run: python -m analysis.audit_neon_cambodia_independent_source_v1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-cambodia-independent-source
+          path: build/neon_cambodia_independent_source_20261125.json
+          if-no-files-found: error

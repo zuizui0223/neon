@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: focused V1.0 ledger verified; independent Cambodia source candidate
+
+65 exact fields across 13 recurrence rows reconcile with original receipts; no mismatch. Prior focused V1.0 CI 45536860987 passed. Targeted prior-art review distinguishes existing spatial segregation, NEON home-range studies, and seasonal forest-disturbance community studies. Pruvot et al. 2024 (9 sites, 54 site-zone-season strata) documents trap-level vegetation and malfunction records; bounded author-linked Zenodo inventory only. [Literature and source decision](docs/NEON_CAPTURE_SPACE_LITERATURE_AND_INDEPENDENT_SOURCE_20261125.md). No new ecological effect, no same-release subgroup rescue. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: focused V1.0 manuscript; rank-reversal closure
 
 [Run 45536108603](https://github.com/zuizui0223/neon/actions/runs/45536108603): all 158 matrices reconciled, reversal 27/16, Z=.351, 11/16 positive, p=.075; source-reuse exclusion six/four STOP. Retained rank 81/28, Z=.552, p=.00095. No direct group difference. [Result](docs/NEON_OBSERVED_RANK_REVERSAL_RECURRENCE_RESULT_20261125.md). [Focused manuscript V1.0](manuscript/NEON_CAPTURE_SPACE_RECURRENCE_V1_0.md) and [source-linked evidence ledger](results/neon_core_ecological_evidence_20261125.json) organize the core evidence; V0.9 remains archival. No new fitting, independent replication or mechanism. DRAFT / SUBMISSION HOLD.

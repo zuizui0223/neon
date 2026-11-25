@@ -1,0 +1,44 @@
+{
+  "schema": "neon.core_ledger_crosscheck.v1",
+  "date": "2026-11-25",
+  "head_sha": "5a23c8e7c41f653e4c4ac77e1e7b3d578142351d",
+  "ledger": "results/neon_core_ecological_evidence_20261125.json",
+  "checked_rows": 13,
+  "checked_numeric_or_null_fields_per_row": 5,
+  "checked_fields": 65,
+  "mismatches": [],
+  "source_blobs": [
+    {
+      "path": "results/neon_core_ecological_evidence_20261125.json",
+      "git_blob_sha": "9bcbdae45a10183074ccd619b53efd6093cf1ab8"
+    },
+    {
+      "path": "results/neon_uniform_null_correction_receipt_20261020.json",
+      "git_blob_sha": "55298e6c234d9c76f9d9d0baf90db462049593b6"
+    },
+    {
+      "path": "results/neon_exact_two_genus_ecological_receipt_20261025.json",
+      "git_blob_sha": "bc9c6da3f16a18cd8445845621683f9da2f9dc6d"
+    },
+    {
+      "path": "results/neon_exact_two_new_sites_sensitivity_receipt_20261025.json",
+      "git_blob_sha": "48bb70e1802dd25aae9e5f240e20dc547b6aa1ed"
+    },
+    {
+      "path": "results/neon_macro_six_night_common_station_recurrence_receipt_20261025.json",
+      "git_blob_sha": "6955df40a0c4af60c06275d466e9f5918f2c0113"
+    },
+    {
+      "path": "results/neon_macro_10m_patch_conditional_20261025.json",
+      "git_blob_sha": "d9239ce62ee2e8e82d92b885730339654e62f6f0"
+    },
+    {
+      "path": "results/neon_observed_rank_reversal_recurrence_20261125.json",
+      "git_blob_sha": "bfd1e004c1861b06dfab6f1627652a97a996bbe1"
+    }
+  ],
+  "method": "Direct exact comparison of pairs/sites/mean Z/positive-site count/conditional p or null to six originating receipts via GitHub connector; not raw data recalculation.",
+  "prior_ci_run_id": 45536860987,
+  "prior_ci_conclusion": "success",
+  "no_new_effect": true
+}
