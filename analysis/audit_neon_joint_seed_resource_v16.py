@@ -1,6 +1,6 @@
 """V16 source gate: no new fate model. Audit original linked resource and capture measurements."""
 import collections as C,hashlib,io,json,pathlib,re,urllib.request,urllib.parse,zipfile,xml.etree.ElementTree as ET
-from analysis.neon_sachser_fate_bounds_v11 import document
+from neon_sachser_fate_bounds_v11 import document
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 DOI='10.5061/dryad.c030b'
 LIMIT=20_000_000

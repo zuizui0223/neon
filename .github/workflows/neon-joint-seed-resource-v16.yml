@@ -1,4 +1,4 @@
-name: NEON joint seed resource evidence V16
+name: NEON joint seed resource evidence V16 direct entry
 on:
   push:
     branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
-      - run: python3 -m analysis.audit_neon_joint_seed_resource_v16
+      - run: python3 analysis/audit_neon_joint_seed_resource_v16.py
       - uses: actions/upload-artifact@v4
         with:
           name: neon-joint-seed-resource-v16
