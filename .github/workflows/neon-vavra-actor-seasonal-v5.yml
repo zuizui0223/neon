@@ -1,4 +1,4 @@
-name: NEON actor-resolved seasonal maple handling
+name: NEON actor-resolved seasonal maple handling verified calendar
 on:
   push:
     branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
