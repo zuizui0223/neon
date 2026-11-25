@@ -1,0 +1,24 @@
+name: NEON natural seed cohort source V19
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-pillay-source-v19.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install openpyxl==3.1.5
+      - run: python analysis/audit_neon_pillay_source_v19.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pillay-source-v19
+          path: pillay_source_v19.json
+          if-no-files-found: error
