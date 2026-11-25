@@ -1,0 +1,20 @@
+name: NEON Joyce early-to-late prediction V25
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-joyce-early-late-v25.yml'
+permissions:
+  contents: read
+jobs:
+  prediction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/run_neon_joyce_early_late_v25.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-joyce-early-late-v25
+          path: build/neon_joyce_early_late_v25.json
+          if-no-files-found: error
