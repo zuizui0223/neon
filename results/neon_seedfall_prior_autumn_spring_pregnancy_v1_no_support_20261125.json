@@ -1,0 +1,50 @@
+{
+  "schema": "neon.seedfall.prior_autumn.spring_pregnancy.v1.no_support.log_receipt",
+  "provenance": {
+    "run_id": 45530502934,
+    "job_id": 138926055436,
+    "head_sha": "7e514c8b1fb92c8c7a374e927655dbc8ba5b60b5",
+    "artifact_id": 14984866417,
+    "artifact_zip_sha256_reported_by_github": "c672aeac27507dcff9523d586a22ca54f6dbc04b157ede2b5b4cab12e1fe93f0",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "comparison_support": {
+      "matched_resource_and_spring_plot_year_pairs": 2,
+      "matched_resource_year_pairs": 19
+    },
+    "effect": null,
+    "eligible_sites": 0,
+    "exploratory_spring_only_not_original_joint_phase": true,
+    "litter_issues": {
+      "conflicting_field_key": 3,
+      "empty_trap_has_mass_records": 73,
+      "explicit_seed_mass_interval": 7550,
+      "explicit_seed_original_mass_unresolved": 17,
+      "mass_parent_interval_mismatch": 147,
+      "missing_trap_or_plot": 5235,
+      "mixed_mass_positive_or_unresolved": 11488,
+      "non_OK_nonempty_trap": 514,
+      "not_unique_elevated_trap": 46,
+      "overlap_trap_autumn_excluded": 90,
+      "trapping_days_mismatch": 1049
+    },
+    "mammal_issues": {
+      "event_reject_alternative_bouts_in_same_season": 69,
+      "event_reject_not_complete_events": 327,
+      "event_reject_not_exact_three_night_events": 760,
+      "event_reject_not_three_protocol_calendar_dates": 6,
+      "event_reject_special_nonsquare_site_sessions": 86,
+      "identity_or_replacement_excluded": 212
+    },
+    "no_causal_cache_or_coexistence_claim": true,
+    "retrieved_utc": "2026-11-25T02:10:36.789286+00:00",
+    "schema": "neon.seedfall.prior_autumn.spring_pregnancy.v1",
+    "spring_bouts": 204,
+    "status": "NO_ELIGIBLE_PAIRED_COMPARISON",
+    "submission_hold": true,
+    "trap_autumn_records": 3842,
+    "verified_files": 7009
+  }
+}

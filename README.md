@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: native seedfall-pregnancy endpoint closed; direct relative reproductive seasonality
+
+[Run 45530502934](https://github.com/zuizui0223/neon/actions/runs/45530502934) completed 7,009 verified files: 19 matched resource year-pairs, two with matched spring plots/dates, zero eligible pregnancy comparisons. No effect, no threshold relaxation. Separate prospective matched species pregnancy contrast (May–June vs Aug–Sep) within observed shared plots, held-out-site transfer vs zero contrast, fixed 1,760-file mammal source and all 32 sites. [Protocol](docs/NEON_MATCHED_SPECIES_PREGNANCY_SEASON_20261125.md). No causal resource, competition or coexistence inference. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: full seedfall/mammal source GO; spring-only matched previous-autumn exploratory test
 
 [Run 45529240269](https://github.com/zuizui0223/neon/actions/runs/45529240269): all 7,009 files verified; 76,489 capture records, 51,163 Seeds mass rows, original joint-phase 34 candidate taxon/site/year cells in 12 sites (four with >=4 years). No biological effect yet. Preserve original support; separate spring-only adjacent-year contrast matches literal elevated trap coverage, spring plots/dates, explicit known pregnancy status and species, with unknown status bounds. Fixed before grouped effects; no lag tuning or causal inference. [Protocol](docs/NEON_SEEDFALL_PRIOR_AUTUMN_SPRING_PREGNANCY_20261125.md). DRAFT / SUBMISSION HOLD.
