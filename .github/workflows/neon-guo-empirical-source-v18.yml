@@ -1,0 +1,20 @@
+name: NEON Guo public empirical source V18
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-guo-empirical-source-v18.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/audit_neon_guo_empirical_source_v18.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guo-source-v18
+          path: guo_source_v18.json
+          if-no-files-found: error
