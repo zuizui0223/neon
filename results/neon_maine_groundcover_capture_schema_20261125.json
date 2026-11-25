@@ -1,0 +1,1312 @@
+{
+  "schema": "neon.maine.groundcover.capture_schema.v1.log_receipt",
+  "provenance": {
+    "run_id": 45539468482,
+    "job_id": 138954138111,
+    "head_sha": "f527a550ed04b5bc6f722b51709c16751000e312",
+    "artifact_id": 14989070401,
+    "artifact_zip_sha256_reported_by_github": "8ea327a5781aa93ff69dd1cc8635fa1e20305a1fc35e8b31fbe82eda17fc2b19",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "archive_doi": "10.6084/m9.figshare.14488626.v1",
+    "author_R_selected_statements_not_executed": [
+      {
+        "line": 15,
+        "statement": "dist<-read.csv(file=\"GRID_trap_dist.csv\")"
+      },
+      {
+        "line": 16,
+        "statement": "#This above file is a file which gives you the distance (in meters) between each trapping location"
+      },
+      {
+        "line": 17,
+        "statement": "#and every other trap in a trapping grid where the distance between traps is 10m. Trap lines are labeled"
+      },
+      {
+        "line": 18,
+        "statement": "#\"A\" through \"J\" and locations along each line are numbered \"1\" through \"10\" (i.e., the fifth trap on"
+      },
+      {
+        "line": 19,
+        "statement": "# the first trapping line is trap \"A5\")"
+      },
+      {
+        "line": 22,
+        "statement": "### set the \"trap neighborhood\" to within 28.05 (the trap neighborhood is the same for peromyscus and myodes so can be"
+      },
+      {
+        "line": 23,
+        "statement": "### done together). The value 28.05 was calculated using the secr package and the dbar() command on the capture histories per trapping grid"
+      },
+      {
+        "line": 24,
+        "statement": "### to calculate average daily movements of the two target species. We found on average that the distance between consecutive captures"
+      },
+      {
+        "line": 25,
+        "statement": "### of these target species is up to 28.05 meters, so we will look within this distance from every target trap to find the \"neighborhood of"
+      },
+      {
+        "line": 26,
+        "statement": "### available traps\" on that trapping occasion"
+      },
+      {
+        "line": 28,
+        "statement": "dist<-subset(dist, DISTANCE<=28.05)"
+      },
+      {
+        "line": 35,
+        "statement": "micro<-read.csv(file=\"microhabitat.csv\")"
+      },
+      {
+        "line": 46,
+        "statement": "##get the factor scores and put them into a data frame associated with the trap site"
+      },
+      {
+        "line": 59,
+        "statement": "#put the microhabitat variable TC1 of site1 and site2 into the dataset, where site 1 is the target trap, and site 2"
+      },
+      {
+        "line": 60,
+        "statement": "#is every other trap site in the trapping grid of interest"
+      },
+      {
+        "line": 64,
+        "statement": "dist<-merge(dist, tc1, by=\"SITE1\", all.x = TRUE)"
+      },
+      {
+        "line": 67,
+        "statement": "dist<-merge(dist, tc1, by=\"SITE2\", all.x = TRUE)"
+      },
+      {
+        "line": 72,
+        "statement": "#now insert the \"16_19_GRID_occup.csv\" which contains the occupancy data for each trap and each occasion from all 4 trapping seasons"
+      },
+      {
+        "line": 73,
+        "statement": "occup<-read.csv(file=\"16_19_GRID_occup.csv\")"
+      },
+      {
+        "line": 76,
+        "statement": "#only occupied target trap sites"
+      },
+      {
+        "line": 77,
+        "statement": "occupsite<-subset(occup, OCCUP==1)"
+      },
+      {
+        "line": 79,
+        "statement": "#merge in the dataset with the microhabitat components at the other trap sites that are within our specified distance"
+      },
+      {
+        "line": 80,
+        "statement": "dist2<-merge(occupsite, dist, by=\"SITE1\", all.x = TRUE)"
+      },
+      {
+        "line": 84,
+        "statement": "#now select just unoccupied neighbor traps"
+      },
+      {
+        "line": 85,
+        "statement": "occupneighbor<-subset(occup, OCCUP==0)"
+      },
+      {
+        "line": 87,
+        "statement": "dist3<-merge(occup,dist2, by=c(\"SITE2\", \"UNIQUE_OCC\"), all.x = TRUE)"
+      },
+      {
+        "line": 88,
+        "statement": "sub<-subset(dist3, SITE1!=\"NA\")"
+      },
+      {
+        "line": 95,
+        "statement": "neighbors<-subset(sub, SITE1!=SITE2)"
+      },
+      {
+        "line": 100,
+        "statement": "#extract only traps within the neighborhood that were not already occupied on that occasion."
+      },
+      {
+        "line": 101,
+        "statement": "#this assumes, conservatively, that each trap is occupied after all surrounding traps have already become occupied"
+      },
+      {
+        "line": 102,
+        "statement": "neighbors<-subset(neighbors, OCCUP_SITE2==\"0\")"
+      },
+      {
+        "line": 104,
+        "statement": "traptc1<-sub %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(SITE2_TC1 = max(SITE1_TC1, na.rm=TRUE))"
+      },
+      {
+        "line": 105,
+        "statement": "traptc1$OCCUP_SITE1<-\"a\""
+      },
+      {
+        "line": 106,
+        "statement": "traptc1$SITE2<-\"b\""
+      },
+      {
+        "line": 107,
+        "statement": "traptc1$OCCUP_SITE2<-\"c\""
+      },
+      {
+        "line": 108,
+        "statement": "traptc1$DISTANCE<-\"d\""
+      },
+      {
+        "line": 109,
+        "statement": "traptc1$SITE1_TC1<-\"e\""
+      },
+      {
+        "line": 110,
+        "statement": "traptc1<-traptc1[,c(1,4,5,6,2,7,8,3)]"
+      },
+      {
+        "line": 111,
+        "statement": "traptc1<-as.data.frame(traptc1)"
+      },
+      {
+        "line": 113,
+        "statement": "available<-rbind(neighbors, traptc1)"
+      },
+      {
+        "line": 116,
+        "statement": "#calculate the mean component value in the neighborhood of available traps on every trapping occasion"
+      },
+      {
+        "line": 117,
+        "statement": "MEANTC1<-available %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(MEANTC1 = mean(unique(SITE2_TC1), na.rm=TRUE))"
+      },
+      {
+        "line": 118,
+        "statement": "#calculate the standard deviation of the component value in the neighborhood of available traps on every occasion"
+      },
+      {
+        "line": 119,
+        "statement": "SDTC1<-available %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(SDTC1 = sd(unique(SITE2_TC1)))"
+      },
+      {
+        "line": 121,
+        "statement": "neighbors2<-merge(neighbors, MEANTC1, by=c(\"SITE1\", \"UNIQUE_OCC\"), all.x = TRUE)"
+      },
+      {
+        "line": 124,
+        "statement": "neighbors3<-merge(neighbors2, SDTC1, by=c(\"SITE1\", \"UNIQUE_OCC\"), all.x = TRUE)"
+      },
+      {
+        "line": 127,
+        "statement": "#traps from the value at the trap chosen (and this is standardized by the standard deviation) - for every occasion"
+      },
+      {
+        "line": 138,
+        "statement": "#the \"diffUSETC1\" variable is the microhabitat selection variable attributed to every target trap chosen"
+      },
+      {
+        "line": 139,
+        "statement": "#by each individual at every unique trapping occasion in the dataset. This is now used as \"selectPC1\" in our"
+      },
+      {
+        "line": 152,
+        "statement": "dist<-merge(dist, tc2, by=\"SITE1\", all.x = TRUE)"
+      },
+      {
+        "line": 155,
+        "statement": "dist<-merge(dist, tc2, by=\"SITE2\", all.x = TRUE)"
+      },
+      {
+        "line": 160,
+        "statement": "#now insert the \"16_19_GRID_occup.csv\" which contains the occupancy data for each trap and each occasion from all 4 trapping seasons"
+      },
+      {
+        "line": 161,
+        "statement": "occup<-read.csv(file=\"16_19_GRID_occup.csv\")"
+      },
+      {
+        "line": 163,
+        "statement": "occupsite<-subset(occup, OCCUP==1)"
+      },
+      {
+        "line": 165,
+        "statement": "dist2<-merge(occupsite,dist, by=\"SITE1\", all.x = TRUE)"
+      },
+      {
+        "line": 169,
+        "statement": "occupneighbor<-subset(occup, OCCUP==0)"
+      },
+      {
+        "line": 171,
+        "statement": "dist3<-merge(occup,dist2, by=c(\"SITE2\", \"UNIQUE_OCC\"), all.x = TRUE)"
+      },
+      {
+        "line": 172,
+        "statement": "sub<-subset(dist3, SITE1!=\"NA\")"
+      },
+      {
+        "line": 179,
+        "statement": "neighbors<-subset(sub, SITE1!=SITE2)"
+      },
+      {
+        "line": 185,
+        "statement": "neighbors<-subset(neighbors, OCCUP_SITE2==\"0\")"
+      },
+      {
+        "line": 187,
+        "statement": "traptc2<-sub %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(SITE2_TC2 = max(SITE1_TC2, na.rm=TRUE))"
+      },
+      {
+        "line": 188,
+        "statement": "traptc2$OCCUP_SITE1<-\"a\""
+      },
+      {
+        "line": 189,
+        "statement": "traptc2$SITE2<-\"b\""
+      },
+      {
+        "line": 190,
+        "statement": "traptc2$OCCUP_SITE2<-\"c\""
+      },
+      {
+        "line": 191,
+        "statement": "traptc2$DISTANCE<-\"d\""
+      },
+      {
+        "line": 192,
+        "statement": "traptc2$SITE1_TC2<-\"e\""
+      },
+      {
+        "line": 193,
+        "statement": "traptc2<-traptc2[,c(1,4,5,6,2,7,8,3)]"
+      },
+      {
+        "line": 194,
+        "statement": "traptc2<-as.data.frame(traptc2)"
+      },
+      {
+        "line": 196,
+        "statement": "available<-rbind(neighbors, traptc2)"
+      },
+      {
+        "line": 198,
+        "statement": "MEANTC2<-available %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(MEANTC2 = mean(unique(SITE2_TC2), na.rm=TRUE))"
+      },
+      {
+        "line": 200,
+        "statement": "SDTC2<-available %>% group_by(SITE1, UNIQUE_OCC) %>% summarise(SDTC2 = sd(unique(SITE2_TC2))) ### new"
+      },
+      {
+        "line": 203,
+        "statement": "neighbors2<-merge(neighbors, MEANTC2, by=c(\"SITE1\", \"UNIQUE_OCC\"), all.x = TRUE)"
+      },
+      {
+        "line": 204,
+        "statement": "neighbors3<-merge(neighbors2, SDTC2, by=c(\"SITE1\", \"UNIQUE_OCC\"), all.x = TRUE) ### new"
+      }
+    ],
+    "author_R_sha256": "7b1c0fb53ac1e03fd319f2a9c2e0f55dd6e90a6cbc841f025e7a3493d2427beb",
+    "author_codebook_definitions": [
+      {
+        "definition": "Metadata for datasets associated with \"LAND-USE CHANGE ALTERS ASSOCIATIONS BETWEEN PERSONALITY AND MICROHABITAT SELECTION\"",
+        "line": 1
+      },
+      {
+        "definition": "by Allison M. Brehm and Alessio Mortelliti",
+        "line": 2
+      },
+      {
+        "definition": "to use the data associated with this paper",
+        "line": 5
+      },
+      {
+        "definition": "##################################################",
+        "line": 7
+      },
+      {
+        "definition": "Data column names and descriptions are as follows:",
+        "line": 8
+      },
+      {
+        "definition": "##################################################",
+        "line": 9
+      },
+      {
+        "definition": "##### For \"pm_personalitydata\" and \"mg_personalitydata\" #####",
+        "line": 11
+      },
+      {
+        "definition": "PIT\t\t\t\t: Unique ID code",
+        "line": 12
+      },
+      {
+        "definition": "SPP\t\t\t\t: Species, PM for Peromyscus maniculatus and MG for Myodes gapperi",
+        "line": 13
+      },
+      {
+        "definition": "SESSION\t\t\t\t: Trapping session; 1-June, 2-July, 3-August, 4-September, 5-October",
+        "line": 14
+      },
+      {
+        "definition": "YEAR\t\t\t\t: 16-2016, 17-2017, 18-2018, 19-2019",
+        "line": 15
+      },
+      {
+        "definition": "Net_weight\t\t\t: Body mass in grams",
+        "line": 16
+      },
+      {
+        "definition": "SEX\t\t\t\t: Sex; M-male, F-female",
+        "line": 17
+      },
+      {
+        "definition": "TRT\t\t\t\t: Silvicultural treatment used in the study area. REF-reference/unmanaged, EA-even-aged, SH-shelterwood, EX-selection cutting",
+        "line": 18
+      },
+      {
+        "definition": "CI\t\t\t\t: Body condition calculated using the scaled-mass index from Peig, J., and A. J. Green. 2009. New perspectives for estimating body condition from mass/length data: The scaled mass index as an alternative method. Oikos 118:1883–1891.",
+        "line": 19
+      },
+      {
+        "definition": "HANDLING\t\t\t: Handling score-number of seconds of immobility during a handling bag test",
+        "line": 20
+      },
+      {
+        "definition": "LATENCY.TO.EMERGE..sec.\t\t: Latency for individual to emerge from emergence test (seconds)",
+        "line": 21
+      },
+      {
+        "definition": "TIME.AT.END.OF.TUNNEL..sec.\t: Time (seconds) spent at the end of the emergence tunnel before emerging",
+        "line": 22
+      },
+      {
+        "definition": "Mean.speed\t\t\t: Mean speed (m/sec) of movement in the open-field test",
+        "line": 23
+      },
+      {
+        "definition": "Prop.time.groom\t\t\t: Proportion of time spent grooming in the open-field test",
+        "line": 24
+      },
+      {
+        "definition": "Jump...rate\t\t\t: Rate of jumping (jumps/sec) in the open-field test",
+        "line": 25
+      },
+      {
+        "definition": "Rear...rate\t\t\t: Rate of rearing (jumps/sec) in the open-field test",
+        "line": 26
+      },
+      {
+        "definition": "Prop.time.center\t\t: Proportion of time spent in the center area of the open-field test",
+        "line": 27
+      },
+      {
+        "definition": "##############################################################",
+        "line": 28
+      },
+      {
+        "definition": "##### For \"pm\" and \"mg\" ######################################",
+        "line": 31
+      },
+      {
+        "definition": "SITE\t\t\t\t: Unique trapping location",
+        "line": 32
+      },
+      {
+        "definition": "UNIQUE_OCC\t\t\t: Unique trapping occasion",
+        "line": 33
+      },
+      {
+        "definition": "PIT\t\t\t\t: Unique ID code",
+        "line": 34
+      },
+      {
+        "definition": "SEASON\t\t\t\t: Unique trapping season; YY_S, YY=Year, S=Session (i.e., June, 2016 would be 16_1)",
+        "line": 35
+      },
+      {
+        "definition": "HANDLING\t\t\t: Handling score-number of seconds of immobility during a handling bag test",
+        "line": 36
+      },
+      {
+        "definition": "LATENCY.TO.EMERGE..sec.\t\t: Latency for individual to emerge from emergence test (seconds)",
+        "line": 37
+      },
+      {
+        "definition": "TIME.AT.END.OF.TUNNEL..sec.\t: Time (seconds) spent at the end of the emergence tunnel before emerging",
+        "line": 38
+      },
+      {
+        "definition": "Mean.speed\t\t\t: Mean speed (m/sec) of movement in the open-field test",
+        "line": 39
+      },
+      {
+        "definition": "Prop.time.groom\t\t\t: Proportion of time spent grooming in the open-field test",
+        "line": 40
+      },
+      {
+        "definition": "Jump...rate\t\t\t: Rate of jumping (jumps/sec) in the open-field test",
+        "line": 41
+      },
+      {
+        "definition": "Rear...rate\t\t\t: Rate of rearing (jumps/sec) in the open-field test",
+        "line": 42
+      },
+      {
+        "definition": "Prop.time.center\t\t: Proportion of time spent in the center area of the open-field test",
+        "line": 43
+      },
+      {
+        "definition": "TRAP\t\t\t\t: Trap name in the trapping grid",
+        "line": 44
+      },
+      {
+        "definition": "SPP\t\t\t\t: Species, PM for Peromyscus maniculatus and MG for Myodes gapperi",
+        "line": 45
+      },
+      {
+        "definition": "SESSION\t\t\t\t: Trapping session; 1-June, 2-July, 3-August, 4-September, 5-October",
+        "line": 46
+      },
+      {
+        "definition": "YEAR\t\t\t\t: 16-2016, 17-2017, 18-2018, 19-2019",
+        "line": 47
+      },
+      {
+        "definition": "GRID\t\t\t\t: Trapping grid ID",
+        "line": 48
+      },
+      {
+        "definition": "Net_weight\t\t\t: Body mass in grams",
+        "line": 49
+      },
+      {
+        "definition": "SEX\t\t\t\t: Sex; M-male, F-female",
+        "line": 50
+      },
+      {
+        "definition": "TRT\t\t\t\t: Silvicultural treatment used in the study area. REF-reference/unmanaged, EA-even-aged, SH-shelterwood, EX-selection cutting",
+        "line": 51
+      },
+      {
+        "definition": "CI\t\t\t\t: Body condition calculated using the scaled-mass index from Peig, J., and A. J. Green. 2009. New perspectives for estimating body condition from mass/length data: The scaled mass index as an alternative method. Oikos 118:1883–1891.",
+        "line": 52
+      },
+      {
+        "definition": "diffUSETC1\t\t\t: Microhabitat selection variable, calculated by subtracting the mean microhabitat component value in the neighborhood of available traps from the component value at an individual’s capture site (and then dividing by the standard deviation in the neighborhood)",
+        "line": 53
+      },
+      {
+        "definition": "diffUSETC2",
+        "line": 54
+      },
+      {
+        "definition": "##############################################################",
+        "line": 55
+      },
+      {
+        "definition": "##### For \"16_19_GRID_occup\" #################################",
+        "line": 58
+      },
+      {
+        "definition": "SITE\t\t\t\t: Unique trapping location",
+        "line": 59
+      },
+      {
+        "definition": "UNIQUE_OCC\t\t\t: Unique trapping occasion",
+        "line": 60
+      },
+      {
+        "definition": "OCCUP\t\t\t\t: 1 = the trap was occupied on the given occasion, 0 = the trap was unoccupied on the given occasion",
+        "line": 61
+      },
+      {
+        "definition": "##############################################################",
+        "line": 62
+      },
+      {
+        "definition": "##### For \"GRID_trap_dist\" ###################################",
+        "line": 65
+      },
+      {
+        "definition": "SITE1\t\t\t\t: The focal/target trap",
+        "line": 66
+      },
+      {
+        "definition": "SITE2\t\t\t\t: The trap for which we want to know the distance from the focal/target trap",
+        "line": 67
+      },
+      {
+        "definition": "DISTANCE\t\t\t: The distance (in meters) between the focal trap (SITE1) and the second trap (SITE2)",
+        "line": 68
+      },
+      {
+        "definition": "##############################################################",
+        "line": 69
+      },
+      {
+        "definition": "##### For \"microhabitat\" #####################################",
+        "line": 72
+      },
+      {
+        "definition": "TRT\t\t\t\t: Silvicultural treatment used in the study area. REF-reference/unmanaged, EA-even-aged, SH-shelterwood, EX-selection cutting",
+        "line": 73
+      },
+      {
+        "definition": "GRID\t\t\t\t: Trapping grid ID",
+        "line": 74
+      },
+      {
+        "definition": "SITE\t\t\t\t: Unique trapping location (measurements taken within a 5m radius from the trapping point)",
+        "line": 75
+      },
+      {
+        "definition": "% COVER GRASS/HERBS \t\t: Approximate percent ground cover composed of grasses, sedges, and small herbaceous plants. Also included shrubs and saplings below knee height.",
+        "line": 76
+      },
+      {
+        "definition": "% COVER SHRUB/SAP <1 \t\t: Approximate percent ground cover composed of shrubs and saplings <1m in height. Excluded those below knee height.",
+        "line": 77
+      },
+      {
+        "definition": "% COVER SHRUB/SAP 1-2 meters \t: Approximate percent ground cover composed of shrubs and saplings 1-2m in height.",
+        "line": 78
+      },
+      {
+        "definition": "% COVER SHRUB/SAP 2-4 meters \t: Approximate percent ground cover composed of shrubs and saplings 2-4m in height.",
+        "line": 79
+      },
+      {
+        "definition": "% COVER MOSS \t\t\t: Approximate percent of ground covered in mosses. Included rocks, roots, and downed wood that were covered in mosses.",
+        "line": 80
+      },
+      {
+        "definition": "METERS CWD 10-20 cm \t\t: Total length (in meters) of coarse woody debris (CWD - defined as dead wood that had fallen onto the ground or was at an angle = 45? from the ground and supported by the ground in at least 3 locations) with a diameter between 10 and 20 cm at its widest point.",
+        "line": 81
+      },
+      {
+        "definition": "METERS CDW 20+ cm \t\t: Total length (in meters) of coarse woody debris (CWD - defined as dead wood that had fallen onto the ground or was at an angle = 45? from the ground and supported by the ground in at least 3 locations) with a diameter > 20 cm at its widest point.",
+        "line": 82
+      },
+      {
+        "definition": "% CANOPY COVER\t\t\t: Percent canopy cover (calculated using a concave spherical densitometer).",
+        "line": 83
+      },
+      {
+        "definition": "LARGE TREE CIRC. \t\t: Circumference at breast height of the largest tree within 5m of the trap site.",
+        "line": 84
+      },
+      {
+        "definition": "DBH\t\t\t\t: Diameter at breast height of the largest tree within 5m of the trap site.",
+        "line": 85
+      },
+      {
+        "definition": "SPECIES \t\t\t: Species of the largest tree within 5m of the trap site. (BF-BALSAM FIR, RS-RED SPRUCE, EH-EASTERN HEMLOCK, NWC-NORTHERN WHITE CEDAR, EWP-EASTERN WHITE PINE, RM-RED MAPLE, YB-YELLOW BIRCH, ASH-ASH, RO-RED OAK, GB-GRAY BIRCH, RP-RED PINE).",
+        "line": 86
+      },
+      {
+        "definition": "##############################################################",
+        "line": 87
+      }
+    ],
+    "cambodia_access_stop_preserved": true,
+    "effect": null,
+    "metadata_sha256": "81174b2d3aed5f5a41654e49a59b4603c132ba0dc377938d4fad06132d14a40f",
+    "paper_doi": "10.1002/eap.2443",
+    "retrieved_utc": "2026-11-25T03:22:05.811089+00:00",
+    "schema": "neon.maine.groundcover.capture_schema.v1",
+    "station_season_individual_join_verified": false,
+    "status": "VERIFIED_CODEBOOK_AND_SOURCE_PROFILE",
+    "submission_hold": true,
+    "tables": {
+      "16_19_GRID_occup.csv": {
+        "candidate_key_counts": {},
+        "candidate_roles_not_validated": {
+          "grid": [
+            "SITE"
+          ],
+          "individual": [],
+          "session": [],
+          "station": [],
+          "year": []
+        },
+        "column_profiles": [
+          {
+            "distinct_nonmissing": 800,
+            "missing": 0,
+            "name": "SITE"
+          },
+          {
+            "distinct_nonmissing": 59,
+            "missing": 0,
+            "name": "UNIQUE_OCC"
+          },
+          {
+            "distinct_nonmissing": 2,
+            "missing": 0,
+            "name": "OCCUP"
+          }
+        ],
+        "data_rows": 47200,
+        "delimiter": "','",
+        "header": [
+          "SITE",
+          "UNIQUE_OCC",
+          "OCCUP"
+        ],
+        "sha256": "2968a369d9a3a1e4fa3ceb63f59e980a395ddb74a1ba2eb260dcf1e3c0946cd8"
+      },
+      "GRID_trap_dist.csv": {
+        "candidate_key_counts": {},
+        "candidate_roles_not_validated": {
+          "grid": [],
+          "individual": [],
+          "session": [],
+          "station": [],
+          "year": []
+        },
+        "column_profiles": [
+          {
+            "distinct_nonmissing": 800,
+            "missing": 0,
+            "name": "SITE1"
+          },
+          {
+            "distinct_nonmissing": 800,
+            "missing": 0,
+            "name": "SITE2"
+          },
+          {
+            "distinct_nonmissing": 51,
+            "missing": 0,
+            "name": "DISTANCE"
+          }
+        ],
+        "data_rows": 80000,
+        "delimiter": "','",
+        "header": [
+          "SITE1",
+          "SITE2",
+          "DISTANCE"
+        ],
+        "sha256": "65df878800e742ce86afbde52e9896ad520510c350077c88f5f24a5f01026dcf"
+      },
+      "mg.csv": {
+        "candidate_key_counts": {},
+        "candidate_roles_not_validated": {
+          "grid": [
+            "SITE",
+            "GRID"
+          ],
+          "individual": [
+            "PIT"
+          ],
+          "session": [
+            "SESSION"
+          ],
+          "station": [
+            "TRAP"
+          ],
+          "year": [
+            "YEAR"
+          ]
+        },
+        "column_profiles": [
+          {
+            "distinct_nonmissing": 530,
+            "missing": 0,
+            "name": "SITE"
+          },
+          {
+            "distinct_nonmissing": 58,
+            "missing": 0,
+            "name": "UNIQUE_OCC"
+          },
+          {
+            "distinct_nonmissing": 583,
+            "missing": 0,
+            "name": "PIT"
+          },
+          {
+            "distinct_nonmissing": 20,
+            "literal_counts": {
+              "16_1": 80,
+              "16_2": 105,
+              "16_3": 151,
+              "16_4": 209,
+              "16_5": 75,
+              "17_1": 10,
+              "17_2": 55,
+              "17_3": 69,
+              "17_4": 84,
+              "17_5": 63,
+              "18_1": 39,
+              "18_2": 81,
+              "18_3": 110,
+              "18_4": 199,
+              "18_5": 241,
+              "19_1": 8,
+              "19_2": 4,
+              "19_3": 19,
+              "19_4": 31,
+              "19_5": 55
+            },
+            "missing": 0,
+            "name": "SEASON"
+          },
+          {
+            "distinct_nonmissing": 58,
+            "missing": 633,
+            "name": "HANDLING"
+          },
+          {
+            "distinct_nonmissing": 107,
+            "missing": 673,
+            "name": "LATENCY.TO.EMERGE..sec."
+          },
+          {
+            "distinct_nonmissing": 54,
+            "missing": 920,
+            "name": "TIME.AT.END.OF.TUNNEL..sec."
+          },
+          {
+            "distinct_nonmissing": 147,
+            "missing": 162,
+            "name": "Mean.speed"
+          },
+          {
+            "distinct_nonmissing": 321,
+            "missing": 162,
+            "name": "Prop.time.groom"
+          },
+          {
+            "distinct_nonmissing": 88,
+            "missing": 162,
+            "name": "Jump...rate"
+          },
+          {
+            "distinct_nonmissing": 148,
+            "missing": 162,
+            "name": "Rear...rate"
+          },
+          {
+            "distinct_nonmissing": 257,
+            "missing": 162,
+            "name": "Prop.time.center"
+          },
+          {
+            "distinct_nonmissing": 321,
+            "missing": 162,
+            "name": "prop.groom.logit"
+          },
+          {
+            "distinct_nonmissing": 257,
+            "missing": 162,
+            "name": "prop.center.logit"
+          },
+          {
+            "distinct_nonmissing": 114,
+            "missing": 5,
+            "name": "TRAP"
+          },
+          {
+            "distinct_nonmissing": 1,
+            "missing": 0,
+            "name": "SPP"
+          },
+          {
+            "distinct_nonmissing": 5,
+            "literal_counts": {
+              "1": 137,
+              "2": 245,
+              "3": 349,
+              "4": 523,
+              "5": 434
+            },
+            "missing": 0,
+            "name": "SESSION"
+          },
+          {
+            "distinct_nonmissing": 4,
+            "literal_counts": {
+              "16": 620,
+              "17": 281,
+              "18": 670,
+              "19": 117
+            },
+            "missing": 0,
+            "name": "YEAR"
+          },
+          {
+            "distinct_nonmissing": 8,
+            "missing": 0,
+            "name": "GRID"
+          },
+          {
+            "distinct_nonmissing": 15,
+            "missing": 0,
+            "name": "OCC"
+          },
+          {
+            "distinct_nonmissing": 26,
+            "missing": 192,
+            "name": "INACTIVE"
+          },
+          {
+            "distinct_nonmissing": 18,
+            "missing": 676,
+            "name": "OBS"
+          },
+          {
+            "distinct_nonmissing": 2,
+            "missing": 0,
+            "name": "RECAP"
+          },
+          {
+            "distinct_nonmissing": 66,
+            "missing": 0,
+            "name": "Net_weight"
+          },
+          {
+            "distinct_nonmissing": 2,
+            "literal_counts": {
+              "F": 847,
+              "M": 832
+            },
+            "missing": 9,
+            "name": "SEX"
+          },
+          {
+            "distinct_nonmissing": 4,
+            "missing": 0,
+            "name": "TRT"
+          },
+          {
+            "distinct_nonmissing": 847,
+            "missing": 0,
+            "name": "CI"
+          },
+          {
+            "distinct_nonmissing": 1500,
+            "missing": 31,
+            "name": "diffUSETC1"
+          },
+          {
+            "distinct_nonmissing": 1500,
+            "missing": 31,
+            "name": "diffUSETC2"
+          },
+          {
+            "distinct_nonmissing": 1500,
+            "missing": 31,
+            "name": "diffUSETC3"
+          }
+        ],
+        "data_rows": 1688,
+        "delimiter": "','",
+        "header": [
+          "SITE",
+          "UNIQUE_OCC",
+          "PIT",
+          "SEASON",
+          "HANDLING",
+          "LATENCY.TO.EMERGE..sec.",
+          "TIME.AT.END.OF.TUNNEL..sec.",
+          "Mean.speed",
+          "Prop.time.groom",
+          "Jump...rate",
+          "Rear...rate",
+          "Prop.time.center",
+          "prop.groom.logit",
+          "prop.center.logit",
+          "TRAP",
+          "SPP",
+          "SESSION",
+          "YEAR",
+          "GRID",
+          "OCC",
+          "INACTIVE",
+          "OBS",
+          "RECAP",
+          "Net_weight",
+          "SEX",
+          "TRT",
+          "CI",
+          "diffUSETC1",
+          "diffUSETC2",
+          "diffUSETC3"
+        ],
+        "sha256": "a5ca5fa81b4b5d24f39ff6639a58a572297aca8b302f5bdbdb02ec4c6a330a8e"
+      },
+      "microhabitat.csv": {
+        "candidate_key_counts": {},
+        "candidate_roles_not_validated": {
+          "grid": [
+            "GRID",
+            "SITE"
+          ],
+          "individual": [],
+          "session": [],
+          "station": [],
+          "year": []
+        },
+        "column_profiles": [
+          {
+            "distinct_nonmissing": 4,
+            "missing": 0,
+            "name": "TRT"
+          },
+          {
+            "distinct_nonmissing": 8,
+            "missing": 0,
+            "name": "GRID"
+          },
+          {
+            "distinct_nonmissing": 800,
+            "missing": 0,
+            "name": "SITE"
+          },
+          {
+            "distinct_nonmissing": 20,
+            "missing": 0,
+            "name": "% COVER GRASS/HERBS "
+          },
+          {
+            "distinct_nonmissing": 10,
+            "missing": 0,
+            "name": "% COVER SHRUB/SAP <1 "
+          },
+          {
+            "distinct_nonmissing": 12,
+            "missing": 0,
+            "name": "% COVER SHRUB/SAP 1-2 meters "
+          },
+          {
+            "distinct_nonmissing": 17,
+            "missing": 1,
+            "name": "% COVER SHRUB/SAP 2-4 meters "
+          },
+          {
+            "distinct_nonmissing": 25,
+            "missing": 0,
+            "name": "% COVER MOSS "
+          },
+          {
+            "distinct_nonmissing": 34,
+            "missing": 1,
+            "name": "METERS CWD 10-20 cm "
+          },
+          {
+            "distinct_nonmissing": 24,
+            "missing": 1,
+            "name": "METERS CDW 20+ cm "
+          },
+          {
+            "distinct_nonmissing": 52,
+            "missing": 1,
+            "name": "% CANOPY COVER"
+          },
+          {
+            "distinct_nonmissing": 203,
+            "missing": 2,
+            "name": "LARGE TREE CIRC. "
+          },
+          {
+            "distinct_nonmissing": 203,
+            "missing": 2,
+            "name": "DBH"
+          },
+          {
+            "distinct_nonmissing": 14,
+            "literal_counts": {
+              "AB": 1,
+              "ASH": 6,
+              "BF": 88,
+              "Bf": 1,
+              "EH": 296,
+              "EWP": 245,
+              "GB": 3,
+              "NWC": 21,
+              "RM": 43,
+              "RO": 11,
+              "RP": 1,
+              "RS": 74,
+              "UNK": 2,
+              "YB": 7
+            },
+            "missing": 1,
+            "name": "SPECIES "
+          }
+        ],
+        "data_rows": 800,
+        "delimiter": "','",
+        "header": [
+          "TRT",
+          "GRID",
+          "SITE",
+          "% COVER GRASS/HERBS ",
+          "% COVER SHRUB/SAP <1 ",
+          "% COVER SHRUB/SAP 1-2 meters ",
+          "% COVER SHRUB/SAP 2-4 meters ",
+          "% COVER MOSS ",
+          "METERS CWD 10-20 cm ",
+          "METERS CDW 20+ cm ",
+          "% CANOPY COVER",
+          "LARGE TREE CIRC. ",
+          "DBH",
+          "SPECIES "
+        ],
+        "sha256": "b2ecd453288f8070d2340a6ab210bda822d7836c963337a7400b02c385ac3dd0"
+      },
+      "pm.csv": {
+        "candidate_key_counts": {},
+        "candidate_roles_not_validated": {
+          "grid": [
+            "SITE",
+            "GRID"
+          ],
+          "individual": [
+            "PIT"
+          ],
+          "session": [
+            "SESSION"
+          ],
+          "station": [
+            "TRAP"
+          ],
+          "year": [
+            "YEAR"
+          ]
+        },
+        "column_profiles": [
+          {
+            "distinct_nonmissing": 612,
+            "missing": 0,
+            "name": "SITE"
+          },
+          {
+            "distinct_nonmissing": 59,
+            "missing": 0,
+            "name": "UNIQUE_OCC"
+          },
+          {
+            "distinct_nonmissing": 671,
+            "missing": 0,
+            "name": "PIT"
+          },
+          {
+            "distinct_nonmissing": 20,
+            "literal_counts": {
+              "16_1": 58,
+              "16_2": 142,
+              "16_3": 217,
+              "16_4": 180,
+              "16_5": 72,
+              "17_1": 21,
+              "17_2": 42,
+              "17_3": 79,
+              "17_4": 83,
+              "17_5": 67,
+              "18_1": 71,
+              "18_2": 135,
+              "18_3": 159,
+              "18_4": 240,
+              "18_5": 235,
+              "19_1": 18,
+              "19_2": 30,
+              "19_3": 40,
+              "19_4": 35,
+              "19_5": 46
+            },
+            "missing": 0,
+            "name": "SEASON"
+          },
+          {
+            "distinct_nonmissing": 60,
+            "missing": 683,
+            "name": "HANDLING"
+          },
+          {
+            "distinct_nonmissing": 117,
+            "missing": 747,
+            "name": "LATENCY.TO.EMERGE..sec."
+          },
+          {
+            "distinct_nonmissing": 49,
+            "missing": 858,
+            "name": "TIME.AT.END.OF.TUNNEL..sec."
+          },
+          {
+            "distinct_nonmissing": 209,
+            "missing": 132,
+            "name": "Mean.speed"
+          },
+          {
+            "distinct_nonmissing": 495,
+            "missing": 134,
+            "name": "Prop.time.groom"
+          },
+          {
+            "distinct_nonmissing": 169,
+            "missing": 132,
+            "name": "Jump...rate"
+          },
+          {
+            "distinct_nonmissing": 206,
+            "missing": 132,
+            "name": "Rear...rate"
+          },
+          {
+            "distinct_nonmissing": 243,
+            "missing": 135,
+            "name": "Prop.time.center"
+          },
+          {
+            "distinct_nonmissing": 495,
+            "missing": 134,
+            "name": "prop.groom.logit"
+          },
+          {
+            "distinct_nonmissing": 243,
+            "missing": 135,
+            "name": "prop.center.logit"
+          },
+          {
+            "distinct_nonmissing": 108,
+            "missing": 4,
+            "name": "TRAP"
+          },
+          {
+            "distinct_nonmissing": 1,
+            "missing": 0,
+            "name": "SPP"
+          },
+          {
+            "distinct_nonmissing": 5,
+            "literal_counts": {
+              "1": 168,
+              "2": 349,
+              "3": 495,
+              "4": 538,
+              "5": 420
+            },
+            "missing": 0,
+            "name": "SESSION"
+          },
+          {
+            "distinct_nonmissing": 4,
+            "literal_counts": {
+              "16": 669,
+              "17": 292,
+              "18": 840,
+              "19": 169
+            },
+            "missing": 0,
+            "name": "YEAR"
+          },
+          {
+            "distinct_nonmissing": 8,
+            "missing": 0,
+            "name": "GRID"
+          },
+          {
+            "distinct_nonmissing": 15,
+            "missing": 0,
+            "name": "OCC"
+          },
+          {
+            "distinct_nonmissing": 28,
+            "missing": 34,
+            "name": "INACTIVE"
+          },
+          {
+            "distinct_nonmissing": 19,
+            "missing": 742,
+            "name": "OBS"
+          },
+          {
+            "distinct_nonmissing": 2,
+            "missing": 1,
+            "name": "RECAP"
+          },
+          {
+            "distinct_nonmissing": 55,
+            "missing": 0,
+            "name": "Net_weight"
+          },
+          {
+            "distinct_nonmissing": 2,
+            "literal_counts": {
+              "F": 1043,
+              "M": 919
+            },
+            "missing": 8,
+            "name": "SEX"
+          },
+          {
+            "distinct_nonmissing": 4,
+            "missing": 0,
+            "name": "TRT"
+          },
+          {
+            "distinct_nonmissing": 790,
+            "missing": 0,
+            "name": "CI"
+          },
+          {
+            "distinct_nonmissing": 1822,
+            "missing": 26,
+            "name": "diffUSETC1"
+          },
+          {
+            "distinct_nonmissing": 1822,
+            "missing": 26,
+            "name": "diffUSETC2"
+          },
+          {
+            "distinct_nonmissing": 1822,
+            "missing": 26,
+            "name": "diffUSETC3"
+          }
+        ],
+        "data_rows": 1970,
+        "delimiter": "','",
+        "header": [
+          "SITE",
+          "UNIQUE_OCC",
+          "PIT",
+          "SEASON",
+          "HANDLING",
+          "LATENCY.TO.EMERGE..sec.",
+          "TIME.AT.END.OF.TUNNEL..sec.",
+          "Mean.speed",
+          "Prop.time.groom",
+          "Jump...rate",
+          "Rear...rate",
+          "Prop.time.center",
+          "prop.groom.logit",
+          "prop.center.logit",
+          "TRAP",
+          "SPP",
+          "SESSION",
+          "YEAR",
+          "GRID",
+          "OCC",
+          "INACTIVE",
+          "OBS",
+          "RECAP",
+          "Net_weight",
+          "SEX",
+          "TRT",
+          "CI",
+          "diffUSETC1",
+          "diffUSETC2",
+          "diffUSETC3"
+        ],
+        "sha256": "c8161e4ba2102d50dc1985f07248d802883e2f5571460fd102b733c00fbb7942"
+      }
+    },
+    "verified_bytes": 692526,
+    "verified_md5": "0a240dff244d72b41ecb3789b339abb6",
+    "verified_sha256": "d043fd84be754d77deb8397124f635ec6e301a4d0a5490360274e4e0b42a0705"
+  }
+}

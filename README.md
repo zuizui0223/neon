@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: verified Maine codebook and actual 8-grid source; fixed regional recurrence comparison
+
+[45539468482](https://github.com/zuizui0223/neon/actions/runs/45539468482) verified original bytes, 3,658 deposited capture rows, 800 station habitat rows, 47,200 occupancy cells, 80,000 distance cells. Eight deposited grids versus six in published analysis; explicitly separate all-deposited regional estimand. Fixed June→July/Aug→Sep nonshared-tag exact-station comparison, no pooled regional inference. [Protocol](docs/NEON_MAINE_DEPOSITED_GRID_RECURRENCE_20261125.md). No effect yet, DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: close Cambodia access; inspect previously verified Maine capture and microhabitat archive
 
 [45537331854](https://github.com/zuizui0223/neon/actions/runs/45537331854) SOURCE_STOP HTTP 403; dedicated QA and global CI passed. Prior ledger 65-field check unchanged. EIDC corridor survey programme identified but requires authorized PAT for programmatic acquisition. Prior pinned Figshare 14488626 v1 archive (Maine, six grids/600 points) is prioritized for actual author codebook, capture and vegetation schema inspection. [Decision](docs/NEON_MAINE_GROUNDCOVER_SOURCE_DECISION_20261125.md). No new ecological effect. DRAFT / SUBMISSION HOLD.
