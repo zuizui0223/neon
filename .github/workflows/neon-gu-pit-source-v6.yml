@@ -1,0 +1,21 @@
+name: NEON Gu PIT individual seed source V6
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-gu-pit-source-v6.yml'
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public version 2 and inspect file schemas
+        run: python3 analysis/audit_neon_gu_pit_source_v6.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gu-pit-source-inventory-v6
+          path: gu_source_receipt.json
+          if-no-files-found: error
