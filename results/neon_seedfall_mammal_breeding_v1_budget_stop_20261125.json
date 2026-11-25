@@ -1,0 +1,63 @@
+{
+  "schema": "neon.seedfall.mammal.breeding.support.v1.budget_stop.log_receipt",
+  "provenance": {
+    "run_id": 45528824355,
+    "job_id": 138918748730,
+    "head_sha": "9e49baba98ba08992ca0a427d2332198670fa885",
+    "artifact_id": 14984095524,
+    "artifact_zip_sha256_reported_by_github": "c76ec93b632d8c4cccd03a83508a91d9e54ede65930ca7dc923bdc3c3d6dba7e",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "common_product_site_count": 32,
+    "ecological_effect": null,
+    "litter_manifest": {
+      "bytes": 203957535,
+      "files": 5249,
+      "files_by_table": {
+        "ltr_fielddata": 1777,
+        "ltr_massdata": 1695,
+        "ltr_pertrap": 1777
+      },
+      "md5_manifest_sha256": "c37b2437e3bf842d8d44abd9009e7792112f9c9662fc54c2c69607c734bbaf14",
+      "site_count": 32,
+      "site_months": 1777
+    },
+    "litter_product_site_count": 33,
+    "mammal_manifest_all": {
+      "bytes": 506785743,
+      "files": 2136,
+      "files_by_table": {
+        "mam_perplotnight": 1068,
+        "mam_pertrapnight": 1068
+      },
+      "md5_manifest_sha256": "2bd5662d64e6b0e5593072e475b1ead782af80772b5be84bcc9044bef1cc4f71",
+      "site_count": 32,
+      "site_months": 1068
+    },
+    "mammal_manifest_selected": {
+      "bytes": 418580213,
+      "files": 1760,
+      "files_by_table": {
+        "mam_perplotnight": 880,
+        "mam_pertrapnight": 880
+      },
+      "md5_manifest_sha256": "ec7d2a33781116726607fa55613a3e1f191abe9518d2ac986b38303a80bc6210",
+      "site_count": 32,
+      "site_months": 880
+    },
+    "mammal_product_site_count": 46,
+    "no_new_ecological_effect": true,
+    "poland_holt_yang_closed": true,
+    "release": "RELEASE-2026",
+    "retrieved_utc": "2026-11-25T01:53:21.436721+00:00",
+    "schema": "neon.seedfall.mammal.breeding.support.v1",
+    "status": "STOP_SOURCE_FILE_BUDGET_OR_EMPTY",
+    "submission_hold": true,
+    "window": [
+      "2017-01",
+      "2025-12"
+    ]
+  }
+}

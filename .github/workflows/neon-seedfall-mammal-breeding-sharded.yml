@@ -1,0 +1,57 @@
+name: neon-seedfall-mammal-breeding-sharded
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/audit_neon_seedfall_mammal_breeding_sharded_v2.py'
+      - 'tests/test_neon_seedfall_mammal_breeding_sharded_v2.py'
+      - '.github/workflows/neon-seedfall-mammal-breeding-sharded.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        index: [0, 1, 2, 3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    env:
+      NEON_API_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_seedfall_mammal_breeding_sharded_v2.py' -v
+      - run: python -m analysis.audit_neon_seedfall_mammal_breeding_sharded_v2 shard ${{ matrix.index }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-seedfall-mammal-support-shard-${{ matrix.index }}
+          path: build/neon_seedfall_mammal_support_shard_${{ matrix.index }}.json
+          if-no-files-found: warn
+  combine:
+    needs: [shard]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: neon-seedfall-mammal-support-shard-*
+          path: build/shards
+      - run: python -m analysis.audit_neon_seedfall_mammal_breeding_sharded_v2 combine build/shards
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neon-seedfall-mammal-breeding-sharded-support
+          path: build/neon_seedfall_mammal_breeding_sharded_support_20261125.json
+          if-no-files-found: warn

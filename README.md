@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: NEON 32 common sites; original budget STOP resolved by disjoint whole-site source shards
+
+[Run 45528824355](https://github.com/zuizui0223/neon/actions/runs/45528824355) pinned 32 common sites, 5,249 litter files and 1,760 selected mammal files, 622,537,748 bytes, above 500 MB budget. No response rows opened. Four fixed eight-site shards (max two parallel), same full manifest fingerprints and original source-support audit; require complete count reconciliation before combined support. [Protocol](docs/NEON_SEEDFALL_MAMMAL_SHARDED_SUPPORT_20261125.md). No new ecological effect, no full interval or identity verification, DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: native NEON resource-to-breeding bridge; external cohort source STOP
 
 [Run 45528338340](https://github.com/zuizui0223/neon/actions/runs/45528338340): Huang Dryad HTTPError; Lichti Figshare appendices and verified R code only, no cohort data. Prior art Stephens 2024 shows species-specific 24–79-day breeding offsets (two Peromyscus differ by 55 days). New native same-release NEON seed litterfall DP1.10033.001 × small mammals DP1.10072.001 support workflow (2017–2025). Site-level measured deposition proxy, not edible food/cache stocks. Calendar and source keys only before effect; no inferred zero, no causal mechanism or new result. [Protocol](docs/NEON_NATIVE_SEEDFALL_MAMMAL_BREEDING_BRIDGE_20261125.md). DRAFT / SUBMISSION HOLD.
