@@ -1,0 +1,20 @@
+name: NEON Merz terminal seed identity V8
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-seed-identity-v8.yml'
+permissions:
+  contents: read
+jobs:
+  diagnosis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/audit_neon_merz_seed_identity_v8.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-seed-identity-v8
+          path: merz_seed_identity_diagnosis.json
+          if-no-files-found: error
