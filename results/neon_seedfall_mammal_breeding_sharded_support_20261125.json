@@ -1,0 +1,500 @@
+{
+  "schema": "neon.seedfall.mammal.breeding.sharded_support.v1.log_receipt",
+  "provenance": {
+    "run_id": 45529240269,
+    "job_id": 138921727990,
+    "head_sha": "38ec8970ebe671525bae89506e5996cd4240d329",
+    "artifact_id": 14984210941,
+    "artifact_zip_sha256_reported_by_github": "b614287774fa3bd1bd9f27d368d23e59a04c627470f7dcc5b5bdcbc5c4763231",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "all_downloaded_files_size_md5_verified": 7009,
+    "complete_resource_intervals_verified": false,
+    "ecological_effect": null,
+    "headers": {
+      "ltr_fielddata": [
+        {
+          "files": 1777,
+          "header": [
+            "uid",
+            "namedLocation",
+            "domainID",
+            "siteID",
+            "plotID",
+            "trapID",
+            "setDate",
+            "collectDate",
+            "samplingImpractical",
+            "eventID",
+            "trappingDays",
+            "fieldSampleID",
+            "samplingProtocolVersion",
+            "trapCondition",
+            "toxicodendronPossible",
+            "remarks",
+            "measuredBy",
+            "recordedBy"
+          ]
+        }
+      ],
+      "ltr_massdata": [
+        {
+          "files": 1695,
+          "header": [
+            "uid",
+            "namedLocation",
+            "domainID",
+            "siteID",
+            "plotID",
+            "trapID",
+            "weighDate",
+            "setDate",
+            "collectDate",
+            "eventID",
+            "ovenStartDate",
+            "ovenEndDate",
+            "fieldSampleID",
+            "sampleCondition",
+            "samplePrepMethod",
+            "massSampleID",
+            "samplingProtocolVersion",
+            "biogeoSample",
+            "functionalGroup",
+            "dryMass",
+            "qaDryMass",
+            "remarks",
+            "measuredBy"
+          ]
+        }
+      ],
+      "ltr_pertrap": [
+        {
+          "files": 1777,
+          "header": [
+            "uid",
+            "namedLocation",
+            "domainID",
+            "siteID",
+            "plotID",
+            "subplotID",
+            "trapID",
+            "decimalLatitude",
+            "decimalLongitude",
+            "elevation",
+            "nlcdClass",
+            "plotType",
+            "geodeticDatum",
+            "coordinateUncertainty",
+            "elevationUncertainty",
+            "date",
+            "samplingProtocolVersion",
+            "targetTaxaPresent",
+            "trapType",
+            "trapPlacement",
+            "trapSize",
+            "remarks",
+            "recordedBy"
+          ]
+        }
+      ],
+      "mam_perplotnight": [
+        {
+          "files": 880,
+          "header": [
+            "uid",
+            "nightuid",
+            "eventID",
+            "namedLocation",
+            "domainID",
+            "siteID",
+            "plotID",
+            "mammalGridSamplingMethod",
+            "collectDate",
+            "endDate",
+            "samplingImpractical",
+            "gridCompletion",
+            "samplingProtocolVersion",
+            "remarks",
+            "dataQF"
+          ]
+        }
+      ],
+      "mam_pertrapnight": [
+        {
+          "files": 880,
+          "header": [
+            "uid",
+            "nightuid",
+            "namedLocation",
+            "domainID",
+            "siteID",
+            "plotID",
+            "trapCoordinate",
+            "plotType",
+            "nlcdClass",
+            "decimalLatitude",
+            "decimalLongitude",
+            "geodeticDatum",
+            "coordinateUncertainty",
+            "elevation",
+            "elevationUncertainty",
+            "trapStatus",
+            "trapType",
+            "collectDate",
+            "endDate",
+            "tagID",
+            "individualCode",
+            "taxonID",
+            "scientificName",
+            "taxonRank",
+            "identificationQualifier",
+            "identificationReferences",
+            "identificationHistoryID",
+            "voucherUpdate",
+            "nativeStatusCode",
+            "sex",
+            "recapture",
+            "fate",
+            "replacedTag",
+            "lifeStage",
+            "testes",
+            "nipples",
+            "pregnancyStatus",
+            "vagina",
+            "hindfootLength",
+            "earLength",
+            "tailLength",
+            "totalLength",
+            "weight",
+            "larvalTicksAttached",
+            "nymphalTicksAttached",
+            "adultTicksAttached",
+            "tickNumber",
+            "additionalParasites",
+            "frozenSamplePrepMethod",
+            "bloodSampleID",
+            "bloodSampleBarcode",
+            "bloodSampleMethod",
+            "bloodSampleVolume",
+            "fecalSampleID",
+            "fecalSampleBarcode",
+            "fecalSampleCondition",
+            "earSampleID",
+            "earSampleBarcode",
+            "hairSampleID",
+            "hairSampleBarcode",
+            "hairSampleContents",
+            "voucherSampleID",
+            "voucherSampleBarcode",
+            "measuredBy",
+            "recordedBy",
+            "identifiedBy",
+            "identifiedDate",
+            "remarks",
+            "dataQF",
+            "dataEntryRecordID"
+          ]
+        }
+      ]
+    },
+    "individual_identity_history_verified": false,
+    "litter_source": {
+      "candidate_site_autumn_years_any_field_dates": 247,
+      "explicit_seed_group_field_keys": 47886,
+      "explicit_seed_keys_multiple_mass_ids": 0,
+      "explicit_seed_keys_unique_elevated_trap_candidate": 47870,
+      "explicit_seed_keys_unique_field_join": 47886,
+      "field_keys_with_multiple_distinct_records": 0,
+      "field_sample_keys": 64862,
+      "issues": {
+        "trap_identity_or_type_missing": 5235
+      },
+      "literal_functional_group_counts": {
+        "Flowers": 49914,
+        "Leaves": 57563,
+        "Mixed": 58915,
+        "Needles": 51707,
+        "Other": 55350,
+        "Seeds": 51163,
+        "Twigs/branches": 58040,
+        "Woody material": 56214
+      },
+      "literal_qaDryMass_counts": {
+        "": 54,
+        "N": 411188,
+        "Y": 27624
+      },
+      "literal_trap_condition_counts": {
+        "": 4005,
+        "HO - Litter not collected - Holes large enough for leaves to pass through": 854,
+        "LD - Litter discarded - collection outside protocol guidelines": 8,
+        "NS - Litter collected - non-standard sampling event (see remarks)": 22,
+        "OK - Litter collected - Trap in good shape, no issues": 61903,
+        "PF - Litter collected - Trap previously flooded": 490,
+        "RE - Litter not collected - trap broken, requires replacement": 1458,
+        "TB - Litter not collected - trap blocked": 158,
+        "TE - Litter not collected - trap empty": 2450,
+        "TS - Litter not collected, not discarded - trap skipped": 79,
+        "TT - Litter not collected - trap tilted": 1043
+      },
+      "literal_trap_type_counts": {
+        "Elevated": 70851,
+        "Ground": 67790
+      },
+      "mass_keys_without_field_parent": 0,
+      "mass_sample_parent_keys": 64511,
+      "no_mass_values_opened": true,
+      "rows_by_table": {
+        "ltr_fielddata": 72470,
+        "ltr_massdata": 438866,
+        "ltr_pertrap": 143876
+      }
+    },
+    "mammal_source": {
+      "adult_female_global_pregnancy_label_counts": {
+        "": 351,
+        "not": 23087,
+        "pregnant": 4373,
+        "unknown": 1761
+      },
+      "adult_female_tagged_known_pregnancy_field_site_year_taxon_phase_cells": 1293,
+      "cells_with_at_least_ten_unique_literal_tags": 324,
+      "issues": {},
+      "literal_capture_life_stage_counts": {
+        "adult": 65669,
+        "juvenile": 2049,
+        "subadult": 6615,
+        "unknown": 2156
+      },
+      "literal_capture_sex_counts": {
+        "F": 33975,
+        "M": 36331,
+        "U": 6183
+      },
+      "no_endpoint_mapping_no_demographic_effect": true,
+      "plot_event_night_keys": 10639,
+      "rows_by_table_or_capture_status": {
+        "literal_capture_status": 76489,
+        "mam_perplotnight": 10639,
+        "mam_pertrapnight": 1054331
+      }
+    },
+    "necessary_calendar_support": {
+      "candidate_cells_with_at_least_two_collection_dates_each_autumn": 33,
+      "candidate_site_year_taxon_cells": 34,
+      "candidate_site_years": 30,
+      "candidate_sites": 12,
+      "necessary_only_no_complete_litter_interval_or_same_plot_claim": true,
+      "site_year_support_histogram": {
+        "1": 5,
+        "2": 1,
+        "3": 2,
+        "4": 3,
+        "5": 1
+      },
+      "sites_with_at_least_four_candidate_years": 4
+    },
+    "no_new_ecological_effect": true,
+    "original_budget_stop_preserved": true,
+    "original_full_manifest": {
+      "common_product_site_count": 32,
+      "litter_manifest": {
+        "bytes": 203957535,
+        "files": 5249,
+        "files_by_table": {
+          "ltr_fielddata": 1777,
+          "ltr_massdata": 1695,
+          "ltr_pertrap": 1777
+        },
+        "md5_manifest_sha256": "c37b2437e3bf842d8d44abd9009e7792112f9c9662fc54c2c69607c734bbaf14",
+        "site_count": 32,
+        "site_months": 1777
+      },
+      "litter_product_site_count": 33,
+      "mammal_manifest_all": {
+        "bytes": 506785743,
+        "files": 2136,
+        "files_by_table": {
+          "mam_perplotnight": 1068,
+          "mam_pertrapnight": 1068
+        },
+        "md5_manifest_sha256": "2bd5662d64e6b0e5593072e475b1ead782af80772b5be84bcc9044bef1cc4f71",
+        "site_count": 32,
+        "site_months": 1068
+      },
+      "mammal_manifest_selected": {
+        "bytes": 418580213,
+        "files": 1760,
+        "files_by_table": {
+          "mam_perplotnight": 880,
+          "mam_pertrapnight": 880
+        },
+        "md5_manifest_sha256": "ec7d2a33781116726607fa55613a3e1f191abe9518d2ac986b38303a80bc6210",
+        "site_count": 32,
+        "site_months": 880
+      },
+      "mammal_product_site_count": 46,
+      "release": "RELEASE-2026",
+      "window": [
+        "2017-01",
+        "2025-12"
+      ]
+    },
+    "received_shard_statuses": [
+      {
+        "index": 0,
+        "reason": null,
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "index": 1,
+        "reason": null,
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "index": 2,
+        "reason": null,
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "index": 3,
+        "reason": null,
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      }
+    ],
+    "retrieved_utc": "2026-11-25T01:59:42.402345+00:00",
+    "schema": "neon.seedfall.mammal.breeding.sharded_support.v1",
+    "shard_count": 4,
+    "shards": [
+      {
+        "all_downloaded_files_size_md5_verified": 1757,
+        "litter_manifest": {
+          "bytes": 55182843,
+          "files": 1301,
+          "files_by_table": {
+            "ltr_fielddata": 437,
+            "ltr_massdata": 427,
+            "ltr_pertrap": 437
+          },
+          "md5_manifest_sha256": "901f15f9a24a2f91c1fbe6bda36b412809911998f9d12803ca3cb52efd9d8742",
+          "site_count": 8,
+          "site_months": 437
+        },
+        "mammal_manifest_selected": {
+          "bytes": 109936298,
+          "files": 456,
+          "files_by_table": {
+            "mam_perplotnight": 228,
+            "mam_pertrapnight": 228
+          },
+          "md5_manifest_sha256": "6f66eaf3fe802384a1b271c532656903cbd04e00faec46a0ada4db08bd3cf989",
+          "site_count": 8,
+          "site_months": 228
+        },
+        "shard_index": 0,
+        "site_count": 8,
+        "site_partition_sha256": "89461bbc0c3f0d6cddb27cdbb7aaa52a2a713ba2096789e07ab1c3bcf479afdb",
+        "source_pin_sha256": "0e64bd87bb46ee7a3d6076aa4d9ef80733105a044b57c195378dbc229a43487f",
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "all_downloaded_files_size_md5_verified": 1947,
+        "litter_manifest": {
+          "bytes": 57403492,
+          "files": 1459,
+          "files_by_table": {
+            "ltr_fielddata": 490,
+            "ltr_massdata": 479,
+            "ltr_pertrap": 490
+          },
+          "md5_manifest_sha256": "d0a4a896992d65199d6c2744b22ab8e52bd5db26fe8340a7b5d47da60039e2c5",
+          "site_count": 8,
+          "site_months": 490
+        },
+        "mammal_manifest_selected": {
+          "bytes": 123739989,
+          "files": 488,
+          "files_by_table": {
+            "mam_perplotnight": 244,
+            "mam_pertrapnight": 244
+          },
+          "md5_manifest_sha256": "4b685a7cb5b39ed865793c9f2a464cb511efc55e133fd315c4fd3a60dd6e9afc",
+          "site_count": 8,
+          "site_months": 244
+        },
+        "shard_index": 1,
+        "site_count": 8,
+        "site_partition_sha256": "62de922026722b83a49dfa40fa0774728997c2d2d872e61161903647df317fac",
+        "source_pin_sha256": "0e64bd87bb46ee7a3d6076aa4d9ef80733105a044b57c195378dbc229a43487f",
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "all_downloaded_files_size_md5_verified": 1657,
+        "litter_manifest": {
+          "bytes": 43924277,
+          "files": 1283,
+          "files_by_table": {
+            "ltr_fielddata": 441,
+            "ltr_massdata": 401,
+            "ltr_pertrap": 441
+          },
+          "md5_manifest_sha256": "0fbc73e2d0dcef3dafe770c8c8b71662f33add5d70bd0d0c21546a73dd576c9f",
+          "site_count": 8,
+          "site_months": 441
+        },
+        "mammal_manifest_selected": {
+          "bytes": 85196201,
+          "files": 374,
+          "files_by_table": {
+            "mam_perplotnight": 187,
+            "mam_pertrapnight": 187
+          },
+          "md5_manifest_sha256": "b444308f41c3759237076574932ff96bc2c2d790d519f2fa9e266c806992a753",
+          "site_count": 8,
+          "site_months": 187
+        },
+        "shard_index": 2,
+        "site_count": 8,
+        "site_partition_sha256": "e53619cadf1aa4f357c811e658514ebb6e1b61d47120e082f421b5cdc41dd239",
+        "source_pin_sha256": "0e64bd87bb46ee7a3d6076aa4d9ef80733105a044b57c195378dbc229a43487f",
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      },
+      {
+        "all_downloaded_files_size_md5_verified": 1648,
+        "litter_manifest": {
+          "bytes": 47446923,
+          "files": 1206,
+          "files_by_table": {
+            "ltr_fielddata": 409,
+            "ltr_massdata": 388,
+            "ltr_pertrap": 409
+          },
+          "md5_manifest_sha256": "b0d78e637a6361e704b760ae07d446fd308683f61e183393126f482853776b84",
+          "site_count": 8,
+          "site_months": 409
+        },
+        "mammal_manifest_selected": {
+          "bytes": 99707725,
+          "files": 442,
+          "files_by_table": {
+            "mam_perplotnight": 221,
+            "mam_pertrapnight": 221
+          },
+          "md5_manifest_sha256": "1955fdc729b78a558a649ff1a22530c1eca6459c968227af6bc931a3b4efe684",
+          "site_count": 8,
+          "site_months": 221
+        },
+        "shard_index": 3,
+        "site_count": 8,
+        "site_partition_sha256": "1dd94679a6c5c03ca8ec09380ff95df745455ed61b496795ca5e20051a839add",
+        "source_pin_sha256": "0e64bd87bb46ee7a3d6076aa4d9ef80733105a044b57c195378dbc229a43487f",
+        "status": "SOURCE_SUPPORT_ONLY_NO_EFFECT"
+      }
+    ],
+    "source_pin_sha256": "0e64bd87bb46ee7a3d6076aa4d9ef80733105a044b57c195378dbc229a43487f",
+    "status": "ALL_32_SITES_SOURCE_SUPPORT_ONLY_NO_EFFECT",
+    "submission_hold": true
+  }
+}

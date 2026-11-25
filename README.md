@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: full seedfall/mammal source GO; spring-only matched previous-autumn exploratory test
+
+[Run 45529240269](https://github.com/zuizui0223/neon/actions/runs/45529240269): all 7,009 files verified; 76,489 capture records, 51,163 Seeds mass rows, original joint-phase 34 candidate taxon/site/year cells in 12 sites (four with >=4 years). No biological effect yet. Preserve original support; separate spring-only adjacent-year contrast matches literal elevated trap coverage, spring plots/dates, explicit known pregnancy status and species, with unknown status bounds. Fixed before grouped effects; no lag tuning or causal inference. [Protocol](docs/NEON_SEEDFALL_PRIOR_AUTUMN_SPRING_PREGNANCY_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: NEON 32 common sites; original budget STOP resolved by disjoint whole-site source shards
 
 [Run 45528824355](https://github.com/zuizui0223/neon/actions/runs/45528824355) pinned 32 common sites, 5,249 litter files and 1,760 selected mammal files, 622,537,748 bytes, above 500 MB budget. No response rows opened. Four fixed eight-site shards (max two parallel), same full manifest fingerprints and original source-support audit; require complete count reconciliation before combined support. [Protocol](docs/NEON_SEEDFALL_MAMMAL_SHARDED_SUPPORT_20261125.md). No new ecological effect, no full interval or identity verification, DRAFT / SUBMISSION HOLD.
