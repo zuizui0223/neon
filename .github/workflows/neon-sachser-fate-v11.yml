@@ -1,0 +1,20 @@
+name: NEON Sachser downstream fate bounds V11
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-sachser-fate-v11.yml'
+permissions:
+  contents: read
+jobs:
+  bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/neon_sachser_fate_bounds_v11.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sachser-fate-v11
+          path: sachser_fate_v11.json
+          if-no-files-found: error
