@@ -1,0 +1,167 @@
+{
+  "status": "SEASONAL_RECORDED_INTACT_ROUTE_PARTIAL_IDENTIFICATION",
+  "source_doi": "10.3897/zookeys.1025.60972",
+  "cohorts": [
+    {
+      "season": "spring",
+      "source_intact": 1420,
+      "removed_intact": 1252,
+      "missing_after_removal": 1817,
+      "removed": 4428,
+      "not_removed": 5572,
+      "confirmed_total_intact": 2672,
+      "conditional_source_intact": 0.2548456568557071,
+      "conditional_moved_intact_bounds": [
+        0.2827461607949413,
+        0.693089430894309
+      ],
+      "total_intact_state_bounds": [
+        0.2672,
+        0.4489
+      ],
+      "moved_share_of_total_intact_bounds": [
+        0.468562874251497,
+        0.6836711962575184
+      ]
+    },
+    {
+      "season": "autumn",
+      "source_intact": 2514,
+      "removed_intact": 2486,
+      "missing_after_removal": 3361,
+      "removed": 6639,
+      "not_removed": 3361,
+      "confirmed_total_intact": 5000,
+      "conditional_source_intact": 0.7479916691460875,
+      "conditional_moved_intact_bounds": [
+        0.37445398403374003,
+        0.8807049254405784
+      ],
+      "total_intact_state_bounds": [
+        0.5,
+        0.8361
+      ],
+      "moved_share_of_total_intact_bounds": [
+        0.4972,
+        0.6993182633656261
+      ]
+    }
+  ],
+  "confirmed_only_contrast": {
+    "source_route_delta": 0.10940000000000003,
+    "moved_route_delta": 0.12339999999999998,
+    "total_intact_delta": 0.2328,
+    "conditional_nonremoved_delta": 0.4931460122903804,
+    "conditional_removed_delta": 0.09170782323879872,
+    "change_in_conditional_removed_minus_nonremoved": -0.4014381890515817,
+    "allocation_component": -0.03821019037868768,
+    "within_nonremoved_component": 0.2202636663894984,
+    "within_removed_component": 0.050746523989189274
+  },
+  "unrestricted_missing_fate_envelopes": {
+    "source_route_delta": [
+      0.10940000000000003,
+      0.10940000000000003
+    ],
+    "moved_route_delta": [
+      -0.05830000000000002,
+      0.4595
+    ],
+    "total_intact_delta": [
+      0.051100000000000007,
+      0.5689000000000001
+    ],
+    "conditional_nonremoved_delta": [
+      0.4931460122903804,
+      0.4931460122903804
+    ],
+    "conditional_removed_delta": [
+      -0.31863544686056894,
+      0.5979587646456371
+    ],
+    "change_in_conditional_removed_minus_nonremoved": [
+      -0.8117814591509493,
+      0.10481275235525672
+    ],
+    "allocation_component": [
+      -0.03821019037868768,
+      0.0631192997033234
+    ],
+    "within_nonremoved_component": [
+      0.2202636663894984,
+      0.2202636663894984
+    ],
+    "within_removed_component": [
+      -0.17631692452029582,
+      0.3308804824166633
+    ]
+  },
+  "equal_unknown_intact_fraction_sensitivity": {
+    "source_route_delta": [
+      0.10940000000000003,
+      0.10940000000000003
+    ],
+    "moved_route_delta": [
+      0.12339999999999998,
+      0.2778
+    ],
+    "total_intact_delta": [
+      0.2328,
+      0.3872
+    ],
+    "conditional_nonremoved_delta": [
+      0.4931460122903804,
+      0.4931460122903804
+    ],
+    "conditional_removed_delta": [
+      0.09170782323879872,
+      0.18761549454626947
+    ],
+    "change_in_conditional_removed_minus_nonremoved": [
+      -0.4014381890515817,
+      -0.30553051774411094
+    ],
+    "allocation_component": [
+      -0.03821019037868768,
+      0.0631192997033234
+    ],
+    "within_nonremoved_component": [
+      0.2202636663894984,
+      0.2202636663894984
+    ],
+    "within_removed_component": [
+      0.050746523989189274,
+      0.10381703390717821
+    ]
+  },
+  "conditional_route_comparison": [
+    {
+      "season": "spring",
+      "conditional_removed_minus_nonremoved_bounds": [
+        0.02790050393923421,
+        0.4382437740386019
+      ],
+      "missing_intact_fraction_for_tie": -0.06799308279742927
+    },
+    {
+      "season": "autumn",
+      "conditional_removed_minus_nonremoved_bounds": [
+        -0.3735376851123475,
+        0.13271325629449093
+      ],
+      "missing_intact_fraction_for_tie": 0.737850845421266
+    }
+  ],
+  "worst_case_source_gain_to_moved_loss_ratio": 1.876500857632933,
+  "unknown_fraction_note": "m_s is fraction of missing-after-removal seeds hypothetically in the intact/unconsumed state. m0,m1 vary freely [0,1] in unrestricted bounds. Equal fractions are sensitivity only, not missing-at-random or an estimate. All contrasts affine in missing fractions; corner extrema exact for reported rounded values.",
+  "limits": [
+    "Published spring/autumn pooled percentages, four species, 15 vs 9 release stations (same 20 seeds/species/station), scheduled 60-day follow-up. Original calendar year not independently verified in this run; source text includes later spring re-observation. No claim of paired station or exact common terminal date beyond reported fate categories.",
+    "Intact state is operational: intact at station plus reported intact surface/buried after removal, not proof of viability, survival to germination, or recruitment. Missing may have other fates; binary scenarios treat intact state as 0/1. Observed categories assumed valid. Bounds conditional on printed rates, not uncertainty in classification or sampling.",
+    "Source and moved route groups are observational, not randomized. No causal movement effect or independent site replication. No reconstructing seed-level counts from rounded percentages. No pooling with V20 establishment outcomes."
+  ],
+  "provenance": {
+    "source_commit": "1b1ce99f11370cf1b3b82e172599b5a62285db22",
+    "source_blob": "91f979fed0e59c446d3054e33201a72d176b6585",
+    "source_path": "data/neon_li2021_seasonal_published_fates_20261124.json"
+  }
+}
