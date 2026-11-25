@@ -1,0 +1,83 @@
+{
+  "schema": "neon.poland.calendar_session.v2.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45426233617,
+    "job_id": 138558898611,
+    "head_sha": "b1a17147ac720945b0c10173acda4a5bcb973b7a",
+    "artifact_id": 14936657720,
+    "artifact_zip_sha256_reported_by_github": "e87e0f5b88b37af237b8576a09bdc56fd2910db0b6929210523d42e4b575f4bf",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "calendar_source_diagnosis": {
+      "calendar_date_multiple_day_codes": 4,
+      "date_parse": {
+        "distinct_year_literal_dates": 180,
+        "globally_valid_modes": [
+          "day_first"
+        ],
+        "literal_shapes": {
+          "D2.D2.D4": 7055
+        },
+        "unresolved_distinct_literals_by_mode": {
+          "day_first": 0,
+          "month_first": 114
+        }
+      },
+      "day_code_cardinality_per_site_year_histogram": {
+        "8": 1,
+        "16": 3,
+        "20": 12,
+        "23": 1,
+        "24": 1
+      },
+      "day_code_multiple_calendar_dates": 4,
+      "literal_month_counts": {
+        "month_6": 1440,
+        "month_7": 2351,
+        "month_8": 2200,
+        "month_9": 1064
+      },
+      "session_span_days_histogram": {
+        "3": 81,
+        "7": 1,
+        "21": 1
+      },
+      "session_start_gap_days_histogram": {
+        "18": 61,
+        "36": 3,
+        "54": 1
+      },
+      "sessions": 83,
+      "sessions_per_site_year_histogram": {
+        "2": 1,
+        "4": 4,
+        "5": 13
+      },
+      "site_years": 18,
+      "sites": 6,
+      "source_rows": 7055,
+      "structure_failures": {
+        "nonconstant_abundance": 2,
+        "not_five_sessions": 5,
+        "outside_four_day_window": 2,
+        "over_80_release_rows": 8
+      },
+      "unresolved_removal_rows": 1,
+      "years": [
+        2020,
+        2021,
+        2022
+      ]
+    },
+    "effect": null,
+    "mouse_species_stop_preserved": true,
+    "no_new_seasonal_effect": true,
+    "retrieved_utc": "2026-11-24T15:31:16.488723+00:00",
+    "schema": "neon.poland.calendar_session_diagnosis.v2",
+    "status": "STOP_CALENDAR_SESSION_SOURCE",
+    "submission_hold": true,
+    "v1_day_date_stop_preserved": true
+  }
+}

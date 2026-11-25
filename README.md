@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Poland session reconstruction closed; independent resource-pulse fraction vs loss-density example
+
+[Run 45426233617](https://github.com/zuizui0223/neon/actions/runs/45426233617) date-only reconstruction 83/90 sessions, 13/18 full site-year rosters; eight over-80 groups, two nonconstant abundance, STOP before effects. No further calendar regrouping. Huang 2021 printed extremes: rodent loss fraction 61.12→46.15%, but implied loss density 15.77→145.51 seeds/m² under original reported normalization (not directly measured intake). New public-source inventory: six-year Huang annual Dryad summary, North American Lichti publisher Figshare collection. [Closure and evidence](docs/NEON_INDEPENDENT_RESOURCE_STAGE_SOURCE_BRIDGE_20261125.md). No density fit, pooling or causal NEON link. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: Polish all-rodent date/day STOP; independent calendar and author-summary diagnosis
 
 [Run 45425305209](https://github.com/zuizui0223/neon/actions/runs/45425305209) stopped DAY_DATE_NOT_UNIQUE before grouped effects. [Receipt](results/neon_poland_all_rodent_stage_v1_source_stop_20261125.json). Original paper documents actual four-day intervals and numeric seasonal Day covariate. Final pre-effect diagnosis uses only explicit unambiguous calendar dates with original year, then independent author 77-row aggregate anchors/denominators. Original cohort, 90-session architecture, stage partition and effect criteria unchanged; no new seasonal fit or actor imputation. Theoretical seasonal density/harvest/cache trade-off already published (10.1111/nph.19443). [Protocol](docs/NEON_POLAND_CALENDAR_SESSION_DIAGNOSIS_20261125.md). DRAFT / SUBMISSION HOLD.

@@ -1,0 +1,35 @@
+{
+  "schema": "neon.huang2021.fraction_vs_loss_density.v1",
+  "paper_doi": "10.1111/1365-2745.13722",
+  "implied_loss_density": {
+    "high": {
+      "vertebrate": 25.350119999999997,
+      "rodent": 145.51094999999998
+    },
+    "low": {
+      "vertebrate": 3.5810400000000002,
+      "rodent": 15.76896
+    }
+  },
+  "contrasts": {
+    "vertebrate": {
+      "fraction_difference_pp": -5.840000000000002,
+      "high_to_low_fraction_ratio": 0.579250720461095,
+      "high_to_low_implied_loss_density_ratio": 7.078982641914079,
+      "ratio_min_rounding": 7.057234439569576,
+      "ratio_max_rounding": 7.100822531269133,
+      "threshold_crop_ratio_for_increasing_implied_loss_density": 1.7263681592039803
+    },
+    "rodent": {
+      "fraction_difference_pp": -14.969999999999999,
+      "high_to_low_fraction_ratio": 0.7550719895287958,
+      "high_to_low_implied_loss_density_ratio": 9.227682104590283,
+      "ratio_min_rounding": 9.206622286037504,
+      "ratio_max_rounding": 9.248824554059713,
+      "threshold_crop_ratio_for_increasing_implied_loss_density": 1.3243770314192849
+    }
+  },
+  "interpretation": "Descriptive product of printed aggregate seed density and reported fate fractions; not measured individual consumer intake, cache, seed dispersal, or recruitment.",
+  "not_causal_or_statistical_CI": true,
+  "crop_density_ratio": 12.220930232558139
+}

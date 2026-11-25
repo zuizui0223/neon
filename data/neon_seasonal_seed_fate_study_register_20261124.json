@@ -81,10 +81,11 @@
       "doi": "10.1111/1365-2745.14356",
       "region": "Puszcza Zielonka, Poland",
       "site_group": "puszcza_zielonka",
-      "status": "CHECKSUM_ORIGINAL_DATA_GO_DELIMITER_PENDING",
+      "status": "CLOSED_SESSION_RECONSTRUCTION_STOP",
       "data_doi": "10.17605/osf.io/56m2n",
-      "restriction": "Within growing season 2020–2022, controlled offered seeds, separately measured burial and emergence; not a spring/autumn release contrast or true cohort emergence join until verified.",
-      "data_receipt": "results/neon_consumer_pressure_source_v1_20261125.json"
+      "restriction": "Pinned original bytes verified, but only 83 of expected 90 calendar sessions; actor species also unavailable. Do not regroup or reopen without independent author documentation.",
+      "data_receipt": "results/neon_consumer_pressure_source_v1_20261125.json",
+      "closure_receipt": "results/neon_poland_calendar_session_v2_source_stop_20261125.json"
     },
     {
       "study": "Wang et al 2026",
@@ -95,6 +96,24 @@
       "data_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13635484/bin/ECE3-16-e74453-s002.xlsx",
       "restriction": "Autumn 2016–2021 vs spring 2022–2024 are disjoint year ranges; season confounded with period; per-capita seed availability requires original data; rodent abundance missing 2018.",
       "data_receipt": "results/neon_consumer_pressure_source_v1_20261125.json"
+    },
+    {
+      "study": "Huang et al. 2021",
+      "doi": "10.1111/1365-2745.13722",
+      "region": "Jinyunshan, Chongqing",
+      "site_group": "jinyunshan",
+      "status": "PUBLISHED_EXTREME_FRACTION_DENSITY_ARITHMETIC",
+      "data_doi": "10.5061/dryad.4qrfj6q9m",
+      "restriction": "Natural annual seed rain, adjacent seed bank and seedling quadrats; no individual tracked cohort; no rodent abundance, no observed consumption biomass."
+    },
+    {
+      "study": "Lichti et al. 2014",
+      "doi": "10.1890/13-1657.1",
+      "region": "North American temperate hardwoods",
+      "site_group": "lichti_north_america",
+      "status": "PUBLISHER_LINKED_FIGSHARE_COLLECTION_INVENTORY_PENDING",
+      "data_doi": "10.6084/m9.figshare.c.3306858",
+      "restriction": "Tagged seed pairwise combinations, dormancy and relative supply; no direct calendar season test. Actual file types and cohort-level endpoints not yet established."
     }
   ],
   "next_gate": "Verify actual release cohort, matched followup, denominators, fate definitions and site dependence. Resource phase only from independent measurements. No meta-analysis yet."

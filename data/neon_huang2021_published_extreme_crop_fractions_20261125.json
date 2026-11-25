@@ -1,0 +1,33 @@
+{
+  "schema": "neon.huang2021.published_extreme_crop_fractions.v1",
+  "paper_doi": "10.1111/1365-2745.13722",
+  "paper_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2745.13722",
+  "data_doi": "10.5061/dryad.4qrfj6q9m",
+  "study": "Huang et al. 2021, Jinyunshan, Chongqing",
+  "source_sections": "3.1; 3.2; Figure 4; methods 2.2 and 2.4",
+  "cohort_note": "Highest and lowest seed production years during 2013–2018; no year labels assigned from the text alone. Rates are reported fractions of mature seed production, estimated from adjacent distinct sampling units, not individually linked seed histories.",
+  "unit_density": "mature seeds per square metre",
+  "unit_pct": "percentage of mature seeds",
+  "extremes": {
+    "high": {
+      "density": 315.3,
+      "vertebrate_loss_pct": 8.04,
+      "rodent_loss_pct": 46.15
+    },
+    "low": {
+      "density": 25.8,
+      "vertebrate_loss_pct": 13.88,
+      "rodent_loss_pct": 61.12
+    }
+  },
+  "rounding": {
+    "density_half_unit": 0.05,
+    "pct_half_unit": 0.005
+  },
+  "caveats": [
+    "Published density and fractions, not independent whole-forest observed intake counts.",
+    "Products are implied stage-loss density under original sampling/normalization, not directly counted flux or food biomass.",
+    "Vertebrate and rodent losses are distinct stages; do not interpret sum as total consumption by one animal group or add to cache benefit.",
+    "Two extreme years selected by published production extremes, not independent study replication or a causal model."
+  ]
+}
