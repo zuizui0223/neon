@@ -1,0 +1,389 @@
+{
+  "status": "TRAIT_SOURCE_AUDIT_ONLY",
+  "n_species": 132,
+  "reported_seed": 111,
+  "missing_seed": 21,
+  "genus_count": 31,
+  "genus_with_any_seed": 26,
+  "multispecies_reported_genus": 18,
+  "multispecies_same_seed_value": 18,
+  "complete_reported_diet_vectors": 111,
+  "non100_diet_vectors": 0,
+  "multispecies_complete_vector_genus": 18,
+  "multispecies_identical_full_vector_genus": 18,
+  "genus_summaries": [
+    {
+      "genus": "Alexandromys",
+      "target_species": 1,
+      "reported_seed_species": 0,
+      "unique_reported_seed_values": [],
+      "complete_diet_vectors": 0,
+      "distinct_complete_diet_vectors": 0,
+      "missing_species": [
+        "Alexandromys oeconomus"
+      ]
+    },
+    {
+      "genus": "Arborimus",
+      "target_species": 3,
+      "reported_seed_species": 3,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 3,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Baiomys",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        10
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Chaetodipus",
+      "target_species": 11,
+      "reported_seed_species": 9,
+      "unique_reported_seed_values": [
+        80
+      ],
+      "complete_diet_vectors": 9,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Chaetodipus eremicus",
+        "Chaetodipus rudinoris"
+      ]
+    },
+    {
+      "genus": "Clethrionomys",
+      "target_species": 2,
+      "reported_seed_species": 0,
+      "unique_reported_seed_values": [],
+      "complete_diet_vectors": 0,
+      "distinct_complete_diet_vectors": 0,
+      "missing_species": [
+        "Clethrionomys gapperi",
+        "Clethrionomys rutilus"
+      ]
+    },
+    {
+      "genus": "Dicrostonyx",
+      "target_species": 2,
+      "reported_seed_species": 2,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 2,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Dipodomys",
+      "target_species": 16,
+      "reported_seed_species": 15,
+      "unique_reported_seed_values": [
+        30
+      ],
+      "complete_diet_vectors": 15,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Dipodomys simulans"
+      ]
+    },
+    {
+      "genus": "Lemmiscus",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Lemmus",
+      "target_species": 1,
+      "reported_seed_species": 0,
+      "unique_reported_seed_values": [],
+      "complete_diet_vectors": 0,
+      "distinct_complete_diet_vectors": 0,
+      "missing_species": [
+        "Lemmus trimucronatus"
+      ]
+    },
+    {
+      "genus": "Liomys",
+      "target_species": 1,
+      "reported_seed_species": 0,
+      "unique_reported_seed_values": [],
+      "complete_diet_vectors": 0,
+      "distinct_complete_diet_vectors": 0,
+      "missing_species": [
+        "Liomys irroratus"
+      ]
+    },
+    {
+      "genus": "Microdipodops",
+      "target_species": 2,
+      "reported_seed_species": 2,
+      "unique_reported_seed_values": [
+        80
+      ],
+      "complete_diet_vectors": 2,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Microtus",
+      "target_species": 14,
+      "reported_seed_species": 14,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 14,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Mictomys",
+      "target_species": 1,
+      "reported_seed_species": 0,
+      "unique_reported_seed_values": [],
+      "complete_diet_vectors": 0,
+      "distinct_complete_diet_vectors": 0,
+      "missing_species": [
+        "Mictomys borealis"
+      ]
+    },
+    {
+      "genus": "Mus",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Myodes",
+      "target_species": 3,
+      "reported_seed_species": 3,
+      "unique_reported_seed_values": [
+        30
+      ],
+      "complete_diet_vectors": 3,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Napaeozapus",
+      "target_species": 2,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        40
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Napaeozapus abietorum"
+      ]
+    },
+    {
+      "genus": "Neofiber",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Neotoma",
+      "target_species": 12,
+      "reported_seed_species": 9,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 9,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Neotoma leucodon",
+        "Neotoma macrotis",
+        "Neotoma magister"
+      ]
+    },
+    {
+      "genus": "Ochrotomys",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        100
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Ondatra",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Onychomys",
+      "target_species": 3,
+      "reported_seed_species": 3,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 3,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Oryzomys",
+      "target_species": 2,
+      "reported_seed_species": 2,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 2,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Perognathus",
+      "target_species": 10,
+      "reported_seed_species": 8,
+      "unique_reported_seed_values": [
+        80
+      ],
+      "complete_diet_vectors": 8,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Perognathus alticolus",
+        "Perognathus mollipilosus"
+      ]
+    },
+    {
+      "genus": "Peromyscus",
+      "target_species": 15,
+      "reported_seed_species": 14,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 14,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Peromyscus fraterculus"
+      ]
+    },
+    {
+      "genus": "Phenacomys",
+      "target_species": 2,
+      "reported_seed_species": 2,
+      "unique_reported_seed_values": [
+        20
+      ],
+      "complete_diet_vectors": 2,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Podomys",
+      "target_species": 1,
+      "reported_seed_species": 1,
+      "unique_reported_seed_values": [
+        40
+      ],
+      "complete_diet_vectors": 1,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Rattus",
+      "target_species": 3,
+      "reported_seed_species": 3,
+      "unique_reported_seed_values": [
+        40
+      ],
+      "complete_diet_vectors": 3,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Reithrodontomys",
+      "target_species": 5,
+      "reported_seed_species": 5,
+      "unique_reported_seed_values": [
+        50
+      ],
+      "complete_diet_vectors": 5,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Sigmodon",
+      "target_species": 4,
+      "reported_seed_species": 4,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 4,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Synaptomys",
+      "target_species": 2,
+      "reported_seed_species": 2,
+      "unique_reported_seed_values": [
+        0
+      ],
+      "complete_diet_vectors": 2,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": []
+    },
+    {
+      "genus": "Zapus",
+      "target_species": 8,
+      "reported_seed_species": 3,
+      "unique_reported_seed_values": [
+        70
+      ],
+      "complete_diet_vectors": 3,
+      "distinct_complete_diet_vectors": 1,
+      "missing_species": [
+        "Zapus luteus",
+        "Zapus montanus",
+        "Zapus oregonus",
+        "Zapus pacificus",
+        "Zapus saltator"
+      ]
+    }
+  ],
+  "source": {
+    "path": "data/derived/combine_target_pool_traits_v1.csv",
+    "blob_sha": "17f8c1127331477681c840c90b6b11bb231c46db",
+    "commit": "b1b43ce95dc35bdb737d940b985a948fcde04d9c",
+    "publication": "10.1002/ecy.3344",
+    "database": "10.6084/m9.figshare.13028255.v4",
+    "underlying_diet": "10.1890/13-1917.1"
+  },
+  "boundary": "Historical target pool is not full V13 taxonomy; Peromyscus maniculatus and P. leucopus excluded by prior carrier protocol. 'reported' means supplied by COMBINE reported table, not proven direct species measurement. No genus filling or inferred scatter-hoarding/seed dispersal. No capture-weighted index computed."
+}
