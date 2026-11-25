@@ -1,0 +1,898 @@
+{
+  "status": "CROSS_SOURCE_PARTIAL_IDENTIFICATION_REGISTER_NOT_META_ANALYSIS",
+  "method": "A=recorded source or in-situ successful-state fraction; B=recorded moved or ex-situ successful-state fraction; T=A+B. Per-released-seed fractions within source. Source-specific convex outer sets respect shared fate budget where available. Compute all endpoint extrema over differences of vertices; no probability assigned to uncertainty scenarios. Distinguish early intact-state, seedling establishment, germination and final position. No across-endpoint effect pooling. Source loss robust and T upper<0 means full moved-route compensation impossible under source assumptions, NOT proof actual compensatory gain occurred. Actual recorded compensation requires opposite signs of observed components and total nonnegative. These are different claims.",
+  "rows": [
+    {
+      "study": "Li et al. 2021",
+      "landscape_cluster": "northeast_china_li2021",
+      "endpoint": "intact/unconsumed recorded state",
+      "contrast": "autumn→spring",
+      "species": "four species pooled",
+      "phase0": {
+        "label": "autumn",
+        "N": 720,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.2514,
+            0.2486
+          ],
+          [
+            0.2514,
+            0.5847
+          ]
+        ],
+        "source": [
+          0.2514,
+          0.2514
+        ],
+        "moved": [
+          0.2486,
+          0.5847
+        ],
+        "total": [
+          0.5,
+          0.8361000000000001
+        ],
+        "detail": "Printed aggregate fractions, not reconstructed individual counts; all unknowns after removal."
+      },
+      "phase1": {
+        "label": "spring",
+        "N": 1200,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.142,
+            0.1252
+          ],
+          [
+            0.142,
+            0.3069
+          ]
+        ],
+        "source": [
+          0.142,
+          0.142
+        ],
+        "moved": [
+          0.1252,
+          0.3069
+        ],
+        "total": [
+          0.2672,
+          0.44889999999999997
+        ],
+        "detail": "Printed aggregate fractions, not reconstructed individual counts; all unknowns after removal."
+      },
+      "context": "No independent resource measurement for this comparison used",
+      "scope": "Two reported seasons; exact calendar year and terminal horizon unresolved; unequal stations, pooled species. Scheduled 60 days; no latent viability.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": {
+        "source": -0.10940000000000003,
+        "moved": -0.12339999999999998,
+        "total": -0.2328,
+        "classification": "no_observed_opposing_gain_loss_or_incomplete"
+      },
+      "delta": {
+        "source": [
+          -0.10940000000000003,
+          -0.10940000000000003
+        ],
+        "moved": [
+          -0.4595,
+          0.05830000000000002
+        ],
+        "total": [
+          -0.5689000000000001,
+          -0.051100000000000007
+        ]
+      },
+      "directions": {
+        "source": "decrease",
+        "moved": "unresolved",
+        "total": "decrease"
+      },
+      "source_loss_min_if_identified": 0.10940000000000003,
+      "moved_gain_max": 0.05830000000000002,
+      "full_moved_compensation_of_source_loss_impossible": true,
+      "min_total_loss_if_identified": 0.051100000000000007,
+      "uncoupled_total_upper": -0.051100000000000007,
+      "joint_ceiling_tightening": 0,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Lang & Wang 2016",
+      "landscape_cluster": "ailaoshan",
+      "endpoint": "intact/unconsumed recorded state",
+      "contrast": "autumn→spring",
+      "species": "Castanopsis wattii",
+      "phase0": {
+        "label": "autumn",
+        "N": 800,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0.5875
+          ],
+          [
+            0.125,
+            0
+          ],
+          [
+            0.125,
+            0.4625
+          ]
+        ],
+        "source": [
+          0,
+          0.125
+        ],
+        "moved": [
+          0,
+          0.5875
+        ],
+        "total": [
+          0,
+          0.5875
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "phase1": {
+        "label": "spring",
+        "N": 600,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0.5416666666666667
+          ],
+          [
+            0.00500000000000006,
+            0
+          ],
+          [
+            0.00500000000000006,
+            0.5366666666666666
+          ]
+        ],
+        "source": [
+          0,
+          0.00500000000000006
+        ],
+        "moved": [
+          0,
+          0.5416666666666667
+        ],
+        "total": [
+          0,
+          0.5416666666666667
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "context": "Nominal trap effort 343 each; capture counts 7→32; qualitative resource context only",
+      "scope": "2013 autumn vs 2014 spring, scheduled 36 days; tree pairing unresolved; subgroup/narrative discrepancies in two species; no visual figure confirmation; conditional source validity.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": null,
+      "delta": {
+        "source": [
+          -0.125,
+          0.00500000000000006
+        ],
+        "moved": [
+          -0.5875,
+          0.5416666666666667
+        ],
+        "total": [
+          -0.5875,
+          0.5416666666666667
+        ]
+      },
+      "directions": {
+        "source": "unresolved",
+        "moved": "unresolved",
+        "total": "unresolved"
+      },
+      "source_loss_min_if_identified": null,
+      "moved_gain_max": 0.5416666666666667,
+      "full_moved_compensation_of_source_loss_impossible": false,
+      "min_total_loss_if_identified": null,
+      "uncoupled_total_upper": 0.5466666666666669,
+      "joint_ceiling_tightening": 0.0050000000000001155,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Lang & Wang 2016",
+      "landscape_cluster": "ailaoshan",
+      "endpoint": "intact/unconsumed recorded state",
+      "contrast": "autumn→spring",
+      "species": "Lithocarpus hancei",
+      "phase0": {
+        "label": "autumn",
+        "N": 800,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.9705,
+            0
+          ],
+          [
+            0.9705,
+            0.01699999999999997
+          ],
+          [
+            0.9762500000000001,
+            0
+          ],
+          [
+            0.9762500000000001,
+            0.011249999999999982
+          ]
+        ],
+        "source": [
+          0.9705,
+          0.9762500000000001
+        ],
+        "moved": [
+          0,
+          0.01699999999999997
+        ],
+        "total": [
+          0.9705,
+          0.9875
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "phase1": {
+        "label": "spring",
+        "N": 600,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.7865000000000001,
+            0
+          ],
+          [
+            0.7865000000000001,
+            0.12349999999999992
+          ],
+          [
+            0.8366666666666667,
+            0
+          ],
+          [
+            0.8366666666666667,
+            0.07333333333333336
+          ]
+        ],
+        "source": [
+          0.7865000000000001,
+          0.8366666666666667
+        ],
+        "moved": [
+          0,
+          0.12349999999999992
+        ],
+        "total": [
+          0.7865000000000001,
+          0.91
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "context": "Nominal trap effort 343 each; capture counts 7→32; qualitative resource context only",
+      "scope": "2013 autumn vs 2014 spring, scheduled 36 days; tree pairing unresolved; subgroup/narrative discrepancies in two species; no visual figure confirmation; conditional source validity.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": null,
+      "delta": {
+        "source": [
+          -0.18974999999999997,
+          -0.13383333333333336
+        ],
+        "moved": [
+          -0.01699999999999997,
+          0.12349999999999992
+        ],
+        "total": [
+          -0.20099999999999996,
+          -0.0605
+        ]
+      },
+      "directions": {
+        "source": "decrease",
+        "moved": "unresolved",
+        "total": "decrease"
+      },
+      "source_loss_min_if_identified": 0.13383333333333336,
+      "moved_gain_max": 0.12349999999999992,
+      "full_moved_compensation_of_source_loss_impossible": true,
+      "min_total_loss_if_identified": 0.0605,
+      "uncoupled_total_upper": -0.010333333333333444,
+      "joint_ceiling_tightening": 0.050166666666666554,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Lang & Wang 2016",
+      "landscape_cluster": "ailaoshan",
+      "endpoint": "intact/unconsumed recorded state",
+      "contrast": "autumn→spring",
+      "species": "Lithocarpus pachyphyllus",
+      "phase0": {
+        "label": "autumn",
+        "N": 800,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.3855,
+            0
+          ],
+          [
+            0.3855,
+            0.46075000000000005
+          ],
+          [
+            0.42249999999999993,
+            0
+          ],
+          [
+            0.42249999999999993,
+            0.42375
+          ]
+        ],
+        "source": [
+          0.3855,
+          0.42249999999999993
+        ],
+        "moved": [
+          0,
+          0.46075000000000005
+        ],
+        "total": [
+          0.3855,
+          0.8462500000000001
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "phase1": {
+        "label": "spring",
+        "N": 600,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.0625,
+            0
+          ],
+          [
+            0.0625,
+            0.7975
+          ],
+          [
+            0.06999999999999995,
+            0
+          ],
+          [
+            0.06999999999999995,
+            0.79
+          ]
+        ],
+        "source": [
+          0.0625,
+          0.06999999999999995
+        ],
+        "moved": [
+          0,
+          0.7975
+        ],
+        "total": [
+          0.0625,
+          0.86
+        ],
+        "detail": "Conditional broad outer set from narrative ignored lower and minimally inferred subgroup eaten/removed; no exact cache partition."
+      },
+      "context": "Nominal trap effort 343 each; capture counts 7→32; qualitative resource context only",
+      "scope": "2013 autumn vs 2014 spring, scheduled 36 days; tree pairing unresolved; subgroup/narrative discrepancies in two species; no visual figure confirmation; conditional source validity.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": null,
+      "delta": {
+        "source": [
+          -0.35999999999999993,
+          -0.31550000000000006
+        ],
+        "moved": [
+          -0.46075000000000005,
+          0.7975
+        ],
+        "total": [
+          -0.7837500000000001,
+          0.4745
+        ]
+      },
+      "directions": {
+        "source": "decrease",
+        "moved": "unresolved",
+        "total": "unresolved"
+      },
+      "source_loss_min_if_identified": 0.31550000000000006,
+      "moved_gain_max": 0.7975,
+      "full_moved_compensation_of_source_loss_impossible": false,
+      "min_total_loss_if_identified": null,
+      "uncoupled_total_upper": 0.48199999999999993,
+      "joint_ceiling_tightening": 0.007499999999999951,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Cao et al. 2017",
+      "landscape_cluster": "xishuangbanna_cao",
+      "endpoint": "recorded seedling establishment",
+      "contrast": "2007→2008",
+      "species": "Pittosporopsis kerrii",
+      "phase0": {
+        "label": "2007",
+        "N": 540,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0.992
+          ]
+        ],
+        "source": [
+          0,
+          0
+        ],
+        "moved": [
+          0,
+          0.992
+        ],
+        "total": [
+          0,
+          0.992
+        ],
+        "detail": "Broad post-removal ceiling; source rounded ±0.05pp (explicit zero fixed), removal upper +0.5pp conservative; not actual missing-count bound."
+      },
+      "phase1": {
+        "label": "2008",
+        "N": 540,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.1255,
+            0.022222222222222223
+          ],
+          [
+            0.1255,
+            0.773
+          ],
+          [
+            0.1265,
+            0.022222222222222223
+          ],
+          [
+            0.1265,
+            0.773
+          ]
+        ],
+        "source": [
+          0.1255,
+          0.1265
+        ],
+        "moved": [
+          0.022222222222222223,
+          0.773
+        ],
+        "total": [
+          0.14772222222222223,
+          0.8995
+        ],
+        "detail": "Broad post-removal ceiling; source rounded ±0.05pp (explicit zero fixed), removal upper +0.5pp conservative; not actual missing-count bound."
+      },
+      "context": "Community seed rain 0.85→10/m²; captured rodents 27→7 per nominal 600 trap nights; same landscape",
+      "scope": "Annual resource contrast, same late-Aug/early-Sep release window; terminal horizon unresolved; no complete missing fates; published percentages, actual source report text only.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": {
+        "source": 0.126,
+        "moved": 0.022222222222222223,
+        "total": 0.14822222222222223,
+        "classification": "no_observed_opposing_gain_loss_or_incomplete"
+      },
+      "delta": {
+        "source": [
+          0.1255,
+          0.1265
+        ],
+        "moved": [
+          -0.9697777777777777,
+          0.773
+        ],
+        "total": [
+          -0.8442777777777777,
+          0.8995
+        ]
+      },
+      "directions": {
+        "source": "increase",
+        "moved": "unresolved",
+        "total": "unresolved"
+      },
+      "source_loss_min_if_identified": null,
+      "moved_gain_max": 0.773,
+      "full_moved_compensation_of_source_loss_impossible": false,
+      "min_total_loss_if_identified": null,
+      "uncoupled_total_upper": 0.8995,
+      "joint_ceiling_tightening": 0,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Cao et al. 2017",
+      "landscape_cluster": "xishuangbanna_cao",
+      "endpoint": "recorded seedling establishment",
+      "contrast": "2007→2008",
+      "species": "Camellia kissi",
+      "phase0": {
+        "label": "2007",
+        "N": 400,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0,
+            0.0075
+          ],
+          [
+            0,
+            0.767
+          ]
+        ],
+        "source": [
+          0,
+          0
+        ],
+        "moved": [
+          0.0075,
+          0.767
+        ],
+        "total": [
+          0.0075,
+          0.767
+        ],
+        "detail": "Broad post-removal ceiling; source rounded ±0.05pp (explicit zero fixed), removal upper +0.5pp conservative; not actual missing-count bound."
+      },
+      "phase1": {
+        "label": "2008",
+        "N": 400,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.0245,
+            0
+          ],
+          [
+            0.0245,
+            0.215
+          ],
+          [
+            0.025500000000000002,
+            0
+          ],
+          [
+            0.025500000000000002,
+            0.215
+          ]
+        ],
+        "source": [
+          0.0245,
+          0.025500000000000002
+        ],
+        "moved": [
+          0,
+          0.215
+        ],
+        "total": [
+          0.0245,
+          0.2405
+        ],
+        "detail": "Broad post-removal ceiling; source rounded ±0.05pp (explicit zero fixed), removal upper +0.5pp conservative; not actual missing-count bound."
+      },
+      "context": "Community seed rain 0.85→10/m²; captured rodents 27→7 per nominal 600 trap nights; same landscape",
+      "scope": "Annual resource contrast, same late-Aug/early-Sep release window; terminal horizon unresolved; no complete missing fates; published percentages, actual source report text only.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": {
+        "source": 0.025,
+        "moved": -0.0075,
+        "total": 0.0175,
+        "classification": "source_gain_offsets_moved_loss"
+      },
+      "delta": {
+        "source": [
+          0.0245,
+          0.025500000000000002
+        ],
+        "moved": [
+          -0.767,
+          0.2075
+        ],
+        "total": [
+          -0.7425,
+          0.23299999999999998
+        ]
+      },
+      "directions": {
+        "source": "increase",
+        "moved": "unresolved",
+        "total": "unresolved"
+      },
+      "source_loss_min_if_identified": null,
+      "moved_gain_max": 0.2075,
+      "full_moved_compensation_of_source_loss_impossible": false,
+      "min_total_loss_if_identified": null,
+      "uncoupled_total_upper": 0.23299999999999998,
+      "joint_ceiling_tightening": 0,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Sachser et al. 2025",
+      "landscape_cluster": "rothwald",
+      "endpoint": "documented germination by location",
+      "contrast": "2018/19→2020/21",
+      "species": "Fagus sylvatica",
+      "phase0": {
+        "label": "2018/19",
+        "N": 180,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.2222222222222222,
+            0
+          ],
+          [
+            0.2222222222222222,
+            0.07222222222222222
+          ],
+          [
+            0.2944444444444444,
+            0
+          ]
+        ],
+        "source": [
+          0.2222222222222222,
+          0.2944444444444444
+        ],
+        "moved": [
+          0,
+          0.07222222222222222
+        ],
+        "total": [
+          0.2222222222222222,
+          0.2944444444444444
+        ],
+        "detail": "Shared missing-fate budget across locations: A+B extra <= M. In/ex situ is recorded final position, not proven never-moved/moved route."
+      },
+      "phase1": {
+        "label": "2020/21",
+        "N": 180,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.011111111111111112,
+            0
+          ],
+          [
+            0.011111111111111112,
+            0.09444444444444444
+          ],
+          [
+            0.10555555555555556,
+            0
+          ]
+        ],
+        "source": [
+          0.011111111111111112,
+          0.10555555555555556
+        ],
+        "moved": [
+          0,
+          0.09444444444444444
+        ],
+        "total": [
+          0.011111111111111112,
+          0.10555555555555556
+        ],
+        "detail": "Shared missing-fate budget across locations: A+B extra <= M. In/ex situ is recorded final position, not proven never-moved/moved route."
+      },
+      "context": "Beech rain 59.2→543/m²; 44→59 August capture counts per nominal 500 trap nights; no source-level causal inference",
+      "scope": "Two local seed lots, separate annual cohorts; location only, not complete movement history; separate germination/early state endpoints, not two independent studies.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": {
+        "source": -0.2111111111111111,
+        "moved": 0,
+        "total": -0.2111111111111111,
+        "classification": "no_observed_opposing_gain_loss_or_incomplete"
+      },
+      "delta": {
+        "source": [
+          -0.28333333333333327,
+          -0.11666666666666665
+        ],
+        "moved": [
+          -0.07222222222222222,
+          0.09444444444444444
+        ],
+        "total": [
+          -0.2833333333333333,
+          -0.11666666666666665
+        ]
+      },
+      "directions": {
+        "source": "decrease",
+        "moved": "unresolved",
+        "total": "decrease"
+      },
+      "source_loss_min_if_identified": 0.11666666666666665,
+      "moved_gain_max": 0.09444444444444444,
+      "full_moved_compensation_of_source_loss_impossible": true,
+      "min_total_loss_if_identified": 0.11666666666666665,
+      "uncoupled_total_upper": -0.022222222222222213,
+      "joint_ceiling_tightening": 0.09444444444444444,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    },
+    {
+      "study": "Sachser et al. 2025",
+      "landscape_cluster": "rothwald",
+      "endpoint": "intact or germinated by location",
+      "contrast": "2018/19→2020/21",
+      "species": "Fagus sylvatica",
+      "phase0": {
+        "label": "2018/19",
+        "N": 180,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.38333333333333336,
+            0
+          ],
+          [
+            0.38333333333333336,
+            0.07222222222222222
+          ],
+          [
+            0.4555555555555556,
+            0
+          ]
+        ],
+        "source": [
+          0.38333333333333336,
+          0.4555555555555556
+        ],
+        "moved": [
+          0,
+          0.07222222222222222
+        ],
+        "total": [
+          0.38333333333333336,
+          0.4555555555555556
+        ],
+        "detail": "Shared missing-fate budget across locations: A+B extra <= M. In/ex situ is recorded final position, not proven never-moved/moved route."
+      },
+      "phase1": {
+        "label": "2020/21",
+        "N": 180,
+        "denominator_unit": "seeds",
+        "vertices": [
+          [
+            0.25,
+            0.07777777777777778
+          ],
+          [
+            0.25,
+            0.17222222222222222
+          ],
+          [
+            0.34444444444444444,
+            0.07777777777777778
+          ]
+        ],
+        "source": [
+          0.25,
+          0.34444444444444444
+        ],
+        "moved": [
+          0.07777777777777778,
+          0.17222222222222222
+        ],
+        "total": [
+          0.3277777777777778,
+          0.4222222222222222
+        ],
+        "detail": "Shared missing-fate budget across locations: A+B extra <= M. In/ex situ is recorded final position, not proven never-moved/moved route."
+      },
+      "context": "Beech rain 59.2→543/m²; 44→59 August capture counts per nominal 500 trap nights; no source-level causal inference",
+      "scope": "Two local seed lots, separate annual cohorts; location only, not complete movement history; separate germination/early state endpoints, not two independent studies.",
+      "formal_meta_eligible": false,
+      "confirmed_point_delta": {
+        "source": -0.13333333333333336,
+        "moved": 0.07777777777777778,
+        "total": -0.05555555555555558,
+        "classification": "moved_gain_partially_offsets_source_loss"
+      },
+      "delta": {
+        "source": [
+          -0.2055555555555556,
+          -0.03888888888888892
+        ],
+        "moved": [
+          0.005555555555555564,
+          0.17222222222222222
+        ],
+        "total": [
+          -0.12777777777777782,
+          0.03888888888888886
+        ]
+      },
+      "directions": {
+        "source": "decrease",
+        "moved": "increase",
+        "total": "unresolved"
+      },
+      "source_loss_min_if_identified": 0.03888888888888892,
+      "moved_gain_max": 0.17222222222222222,
+      "full_moved_compensation_of_source_loss_impossible": false,
+      "min_total_loss_if_identified": null,
+      "uncoupled_total_upper": 0.1333333333333333,
+      "joint_ceiling_tightening": 0.09444444444444444,
+      "robust_source_compensates_moved_loss": false,
+      "robust_moved_compensates_source_loss": false
+    }
+  ],
+  "summary": {
+    "rows": 8,
+    "landscape_clusters": 4,
+    "seasonal_intact_rows": 4,
+    "seasonal_clusters": 2,
+    "seasonal_source_loss_identified": 3,
+    "seasonal_full_moved_compensation_impossible": 2,
+    "seasonal_clusters_with_conditional_impossibility": 2,
+    "seasonal_robust_actual_full_compensation": 0,
+    "annual_rows": 4,
+    "annual_clusters": 2,
+    "annual_confirmed_point_source_compensation": 1,
+    "strict_formal_meta_eligible": 0
+  },
+  "lang_source_stress": {
+    "species": "Lithocarpus hancei",
+    "spring_released": 600,
+    "autumn_ignored_lower": 0.9705,
+    "spring_reported_subset_implied_eaten_min": 54,
+    "spring_confirmed_in_situ_eaten_count_strict_decline_min": 18,
+    "max_implied_eaten_count_removed_from_lower_bound_still_decline": 36,
+    "source_validity_boundary": "Arithmetic sensitivity only: if at least 18 of 600 spring seeds are reliably confirmed eaten in situ, total spring intact < autumn ignored lower. Does NOT establish that 54 counts or ignored rate are correct; disagreement in subgroup denominator remains. With no usable predation information, total decline unidentifiable."
+  },
+  "boundary": "Exploratory bounded register, not systematic literature search, no inference of prevalence, prediction validation, p values, random-effects pooling or cross-landscape mechanism. Source conditions and omissions differ; Lang source integrity caveat particularly important. All earlier STOPs preserved.",
+  "provenance": {
+    "source_commit": "88782c16a69e0e0795a2a20066d2dca2bb0fc91a",
+    "source_blobs": {
+      "results/neon_seasonal_intact_routes_v21_20261126.json": "c64dc112621ef6e8bb0026843f6a238a89856bd1",
+      "results/neon_lang_wang2016_seasonal_route_bounds_v22_20261126.json": "82bb44d5a82d4fa1b6178a03f512899e41a5a978",
+      "results/neon_cao2017_establishment_routes_v20_20261126.json": "d01e5868d644484cd1a7096db761df355adf6d72",
+      "results/neon_sachser_downstream_fate_v11_20261125.json": "19c6472d126ddb8660e44c78053c7a219bc0d171",
+      "results/neon_sachser_joint_context_v16_20261126.json": "d05bc378aa134a71154f24b3bf24806ccdf9a6a9",
+      "data/neon_li2021_seasonal_published_fates_20261124.json": "91f979fed0e59c446d3054e33201a72d176b6585"
+    }
+  }
+}
