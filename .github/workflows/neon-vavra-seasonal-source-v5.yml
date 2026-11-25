@@ -1,0 +1,21 @@
+name: NEON Vavra seasonal seed interaction source audit
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-vavra-seasonal-source-v5.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read public Figshare metadata and verify original file checksums
+        run: python3 analysis/audit_neon_vavra_seasonal_source_v5.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vavra-source-inventory-v5
+          path: vavra_source_receipt.json
+          if-no-files-found: error
