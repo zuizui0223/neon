@@ -1,0 +1,82 @@
+{
+  "schema": "neon.maine.station_key_diagnosis.v2.closure.log_receipt",
+  "provenance": {
+    "run_id": 45540081351,
+    "job_id": 138956191043,
+    "head_sha": "2f222fd2867b8643cb90461ee4f10353a1a0f38c",
+    "artifact_id": 14988548597,
+    "artifact_zip_sha256_reported_by_github": "91d8a6a6e687dacc945c6e7f04831457608186893454b13daa91c8efd46ceb3a",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false,
+    "global_ci_run_id": 45540081145,
+    "global_ci_conclusion": "success"
+  },
+  "scientific_disposition": "CLOSE_NOMINAL_AND_METRIC_RECURRENCE_PENDING_INDEPENDENT_AUTHOR_CLARIFICATION",
+  "original_stdout_json": {
+    "effect": null,
+    "no_metric_geometry_or_habitat_claim": true,
+    "no_source_label_repair": true,
+    "original_distance_source_stop_preserved": true,
+    "retrieved_utc": "2026-11-25T03:27:32.811756+00:00",
+    "schema": "neon.maine.station_key_diagnosis.v2",
+    "source_diagnosis": {
+      "capture_calendar_and_parent_gate": false,
+      "deposited_capture_cells": 3314,
+      "distance": {
+        "exact_within_grid_key_partition": false,
+        "expected_pairs": 80000,
+        "full_metric_geometry_gate": false,
+        "issue_counts": {
+          "conflicting_duplicate_values": 1600,
+          "duplicate_pair_excess": 6640,
+          "endpoint1_not_in_microhabitat": 51,
+          "endpoint2_not_in_microhabitat": 51,
+          "microhabitat_not_in_endpoint1": 51,
+          "microhabitat_not_in_endpoint2": 51,
+          "missing_expected_pairs": 14065,
+          "reciprocal_value_mismatch_unordered_pairs": 9504,
+          "unexpected_pairs": 7425,
+          "unique_site1_keys": 800,
+          "unique_site2_keys": 800,
+          "unknown_endpoint_rows": 11575,
+          "zero_identity_conflict_rows": 384
+        },
+        "no_explicit_zero_identity_conflict": false,
+        "nominal_station_identity_gate": false,
+        "rows": 80000,
+        "unique_pairs": 73360
+      },
+      "grid_count": 8,
+      "grid_size_histogram": {
+        "100": 8
+      },
+      "issue_counts": {
+        "capture_not_occupied_cell": 215,
+        "capture_unknown_site": 37,
+        "duplicate_capture_key_rows": 38,
+        "invalid_capture_rows": 215,
+        "occasion_missing_capture_calendar": 0,
+        "occasion_multiple_calendar_contexts": 0,
+        "occupancy_duplicate_key_excess": 0,
+        "occupancy_unknown_site": 3009
+      },
+      "micro_identity_gate": true,
+      "microhabitat_unique_station_keys": 800,
+      "occupancy_key_gate": false,
+      "occupancy_not_independent_operability": true,
+      "occupancy_occasions": 59,
+      "occupancy_positive_cells": 4832,
+      "occupancy_unique_cells": 44191,
+      "occupied_cells_without_deposited_target_capture": 1518,
+      "source_rows": {
+        "16_19_GRID_occup.csv": 47200,
+        "GRID_trap_dist.csv": 80000,
+        "mg.csv": 1688,
+        "microhabitat.csv": 800,
+        "pm.csv": 1970
+      }
+    },
+    "status": "STOP_UNRESOLVED_SOURCE_KEYS",
+    "submission_hold": true
+  }
+}

@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Maine source closed; translate established NEON effect into observed station-cell units
+
+[45540081351](https://github.com/zuizui0223/neon/actions/runs/45540081351) found 6,640 duplicate distance keys, 14,065 missing expected pairs, 51 unmatched endpoint labels on each axis, 3,009 unknown occupancy rows and 215 invalid capture rows. No recurrence effect; close Maine pending author clarification. [Closure and magnitude protocol](docs/NEON_MAINE_CLOSURE_AND_ABSOLUTE_MAGNITUDE_20261125.md). New calculation only translates already-opened exact-two NEON results into observed/null match fractions and excess station-cell percentages, with exact archived Z checks. No new subgroup or p-value. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: Maine original distance STOP; complete pre-effect source-key diagnosis
 
 [45539674573](https://github.com/zuizui0223/neon/actions/runs/45539674573) stopped DISTANCE_KEY_OR_VALUE_INVALID before overlap. Original receipt retained. Diagnose exact 80,000 distance-pair keys, 47,200 occupancy cells and all capture/calendar joins independently. A nominal SITE contrast can proceed only if all identity keys reconcile and failure is metric-only; no guessed aliases or geometry. Original windows/support unchanged. [Protocol](docs/NEON_MAINE_STATION_KEY_DIAGNOSIS_20261125.md). DRAFT / SUBMISSION HOLD.
