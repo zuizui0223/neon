@@ -1,0 +1,22 @@
+{
+  "status": "STOP_SOURCE_OR_SUPPORT",
+  "reason": "conflicting terminal seed-night records",
+  "effect_opened": false,
+  "run_id": 45570992099,
+  "artifact_id": 15002176350,
+  "artifact_zip_sha256": "5430a7cb47e518ec9f9a4778615bd9f3edc4fb8c804b34a804286cef22af3e78",
+  "verified_source_footer_rows_removed": 3,
+  "station_support": {
+    "source_rows": 288,
+    "distinct_valid_offer_nights": 287,
+    "matched_cells": 8,
+    "matched_grids": 4,
+    "matched_nights_by_period": {
+      "3": 63,
+      "5": 96
+    }
+  },
+  "source": "10.6084/m9.figshare.28207769.v2",
+  "individual_seasonal_gate": "STOP: upper bound three shared identified individuals across August–October all seed finding",
+  "decision": "Do not change endpoint, collapse conflicting terminal seed-night rows, or infer a fate. Diagnose event identifiers and author code without opening month-specific outcomes; require independent documentation or exact reconciliation before another effect run."
+}
