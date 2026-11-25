@@ -1,0 +1,126 @@
+{
+  "status": "SOURCE_GATE_ONLY",
+  "sources": {
+    "tracking": {
+      "doi": "doi:10.18150/OPN782",
+      "status": "STOP_SOURCE_OR_SCHEMA",
+      "effect_opened": false,
+      "version": [
+        1,
+        1
+      ],
+      "title": "Seed tracking, Davos (CHF_Dvs), 2021-2023",
+      "files": [
+        {
+          "id": 30127,
+          "filename": "CHF_Davos_Seed_tracking_2021-2023_A_Wrobel_UPP_1.tab",
+          "filesize": 137590,
+          "contentType": "text/tab-separated-values",
+          "checksum": {
+            "type": "MD5",
+            "value": "be07a305287558e68ae0b75fd18ee770"
+          },
+          "originalFileName": null,
+          "originalFileFormat": "text/csv",
+          "originalFileSize": 127778,
+          "restricted": false
+        },
+        {
+          "id": 30124,
+          "filename": "CHF_Davos_Seed_tracking_2021-2023_A_Wrobel_UPP.tab",
+          "filesize": 198000,
+          "contentType": "text/tab-separated-values",
+          "checksum": {
+            "type": "MD5",
+            "value": "014fb6d7926f346ca2af4217449acad2"
+          },
+          "originalFileName": null,
+          "originalFileFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "originalFileSize": 160575,
+          "restricted": false
+        },
+        {
+          "id": 30126,
+          "filename": "ReadMe.pdf",
+          "filesize": 192121,
+          "contentType": "application/pdf",
+          "checksum": {
+            "type": "MD5",
+            "value": "19fec178ac69d842c96033a191205677"
+          },
+          "originalFileName": null,
+          "originalFileFormat": null,
+          "originalFileSize": null,
+          "restricted": false
+        }
+      ],
+      "reason": "ValueError: table representation checksum or size mismatch"
+    },
+    "capture": {
+      "doi": "doi:10.18150/N2LI79",
+      "status": "STOP_SOURCE_OR_SCHEMA",
+      "effect_opened": false,
+      "version": [
+        1,
+        1
+      ],
+      "title": "Rodent trapping data, Davos (CHF_Dvs), 2021-2023",
+      "files": [
+        {
+          "id": 30120,
+          "filename": "CHF_Davos_Rodent_Trapping_2021-2023_A_Wrobel_UPP_1.tab",
+          "filesize": 120291,
+          "contentType": "text/tab-separated-values",
+          "checksum": {
+            "type": "MD5",
+            "value": "3e28774827963b6700e89a2f075ba4fc"
+          },
+          "originalFileName": null,
+          "originalFileFormat": "text/csv",
+          "originalFileSize": 96940,
+          "restricted": false
+        },
+        {
+          "id": 30118,
+          "filename": "CHF_Davos_Rodent_Trapping_2021-2023_A_Wrobel_UPP.tab",
+          "filesize": 120447,
+          "contentType": "text/tab-separated-values",
+          "checksum": {
+            "type": "MD5",
+            "value": "051e19ad5a69acfee49acf494e41032b"
+          },
+          "originalFileName": null,
+          "originalFileFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "originalFileSize": 76960,
+          "restricted": false
+        },
+        {
+          "id": 30119,
+          "filename": "ReadMe.pdf",
+          "filesize": 212977,
+          "contentType": "application/pdf",
+          "checksum": {
+            "type": "MD5",
+            "value": "a0e9ef11f04e15f661974ca17c90159d"
+          },
+          "originalFileName": null,
+          "originalFileFormat": null,
+          "originalFileSize": null,
+          "restricted": false
+        }
+      ],
+      "reason": "ValueError: table representation checksum or size mismatch"
+    }
+  },
+  "early_to_emergence_prediction": "NOT_OPENED_NO_VERIFIED_EMERGENCE_SOURCE",
+  "boundary": "Original public author deposits, no individual match to separately measured emergence. Prior OSF 500 preserved. No further download retry on representation mismatch.",
+  "provenance": {
+    "analysis_commit": "0f43b81787aa4242b2599791b1fe9276e65548e3",
+    "run_id": 45719589297,
+    "job_id": 139574255339,
+    "artifact_id": 15072035839,
+    "artifact_zip_sha256_reported": "1b3bc11f771443ec6857114ee00dba05913ca47df1f65dc5a13d6e84a922abf8",
+    "extracted_from_stdout": true,
+    "zip_bytes_independently_verified": false
+  }
+}
