@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: close Cambodia access; inspect previously verified Maine capture and microhabitat archive
+
+[45537331854](https://github.com/zuizui0223/neon/actions/runs/45537331854) SOURCE_STOP HTTP 403; dedicated QA and global CI passed. Prior ledger 65-field check unchanged. EIDC corridor survey programme identified but requires authorized PAT for programmatic acquisition. Prior pinned Figshare 14488626 v1 archive (Maine, six grids/600 points) is prioritized for actual author codebook, capture and vegetation schema inspection. [Decision](docs/NEON_MAINE_GROUNDCOVER_SOURCE_DECISION_20261125.md). No new ecological effect. DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: focused V1.0 ledger verified; independent Cambodia source candidate
 
 65 exact fields across 13 recurrence rows reconcile with original receipts; no mismatch. Prior focused V1.0 CI 45536860987 passed. Targeted prior-art review distinguishes existing spatial segregation, NEON home-range studies, and seasonal forest-disturbance community studies. Pruvot et al. 2024 (9 sites, 54 site-zone-season strata) documents trap-level vegetation and malfunction records; bounded author-linked Zenodo inventory only. [Literature and source decision](docs/NEON_CAPTURE_SPACE_LITERATURE_AND_INDEPENDENT_SOURCE_20261125.md). No new ecological effect, no same-release subgroup rescue. DRAFT / SUBMISSION HOLD.

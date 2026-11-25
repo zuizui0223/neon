@@ -1,0 +1,25 @@
+{
+  "schema": "neon.cambodia.independent.source.v1.stop.log_receipt",
+  "provenance": {
+    "run_id": 45537331854,
+    "job_id": 138947035017,
+    "head_sha": "417d046a3f1abb27c22fd00dd60eec47f9ef23ae",
+    "artifact_id": 14986808917,
+    "artifact_zip_sha256_reported_by_github": "78f2c3bdad814b6f091b189485d06e386951dff18092a0cd533c094047296dad",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false,
+    "global_ci_run_id": 45537331726,
+    "global_ci_conclusion": "success"
+  },
+  "scientific_disposition": "SOURCE_ACCESS_STOP_NO_RETRY_WITHOUT_AUTHORIZED_ACCESS",
+  "original_stdout_json": {
+    "error_class": "HTTPError",
+    "http_status": 403,
+    "no_new_effect": true,
+    "reason": "UNEXPORTED_ERROR",
+    "retrieved_utc": "2026-11-25T03:04:13.977154+00:00",
+    "schema": "neon.cambodia.independent.source.v1",
+    "status": "SOURCE_STOP",
+    "submission_hold": true
+  }
+}
