@@ -1,0 +1,20 @@
+name: NEON Merz ambiguity-envelope stage V8
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-ambiguity-envelope-v8.yml'
+permissions:
+  contents: read
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/neon_merz_ambiguity_envelope_v8.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-ambiguity-envelope-v8
+          path: merz_ambiguity_envelope.json
+          if-no-files-found: error
