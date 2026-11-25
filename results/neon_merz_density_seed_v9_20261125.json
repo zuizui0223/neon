@@ -1,0 +1,249 @@
+{
+  "V8_reproduction": "all four pooled H/Y endpoint ranges match to 1e-10",
+  "WP_by_density": {
+    "high density": {
+      "H0": [
+        4.40625,
+        4.5625
+      ],
+      "H1": [
+        2.1428571428571437,
+        2.1428571428571437
+      ],
+      "H_ratio": [
+        0.46966731898238767,
+        0.4863221884498482
+      ],
+      "Y0": [
+        1.5,
+        1.5
+      ],
+      "Y1": [
+        0.29166666666666663,
+        0.29166666666666663
+      ],
+      "Y_ratio": [
+        0.19444444444444442,
+        0.19444444444444442
+      ],
+      "allocation": [
+        -0.6690385163373863,
+        -0.6459136836812354
+      ],
+      "composition_hi": [
+        -0.003237582491518806,
+        0.011574534081491825
+      ],
+      "composition_lo": [
+        -0.003237582491518806,
+        0.011574534081491825
+      ],
+      "delta_H": [
+        -2.4196428571428563,
+        -2.2633928571428563
+      ],
+      "delta_Y": [
+        -1.2083333333333335,
+        -1.2083333333333335
+      ],
+      "delta_q": [
+        -0.20431442080378256,
+        -0.19265601217656017
+      ],
+      "intensity": [
+        -0.562419649652098,
+        -0.5392948169959471
+      ],
+      "q0": [
+        0.3287671232876712,
+        0.3404255319148936
+      ],
+      "q1": [
+        0.13611111111111104,
+        0.13611111111111104
+      ],
+      "within_hi": [
+        -0.6658009338458675,
+        -0.6574882177627273
+      ],
+      "within_lo": [
+        -0.6658009338458675,
+        -0.6574882177627273
+      ]
+    },
+    "low density": {
+      "H0": [
+        2.0133928571428577,
+        2.116071428571429
+      ],
+      "H1": [
+        1.2631578947368418,
+        1.2631578947368418
+      ],
+      "H_ratio": [
+        0.5969353764157227,
+        0.6273777570311585
+      ],
+      "Y0": [
+        0.06696428571428571,
+        0.09821428571428571
+      ],
+      "Y1": [
+        0.044407894736842105,
+        0.044407894736842105
+      ],
+      "Y_ratio": [
+        0.4521531100478469,
+        0.6631578947368422
+      ],
+      "allocation": [
+        -0.021300061132549546,
+        0.005082794492609525
+      ],
+      "composition_hi": [
+        -0.09589986368982385,
+        -0.048385200508273135
+      ],
+      "composition_lo": [
+        -0.09589986368982385,
+        -0.048385200508273135
+      ],
+      "delta_H": [
+        -0.852913533834587,
+        -0.7502349624060158
+      ],
+      "delta_Y": [
+        -0.05380639097744361,
+        -0.022556390977443608
+      ],
+      "delta_q": [
+        -0.012878684497816574,
+        0.0030363356531049393
+      ],
+      "intensity": [
+        -0.03478597276294972,
+        -0.025663915119375
+      ],
+      "q0": [
+        0.03211991434689507,
+        0.04803493449781658
+      ],
+      "q1": [
+        0.03515625000000001,
+        0.03515625000000001
+      ],
+      "within_hi": [
+        0.027085139375723585,
+        0.10098265818243339
+      ],
+      "within_lo": [
+        0.027085139375723585,
+        0.10098265818243339
+      ]
+    }
+  },
+  "analysis_status": "POST_V8_EXPLORATORY_MATCHED_COHORT_STRATIFICATION",
+  "decision": {
+    "claim_ceiling": "Descriptive context interaction under fixed V8 observation and ambiguity assumptions; no sampling CI, independent replication, natural resource causation or true dispersal.",
+    "high_minus_low_carriage_change_sign": "NEGATIVE"
+  },
+  "density_semantics": "High/low treatment changes both offered seed species together; no independent natural resource or consumer density manipulation; no causal density effect inferred.",
+  "grid_direction_support": {
+    "grids": 4,
+    "negative_all_scenarios": 2,
+    "positive_all_scenarios": 2
+  },
+  "high_minus_low_change": {
+    "H_ratio": [
+      -0.15771043804877083,
+      -0.1106131879658745
+    ],
+    "Y_ratio": [
+      -0.46871345029239775,
+      -0.2577086656034025
+    ],
+    "allocation": [
+      -0.6741213108299958,
+      -0.6246136225486858
+    ],
+    "composition_max": [
+      0.04514761801675433,
+      0.10747439777131568
+    ],
+    "composition_min": [
+      0.04514761801675433,
+      0.10747439777131568
+    ],
+    "delta_H": [
+      -1.6694078947368405,
+      -1.4104793233082693
+    ],
+    "delta_Y": [
+      -1.18577694235589,
+      -1.15452694235589
+    ],
+    "delta_q": [
+      -0.2073507564568875,
+      -0.1797773276787436
+    ],
+    "intensity": [
+      -0.536755734532723,
+      -0.5045088442329974
+    ],
+    "within_max": [
+      -0.7667835920283008,
+      -0.6845733571384508
+    ],
+    "within_min": [
+      -0.7667835920283008,
+      -0.6845733571384508
+    ]
+  },
+  "night_counts": {
+    "high density": {
+      "3": 32,
+      "5": 53
+    },
+    "low density": {
+      "3": 31,
+      "5": 43
+    }
+  },
+  "primary": "Compare high minus low density difference in Aug-Oct carriage change; positive means more positive change at high density. No directional prediction chosen from subgroup outcomes.",
+  "scenario_count": 1024,
+  "secondary": "Compare red oak versus white pine fraction of offered seeds disappearing, on identical nights with both taxa offered. Disappearance is not confirmed carriage or consumption.",
+  "source": "10.6084/m9.figshare.28207769.v2",
+  "status": "V9_DESCRIPTIVE_COMPLETE",
+  "two_seed_field_endpoint": {
+    "status": "STOP_NOT_BOTH_OFFERED_ON_ALL_ORIGINAL_NIGHTS"
+  },
+  "provenance": {
+    "run_id": 45585870449,
+    "job_id": 139107202326,
+    "artifact_id": 15007769552,
+    "artifact_zip_sha256": "e93b3e5ae0ad4857b7729d8094518d8880f8220e54423ed5d196f3d8914d2490",
+    "analysis_commit": "c5d2819aa67aae742a35f8d932fb55493e8638f5"
+  },
+  "derived_conservative_marginal_envelope": {
+    "equal_density_average_composition": [
+      -0.04956872309067133,
+      -0.018405333213390655
+    ],
+    "pooled_V8_composition": [
+      0.11261211854302404,
+      0.12349236790029723
+    ],
+    "interpretation": "Conservative envelope from marginal ranges, not exact scenario-paired extrema; composition term not aggregation invariant. Descriptive comparison of decompositions, not a causal Simpson reversal."
+  },
+  "derived_prior_compensation": {
+    "NY": [
+      1.069285850530212,
+      1.0707208368632362
+    ],
+    "Maine": [
+      0.14877320106704828,
+      0.1701879429919671
+    ],
+    "definition": "C/(-I-B) when I and B negative; NY paired endpoints via C=loss+1; Maine conservative marginal envelope; not CI or prediction."
+  }
+}
