@@ -26,11 +26,30 @@ def num(v):
     f=float(v)
     if not math.isfinite(f) or f<0 or not f.is_integer(): raise ValueError('noninteger or negative count')
     return int(f)
-def month(s):
-    for fmt in ('%m/%d/%y','%m/%d/%Y','%Y-%m-%d','%m-%d-%Y','%m-%d-%y','%d-%b-%y','%d-%b-%Y','%b','%B','%b-%y','%b-%Y','%Y-%m','%b %Y','%B %Y'):
-        try: return dt.datetime.strptime(s.strip(),fmt).month
+def calendar_date(s):
+    s=s.strip()
+    if norm(s) in MISSING: return None
+    for fmt in ('%m/%d/%y','%m/%d/%Y','%Y-%m-%d','%Y/%m/%d','%m-%d-%Y','%m-%d-%y','%d-%b-%y','%d-%b-%Y','%d %b %Y','%Y-%m-%d %H:%M:%S','%m/%d/%Y %H:%M:%S'):
+        try:
+            d=dt.datetime.strptime(s,fmt).date()
+            if 2022<=d.year<=2023: return d
         except ValueError: pass
-    raise ValueError('unknown Collection.date: '+s)
+    raise ValueError('unparsed camera calendar date: '+s)
+def calendar_map(cam):
+    windows={10:('2022-10-23','2022-10-30'),12:('2022-11-27','2022-12-05'),
+             1:('2023-01-22','2023-01-30'),4:('2023-04-15','2023-04-23')}
+    found=defaultdict(set); dates=defaultdict(set)
+    for r in cam:
+        d=calendar_date(r['Date'])
+        if d is None: continue
+        matches=[m for m,(lo,hi) in windows.items() if dt.date.fromisoformat(lo)<=d<=dt.date.fromisoformat(hi)]
+        if len(matches)!=1: raise ValueError('camera date outside paper session: '+str(d))
+        code=r['Collection.date'].strip()
+        found[code].add(matches[0]); dates[code].add(str(d))
+    if set(found)!={'0','2','3','6'} or any(len(v)!=1 for v in found.values()): raise ValueError('calendar code ambiguity')
+    mapping={k:next(iter(v)) for k,v in found.items()}
+    if set(mapping.values())!=set(windows): raise ValueError('calendar map not one-to-one')
+    return mapping,{k:{'first':min(v),'last':max(v),'n_dates':len(v)} for k,v in dates.items()}
 def maple(v): return norm(v) in {'acsa','acer saccharum','a. saccharum','sugar maple'}
 def key(r): return (r['Collection.date'].strip(),r['Site'].strip(),norm(r['Species']))
 def decomposition(a,b):
@@ -108,15 +127,18 @@ def main():
         deficit=[tk[k]-rk[k] for k in tk]
         out['tray_crosswalk']={'keys':len(tk),'negative_deficits':sum(d<0 for d in deficit),'positive_deficits':sum(d>0 for d in deficit),'unattributed_counts':sum(d for d in deficit if d>0)}
         if any(d<0 for d in deficit): raise ValueError('actor count exceeds tray disappearance')
+        mapping,date_support=calendar_map(cam)
+        out['calendar_code_verified_from_camera_dates']=mapping
+        out['calendar_date_support']=date_support
         season=defaultdict(lambda:defaultdict(lambda:[0,0]))
         support=defaultdict(set)
         site_by_month=defaultdict(set)
         unresolved=Counter()
         for k,v in tk.items():
-            m=month(k[0]); site_by_month[m].add(k[1]); unresolved[m]+=v-rk[k]
+            m=mapping[k[0]]; site_by_month[m].add(k[1]); unresolved[m]+=v-rk[k]
         if set(site_by_month)!={10,12,1,4} or any(len(x)!=14 for x in site_by_month.values()): raise ValueError('unexpected month/site support')
         for k,v in totals.items():
-            m=month(k[0])
+            m=mapping[k[0]]
             for i in (0,1): season[m][k[2]][i]+=v[i]
             if sum(v): support[m,k[2]].add(k[1])
         out['status']='DESCRIPTIVE_ACTOR_RESOLVED'
