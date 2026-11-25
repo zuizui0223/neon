@@ -1,0 +1,20 @@
+name: NEON Portal native granivore seasonal forecast V15
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-portal-granivore-season-v15.yml'
+permissions:
+  contents: read
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m analysis.run_portal_granivore_season_v15
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-granivore-season-v15
+          path: build/portal_granivore_season_v15.json
+          if-no-files-found: error
