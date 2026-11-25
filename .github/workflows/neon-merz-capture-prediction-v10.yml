@@ -1,0 +1,20 @@
+name: NEON Merz capture composition prediction V10
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-merz-capture-prediction-v10.yml'
+permissions:
+  contents: read
+jobs:
+  prediction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/neon_merz_capture_prediction_v10.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merz-capture-prediction-v10
+          path: merz_capture_prediction_v10.json
+          if-no-files-found: error
