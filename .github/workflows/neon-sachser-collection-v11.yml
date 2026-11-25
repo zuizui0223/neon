@@ -1,0 +1,20 @@
+name: NEON Sachser complete supplement inventory V11
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-sachser-collection-v11.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/audit_neon_sachser_collection_v11.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sachser-collection-v11
+          path: sachser_collection_v11.json
+          if-no-files-found: error
