@@ -1,0 +1,89 @@
+{
+  "paper_doi": "10.1002/ece3.73611",
+  "data_doi": "10.5061/dryad.g79cnp64s",
+  "source_section": "Methods 2.3–2.5 and Table 1, published model estimates and marginal SE, not raw records",
+  "fixed_patch_seed_count": 80,
+  "frequency_endpoints": [
+    0.1,
+    0.9
+  ],
+  "columns": [
+    "target",
+    "neighbor",
+    "removal_beta",
+    "removal_se",
+    "cache_beta",
+    "cache_se",
+    "cache_quadratic_beta",
+    "cache_quadratic_se"
+  ],
+  "rows": [
+    [
+      "large",
+      "medium",
+      -0.707,
+      0.258,
+      -2.036,
+      0.693,
+      0,
+      0
+    ],
+    [
+      "large",
+      "small",
+      -0.759,
+      0.336,
+      -0.976,
+      1.239,
+      0,
+      0
+    ],
+    [
+      "medium",
+      "large",
+      -0.114,
+      0.263,
+      -0.225,
+      0.631,
+      0,
+      0
+    ],
+    [
+      "medium",
+      "small",
+      0.562,
+      0.272,
+      -7.144,
+      2.402,
+      7.135,
+      2.089
+    ],
+    [
+      "small",
+      "large",
+      0.852,
+      0.299,
+      1.544,
+      0.897,
+      0,
+      0
+    ],
+    [
+      "small",
+      "medium",
+      0.059,
+      0.286,
+      -0.873,
+      0.615,
+      0,
+      0
+    ]
+  ],
+  "limitations": [
+    "Binomial GLMM interpreted using ordinary logit link and proportion scale [0,1], consistent with methods and frequency gradient; no raw model/code verification.",
+    "Compare hypothetical identical random intercepts; not observed count ratios or across-patch marginal fit.",
+    "Caching denominator unresolved: methods conditional on removal, Table 1 n=1600 for both endpoints, result text percentages internally inconsistent. Keep unconditional and conditional interpretations as separate hypothetical sensitivities, not validated caching predictions.",
+    "Article methods place trials Nov 2024/Apr 2025, Dryad README says November each year. Published coefficients pool years; no season-specific effect or confirmed seasonal replication.",
+    "Fixed seed count does not hold total biomass or energy fixed when seed diameters vary. No factorial separation of focal seed count and alternative seed count. Artificial seeds do not germinate."
+  ]
+}

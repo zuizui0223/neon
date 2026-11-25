@@ -1,0 +1,229 @@
+{
+  "status": "PUBLISHED_COEFFICIENT_MODEL_IMPLICATIONS_ONLY",
+  "source_doi": "10.1002/ece3.73611",
+  "frequency_from": 0.1,
+  "frequency_to": 0.9,
+  "focal_count_from": 8,
+  "focal_count_to": 72,
+  "threshold_linear_logit_slope": -2.746530721670274,
+  "rows": [
+    {
+      "target": "large",
+      "neighbor": "medium",
+      "removal_logit_shift": -0.5656,
+      "cache_logit_shift": -1.6288,
+      "removal_odds_ratio": 0.5680192329538545,
+      "cache_odds_ratio": 0.19616483074159966,
+      "removal_count_factor_point_model": [
+        5.112173096584691,
+        9
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        3.411256086684506,
+        9
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        1.765483476674397,
+        9
+      ],
+      "cache_count_factor_conditional_point_model": [
+        1.0028285702132953,
+        9
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        0.5955919925146924,
+        9
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        0.22574631218292196,
+        9
+      ]
+    },
+    {
+      "target": "large",
+      "neighbor": "small",
+      "removal_logit_shift": -0.6072000000000001,
+      "cache_logit_shift": -0.7808,
+      "removal_odds_ratio": 0.5448743834326472,
+      "cache_odds_ratio": 0.45803943314699347,
+      "removal_count_factor_point_model": [
+        4.903869450893825,
+        9
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        2.895554348038893,
+        9
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        4.122354898322941,
+        9
+      ],
+      "cache_count_factor_conditional_point_model": [
+        2.2461655835142653,
+        9
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        0.5907706413140829,
+        28.765494964216405
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        0.19006761101674638,
+        28.765494964216405
+      ]
+    },
+    {
+      "target": "medium",
+      "neighbor": "large",
+      "removal_logit_shift": -0.0912,
+      "cache_logit_shift": -0.18000000000000002,
+      "removal_odds_ratio": 0.9128351256162228,
+      "cache_odds_ratio": 0.835270211411272,
+      "removal_count_factor_point_model": [
+        8.215516130546005,
+        9
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        5.439246701748827,
+        12.40883324331671
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        7.517431902701448,
+        9
+      ],
+      "cache_count_factor_conditional_point_model": [
+        6.862175895213878,
+        9
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        2.7949565960250107,
+        20.219198570784467
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        1.6891620496066853,
+        27.877407042041334
+      ]
+    },
+    {
+      "target": "medium",
+      "neighbor": "small",
+      "removal_logit_shift": 0.44960000000000006,
+      "cache_logit_shift": -0.007200000000000095,
+      "removal_odds_ratio": 1.5676849860642206,
+      "cache_odds_ratio": 0.9928258579038133,
+      "removal_count_factor_point_model": [
+        9,
+        14.109164874577985
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        9,
+        21.613553123395402
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        8.935432721134319,
+        9
+      ],
+      "cache_count_factor_conditional_point_model": [
+        8.935432721134319,
+        14.109164874577985
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        0.007813803556051655,
+        10218.06567584895
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        0.007813803556051655,
+        24538.745033700496
+      ]
+    },
+    {
+      "target": "small",
+      "neighbor": "large",
+      "removal_logit_shift": 0.6816,
+      "cache_logit_shift": 1.2352,
+      "removal_odds_ratio": 1.9770384645135533,
+      "cache_odds_ratio": 3.4390662651814212,
+      "removal_count_factor_point_model": [
+        9,
+        17.79334618062198
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        9,
+        28.436017893898416
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        9,
+        30.95159638663279
+      ],
+      "cache_count_factor_conditional_point_model": [
+        9,
+        61.19249659447173
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        7.583149216841015,
+        126.33291149717132
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        7.583149216841015,
+        399.15610354687215
+      ]
+    },
+    {
+      "target": "small",
+      "neighbor": "medium",
+      "removal_logit_shift": 0.0472,
+      "cache_logit_shift": -0.6984,
+      "removal_odds_ratio": 1.0483316544453094,
+      "cache_odds_ratio": 0.4973804762458025,
+      "removal_count_factor_point_model": [
+        9,
+        9.434984890007785
+      ],
+      "removal_count_factor_normal_sensitivity": [
+        6.025356075727563,
+        14.774054637746227
+      ],
+      "cache_count_factor_unconditional_point_model": [
+        4.4764242862122225,
+        9
+      ],
+      "cache_count_factor_conditional_point_model": [
+        4.4764242862122225,
+        9.434984890007785
+      ],
+      "cache_count_factor_unconditional_normal_sensitivity": [
+        1.7066025432043022,
+        11.741676156515464
+      ],
+      "cache_count_factor_conditional_normal_sensitivity": [
+        1.142543111394239,
+        19.274685008342395
+      ]
+    }
+  ],
+  "all_six_removal_point_lower_above_one": true,
+  "all_six_removal_marginal_normal_lower_above_one": true,
+  "min_removal_point_lower": 4.903869450893825,
+  "min_removal_marginal_normal_lower": 2.895554348038893,
+  "cache_both_interpretations_point_lower_above_one": 6,
+  "cache_both_interpretations_marginal_normal_lower_above_one": 3,
+  "beech_resource_decomposition": {
+    "total": 3.527365979381443,
+    "comp": 2.6003248177003018,
+    "focal": 9.172297297297296,
+    "log_total_share": 0.5687926914060814,
+    "log_composition_share": 0.4312073085939188
+  },
+  "limitations": [
+    "Binomial GLMM interpreted using ordinary logit link and proportion scale [0,1], consistent with methods and frequency gradient; no raw model/code verification.",
+    "Compare hypothetical identical random intercepts; not observed count ratios or across-patch marginal fit.",
+    "Caching denominator unresolved: methods conditional on removal, Table 1 n=1600 for both endpoints, result text percentages internally inconsistent. Keep unconditional and conditional interpretations as separate hypothetical sensitivities, not validated caching predictions.",
+    "Article methods place trials Nov 2024/Apr 2025, Dryad README says November each year. Published coefficients pool years; no season-specific effect or confirmed seasonal replication.",
+    "Fixed seed count does not hold total biomass or energy fixed when seed diameters vary. No factorial separation of focal seed count and alternative seed count. Artificial seeds do not germinate."
+  ],
+  "uncertainty": "Individual coefficient estimate ±1.96 marginal SE; for a quadratic combination use sum of absolute weighted SE as conservative envelope, then rectangular combination across stages. Not a simultaneous or calibrated 95% CI, no covariance, no new test or observed model validation.",
+  "provenance": {
+    "source_commit": "b720d0216871cbbb0efc68e4ae4a23e83ecd8e38",
+    "beech_result_blob": "d05bc378aa134a71154f24b3bf24806ccdf9a6a9",
+    "source_table": "Methods 2.3–2.5 and Table 1, published model estimates and marginal SE, not raw records"
+  }
+}
