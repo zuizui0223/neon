@@ -1,0 +1,215 @@
+{
+  "status": "V11_AGGREGATE_MISSING_FATE_BOUNDS",
+  "source": "10.6084/m9.figshare.28054281.v1",
+  "scope": "published aggregate year x location x fate counts, not newly retrieved individual records; no causal or seasonal replication",
+  "primary": "2018/19 and 2020/21 separate viable field-collected seed trials; 2012 and 2019 retained only for aggregate provenance.",
+  "assumptions": "Every missing fate may belong to either location and germinate or not. Observed nonmissing location and fate labels treated as valid. In situ is documented position, not proof of never moved. No statistical intervals.",
+  "cohorts": {
+    "2012/13": {
+      "N": 99,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.5897435897435898,
+        0.6865671641791045
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.46464646464646464,
+        0.46464646464646464
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.46464646464646464
+      ],
+      "in_situ_germination_per_release_bound": [
+        0,
+        0.46464646464646464
+      ],
+      "located_ex_situ": 21,
+      "located_in_situ": 32,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 0,
+      "recorded_ex_situ_including_missing": 32,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 11,
+          "predated": 21
+        },
+        "in": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 35,
+          "predated": 32
+        }
+      },
+      "unresolved": 46,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 0
+    },
+    "2018/19": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": true,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.3680555555555556,
+        -0.04003738900140208
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.29444444444444445,
+        -0.15
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.07222222222222222
+      ],
+      "in_situ_germination_per_release_bound": [
+        0.2222222222222222,
+        0.29444444444444445
+      ],
+      "located_ex_situ": 36,
+      "located_in_situ": 131,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 40,
+      "recorded_ex_situ_including_missing": 36,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 0,
+          "predated": 36
+        },
+        "in": {
+          "germinated": 40,
+          "intact": 29,
+          "missing": 13,
+          "predated": 62
+        }
+      },
+      "unresolved": 13,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 40
+    },
+    "2019/20": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.4153846153846154,
+        0.19014084507042253
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.15,
+        0.15
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.15
+      ],
+      "in_situ_germination_per_release_bound": [
+        0,
+        0.15
+      ],
+      "located_ex_situ": 115,
+      "located_in_situ": 38,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 0,
+      "recorded_ex_situ_including_missing": 127,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 12,
+          "predated": 115
+        },
+        "in": {
+          "germinated": 0,
+          "intact": 0,
+          "missing": 15,
+          "predated": 38
+        }
+      },
+      "unresolved": 27,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 0
+    },
+    "2020/21": {
+      "N": 180,
+      "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": false,
+      "ex_minus_in_conditional_germination_bound": [
+        -0.16521739130434782,
+        0.18690890990542558
+      ],
+      "ex_minus_in_germination_per_release_bound": [
+        -0.10555555555555556,
+        0.08333333333333333
+      ],
+      "ex_situ_germination_per_release_bound": [
+        0,
+        0.09444444444444444
+      ],
+      "in_situ_germination_per_release_bound": [
+        0.011111111111111112,
+        0.10555555555555556
+      ],
+      "located_ex_situ": 65,
+      "located_in_situ": 98,
+      "observed_ex_situ_germinated": 0,
+      "observed_in_situ_germinated": 2,
+      "recorded_ex_situ_including_missing": 68,
+      "reported_position_counts": {
+        "ex": {
+          "germinated": 0,
+          "intact": 14,
+          "missing": 3,
+          "predated": 51
+        },
+        "in": {
+          "germinated": 2,
+          "intact": 43,
+          "missing": 14,
+          "predated": 53
+        }
+      },
+      "unresolved": 17,
+      "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 2
+    }
+  },
+  "primary_total_descriptive": {
+    "N": 360,
+    "cannot_equal_observed_in_situ_even_if_all_missing_germinated_ex_situ": true,
+    "ex_minus_in_conditional_germination_bound": [
+      -0.277992277992278,
+      0.04560152005066834
+    ],
+    "ex_minus_in_germination_per_release_bound": [
+      -0.2,
+      -0.03333333333333333
+    ],
+    "ex_situ_germination_per_release_bound": [
+      0,
+      0.08333333333333333
+    ],
+    "in_situ_germination_per_release_bound": [
+      0.11666666666666667,
+      0.2
+    ],
+    "located_ex_situ": 101,
+    "located_in_situ": 229,
+    "observed_ex_situ_germinated": 0,
+    "observed_in_situ_germinated": 42,
+    "unresolved": 30,
+    "unresolved_ex_situ_germinants_needed_to_equal_observed_in_situ": 42,
+    "warning": "Cohort counts added only for accounting; no independent sample pooling or rate inference."
+  },
+  "resource_source_support": {
+    "S2_summary_rows": 12,
+    "S3_capture_rows": 71,
+    "S7_germination_test_rows": 12,
+    "joined_seed_level_data": false
+  },
+  "provenance": {
+    "run_id": 45588257783,
+    "job_id": 139115349498,
+    "artifact_id": 15008629658,
+    "zip_sha256": "ebf273c3a7838c39956ec5d7592932cd005bd230a9c3c917c29d2f91f9d821a9",
+    "analysis_commit": "b52c720b9131304df62632a20a0d6f5c9b04df9f",
+    "source_inventory_run": 45587985191,
+    "initial_parser_stop_run": 45588166158
+  }
+}
