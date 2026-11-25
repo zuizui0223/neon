@@ -78,7 +78,7 @@ def code_notes(raw):
     # Do not execute the R file. Record only source read/join/group
     # statements and explanatory comments relevant to sample identity.
     return [{"line":n,"statement":line.strip()[:250]} for n,line in enumerate(s.splitlines(),1)
-            if re.search(r"read[._]csv|read\\.table|merge\\(|join\\(|group_by\\(|aggregate\\(|unique\\(|subset\\(|filter\\(|trap|grid|session|capture|animal",line,re.I) and len(line)<500 and "@" not in line][:90]
+            if re.search(r"read[._]csv|read\.table|merge\(|join\(|group_by\(|aggregate\(|unique\(|subset\(|filter\(|trap|grid|session|capture|animal",line,re.I) and len(line)<500 and "@" not in line][:90]
 def inspect(raw):
     require(len(raw)==SIZE and md5(raw).hexdigest()==MD5 and sha256(raw).hexdigest()==SHA,"ORIGINAL_SOURCE_BYTE_MISMATCH")
     with ZipFile(BytesIO(raw)) as z:
@@ -108,7 +108,7 @@ def run():
 def main():
     out={"schema":"neon.maine.groundcover.capture_schema.v1","submission_hold":True,"paper_doi":"10.1002/eap.2443","archive_doi":"10.6084/m9.figshare.14488626.v1","cambodia_access_stop_preserved":True}
     try:out.update(run())
-    except Exception as e:out.update(status="STOP_SOURCE_OR_SCHEMA",effect=None,error_class=type(e).__name__,reason=str(e) if type(e) is ValueError and re.fullmatch("[A-Z0-9_]+",str(e)) else "UNEXPORTED_ERROR")
+    except Exception as e:out.update(status="STOP_SOURCE_OR_SCHEMA",effect=None,error_class=type(e).__name__,reason=str(e) if type(e) is ValueError and re.fullmatch("[A-Z0-9_]+",str(e)) else "REGEX_COMPILE_ERROR" if isinstance(e,re.error) else "UNEXPORTED_ERROR")
     out["retrieved_utc"]=datetime.now(timezone.utc).isoformat()
     OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
     print(json.dumps(out,indent=2,sort_keys=True));return 0

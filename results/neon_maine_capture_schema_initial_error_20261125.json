@@ -1,0 +1,26 @@
+{
+  "schema": "neon.maine.capture_schema.initial_error.log_receipt.v1",
+  "provenance": {
+    "run_id": 45539357221,
+    "job_id": 138953768684,
+    "head_sha": "b965c69fc8731ce3c93e7a4d7b72ceccbad69045",
+    "artifact_id": 14987668907,
+    "artifact_zip_sha256_reported_by_github": "fa98dbf9175d657f05f537f4c76edfa128d2a8f3fc39864093b75a879638a5d6",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false
+  },
+  "original_stdout_json": {
+    "archive_doi": "10.6084/m9.figshare.14488626.v1",
+    "cambodia_access_stop_preserved": true,
+    "effect": null,
+    "error_class": "error",
+    "paper_doi": "10.1002/eap.2443",
+    "reason": "UNEXPORTED_ERROR",
+    "retrieved_utc": "2026-11-25T03:21:16.197141+00:00",
+    "schema": "neon.maine.groundcover.capture_schema.v1",
+    "status": "STOP_SOURCE_OR_SCHEMA",
+    "submission_hold": true
+  },
+  "diagnosis": "Source inspection identified overescaped regex metacharacters in code_notes; error_class error consistent with re.error. Fix only source-text matching, add test that invokes the affected function; no source-byte, table, cohort or effect rule changes.",
+  "no_ecological_effect": true
+}

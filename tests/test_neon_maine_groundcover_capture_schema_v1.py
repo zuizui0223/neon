@@ -1,5 +1,5 @@
 import unittest
-from analysis.audit_neon_maine_groundcover_capture_schema_v1 import profile_table,source_notes
+from analysis.audit_neon_maine_groundcover_capture_schema_v1 import profile_table,source_notes,code_notes
 class MaineSourceTests(unittest.TestCase):
     def test_context_counts_no_raw_values(self):
         q=profile_table(b"Grid,Year,Session,TrapID,Tag,Species\nPRIVATE,2018,2,A1,SECRET,Mg\nPRIVATE,2018,2,A2,SECRET,Mg\n")
@@ -12,4 +12,7 @@ class MaineSourceTests(unittest.TestCase):
     def test_contact_omitted(self):
         q=source_notes(b"Grid: sampling grid\nemail: example@example.org\nYear: capture year\n")
         self.assertEqual(len(q),2)
+    def test_R_codebook_patterns_compile_and_filter(self):
+        x=code_notes(b"not relevant\nx <- merge(a,b)\ny <- read.table('file')\n# trap coordinate\n")
+        self.assertEqual([v["line"] for v in x],[2,3,4])
 if __name__=="__main__":unittest.main()
