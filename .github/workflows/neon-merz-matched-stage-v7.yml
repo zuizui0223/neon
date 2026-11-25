@@ -1,4 +1,4 @@
-name: NEON Merz matched seasonal stage V7
+name: NEON Merz matched seasonal stage V7 verified footer
 on:
   push:
     branches: [analysis/seasonal-seed-fate-stage-v1-20261125]

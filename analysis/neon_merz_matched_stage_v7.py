@@ -48,6 +48,22 @@ def main():
          'individual_seasonal_gate':'STOP: upper bound 3 shared PIT across Aug/Oct all seed finding; do not fit individual plasticity'}
     try:
         a,s=fetch('all'),fetch('station')
+        # Footer rows are the published whole-study summary, not station nights.
+        # Exact identity and full published-count reconciliation required before removal.
+        footer=[r for r in s if not all(present(v) for v in keys(r,SK))]
+        expected=[
+          {'WP.seeds.set':'4280','WP.seeds.left':'2049','RO.seeds.set':'955','RO.seeds.left':'605'},
+          {'WP.seeds.set':'2231','RO.seeds.set':'350'},
+          {'WP.seeds.set':'0.521261682','RO.seeds.set':'0.366492147'}]
+        if [{k:v for k,v in r.items() if present(v)} for r in footer]!=expected:
+            raise ValueError('footer identity not verified')
+        s=[r for r in s if all(present(v) for v in keys(r,SK))]
+        if len(s)!=288 or len({keys(r,SK) for r in s})!=288 or any(keys(r,SK) not in {keys(x,SK) for x in s} for r in a):
+            raise ValueError('published 288 nights or camera keys not reconciled')
+        fs=['WP.seeds.set','WP.seeds.left','RO.seeds.set','RO.seeds.left']
+        if any(integer(r[k]) is None for r in s for k in fs) or [sum(integer(r[k]) for r in s) for k in fs]!=[4280,2049,955,605]:
+            raise ValueError('published seed totals not reconciled')
+        out['verified_source_footer_rows_removed']=3
         stations={}; blank=0; identical=0
         for r in s:
             k=keys(r,SK)
