@@ -1,0 +1,21 @@
+name: NEON Alpine seed fate emergence V24
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-alpine-seed-source-v24.yml'
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install openpyxl==3.1.5
+      - run: python3 analysis/audit_neon_alpine_seed_source_v24.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-alpine-seed-source-v24
+          path: build/neon_alpine_seed_source_v24.json
+          if-no-files-found: error
