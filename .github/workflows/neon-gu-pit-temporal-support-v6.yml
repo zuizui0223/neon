@@ -1,0 +1,21 @@
+name: NEON Gu PIT seasonal support V6
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-gu-pit-temporal-support-v6.yml'
+permissions:
+  contents: read
+jobs:
+  support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify codebook and date and ID coverage only
+        run: python3 analysis/audit_neon_gu_pit_temporal_support_v6.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gu-pit-temporal-support-v6
+          path: gu_source_support.json
+          if-no-files-found: error
