@@ -1,0 +1,16 @@
+{
+  "status": "STOP_SOURCE",
+  "node": "r9cmj",
+  "doi": "10.17605/OSF.IO/R9CMJ",
+  "paper": "10.1111/1365-2656.70101",
+  "effect_opened": false,
+  "reason": "HTTPError: HTTP Error 500: Internal Server Error",
+  "boundary": "Seed tracking and simulated-cache emergence are distinct experiments; no individual join assumed. Source support only, no fit.",
+  "provenance": {
+    "run_id": 45719480228,
+    "job_id": 139573881916,
+    "artifact_id": 15070863074,
+    "artifact_zip_sha256_reported": "512d2755cef2ea2515bb3c811453cd86211b2021cbef5ef16a27e93b27eabc7a",
+    "analysis_commit": "097c3f63a860dba99293064b2683dab4e30d9598"
+  }
+}

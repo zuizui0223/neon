@@ -1,0 +1,20 @@
+name: NEON Alpine author deposits V24b
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-alpine-repod-v24b.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 analysis/audit_neon_alpine_repod_v24b.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-alpine-repod-v24b
+          path: build/neon_alpine_repod_v24b.json
+          if-no-files-found: error
