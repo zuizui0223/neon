@@ -1,0 +1,189 @@
+{
+  "status": "PUBLISHED_AGGREGATE_ESTABLISHMENT_ROUTE_ACCOUNTING",
+  "source": {
+    "doi": "10.1111/1749-4877.12213",
+    "authors": "Cao, Guo & Chen (2017)",
+    "url": "https://ir.xtbg.ac.cn/bitstream/353005/10785/2/Fluctuation%20in%20seed%20abundance%20has%20contrasting%20effects%20on%20the%20fate%20of%20seeds%20from%20two%20rapidly%20germinating%20tree%20species%20in%20an%20Asian%20tropical%20forest.pdf",
+    "tables": "Tables 1–3, Fig. 2, results text (pp. 5–7)",
+    "verification": "Institutional PDF extracted text and table markup cross-checked with narrative results and Fig. 2 caption/labels. Web page screenshots attempted but cache miss; no visual table verification or original individual records."
+  },
+  "resource_summary": {
+    "seed_rain_ratio": 11.764705882352942,
+    "capture_count_ratio": 0.25925925925925924,
+    "relative_seed_rain_to_capture_index_ratio": 45.378151260504204,
+    "camellia_sampled_plant_crop_ratio": 0.9911582670203359
+  },
+  "cohorts": [
+    {
+      "species": "Pittosporopsis kerrii",
+      "N_each_year": 540,
+      "removed": [
+        0.987,
+        0.768
+      ],
+      "recorded_establishment_at_station": [
+        0,
+        0.126
+      ],
+      "recorded_establishment_after_removal": [
+        0,
+        0.022222222222222223
+      ],
+      "recorded_total_establishment": [
+        0,
+        0.14822222222222223
+      ],
+      "post_removal_fraction_among_recorded_establishment": [
+        null,
+        0.14992503748125938
+      ],
+      "conditional_recorded_station_establishment_given_not_removed": [
+        0,
+        0.5431034482758621
+      ],
+      "conditional_recorded_after_removal_establishment": [
+        0,
+        0.028935185185185185
+      ],
+      "delta_recorded_total": 0.14822222222222223,
+      "symmetric_descriptive_components": {
+        "removal_allocation": 0.05630142480842911,
+        "within_nonremoved_route": 0.06653017241379314,
+        "within_removed_route": 0.025390625
+      },
+      "rounding_endpoint_corner_sensitivity": {
+        "allocation": [
+          0.055935984729081296,
+          0.05666843186051945
+        ],
+        "station": [
+          0.06612365591397854,
+          0.06693844492440607
+        ],
+        "after": [
+          0.025374105400130124,
+          0.0254071661237785
+        ],
+        "total_change": [
+          0.14772222222222223,
+          0.14872222222222223
+        ]
+      },
+      "at_station_partition_sum_pct": [
+        100,
+        99.89999999999999
+      ],
+      "primary_cache_per_release_pct": [
+        32,
+        22.8
+      ],
+      "broad_unknown_removed_ceiling": [
+        [
+          0,
+          0.987
+        ],
+        [
+          0.14822222222222223,
+          0.894
+        ]
+      ],
+      "broad_total_change_ceiling": [
+        -0.8387777777777777,
+        0.894
+      ],
+      "net_additional_unrecorded_low_minus_high_fraction_to_tie": 0.14822222222222223,
+      "station_gain_over_recorded_post_removal_loss": null
+    },
+    {
+      "species": "Camellia kissi",
+      "N_each_year": 400,
+      "removed": [
+        0.762,
+        0.21
+      ],
+      "recorded_establishment_at_station": [
+        0,
+        0.025
+      ],
+      "recorded_establishment_after_removal": [
+        0.0075,
+        0
+      ],
+      "recorded_total_establishment": [
+        0.0075,
+        0.025
+      ],
+      "post_removal_fraction_among_recorded_establishment": [
+        1,
+        0
+      ],
+      "conditional_recorded_station_establishment_given_not_removed": [
+        0,
+        0.03164556962025317
+      ],
+      "conditional_recorded_after_removal_establishment": [
+        0.00984251968503937,
+        0
+      ],
+      "delta_recorded_total": 0.0175,
+      "symmetric_descriptive_components": {
+        "removal_allocation": 0.006017641782119008,
+        "within_nonremoved_route": 0.01626582278481013,
+        "within_removed_route": -0.004783464566929133
+      },
+      "rounding_endpoint_corner_sensitivity": {
+        "allocation": [
+          0.005834520682862772,
+          0.006199892972747206
+        ],
+        "station": [
+          0.015909591194968556,
+          0.01662372611464968
+        ],
+        "after": [
+          -0.004808765594221931,
+          -0.004758196721311475
+        ],
+        "total_change": [
+          0.017,
+          0.018000000000000002
+        ]
+      },
+      "at_station_partition_sum_pct": [
+        99.9,
+        99.9
+      ],
+      "primary_cache_per_release_pct": [
+        48.5,
+        5
+      ],
+      "broad_unknown_removed_ceiling": [
+        [
+          0.0075,
+          0.762
+        ],
+        [
+          0.025,
+          0.235
+        ]
+      ],
+      "broad_total_change_ceiling": [
+        -0.737,
+        0.22749999999999998
+      ],
+      "net_additional_unrecorded_low_minus_high_fraction_to_tie": 0.0175,
+      "station_gain_over_recorded_post_removal_loss": 3.3333333333333335
+    }
+  ],
+  "boundary": [
+    "Source: late August/early September releases both years, monitoring weeks 2,4,8,12,16 then March, July or September following year; exact matched terminal horizons unresolved.",
+    "Percentages in Table 3 are rounded station means; equal initial station counts within species; use published proportions, do not reconstruct integer counts from rounded numbers. Exact post-removal seedling counts only from results text.",
+    "Primary-cache distance n agrees approximately with per-release cache percentages, but complete missing fate partition and exact linked cache cohorts are unavailable. Do not use these n values as proof of complete primary-cache denominator. No conditional cache survival inference.",
+    "Observed total establishment means sum of mutually exclusive recorded establishment at station and after removal, not verified total latent recruitment. Unknown after-removal fate count unavailable. No cohort-specific mortality of all removed seeds. Source records radicle regeneration that may produce seedlings without the original whole seed; retain author-reported seedling establishment, not exact plant demography.",
+    "Two years, one landscape, different species stations, measured community seed rain/capture summaries, no causal resource or animal-density effect. Rodent trapping September/December, not necessarily prior to release."
+  ],
+  "rounding_scope": "Corner calculations reflect printed rounding only, not SE or sampling CI; exact post-removal counts held fixed. Not bounds on latent unobserved establishment. Broad ceiling permits every removed seed to establish and is intentionally loose.",
+  "provenance": {
+    "source_branch_parent": "e2805a476a92743b2e0b6f9aef0494ee2e3e4e2e"
+  }
+}

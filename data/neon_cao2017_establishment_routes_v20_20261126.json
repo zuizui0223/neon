@@ -1,0 +1,146 @@
+{
+  "source": {
+    "doi": "10.1111/1749-4877.12213",
+    "authors": "Cao, Guo & Chen (2017)",
+    "url": "https://ir.xtbg.ac.cn/bitstream/353005/10785/2/Fluctuation%20in%20seed%20abundance%20has%20contrasting%20effects%20on%20the%20fate%20of%20seeds%20from%20two%20rapidly%20germinating%20tree%20species%20in%20an%20Asian%20tropical%20forest.pdf",
+    "tables": "Tables 1–3, Fig. 2, results text (pp. 5–7)",
+    "verification": "Institutional PDF extracted text and table markup cross-checked with narrative results and Fig. 2 caption/labels. Web page screenshots attempted but cache miss; no visual table verification or original individual records."
+  },
+  "years": [
+    2007,
+    2008
+  ],
+  "resource": {
+    "community_seed_rain_per_m2": [
+      0.85,
+      10
+    ],
+    "seed_traps": 110,
+    "seed_trap_area_m2": 0.5,
+    "raw_seeds_collected": [
+      47,
+      550
+    ],
+    "rodent_reported_individual_count": [
+      27,
+      7
+    ],
+    "nominal_trap_nights": [
+      600,
+      600
+    ],
+    "rodent_species_counts": {
+      "Niviventer_confucianus": [
+        25,
+        5
+      ],
+      "Niviventer_fulvescens": [
+        1,
+        1
+      ],
+      "Maxomys_surifer": [
+        1,
+        0
+      ],
+      "Leopoldamys_edwardsi": [
+        0,
+        1
+      ]
+    },
+    "camellia_crop_per_sampled_plant": [
+      113.1,
+      112.1
+    ],
+    "camellia_crop_sampled_plants": [
+      18,
+      15
+    ]
+  },
+  "cohorts": [
+    {
+      "species": "Pittosporopsis kerrii",
+      "released_each_year": 540,
+      "stations_each_year": 18,
+      "seeds_per_station": 30,
+      "removed_pct": [
+        98.7,
+        76.8
+      ],
+      "at_station_rodent_eaten_pct": [
+        1.1,
+        4.4
+      ],
+      "at_station_ant_eaten_pct": [
+        0,
+        0
+      ],
+      "at_station_rotten_pct": [
+        0.2,
+        6.1
+      ],
+      "at_station_established_pct": [
+        0,
+        12.6
+      ],
+      "post_removal_established_exact_counts": [
+        0,
+        12
+      ],
+      "primary_cache_pct": [
+        32,
+        22.8
+      ],
+      "figure2_primary_cache_distance_n": [
+        173,
+        123
+      ],
+      "post_removal_from_primary_cache_explicit": true
+    },
+    {
+      "species": "Camellia kissi",
+      "released_each_year": 400,
+      "stations_each_year": 8,
+      "seeds_per_station": 50,
+      "removed_pct": [
+        76.2,
+        21
+      ],
+      "at_station_rodent_eaten_pct": [
+        1.5,
+        35.7
+      ],
+      "at_station_ant_eaten_pct": [
+        21.7,
+        17.7
+      ],
+      "at_station_rotten_pct": [
+        0.5,
+        23
+      ],
+      "at_station_established_pct": [
+        0,
+        2.5
+      ],
+      "post_removal_established_exact_counts": [
+        3,
+        0
+      ],
+      "primary_cache_pct": [
+        48.5,
+        5
+      ],
+      "figure2_primary_cache_distance_n": [
+        194,
+        20
+      ],
+      "post_removal_from_primary_cache_explicit": false
+    }
+  ],
+  "boundary": [
+    "Source: late August/early September releases both years, monitoring weeks 2,4,8,12,16 then March, July or September following year; exact matched terminal horizons unresolved.",
+    "Percentages in Table 3 are rounded station means; equal initial station counts within species; use published proportions, do not reconstruct integer counts from rounded numbers. Exact post-removal seedling counts only from results text.",
+    "Primary-cache distance n agrees approximately with per-release cache percentages, but complete missing fate partition and exact linked cache cohorts are unavailable. Do not use these n values as proof of complete primary-cache denominator. No conditional cache survival inference.",
+    "Observed total establishment means sum of mutually exclusive recorded establishment at station and after removal, not verified total latent recruitment. Unknown after-removal fate count unavailable. No cohort-specific mortality of all removed seeds. Source records radicle regeneration that may produce seedlings without the original whole seed; retain author-reported seedling establishment, not exact plant demography.",
+    "Two years, one landscape, different species stations, measured community seed rain/capture summaries, no causal resource or animal-density effect. Rodent trapping September/December, not necessarily prior to release."
+  ]
+}
