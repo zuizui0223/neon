@@ -1,0 +1,21 @@
+name: NEON actor-resolved seasonal maple handling
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-vavra-actor-seasonal-v5.yml'
+permissions:
+  contents: read
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reverify source and calculate frozen observed contrast
+        run: python3 analysis/neon_vavra_actor_seasonal_split_v5.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vavra-actor-seasonal-v5
+          path: vavra_seasonal_result.json
+          if-no-files-found: error
