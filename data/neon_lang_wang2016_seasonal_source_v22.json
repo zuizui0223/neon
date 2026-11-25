@@ -1,0 +1,128 @@
+{
+  "source": {
+    "authors": "Lang & Wang (2016)",
+    "doi": "10.3832/ifor1852-008",
+    "url": "https://iforest.sisef.org/contents/?id=ifor1852-008",
+    "pdf": "https://iforest.sisef.org/pdf/?id=ifor1852-008",
+    "sections": "Methods; Results Rodent species, Harvested vs ignored, Seeds removed vs eaten in situ (printed pp.653–655); HTML and extracted PDF text agree; figure screenshots on pp.654–655 failed cache miss. Exact figure sample sizes after removal unavailable.",
+    "license": "CC BY-NC 4.0"
+  },
+  "site": {
+    "region": "Ailaoshan, Yunnan, China",
+    "latitude": 24.5333,
+    "longitude": 102.0167,
+    "one_landscape": true
+  },
+  "design": {
+    "autumn": "October–November 2013",
+    "spring": "May–June 2014",
+    "scheduled_followup_days": 36,
+    "trees_per_species": [
+      20,
+      15
+    ],
+    "stations_per_tree": 4,
+    "seeds_per_station": 10,
+    "offered_per_species": [
+      800,
+      600
+    ],
+    "all_autumn_species": 5,
+    "common_species": 3,
+    "autumn_collection_2013_refrigerated_4C": true,
+    "nominal_night_traps": [
+      343,
+      343
+    ],
+    "reported_captures": [
+      7,
+      32
+    ],
+    "capture_taxa": {
+      "Apodemus_draco": [
+        3,
+        21
+      ],
+      "Niviventer_confucianus": [
+        4,
+        9
+      ],
+      "Dremomys_rufigenis": [
+        0,
+        2
+      ]
+    },
+    "resource": "Authors describe autumn maturation and mast in L. hancei and L. xylocarpus; no numeric independent seed-rain series. Not a quantitative resource-pressure test."
+  },
+  "columns": [
+    "species",
+    "season",
+    "released",
+    "reported_n_for_removed_and_eaten_pct",
+    "removed_pct_of_reported_n",
+    "eaten_in_situ_pct_of_reported_n",
+    "ignored_pct_of_release_from_narrative"
+  ],
+  "rows": [
+    [
+      "Castanopsis wattii",
+      "autumn",
+      800,
+      719,
+      51.5,
+      45.9,
+      null
+    ],
+    [
+      "Castanopsis wattii",
+      "spring",
+      600,
+      600,
+      53.7,
+      45.8,
+      0
+    ],
+    [
+      "Lithocarpus hancei",
+      "autumn",
+      800,
+      23,
+      39.1,
+      43.5,
+      97.1
+    ],
+    [
+      "Lithocarpus hancei",
+      "spring",
+      600,
+      120,
+      36.7,
+      45,
+      78.7
+    ],
+    [
+      "Lithocarpus pachyphyllus",
+      "autumn",
+      800,
+      491,
+      69,
+      25.1,
+      38.6
+    ],
+    [
+      "Lithocarpus pachyphyllus",
+      "spring",
+      600,
+      563,
+      84.2,
+      14.9,
+      6.3
+    ]
+  ],
+  "boundary": [
+    "Ignore fraction from narrative; spring L. hancei and L. pachyphyllus are complements of reported harvested fractions 21.3% and 93.7%. C. wattii spring explicitly all harvested; autumn ignored fraction not numerically given in prose.",
+    "Reported n for removed/eaten comparison interpreted as common observed harvested-group denominator, as indicated by percentages and context, not forced to equal all harvested. Spring n=120 or 563 conflicts with prose harvest fraction 21.3% or 93.7%; cannot assert exact exhaustive partitions or cache counts.",
+    "The 'cached after removal' category includes intact surface deposits, and figures are inaccessible. Do not treat distance sample sizes as complete observed cache counts. We use only confirmed categories and deliberately broad unknown ceiling.",
+    "Common 36-day survey schedule, different years and different sets of trees not proven paired; storage duration may differ, no causal seasonal effect or actual germination. Rodent capture index from one grid roughly 500m away, not species-specific actor or density estimate."
+  ]
+}

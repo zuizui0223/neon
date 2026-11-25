@@ -1,0 +1,367 @@
+{
+  "status": "EXPLORATORY_SEASONAL_OUTER_BOUNDS_FROM_PUBLISHED_SUBGROUPS",
+  "source": {
+    "authors": "Lang & Wang (2016)",
+    "doi": "10.3832/ifor1852-008",
+    "url": "https://iforest.sisef.org/contents/?id=ifor1852-008",
+    "pdf": "https://iforest.sisef.org/pdf/?id=ifor1852-008",
+    "sections": "Methods; Results Rodent species, Harvested vs ignored, Seeds removed vs eaten in situ (printed pp.653–655); HTML and extracted PDF text agree; figure screenshots on pp.654–655 failed cache miss. Exact figure sample sizes after removal unavailable.",
+    "license": "CC BY-NC 4.0"
+  },
+  "design": {
+    "autumn": "October–November 2013",
+    "spring": "May–June 2014",
+    "scheduled_followup_days": 36,
+    "trees_per_species": [
+      20,
+      15
+    ],
+    "stations_per_tree": 4,
+    "seeds_per_station": 10,
+    "offered_per_species": [
+      800,
+      600
+    ],
+    "all_autumn_species": 5,
+    "common_species": 3,
+    "autumn_collection_2013_refrigerated_4C": true,
+    "nominal_night_traps": [
+      343,
+      343
+    ],
+    "reported_captures": [
+      7,
+      32
+    ],
+    "capture_taxa": {
+      "Apodemus_draco": [
+        3,
+        21
+      ],
+      "Niviventer_confucianus": [
+        4,
+        9
+      ],
+      "Dremomys_rufigenis": [
+        0,
+        2
+      ]
+    },
+    "resource": "Authors describe autumn maturation and mast in L. hancei and L. xylocarpus; no numeric independent seed-rain series. Not a quantitative resource-pressure test."
+  },
+  "cohorts": [
+    {
+      "species": "Castanopsis wattii",
+      "season": "autumn",
+      "N": 800,
+      "reported_subset_n": 719,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        370
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        330
+      ],
+      "reported_subset_removed_per_release_min": 0.4625,
+      "reported_subset_eaten_in_situ_per_release_min": 0.4125,
+      "ignored_narrative_bounds": null,
+      "narrative_harvest_count_interval": null,
+      "subset_n_inside_narrative_harvest_interval": null,
+      "source_intact_outer_bounds": [
+        0,
+        0.125
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.5875
+      ],
+      "any_intact_outer_bounds": [
+        0,
+        0.5875
+      ],
+      "removal_outer_bounds": [
+        0.4625,
+        0.5875
+      ]
+    },
+    {
+      "species": "Castanopsis wattii",
+      "season": "spring",
+      "N": 600,
+      "reported_subset_n": 600,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        322
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        275
+      ],
+      "reported_subset_removed_per_release_min": 0.5366666666666666,
+      "reported_subset_eaten_in_situ_per_release_min": 0.4583333333333333,
+      "ignored_narrative_bounds": [
+        0,
+        0
+      ],
+      "narrative_harvest_count_interval": [
+        600,
+        600
+      ],
+      "subset_n_inside_narrative_harvest_interval": true,
+      "source_intact_outer_bounds": [
+        0,
+        0.00500000000000006
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.5416666666666667
+      ],
+      "any_intact_outer_bounds": [
+        0,
+        0.5416666666666667
+      ],
+      "removal_outer_bounds": [
+        0.5366666666666666,
+        0.5416666666666667
+      ]
+    },
+    {
+      "species": "Lithocarpus hancei",
+      "season": "autumn",
+      "N": 800,
+      "reported_subset_n": 23,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        9
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        10
+      ],
+      "reported_subset_removed_per_release_min": 0.01125,
+      "reported_subset_eaten_in_situ_per_release_min": 0.0125,
+      "ignored_narrative_bounds": [
+        0.9705,
+        0.9714999999999999
+      ],
+      "narrative_harvest_count_interval": [
+        22.800000000000065,
+        23.599999999999977
+      ],
+      "subset_n_inside_narrative_harvest_interval": true,
+      "source_intact_outer_bounds": [
+        0.9705,
+        0.9762500000000001
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.01699999999999997
+      ],
+      "any_intact_outer_bounds": [
+        0.9705,
+        0.9875
+      ],
+      "removal_outer_bounds": [
+        0.01125,
+        0.01699999999999997
+      ]
+    },
+    {
+      "species": "Lithocarpus hancei",
+      "season": "spring",
+      "N": 600,
+      "reported_subset_n": 120,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        44
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        54
+      ],
+      "reported_subset_removed_per_release_min": 0.07333333333333333,
+      "reported_subset_eaten_in_situ_per_release_min": 0.09,
+      "ignored_narrative_bounds": [
+        0.7865000000000001,
+        0.7875
+      ],
+      "narrative_harvest_count_interval": [
+        127.50000000000001,
+        128.09999999999994
+      ],
+      "subset_n_inside_narrative_harvest_interval": false,
+      "source_intact_outer_bounds": [
+        0.7865000000000001,
+        0.8366666666666667
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.12349999999999992
+      ],
+      "any_intact_outer_bounds": [
+        0.7865000000000001,
+        0.91
+      ],
+      "removal_outer_bounds": [
+        0.07333333333333333,
+        0.12349999999999992
+      ]
+    },
+    {
+      "species": "Lithocarpus pachyphyllus",
+      "season": "autumn",
+      "N": 800,
+      "reported_subset_n": 491,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        339
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        123
+      ],
+      "reported_subset_removed_per_release_min": 0.42375,
+      "reported_subset_eaten_in_situ_per_release_min": 0.15375,
+      "ignored_narrative_bounds": [
+        0.3855,
+        0.3865
+      ],
+      "narrative_harvest_count_interval": [
+        490.79999999999995,
+        491.6
+      ],
+      "subset_n_inside_narrative_harvest_interval": true,
+      "source_intact_outer_bounds": [
+        0.3855,
+        0.42249999999999993
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.46075000000000005
+      ],
+      "any_intact_outer_bounds": [
+        0.3855,
+        0.84625
+      ],
+      "removal_outer_bounds": [
+        0.42375,
+        0.46075000000000005
+      ]
+    },
+    {
+      "species": "Lithocarpus pachyphyllus",
+      "season": "spring",
+      "N": 600,
+      "reported_subset_n": 563,
+      "possible_removed_counts_from_rounded_subset_pct": [
+        474
+      ],
+      "possible_in_situ_eaten_counts_from_rounded_subset_pct": [
+        84
+      ],
+      "reported_subset_removed_per_release_min": 0.79,
+      "reported_subset_eaten_in_situ_per_release_min": 0.14,
+      "ignored_narrative_bounds": [
+        0.0625,
+        0.0635
+      ],
+      "narrative_harvest_count_interval": [
+        561.9,
+        562.5
+      ],
+      "subset_n_inside_narrative_harvest_interval": false,
+      "source_intact_outer_bounds": [
+        0.0625,
+        0.06999999999999995
+      ],
+      "moved_intact_outer_bounds": [
+        0,
+        0.7975
+      ],
+      "any_intact_outer_bounds": [
+        0.0625,
+        0.86
+      ],
+      "removal_outer_bounds": [
+        0.79,
+        0.7975
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "species": "Castanopsis wattii",
+      "source_intact_change_outer": [
+        -0.125,
+        0.00500000000000006
+      ],
+      "moved_intact_change_outer": [
+        -0.5875,
+        0.5416666666666667
+      ],
+      "total_intact_change_outer": [
+        -0.5875,
+        0.5416666666666667
+      ],
+      "removal_change_outer": [
+        -0.0508333333333334,
+        0.07916666666666672
+      ],
+      "source_decline_identified": false,
+      "total_decline_even_if_all_eligible_moved_survive": false,
+      "removal_increase_identified": false,
+      "minimum_uncompensated_loss_pp": 0,
+      "scenario_why_total_bound": "autumn lower = narrative ignored; spring upper = all released except minimally documented in-situ eaten; permits all other seeds intact including all removed and unknown, so no cache counts needed"
+    },
+    {
+      "species": "Lithocarpus hancei",
+      "source_intact_change_outer": [
+        -0.18974999999999997,
+        -0.13383333333333336
+      ],
+      "moved_intact_change_outer": [
+        -0.01699999999999997,
+        0.12349999999999992
+      ],
+      "total_intact_change_outer": [
+        -0.20099999999999996,
+        -0.0605
+      ],
+      "removal_change_outer": [
+        0.05633333333333336,
+        0.11224999999999992
+      ],
+      "source_decline_identified": true,
+      "total_decline_even_if_all_eligible_moved_survive": true,
+      "removal_increase_identified": true,
+      "minimum_uncompensated_loss_pp": 6.05,
+      "scenario_why_total_bound": "autumn lower = narrative ignored; spring upper = all released except minimally documented in-situ eaten; permits all other seeds intact including all removed and unknown, so no cache counts needed"
+    },
+    {
+      "species": "Lithocarpus pachyphyllus",
+      "source_intact_change_outer": [
+        -0.35999999999999993,
+        -0.31550000000000006
+      ],
+      "moved_intact_change_outer": [
+        -0.46075000000000005,
+        0.7975
+      ],
+      "total_intact_change_outer": [
+        -0.78375,
+        0.4745
+      ],
+      "removal_change_outer": [
+        0.32925,
+        0.37374999999999997
+      ],
+      "source_decline_identified": true,
+      "total_decline_even_if_all_eligible_moved_survive": false,
+      "removal_increase_identified": true,
+      "minimum_uncompensated_loss_pp": 0,
+      "scenario_why_total_bound": "autumn lower = narrative ignored; spring upper = all released except minimally documented in-situ eaten; permits all other seeds intact including all removed and unknown, so no cache counts needed"
+    }
+  ],
+  "capture_ratio": 4.571428571428571,
+  "limits": [
+    "Ignore fraction from narrative; spring L. hancei and L. pachyphyllus are complements of reported harvested fractions 21.3% and 93.7%. C. wattii spring explicitly all harvested; autumn ignored fraction not numerically given in prose.",
+    "Reported n for removed/eaten comparison interpreted as common observed harvested-group denominator, as indicated by percentages and context, not forced to equal all harvested. Spring n=120 or 563 conflicts with prose harvest fraction 21.3% or 93.7%; cannot assert exact exhaustive partitions or cache counts.",
+    "The 'cached after removal' category includes intact surface deposits, and figures are inaccessible. Do not treat distance sample sizes as complete observed cache counts. We use only confirmed categories and deliberately broad unknown ceiling.",
+    "Common 36-day survey schedule, different years and different sets of trees not proven paired; storage duration may differ, no causal seasonal effect or actual germination. Rodent capture index from one grid roughly 500m away, not species-specific actor or density estimate."
+  ],
+  "uncertainty": "Integer candidates derived solely from rounding-compatible printed subgroup percentages, not retrieved seed histories. Unknown category assignments maximize feasible intact fractions; broad outer bounds, not sharp bounds or statistical CIs. Conditional on denominators and reported ignored/eaten/removed categories being valid. For inconsistent narrative H and subgroup n no forced partition or imputation. These are recorded seed-fate states, not survival to germination.",
+  "provenance": {
+    "source_branch_parent": "7203d24203c11798d71cc8ad24444891fca3b4c3"
+  }
+}
