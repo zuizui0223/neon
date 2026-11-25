@@ -1,0 +1,32 @@
+{
+  "status": "STOP_SOURCE",
+  "doi": "10.5061/dryad.g79cnp64s",
+  "effect_opened": false,
+  "title": "Data from: Frequency-dependent seed selection: How relative abundance and seed traits jointly mediate foraging preference in scatter-hoarding rodents",
+  "version": 8,
+  "files": [
+    {
+      "path": "Data.xlsx",
+      "size": 615506,
+      "digest": "7921a9ea7d6251d3120f4b44a058c4b317e03520a5301cffc3efc3d23e4a1351",
+      "digestType": "sha-256"
+    },
+    {
+      "path": "README.md",
+      "size": 3771,
+      "digest": "fe5c2b3bebfc4281a2db049ffe04d4ee754b95f2ceeae0236938779d75c8817e",
+      "digestType": "sha-256"
+    }
+  ],
+  "public_workbook_links": [
+    "https://datadryad.org/downloads/file_stream/4788328"
+  ],
+  "reason": "HTTPError: HTTP Error 403: Forbidden",
+  "provenance": {
+    "run_id": 45657139631,
+    "job_id": 139356744747,
+    "artifact_id": 15043631395,
+    "artifact_zip_sha256_reported": "e4ad67d9e075025be57f51b91ec77b8124839aa038c3f9c1b450d58c8f6cec71",
+    "source_commit": "d90f78f19d254758a6a2bc0ff27f5f15410b5ebc"
+  }
+}

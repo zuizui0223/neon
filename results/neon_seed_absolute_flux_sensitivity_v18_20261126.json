@@ -1,0 +1,286 @@
+{
+  "status": "CONDITIONAL_FLUX_SCENARIO_NOT_OBSERVED_AREA_FLUX",
+  "source_doi": "10.1098/rsbl.2024.0586",
+  "cohort_years": [
+    "2018/19",
+    "2020/21"
+  ],
+  "seed_rain_per_m2": [
+    59.2,
+    543
+  ],
+  "supply_ratio": 9.172297297297296,
+  "rows": [
+    {
+      "endpoint": "documented_germination",
+      "observed_n": [
+        40,
+        2
+      ],
+      "missing_n": [
+        13,
+        17
+      ],
+      "per_assessed_seed_fraction": [
+        [
+          0.2222222222222222,
+          0.29444444444444445
+        ],
+        [
+          0.011111111111111112,
+          0.10555555555555556
+        ]
+      ],
+      "conditional_area_projection_per_m2": [
+        [
+          13.155555555555555,
+          17.43111111111111
+        ],
+        [
+          6.033333333333333,
+          57.31666666666667
+        ]
+      ],
+      "projected_ratio_using_confirmed_counts_only": 0.45861486486486486,
+      "per_seed_rate_ratio_bounds": [
+        0.03773584905660377,
+        0.47500000000000003
+      ],
+      "area_projection_ratio_bounds": [
+        0.3461244263131055,
+        4.356841216216217
+      ],
+      "supply_ratio_required_for_equal_projection_bounds": [
+        2.1052631578947367,
+        26.5
+      ],
+      "projection_difference_bounds": [
+        -11.397777777777778,
+        44.16111111111111
+      ],
+      "projection_direction": "unresolved"
+    },
+    {
+      "endpoint": "documented_ex_situ_location",
+      "observed_n": [
+        36,
+        65
+      ],
+      "missing_n": [
+        13,
+        17
+      ],
+      "per_assessed_seed_fraction": [
+        [
+          0.2,
+          0.2722222222222222
+        ],
+        [
+          0.3611111111111111,
+          0.45555555555555555
+        ]
+      ],
+      "conditional_area_projection_per_m2": [
+        [
+          11.840000000000002,
+          16.115555555555556
+        ],
+        [
+          196.08333333333334,
+          247.36666666666667
+        ]
+      ],
+      "projected_ratio_using_confirmed_counts_only": 16.56109234234234,
+      "per_seed_rate_ratio_bounds": [
+        1.326530612244898,
+        2.2777777777777777
+      ],
+      "area_projection_ratio_bounds": [
+        12.167333149476008,
+        20.892454954954953
+      ],
+      "supply_ratio_required_for_equal_projection_bounds": [
+        0.43902439024390244,
+        0.7538461538461537
+      ],
+      "projection_difference_bounds": [
+        179.9677777777778,
+        235.52666666666667
+      ],
+      "projection_direction": "increase_all_missing_assignments"
+    },
+    {
+      "endpoint": "intact_or_germinated",
+      "observed_n": [
+        69,
+        59
+      ],
+      "missing_n": [
+        13,
+        17
+      ],
+      "per_assessed_seed_fraction": [
+        [
+          0.38333333333333336,
+          0.45555555555555555
+        ],
+        [
+          0.3277777777777778,
+          0.4222222222222222
+        ]
+      ],
+      "conditional_area_projection_per_m2": [
+        [
+          22.693333333333335,
+          26.96888888888889
+        ],
+        [
+          177.98333333333332,
+          229.26666666666668
+        ]
+      ],
+      "projected_ratio_using_confirmed_counts_only": 7.84297884841363,
+      "per_seed_rate_ratio_bounds": [
+        0.7195121951219512,
+        1.1014492753623188
+      ],
+      "area_projection_ratio_bounds": [
+        6.599579762689518,
+        10.102820211515864
+      ],
+      "supply_ratio_required_for_equal_projection_bounds": [
+        0.9078947368421053,
+        1.3898305084745763
+      ],
+      "projection_difference_bounds": [
+        151.01444444444442,
+        206.57333333333335
+      ],
+      "projection_direction": "increase_all_missing_assignments"
+    },
+    {
+      "endpoint": "predated",
+      "observed_n": [
+        98,
+        104
+      ],
+      "missing_n": [
+        13,
+        17
+      ],
+      "per_assessed_seed_fraction": [
+        [
+          0.5444444444444444,
+          0.6166666666666667
+        ],
+        [
+          0.5777777777777777,
+          0.6722222222222223
+        ]
+      ],
+      "conditional_area_projection_per_m2": [
+        [
+          32.23111111111111,
+          36.50666666666667
+        ],
+        [
+          313.7333333333333,
+          365.0166666666667
+        ]
+      ],
+      "projected_ratio_using_confirmed_counts_only": 9.733866519580804,
+      "per_seed_rate_ratio_bounds": [
+        0.9369369369369368,
+        1.2346938775510206
+      ],
+      "area_projection_ratio_bounds": [
+        8.593864134404674,
+        11.324979316050745
+      ],
+      "supply_ratio_required_for_equal_projection_bounds": [
+        0.8099173553719007,
+        1.0673076923076925
+      ],
+      "projection_difference_bounds": [
+        277.22666666666663,
+        332.7855555555556
+      ],
+      "projection_direction": "increase_all_missing_assignments"
+    }
+  ],
+  "missing_germination_thresholds": [
+    {
+      "additional_2018_germinated": 0,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 1,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 2,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 3,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 4,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 5,
+      "min_additional_2020_germinated_for_nondecrease": 3
+    },
+    {
+      "additional_2018_germinated": 6,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 7,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 8,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 9,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 10,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 11,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 12,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    },
+    {
+      "additional_2018_germinated": 13,
+      "min_additional_2020_germinated_for_nondecrease": 4
+    }
+  ],
+  "assumptions": [
+    "Treat experimental assessed seed fate fractions as hypothetical transferable probabilities for all natural beech seed rain in the same year; this is not established.",
+    "Missing seeds may have any endpoint state; reported nonmissing fate labels held fixed. Separate endpoint bounds are marginal, not joint distributions.",
+    "Do not use projected ex-situ location as actual transport, intact-or-germinated as viability, or germination as recruitment. Natural seed rain may include unviable seeds; tagged field seeds and natural seeds differ in sampling, handling, density, and location.",
+    "One forest, two years; no causal inference, statistical confidence interval, validated absolute flux, or seasonal replication."
+  ],
+  "provenance": {
+    "source_commit": "d90f78f19d254758a6a2bc0ff27f5f15410b5ebc",
+    "V16_blob": "d05bc378aa134a71154f24b3bf24806ccdf9a6a9",
+    "V18_source_stop": {
+      "run_id": 45657139631,
+      "job_id": 139356744747,
+      "artifact_id": 15043631395,
+      "artifact_zip_sha256_reported": "e4ad67d9e075025be57f51b91ec77b8124839aa038c3f9c1b450d58c8f6cec71",
+      "source_commit": "d90f78f19d254758a6a2bc0ff27f5f15410b5ebc"
+    }
+  }
+}
