@@ -1,5 +1,9 @@
 # NEON mammal spatial macroecology
 
+## 2026-11-25: Maine original distance STOP; complete pre-effect source-key diagnosis
+
+[45539674573](https://github.com/zuizui0223/neon/actions/runs/45539674573) stopped DISTANCE_KEY_OR_VALUE_INVALID before overlap. Original receipt retained. Diagnose exact 80,000 distance-pair keys, 47,200 occupancy cells and all capture/calendar joins independently. A nominal SITE contrast can proceed only if all identity keys reconcile and failure is metric-only; no guessed aliases or geometry. Original windows/support unchanged. [Protocol](docs/NEON_MAINE_STATION_KEY_DIAGNOSIS_20261125.md). DRAFT / SUBMISSION HOLD.
+
 ## 2026-11-25: verified Maine codebook and actual 8-grid source; fixed regional recurrence comparison
 
 [45539468482](https://github.com/zuizui0223/neon/actions/runs/45539468482) verified original bytes, 3,658 deposited capture rows, 800 station habitat rows, 47,200 occupancy cells, 80,000 distance cells. Eight deposited grids versus six in published analysis; explicitly separate all-deposited regional estimand. Fixed June→July/Aug→Sep nonshared-tag exact-station comparison, no pooled regional inference. [Protocol](docs/NEON_MAINE_DEPOSITED_GRID_RECURRENCE_20261125.md). No effect yet, DRAFT / SUBMISSION HOLD.

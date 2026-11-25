@@ -1,0 +1,27 @@
+name: neon-maine-station-key-diagnosis
+on:
+  push:
+    branches: [design/multiscale-density-accommodation-v1]
+    paths:
+      - 'analysis/run_neon_maine_station_key_diagnosis_v2.py'
+      - 'tests/test_neon_maine_station_key_diagnosis_v2.py'
+      - '.github/workflows/neon-maine-station-key-diagnosis.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-and-conditional-nominal-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_neon_maine_station_key_diagnosis_v2.py' -v
+      - run: python -m analysis.run_neon_maine_station_key_diagnosis_v2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neon-maine-station-key-diagnosis
+          path: build/neon_maine_station_key_diagnosis_20261125.json
+          if-no-files-found: error

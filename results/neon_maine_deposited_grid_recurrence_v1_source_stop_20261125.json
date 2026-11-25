@@ -1,0 +1,27 @@
+{
+  "schema": "neon.maine.deposited_grid_recurrence.v1.source_stop.log_receipt",
+  "provenance": {
+    "run_id": 45539674573,
+    "job_id": 138954828052,
+    "head_sha": "26050b8a9f1dffa0a32b84f92e8a829d5aa8417e",
+    "artifact_id": 14989140041,
+    "artifact_zip_sha256_reported_by_github": "db14031022c58db2b351a4d826a6b7c43e34768220706ffbc05f218741c652a0",
+    "extracted_from_workflow_stdout": true,
+    "zip_bytes_independently_verified": false,
+    "global_ci_run_id": 45539674517,
+    "global_ci_conclusion": "success"
+  },
+  "original_stdout_json": {
+    "archive_doi": "10.6084/m9.figshare.14488626.v1",
+    "effect": null,
+    "eight_grid_deposited_record_exploration_not_original_paper_cohort": true,
+    "error_class": "ValueError",
+    "no_habitat_or_causal_fit": true,
+    "original_paper_doi": "10.1002/eap.2443",
+    "reason": "DISTANCE_KEY_OR_VALUE_INVALID",
+    "retrieved_utc": "2026-11-25T03:24:01.099969+00:00",
+    "schema": "neon.maine.deposited_grid_recurrence.v1",
+    "status": "STOP_SOURCE_OR_ONTOLOGY",
+    "submission_hold": true
+  }
+}
