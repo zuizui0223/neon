@@ -1,0 +1,25 @@
+{
+  "status": "SYNTHETIC_VALIDATION_PASS_REAL_DATA_STOP",
+  "analysis_commit": "617afe064cac6b69c6490517ceb983003ddefe83",
+  "run_id": 45758238239,
+  "job_id": 139701843932,
+  "tests_passed": 12,
+  "tests": [
+    "test_constant_early_variation_stops (test_neon_joyce_offline_v25.V25Tests.test_constant_early_variation_stops) ... ok",
+    "test_duplicate_quadrat_rejected (test_neon_joyce_offline_v25.V25Tests.test_duplicate_quadrat_rejected) ... ok",
+    "test_full_synthetic_pipeline_recovers_half_transmission (test_neon_joyce_offline_v25.V25Tests.test_full_synthetic_pipeline_recovers_half_transmission) ... ok",
+    "test_heldout_response_does_not_change_its_training_slope (test_neon_joyce_offline_v25.V25Tests.test_heldout_response_does_not_change_its_training_slope) ... ok",
+    "test_invalid_fate_partition_rejected (test_neon_joyce_offline_v25.V25Tests.test_invalid_fate_partition_rejected) ... ok",
+    "test_no_early_signal_fails_descriptive_gate (test_neon_joyce_offline_v25.V25Tests.test_no_early_signal_fails_descriptive_gate) ... ok",
+    "test_offline_fake_data_not_admitted (test_neon_joyce_offline_v25.V25Tests.test_offline_fake_data_not_admitted) ... ok",
+    "test_unchanged_transmission_not_beaten (test_neon_joyce_offline_v25.V25Tests.test_unchanged_transmission_not_beaten) ... ok",
+    "test_unexpected_final_deletion_rejected (test_neon_joyce_offline_v25.V25Tests.test_unexpected_final_deletion_rejected) ... ok",
+    "test_unsupported_stratum_stops (test_neon_joyce_offline_v25.V25Tests.test_unsupported_stratum_stops) ... ok",
+    "test_verified_csv_parser_and_hash_rejection (test_neon_joyce_offline_v25.V25Tests.test_verified_csv_parser_and_hash_rejection) ... ok",
+    "test_zip_duplicate_member_rejected_without_extraction (test_neon_joyce_offline_v25.V25Tests.test_zip_duplicate_member_rejected_without_extraction) ... ok"
+  ],
+  "real_outcome_opened": false,
+  "empirical_prediction": null,
+  "original_source_stop": "HTTP403 unchanged",
+  "scope": "Synthetic fixture with 368 early, 352 final rows and 3024/2880 artificial seed totals; no actual seed fates; original estimator unchanged. Source schema and data support remain unverified."
+}
