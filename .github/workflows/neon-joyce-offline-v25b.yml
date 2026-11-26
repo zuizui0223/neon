@@ -1,0 +1,17 @@
+name: NEON Joyce offline synthetic validation V25b
+on:
+  push:
+    branches: [analysis/seasonal-seed-fate-stage-v1-20261125]
+    paths:
+      - '.github/workflows/neon-joyce-offline-v25b.yml'
+      - 'tests/test_neon_joyce_offline_v25.py'
+      - 'analysis/run_neon_joyce_local_v25.py'
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s tests -p 'test_neon_joyce_offline_v25.py' -v

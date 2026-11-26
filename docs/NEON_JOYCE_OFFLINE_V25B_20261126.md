@@ -1,0 +1,8 @@
+# V25b — local-input implementation and synthetic validation
+26 November 2026. Preserve V25 Dryad HTTP403 closure, source version 3 manifest, and original estimator 1fc333fb059ee840c2e2a9b3e3266e5d20263692; do not request any more public downloads in this lane. Add offline entry point accepting original ZIP or directory containing both original CSVs. No extraction, no network, exact provider byte length and SHA256 checks, reject duplicate ZIP names and malformed CSV. Source hash/version mismatch stops; no normalization before hashing. Optional camera table is not required for the fixed model and not analyzed. Run from repo root:
+
+```sh
+python3 -m analysis.run_neon_joyce_local_v25 --input /path/to/original.zip --out build/neon_joyce_local_v25.json
+```
+
+Twelve synthetic tests exercise 368/352 artificial records and 3024/2880 artificial denominators, 44 matched group records across nine synthetic sites, known linear half-transmission, held-site response isolation, unchanged-transmission and constant-outcome negative controls, source support stops, duplicate quadrat/fate/missing-key failures, checksum and ambiguous archive rejection. Fixture constructed to satisfy frozen numerical gates, not a reconstruction of Joyce data. No original seed outcomes or model performance. The exact original column vocabulary, field semantics, denominator and actual support still need verification; the synthetic pass cannot establish them. Species × forest baseline only, no true resource or camera-adjusted prediction. No further source acquisition; original ZIP is the only required external input. Keep V23 register and all empirical stops. No merge/submission.
