@@ -1,0 +1,681 @@
+{
+  "status": "DESCRIPTIVE_PREDICTION_COMPLETE_GATE_NOT_SUPPORTED",
+  "source_doi": "10.5061/dryad.05qfttfb9",
+  "paper_doi": "10.1111/btp.13381",
+  "source_version": 3,
+  "original_archive_sha256": "334a72b18767888ae339504777837f8c04ed53301ae9fa9703c5747ae9702b03",
+  "all_six_uploaded_members_verified_against_provider": [
+    {
+      "digest": "2e1a6a9cc8f6cfe1b1795767c66b1d281452b78f2377e664198a2f2b263bd5dc",
+      "digestType": "sha-256",
+      "path": "litter_depth.csv",
+      "size": 6918
+    },
+    {
+      "digest": "c5eec604c20449c697da6674acd5dd674ea32a9922faf2d4d5bdbf756bb1a7c5",
+      "digestType": "sha-256",
+      "path": "README.md",
+      "size": 7483
+    },
+    {
+      "digest": "9306def6d93b620a54d815ad5589d4688d54c46d38212359230d25077a079302",
+      "digestType": "sha-256",
+      "path": "seed_predator_detections.csv",
+      "size": 12967
+    },
+    {
+      "digest": "0a9fe6484953b591bb03fca3d0a20cfbf2fff553cbed28f4c12dfeb4a8be15c2",
+      "digestType": "sha-256",
+      "path": "seed_removal.csv",
+      "size": 13364
+    },
+    {
+      "digest": "b475eb7c30f1701f05906cb4bd318eeb3cbf47ea6ae06972d4cdd784ffd812e9",
+      "digestType": "sha-256",
+      "path": "seed_tagging.csv",
+      "size": 60891
+    },
+    {
+      "digest": "a1b34061fb5703fe32b31bff15e0b165dcde28943c5e036a8f86d736c3cee183",
+      "digestType": "sha-256",
+      "path": "seedling_establishment.csv",
+      "size": 12754
+    }
+  ],
+  "strict_v25_status": "STOP_SOURCE_DENOMINATOR_DRIFT",
+  "strict_original_parser_errors": {
+    "seed_removal": "count partition or key duplication (three N=9 rows outside frozen set)",
+    "seedling_establishment": "missing documented key or outcome field (exc vs exclosure)"
+  },
+  "source_support": {
+    "early_rows": 368,
+    "final_rows": 352,
+    "early_seeds_total": 3024,
+    "late_seeds_total": 2879,
+    "final_key_subset": true,
+    "missing_final_rows": 16,
+    "missing_final_site": "HB",
+    "denominator_changed_rows": 7,
+    "denominator_changed_station_pairs": 7,
+    "paired_stations": 176,
+    "site_species_forest_contexts": 44,
+    "physical_sites": 8
+  },
+  "denominator_discrepancies": [
+    {
+      "key": [
+        "EC",
+        "OTO_NOV",
+        "Restored",
+        4,
+        "caged"
+      ],
+      "early_n": 8,
+      "late_n": 7
+    },
+    {
+      "key": [
+        "GN",
+        "OTO_NOV",
+        "Restored",
+        1,
+        "caged"
+      ],
+      "early_n": 7,
+      "late_n": 8
+    },
+    {
+      "key": [
+        "GN",
+        "OTO_NOV",
+        "Restored",
+        2,
+        "caged"
+      ],
+      "early_n": 9,
+      "late_n": 8
+    },
+    {
+      "key": [
+        "SC",
+        "OTO_NOV",
+        "Restored",
+        1,
+        "caged"
+      ],
+      "early_n": 7,
+      "late_n": 8
+    },
+    {
+      "key": [
+        "SC",
+        "OTO_NOV",
+        "Restored",
+        2,
+        "caged"
+      ],
+      "early_n": 9,
+      "late_n": 8
+    },
+    {
+      "key": [
+        "SG",
+        "OTO_NOV",
+        "Restored",
+        1,
+        "caged"
+      ],
+      "early_n": 7,
+      "late_n": 8
+    },
+    {
+      "key": [
+        "SG",
+        "OTO_NOV",
+        "Restored",
+        2,
+        "caged"
+      ],
+      "early_n": 9,
+      "late_n": 8
+    }
+  ],
+  "primary": {
+    "meets_descriptive_gate": false,
+    "site_count": 8,
+    "site_equal_RMSE": {
+      "baseline_mse": 0.24728158461660965,
+      "early_augmented_mse": 0.20020345411035226,
+      "unchanged_early_mse": 0.2814096359602166
+    },
+    "sites_improved_over_baseline": 5,
+    "required_improved_sites": 6,
+    "site_scores": [
+      {
+        "site": "EC",
+        "n": 4,
+        "baseline_mse": 0.027670335282346192,
+        "early_augmented_mse": 0.052155683824008446,
+        "unchanged_early_mse": 0.09679926658163265,
+        "train_slope": 0.523272951913537
+      },
+      {
+        "site": "GN",
+        "n": 2,
+        "baseline_mse": 0.016868785141607667,
+        "early_augmented_mse": 0.03664538808669286,
+        "unchanged_early_mse": 0.04018853635204082,
+        "train_slope": 0.49270591028184924
+      },
+      {
+        "site": "JG",
+        "n": 8,
+        "baseline_mse": 0.0792701011791579,
+        "early_augmented_mse": 0.027085952142327292,
+        "unchanged_early_mse": 0.044505036486443765,
+        "train_slope": 0.43139490074142917
+      },
+      {
+        "site": "LL",
+        "n": 8,
+        "baseline_mse": 0.04050988491873461,
+        "early_augmented_mse": 0.014928633081984964,
+        "unchanged_early_mse": 0.0865373101558547,
+        "train_slope": 0.48755812764047746
+      },
+      {
+        "site": "MM",
+        "n": 8,
+        "baseline_mse": 0.027115786740375715,
+        "early_augmented_mse": 0.035625425806836114,
+        "unchanged_early_mse": 0.05553355082670983,
+        "train_slope": 0.5412910154515612
+      },
+      {
+        "site": "OM",
+        "n": 8,
+        "baseline_mse": 0.11659857124887749,
+        "early_augmented_mse": 0.04527637038704846,
+        "unchanged_early_mse": 0.027824392847919124,
+        "train_slope": 0.3697578707926592
+      },
+      {
+        "site": "SC",
+        "n": 2,
+        "baseline_mse": 0.08816720246772178,
+        "early_augmented_mse": 0.0631595584874832,
+        "unchanged_early_mse": 0.06250996492346939,
+        "train_slope": 0.4726284678494287
+      },
+      {
+        "site": "SG",
+        "n": 4,
+        "baseline_mse": 0.09298478974519053,
+        "early_augmented_mse": 0.04577437248534605,
+        "unchanged_early_mse": 0.2196330075160229,
+        "train_slope": 0.5167024058361784
+      }
+    ],
+    "rmse_reduction_vs_baseline": 0.1903826788365509
+  },
+  "denom_matched_only_sensitivity": {
+    "status": "STOP",
+    "reason": "sensitivity has <3 paired stations in a group",
+    "affected_contexts_with_only_two_remaining": [
+      "GN/OTO_NOV/Restored",
+      "SC/OTO_NOV/Restored",
+      "SG/OTO_NOV/Restored"
+    ]
+  },
+  "context_records": [
+    {
+      "site": "EC",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.25,
+      "late": -0.10714285714285714,
+      "stations": 4
+    },
+    {
+      "site": "EC",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0,
+      "late": 0.09821428571428571,
+      "stations": 4
+    },
+    {
+      "site": "EC",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": 0.2954545454545454,
+      "late": 0.7954545454545454,
+      "stations": 4
+    },
+    {
+      "site": "EC",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0.17857142857142858,
+      "late": 0.17857142857142855,
+      "stations": 4
+    },
+    {
+      "site": "GN",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.2857142857142857,
+      "late": 0.25,
+      "stations": 4
+    },
+    {
+      "site": "GN",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0,
+      "late": 0.28125,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "OCO_PUB",
+        "Remnant"
+      ],
+      "early": 1,
+      "late": 0.6428571428571428,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.75,
+      "late": 0.6071428571428571,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "OTO_NOV",
+        "Remnant"
+      ],
+      "early": 0,
+      "late": 0.03125,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.15625,
+      "late": 0.25,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "PSE_MOL",
+        "Remnant"
+      ],
+      "early": 0.9545454545454546,
+      "late": 0.8636363636363636,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": 0.9545454545454546,
+      "late": 0.7045454545454546,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "QUE_BEN",
+        "Remnant"
+      ],
+      "early": 0.75,
+      "late": 0.46428571428571425,
+      "stations": 4
+    },
+    {
+      "site": "JG",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0.5,
+      "late": 0.2857142857142857,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "OCO_PUB",
+        "Remnant"
+      ],
+      "early": 0.2142857142857143,
+      "late": 0,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.42857142857142855,
+      "late": 0.4642857142857143,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "OTO_NOV",
+        "Remnant"
+      ],
+      "early": 0.09375,
+      "late": 0.03125,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.125,
+      "late": 0.15625,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "PSE_MOL",
+        "Remnant"
+      ],
+      "early": 0.31818181818181823,
+      "late": 0.5909090909090908,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": 1,
+      "late": 0.9545454545454546,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "QUE_BEN",
+        "Remnant"
+      ],
+      "early": 0.7142857142857143,
+      "late": 0.39285714285714285,
+      "stations": 4
+    },
+    {
+      "site": "LL",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0.9642857142857143,
+      "late": 0.2857142857142857,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "OCO_PUB",
+        "Remnant"
+      ],
+      "early": 0.6785714285714286,
+      "late": 0.39285714285714285,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.35714285714285715,
+      "late": 0.3571428571428571,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "OTO_NOV",
+        "Remnant"
+      ],
+      "early": 0.40625,
+      "late": 0.0625,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.59375,
+      "late": 0.15625,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "PSE_MOL",
+        "Remnant"
+      ],
+      "early": 0.9772727272727273,
+      "late": 0.8863636363636364,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": 1,
+      "late": 0.8863636363636364,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "QUE_BEN",
+        "Remnant"
+      ],
+      "early": 0.4642857142857143,
+      "late": 0.3571428571428571,
+      "stations": 4
+    },
+    {
+      "site": "MM",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0.25,
+      "late": 0.39285714285714285,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "OCO_PUB",
+        "Remnant"
+      ],
+      "early": 0.035714285714285726,
+      "late": -0.10714285714285716,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0,
+      "late": -0.3214285714285714,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "OTO_NOV",
+        "Remnant"
+      ],
+      "early": 0.125,
+      "late": 0,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.15625,
+      "late": 0,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "PSE_MOL",
+        "Remnant"
+      ],
+      "early": 0.5454545454545454,
+      "late": 0.6363636363636364,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": 1,
+      "late": 0.9318181818181818,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "QUE_BEN",
+        "Remnant"
+      ],
+      "early": 0.10714285714285715,
+      "late": 0.10714285714285714,
+      "stations": 4
+    },
+    {
+      "site": "OM",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0,
+      "late": -0.21428571428571427,
+      "stations": 4
+    },
+    {
+      "site": "SC",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.10714285714285712,
+      "late": -0.10714285714285714,
+      "stations": 4
+    },
+    {
+      "site": "SC",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.1875,
+      "late": -0.09375,
+      "stations": 4
+    },
+    {
+      "site": "SG",
+      "stratum": [
+        "OCO_PUB",
+        "Restored"
+      ],
+      "early": 0.25,
+      "late": 0.2857142857142857,
+      "stations": 4
+    },
+    {
+      "site": "SG",
+      "stratum": [
+        "OTO_NOV",
+        "Restored"
+      ],
+      "early": 0.0625,
+      "late": 0.25,
+      "stations": 4
+    },
+    {
+      "site": "SG",
+      "stratum": [
+        "PSE_MOL",
+        "Restored"
+      ],
+      "early": -0.13636363636363635,
+      "late": 0.2727272727272727,
+      "stations": 4
+    },
+    {
+      "site": "SG",
+      "stratum": [
+        "QUE_BEN",
+        "Restored"
+      ],
+      "early": 0.9642857142857143,
+      "late": 0.14285714285714285,
+      "stations": 4
+    }
+  ],
+  "provenance": {
+    "frozen_v26_commit": "3ddff290f44afbca90d63aecd8e8046bd7718b03",
+    "local_v26_git_blob_sha": "88a01b9f9baca6a52d08bdacf708314b4e337e63",
+    "frozen_v25_commit": "1fc333fb059ee840c2e2a9b3e3266e5d20263692",
+    "execution": "Local Python on user's checksum-verified archive; V26 full script byte-identical to Git blob, copied unchanged original V25 fit_score and parse_verified helpers. Local replay produced identical JSON bytes. Independently recomputed scores from exported 44 context records in JS; pooled RMSE matched within 1e-12. Site scores in this receipt from JS recomputation.",
+    "local_result_sha256": "bb0210311f4f736c39514a1d065ba8364d22cd8c67800b8763f9427810305170",
+    "raw_archive_committed": false
+  },
+  "boundary": "Observed stage-specific caged-minus-exposed rate contrasts, not necessarily same denominator or individual cohorts; early retention not confirmed irreversible loss. Species/forest baseline only. One landscape, retrospective leave-site-out; no external temporal validation, resource-adjusted prediction, mammal-specific causal effect, seasonal inference or p-values. Mean gain did not meet frozen 75% site criterion; sensitivity STOP. No alternative model or subset rescue."
+}
