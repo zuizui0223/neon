@@ -1,0 +1,1370 @@
+{
+  "status": "CAMERA_INCREMENT_NOT_SUPPORTED",
+  "source_doi": "10.5061/dryad.05qfttfb9",
+  "paper_doi": "10.1111/btp.13381",
+  "lock_commit": "9870dda5634ad7eb3db3e5c9b319ba6c367f3a7c",
+  "python_source_blob": "1c77e4c2eaf730ea0be905fbc495a1f4a1ab9b8c",
+  "original_archive_sha256": "334a72b18767888ae339504777837f8c04ed53301ae9fa9703c5747ae9702b03",
+  "local_full_result_sha256": "0158022cfb9e4c73a750754b3f41bca57bc176ca14cc6499a0268885a64ce17b",
+  "verification": "Local Python run from uploaded archive; source Python exact Git blob match. All 44 V26 context records matched canonical 12-decimal FNV32 fingerprint 6940ac50. Independent JS recomputation from 33 exported camera contexts and V26 archive; all 14 RMSE values agree with local Python within 1e-12. Initial source parser stopped on literal NA context, fixed by excluding documented all-missing key before outcomes; no model or eligibility change.",
+  "source_support": {
+    "camera_rows": 275,
+    "all_missing_key_rows": 1,
+    "camera_contexts": 41,
+    "final_contexts_with_camera": 39,
+    "no_camera": [
+      [
+        "MM",
+        "OCO_PUB",
+        "Remnant"
+      ],
+      [
+        "OM",
+        "OCO_PUB",
+        "Remnant"
+      ],
+      [
+        "OM",
+        "OCO_PUB",
+        "Restored"
+      ],
+      [
+        "OM",
+        "OTO_NOV",
+        "Remnant"
+      ],
+      [
+        "SG",
+        "OCO_PUB",
+        "Restored"
+      ]
+    ],
+    "invalid_contexts": [
+      [
+        "JG",
+        "PSE_MOL",
+        "Restored",
+        "incomplete_six_taxa"
+      ],
+      [
+        "JG",
+        "QUE_BEN",
+        "Restored",
+        "duplicate_taxon/inconsistent_effort/incomplete_six_taxa"
+      ],
+      [
+        "MM",
+        "QUE_BEN",
+        "Restored",
+        "duplicate_taxon/inconsistent_effort/incomplete_six_taxa"
+      ],
+      [
+        "OM",
+        "OTO_NOV",
+        "Restored",
+        "duplicate_taxon"
+      ]
+    ],
+    "valid_contexts": 35,
+    "unsupported_training_stratum": [
+      [
+        "JG",
+        "OCO_PUB",
+        "Remnant"
+      ],
+      [
+        "LL",
+        "OCO_PUB",
+        "Remnant"
+      ]
+    ],
+    "final_contexts": 33,
+    "sites": 8,
+    "nominal_nights_sum": 1237,
+    "bird_positive_contexts": 8,
+    "bird_positive_sites": [
+      "JG",
+      "MM"
+    ],
+    "zero_six_taxa_contexts": 3,
+    "taxon_totals": {
+      "Dasyprocta punctata": 41,
+      "Dicotyles tajacu": 2,
+      "Odontophorus gujanensis": 22,
+      "Sciurus granatensis": 76,
+      "Tinamus major": 42,
+      "unidentified mouse/rat": 99
+    }
+  },
+  "primary": {
+    "equal_site_RMSE": {
+      "M0": 0.26231059532775275,
+      "M1": 0.1887768468431316,
+      "M2": 0.2858860414691109,
+      "M3": 0.22918852694776942,
+      "M4": 0.23818645401645686,
+      "V26_reference": 0.1867460413288712,
+      "unchanged_early": 0.29155116065743214
+    },
+    "contrasts": {
+      "M4_vs_M1": {
+        "rmse_gain": -0.049409607173325265,
+        "relative_rmse_gain": -0.26173552530191,
+        "sites_improved": 0,
+        "meets_descriptive_gate": false
+      },
+      "M4_vs_M3": {
+        "rmse_gain": -0.008997927068687434,
+        "relative_rmse_gain": -0.03925993673644057,
+        "sites_improved": 2,
+        "meets_descriptive_gate": false
+      },
+      "M2_vs_M0": {
+        "rmse_gain": -0.023575446141358147,
+        "relative_rmse_gain": -0.08987607272173292,
+        "sites_improved": 5,
+        "meets_descriptive_gate": false
+      }
+    },
+    "site_folds": [
+      {
+        "site": "EC",
+        "n": 4,
+        "mse": {
+          "M0": 0.09050080418341917,
+          "M1": 0.07133864486085845,
+          "M2": 0.06604958393941941,
+          "M3": 0.09264963421530889,
+          "M4": 0.09222605622381866,
+          "V26_reference": 0.07375393903998495,
+          "unchanged_early": 0.09679926658163265
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.14200189032303387
+          },
+          "M1": {
+            "duration": 0.003891417569509464,
+            "early": 0.4726685718347769
+          },
+          "M2": {
+            "duration": -0.12315103346030236,
+            "intensity": 0.07581533601135766,
+            "balance": -0.032302647898492264
+          },
+          "M3": {
+            "duration": 0.003267927679970983,
+            "early": 0.5770916198651856,
+            "intensity": -0.037233673365309715
+          },
+          "M4": {
+            "duration": -0.0041599981088753304,
+            "early": 0.5658770530975892,
+            "intensity": -0.03258269949049492,
+            "balance": -0.005425766480010545
+          }
+        }
+      },
+      {
+        "site": "GN",
+        "n": 2,
+        "mse": {
+          "M0": 0.011104316759223127,
+          "M1": 0.025363295605965265,
+          "M2": 0.01502915257215479,
+          "M3": 0.025895485717801557,
+          "M4": 0.02648842849889528,
+          "V26_reference": 0.02743376974203647,
+          "unchanged_early": 0.04018853635204082
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.028795336920305923
+          },
+          "M1": {
+            "duration": 0.07198830344957231,
+            "early": 0.4587945996918209
+          },
+          "M2": {
+            "duration": -0.023256197599060252,
+            "intensity": 0.08907845562206139,
+            "balance": -0.03199616675338357
+          },
+          "M3": {
+            "duration": 0.07220033037674245,
+            "early": 0.47306184274147745,
+            "intensity": -0.005793455285993758
+          },
+          "M4": {
+            "duration": 0.062243675394336805,
+            "early": 0.45911434097211645,
+            "intensity": 0.001011734325800559,
+            "balance": -0.00838710804170372
+          }
+        }
+      },
+      {
+        "site": "JG",
+        "n": 5,
+        "mse": {
+          "M0": 0.05152105569551154,
+          "M1": 0.019054055472545506,
+          "M2": 0.03042991128475661,
+          "M3": 0.019036221595229323,
+          "M4": 0.02571267733854965,
+          "V26_reference": 0.016874232234358515,
+          "unchanged_early": 0.0240141808272896
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.015791519495752238
+          },
+          "M1": {
+            "duration": 0.08838491843773945,
+            "early": 0.42423602634700575
+          },
+          "M2": {
+            "duration": 0.023395751150765445,
+            "intensity": 0.07432047011917096,
+            "balance": -0.009536326273098623
+          },
+          "M3": {
+            "duration": 0.08824369130888678,
+            "early": 0.427827933010054,
+            "intensity": -0.0015252865278795008
+          },
+          "M4": {
+            "duration": 0.09759135212367255,
+            "early": 0.4384192356909953,
+            "intensity": -0.014893657142060947,
+            "balance": 0.014043028071190898
+          }
+        }
+      },
+      {
+        "site": "LL",
+        "n": 7,
+        "mse": {
+          "M0": 0.03420126069919085,
+          "M1": 0.006240670789664208,
+          "M2": 0.044169777893528994,
+          "M3": 0.007709490329209714,
+          "M4": 0.012639048358299893,
+          "V26_reference": 0.008141426860112553,
+          "unchanged_early": 0.09234001627141411
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.04271362941797051
+          },
+          "M1": {
+            "duration": 0.0694658111998973,
+            "early": 0.437913423978345
+          },
+          "M2": {
+            "duration": -0.034895908166813636,
+            "intensity": 0.11303280746329607,
+            "balance": -0.04745277933394063
+          },
+          "M3": {
+            "duration": 0.06673512341355961,
+            "early": 0.41113048923951645,
+            "intensity": 0.012451416824224418
+          },
+          "M4": {
+            "duration": 0.04726289676828672,
+            "early": 0.3578375026900158,
+            "intensity": 0.03358053893515845,
+            "balance": -0.02051373045194583
+          }
+        }
+      },
+      {
+        "site": "MM",
+        "n": 6,
+        "mse": {
+          "M0": 0.017991543226694152,
+          "M1": 0.02003033462439722,
+          "M2": 0.016066927843422413,
+          "M3": 0.02383629396504627,
+          "M4": 0.03271565724684325,
+          "V26_reference": 0.018846205282766138,
+          "unchanged_early": 0.057037931714524655
+        },
+        "coef": {
+          "M0": {
+            "duration": 0.04079866647079335
+          },
+          "M1": {
+            "duration": 0.1170648628312328,
+            "early": 0.4928741707319953
+          },
+          "M2": {
+            "duration": 0.032943057465669445,
+            "intensity": 0.09044938452112407,
+            "balance": -0.03808561577447364
+          },
+          "M3": {
+            "duration": 0.1218506841233923,
+            "early": 0.5469174190817916,
+            "intensity": -0.020224752957385135
+          },
+          "M4": {
+            "duration": 0.10715502943110045,
+            "early": 0.5257903181349579,
+            "intensity": -0.005190459683000891,
+            "balance": -0.0224912061106405
+          }
+        }
+      },
+      {
+        "site": "OM",
+        "n": 4,
+        "mse": {
+          "M0": 0.08089805738894987,
+          "M1": 0.009602165847236378,
+          "M2": 0.03774928831306662,
+          "M3": 0.011669074977454062,
+          "M4": 0.011267856287192195,
+          "V26_reference": 0.008000460859417005,
+          "unchanged_early": 0.014707897621858663
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.003995291458367152
+          },
+          "M1": {
+            "duration": 0.08259093185225151,
+            "early": 0.4133809413962271
+          },
+          "M2": {
+            "duration": -0.024094371192946912,
+            "intensity": 0.0653822195100701,
+            "balance": -0.03133791024576192
+          },
+          "M3": {
+            "duration": 0.08311818791367599,
+            "early": 0.4400287234829036,
+            "intensity": -0.012407857508934283
+          },
+          "M4": {
+            "duration": 0.07552611140344206,
+            "early": 0.43102684250362144,
+            "intensity": -0.00860578276015732,
+            "balance": -0.004865276655461814
+          }
+        }
+      },
+      {
+        "site": "SC",
+        "n": 2,
+        "mse": {
+          "M0": 0.13105564129043284,
+          "M1": 0.09604354248622765,
+          "M2": 0.34038899661466465,
+          "M3": 0.20105962086703055,
+          "M4": 0.21070111230211525,
+          "V26_reference": 0.09002160925807016,
+          "unchanged_early": 0.06250996492346939
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.003918081817722685
+          },
+          "M1": {
+            "duration": 0.08603945086720383,
+            "early": 0.4281340804003732
+          },
+          "M2": {
+            "duration": 0.06549395173576229,
+            "intensity": 0.11618498567604575,
+            "balance": -0.000491314978637669
+          },
+          "M3": {
+            "duration": 0.0895367940631322,
+            "early": 0.2668739498113344,
+            "intensity": 0.061979442086448046
+          },
+          "M4": {
+            "duration": 0.09832582273360232,
+            "early": 0.27458884026006214,
+            "intensity": 0.057581575341610076,
+            "balance": 0.007304187903677238
+          }
+        }
+      },
+      {
+        "site": "SG",
+        "n": 3,
+        "mse": {
+          "M0": 0.13318210812617887,
+          "M1": 0.037420873545386625,
+          "M2": 0.10396299119401202,
+          "M3": 0.038363225408827056,
+          "M4": 0.04211145875975558,
+          "V26_reference": 0.035921028339289986,
+          "unchanged_early": 0.2924188399533367
+        },
+        "coef": {
+          "M0": {
+            "duration": 0.0019302041457828953
+          },
+          "M1": {
+            "duration": 0.07908417896594384,
+            "early": 0.42767724325008166
+          },
+          "M2": {
+            "duration": -0.017851636819041256,
+            "intensity": 0.06260371808416941,
+            "balance": -0.04079485106039773
+          },
+          "M3": {
+            "duration": 0.07908028725000116,
+            "early": 0.4447330705938323,
+            "intensity": -0.008429997515394838
+          },
+          "M4": {
+            "duration": 0.06358009766570308,
+            "early": 0.41347477756070344,
+            "intensity": 0.0004246872595260132,
+            "balance": -0.012524265389555757
+          }
+        }
+      }
+    ]
+  },
+  "raw_count_sensitivity": {
+    "equal_site_RMSE": {
+      "M0": 0.26231059532775275,
+      "M1": 0.1887768468431316,
+      "M2": 0.3101100508063779,
+      "M3": 0.2295351568996303,
+      "M4": 0.24019329816189033,
+      "V26_reference": 0.1867460413288712,
+      "unchanged_early": 0.29155116065743214
+    },
+    "contrasts": {
+      "M4_vs_M1": {
+        "rmse_gain": -0.051416451318758744,
+        "relative_rmse_gain": -0.27236630009761953,
+        "sites_improved": 0,
+        "meets_descriptive_gate": false
+      },
+      "M4_vs_M3": {
+        "rmse_gain": -0.010658141262260029,
+        "relative_rmse_gain": -0.04643358954776833,
+        "sites_improved": 1,
+        "meets_descriptive_gate": false
+      },
+      "M2_vs_M0": {
+        "rmse_gain": -0.04779945547862513,
+        "relative_rmse_gain": -0.1822246463925732,
+        "sites_improved": 5,
+        "meets_descriptive_gate": false
+      }
+    },
+    "site_folds": [
+      {
+        "site": "EC",
+        "n": 4,
+        "mse": {
+          "M0": 0.09050080418341917,
+          "M1": 0.07133864486085845,
+          "M2": 0.07848878077037419,
+          "M3": 0.09112798905900205,
+          "M4": 0.09122879446467558,
+          "V26_reference": 0.07375393903998495,
+          "unchanged_early": 0.09679926658163265
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.14200189032303387
+          },
+          "M1": {
+            "duration": 0.003891417569509464,
+            "early": 0.4726685718347769
+          },
+          "M2": {
+            "duration": -0.1751362416251691,
+            "intensity": 0.08175237831006672,
+            "balance": -0.0472107314150411
+          },
+          "M3": {
+            "duration": 0.04883620554740634,
+            "early": 0.5857217872066413,
+            "intensity": -0.05709253657180571
+          },
+          "M4": {
+            "duration": 0.04012584449686366,
+            "early": 0.5729269884723598,
+            "intensity": -0.05023302744797321,
+            "balance": -0.008950849236563281
+          }
+        }
+      },
+      {
+        "site": "GN",
+        "n": 2,
+        "mse": {
+          "M0": 0.011104316759223127,
+          "M1": 0.025363295605965265,
+          "M2": 0.015382069133399193,
+          "M3": 0.02688003558850012,
+          "M4": 0.027350725291461216,
+          "V26_reference": 0.02743376974203647,
+          "unchanged_early": 0.04018853635204082
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.028795336920305923
+          },
+          "M1": {
+            "duration": 0.07198830344957231,
+            "early": 0.4587945996918209
+          },
+          "M2": {
+            "duration": -0.07839703576959176,
+            "intensity": 0.09698132653065213,
+            "balance": -0.04358590055951028
+          },
+          "M3": {
+            "duration": 0.09407567980198078,
+            "early": 0.5065406776593896,
+            "intensity": -0.027032031879200096
+          },
+          "M4": {
+            "duration": 0.08650407571382729,
+            "early": 0.49499575801538437,
+            "intensity": -0.019585971686256996,
+            "balance": -0.01004193464288886
+          }
+        }
+      },
+      {
+        "site": "JG",
+        "n": 5,
+        "mse": {
+          "M0": 0.05152105569551154,
+          "M1": 0.019054055472545506,
+          "M2": 0.031094034510963615,
+          "M3": 0.019298095585569514,
+          "M4": 0.024336358360489013,
+          "V26_reference": 0.016874232234358515,
+          "unchanged_early": 0.0240141808272896
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.015791519495752238
+          },
+          "M1": {
+            "duration": 0.08838491843773945,
+            "early": 0.42423602634700575
+          },
+          "M2": {
+            "duration": -0.037772695867725865,
+            "intensity": 0.07533691561636362,
+            "balance": -0.014685482808480933
+          },
+          "M3": {
+            "duration": 0.10607277155358767,
+            "early": 0.4668365413978507,
+            "intensity": -0.02589509031893285
+          },
+          "M4": {
+            "duration": 0.11284415604009652,
+            "early": 0.4744735973509025,
+            "intensity": -0.0398082894766862,
+            "balance": 0.015559013849668676
+          }
+        }
+      },
+      {
+        "site": "LL",
+        "n": 7,
+        "mse": {
+          "M0": 0.03420126069919085,
+          "M1": 0.006240670789664208,
+          "M2": 0.04299670892093614,
+          "M3": 0.005271871056200056,
+          "M4": 0.008248547849689557,
+          "V26_reference": 0.008141426860112553,
+          "unchanged_early": 0.09234001627141411
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.04271362941797051
+          },
+          "M1": {
+            "duration": 0.0694658111998973,
+            "early": 0.437913423978345
+          },
+          "M2": {
+            "duration": -0.0839927353278317,
+            "intensity": 0.11807638074659607,
+            "balance": -0.06360703929290326
+          },
+          "M3": {
+            "duration": 0.08074936259422584,
+            "early": 0.457274426251612,
+            "intensity": -0.012175951768479513
+          },
+          "M4": {
+            "duration": 0.06743178179039153,
+            "early": 0.41846141174185925,
+            "intensity": 0.007643061878430876,
+            "balance": -0.021952142736182224
+          }
+        }
+      },
+      {
+        "site": "MM",
+        "n": 6,
+        "mse": {
+          "M0": 0.017991543226694152,
+          "M1": 0.02003033462439722,
+          "M2": 0.01773062458217078,
+          "M3": 0.02548235844871151,
+          "M4": 0.033791466578759984,
+          "V26_reference": 0.018846205282766138,
+          "unchanged_early": 0.057037931714524655
+        },
+        "coef": {
+          "M0": {
+            "duration": 0.04079866647079335
+          },
+          "M1": {
+            "duration": 0.1170648628312328,
+            "early": 0.4928741707319953
+          },
+          "M2": {
+            "duration": -0.01666343251851015,
+            "intensity": 0.09921241954018208,
+            "balance": -0.05171077744768568
+          },
+          "M3": {
+            "duration": 0.15787921081247416,
+            "early": 0.577190314057141,
+            "intensity": -0.04391687222181958
+          },
+          "M4": {
+            "duration": 0.14589040695115657,
+            "early": 0.5578767827066518,
+            "intensity": -0.02498999465771435,
+            "balance": -0.029125110137377425
+          }
+        }
+      },
+      {
+        "site": "OM",
+        "n": 4,
+        "mse": {
+          "M0": 0.08089805738894987,
+          "M1": 0.009602165847236378,
+          "M2": 0.05305248929304753,
+          "M3": 0.018811723675384844,
+          "M4": 0.01846863757327436,
+          "V26_reference": 0.008000460859417005,
+          "unchanged_early": 0.014707897621858663
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.003995291458367152
+          },
+          "M1": {
+            "duration": 0.08259093185225151,
+            "early": 0.4133809413962271
+          },
+          "M2": {
+            "duration": -0.05308742676562448,
+            "intensity": 0.059939949707621516,
+            "balance": -0.045930420383883536
+          },
+          "M3": {
+            "duration": 0.1206149053791813,
+            "early": 0.47875406777656715,
+            "intensity": -0.044658414391623526
+          },
+          "M4": {
+            "duration": 0.11462491438363752,
+            "early": 0.47111320779169175,
+            "intensity": -0.04041345981344833,
+            "balance": -0.005803815359321113
+          }
+        }
+      },
+      {
+        "site": "SC",
+        "n": 2,
+        "mse": {
+          "M0": 0.13105564129043284,
+          "M1": 0.09604354248622765,
+          "M2": 0.4102244249762957,
+          "M3": 0.19795673857656015,
+          "M4": 0.21871578062399044,
+          "V26_reference": 0.09002160925807016,
+          "unchanged_early": 0.06250996492346939
+        },
+        "coef": {
+          "M0": {
+            "duration": -0.003918081817722685
+          },
+          "M1": {
+            "duration": 0.08603945086720383,
+            "early": 0.4281340804003732
+          },
+          "M2": {
+            "duration": -0.05145228852884453,
+            "intensity": 0.1474885123943959,
+            "balance": 0.00707744084359708
+          },
+          "M3": {
+            "duration": 0.03672482516002772,
+            "early": 0.300933014787356,
+            "intensity": 0.0672188661893569
+          },
+          "M4": {
+            "duration": 0.04481357464917236,
+            "early": 0.3085718881015195,
+            "intensity": 0.06073220103496096,
+            "balance": 0.015029574976065734
+          }
+        }
+      },
+      {
+        "site": "SG",
+        "n": 3,
+        "mse": {
+          "M0": 0.13318210812617887,
+          "M1": 0.037420873545386625,
+          "M2": 0.12037681670188717,
+          "M3": 0.036662294033574995,
+          "M4": 0.03940225311275381,
+          "V26_reference": 0.035921028339289986,
+          "unchanged_early": 0.2924188399533367
+        },
+        "coef": {
+          "M0": {
+            "duration": 0.0019302041457828953
+          },
+          "M1": {
+            "duration": 0.07908417896594384,
+            "early": 0.42767724325008166
+          },
+          "M2": {
+            "duration": -0.03606493360160969,
+            "intensity": 0.06707008029859338,
+            "balance": -0.05365857286377176
+          },
+          "M3": {
+            "duration": 0.0969329276292472,
+            "early": 0.46282433649053384,
+            "intensity": -0.022859605110921468
+          },
+          "M4": {
+            "duration": 0.08616833121548151,
+            "early": 0.43653914633166896,
+            "intensity": -0.013163567938172926,
+            "balance": -0.014478534754819977
+          }
+        }
+      }
+    ]
+  },
+  "context_records": [
+    {
+      "site": "EC",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.25,
+      "late": -0.10714285714285714,
+      "nights": 14,
+      "mammal": 1,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 1,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "EC",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0,
+      "late": 0.09821428571428571,
+      "nights": 40,
+      "mammal": 4,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 4
+      }
+    },
+    {
+      "site": "EC",
+      "species": "PSE_MOL",
+      "forest": "Restored",
+      "early": 0.2954545454545454,
+      "late": 0.7954545454545454,
+      "nights": 22,
+      "mammal": 5,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 3,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 1,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 1
+      }
+    },
+    {
+      "site": "EC",
+      "species": "QUE_BEN",
+      "forest": "Restored",
+      "early": 0.17857142857142858,
+      "late": 0.17857142857142855,
+      "nights": 50,
+      "mammal": 6,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 4,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 2
+      }
+    },
+    {
+      "site": "GN",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.2857142857142857,
+      "late": 0.25,
+      "nights": 44,
+      "mammal": 4,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 3
+      }
+    },
+    {
+      "site": "GN",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0,
+      "late": 0.28125,
+      "nights": 51,
+      "mammal": 6,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 5
+      }
+    },
+    {
+      "site": "JG",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.75,
+      "late": 0.6071428571428571,
+      "nights": 25,
+      "mammal": 2,
+      "bird": 4,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 4,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 2
+      }
+    },
+    {
+      "site": "JG",
+      "species": "OTO_NOV",
+      "forest": "Remnant",
+      "early": 0,
+      "late": 0.03125,
+      "nights": 50,
+      "mammal": 10,
+      "bird": 1,
+      "taxon_counts": {
+        "Dasyprocta punctata": 9,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 1,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 1
+      }
+    },
+    {
+      "site": "JG",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0.15625,
+      "late": 0.25,
+      "nights": 50,
+      "mammal": 6,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 6
+      }
+    },
+    {
+      "site": "JG",
+      "species": "PSE_MOL",
+      "forest": "Remnant",
+      "early": 0.9545454545454546,
+      "late": 0.8636363636363636,
+      "nights": 19,
+      "mammal": 7,
+      "bird": 8,
+      "taxon_counts": {
+        "Dasyprocta punctata": 2,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 8,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 5
+      }
+    },
+    {
+      "site": "JG",
+      "species": "QUE_BEN",
+      "forest": "Remnant",
+      "early": 0.75,
+      "late": 0.46428571428571425,
+      "nights": 50,
+      "mammal": 5,
+      "bird": 31,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 4,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 27,
+        "unidentified mouse/rat": 4
+      }
+    },
+    {
+      "site": "LL",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.42857142857142855,
+      "late": 0.4642857142857143,
+      "nights": 53,
+      "mammal": 2,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 2,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "OTO_NOV",
+      "forest": "Remnant",
+      "early": 0.09375,
+      "late": 0.03125,
+      "nights": 51,
+      "mammal": 3,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 2,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0.125,
+      "late": 0.15625,
+      "nights": 41,
+      "mammal": 1,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "PSE_MOL",
+      "forest": "Remnant",
+      "early": 0.31818181818181823,
+      "late": 0.5909090909090908,
+      "nights": 22,
+      "mammal": 0,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "PSE_MOL",
+      "forest": "Restored",
+      "early": 1,
+      "late": 0.9545454545454546,
+      "nights": 22,
+      "mammal": 11,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 11,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "QUE_BEN",
+      "forest": "Remnant",
+      "early": 0.7142857142857143,
+      "late": 0.39285714285714285,
+      "nights": 13,
+      "mammal": 6,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 6,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "LL",
+      "species": "QUE_BEN",
+      "forest": "Restored",
+      "early": 0.9642857142857143,
+      "late": 0.2857142857142857,
+      "nights": 50,
+      "mammal": 12,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 4,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 7,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 1
+      }
+    },
+    {
+      "site": "MM",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.35714285714285715,
+      "late": 0.3571428571428571,
+      "nights": 51,
+      "mammal": 5,
+      "bird": 1,
+      "taxon_counts": {
+        "Dasyprocta punctata": 3,
+        "Dicotyles tajacu": 2,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 1,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "MM",
+      "species": "OTO_NOV",
+      "forest": "Remnant",
+      "early": 0.40625,
+      "late": 0.0625,
+      "nights": 51,
+      "mammal": 7,
+      "bird": 9,
+      "taxon_counts": {
+        "Dasyprocta punctata": 5,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 1,
+        "Sciurus granatensis": 2,
+        "Tinamus major": 8,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "MM",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0.59375,
+      "late": 0.15625,
+      "nights": 51,
+      "mammal": 4,
+      "bird": 2,
+      "taxon_counts": {
+        "Dasyprocta punctata": 3,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 1,
+        "Sciurus granatensis": 1,
+        "Tinamus major": 1,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "MM",
+      "species": "PSE_MOL",
+      "forest": "Remnant",
+      "early": 0.9772727272727273,
+      "late": 0.8863636363636364,
+      "nights": 7,
+      "mammal": 5,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 3,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 2,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "MM",
+      "species": "PSE_MOL",
+      "forest": "Restored",
+      "early": 1,
+      "late": 0.8863636363636364,
+      "nights": 7,
+      "mammal": 1,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "MM",
+      "species": "QUE_BEN",
+      "forest": "Remnant",
+      "early": 0.4642857142857143,
+      "late": 0.3571428571428571,
+      "nights": 46,
+      "mammal": 6,
+      "bird": 8,
+      "taxon_counts": {
+        "Dasyprocta punctata": 1,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 3,
+        "Sciurus granatensis": 3,
+        "Tinamus major": 5,
+        "unidentified mouse/rat": 2
+      }
+    },
+    {
+      "site": "OM",
+      "species": "PSE_MOL",
+      "forest": "Remnant",
+      "early": 0.5454545454545454,
+      "late": 0.6363636363636364,
+      "nights": 22,
+      "mammal": 1,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 1,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "OM",
+      "species": "PSE_MOL",
+      "forest": "Restored",
+      "early": 1,
+      "late": 0.9318181818181818,
+      "nights": 22,
+      "mammal": 5,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 5,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "OM",
+      "species": "QUE_BEN",
+      "forest": "Remnant",
+      "early": 0.10714285714285715,
+      "late": 0.10714285714285714,
+      "nights": 50,
+      "mammal": 6,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 6
+      }
+    },
+    {
+      "site": "OM",
+      "species": "QUE_BEN",
+      "forest": "Restored",
+      "early": 0,
+      "late": -0.21428571428571427,
+      "nights": 50,
+      "mammal": 0,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "SC",
+      "species": "OCO_PUB",
+      "forest": "Restored",
+      "early": 0.10714285714285712,
+      "late": -0.10714285714285714,
+      "nights": 48,
+      "mammal": 27,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 3,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 24
+      }
+    },
+    {
+      "site": "SC",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0.1875,
+      "late": -0.09375,
+      "nights": 43,
+      "mammal": 31,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 1,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 30
+      }
+    },
+    {
+      "site": "SG",
+      "species": "OTO_NOV",
+      "forest": "Restored",
+      "early": 0.0625,
+      "late": 0.25,
+      "nights": 50,
+      "mammal": 5,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 4,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 1
+      }
+    },
+    {
+      "site": "SG",
+      "species": "PSE_MOL",
+      "forest": "Restored",
+      "early": -0.13636363636363635,
+      "late": 0.2727272727272727,
+      "nights": 22,
+      "mammal": 0,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 0,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 0
+      }
+    },
+    {
+      "site": "SG",
+      "species": "QUE_BEN",
+      "forest": "Restored",
+      "early": 0.9642857142857143,
+      "late": 0.14285714285714285,
+      "nights": 50,
+      "mammal": 24,
+      "bird": 0,
+      "taxon_counts": {
+        "Dasyprocta punctata": 0,
+        "Dicotyles tajacu": 0,
+        "Odontophorus gujanensis": 0,
+        "Sciurus granatensis": 22,
+        "Tinamus major": 0,
+        "unidentified mouse/rat": 2
+      }
+    }
+  ],
+  "boundary": "Seed-quadrat encounters only, not pre-release abundance, confirmed predation, or exogenous pressure. Informative camera termination possible. Four common mammal categories + two bird taxa, paca omitted consistently. 33/44 contexts, exploratory previously opened outcomes. No time/season/external validation; V25/V26 unchanged; no causal or mammal community composition conclusion."
+}

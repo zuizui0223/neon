@@ -1,0 +1,16 @@
+# V27 — recorded camera encounters do not improve held-site prediction
+27 November 2026. Joyce et al. 2024, DOI 10.1111/btp.13381; dataset DOI 10.5061/dryad.05qfttfb9. User original archive checksum preserved. Pre-effect lock 9870dda5634ad7eb3db3e5c9b319ba6c367f3a7c. Source-reconstruction Python script exact local Git blob 1c77e4c2eaf730ea0be905fbc495a1f4a1ab9b8c. Initial parser stopped on literal NA key rather than blank; verified all three fields NA, corrected missing-key interpretation, no effect values opened by failed run. Full local output SHA256 0158022cfb9e4c73a750754b3f41bca57bc176ca14cc6499a0268885a64ce17b. All 44 V26 context values match canonical 12-decimal fingerprint; 33 derived records and independently recomputed fold scores saved; all 14 RMSE values agree within 1e-12. Raw archive not committed. Reproduce with `python3 analysis/run_neon_joyce_camera_increment_v27.py --input ORIGINAL.zip --out v27.json` (numpy required).
+
+| Model | Primary RMSE | Raw-count sensitivity RMSE |
+|---|---:|---:|
+| M0 | 0.262311 | 0.262311 |
+| M1 | 0.188777 | 0.188777 |
+| M2 | 0.285886 | 0.310110 |
+| M3 | 0.229189 | 0.229535 |
+| M4 | 0.238186 | 0.240193 |
+| V26_reference | 0.186746 | 0.186746 |
+| unchanged_early | 0.291551 | 0.291551 |
+
+M0 species×forest plus duration; M1 adds early contrast; M2 adds camera intensity+balance instead of early; M3 M1+intensity; M4 M1+intensity+balance. Primary M4 vs M1: RMSE worsens 26.17%, 0/8 improve (required ≥6/8). Composition increment M4 vs M3 worsens 3.93%, 2/8 improve. Camera-only M2 vs M0 worsens 8.99%, 5/8 improve. Raw-count sensitivity M4 vs M1 worsens 27.24%, 0/8 improve. All locked contrasts fail. No model tuning/subset rescue. Original V26 44-context gate unchanged.
+
+Camera support: 275 rows, one all-missing key, 41 contexts including two HB, 39 of 44 final contexts with camera. Four contexts duplicate/inconsistent/incomplete, 35 valid. Two OCO remnant contexts lacked three distinct sites for heldout stratum, final 33 contexts and 8 sites. Four mammal categories and two bird taxa, exclude paca across all due to incomplete roster. Eight bird-positive contexts confined to JG/MM, three contexts zero six-taxon encounters. Sparse between-site bird support prevents strong inference on composition. Total observed nominal duration 1237 context-nights, not corrected effective effort. Camera methods 2.4,2.6 clarify initial weeks of exposed-quadrat monitoring, camera stopping depends on functioning, taxon and seed depletion; observed rates not independent animal abundance or confirmed seed predation. Adjusting duration does not remove outcome-dependent stopping. Prior art already connects faunal composition and seed predation; present negative result concerns incremental retrospective prediction only, not ecological absence. No independent time/season/external test, no causal mammal-specific claim. V25 denominator STOP and V26 prediction non-support remain. No merge/submission. Next avoid rescuing this camera specification; the genuinely different source in the uploaded archive is tagged-seed histories with dated repeated observations, which could test movement versus later loss separately if source IDs and censoring support.
